@@ -9,31 +9,31 @@ import d.a.c.j.e.c;
 public class f {
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39593b;
+    public int f39257b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.c.j.f.a f39594c;
+    public d.a.c.j.f.a f39258c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c.a f39595d;
+    public c.a f39259d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f39596e;
+    public boolean f39260e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f39597f;
+    public b f39261f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39598g;
+    public int f39262g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f39599h;
+    public View f39263h;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39592a = 1;
+    public int f39256a = 1;
 
     /* renamed from: i  reason: collision with root package name */
-    public Handler f39600i = new Handler();
+    public Handler f39264i = new Handler();
     public Runnable j = new a();
 
     /* loaded from: classes.dex */
@@ -43,7 +43,7 @@ public class f {
 
         @Override // java.lang.Runnable
         public void run() {
-            b bVar = f.this.f39597f;
+            b bVar = f.this.f39261f;
             if (bVar != null) {
                 bVar.b();
             }
@@ -54,135 +54,135 @@ public class f {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f39602e;
+        public int f39266e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Scroller f39603f;
+        public Scroller f39267f;
 
         public b(Context context) {
-            this.f39603f = new Scroller(context);
+            this.f39267f = new Scroller(context);
         }
 
         public final void b() {
             f fVar = f.this;
-            fVar.f39600i.removeCallbacks(fVar.j);
-            Scroller scroller = this.f39603f;
+            fVar.f39264i.removeCallbacks(fVar.j);
+            Scroller scroller = this.f39267f;
             if (scroller != null) {
                 scroller.abortAnimation();
-                this.f39603f.forceFinished(true);
+                this.f39267f.forceFinished(true);
             }
-            View view = f.this.f39599h;
+            View view = f.this.f39263h;
             if (view != null) {
                 view.removeCallbacks(this);
             }
-            if (f.this.f39594c != null) {
-                f.this.f39594c.onOver();
+            if (f.this.f39258c != null) {
+                f.this.f39258c.onOver();
             }
         }
 
         public final void c() {
             f fVar = f.this;
-            Handler handler = fVar.f39600i;
+            Handler handler = fVar.f39264i;
             if (handler != null) {
                 handler.removeCallbacks(fVar.j);
             }
-            View view = f.this.f39599h;
+            View view = f.this.f39263h;
             if (view != null) {
                 view.removeCallbacks(this);
             }
         }
 
         public void d(int i2, int i3) {
-            if (f.this.f39599h == null || this.f39603f == null) {
+            if (f.this.f39263h == null || this.f39267f == null) {
                 return;
             }
             if (i2 == 0) {
                 i2--;
             }
             c();
-            this.f39602e = 0;
-            this.f39603f.startScroll(0, 0, 0, i2, i3);
-            f.this.f39599h.post(this);
+            this.f39266e = 0;
+            this.f39267f.startScroll(0, 0, 0, i2, i3);
+            f.this.f39263h.post(this);
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Scroller scroller;
-            if (f.this.f39599h == null || (scroller = this.f39603f) == null) {
+            if (f.this.f39263h == null || (scroller = this.f39267f) == null) {
                 return;
             }
             boolean computeScrollOffset = scroller.computeScrollOffset();
             boolean z = false;
-            if (this.f39603f.timePassed() >= f.this.f39598g) {
+            if (this.f39267f.timePassed() >= f.this.f39262g) {
                 computeScrollOffset = false;
             }
-            int currY = this.f39603f.getCurrY();
-            int i2 = currY - this.f39602e;
+            int currY = this.f39267f.getCurrY();
+            int i2 = currY - this.f39266e;
             boolean z2 = true;
             if (computeScrollOffset) {
                 if (i2 != 0) {
                     z = !f.this.c(i2);
-                    this.f39602e = currY;
+                    this.f39266e = currY;
                 }
                 if (!z) {
-                    f.this.f39599h.post(this);
+                    f.this.f39263h.post(this);
                 }
                 z2 = z;
             }
             if (z2) {
                 f fVar = f.this;
-                fVar.f39600i.removeCallbacks(fVar.j);
+                fVar.f39264i.removeCallbacks(fVar.j);
                 f fVar2 = f.this;
-                fVar2.f39600i.post(fVar2.j);
+                fVar2.f39264i.post(fVar2.j);
             }
         }
     }
 
     public f(Context context, int i2, int i3, int i4) {
-        this.f39596e = true;
+        this.f39260e = true;
         int abs = Math.abs(i2 - i3);
-        this.f39593b = i3;
-        if (abs < this.f39592a) {
-            this.f39596e = false;
+        this.f39257b = i3;
+        if (abs < this.f39256a) {
+            this.f39260e = false;
         }
-        this.f39597f = new b(context);
-        this.f39598g = i4;
+        this.f39261f = new b(context);
+        this.f39262g = i4;
     }
 
     public final boolean c(int i2) {
         boolean z;
-        int paddingTop = this.f39599h.getPaddingTop() - Math.abs(i2);
-        int i3 = this.f39593b;
+        int paddingTop = this.f39263h.getPaddingTop() - Math.abs(i2);
+        int i3 = this.f39257b;
         if (paddingTop <= i3) {
             paddingTop = i3;
             z = false;
         } else {
             z = true;
         }
-        View view = this.f39599h;
-        view.setPadding(view.getPaddingLeft(), paddingTop, this.f39599h.getPaddingRight(), this.f39599h.getPaddingBottom());
-        c.a aVar = this.f39595d;
+        View view = this.f39263h;
+        view.setPadding(view.getPaddingLeft(), paddingTop, this.f39263h.getPaddingRight(), this.f39263h.getPaddingBottom());
+        c.a aVar = this.f39259d;
         if (aVar != null) {
-            aVar.a(null, this.f39599h.getPaddingLeft(), this.f39599h.getPaddingRight(), this.f39599h.getPaddingTop() - this.f39593b, this.f39599h.getPaddingBottom());
+            aVar.a(null, this.f39263h.getPaddingLeft(), this.f39263h.getPaddingRight(), this.f39263h.getPaddingTop() - this.f39257b, this.f39263h.getPaddingBottom());
         }
         return z;
     }
 
     public void d(d.a.c.j.f.a aVar) {
-        this.f39594c = aVar;
+        this.f39258c = aVar;
     }
 
     public void e(c.a aVar) {
-        this.f39595d = aVar;
+        this.f39259d = aVar;
     }
 
     public void f(View view) {
         b bVar;
-        if (!this.f39596e || (bVar = this.f39597f) == null) {
+        if (!this.f39260e || (bVar = this.f39261f) == null) {
             return;
         }
-        this.f39599h = view;
-        bVar.d(Math.abs(this.f39593b), this.f39598g);
-        this.f39600i.postDelayed(this.j, this.f39598g);
+        this.f39263h = view;
+        bVar.d(Math.abs(this.f39257b), this.f39262g);
+        this.f39264i.postDelayed(this.j, this.f39262g);
     }
 }

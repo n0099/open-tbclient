@@ -1,7 +1,6 @@
 package kotlinx.coroutines;
 
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteHelper;
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
 import kotlin.Metadata;
 import kotlin.coroutines.ContinuationInterceptor;
 import kotlin.coroutines.CoroutineContext;
@@ -48,7 +47,7 @@ public final class CoroutineContextKt {
         if (DebugKt.getDEBUG() && (coroutineId = (CoroutineId) coroutineContext.get(CoroutineId.Key)) != null) {
             CoroutineName coroutineName = (CoroutineName) coroutineContext.get(CoroutineName.Key);
             String str = (coroutineName == null || (str = coroutineName.getName()) == null) ? "coroutine" : "coroutine";
-            return str + SwanTaskDeadEvent.SEPARATOR + coroutineId.getId();
+            return str + '#' + coroutineId.getId();
         }
         return null;
     }

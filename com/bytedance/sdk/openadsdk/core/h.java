@@ -113,7 +113,7 @@ public class h {
                                                     return "sdk 版本过低不返回广告";
                                                 default:
                                                     switch (i2) {
-                                                        case 60001:
+                                                        case IMConstants.ERROR_JOIN_GROUP_NUMBER_FULL /* 60001 */:
                                                             return "show event处理错误";
                                                         case IMConstants.ERROR_GROUP_NAME_NOT_VALID /* 60002 */:
                                                             return "click event处理错误";

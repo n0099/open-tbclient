@@ -62,33 +62,33 @@ public abstract class CacheLoader<K, V> {
     public static class a extends CacheLoader<K, V> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ Executor f30881b;
+        public final /* synthetic */ Executor f30810b;
 
         /* renamed from: com.google.common.cache.CacheLoader$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class CallableC0335a implements Callable<V> {
+        public class CallableC0336a implements Callable<V> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ Object f30882e;
+            public final /* synthetic */ Object f30811e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ Object f30883f;
+            public final /* synthetic */ Object f30812f;
 
-            public CallableC0335a(Object obj, Object obj2) {
-                this.f30882e = obj;
-                this.f30883f = obj2;
+            public CallableC0336a(Object obj, Object obj2) {
+                this.f30811e = obj;
+                this.f30812f = obj2;
             }
 
             /* JADX DEBUG: Multi-variable search result rejected for r0v1, resolved type: com.google.common.cache.CacheLoader */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.util.concurrent.Callable
             public V call() throws Exception {
-                return CacheLoader.this.reload(this.f30882e, this.f30883f).get();
+                return CacheLoader.this.reload(this.f30811e, this.f30812f).get();
             }
         }
 
         public a(Executor executor) {
-            this.f30881b = executor;
+            this.f30810b = executor;
         }
 
         @Override // com.google.common.cache.CacheLoader
@@ -103,8 +103,8 @@ public abstract class CacheLoader<K, V> {
 
         @Override // com.google.common.cache.CacheLoader
         public l<V> reload(K k, V v) throws Exception {
-            m b2 = m.b(new CallableC0335a(k, v));
-            this.f30881b.execute(b2);
+            m b2 = m.b(new CallableC0336a(k, v));
+            this.f30810b.execute(b2);
             return b2;
         }
     }

@@ -23,10 +23,10 @@ import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import d.a.c.e.p.l;
 import d.a.c.j.e.n;
-import d.a.j0.r.q.a2;
-import d.a.j0.r.q.j1;
-import d.a.j0.r.q.u1;
-import d.a.j0.r.q.z1;
+import d.a.m0.r.q.a2;
+import d.a.m0.r.q.j1;
+import d.a.m0.r.q.u1;
+import d.a.m0.r.q.z1;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -39,25 +39,25 @@ import tbclient.GetMyPost.GetMyPostResIdl;
 public class EnterForumTabFeedNetModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14650e;
+    public boolean f14553e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14651f;
+    public int f14554f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14652g;
+    public String f14555g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14653h;
+    public String f14556h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f14654i;
+    public int f14557i;
     public boolean j;
-    public d.a.k0.i0.l.b k;
+    public d.a.n0.j0.l.b k;
     public int l;
     public HashMap<String, Integer> m;
-    public d.a.k0.i0.l.d.b n;
-    public d.a.k0.i0.l.d.a o;
+    public d.a.n0.j0.l.d.b n;
+    public d.a.n0.j0.l.d.a o;
     public a2 p;
     public d.a.c.c.g.a q;
     public CustomMessageListener r;
@@ -73,9 +73,9 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
 
         @Override // d.a.c.c.g.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            d.a.k0.i0.l.d.a aVar;
-            EnterForumTabFeedNetModel.this.f14650e = false;
-            if (responsedMessage == null || EnterForumTabFeedNetModel.this.n == null || EnterForumTabFeedNetModel.this.n.f55891b == null) {
+            d.a.n0.j0.l.d.a aVar;
+            EnterForumTabFeedNetModel.this.f14553e = false;
+            if (responsedMessage == null || EnterForumTabFeedNetModel.this.n == null || EnterForumTabFeedNetModel.this.n.f56075b == null) {
                 return;
             }
             if (responsedMessage instanceof TabFeedListHttpResponsedMessage) {
@@ -95,8 +95,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             }
             if (aVar != null && EnterForumTabFeedNetModel.this.p != null) {
                 aVar.e().add(0, EnterForumTabFeedNetModel.this.p);
-                if (EnterForumTabFeedNetModel.this.m != null && EnterForumTabFeedNetModel.this.m.containsKey(EnterForumTabFeedNetModel.this.p.x1())) {
-                    EnterForumTabFeedNetModel.this.m.remove(EnterForumTabFeedNetModel.this.p.x1());
+                if (EnterForumTabFeedNetModel.this.m != null && EnterForumTabFeedNetModel.this.m.containsKey(EnterForumTabFeedNetModel.this.p.y1())) {
+                    EnterForumTabFeedNetModel.this.m.remove(EnterForumTabFeedNetModel.this.p.y1());
                 }
                 EnterForumTabFeedNetModel.this.p = null;
             }
@@ -139,8 +139,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(u1 u1Var, u1 u1Var2) {
-            int i2 = u1Var.f50091g;
-            int i3 = u1Var2.f50091g;
+            int i2 = u1Var.f50135g;
+            int i3 = u1Var2.f50135g;
             if (i2 == i3) {
                 return 0;
             }
@@ -162,14 +162,14 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 return;
             }
             j1 j1Var = (j1) customResponsedMessage.getData();
-            if (j1Var.f50014a == 2 && (str = j1Var.f50015b) != null && str.equals(EnterForumTabFeedNetModel.this.f14652g)) {
+            if (j1Var.f50058a == 2 && (str = j1Var.f50059b) != null && str.equals(EnterForumTabFeedNetModel.this.f14555g)) {
                 int k = l.k(TbadkCoreApplication.getInst());
                 int i2 = l.i(TbadkCoreApplication.getInst());
                 float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
                 int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
                 RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
                 requestGetMyPostNetMessage.setTag(EnterForumTabFeedNetModel.this.getUniqueId());
-                requestGetMyPostNetMessage.setParams(d.a.c.e.m.b.f(j1Var.f50016c, 0L), 0L, 0L, k, i2, f2, i3);
+                requestGetMyPostNetMessage.setParams(d.a.c.e.m.b.f(j1Var.f50060c, 0L), 0L, 0L, k, i2, f2, i3);
                 requestGetMyPostNetMessage.setBFrom("push");
                 MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             }
@@ -195,7 +195,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 return;
             }
             a2 a2Var = new a2();
-            a2Var.T2(responseData.data.thread_info);
+            a2Var.U2(responseData.data.thread_info);
             EnterForumTabFeedNetModel.this.p = a2Var;
             if (EnterForumTabFeedNetModel.this.o != null) {
                 EnterForumTabFeedNetModel.this.Q();
@@ -203,10 +203,10 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         }
     }
 
-    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, d.a.k0.i0.l.b bVar, BdUniqueId bdUniqueId) {
+    public EnterForumTabFeedNetModel(TbPageContext tbPageContext, d.a.n0.j0.l.b bVar, BdUniqueId bdUniqueId) {
         super(tbPageContext);
-        this.f14650e = false;
-        this.f14651f = 1;
+        this.f14553e = false;
+        this.f14554f = 1;
         this.j = true;
         this.q = new a(CmdConfigHttp.CMD_TAB_FEED_LIST, 309651);
         this.r = new b(2016488);
@@ -218,9 +218,9 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         this.q.getSocketMessageListener().setSelfListener(true);
         registerListener(this.q);
         this.m = new HashMap<>();
-        this.n = new d.a.k0.i0.l.d.b();
+        this.n = new d.a.n0.j0.l.d.b();
         this.k = bVar;
-        this.f14654i = d.a.j0.r.d0.b.j().k("home_page_max_thread_count", 300);
+        this.f14557i = d.a.m0.r.d0.b.j().k("home_page_max_thread_count", 300);
         registerListener(this.r);
         registerListener(this.s);
         this.u.setTag(getUniqueId());
@@ -236,8 +236,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     public final int I() {
         int i2;
         a2 a2Var;
-        d.a.k0.i0.l.d.b bVar = this.n;
-        if (bVar != null && bVar.f55891b != null) {
+        d.a.n0.j0.l.d.b bVar = this.n;
+        if (bVar != null && bVar.f56075b != null) {
             int i3 = this.j ? this.l - 60 : 30;
             int i4 = i3 + 30;
             if (i3 >= 0 && i3 <= (i2 = this.l) && i4 >= 0 && i4 <= i2 && i4 >= i3) {
@@ -245,10 +245,10 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 int i6 = 0;
                 int i7 = -1;
                 while (true) {
-                    if (i6 >= this.n.f55891b.size()) {
+                    if (i6 >= this.n.f56075b.size()) {
                         break;
                     }
-                    n nVar = this.n.f55891b.get(i6);
+                    n nVar = this.n.f56075b.get(i6);
                     if (nVar instanceof z1) {
                         if (i7 == -1 && ((z1) nVar).position > i3) {
                             i7 = i6;
@@ -257,17 +257,17 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                             break;
                         }
                         if (i7 > 0 && (a2Var = ((z1) nVar).w) != null) {
-                            this.m.remove(a2Var.x1());
+                            this.m.remove(a2Var.y1());
                         }
                     }
                     i6++;
                 }
                 if (i7 < i5 && i5 >= 0 && i7 >= 0) {
                     ArrayList<n> arrayList = new ArrayList<>();
-                    arrayList.addAll(this.n.f55891b.subList(0, i7));
-                    ArrayList<n> arrayList2 = this.n.f55891b;
+                    arrayList.addAll(this.n.f56075b.subList(0, i7));
+                    ArrayList<n> arrayList2 = this.n.f56075b;
                     arrayList.addAll(arrayList2.subList(i5, arrayList2.size()));
-                    this.n.f55891b = arrayList;
+                    this.n.f56075b = arrayList;
                     return i5 - i7;
                 }
             }
@@ -276,17 +276,17 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     public final void J(CustomResponsedMessage<?> customResponsedMessage) {
-        d.a.k0.i0.l.d.b bVar;
+        d.a.n0.j0.l.d.b bVar;
         z1 z1Var;
         a2 a2Var;
-        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || this.l <= 0 || (bVar = this.n) == null || ListUtils.isEmpty(bVar.f55891b)) {
+        if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof JSONObject) || this.l <= 0 || (bVar = this.n) == null || ListUtils.isEmpty(bVar.f56075b)) {
             return;
         }
         String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
         if (StringUtils.isNull(optString) || !this.m.containsKey(optString)) {
             return;
         }
-        Iterator<n> it = this.n.f55891b.iterator();
+        Iterator<n> it = this.n.f56075b.iterator();
         int i2 = 0;
         int i3 = -1;
         int i4 = -1;
@@ -300,7 +300,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                     }
                     it.remove();
                     i5 = i2;
-                } else if (StringHelper.equals(optString, a2Var.x1())) {
+                } else if (StringHelper.equals(optString, a2Var.y1())) {
                     i3 = z1Var.position;
                     it.remove();
                     i4 = i2;
@@ -330,11 +330,11 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     public boolean L() {
-        d.a.k0.i0.l.d.b bVar = this.n;
+        d.a.n0.j0.l.d.b bVar = this.n;
         if (bVar == null) {
             return false;
         }
-        return !ListUtils.isEmpty(bVar.f55891b);
+        return !ListUtils.isEmpty(bVar.f56075b);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -352,8 +352,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
         Iterator<u1> it = arrayList2.iterator();
         while (it.hasNext()) {
             u1 next = it.next();
-            int i3 = next.f50091g + i2;
-            if (TextUtils.isEmpty(next.f50089e) || TextUtils.isEmpty(next.f50090f) || next.f50091g == 0 || i3 > arrayList.size()) {
+            int i3 = next.f50135g + i2;
+            if (TextUtils.isEmpty(next.f50133e) || TextUtils.isEmpty(next.f50134f) || next.f50135g == 0 || i3 > arrayList.size()) {
                 return;
             }
             arrayList.add(i3, next);
@@ -364,64 +364,64 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     public final void N(int i2) {
         TabFeedListRequestMessage tabFeedListRequestMessage = new TabFeedListRequestMessage();
         tabFeedListRequestMessage.loadType = i2;
-        tabFeedListRequestMessage.tabCode = this.f14653h;
-        tabFeedListRequestMessage.tabName = this.f14652g;
+        tabFeedListRequestMessage.tabCode = this.f14556h;
+        tabFeedListRequestMessage.tabName = this.f14555g;
         if (i2 == 2) {
-            tabFeedListRequestMessage.pn = this.f14651f + 1;
+            tabFeedListRequestMessage.pn = this.f14554f + 1;
         } else if (i2 != 1) {
             return;
         } else {
             tabFeedListRequestMessage.pn = 1;
         }
-        this.f14650e = true;
+        this.f14553e = true;
         sendMessage(tabFeedListRequestMessage);
     }
 
     public void O() {
-        if (this.f14650e) {
+        if (this.f14553e) {
             return;
         }
         this.j = false;
         N(2);
     }
 
-    public final void P(d.a.k0.i0.l.d.a aVar, boolean z) {
+    public final void P(d.a.n0.j0.l.d.a aVar, boolean z) {
         if (aVar == null || this.n == null) {
             return;
         }
         ArrayList<n> e2 = aVar.e();
-        d.a.k0.i0.l.d.b bVar = this.n;
+        d.a.n0.j0.l.d.b bVar = this.n;
         boolean z2 = this.j;
-        bVar.f55897h = z2;
+        bVar.f56081h = z2;
         if (!z2) {
-            this.f14651f++;
+            this.f14554f++;
         } else {
-            bVar.f55895f = z ? ListUtils.getCount(e2) : -1;
+            bVar.f56079f = z ? ListUtils.getCount(e2) : -1;
             M(e2, aVar.d());
         }
-        if (this.l + ListUtils.getCount(e2) > this.f14654i) {
-            this.n.f55894e = I();
+        if (this.l + ListUtils.getCount(e2) > this.f14557i) {
+            this.n.f56078e = I();
         }
         ArrayList<n> U = U(e2);
         K(U);
         if (this.j) {
-            this.n.f55891b.addAll(0, U);
-            this.n.f55894e = 0;
+            this.n.f56075b.addAll(0, U);
+            this.n.f56078e = 0;
         } else {
-            this.n.f55891b.addAll(U);
-            this.n.f55892c = !ListUtils.isEmpty(e2);
+            this.n.f56075b.addAll(U);
+            this.n.f56076c = !ListUtils.isEmpty(e2);
         }
-        this.n.f55893d = aVar.f();
-        this.n.f55896g = aVar.b();
-        this.n.f55890a = aVar.c();
-        d.a.k0.i0.l.b bVar2 = this.k;
+        this.n.f56077d = aVar.f();
+        this.n.f56080g = aVar.b();
+        this.n.f56074a = aVar.c();
+        d.a.n0.j0.l.b bVar2 = this.k;
         if (bVar2 != null) {
             bVar2.s0(this.n);
         }
     }
 
     public void Q() {
-        if (this.f14650e) {
+        if (this.f14553e) {
             return;
         }
         this.j = true;
@@ -433,11 +433,11 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     public final void S() {
-        if (ListUtils.isEmpty(this.n.f55891b)) {
+        if (ListUtils.isEmpty(this.n.f56075b)) {
             return;
         }
         int i2 = 0;
-        Iterator<n> it = this.n.f55891b.iterator();
+        Iterator<n> it = this.n.f56075b.iterator();
         while (it.hasNext()) {
             if (it.next() instanceof u1) {
                 it.remove();
@@ -450,8 +450,8 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     }
 
     public void T(String str, String str2) {
-        this.f14653h = str;
-        this.f14652g = str2;
+        this.f14556h = str;
+        this.f14555g = str2;
     }
 
     public final ArrayList<n> U(ArrayList<n> arrayList) {
@@ -464,45 +464,45 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                 arrayList2.add(next);
             } else if (next instanceof a2) {
                 a2 a2Var = (a2) next;
-                if (!this.m.containsKey(a2Var.x1())) {
-                    this.m.put(a2Var.x1(), 0);
-                    a2Var.X1 = true;
+                if (!this.m.containsKey(a2Var.y1())) {
+                    this.m.put(a2Var.y1(), 0);
+                    a2Var.Y1 = true;
                     int[] p0 = a2Var.p0();
-                    if (a2Var.getType() == a2.I2) {
+                    if (a2Var.getType() == a2.J2) {
                         z1 z1Var = new z1();
                         z1Var.w = a2Var;
                         z1Var.position = i2;
-                        z1Var.f50153e = true;
+                        z1Var.f50197e = true;
                         arrayList2.add(z1Var);
                         z1 z1Var2 = new z1();
                         z1Var2.w = a2Var;
                         z1Var2.position = i2;
-                        if (a2Var.Q1()) {
+                        if (a2Var.R1()) {
                             z1Var2.j = true;
-                        } else if (a2Var.Y2() == 1) {
-                            z1Var2.f50156h = true;
+                        } else if (a2Var.Z2() == 1) {
+                            z1Var2.f50200h = true;
                             z1Var2.x = p0[0];
                             z1Var2.y = p0[1];
-                        } else if (a2Var.Y2() >= 2) {
-                            z1Var2.f50157i = true;
+                        } else if (a2Var.Z2() >= 2) {
+                            z1Var2.f50201i = true;
                         } else {
-                            z1Var2.f50154f = true;
+                            z1Var2.f50198f = true;
                         }
                         arrayList2.add(z1Var2);
-                        if (a2Var.y0() != null) {
+                        if (a2Var.z0() != null) {
                             z1 z1Var3 = new z1();
                             z1Var3.r = true;
                             z1Var3.w = a2Var;
                             z1Var3.position = i2;
                             arrayList2.add(z1Var3);
                         }
-                        if (!ListUtils.isEmpty(a2Var.G0()) || !ListUtils.isEmpty(a2Var.l0())) {
+                        if (!ListUtils.isEmpty(a2Var.H0()) || !ListUtils.isEmpty(a2Var.l0())) {
                             z1 z1Var4 = new z1();
                             z1Var4.w = a2Var;
                             z1Var4.position = i2;
-                            if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) == 1) {
+                            if (ListUtils.getCount(a2Var.H0()) + ListUtils.getCount(a2Var.l0()) == 1) {
                                 z1Var4.t = true;
-                            } else if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) > 1) {
+                            } else if (ListUtils.getCount(a2Var.H0()) + ListUtils.getCount(a2Var.l0()) > 1) {
                                 z1Var4.u = true;
                             }
                             arrayList2.add(z1Var4);
@@ -517,31 +517,31 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                         z1Var6.w = a2Var;
                         z1Var6.position = i2;
                         arrayList2.add(z1Var6);
-                    } else if (a2Var.getType() == a2.f3) {
+                    } else if (a2Var.getType() == a2.g3) {
                         z1 z1Var7 = new z1();
                         z1Var7.w = a2Var;
                         z1Var7.position = i2;
-                        z1Var7.f50153e = true;
+                        z1Var7.f50197e = true;
                         arrayList2.add(z1Var7);
                         z1 z1Var8 = new z1();
                         z1Var8.w = a2Var;
                         z1Var8.position = i2;
                         z1Var8.m = true;
                         arrayList2.add(z1Var8);
-                        if (a2Var.y0() != null) {
+                        if (a2Var.z0() != null) {
                             z1 z1Var9 = new z1();
                             z1Var9.r = true;
                             z1Var9.w = a2Var;
                             z1Var9.position = i2;
                             arrayList2.add(z1Var9);
                         }
-                        if (!ListUtils.isEmpty(a2Var.G0()) || !ListUtils.isEmpty(a2Var.l0())) {
+                        if (!ListUtils.isEmpty(a2Var.H0()) || !ListUtils.isEmpty(a2Var.l0())) {
                             z1 z1Var10 = new z1();
                             z1Var10.w = a2Var;
                             z1Var10.position = i2;
-                            if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) == 1) {
+                            if (ListUtils.getCount(a2Var.H0()) + ListUtils.getCount(a2Var.l0()) == 1) {
                                 z1Var10.t = true;
-                            } else if (ListUtils.getCount(a2Var.G0()) + ListUtils.getCount(a2Var.l0()) > 1) {
+                            } else if (ListUtils.getCount(a2Var.H0()) + ListUtils.getCount(a2Var.l0()) > 1) {
                                 z1Var10.u = true;
                             }
                             arrayList2.add(z1Var10);
@@ -556,7 +556,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
                         z1Var12.w = a2Var;
                         z1Var12.position = i2;
                         arrayList2.add(z1Var12);
-                    } else if (a2Var.getType() == a2.X2 && a2Var.P1()) {
+                    } else if (a2Var.getType() == a2.Y2 && a2Var.Q1()) {
                         a2Var.position = i2;
                         arrayList2.add(a2Var);
                     } else {
@@ -570,7 +570,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
             }
         }
         this.l = i2;
-        d.a.j0.b.f.a.d(arrayList2);
+        d.a.m0.b.f.a.d(arrayList2);
         return arrayList2;
     }
 
@@ -583,7 +583,7 @@ public class EnterForumTabFeedNetModel extends BdBaseModel {
     @Override // com.baidu.adp.base.BdBaseModel
     public void cancelMessage() {
         super.cancelMessage();
-        this.f14650e = false;
+        this.f14553e = false;
     }
 
     public void destory() {

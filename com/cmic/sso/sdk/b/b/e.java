@@ -8,19 +8,19 @@ import org.json.JSONObject;
 public class e extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f30579a;
+    public a f30508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f30580b;
+    public byte[] f30509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30581c;
+    public String f30510c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30582d;
+    public String f30511d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f30583e = false;
+    public boolean f30512e = false;
 
     /* loaded from: classes6.dex */
     public static class a {
@@ -28,31 +28,31 @@ public class e extends g {
         public long q;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f30584a = "";
+        public String f30513a = "";
 
         /* renamed from: b  reason: collision with root package name */
-        public String f30585b = "";
+        public String f30514b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f30586c = "";
+        public String f30515c = "";
 
         /* renamed from: d  reason: collision with root package name */
-        public String f30587d = "";
+        public String f30516d = "";
 
         /* renamed from: e  reason: collision with root package name */
-        public String f30588e = "";
+        public String f30517e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f30589f = "";
+        public String f30518f = "";
 
         /* renamed from: g  reason: collision with root package name */
-        public String f30590g = "";
+        public String f30519g = "";
 
         /* renamed from: h  reason: collision with root package name */
-        public String f30591h = "";
+        public String f30520h = "";
 
         /* renamed from: i  reason: collision with root package name */
-        public String f30592i = "";
+        public String f30521i = "";
         public String j = "";
         public String k = "";
         public String l = "";
@@ -91,35 +91,35 @@ public class e extends g {
         }
 
         public void d(String str) {
-            this.f30584a = v(str);
+            this.f30513a = v(str);
         }
 
         public void e(String str) {
-            this.f30585b = v(str);
+            this.f30514b = v(str);
         }
 
         public void f(String str) {
-            this.f30586c = v(str);
+            this.f30515c = v(str);
         }
 
         public void g(String str) {
-            this.f30587d = v(str);
+            this.f30516d = v(str);
         }
 
         public void h(String str) {
-            this.f30588e = v(str);
+            this.f30517e = v(str);
         }
 
         public void i(String str) {
-            this.f30589f = v(str);
+            this.f30518f = v(str);
         }
 
         public void j(String str) {
-            this.f30591h = v(str);
+            this.f30520h = v(str);
         }
 
         public void k(String str) {
-            this.f30592i = v(str);
+            this.f30521i = v(str);
         }
 
         public void l(String str) {
@@ -171,11 +171,11 @@ public class e extends g {
         }
 
         public String toString() {
-            return this.f30584a + "&" + this.f30585b + "&" + this.f30586c + "&" + this.f30587d + "&" + this.f30588e + "&" + this.f30589f + "&" + this.f30590g + "&" + this.f30591h + "&" + this.f30592i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&6.0&" + this.n + "&" + this.o + "&" + this.p + "&" + this.r + "&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.w + "&" + this.x + "&" + this.y + "&" + this.z + "&" + this.A + "&" + this.B + "&" + this.E + "&&" + this.C + "&" + this.D;
+            return this.f30513a + "&" + this.f30514b + "&" + this.f30515c + "&" + this.f30516d + "&" + this.f30517e + "&" + this.f30518f + "&" + this.f30519g + "&" + this.f30520h + "&" + this.f30521i + "&" + this.j + "&" + this.k + "&" + this.l + "&" + this.m + "&6.0&" + this.n + "&" + this.o + "&" + this.p + "&" + this.r + "&" + this.s + "&" + this.t + "&" + this.u + "&" + this.v + "&" + this.w + "&" + this.x + "&" + this.y + "&" + this.z + "&" + this.A + "&" + this.B + "&" + this.E + "&&" + this.C + "&" + this.D;
         }
 
         public String u(String str) {
-            return com.cmic.sso.sdk.d.d.a(this.f30585b + this.f30586c + this.f30587d + this.f30588e + this.f30589f + this.f30590g + this.f30591h + this.f30592i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
+            return com.cmic.sso.sdk.d.d.a(this.f30514b + this.f30515c + this.f30516d + this.f30517e + this.f30518f + this.f30519g + this.f30520h + this.f30521i + this.j + this.k + this.l + this.m + this.o + this.p + str + this.r + this.s + this.t + this.u + this.v + this.w + this.x + this.y + this.z + this.A + this.B + this.C + this.D);
         }
 
         public void a(long j) {
@@ -183,34 +183,34 @@ public class e extends g {
         }
 
         public String a() {
-            return this.f30586c;
+            return this.f30515c;
         }
     }
 
     public void a(boolean z) {
-        this.f30583e = z;
+        this.f30512e = z;
     }
 
     public void b(String str) {
-        this.f30581c = str;
+        this.f30510c = str;
     }
 
     public a c() {
-        return this.f30579a;
+        return this.f30508a;
     }
 
     public void a(String str) {
-        this.f30582d = str;
+        this.f30511d = str;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
-        if (this.f30583e) {
+        if (this.f30512e) {
             try {
-                jSONObject.put("encrypted", this.f30581c);
-                jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f30580b, this.f30579a.toString()));
-                jSONObject.put("securityreinforce", this.f30582d);
+                jSONObject.put("encrypted", this.f30510c);
+                jSONObject.put("reqdata", com.cmic.sso.sdk.d.a.a(this.f30509b, this.f30508a.toString()));
+                jSONObject.put("securityreinforce", this.f30511d);
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }
@@ -219,15 +219,15 @@ public class e extends g {
     }
 
     public void a(byte[] bArr) {
-        this.f30580b = bArr;
+        this.f30509b = bArr;
     }
 
     public void a(a aVar) {
-        this.f30579a = aVar;
+        this.f30508a = aVar;
     }
 
     @Override // com.cmic.sso.sdk.b.b.g
     public String a() {
-        return this.f30579a.a();
+        return this.f30508a.a();
     }
 }

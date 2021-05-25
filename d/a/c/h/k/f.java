@@ -3,59 +3,59 @@ package d.a.c.h.k;
 public class f implements Comparable<f> {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f39522e;
+    public int f39186e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f39523f;
+    public int f39187f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f39524g;
+    public int f39188g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f39525h;
+    public int f39189h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f39526i;
+    public int f39190i;
     public int j;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(f fVar) {
-        int i2 = this.f39522e;
-        int i3 = fVar.f39522e;
+        int i2 = this.f39186e;
+        int i3 = fVar.f39186e;
         if (i2 - i3 > 0) {
             return 1;
         }
         if (i2 - i3 < 0) {
             return -1;
         }
-        int i4 = this.f39523f;
-        int i5 = fVar.f39523f;
+        int i4 = this.f39187f;
+        int i5 = fVar.f39187f;
         if (i4 - i5 > 0) {
             return 1;
         }
         if (i4 - i5 < 0) {
             return -1;
         }
-        int i6 = this.f39524g;
-        int i7 = fVar.f39524g;
+        int i6 = this.f39188g;
+        int i7 = fVar.f39188g;
         if (i6 - i7 > 0) {
             return 1;
         }
         if (i6 - i7 < 0) {
             return -1;
         }
-        int i8 = this.f39525h;
-        int i9 = fVar.f39525h;
+        int i8 = this.f39189h;
+        int i9 = fVar.f39189h;
         if (i8 - i9 > 0) {
             return 1;
         }
         if (i8 - i9 < 0) {
             return -1;
         }
-        int i10 = this.f39526i;
-        int i11 = fVar.f39526i;
+        int i10 = this.f39190i;
+        int i11 = fVar.f39190i;
         if (i10 - i11 > 0) {
             return 1;
         }
@@ -71,11 +71,11 @@ public class f implements Comparable<f> {
     }
 
     public final void b(int i2, int i3, int i4, int i5, int i6, int i7) {
-        this.f39522e = i2;
-        this.f39523f = i3;
-        this.f39524g = i4;
-        this.f39525h = i5;
-        this.f39526i = i6;
+        this.f39186e = i2;
+        this.f39187f = i3;
+        this.f39188g = i4;
+        this.f39189h = i5;
+        this.f39190i = i6;
         this.j = i7;
     }
 
@@ -84,6 +84,6 @@ public class f implements Comparable<f> {
     }
 
     public String toString() {
-        return this.f39522e + "-" + this.f39523f + "-" + this.f39524g + " " + this.f39525h + ":" + this.f39526i + ":" + this.j;
+        return this.f39186e + "-" + this.f39187f + "-" + this.f39188g + " " + this.f39189h + ":" + this.f39190i + ":" + this.j;
     }
 }

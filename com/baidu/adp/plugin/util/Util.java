@@ -37,13 +37,13 @@ public final class Util {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f2244a = false;
+        public boolean f2249a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2245b = null;
+        public String f2250b = null;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f2246c = 0;
+        public int f2251c = 0;
     }
 
     public static void a(File file) {
@@ -146,12 +146,12 @@ public final class Util {
                 }
                 fileOutputStream.flush();
                 fileOutputStream.close();
-                aVar.f2244a = true;
+                aVar.f2249a = true;
             } catch (Exception e3) {
                 e = e3;
                 fileOutputStream2 = fileOutputStream;
-                aVar.f2244a = false;
-                aVar.f2245b = e.toString();
+                aVar.f2249a = false;
+                aVar.f2250b = e.toString();
                 d.a.c.e.m.a.d(fileOutputStream2);
                 return aVar;
             } catch (Throwable th2) {
@@ -163,7 +163,7 @@ public final class Util {
             d.a.c.e.m.a.d(fileOutputStream2);
             return aVar;
         }
-        aVar.f2245b = "illegal_param";
+        aVar.f2250b = "illegal_param";
         return aVar;
     }
 

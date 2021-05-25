@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.AddressListActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivity;
 import com.baidu.tieba.addresslist.im.newFriend.NewFriendsActivityConfig;
 import com.baidu.tieba.addresslist.im.newFriend.ResponsePassFriendMessage;
-import d.a.k0.e1.c;
-import d.a.k0.q.b;
+import d.a.n0.f1.c;
+import d.a.n0.s.b;
 /* loaded from: classes4.dex */
 public class TaskRegisterStatic {
 
@@ -18,7 +18,7 @@ public class TaskRegisterStatic {
     public static class a implements CustomMessageTask.CustomRunnable<Object> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-            return new CustomResponsedMessage<>(2001322, new d.a.k0.q.a());
+            return new CustomResponsedMessage<>(2001322, new d.a.n0.s.a());
         }
     }
 

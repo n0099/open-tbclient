@@ -44,20 +44,20 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
     public class a implements Box {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ long f30676f;
+        public final /* synthetic */ long f30605f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ ByteBuffer f30677g;
+        public final /* synthetic */ ByteBuffer f30606g;
 
         public a(long j, ByteBuffer byteBuffer) {
-            this.f30676f = j;
-            this.f30677g = byteBuffer;
+            this.f30605f = j;
+            this.f30606g = byteBuffer;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public void getBox(WritableByteChannel writableByteChannel) throws IOException {
-            this.f30677g.rewind();
-            writableByteChannel.write(this.f30677g);
+            this.f30606g.rewind();
+            writableByteChannel.write(this.f30606g);
         }
 
         @Override // com.coremedia.iso.boxes.Box
@@ -72,7 +72,7 @@ public final class AudioSampleEntry extends AbstractSampleEntry {
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            return this.f30676f;
+            return this.f30605f;
         }
 
         @Override // com.coremedia.iso.boxes.Box

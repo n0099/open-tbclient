@@ -3,14 +3,14 @@ package com.baidu.ufosdk.ui;
 public final class eg implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackReportActivity f22860a;
+    public final /* synthetic */ FeedbackReportActivity f22789a;
 
     public eg(FeedbackReportActivity feedbackReportActivity) {
-        this.f22860a = feedbackReportActivity;
+        this.f22789a = feedbackReportActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.a(this.f22860a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f22789a.getApplicationContext());
     }
 }

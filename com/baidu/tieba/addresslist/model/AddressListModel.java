@@ -4,22 +4,22 @@ import com.baidu.adp.base.BdBaseModel;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
-import d.a.j0.s.f.c;
-import d.a.k0.q.d.a;
+import d.a.m0.s.f.c;
+import d.a.n0.s.d.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13713e;
+    public a f13616e;
 
     public AddressListModel(BaseFragmentActivity baseFragmentActivity) {
         super(baseFragmentActivity.getPageContext());
-        this.f13713e = a.d();
+        this.f13616e = a.d();
     }
 
-    public void A(a.InterfaceC1470a interfaceC1470a) {
-        this.f13713e.h(interfaceC1470a);
+    public void A(a.InterfaceC1586a interfaceC1586a) {
+        this.f13616e.h(interfaceC1586a);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -32,14 +32,14 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    public void s(d.a.j0.s.f.a aVar) {
-        this.f13713e.a(aVar);
+    public void s(d.a.m0.s.f.a aVar) {
+        this.f13616e.a(aVar);
     }
 
     public int t(String str) {
-        List<d.a.j0.s.f.a> c2;
-        if (c.a(str) && (c2 = this.f13713e.c()) != null) {
-            for (d.a.j0.s.f.a aVar : c2) {
+        List<d.a.m0.s.f.a> c2;
+        if (c.a(str) && (c2 = this.f13616e.c()) != null) {
+            for (d.a.m0.s.f.a aVar : c2) {
                 if (str.equals(aVar.a())) {
                     return c2.indexOf(aVar);
                 }
@@ -50,11 +50,11 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
     }
 
     public void u(long j) {
-        this.f13713e.b(j);
+        this.f13616e.b(j);
     }
 
-    public List<d.a.j0.s.f.a> v() {
-        return this.f13713e.c();
+    public List<d.a.m0.s.f.a> v() {
+        return this.f13616e.c();
     }
 
     public void w() {
@@ -65,11 +65,11 @@ public class AddressListModel extends BdBaseModel<BaseFragmentActivity> {
         super.sendMessage(new RequestGetAddressListMessage(304001));
     }
 
-    public void y(a.InterfaceC1470a interfaceC1470a) {
-        this.f13713e.f(interfaceC1470a);
+    public void y(a.InterfaceC1586a interfaceC1586a) {
+        this.f13616e.f(interfaceC1586a);
     }
 
-    public void z(List<d.a.j0.s.f.a> list) {
-        this.f13713e.g(list);
+    public void z(List<d.a.m0.s.f.a> list) {
+        this.f13616e.g(list);
     }
 }

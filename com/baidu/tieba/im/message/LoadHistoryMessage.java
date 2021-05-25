@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.baidu.adp.framework.message.CustomMessage;
-import d.a.k0.e1.f.c;
+import d.a.n0.f1.f.c;
 /* loaded from: classes4.dex */
 public class LoadHistoryMessage extends CustomMessage<a> {
     public c callback;
@@ -10,16 +10,16 @@ public class LoadHistoryMessage extends CustomMessage<a> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17366a;
+        public String f17276a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f17367b;
+        public String f17277b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f17368c;
+        public int f17278c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f17369d;
+        public String f17279d;
     }
 
     public LoadHistoryMessage(int i2, a aVar) {

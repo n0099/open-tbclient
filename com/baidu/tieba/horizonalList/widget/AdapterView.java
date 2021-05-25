@@ -63,10 +63,10 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public static class b implements ContextMenu.ContextMenuInfo {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f16784a;
+        public View f16694a;
 
         public b(View view, int i2, long j) {
-            this.f16784a = view;
+            this.f16694a = view;
         }
     }
 
@@ -74,7 +74,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
     public class c extends DataSetObserver {
 
         /* renamed from: a  reason: collision with root package name */
-        public Parcelable f16785a = null;
+        public Parcelable f16695a = null;
 
         public c() {
         }
@@ -86,11 +86,11 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             adapterView.mDataChanged = true;
             adapterView.mOldItemCount = adapterView.mItemCount;
             adapterView.mItemCount = adapterView.getAdapter().getCount();
-            if (AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f16785a) != null) {
+            if (AdapterView.this.getAdapter().hasStableIds() && (parcelable = this.f16695a) != null) {
                 AdapterView adapterView2 = AdapterView.this;
                 if (adapterView2.mOldItemCount == 0 && adapterView2.mItemCount > 0) {
                     adapterView2.onRestoreInstanceState(parcelable);
-                    this.f16785a = null;
+                    this.f16695a = null;
                     AdapterView.this.checkFocus();
                     AdapterView.this.requestLayout();
                 }
@@ -105,7 +105,7 @@ public abstract class AdapterView<T extends Adapter> extends ViewGroup {
             AdapterView adapterView = AdapterView.this;
             adapterView.mDataChanged = true;
             if (adapterView.getAdapter().hasStableIds()) {
-                this.f16785a = AdapterView.this.onSaveInstanceState();
+                this.f16695a = AdapterView.this.onSaveInstanceState();
             }
             AdapterView adapterView2 = AdapterView.this;
             adapterView2.mOldItemCount = adapterView2.mItemCount;

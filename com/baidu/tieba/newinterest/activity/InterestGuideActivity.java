@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.activity;
 import android.os.Bundle;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
-import d.a.k0.z1.f.a;
+import d.a.n0.a2.f.a;
 /* loaded from: classes4.dex */
 public class InterestGuideActivity extends BaseFragmentActivity {
     public a mGuideView;

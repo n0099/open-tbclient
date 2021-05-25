@@ -111,7 +111,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 }
             });
         }
-        TopProxyLayout topProxyLayout = this.f27087c;
+        TopProxyLayout topProxyLayout = this.f27016c;
         if (topProxyLayout != null) {
             topProxyLayout.setListener(new b() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTRewardVideoActivity.3
                 @Override // com.bytedance.sdk.openadsdk.component.reward.top.b
@@ -195,15 +195,15 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
 
     private JSONObject Z() {
         JSONObject jSONObject = new JSONObject();
-        float f2 = d.a(this.f27089e) == null ? 0.0f : d.a(this.f27089e).f30252a;
-        float f3 = d.a(this.f27089e) != null ? d.a(this.f27089e).f30253b : 0.0f;
+        float f2 = d.a(this.f27018e) == null ? 0.0f : d.a(this.f27018e).f30181a;
+        float f3 = d.a(this.f27018e) != null ? d.a(this.f27018e).f30182b : 0.0f;
         c cVar = this.D;
         int s = cVar != null ? (int) cVar.s() : 0;
         try {
             jSONObject.put("oversea_version_type", 0);
             jSONObject.put("reward_name", this.aV);
             jSONObject.put("reward_amount", this.aW);
-            jSONObject.put("network", x.c(this.f27089e));
+            jSONObject.put("network", x.c(this.f27018e));
             jSONObject.put("latitude", f2);
             jSONObject.put("longitude", f3);
             jSONObject.put(ZeusInitConfigUtils.PREF_KEY_SDK_VERSION, "3.4.5.5");
@@ -229,14 +229,14 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         if (lVar != null && lVar.i() == 1 && this.s.C()) {
             hashMap.put("duration", Long.valueOf(System.currentTimeMillis() - this.ax));
         }
-        com.bytedance.sdk.openadsdk.c.d.g(this.f27089e, this.s, "rewarded_video", "click_close", null);
+        com.bytedance.sdk.openadsdk.c.d.g(this.f27018e, this.s, "rewarded_video", "click_close", null);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ab() {
         Bitmap b2;
         l lVar = this.s;
-        if (lVar == null || this.f27090f == null || !lVar.C() || (b2 = al.b((WebView) this.f27090f)) == null) {
+        if (lVar == null || this.f27019f == null || !lVar.C() || (b2 = al.b((WebView) this.f27019f)) == null) {
             return;
         }
         al.a(p.a(), this.s, "rewarded_video", "playable_show_status", b2, false, 1);
@@ -366,15 +366,15 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
 
             @Override // com.bytedance.sdk.openadsdk.core.q.c
             public void a(r.c cVar) {
-                int a2 = cVar.f28431c.a();
-                String b2 = cVar.f28431c.b();
+                int a2 = cVar.f28360c.a();
+                String b2 = cVar.f28360c.b();
                 if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
-                    TTRewardVideoActivity.this.a("onRewardVerify", cVar.f28430b, a2, b2, 0, "");
+                    TTRewardVideoActivity.this.a("onRewardVerify", cVar.f28359b, a2, b2, 0, "");
                     return;
                 }
                 TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener2 = TTRewardVideoActivity.this.be;
                 if (rewardAdInteractionListener2 != null) {
-                    rewardAdInteractionListener2.onRewardVerify(cVar.f28430b, a2, b2, 0, "");
+                    rewardAdInteractionListener2.onRewardVerify(cVar.f28359b, a2, b2, 0, "");
                 }
             }
         });
@@ -554,7 +554,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
             }
             l lVar2 = this.s;
             if (lVar2 != null && lVar2.Z() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27089e, this.s, "rewarded_video");
+                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27018e, this.s, "rewarded_video");
             }
         } else {
             this.s = com.bytedance.sdk.openadsdk.core.u.a().c();
@@ -576,15 +576,15 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 this.af = bundle.getString("rit_scene");
                 this.s = com.bytedance.sdk.openadsdk.core.c.a(new JSONObject(string));
                 this.W.set(bundle.getBoolean("has_show_skip_btn"));
-                if (this.W.get() && this.f27087c != null) {
-                    this.f27087c.setShowSkip(true);
-                    this.f27087c.a((CharSequence) null, "跳过");
-                    this.f27087c.setSkipEnable(true);
+                if (this.W.get() && this.f27016c != null) {
+                    this.f27016c.setShowSkip(true);
+                    this.f27016c.a((CharSequence) null, "跳过");
+                    this.f27016c.setSkipEnable(true);
                 }
             } catch (Throwable unused) {
             }
             if (this.E == null && (lVar = this.s) != null && lVar.Z() == 4) {
-                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27089e, this.s, "rewarded_video");
+                this.E = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.f27018e, this.s, "rewarded_video");
             }
         }
         com.bytedance.sdk.openadsdk.core.e.a().a(this.s);
@@ -614,7 +614,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
 
     public void a(long j, long j2) {
         if (this.bg == -1) {
-            this.bg = p.h().q(String.valueOf(this.T)).f28190f;
+            this.bg = p.h().q(String.valueOf(this.T)).f28119f;
         }
         if (j2 <= 0) {
             return;
@@ -629,7 +629,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
     public boolean a(long j, boolean z) {
         HashMap hashMap;
         if (this.D == null) {
-            this.D = new com.bytedance.sdk.openadsdk.component.reward.g(this.f27089e, this.o, this.s);
+            this.D = new com.bytedance.sdk.openadsdk.component.reward.g(this.f27018e, this.o, this.s);
         }
         if (TextUtils.isEmpty(this.af)) {
             hashMap = null;
@@ -718,17 +718,17 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                 long j4 = j2 / 1000;
                 tTRewardVideoActivity3.Q = (int) (tTRewardVideoActivity3.L() - j4);
                 TTRewardVideoActivity tTRewardVideoActivity4 = TTRewardVideoActivity.this;
-                if (tTRewardVideoActivity4.Q >= 0 && (topProxyLayout2 = tTRewardVideoActivity4.f27087c) != null) {
+                if (tTRewardVideoActivity4.Q >= 0 && (topProxyLayout2 = tTRewardVideoActivity4.f27016c) != null) {
                     topProxyLayout2.setShowSkip(true);
                     TTRewardVideoActivity tTRewardVideoActivity5 = TTRewardVideoActivity.this;
-                    tTRewardVideoActivity5.f27087c.a(String.valueOf(tTRewardVideoActivity5.Q), (CharSequence) null);
+                    tTRewardVideoActivity5.f27016c.a(String.valueOf(tTRewardVideoActivity5.Q), (CharSequence) null);
                 }
                 int i2 = (int) j4;
                 TTRewardVideoActivity tTRewardVideoActivity6 = TTRewardVideoActivity.this;
                 int i3 = tTRewardVideoActivity6.S;
                 boolean z2 = false;
                 if (i3 != -1 && i2 == i3 && !tTRewardVideoActivity6.bf.get()) {
-                    TTRewardVideoActivity.this.f27088d.setVisibility(0);
+                    TTRewardVideoActivity.this.f27017d.setVisibility(0);
                     TTRewardVideoActivity.this.bf.set(true);
                     TTRewardVideoActivity.this.r();
                 }
@@ -737,13 +737,13 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
                     z2 = true;
                 }
                 if (z2 && i2 >= g2) {
-                    if (!TTRewardVideoActivity.this.W.getAndSet(true) && (topProxyLayout = TTRewardVideoActivity.this.f27087c) != null) {
+                    if (!TTRewardVideoActivity.this.W.getAndSet(true) && (topProxyLayout = TTRewardVideoActivity.this.f27016c) != null) {
                         topProxyLayout.setShowSkip(true);
                     }
-                    TopProxyLayout topProxyLayout3 = TTRewardVideoActivity.this.f27087c;
+                    TopProxyLayout topProxyLayout3 = TTRewardVideoActivity.this.f27016c;
                     if (topProxyLayout3 != null) {
                         topProxyLayout3.a((CharSequence) null, "跳过");
-                        TTRewardVideoActivity.this.f27087c.setSkipEnable(true);
+                        TTRewardVideoActivity.this.f27016c.setSkipEnable(true);
                     }
                 }
                 TTRewardVideoActivity tTRewardVideoActivity7 = TTRewardVideoActivity.this;
@@ -775,7 +775,7 @@ public class TTRewardVideoActivity extends TTBaseVideoActivity {
         boolean a2 = this.D.a(str, this.s.am(), this.o.getWidth(), this.o.getHeight(), null, this.s.ap(), j, this.P);
         if (a2 && !z) {
             u.e("AdEvent", "pangolin ad show " + ak.a(this.s, (View) null));
-            com.bytedance.sdk.openadsdk.c.d.a(this.f27089e, this.s, "rewarded_video", hashMap);
+            com.bytedance.sdk.openadsdk.c.d.a(this.f27018e, this.s, "rewarded_video", hashMap);
             U();
             this.bc = (int) (System.currentTimeMillis() / 1000);
         }

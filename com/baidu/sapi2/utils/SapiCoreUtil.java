@@ -385,7 +385,7 @@ public class SapiCoreUtil {
             return null;
         }
         HashMap hashMap = new HashMap();
-        hashMap.put(r.f7772a, 4);
+        hashMap.put(r.f7672a, 4);
         hashMap.put("w", 2);
         int i2 = 1;
         hashMap.put("x", 1);

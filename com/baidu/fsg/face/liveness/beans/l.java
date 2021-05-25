@@ -6,14 +6,14 @@ import com.baidu.fsg.base.restnet.beans.business.BaseBean;
 public abstract class l extends BaseBean {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5972a;
+    public String f5872a;
 
     public l(Context context) {
         super(context);
     }
 
     public void d(String str) {
-        this.f5972a = str;
+        this.f5872a = str;
     }
 
     public l(Context context, int i2) {

@@ -8,14 +8,14 @@ import java.lang.reflect.Method;
 public class ah {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Class f34095a;
+    public static Class f34024a;
 
     public static Object a(String str, Class<?>[] clsArr, Object[] objArr) {
         try {
-            if (f34095a == null) {
-                f34095a = Class.forName("android.os.SystemProperties");
+            if (f34024a == null) {
+                f34024a = Class.forName("android.os.SystemProperties");
             }
-            Method declaredMethod = f34095a.getDeclaredMethod(str, clsArr);
+            Method declaredMethod = f34024a.getDeclaredMethod(str, clsArr);
             declaredMethod.setAccessible(true);
             return declaredMethod.invoke(null, objArr);
         } catch (Throwable th) {

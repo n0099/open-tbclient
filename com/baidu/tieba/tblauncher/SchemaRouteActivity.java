@@ -33,10 +33,10 @@ import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
 import com.baidu.tieba.video.UserItemData;
 import com.baidu.tieba.video.VideoItemData;
 import d.a.c.a.b;
-import d.a.j0.a.c;
-import d.a.j0.a.f;
-import d.a.j0.a.w;
-import d.a.k0.d3.h0.m;
+import d.a.m0.a.c;
+import d.a.m0.a.f;
+import d.a.m0.a.w;
+import d.a.n0.e3.h0.m;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
@@ -48,7 +48,7 @@ public class SchemaRouteActivity extends BaseActivity {
         public a() {
         }
 
-        @Override // d.a.j0.a.f.b
+        @Override // d.a.m0.a.f.b
         public void onCallBack(HashMap<String, Object> hashMap) {
             if (hashMap != null && (hashMap.get(f.v) instanceof String)) {
                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(SchemaRouteActivity.this.getActivity(), null, (String) hashMap.get(f.v), true);
@@ -132,7 +132,7 @@ public class SchemaRouteActivity extends BaseActivity {
             c.y().L(true);
         } else {
             if (!TextUtils.isEmpty(dataString)) {
-                if (dataString.contains(f.f48688b + f.k)) {
+                if (dataString.contains(f.f48710b + f.k)) {
                     Uri parse = Uri.parse(dataString);
                     String queryParameter = parse.getQueryParameter(f.E);
                     String queryParameter2 = parse.getQueryParameter(f.F);
@@ -206,26 +206,28 @@ public class SchemaRouteActivity extends BaseActivity {
                 videoSerializeVideoThreadInfo.video = videoAggregationVideoData;
                 videoAggregationVideoData.thumbnailUrl = queryParameter12;
                 videoAggregationVideoData.videoUrl = queryParameter13;
-                sendMessage(new CustomMessage(2002001, new VideoMiddlePageActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter4, videoSerializeVideoThreadInfo)));
+                VideoMiddlePageActivityConfig videoMiddlePageActivityConfig = new VideoMiddlePageActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter4, videoSerializeVideoThreadInfo);
+                videoMiddlePageActivityConfig.setUri(intent.getData());
+                sendMessage(new CustomMessage(2002001, videoMiddlePageActivityConfig));
             }
             if (TextUtils.isEmpty(dataString) || !dataString.contains("unidispatch/video_middle_light_page_qa")) {
-                str5 = str4;
-                str6 = "video_thumbnail_url";
+                str5 = "video_thumbnail_url";
+                str6 = str4;
                 str7 = "author_nick_name";
             } else {
                 Uri parse3 = Uri.parse(dataString);
                 String queryParameter14 = parse3.getQueryParameter(f.o);
                 String queryParameter15 = parse3.getQueryParameter(f.J);
                 String queryParameter16 = parse3.getQueryParameter("title");
-                str5 = str4;
-                String queryParameter17 = parse3.getQueryParameter(str5);
+                str6 = str4;
+                String queryParameter17 = parse3.getQueryParameter(str6);
                 String queryParameter18 = parse3.getQueryParameter("author_nick_name");
                 String queryParameter19 = parse3.getQueryParameter("author_is_god");
                 String queryParameter20 = parse3.getQueryParameter(str);
                 str7 = "author_nick_name";
                 String queryParameter21 = parse3.getQueryParameter(str3);
                 String queryParameter22 = parse3.getQueryParameter("video_thumbnail_url");
-                str6 = "video_thumbnail_url";
+                str5 = "video_thumbnail_url";
                 String queryParameter23 = parse3.getQueryParameter(str2);
                 VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = new VideoSerializeVideoThreadInfo();
                 videoSerializeVideoThreadInfo2.threadId = queryParameter14;
@@ -246,7 +248,9 @@ public class SchemaRouteActivity extends BaseActivity {
                 videoSerializeVideoThreadInfo2.video = videoAggregationVideoData2;
                 videoAggregationVideoData2.thumbnailUrl = queryParameter22;
                 videoAggregationVideoData2.videoUrl = queryParameter23;
-                sendMessage(new CustomMessage(2002001, new VideoMiddlePageLightActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter14, videoSerializeVideoThreadInfo2)));
+                VideoMiddlePageLightActivityConfig videoMiddlePageLightActivityConfig = new VideoMiddlePageLightActivityConfig(this, VideoMiddlePageActivityConfig.FROM_SCHEME_QA, queryParameter14, videoSerializeVideoThreadInfo2);
+                videoMiddlePageLightActivityConfig.setUri(intent.getData());
+                sendMessage(new CustomMessage(2002001, videoMiddlePageLightActivityConfig));
             }
             if (TextUtils.isEmpty(dataString) || !dataString.contains("unidispatch/video_middle_vertical_page_qa")) {
                 return;
@@ -256,10 +260,10 @@ public class SchemaRouteActivity extends BaseActivity {
             String queryParameter25 = parse4.getQueryParameter(f.J);
             String queryParameter26 = parse4.getQueryParameter("title");
             String queryParameter27 = parse4.getQueryParameter("author_uid");
-            String queryParameter28 = parse4.getQueryParameter(str5);
+            String queryParameter28 = parse4.getQueryParameter(str6);
             String queryParameter29 = parse4.getQueryParameter(str7);
             String queryParameter30 = parse4.getQueryParameter(str3);
-            String queryParameter31 = parse4.getQueryParameter(str6);
+            String queryParameter31 = parse4.getQueryParameter(str5);
             String queryParameter32 = parse4.getQueryParameter(str2);
             ArrayList arrayList = new ArrayList();
             VideoItemData videoItemData = new VideoItemData();
@@ -277,6 +281,7 @@ public class SchemaRouteActivity extends BaseActivity {
             arrayList.add(videoItemData);
             VideoPlayActivityConfig videoPlayActivityConfig = new VideoPlayActivityConfig(this, arrayList, VideoPlayActivityConfig.FROM_NANI_VIDEO, VideoMiddlePageActivityConfig.FROM_SCHEME_QA);
             videoPlayActivityConfig.setParamIsVertail(true);
+            videoPlayActivityConfig.setUri(intent.getData());
             sendMessage(new CustomMessage(2002001, videoPlayActivityConfig));
         }
     }

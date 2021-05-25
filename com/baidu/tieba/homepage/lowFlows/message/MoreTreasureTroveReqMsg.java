@@ -2,8 +2,8 @@ package com.baidu.tieba.homepage.lowFlows.message;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.j0.z0.w;
-import d.a.k0.s2.g0.a;
+import d.a.m0.z0.w;
+import d.a.n0.t2.g0.a;
 import tbclient.MoreTreasureTrove.DataReq;
 import tbclient.MoreTreasureTrove.MoreTreasureTroveReqIdl;
 /* loaded from: classes4.dex */

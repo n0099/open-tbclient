@@ -12,16 +12,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.j.e.n;
-import d.a.j0.r.f0.r.a;
+import d.a.m0.r.f0.r.a;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class BdBaseViewPagerContainer extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public BdBaseViewPagerContainerHolder f12630e;
+    public BdBaseViewPagerContainerHolder f12538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f12631f;
+    public a f12539f;
 
     public BdBaseViewPagerContainer(Context context) {
         super(context);
@@ -31,63 +31,63 @@ public class BdBaseViewPagerContainer extends RelativeLayout {
     public final void a(BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder) {
         if (bdBaseViewPagerContainerHolder != null) {
             SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.a(), R.color.CAM_X0201);
-            SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.f12633b, R.color.CAM_X0108, 1);
-            SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.f12636e, R.color.CAM_X0204);
-            SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.f12634c, R.color.CAM_X0109, 1);
-            SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.f12634c, R.color.CAM_X0201);
-            bdBaseViewPagerContainerHolder.f12634c.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
-            bdBaseViewPagerContainerHolder.f12635d.setSelector(SkinManager.getDrawable(R.drawable.icon_choose_dot_s));
-            bdBaseViewPagerContainerHolder.f12635d.setDrawable(SkinManager.getDrawable(R.drawable.icon_choose_dot_n));
+            SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.f12541b, R.color.CAM_X0108, 1);
+            SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.f12544e, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bdBaseViewPagerContainerHolder.f12542c, R.color.CAM_X0109, 1);
+            SkinManager.setBackgroundColor(bdBaseViewPagerContainerHolder.f12542c, R.color.CAM_X0201);
+            bdBaseViewPagerContainerHolder.f12542c.setText(TbadkCoreApplication.getInst().getString(R.string.recommend_frs_hot_thread_more));
+            bdBaseViewPagerContainerHolder.f12543d.setSelector(SkinManager.getDrawable(R.drawable.icon_choose_dot_s));
+            bdBaseViewPagerContainerHolder.f12543d.setDrawable(SkinManager.getDrawable(R.drawable.icon_choose_dot_n));
         }
     }
 
     public final void b(Context context, ViewGroup viewGroup, boolean z) {
         BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder = new BdBaseViewPagerContainerHolder(LayoutInflater.from(context).inflate(R.layout.bd_base_viewpager_container, viewGroup, z), context);
-        this.f12630e = bdBaseViewPagerContainerHolder;
+        this.f12538e = bdBaseViewPagerContainerHolder;
         a(bdBaseViewPagerContainerHolder);
-        BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.f12630e;
-        this.f12631f = new a(context, bdBaseViewPagerContainerHolder2.f12637f, bdBaseViewPagerContainerHolder2.f12635d, bdBaseViewPagerContainerHolder2.f12634c, 4, false, true);
+        BdBaseViewPagerContainerHolder bdBaseViewPagerContainerHolder2 = this.f12538e;
+        this.f12539f = new a(context, bdBaseViewPagerContainerHolder2.f12545f, bdBaseViewPagerContainerHolder2.f12543d, bdBaseViewPagerContainerHolder2.f12542c, 4, false, true);
     }
 
     public IndicatorView getIndicatorView() {
-        return this.f12630e.f12635d;
+        return this.f12538e.f12543d;
     }
 
     public TextView getMoreView() {
-        return this.f12630e.f12634c;
+        return this.f12538e.f12542c;
     }
 
     @Override // android.view.View
     public View getRootView() {
-        return this.f12630e.a();
+        return this.f12538e.a();
     }
 
     public BdBaseViewPagerContainerHolder getViewHolder() {
-        return this.f12630e;
+        return this.f12538e;
     }
 
     public BdBaseViewPager getViewPager() {
-        return this.f12630e.f12637f;
+        return this.f12538e.f12545f;
     }
 
     public void setAutoScrollIntervalTime(long j) {
-        this.f12631f.j(j);
+        this.f12539f.j(j);
     }
 
     public void setDatas(List<n> list) {
-        this.f12631f.k(list);
+        this.f12539f.k(list);
     }
 
     public void setIsAutoScrollEnabled(boolean z) {
-        this.f12631f.l(z);
+        this.f12539f.l(z);
     }
 
     public void setIsMaxScrollEnabled(boolean z) {
-        this.f12631f.m(z);
+        this.f12539f.m(z);
     }
 
     public void setMaxScrollCountLimit(int i2) {
-        this.f12631f.n(i2);
+        this.f12539f.n(i2);
     }
 
     public BdBaseViewPagerContainer(Context context, AttributeSet attributeSet) {

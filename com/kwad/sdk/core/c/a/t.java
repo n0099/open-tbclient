@@ -9,9 +9,9 @@ public class t implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.c> {
         if (jSONObject == null) {
             return;
         }
-        cVar.f32299a = jSONObject.optInt("cellId");
-        cVar.f32300b = jSONObject.optInt("lac");
-        cVar.f32301c = jSONObject.optInt("bsss");
+        cVar.f32228a = jSONObject.optInt("cellId");
+        cVar.f32229b = jSONObject.optInt("lac");
+        cVar.f32230c = jSONObject.optInt("bsss");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -20,9 +20,9 @@ public class t implements com.kwad.sdk.core.c<com.kwad.sdk.core.g.a.c> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "cellId", cVar.f32299a);
-        com.kwad.sdk.utils.o.a(jSONObject, "lac", cVar.f32300b);
-        com.kwad.sdk.utils.o.a(jSONObject, "bsss", cVar.f32301c);
+        com.kwad.sdk.utils.o.a(jSONObject, "cellId", cVar.f32228a);
+        com.kwad.sdk.utils.o.a(jSONObject, "lac", cVar.f32229b);
+        com.kwad.sdk.utils.o.a(jSONObject, "bsss", cVar.f32230c);
         return jSONObject;
     }
 }

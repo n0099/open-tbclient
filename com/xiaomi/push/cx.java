@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class cx implements Comparable<cx> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37489a;
+    public int f37418a;
 
     /* renamed from: a  reason: collision with other field name */
     public long f206a;
@@ -32,7 +32,7 @@ public class cx implements Comparable<cx> {
         this.f208a = new LinkedList<>();
         this.f206a = 0L;
         this.f207a = str;
-        this.f37489a = i2;
+        this.f37418a = i2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -42,12 +42,12 @@ public class cx implements Comparable<cx> {
         if (cxVar == null) {
             return 1;
         }
-        return cxVar.f37489a - this.f37489a;
+        return cxVar.f37418a - this.f37418a;
     }
 
     public synchronized cx a(JSONObject jSONObject) {
         this.f206a = jSONObject.getLong(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP);
-        this.f37489a = jSONObject.getInt("wt");
+        this.f37418a = jSONObject.getInt("wt");
         this.f207a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("ah");
         for (int i2 = 0; i2 < jSONArray.length(); i2++) {
@@ -60,7 +60,7 @@ public class cx implements Comparable<cx> {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put(PushConstants.PUSH_NOTIFICATION_CREATE_TIMES_TAMP, this.f206a);
-        jSONObject.put("wt", this.f37489a);
+        jSONObject.put("wt", this.f37418a);
         jSONObject.put("host", this.f207a);
         JSONArray jSONArray = new JSONArray();
         Iterator<cn> it = this.f208a.iterator();
@@ -76,21 +76,21 @@ public class cx implements Comparable<cx> {
             this.f208a.add(cnVar);
             int a2 = cnVar.a();
             if (a2 > 0) {
-                this.f37489a += cnVar.a();
+                this.f37418a += cnVar.a();
             } else {
                 int i2 = 0;
                 for (int size = this.f208a.size() - 1; size >= 0 && this.f208a.get(size).a() < 0; size--) {
                     i2++;
                 }
-                this.f37489a += a2 * i2;
+                this.f37418a += a2 * i2;
             }
             if (this.f208a.size() > 30) {
-                this.f37489a -= this.f208a.remove().a();
+                this.f37418a -= this.f208a.remove().a();
             }
         }
     }
 
     public String toString() {
-        return this.f207a + ":" + this.f37489a;
+        return this.f207a + ":" + this.f37418a;
     }
 }

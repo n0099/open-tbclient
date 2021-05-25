@@ -11,8 +11,8 @@ import com.baidu.sapi2.result.QrAppLoginResult;
 import com.baidu.sapi2.result.QrLoginResult;
 import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.QrLoginAction;
-import d.a.y.a.f;
-import d.a.y.a.g;
+import d.a.a0.a.f;
+import d.a.a0.a.g;
 /* loaded from: classes2.dex */
 public class QrLoginActivity extends BaseActivity {
     public static final String EXTRA_BOOLEAN_FINISH_PAGE = "EXTRA_BOOLEAN_FINISH_PAGE";

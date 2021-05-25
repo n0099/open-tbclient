@@ -39,14 +39,14 @@ import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusHttpResponseMessage;
 import com.baidu.tieba.myCollection.message.AlaMGetLiveStatusRequestMessage;
 import d.a.c.e.p.l;
-import d.a.j0.r.s.a;
+import d.a.m0.r.s.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public List<Long> closeLives;
-    public List<d.a.k0.w1.h.a> datas;
-    public d.a.j0.g0.f.d<d.a.k0.w1.h.a, d.a.j0.g0.d.b, d.a.k0.w1.i.a> mAdapter;
+    public List<d.a.n0.x1.h.a> datas;
+    public d.a.m0.g0.f.d<d.a.n0.x1.h.a, d.a.m0.g0.d.b, d.a.n0.x1.i.a> mAdapter;
     public TextView mEditBtn;
     public BdListView mListView;
     public NavigationBar mNavigationBar;
@@ -54,23 +54,23 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     public NavigationBarShadowView mShadowView;
     public PbHistoryCacheModel model;
     public boolean hasLoadStatus = false;
-    public final CacheModel.c<d.a.k0.w1.h.a> callback = new a();
+    public final CacheModel.c<d.a.n0.x1.h.a> callback = new a();
     public final HttpMessageListener listener = new b(CmdConfigHttp.CMD_ALA_LIVE_ROOM_CLOSED);
     public AbsListView.OnScrollListener mOnScrollListener = new c();
 
     /* loaded from: classes3.dex */
-    public class a implements CacheModel.c<d.a.k0.w1.h.a> {
+    public class a implements CacheModel.c<d.a.n0.x1.h.a> {
         public a() {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataGet(ReadCacheRespMsg<List<d.a.k0.w1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.k0.w1.h.a> readCacheMessage) {
+        public void onCacheDataGet(ReadCacheRespMsg<List<d.a.n0.x1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.n0.x1.h.a> readCacheMessage) {
             if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                 return;
             }
             PbHistoryActivity.this.datas = readCacheRespMsg.getData();
             ArrayList arrayList = new ArrayList();
-            for (d.a.k0.w1.h.a aVar : readCacheRespMsg.getData()) {
+            for (d.a.n0.x1.h.a aVar : readCacheRespMsg.getData()) {
                 if (!StringUtils.isNull(aVar.g()) && Long.valueOf(aVar.g()).longValue() != 0) {
                     arrayList.add(Long.valueOf(aVar.g()));
                 }
@@ -86,7 +86,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
 
         @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-        public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.k0.w1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.k0.w1.h.a> writeCacheMessage) {
+        public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.n0.x1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.n0.x1.h.a> writeCacheMessage) {
             if (writeCacheRespMsg == null || !writeCacheRespMsg.isSuccess()) {
                 return;
             }
@@ -148,8 +148,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             public a() {
             }
 
-            @Override // d.a.j0.r.s.a.e
-            public void onClick(d.a.j0.r.s.a aVar) {
+            @Override // d.a.m0.r.s.a.e
+            public void onClick(d.a.m0.r.s.a aVar) {
                 PbHistoryActivity.this.model.B();
                 aVar.dismiss();
             }
@@ -160,8 +160,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
             public b(d dVar) {
             }
 
-            @Override // d.a.j0.r.s.a.e
-            public void onClick(d.a.j0.r.s.a aVar) {
+            @Override // d.a.m0.r.s.a.e
+            public void onClick(d.a.m0.r.s.a aVar) {
                 aVar.dismiss();
             }
         }
@@ -171,7 +171,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(PbHistoryActivity.this.getPageContext().getPageActivity());
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(PbHistoryActivity.this.getPageContext().getPageActivity());
             aVar.setMessageId(R.string.pb_history_clear_tip);
             aVar.setPositiveButton(R.string.confirm, new a());
             aVar.setNegativeButton(R.string.cancel, new b(this));
@@ -186,7 +186,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            d.a.k0.w1.h.a aVar = (d.a.k0.w1.h.a) PbHistoryActivity.this.mAdapter.getItem(i2);
+            d.a.n0.x1.h.a aVar = (d.a.n0.x1.h.a) PbHistoryActivity.this.mAdapter.getItem(i2);
             if (aVar != null) {
                 if (aVar.m() == 49) {
                     AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
@@ -218,7 +218,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         if (ListUtils.isEmpty(this.closeLives) || ListUtils.isEmpty(this.datas)) {
             return;
         }
-        for (d.a.k0.w1.h.a aVar : this.datas) {
+        for (d.a.n0.x1.h.a aVar : this.datas) {
             if (!StringUtils.isNull(aVar.g()) && Long.valueOf(aVar.g()).longValue() != 0) {
                 if (this.closeLives.contains(Long.valueOf(aVar.g()))) {
                     aVar.E(false);
@@ -241,8 +241,8 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void updateUIByData(List<d.a.k0.w1.h.a> list) {
-        d.a.j0.g0.f.d<d.a.k0.w1.h.a, d.a.j0.g0.d.b, d.a.k0.w1.i.a> dVar = this.mAdapter;
+    public void updateUIByData(List<d.a.n0.x1.h.a> list) {
+        d.a.m0.g0.f.d<d.a.n0.x1.h.a, d.a.m0.g0.d.b, d.a.n0.x1.i.a> dVar = this.mAdapter;
         if (dVar != null) {
             dVar.k(list);
         }
@@ -253,7 +253,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
     public String getCurrentPageKey() {
         return "a082";
     }
@@ -290,7 +290,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
         TextView textView = new TextView(getActivity());
         textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + l.g(getActivity(), R.dimen.ds88)));
         this.mListView.x(textView, 0);
-        this.mAdapter = new d.a.j0.g0.f.d<>(getPageContext(), d.a.k0.w1.i.a.class, R.layout.pb_history_list_item, null);
+        this.mAdapter = new d.a.m0.g0.f.d<>(getPageContext(), d.a.n0.x1.i.a.class, R.layout.pb_history_list_item, null);
         this.mAdapter.j(NoDataViewFactory.d.b(NoDataViewFactory.ImgType.SINGALL, (int) getResources().getDimension(R.dimen.ds190)), NoDataViewFactory.e.d(null, getResources().getString(R.string.pb_history_no_data_tip_2)), null, null);
         this.mListView.setAdapter((ListAdapter) this.mAdapter);
         this.mListView.setOnItemClickListener(new e());

@@ -16,16 +16,16 @@ import android.widget.ImageView;
 public class TTRoundRectImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    public Paint f28665a;
+    public Paint f28594a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f28666b;
+    public int f28595b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f28667c;
+    public int f28596c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Matrix f28668d;
+    public Matrix f28597d;
 
     public TTRoundRectImageView(Context context) {
         this(context, null);
@@ -59,10 +59,10 @@ public class TTRoundRectImageView extends ImageView {
                 if (a2.getWidth() != getWidth() || a2.getHeight() != getHeight()) {
                     f2 = Math.max((getWidth() * 1.0f) / a2.getWidth(), (getHeight() * 1.0f) / a2.getHeight());
                 }
-                this.f28668d.setScale(f2, f2);
-                bitmapShader.setLocalMatrix(this.f28668d);
-                this.f28665a.setShader(bitmapShader);
-                canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f28666b, this.f28667c, this.f28665a);
+                this.f28597d.setScale(f2, f2);
+                bitmapShader.setLocalMatrix(this.f28597d);
+                this.f28594a.setShader(bitmapShader);
+                canvas.drawRoundRect(new RectF(0.0f, 0.0f, getWidth(), getHeight()), this.f28595b, this.f28596c, this.f28594a);
                 return;
             }
             super.onDraw(canvas);
@@ -72,12 +72,12 @@ public class TTRoundRectImageView extends ImageView {
     }
 
     public void setXRound(int i2) {
-        this.f28666b = i2;
+        this.f28595b = i2;
         postInvalidate();
     }
 
     public void setYRound(int i2) {
-        this.f28667c = i2;
+        this.f28596c = i2;
         postInvalidate();
     }
 
@@ -87,12 +87,12 @@ public class TTRoundRectImageView extends ImageView {
 
     public TTRoundRectImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f28666b = 25;
-        this.f28667c = 25;
+        this.f28595b = 25;
+        this.f28596c = 25;
         Paint paint = new Paint();
-        this.f28665a = paint;
+        this.f28594a = paint;
         paint.setAntiAlias(true);
-        this.f28665a.setFilterBitmap(true);
-        this.f28668d = new Matrix();
+        this.f28594a.setFilterBitmap(true);
+        this.f28597d = new Matrix();
     }
 }

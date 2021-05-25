@@ -8,12 +8,12 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import d.a.c.e.p.l;
-import d.a.k0.i;
+import d.a.n0.k;
 /* loaded from: classes4.dex */
 public class SelectForumActivity extends SuspendedActivity {
     public CustomMessageListener mCloseListener = new a(2921503);
     public CustomMessageListener mPermissionsListener = new b(2921507);
-    public i selectForumView;
+    public k selectForumView;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -51,9 +51,9 @@ public class SelectForumActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.a.j0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.a.m0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         if (this.selectForumView == null) {
-            this.selectForumView = new i(getPageContext(), linearLayout, navigationBar);
+            this.selectForumView = new k(getPageContext(), linearLayout, navigationBar);
         }
         return this.selectForumView;
     }
@@ -68,9 +68,9 @@ public class SelectForumActivity extends SuspendedActivity {
     @Override // com.baidu.tbadk.suspended.SuspendedActivity, com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        i iVar = this.selectForumView;
-        if (iVar != null) {
-            iVar.i();
+        k kVar = this.selectForumView;
+        if (kVar != null) {
+            kVar.i();
         }
     }
 

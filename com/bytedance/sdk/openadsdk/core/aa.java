@@ -16,36 +16,36 @@ import java.util.HashSet;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f27811a;
+    public static final boolean f27740a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f27812b;
+    public static final boolean f27741b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f27813c;
+    public static int f27742c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f27814d;
+    public static int f27743d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f27815e;
+    public static int f27744e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f27816f;
+    public static Handler f27745f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final HashSet<String> f27817g;
+    public static final HashSet<String> f27746g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final HashSet<String> f27818h;
+    public static final HashSet<String> f27747h;
 
     static {
-        f27811a = Build.VERSION.SDK_INT >= 16 && ae.e();
-        f27812b = a();
-        f27813c = -1;
-        f27814d = -1;
-        f27815e = -1;
-        f27816f = null;
+        f27740a = Build.VERSION.SDK_INT >= 16 && ae.e();
+        f27741b = a();
+        f27742c = -1;
+        f27743d = -1;
+        f27744e = -1;
+        f27745f = null;
         HashSet<String> hashSet = new HashSet<>();
         hashSet.add("HUAWEI C8812");
         hashSet.add("HUAWEI C8812E");
@@ -53,7 +53,7 @@ public class aa {
         hashSet.add("HUAWEI U8825D");
         hashSet.add("HUAWEI C8950D");
         hashSet.add("HUAWEI U8950D");
-        f27817g = hashSet;
+        f27746g = hashSet;
         HashSet<String> hashSet2 = new HashSet<>();
         hashSet2.add("ZTE V955");
         hashSet2.add("ZTE N881E");
@@ -61,7 +61,7 @@ public class aa {
         hashSet2.add("ZTE N880G");
         hashSet2.add("ZTE N880F");
         hashSet2.add("ZTE V889F");
-        f27818h = hashSet2;
+        f27747h = hashSet2;
     }
 
     public static void a(Context context, WebView webView) {
@@ -72,7 +72,7 @@ public class aa {
         if (activity.isFinishing()) {
             try {
                 webView.loadUrl("about:blank");
-                if (f27815e > 0) {
+                if (f27744e > 0) {
                     View rootView = webView.getRootView();
                     if (rootView instanceof ViewGroup) {
                         View childAt = ((ViewGroup) rootView).getChildAt(0);
@@ -91,7 +91,7 @@ public class aa {
     }
 
     public static boolean a() {
-        return f27811a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
+        return f27740a || (Build.VERSION.SDK_INT == 16 && "ZTE N5".equals(Build.MODEL));
     }
 
     public static void a(WebView webView) {

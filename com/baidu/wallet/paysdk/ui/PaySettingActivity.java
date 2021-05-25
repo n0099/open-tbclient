@@ -63,28 +63,28 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
     public TextView F;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f25810a;
+    public TextView f25739a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f25811b;
+    public TextView f25740b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f25812c;
+    public View f25741c;
 
     /* renamed from: d  reason: collision with root package name */
-    public View f25813d;
+    public View f25742d;
 
     /* renamed from: e  reason: collision with root package name */
-    public View f25814e;
+    public View f25743e;
 
     /* renamed from: g  reason: collision with root package name */
-    public RelativeLayout f25816g;
+    public RelativeLayout f25745g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f25817h;
+    public TextView f25746h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f25818i;
+    public SwitchButton f25747i;
     public SwitchButton j;
     public PaySetResponse.Paymethod_info k;
     public boolean r;
@@ -93,7 +93,7 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
     public RiskControlResponseForNoPwd z;
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f25815f = PaySettingActivity.class.getSimpleName();
+    public final String f25744f = PaySettingActivity.class.getSimpleName();
     public boolean l = false;
     public boolean n = false;
     public boolean o = false;
@@ -247,7 +247,7 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
             PaySetResponse paySetResponse = (PaySetResponse) obj;
             if (paySetResponse != null) {
                 this.A = paySetResponse;
-                this.f25817h.setText(ResUtils.string(getActivity(), "ebpay_personal_settings"));
+                this.f25746h.setText(ResUtils.string(getActivity(), "ebpay_personal_settings"));
                 PaySetResponse.Fingerprint fingerprint = paySetResponse.fingerprint;
                 if (fingerprint != null) {
                     a(fingerprint);
@@ -327,8 +327,8 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
     @Override // com.baidu.wallet.paysdk.ui.PayBaseBeanActivity, com.baidu.wallet.core.BaseActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        BeanManager.getInstance().removeAllBeans(this.f25815f);
-        boolean z = (!this.l && this.p == this.f25818i.isChecked() && this.o == this.j.isChecked()) ? false : true;
+        BeanManager.getInstance().removeAllBeans(this.f25744f);
+        boolean z = (!this.l && this.p == this.f25747i.isChecked() && this.o == this.j.isChecked()) ? false : true;
         a aVar = m;
         if (aVar != null) {
             aVar.a(z);
@@ -494,7 +494,7 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d() {
-        UserInfoBean userInfoBean = (UserInfoBean) PayBeanFactory.getInstance().getBean((Context) getActivity(), 6, this.f25815f);
+        UserInfoBean userInfoBean = (UserInfoBean) PayBeanFactory.getInstance().getBean((Context) getActivity(), 6, this.f25744f);
         if (this.s == 0) {
             userInfoBean.setCheckPrePassSign(1, "3");
         }
@@ -518,14 +518,14 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
     }
 
     private void f() {
-        BaseBean<?> bean = PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_RCS_APPLY_NO_PWD, this.f25815f);
+        BaseBean<?> bean = PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_RCS_APPLY_NO_PWD, this.f25744f);
         bean.setResponseCallback(this);
         bean.execBean();
         WalletGlobalUtils.safeShowDialog(this, 0, "");
     }
 
     private void c() {
-        this.f25816g.setOnClickListener(this);
+        this.f25745g.setOnClickListener(this);
         this.j.setOnCheckedListener(new SwitchButton.a() { // from class: com.baidu.wallet.paysdk.ui.PaySettingActivity.1
             @Override // com.baidu.wallet.paysdk.ui.widget.SwitchButton.a
             public void a(boolean z) {
@@ -543,7 +543,7 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
                 }
             }
         });
-        this.f25818i.setOnCheckedListener(new SwitchButton.a() { // from class: com.baidu.wallet.paysdk.ui.PaySettingActivity.10
+        this.f25747i.setOnCheckedListener(new SwitchButton.a() { // from class: com.baidu.wallet.paysdk.ui.PaySettingActivity.10
             @Override // com.baidu.wallet.paysdk.ui.widget.SwitchButton.a
             public void a(boolean z) {
                 if (!NetworkUtils.isNetworkAvailable(PaySettingActivity.this.getActivity())) {
@@ -562,37 +562,37 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
     }
 
     private void b() {
-        this.f25810a = (TextView) findViewById(ResUtils.id(this, "ebpay_pay_payfree_tips"));
-        this.f25811b = (TextView) findViewById(ResUtils.id(this, "ebpay_pay_payfree_url"));
+        this.f25739a = (TextView) findViewById(ResUtils.id(this, "ebpay_pay_payfree_tips"));
+        this.f25740b = (TextView) findViewById(ResUtils.id(this, "ebpay_pay_payfree_url"));
         this.E = (TextView) findViewById(ResUtils.id(this, "ebpay_pay_finger_tips"));
         this.F = (TextView) findViewById(ResUtils.id(this, "ebpay_pay_finger_url"));
-        this.f25812c = findViewById(ResUtils.id(this, "bd_wallet_switch_fingerfree"));
-        this.f25813d = findViewById(ResUtils.id(this, "bd_wallet_divider_finger"));
-        this.f25814e = findViewById(ResUtils.id(this, "bd_wallet_divider_finger_below"));
-        this.f25816g = (RelativeLayout) findViewById(ResUtils.id(this, "layout_pay_sort"));
-        this.f25817h = (TextView) findViewById(ResUtils.id(this, "tv_pay_sort"));
+        this.f25741c = findViewById(ResUtils.id(this, "bd_wallet_switch_fingerfree"));
+        this.f25742d = findViewById(ResUtils.id(this, "bd_wallet_divider_finger"));
+        this.f25743e = findViewById(ResUtils.id(this, "bd_wallet_divider_finger_below"));
+        this.f25745g = (RelativeLayout) findViewById(ResUtils.id(this, "layout_pay_sort"));
+        this.f25746h = (TextView) findViewById(ResUtils.id(this, "tv_pay_sort"));
         this.j = (SwitchButton) findViewById(ResUtils.id(this, "switch_btn_litterpay"));
-        this.f25818i = (SwitchButton) findViewById(ResUtils.id(this, "switch_btn_fingerpay"));
+        this.f25747i = (SwitchButton) findViewById(ResUtils.id(this, "switch_btn_fingerpay"));
         this.x = (TextView) findViewById(ResUtils.id(this, "label_pass_free"));
         this.B = findViewById(ResUtils.id(this, "bd_wallet_face_pay_layout"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        PaySetListBean paySetListBean = (PaySetListBean) PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_PAY_SETTING, this.f25815f);
+        PaySetListBean paySetListBean = (PaySetListBean) PayBeanFactory.getInstance().getBean((Context) this, PayBeanFactory.BEAN_ID_PAY_SETTING, this.f25744f);
         paySetListBean.setResponseCallback(this);
         paySetListBean.execBean();
         WalletGlobalUtils.safeShowDialog(this, -1, "");
     }
 
     private void c(boolean z) {
-        if (this.f25812c == null) {
+        if (this.f25741c == null) {
             return;
         }
         int i2 = z ? 0 : 8;
-        this.f25812c.setVisibility(i2);
-        this.f25813d.setVisibility(i2);
-        this.f25814e.setVisibility(i2);
+        this.f25741c.setVisibility(i2);
+        this.f25742d.setVisibility(i2);
+        this.f25743e.setVisibility(i2);
         if (this.E == null) {
             return;
         }
@@ -601,7 +601,7 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e(boolean z) {
-        this.f25818i.setChecked(z);
+        this.f25747i.setChecked(z);
     }
 
     private void a(boolean z) {
@@ -676,7 +676,7 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, String str) {
-        ac acVar = (ac) PayBeanFactory.getInstance().getBean((Context) getActivity(), PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE, this.f25815f);
+        ac acVar = (ac) PayBeanFactory.getInstance().getBean((Context) getActivity(), PayBeanFactory.BEAN_ID_SAVE_SWITCH_PAYFREE, this.f25744f);
         String seed = PasswordController.getSeed();
         acVar.a(PasswordController.handlePwd(str, seed), SafePay.getInstance().encryptProxy(seed), z ? "1" : "2", "20000");
         acVar.setResponseCallback(this);
@@ -720,7 +720,7 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
             return;
         }
         this.q = true;
-        this.p = this.f25818i.isChecked();
+        this.p = this.f25747i.isChecked();
     }
 
     private void b(boolean z) {
@@ -752,12 +752,12 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
         PaySetResponse.PayFreeInfo payFreeInfo2;
         PaySetResponse.PassFreeProtocol passFreeProtocol2;
         if (paySetResponse != null && (payFreeInfo = paySetResponse.passfree_info) != null && (passFreeProtocol = payFreeInfo.passfree_protocol) != null && !TextUtils.isEmpty(passFreeProtocol.passfree_protocol_prefix)) {
-            this.f25810a.setText(paySetResponse.passfree_info.passfree_protocol.passfree_protocol_prefix);
-            this.f25810a.setVisibility(8);
+            this.f25739a.setText(paySetResponse.passfree_info.passfree_protocol.passfree_protocol_prefix);
+            this.f25739a.setVisibility(8);
             if (paySetResponse != null && (payFreeInfo2 = paySetResponse.passfree_info) != null && (passFreeProtocol2 = payFreeInfo2.passfree_protocol) != null && !TextUtils.isEmpty(passFreeProtocol2.passfree_protocol_url) && !TextUtils.isEmpty(paySetResponse.passfree_info.passfree_protocol.passfree_protocol_msg)) {
-                this.f25811b.setText(paySetResponse.passfree_info.passfree_protocol.passfree_protocol_msg);
-                this.f25811b.setVisibility(8);
-                this.f25811b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PaySettingActivity.6
+                this.f25740b.setText(paySetResponse.passfree_info.passfree_protocol.passfree_protocol_msg);
+                this.f25740b.setVisibility(8);
+                this.f25740b.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.paysdk.ui.PaySettingActivity.6
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         BaiduWalletDelegate.getInstance().openH5Module(PaySettingActivity.this, paySetResponse.passfree_info.passfree_protocol.passfree_protocol_url, false);
@@ -765,12 +765,12 @@ public class PaySettingActivity extends PayBaseBeanActivity implements View.OnCl
                 });
                 return;
             }
-            this.f25810a.setVisibility(8);
-            this.f25811b.setVisibility(8);
+            this.f25739a.setVisibility(8);
+            this.f25740b.setVisibility(8);
             return;
         }
-        this.f25810a.setVisibility(8);
-        this.f25811b.setVisibility(8);
+        this.f25739a.setVisibility(8);
+        this.f25740b.setVisibility(8);
     }
 
     private void a(PaySetResponse.PayFreeInfo payFreeInfo) {

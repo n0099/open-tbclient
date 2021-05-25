@@ -29,7 +29,7 @@ public class i0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: s */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         SmartAppBottomLayout smartAppBottomLayout = this.l;
         if (smartAppBottomLayout != null) {
             smartAppBottomLayout.a(aVar);

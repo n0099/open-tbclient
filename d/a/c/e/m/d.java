@@ -8,15 +8,15 @@ public abstract class d implements Animation.AnimationListener {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f39058e;
+        public final /* synthetic */ Animation f38722e;
 
         public a(Animation animation) {
-            this.f39058e = animation;
+            this.f38722e = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.c(this.f39058e);
+            d.this.c(this.f38722e);
         }
     }
 
@@ -24,15 +24,15 @@ public abstract class d implements Animation.AnimationListener {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f39060e;
+        public final /* synthetic */ Animation f38724e;
 
         public b(Animation animation) {
-            this.f39060e = animation;
+            this.f38724e = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.a(this.f39060e);
+            d.this.a(this.f38724e);
         }
     }
 
@@ -40,15 +40,15 @@ public abstract class d implements Animation.AnimationListener {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Animation f39062e;
+        public final /* synthetic */ Animation f38726e;
 
         public c(Animation animation) {
-            this.f39062e = animation;
+            this.f38726e = animation;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.this.b(this.f39062e);
+            d.this.b(this.f38726e);
         }
     }
 

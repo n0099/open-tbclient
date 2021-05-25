@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.j0.r.n.a;
+import d.a.m0.r.n.a;
 import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.GetBigday.BigdayInfo;
@@ -25,7 +25,7 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
         if (bArr == null) {
             return;
         }
-        l<byte[]> d2 = d.a.j0.r.r.a.f().d("tb.bigday_datas");
+        l<byte[]> d2 = d.a.m0.r.r.a.f().d("tb.bigday_datas");
         d2.remove("tb.bigday_datas");
         d2.g("tb.bigday_datas", bArr);
     }

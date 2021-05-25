@@ -5,23 +5,23 @@ import d.a.f.a.a.d;
 public class BdSoundGate {
 
     /* renamed from: c  reason: collision with root package name */
-    public static BdSoundGate f4181c;
+    public static BdSoundGate f4184c;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f4182a = -1;
+    public int f4185a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f4183b;
+    public int f4186b;
 
     static {
         System.loadLibrary("sound_gate");
     }
 
     public static BdSoundGate b() {
-        if (f4181c == null) {
-            f4181c = new BdSoundGate();
+        if (f4184c == null) {
+            f4184c = new BdSoundGate();
         }
-        return f4181c;
+        return f4184c;
     }
 
     private native void close(int i2);
@@ -33,12 +33,12 @@ public class BdSoundGate {
     private native int throughMono(int i2, short[] sArr, short[] sArr2);
 
     public int a() {
-        return this.f4183b;
+        return this.f4186b;
     }
 
     public void c(int i2, float f2, float f3, float f4) {
-        this.f4183b = i2;
-        this.f4182a = getChanger(i2, f2, f3, f4);
+        this.f4186b = i2;
+        this.f4185a = getChanger(i2, f2, f3, f4);
     }
 
     public void d(int i2, int i3) {
@@ -46,14 +46,14 @@ public class BdSoundGate {
     }
 
     public void e() {
-        int i2 = this.f4182a;
+        int i2 = this.f4185a;
         if (i2 > 0) {
             close(i2);
-            this.f4182a = -1;
+            this.f4185a = -1;
         }
     }
 
     public void f(short[] sArr, short[] sArr2) {
-        throughMono(this.f4182a, sArr, sArr2);
+        throughMono(this.f4185a, sArr, sArr2);
     }
 }

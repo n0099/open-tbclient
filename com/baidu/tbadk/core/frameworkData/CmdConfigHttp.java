@@ -75,6 +75,7 @@ public class CmdConfigHttp {
     public static final int CMD_ENTERTAINMENT = 1003079;
     public static final int CMD_ENTER_FORUM_AD_REQUEST = 1003444;
     public static final int CMD_FINISH_MEMBER_TASK = 1003188;
+    public static final int CMD_FOLLOW_SWITCH = 1002005;
     public static final int CMD_FORUM_BROADCAST_MAJOR_HISTORY = 1003471;
     public static final int CMD_FORUM_BROADCAST_MAJOR_RESIDUE = 1003472;
     public static final int CMD_FORUM_BROADCAST_MAJOR_RESIDUE_NUMBER = 1003474;
@@ -95,6 +96,7 @@ public class CmdConfigHttp {
     public static final int CMD_FRS_STAGE_FEED_BACK = 1003390;
     public static final int CMD_FRS_TALK_BALL = 1003403;
     public static final int CMD_FRS_VIDEO_TOPIC = 1003405;
+    public static final int CMD_FUN_AD_RECORD = 1003494;
     public static final int CMD_GAME_VIDEO = 1003443;
     public static final int CMD_GET_BFB_INFO = 1003100;
     public static final int CMD_GET_BIGDAY_INFO = 1003408;

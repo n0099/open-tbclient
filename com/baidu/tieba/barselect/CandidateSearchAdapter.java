@@ -5,23 +5,23 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import d.a.k0.v.b.a;
+import d.a.n0.x.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearchItemHolder> {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<a> f14196a = new ArrayList();
+    public List<a> f14099a = new ArrayList();
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: c */
     public void onBindViewHolder(CandidateSearchItemHolder candidateSearchItemHolder, int i2) {
-        if (candidateSearchItemHolder == null || ListUtils.isEmpty(this.f14196a)) {
+        if (candidateSearchItemHolder == null || ListUtils.isEmpty(this.f14099a)) {
             return;
         }
-        candidateSearchItemHolder.g(this.f14196a.get(i2));
+        candidateSearchItemHolder.g(this.f14099a.get(i2));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -33,12 +33,12 @@ public class CandidateSearchAdapter extends RecyclerView.Adapter<CandidateSearch
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.f14196a.size();
+        return this.f14099a.size();
     }
 
     public void setData(List<a> list) {
-        this.f14196a.clear();
-        this.f14196a.addAll(list);
+        this.f14099a.clear();
+        this.f14099a.addAll(list);
         notifyDataSetChanged();
     }
 }

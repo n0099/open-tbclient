@@ -8,30 +8,30 @@ public class PlanNode implements Parcelable {
     public static final Parcelable.Creator<PlanNode> CREATOR = new m();
 
     /* renamed from: a  reason: collision with root package name */
-    public LatLng f7415a;
+    public LatLng f7315a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7416b;
+    public String f7316b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7417c;
+    public String f7317c;
 
     public PlanNode(Parcel parcel) {
-        this.f7415a = null;
-        this.f7416b = null;
-        this.f7417c = null;
-        this.f7415a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
-        this.f7416b = parcel.readString();
-        this.f7417c = parcel.readString();
+        this.f7315a = null;
+        this.f7316b = null;
+        this.f7317c = null;
+        this.f7315a = (LatLng) parcel.readValue(LatLng.class.getClassLoader());
+        this.f7316b = parcel.readString();
+        this.f7317c = parcel.readString();
     }
 
     public PlanNode(LatLng latLng, String str, String str2) {
-        this.f7415a = null;
-        this.f7416b = null;
-        this.f7417c = null;
-        this.f7415a = latLng;
-        this.f7416b = str;
-        this.f7417c = str2;
+        this.f7315a = null;
+        this.f7316b = null;
+        this.f7317c = null;
+        this.f7315a = latLng;
+        this.f7316b = str;
+        this.f7317c = str2;
     }
 
     public static PlanNode withCityCodeAndPlaceName(int i2, String str) {
@@ -52,21 +52,21 @@ public class PlanNode implements Parcelable {
     }
 
     public String getCity() {
-        return this.f7416b;
+        return this.f7316b;
     }
 
     public LatLng getLocation() {
-        return this.f7415a;
+        return this.f7315a;
     }
 
     public String getName() {
-        return this.f7417c;
+        return this.f7317c;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeValue(this.f7415a);
-        parcel.writeString(this.f7416b);
-        parcel.writeString(this.f7417c);
+        parcel.writeValue(this.f7315a);
+        parcel.writeString(this.f7316b);
+        parcel.writeString(this.f7317c);
     }
 }

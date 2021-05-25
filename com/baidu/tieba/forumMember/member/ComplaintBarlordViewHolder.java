@@ -10,26 +10,26 @@ import com.baidu.tieba.R;
 public class ComplaintBarlordViewHolder extends TypeAdapter.ViewHolder {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f15059a;
+    public int f14962a;
 
     /* renamed from: b  reason: collision with root package name */
-    public RelativeLayout f15060b;
+    public RelativeLayout f14963b;
 
     /* renamed from: c  reason: collision with root package name */
-    public View f15061c;
+    public View f14964c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f15062d;
+    public TextView f14965d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f15063e;
+    public ImageView f14966e;
 
     public ComplaintBarlordViewHolder(View view) {
         super(view);
-        this.f15059a = 3;
-        this.f15060b = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
-        this.f15061c = view.findViewById(R.id.info_complaint_diver_top);
-        this.f15062d = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
-        this.f15063e = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
+        this.f14962a = 3;
+        this.f14963b = (RelativeLayout) view.findViewById(R.id.bar_info_complaint_lay);
+        this.f14964c = view.findViewById(R.id.info_complaint_diver_top);
+        this.f14965d = (TextView) view.findViewById(R.id.bar_info_complaint_tv);
+        this.f14966e = (ImageView) view.findViewById(R.id.bar_info_complaint_img);
     }
 }

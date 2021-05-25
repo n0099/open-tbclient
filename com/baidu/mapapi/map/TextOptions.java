@@ -13,50 +13,50 @@ public final class TextOptions extends OverlayOptions {
     public static final int ALIGN_TOP = 8;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7114a;
+    public int f7014a;
 
     /* renamed from: c  reason: collision with root package name */
-    public Bundle f7116c;
+    public Bundle f7016c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f7117d;
+    public String f7017d;
 
     /* renamed from: e  reason: collision with root package name */
-    public LatLng f7118e;
+    public LatLng f7018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f7119f;
+    public int f7019f;
 
     /* renamed from: i  reason: collision with root package name */
-    public Typeface f7122i;
+    public Typeface f7022i;
     public float l;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f7120g = -16777216;
+    public int f7020g = -16777216;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f7121h = 12;
+    public int f7021h = 12;
     public int j = 4;
     public int k = 32;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7115b = true;
+    public boolean f7015b = true;
 
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Text text = new Text();
-        text.A = this.f7115b;
-        text.z = this.f7114a;
-        text.B = this.f7116c;
-        text.f7105a = this.f7117d;
-        text.f7106b = this.f7118e;
-        text.f7107c = this.f7119f;
-        text.f7108d = this.f7120g;
-        text.f7109e = this.f7121h;
-        text.f7110f = this.f7122i;
-        text.f7111g = this.j;
-        text.f7112h = this.k;
-        text.f7113i = this.l;
+        text.A = this.f7015b;
+        text.z = this.f7014a;
+        text.B = this.f7016c;
+        text.f7005a = this.f7017d;
+        text.f7006b = this.f7018e;
+        text.f7007c = this.f7019f;
+        text.f7008d = this.f7020g;
+        text.f7009e = this.f7021h;
+        text.f7010f = this.f7022i;
+        text.f7011g = this.j;
+        text.f7012h = this.k;
+        text.f7013i = this.l;
         return text;
     }
 
@@ -67,22 +67,22 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public TextOptions bgColor(int i2) {
-        this.f7119f = i2;
+        this.f7019f = i2;
         return this;
     }
 
     public TextOptions extraInfo(Bundle bundle) {
-        this.f7116c = bundle;
+        this.f7016c = bundle;
         return this;
     }
 
     public TextOptions fontColor(int i2) {
-        this.f7120g = i2;
+        this.f7020g = i2;
         return this;
     }
 
     public TextOptions fontSize(int i2) {
-        this.f7121h = i2;
+        this.f7021h = i2;
         return this;
     }
 
@@ -95,23 +95,23 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public int getBgColor() {
-        return this.f7119f;
+        return this.f7019f;
     }
 
     public Bundle getExtraInfo() {
-        return this.f7116c;
+        return this.f7016c;
     }
 
     public int getFontColor() {
-        return this.f7120g;
+        return this.f7020g;
     }
 
     public int getFontSize() {
-        return this.f7121h;
+        return this.f7021h;
     }
 
     public LatLng getPosition() {
-        return this.f7118e;
+        return this.f7018e;
     }
 
     public float getRotate() {
@@ -119,24 +119,24 @@ public final class TextOptions extends OverlayOptions {
     }
 
     public String getText() {
-        return this.f7117d;
+        return this.f7017d;
     }
 
     public Typeface getTypeface() {
-        return this.f7122i;
+        return this.f7022i;
     }
 
     public int getZIndex() {
-        return this.f7114a;
+        return this.f7014a;
     }
 
     public boolean isVisible() {
-        return this.f7115b;
+        return this.f7015b;
     }
 
     public TextOptions position(LatLng latLng) {
         if (latLng != null) {
-            this.f7118e = latLng;
+            this.f7018e = latLng;
             return this;
         }
         throw new IllegalArgumentException("BDMapSDKException: position can not be null");
@@ -151,22 +151,22 @@ public final class TextOptions extends OverlayOptions {
         if (str == null || str.equals("")) {
             throw new IllegalArgumentException("BDMapSDKException: text can not be null or empty");
         }
-        this.f7117d = str;
+        this.f7017d = str;
         return this;
     }
 
     public TextOptions typeface(Typeface typeface) {
-        this.f7122i = typeface;
+        this.f7022i = typeface;
         return this;
     }
 
     public TextOptions visible(boolean z) {
-        this.f7115b = z;
+        this.f7015b = z;
         return this;
     }
 
     public TextOptions zIndex(int i2) {
-        this.f7114a = i2;
+        this.f7014a = i2;
         return this;
     }
 }

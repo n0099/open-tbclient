@@ -11,22 +11,22 @@ import java.util.concurrent.ConcurrentMap;
 public final class MapMaker {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31208a;
+    public boolean f31137a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f31209b = -1;
+    public int f31138b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f31210c = -1;
+    public int f31139c = -1;
 
     /* renamed from: d  reason: collision with root package name */
-    public MapMakerInternalMap.Strength f31211d;
+    public MapMakerInternalMap.Strength f31140d;
 
     /* renamed from: e  reason: collision with root package name */
-    public MapMakerInternalMap.Strength f31212e;
+    public MapMakerInternalMap.Strength f31141e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Equivalence<Object> f31213f;
+    public Equivalence<Object> f31142f;
 
     /* loaded from: classes6.dex */
     public enum Dummy {
@@ -34,14 +34,14 @@ public final class MapMaker {
     }
 
     public MapMaker a(int i2) {
-        n.y(this.f31210c == -1, "concurrency level was already set to %s", this.f31210c);
+        n.y(this.f31139c == -1, "concurrency level was already set to %s", this.f31139c);
         n.d(i2 > 0);
-        this.f31210c = i2;
+        this.f31139c = i2;
         return this;
     }
 
     public int b() {
-        int i2 = this.f31210c;
+        int i2 = this.f31139c;
         if (i2 == -1) {
             return 4;
         }
@@ -49,7 +49,7 @@ public final class MapMaker {
     }
 
     public int c() {
-        int i2 = this.f31209b;
+        int i2 = this.f31138b;
         if (i2 == -1) {
             return 16;
         }
@@ -57,55 +57,55 @@ public final class MapMaker {
     }
 
     public Equivalence<Object> d() {
-        return (Equivalence) j.a(this.f31213f, e().defaultEquivalence());
+        return (Equivalence) j.a(this.f31142f, e().defaultEquivalence());
     }
 
     public MapMakerInternalMap.Strength e() {
-        return (MapMakerInternalMap.Strength) j.a(this.f31211d, MapMakerInternalMap.Strength.STRONG);
+        return (MapMakerInternalMap.Strength) j.a(this.f31140d, MapMakerInternalMap.Strength.STRONG);
     }
 
     public MapMakerInternalMap.Strength f() {
-        return (MapMakerInternalMap.Strength) j.a(this.f31212e, MapMakerInternalMap.Strength.STRONG);
+        return (MapMakerInternalMap.Strength) j.a(this.f31141e, MapMakerInternalMap.Strength.STRONG);
     }
 
     public MapMaker g(int i2) {
-        n.y(this.f31209b == -1, "initial capacity was already set to %s", this.f31209b);
+        n.y(this.f31138b == -1, "initial capacity was already set to %s", this.f31138b);
         n.d(i2 >= 0);
-        this.f31209b = i2;
+        this.f31138b = i2;
         return this;
     }
 
     public MapMaker h(Equivalence<Object> equivalence) {
-        n.A(this.f31213f == null, "key equivalence was already set to %s", this.f31213f);
+        n.A(this.f31142f == null, "key equivalence was already set to %s", this.f31142f);
         n.p(equivalence);
-        this.f31213f = equivalence;
-        this.f31208a = true;
+        this.f31142f = equivalence;
+        this.f31137a = true;
         return this;
     }
 
     public <K, V> ConcurrentMap<K, V> i() {
-        if (!this.f31208a) {
+        if (!this.f31137a) {
             return new ConcurrentHashMap(c(), 0.75f, b());
         }
         return MapMakerInternalMap.create(this);
     }
 
     public MapMaker j(MapMakerInternalMap.Strength strength) {
-        n.A(this.f31211d == null, "Key strength was already set to %s", this.f31211d);
+        n.A(this.f31140d == null, "Key strength was already set to %s", this.f31140d);
         n.p(strength);
-        this.f31211d = strength;
+        this.f31140d = strength;
         if (strength != MapMakerInternalMap.Strength.STRONG) {
-            this.f31208a = true;
+            this.f31137a = true;
         }
         return this;
     }
 
     public MapMaker k(MapMakerInternalMap.Strength strength) {
-        n.A(this.f31212e == null, "Value strength was already set to %s", this.f31212e);
+        n.A(this.f31141e == null, "Value strength was already set to %s", this.f31141e);
         n.p(strength);
-        this.f31212e = strength;
+        this.f31141e = strength;
         if (strength != MapMakerInternalMap.Strength.STRONG) {
-            this.f31208a = true;
+            this.f31137a = true;
         }
         return this;
     }
@@ -117,23 +117,23 @@ public final class MapMaker {
 
     public String toString() {
         j.b b2 = j.b(this);
-        int i2 = this.f31209b;
+        int i2 = this.f31138b;
         if (i2 != -1) {
             b2.b("initialCapacity", i2);
         }
-        int i3 = this.f31210c;
+        int i3 = this.f31139c;
         if (i3 != -1) {
             b2.b("concurrencyLevel", i3);
         }
-        MapMakerInternalMap.Strength strength = this.f31211d;
+        MapMakerInternalMap.Strength strength = this.f31140d;
         if (strength != null) {
             b2.d("keyStrength", a.c(strength.toString()));
         }
-        MapMakerInternalMap.Strength strength2 = this.f31212e;
+        MapMakerInternalMap.Strength strength2 = this.f31141e;
         if (strength2 != null) {
             b2.d("valueStrength", a.c(strength2.toString()));
         }
-        if (this.f31213f != null) {
+        if (this.f31142f != null) {
             b2.h("keyEquivalence");
         }
         return b2.toString();

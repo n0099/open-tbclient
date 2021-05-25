@@ -11,7 +11,6 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.card.Align;
-import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.TbadkApplication;
@@ -32,12 +31,12 @@ import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import d.a.c.e.p.l;
 import d.a.i.b0;
-import d.a.j0.f0.h;
-import d.a.j0.r.d0.b;
-import d.a.j0.r.q.a2;
-import d.a.j0.r.q.v0;
-import d.a.k0.d3.h0.e;
-import d.a.k0.r2.a;
+import d.a.m0.f0.h;
+import d.a.m0.r.d0.b;
+import d.a.m0.r.q.a2;
+import d.a.m0.r.q.v0;
+import d.a.n0.e3.h0.e;
+import d.a.n0.s2.a;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -60,7 +59,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     */
     private void doAgreeAndDisagree(boolean z, JSONObject jSONObject, String str) {
         a2 a2Var = new a2();
-        a2Var.S2(jSONObject);
+        a2Var.T2(jSONObject);
         AgreeData L = a2Var.L();
         int i2 = 1;
         if (z) {
@@ -115,7 +114,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
             sendMesage(i2, L);
         }
         e eVar = new e();
-        eVar.f53784b = L;
+        eVar.f53997b = L;
         if (a2Var.V() != null) {
             L.nid = a2Var.V().oriUgcNid;
         }
@@ -161,13 +160,13 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         final boolean[] zArr = {false};
         if (currentActivity instanceof TbPageContextSupport) {
             PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(((TbPageContextSupport) currentActivity).getPageContext());
-            pbHistoryCacheModel.K(new CacheModel.c<d.a.k0.w1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
+            pbHistoryCacheModel.K(new CacheModel.c<d.a.n0.x1.h.a>() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.UtilityComponents.1
                 @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                public void onCacheDataGet(ReadCacheRespMsg<List<d.a.k0.w1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.k0.w1.h.a> readCacheMessage) {
+                public void onCacheDataGet(ReadCacheRespMsg<List<d.a.n0.x1.h.a>> readCacheRespMsg, ReadCacheMessage<d.a.n0.x1.h.a> readCacheMessage) {
                     if (readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
                         return;
                     }
-                    List<d.a.k0.w1.h.a> data = readCacheRespMsg.getData();
+                    List<d.a.n0.x1.h.a> data = readCacheRespMsg.getData();
                     if (zArr[0] || result == null) {
                         return;
                     }
@@ -178,7 +177,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
                 }
 
                 @Override // com.baidu.tbadk.mvc.model.CacheModel.c
-                public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.k0.w1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.k0.w1.h.a> writeCacheMessage) {
+                public void onCacheDataWrite(WriteCacheRespMsg<List<d.a.n0.x1.h.a>> writeCacheRespMsg, WriteCacheMessage<d.a.n0.x1.h.a> writeCacheMessage) {
                 }
             });
             pbHistoryCacheModel.H();
@@ -222,7 +221,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
         if (result2.get("item") != null) {
             JSONObject optJSONObject = new JSONObject((HashMap) result2.get("item")).optJSONObject("item");
             a2 a2Var = new a2();
-            a2Var.S2(optJSONObject);
+            a2Var.T2(optJSONObject);
             v0 h2 = a2Var.h();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity instanceof TbPageContextSupport) {
@@ -284,7 +283,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
             return;
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-        httpMessage.addParam("z_id", FH.gz(TbadkCoreApplication.getInst()));
+        httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
         httpMessage.addParam("thread_id", agreeData.threadId);
         httpMessage.addParam("op_type", i2);
         if (agreeData.objType == 0) {
@@ -314,7 +313,7 @@ public class UtilityComponents implements TiebaUtilityComponentsAuto.HostUtility
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityComponentsAuto.HostUtilityComponents
     public void showRedDotForMyTab(TiebaUtilityComponentsAuto.Result<TiebaUtilityComponentsAuto.ComponentsBoolResult> result) {
         TiebaUtilityComponentsAuto.ComponentsBoolResult componentsBoolResult = new TiebaUtilityComponentsAuto.ComponentsBoolResult();
-        componentsBoolResult.setResult(Boolean.valueOf(d.a.k0.t2.a.v().z()));
+        componentsBoolResult.setResult(Boolean.valueOf(d.a.n0.u2.a.v().z()));
         result.success(componentsBoolResult);
     }
 }

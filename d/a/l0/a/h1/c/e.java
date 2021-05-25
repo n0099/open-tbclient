@@ -1,0 +1,47 @@
+package d.a.l0.a.h1.c;
+
+import android.text.TextUtils;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes3.dex */
+public class e extends c {
+    public String D = "";
+    public String E = "";
+    public ArrayList<String> F;
+
+    @Override // d.a.l0.a.h1.c.c, d.a.l0.a.c0.b.b, d.a.l0.a.l1.a
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
+        if (jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        if (jSONObject.has("scale")) {
+            this.o = jSONObject.optDouble("scale", 18.0d);
+        }
+        if (jSONObject.has("name")) {
+            this.D = jSONObject.optString("name");
+        }
+        if (jSONObject.has("address")) {
+            this.E = jSONObject.optString("address");
+        }
+        if (jSONObject.has("ignoredApps") && (optJSONArray = jSONObject.optJSONArray("ignoredApps")) != null) {
+            int length = optJSONArray.length();
+            this.F = new ArrayList<>();
+            for (int i2 = 0; i2 < length; i2++) {
+                this.F.add(optJSONArray.optString(i2));
+            }
+        }
+        if (jSONObject.has("naviPreference")) {
+            jSONObject.optInt("naviPreference", -1);
+        }
+    }
+
+    @Override // d.a.l0.a.c0.b.b, d.a.l0.a.l1.a
+    public boolean isValid() {
+        d.a.l0.a.h1.c.h.c cVar;
+        return (TextUtils.isEmpty(this.f40846g) || (cVar = this.n) == null || !cVar.isValid()) ? false : true;
+    }
+}

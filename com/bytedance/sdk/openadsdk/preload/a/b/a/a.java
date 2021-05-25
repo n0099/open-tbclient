@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public final class a<E> extends v<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f29747a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
+    public static final w f29676a = new w() { // from class: com.bytedance.sdk.openadsdk.preload.a.b.a.a.1
         @Override // com.bytedance.sdk.openadsdk.preload.a.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.preload.a.f fVar, com.bytedance.sdk.openadsdk.preload.a.c.a<T> aVar) {
             Type b2 = aVar.b();
@@ -24,14 +24,14 @@ public final class a<E> extends v<Object> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    public final Class<E> f29748b;
+    public final Class<E> f29677b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final v<E> f29749c;
+    public final v<E> f29678c;
 
     public a(com.bytedance.sdk.openadsdk.preload.a.f fVar, v<E> vVar, Class<E> cls) {
-        this.f29749c = new m(fVar, vVar, cls);
-        this.f29748b = cls;
+        this.f29678c = new m(fVar, vVar, cls);
+        this.f29677b = cls;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r3v0, resolved type: com.bytedance.sdk.openadsdk.preload.a.v<E> */
@@ -45,7 +45,7 @@ public final class a<E> extends v<Object> {
         cVar.b();
         int length = Array.getLength(obj);
         for (int i2 = 0; i2 < length; i2++) {
-            this.f29749c.a(cVar, Array.get(obj, i2));
+            this.f29678c.a(cVar, Array.get(obj, i2));
         }
         cVar.c();
     }
@@ -59,11 +59,11 @@ public final class a<E> extends v<Object> {
         ArrayList arrayList = new ArrayList();
         aVar.a();
         while (aVar.e()) {
-            arrayList.add(this.f29749c.b(aVar));
+            arrayList.add(this.f29678c.b(aVar));
         }
         aVar.b();
         int size = arrayList.size();
-        Object newInstance = Array.newInstance((Class<?>) this.f29748b, size);
+        Object newInstance = Array.newInstance((Class<?>) this.f29677b, size);
         for (int i2 = 0; i2 < size; i2++) {
             Array.set(newInstance, i2, arrayList.get(i2));
         }

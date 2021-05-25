@@ -3,37 +3,37 @@ package com.bytedance.sdk.openadsdk.preload.geckox.a.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f30048a;
+    public final int f29977a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final c f30049b;
+    public final c f29978b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final b f30050c;
+    public final b f29979c;
 
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0318a {
+    public static final class C0319a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f30051a;
+        public int f29980a;
 
         /* renamed from: b  reason: collision with root package name */
-        public b f30052b = b.f30054a;
+        public b f29981b = b.f29983a;
 
         /* renamed from: c  reason: collision with root package name */
-        public c f30053c;
+        public c f29982c;
 
-        public C0318a a(int i2) {
-            this.f30051a = i2;
+        public C0319a a(int i2) {
+            this.f29980a = i2;
             return this;
         }
 
-        public C0318a a(b bVar) {
+        public C0319a a(b bVar) {
             if (bVar == null) {
-                bVar = b.f30054a;
+                bVar = b.f29983a;
             }
-            this.f30052b = bVar;
+            this.f29981b = bVar;
             return this;
         }
 
@@ -43,20 +43,20 @@ public class a {
     }
 
     public b a() {
-        return this.f30050c;
+        return this.f29979c;
     }
 
     public int b() {
-        return this.f30048a;
+        return this.f29977a;
     }
 
     public c c() {
-        return this.f30049b;
+        return this.f29978b;
     }
 
-    public a(C0318a c0318a) {
-        this.f30048a = c0318a.f30051a;
-        this.f30050c = c0318a.f30052b;
-        this.f30049b = c0318a.f30053c;
+    public a(C0319a c0319a) {
+        this.f29977a = c0319a.f29980a;
+        this.f29979c = c0319a.f29981b;
+        this.f29978b = c0319a.f29982c;
     }
 }

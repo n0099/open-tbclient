@@ -14,8 +14,8 @@ import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import d.a.c.a.e;
 import d.a.c.e.p.l;
-import d.a.k0.c1.a.j;
-import d.a.k0.c1.f.d;
+import d.a.n0.d1.a.j;
+import d.a.n0.d1.f.d;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class RelateTopicForumActivity extends BaseActivity<RelateTopicForumActivity> {

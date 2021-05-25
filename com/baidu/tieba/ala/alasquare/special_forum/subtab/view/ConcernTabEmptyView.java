@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.k0.t.d.f.c.e;
-import d.a.k0.x.b;
+import d.a.n0.v.d.f.c.e;
+import d.a.n0.z.b;
 /* loaded from: classes4.dex */
 public class ConcernTabEmptyView extends b<e> {
     public ViewHolder m;
@@ -18,19 +18,19 @@ public class ConcernTabEmptyView extends b<e> {
     public static class ViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public View f13970a;
+        public View f13873a;
 
         /* renamed from: b  reason: collision with root package name */
-        public TextView f13971b;
+        public TextView f13874b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View f13972c;
+        public View f13875c;
 
         public ViewHolder(View view) {
             super(view);
-            this.f13970a = view;
-            this.f13971b = (TextView) view.findViewById(R.id.tv_empty);
-            this.f13972c = this.f13970a.findViewById(R.id.devider_line);
+            this.f13873a = view;
+            this.f13874b = (TextView) view.findViewById(R.id.tv_empty);
+            this.f13875c = this.f13873a.findViewById(R.id.devider_line);
         }
     }
 
@@ -40,15 +40,15 @@ public class ConcernTabEmptyView extends b<e> {
         n(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     public int g() {
         return R.layout.special_bar_concern_empty;
     }
 
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     public void n(TbPageContext<?> tbPageContext, int i2) {
-        SkinManager.setViewTextColor(this.m.f13971b, R.color.CAM_X0109);
-        SkinManager.setBackgroundColor(this.m.f13972c, R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.m.f13874b, R.color.CAM_X0109);
+        SkinManager.setBackgroundColor(this.m.f13875c, R.color.CAM_X0204);
     }
 
     @Override // android.view.View.OnClickListener
@@ -56,7 +56,7 @@ public class ConcernTabEmptyView extends b<e> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // d.a.k0.x.b
+    @Override // d.a.n0.z.b
     /* renamed from: s */
     public void m(e eVar) {
     }

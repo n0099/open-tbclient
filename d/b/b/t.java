@@ -3,20 +3,20 @@ package d.b.b;
 import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class t extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final i f65060e;
+    public final i f65103e;
 
     public t(i iVar) {
         super(true, false, false);
-        this.f65060e = iVar;
+        this.f65103e = iVar;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        SharedPreferences A = this.f65060e.A();
+        SharedPreferences A = this.f65103e.A();
         String string = A.getString("install_id", null);
         String string2 = A.getString(Constants.KEY_DEVICE_ID, null);
         String string3 = A.getString("ssid", null);

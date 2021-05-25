@@ -247,7 +247,7 @@ public class IMAudioTransRequest implements HttpHelper.ResponseHandler {
 
     public String getHost() {
         int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
-        return (readIntData == 1 || readIntData == 2) ? "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/transcode" : readIntData != 3 ? "https://pim.baidu.com/rest/3.0/im/transcode" : "http://180.97.36.95:8080/rest/3.0/im/transcode";
+        return readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? "https://pim.baidu.com/rest/3.0/im/transcode" : "http://180.97.36.95:8080/rest/3.0/im/transcode" : "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/3.0/im/transcode" : "http://rd-im-server.bcc-szth.baidu.com:8111/rest/3.0/im/transcode";
     }
 
     public String getMd5(String str) throws NoSuchAlgorithmException {

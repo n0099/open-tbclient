@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class l implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, Object> f38796a;
+    public Map<String, Object> f38460a;
 
     public l(Map<String, Object> map) {
-        this.f38796a = map;
+        this.f38460a = map;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -28,12 +28,12 @@ public class l implements h {
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object b(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f38796a;
+        return this.f38460a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
     public Object c(d.a.c.e.b.b.a.e.c cVar) {
-        return this.f38796a;
+        return this.f38460a;
     }
 
     @Override // d.a.c.e.b.b.a.b.h
@@ -53,12 +53,12 @@ public class l implements h {
     @Override // d.a.c.e.b.b.a.b.h
     public Object f(d.a.c.e.b.b.a.e.c cVar) {
         JSONObject jSONObject = new JSONObject();
-        if (this.f38796a == null) {
+        if (this.f38460a == null) {
             return jSONObject;
         }
         Type[] b2 = cVar.b();
-        for (String str : this.f38796a.keySet()) {
-            Object obj = this.f38796a.get(str);
+        for (String str : this.f38460a.keySet()) {
+            Object obj = this.f38460a.get(str);
             if (b2 != null && b2.length >= 2) {
                 try {
                     jSONObject.put(str, d.a.c.e.b.b.a.e.f.a(obj).f(new d.a.c.e.b.b.a.e.c(b2[1])));

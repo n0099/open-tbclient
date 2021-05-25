@@ -5,10 +5,10 @@ import java.io.IOException;
 public final class o extends IOException {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f26930a;
+    public final b f26859a;
 
     public o(b bVar) {
         super("stream was reset: " + bVar);
-        this.f26930a = bVar;
+        this.f26859a = bVar;
     }
 }

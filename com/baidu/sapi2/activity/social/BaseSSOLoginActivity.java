@@ -50,31 +50,31 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public static final String m = "isVerification";
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9823b;
+    public boolean f9723b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f9824c;
+    public Handler f9724c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Dialog f9825d;
+    public Dialog f9725d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f9826e;
+    public String f9726e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f9827f;
+    public boolean f9727f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f9828g;
+    public int f9728g;
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f9822a = "BaseSSOLoginActivity";
+    public final String f9722a = "BaseSSOLoginActivity";
 
     /* renamed from: h  reason: collision with root package name */
-    public WebAuthResult f9829h = new a();
+    public WebAuthResult f9729h = new a();
 
     /* renamed from: i  reason: collision with root package name */
-    public com.baidu.sapi2.a.a.b f9830i = new b();
+    public com.baidu.sapi2.a.a.b f9730i = new b();
     public AuthorizationListener j = new c();
 
     /* loaded from: classes2.dex */
@@ -92,15 +92,15 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
 
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onFailed(int i2, String str) {
-            if (BaseSSOLoginActivity.this.f9828g == 2001) {
+            if (BaseSSOLoginActivity.this.f9728g == 2001) {
                 Intent intent = new Intent();
                 intent.putExtra("result_code", i2);
                 intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
                 BaseSSOLoginActivity.this.a(1002, intent);
             } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                BaseSSOLoginActivity.this.f9829h.setResultCode(i2);
-                BaseSSOLoginActivity.this.f9829h.setResultMsg(str);
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(BaseSSOLoginActivity.this.f9829h);
+                BaseSSOLoginActivity.this.f9729h.setResultCode(i2);
+                BaseSSOLoginActivity.this.f9729h.setResultMsg(str);
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(BaseSSOLoginActivity.this.f9729h);
                 CoreViewRouter.getInstance().release();
             }
             BaseSSOLoginActivity.this.finish();
@@ -109,17 +109,17 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         @Override // com.baidu.sapi2.shell.listener.AuthorizationListener
         public void onSuccess(AccountType accountType) {
             super.onSuccess(accountType);
-            if (BaseSSOLoginActivity.this.f9823b) {
+            if (BaseSSOLoginActivity.this.f9723b) {
                 return;
             }
             WebAuthListener webAuthListener = CoreViewRouter.getInstance().getWebAuthListener();
             if (webAuthListener != null) {
-                WebAuthResult webAuthResult = BaseSSOLoginActivity.this.f9829h;
+                WebAuthResult webAuthResult = BaseSSOLoginActivity.this.f9729h;
                 webAuthResult.accountType = accountType;
                 webAuthResult.setResultCode(0);
-                webAuthListener.onSuccess(BaseSSOLoginActivity.this.f9829h);
+                webAuthListener.onSuccess(BaseSSOLoginActivity.this.f9729h);
             }
-            int i2 = BaseSSOLoginActivity.this.f9828g;
+            int i2 = BaseSSOLoginActivity.this.f9728g;
             if (i2 != 2001) {
                 if (i2 != 2003 && i2 != 2004) {
                     WebSocialLoginDTO socialLoginDTO = CoreViewRouter.getInstance().getSocialLoginDTO();
@@ -164,7 +164,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
                 return;
             }
             BaseSSOLoginActivity baseSSOLoginActivity = BaseSSOLoginActivity.this;
-            baseSSOLoginActivity.a(baseSSOLoginActivity.f9828g);
+            baseSSOLoginActivity.a(baseSSOLoginActivity.f9728g);
         }
     }
 
@@ -176,7 +176,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         @Override // com.baidu.sapi2.SapiWebView.OnFinishCallback
         public void onFinish() {
             BaseSSOLoginActivity baseSSOLoginActivity = BaseSSOLoginActivity.this;
-            baseSSOLoginActivity.a(baseSSOLoginActivity.f9828g);
+            baseSSOLoginActivity.a(baseSSOLoginActivity.f9728g);
         }
     }
 
@@ -184,22 +184,22 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public class f implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SapiAccount f9836a;
+        public final /* synthetic */ SapiAccount f9736a;
 
         public f(SapiAccount sapiAccount) {
-            this.f9836a = sapiAccount;
+            this.f9736a = sapiAccount;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
                 if (BaseSSOLoginActivity.this.j != null) {
-                    BaseSSOLoginActivity.this.j.beforeSuccess(this.f9836a);
+                    BaseSSOLoginActivity.this.j.beforeSuccess(this.f9736a);
                 }
             } catch (Throwable th) {
                 Log.e(th);
             }
-            SapiAccountManager.getInstance().validate(this.f9836a);
+            SapiAccountManager.getInstance().validate(this.f9736a);
             BaseSSOLoginActivity.this.a(AccountType.UNKNOWN);
         }
     }
@@ -208,17 +208,17 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public class g implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ SocialResponse f9838a;
+        public final /* synthetic */ SocialResponse f9738a;
 
         public g(SocialResponse socialResponse) {
-            this.f9838a = socialResponse;
+            this.f9738a = socialResponse;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             AuthorizationListener authorizationListener = BaseSSOLoginActivity.this.j;
             if (authorizationListener != null) {
-                SocialResponse socialResponse = this.f9838a;
+                SocialResponse socialResponse = this.f9738a;
                 authorizationListener.onFailed(socialResponse.errorCode, socialResponse.errorMsg);
             }
         }
@@ -228,12 +228,12 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public class h extends HttpHandlerWrap {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f9840a;
+        public final /* synthetic */ String f9740a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public h(Looper looper, String str) {
             super(looper);
-            this.f9840a = str;
+            this.f9740a = str;
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
@@ -248,13 +248,13 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         public void onFinish() {
             super.onFinish();
             BaseSSOLoginActivity baseSSOLoginActivity = BaseSSOLoginActivity.this;
-            ViewUtility.dismissDialog(baseSSOLoginActivity, baseSSOLoginActivity.f9825d);
+            ViewUtility.dismissDialog(baseSSOLoginActivity, baseSSOLoginActivity.f9725d);
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onStart() {
             super.onStart();
-            BaseSSOLoginActivity.this.a(this.f9840a);
+            BaseSSOLoginActivity.this.a(this.f9740a);
         }
 
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
@@ -281,7 +281,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
 
     @Override // com.baidu.sapi2.activity.TitleActivity, android.app.Activity
     public void finish() {
-        ViewUtility.dismissDialog(this, this.f9825d);
+        ViewUtility.dismissDialog(this, this.f9725d);
         super.finish();
     }
 
@@ -298,7 +298,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     @Override // com.baidu.sapi2.activity.TitleActivity
     public void onClose() {
         super.onClose();
-        a(this.f9828g);
+        a(this.f9728g);
     }
 
     @Override // com.baidu.sapi2.social.SocialLoginBase, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity, android.app.Activity
@@ -338,11 +338,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
 
     private void d() {
         super.init();
-        this.f9828g = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
-        this.f9826e = getIntent().getStringExtra("extraJson");
-        this.f9827f = getIntent().getBooleanExtra(m, false);
-        this.f9829h.activity = this;
-        this.f9824c = new Handler();
+        this.f9728g = getIntent().getIntExtra(BaseActivity.EXTRA_PARAM_BUSINESS_FROM, 2001);
+        this.f9726e = getIntent().getStringExtra("extraJson");
+        this.f9727f = getIntent().getBooleanExtra(m, false);
+        this.f9729h.activity = this;
+        this.f9724c = new Handler();
     }
 
     private void e() {
@@ -377,11 +377,11 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f9826e)) {
+        if (TextUtils.isEmpty(this.f9726e)) {
             return "";
         }
         try {
-            return new JSONObject(this.f9826e).optString(l);
+            return new JSONObject(this.f9726e).optString(l);
         } catch (Exception e2) {
             Log.e(e2);
             return "";
@@ -396,7 +396,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         @Override // com.baidu.sapi2.shell.result.WebAuthResult
         public void finishActivity() {
             BaseSSOLoginActivity baseSSOLoginActivity = BaseSSOLoginActivity.this;
-            if (baseSSOLoginActivity.f9828g == 2001) {
+            if (baseSSOLoginActivity.f9728g == 2001) {
                 baseSSOLoginActivity.b(1001);
             } else {
                 CoreViewRouter.getInstance().release();
@@ -408,7 +408,7 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         public void finishActivity(boolean z) {
             super.finishActivity(z);
             BaseSSOLoginActivity baseSSOLoginActivity = BaseSSOLoginActivity.this;
-            if (baseSSOLoginActivity.f9828g == 2001) {
+            if (baseSSOLoginActivity.f9728g == 2001) {
                 baseSSOLoginActivity.b(1001);
             } else if (z) {
                 CoreViewRouter.getInstance().release();
@@ -444,10 +444,10 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
             intent.putExtra(AbstractThirdPartyService.EXTRA_RESULT_MSG, str);
             a(1002, intent);
         } else if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-            this.f9823b = true;
-            this.f9829h.setResultCode(i3);
-            this.f9829h.setResultMsg(str);
-            CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f9829h);
+            this.f9723b = true;
+            this.f9729h.setResultCode(i3);
+            this.f9729h.setResultMsg(str);
+            CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f9729h);
             CoreViewRouter.getInstance().release();
         }
         SapiUtils.hideSoftInput(this);
@@ -476,9 +476,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
         if (this.j != null) {
             int i2 = socialResponse.errorCode;
             if (i2 != 0 && i2 != 110000) {
-                this.f9824c.post(new g(socialResponse));
+                this.f9724c.post(new g(socialResponse));
             } else {
-                this.f9824c.post(new f(sapiAccountResponseToAccount));
+                this.f9724c.post(new f(sapiAccountResponseToAccount));
             }
         }
     }
@@ -510,9 +510,9 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
     public void a(String str, String str2) {
         if (this.sapiWebView == null) {
             if (CoreViewRouter.getInstance().getWebAuthListener() != null) {
-                this.f9829h.setResultCode(-202);
-                this.f9829h.setResultMsg("网络连接失败，请检查网络设置");
-                CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f9829h);
+                this.f9729h.setResultCode(-202);
+                this.f9729h.setResultMsg("网络连接失败，请检查网络设置");
+                CoreViewRouter.getInstance().getWebAuthListener().onFailure(this.f9729h);
             }
             CoreViewRouter.getInstance().release();
             finish();
@@ -534,10 +534,10 @@ public class BaseSSOLoginActivity extends SocialLoginBase {
 
     public void a(String str) {
         LoadingDialog createDialog = new LoadingDialog.Builder(this).setMessage(str).setCancelable(false).setCancelOutside(false).createDialog();
-        this.f9825d = createDialog;
+        this.f9725d = createDialog;
         if (createDialog.isShowing() || isFinishing()) {
             return;
         }
-        this.f9825d.show();
+        this.f9725d.show();
     }
 }

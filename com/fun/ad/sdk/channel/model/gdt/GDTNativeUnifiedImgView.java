@@ -19,10 +19,10 @@ import java.util.List;
 public class GDTNativeUnifiedImgView extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30721d;
+    public ImageView f30650d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f30722e;
+    public float f30651e;
 
     public GDTNativeUnifiedImgView(Context context) {
         this(context, null);
@@ -34,7 +34,7 @@ public class GDTNativeUnifiedImgView extends b {
 
     public GDTNativeUnifiedImgView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f30722e = 1.78f;
+        this.f30651e = 1.78f;
     }
 
     @Override // a.a.a.a.t.b.b.b
@@ -43,7 +43,7 @@ public class GDTNativeUnifiedImgView extends b {
         arrayList.add(this.f1296c);
         arrayList.add(((b) this).f1295b);
         arrayList.add(((b) this).f1294a);
-        arrayList.add(this.f30721d);
+        arrayList.add(this.f30650d);
         return arrayList;
     }
 
@@ -51,10 +51,10 @@ public class GDTNativeUnifiedImgView extends b {
     public void a(Activity activity, NativeUnifiedADData nativeUnifiedADData) {
         super.a(activity, nativeUnifiedADData);
         d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-        this.f30722e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+        this.f30651e = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
         Context context = getContext();
         String imgUrl = nativeUnifiedADData.getImgUrl();
-        ImageView imageView = this.f30721d;
+        ImageView imageView = this.f30650d;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + imgUrl, new Object[0]);
         } else if (context instanceof Activity) {
@@ -72,16 +72,16 @@ public class GDTNativeUnifiedImgView extends b {
     @Override // a.a.a.a.t.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30721d = (ImageView) findViewById(R.id.ad_img);
+        this.f30650d = (ImageView) findViewById(R.id.ad_img);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30721d.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30650d.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i6;
-        layoutParams.height = (int) (i6 / this.f30722e);
-        this.f30721d.setLayoutParams(layoutParams);
+        layoutParams.height = (int) (i6 / this.f30651e);
+        this.f30650d.setLayoutParams(layoutParams);
     }
 }

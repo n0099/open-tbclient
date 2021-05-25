@@ -14,11 +14,11 @@ import com.win.opensdk.z;
 public class PProvider extends ContentProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37196a;
+    public Context f37125a;
 
     public final void a() {
-        if (s1.g(this.f37196a) == 0) {
-            z.c(this.f37196a);
+        if (s1.g(this.f37125a) == 0) {
+            z.c(this.f37125a);
         }
     }
 
@@ -40,10 +40,10 @@ public class PProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public boolean onCreate() {
         Context context = getContext();
-        this.f37196a = context;
+        this.f37125a = context;
         if (context != null) {
             if (s1.g(context) == 0) {
-                z.c(this.f37196a);
+                z.c(this.f37125a);
                 return true;
             }
             return true;

@@ -27,22 +27,22 @@ import org.json.JSONObject;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f35028a;
+    public Context f34957a;
 
     /* renamed from: b  reason: collision with root package name */
-    public PushNotificationBuilder f35029b;
+    public PushNotificationBuilder f34958b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Handler f35030c;
+    public Handler f34959c;
 
     /* renamed from: d  reason: collision with root package name */
-    public NotificationManager f35031d;
+    public NotificationManager f34960d;
 
     public a(Context context, PushNotificationBuilder pushNotificationBuilder) {
-        this.f35029b = pushNotificationBuilder;
-        this.f35028a = context;
-        this.f35030c = new Handler(context.getMainLooper());
-        this.f35031d = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        this.f34958b = pushNotificationBuilder;
+        this.f34957a = context;
+        this.f34959c = new Handler(context.getMainLooper());
+        this.f34960d = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
     }
 
     private void a(Notification.Builder builder) {
@@ -52,7 +52,7 @@ public abstract class a implements c {
             notificationChannel.enableLights(true);
             notificationChannel.setLightColor(-16711936);
             notificationChannel.setShowBadge(true);
-            this.f35031d.createNotificationChannel(notificationChannel);
+            this.f34960d.createNotificationChannel(notificationChannel);
             builder.setChannelId("mz_push_notification_channel");
         }
     }
@@ -60,7 +60,7 @@ public abstract class a implements c {
     @TargetApi(23)
     private Icon b(String str) {
         try {
-            int identifier = this.f35028a.getPackageManager().getResourcesForApplication(str).getIdentifier(PushConstants.MZ_PUSH_NOTIFICATION_SMALL_ICON, "drawable", str);
+            int identifier = this.f34957a.getPackageManager().getResourcesForApplication(str).getIdentifier(PushConstants.MZ_PUSH_NOTIFICATION_SMALL_ICON, "drawable", str);
             if (identifier != 0) {
                 d.j.a.a.a.d("AbstractPushNotification", "get " + str + " smallIcon success resId " + identifier);
                 return Icon.createWithResource(str, identifier);
@@ -82,12 +82,12 @@ public abstract class a implements c {
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_SEQ_ID, messageV3.getSeqId());
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_DEVICE_ID, messageV3.getDeviceId());
         notification.extras.putString(PushConstants.NOTIFICATION_EXTRA_PUSH_TIMESTAMP, messageV3.getPushTimestamp());
-        if (!TextUtils.isEmpty(this.f35029b.getAppLabel())) {
-            d.j.a.a.a.b("AbstractPushNotification", "set app label " + this.f35029b.getAppLabel());
-            notification.extras.putString(PushConstants.EXTRA_SUBSTITUTE_APP_NAME, this.f35029b.getAppLabel());
+        if (!TextUtils.isEmpty(this.f34958b.getAppLabel())) {
+            d.j.a.a.a.b("AbstractPushNotification", "set app label " + this.f34958b.getAppLabel());
+            notification.extras.putString(PushConstants.EXTRA_SUBSTITUTE_APP_NAME, this.f34958b.getAppLabel());
             return;
         }
-        String b2 = b(this.f35028a, messageV3.getUploadDataPackageName());
+        String b2 = b(this.f34957a, messageV3.getUploadDataPackageName());
         d.j.a.a.a.b("AbstractPushNotification", "current package " + messageV3.getUploadDataPackageName() + " label is " + b2);
         if (TextUtils.isEmpty(b2)) {
             return;
@@ -96,7 +96,7 @@ public abstract class a implements c {
     }
 
     public Notification a(MessageV3 messageV3, PendingIntent pendingIntent, PendingIntent pendingIntent2) {
-        Notification.Builder builder = new Notification.Builder(this.f35028a);
+        Notification.Builder builder = new Notification.Builder(this.f34957a);
         a(builder, messageV3, pendingIntent, pendingIntent2);
         c(builder, messageV3);
         b(builder, messageV3);
@@ -114,10 +114,10 @@ public abstract class a implements c {
         intent.setData(Uri.parse("custom://" + System.currentTimeMillis()));
         intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, messageV3);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE);
-        intent.setClassName(messageV3.getUploadDataPackageName(), MzSystemUtils.findReceiver(this.f35028a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, messageV3.getUploadDataPackageName()));
+        intent.setClassName(messageV3.getUploadDataPackageName(), MzSystemUtils.findReceiver(this.f34957a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, messageV3.getUploadDataPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
         intent.setFlags(32);
-        return PendingIntent.getBroadcast(this.f35028a, 0, intent, 1073741824);
+        return PendingIntent.getBroadcast(this.f34957a, 0, intent, 1073741824);
     }
 
     public Bitmap a(Context context, String str) {
@@ -165,15 +165,15 @@ public abstract class a implements c {
             }
             d.j.a.a.a.b("AbstractPushNotification", "cannot get " + messageV3.getUploadDataPackageName() + " smallIcon");
         } else {
-            PushNotificationBuilder pushNotificationBuilder = this.f35029b;
+            PushNotificationBuilder pushNotificationBuilder = this.f34958b;
             if (pushNotificationBuilder != null && pushNotificationBuilder.getmStatusbarIcon() != 0) {
-                i2 = this.f35029b.getmStatusbarIcon();
+                i2 = this.f34958b.getmStatusbarIcon();
                 builder.setSmallIcon(i2);
                 builder.setContentIntent(pendingIntent);
                 builder.setDeleteIntent(pendingIntent2);
             }
         }
-        i2 = com.meizu.cloud.pushsdk.notification.c.c.l(this.f35028a);
+        i2 = com.meizu.cloud.pushsdk.notification.c.c.l(this.f34957a);
         builder.setSmallIcon(i2);
         builder.setContentIntent(pendingIntent);
         builder.setDeleteIntent(pendingIntent2);
@@ -194,7 +194,7 @@ public abstract class a implements c {
             messageV3.getmAdvanceSetting().getNotifyType().setSound(false);
             messageV3.getmAdvanceSetting().getNotifyType().setVibrate(false);
             final Notification a2 = a(messageV3, a(messageV3), b(messageV3));
-            this.f35030c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.notification.a.1
+            this.f34959c.postDelayed(new Runnable() { // from class: com.meizu.cloud.pushsdk.notification.a.1
                 @Override // java.lang.Runnable
                 public void run() {
                     notificationManager.notify(i2, a2);
@@ -204,7 +204,7 @@ public abstract class a implements c {
     }
 
     public boolean a() {
-        return Thread.currentThread() == this.f35028a.getMainLooper().getThread();
+        return Thread.currentThread() == this.f34957a.getMainLooper().getThread();
     }
 
     public PendingIntent b(MessageV3 messageV3) {
@@ -212,9 +212,9 @@ public abstract class a implements c {
         intent.setData(Uri.parse("custom://" + System.currentTimeMillis()));
         intent.putExtra(PushConstants.MZ_PUSH_PRIVATE_MESSAGE, messageV3);
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_DELETE);
-        intent.setClassName(messageV3.getPackageName(), MzSystemUtils.findReceiver(this.f35028a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, messageV3.getPackageName()));
+        intent.setClassName(messageV3.getPackageName(), MzSystemUtils.findReceiver(this.f34957a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, messageV3.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
-        return PendingIntent.getBroadcast(this.f35028a, 0, intent, 1073741824);
+        return PendingIntent.getBroadcast(this.f34957a, 0, intent, 1073741824);
     }
 
     public String b(Context context, String str) {
@@ -248,9 +248,9 @@ public abstract class a implements c {
         intent.putExtra(PushConstants.NOTIFICATION_EXTRA_PUSH_TIMESTAMP, messageV3.getPushTimestamp());
         intent.putExtra(PushConstants.NOTIFICATION_EXTRA_SHOW_PACKAGE_NAME, messageV3.getUploadDataPackageName());
         intent.putExtra("method", PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_NOTIFICATION_STATE);
-        intent.setClassName(messageV3.getPackageName(), MzSystemUtils.findReceiver(this.f35028a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, messageV3.getPackageName()));
+        intent.setClassName(messageV3.getPackageName(), MzSystemUtils.findReceiver(this.f34957a, PushConstants.MZ_PUSH_ON_MESSAGE_ACTION, messageV3.getPackageName()));
         intent.setAction(PushConstants.MZ_PUSH_ON_MESSAGE_ACTION);
-        return PendingIntent.getBroadcast(this.f35028a, 0, intent, 1073741824);
+        return PendingIntent.getBroadcast(this.f34957a, 0, intent, 1073741824);
     }
 
     public void c(Notification.Builder builder, MessageV3 messageV3) {
@@ -302,36 +302,36 @@ public abstract class a implements c {
             abs = a3.a();
             d.j.a.a.a.b("AbstractPushNotification", "server notify id " + abs);
             if (!TextUtils.isEmpty(a3.b())) {
-                int i2 = com.meizu.cloud.pushsdk.util.b.i(this.f35028a, messageV3.getUploadDataPackageName(), a3.b());
+                int i2 = com.meizu.cloud.pushsdk.util.b.i(this.f34957a, messageV3.getUploadDataPackageName(), a3.b());
                 d.j.a.a.a.b("AbstractPushNotification", "notifyKey " + a3.b() + " preference notifyId is " + i2);
                 if (i2 != 0) {
                     d.j.a.a.a.b("AbstractPushNotification", "use preference notifyId " + i2 + " and cancel it");
-                    this.f35031d.cancel(i2);
+                    this.f34960d.cancel(i2);
                 }
                 d.j.a.a.a.b("AbstractPushNotification", "store new notifyId " + abs + " by notifyKey " + a3.b());
-                com.meizu.cloud.pushsdk.util.b.b(this.f35028a, messageV3.getUploadDataPackageName(), a3.b(), abs);
+                com.meizu.cloud.pushsdk.util.b.b(this.f34957a, messageV3.getUploadDataPackageName(), a3.b(), abs);
             }
         }
         d.j.a.a.a.b("AbstractPushNotification", "current notify id " + abs);
         if (messageV3.isDiscard()) {
-            if (com.meizu.cloud.pushsdk.util.b.c(this.f35028a, messageV3.getPackageName()) == 0) {
-                com.meizu.cloud.pushsdk.util.b.a(this.f35028a, messageV3.getPackageName(), abs);
+            if (com.meizu.cloud.pushsdk.util.b.c(this.f34957a, messageV3.getPackageName()) == 0) {
+                com.meizu.cloud.pushsdk.util.b.a(this.f34957a, messageV3.getPackageName(), abs);
                 d.j.a.a.a.d("AbstractPushNotification", "no notification show so put notification id " + abs);
             }
             if (!TextUtils.isEmpty(messageV3.getTaskId())) {
-                if (com.meizu.cloud.pushsdk.util.b.d(this.f35028a, messageV3.getPackageName()) == 0) {
-                    com.meizu.cloud.pushsdk.util.b.b(this.f35028a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
-                } else if (Integer.valueOf(messageV3.getTaskId()).intValue() < com.meizu.cloud.pushsdk.util.b.d(this.f35028a, messageV3.getPackageName())) {
+                if (com.meizu.cloud.pushsdk.util.b.d(this.f34957a, messageV3.getPackageName()) == 0) {
+                    com.meizu.cloud.pushsdk.util.b.b(this.f34957a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
+                } else if (Integer.valueOf(messageV3.getTaskId()).intValue() < com.meizu.cloud.pushsdk.util.b.d(this.f34957a, messageV3.getPackageName())) {
                     d.j.a.a.a.d("AbstractPushNotification", "current package " + messageV3.getPackageName() + " taskid " + messageV3.getTaskId() + " dont show notification");
                     return;
                 } else {
-                    com.meizu.cloud.pushsdk.util.b.b(this.f35028a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
-                    abs = com.meizu.cloud.pushsdk.util.b.c(this.f35028a, messageV3.getPackageName());
+                    com.meizu.cloud.pushsdk.util.b.b(this.f34957a, messageV3.getPackageName(), Integer.valueOf(messageV3.getTaskId()).intValue());
+                    abs = com.meizu.cloud.pushsdk.util.b.c(this.f34957a, messageV3.getPackageName());
                 }
             }
             d.j.a.a.a.d("AbstractPushNotification", "current package " + messageV3.getPackageName() + " notificationId=" + abs + " taskId=" + messageV3.getTaskId());
         }
-        this.f35031d.notify(abs, a2);
-        a(this.f35031d, abs, messageV3);
+        this.f34960d.notify(abs, a2);
+        a(this.f34960d, abs, messageV3);
     }
 }

@@ -25,7 +25,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.sina.weibo.sdk.WbSdk;
 import com.sina.weibo.sdk.auth.AuthInfo;
-import d.a.j0.s.g.e;
+import d.a.m0.s.g.e;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes5.dex */
@@ -45,21 +45,21 @@ public class ShareStatic {
             }
             CommandShareHttpResMsg commandShareHttpResMsg = (CommandShareHttpResMsg) httpResponsedMessage;
             Object extra = commandShareHttpResMsg.getOrginalMessage().getExtra();
-            if (!(extra instanceof d.a.j0.r.m.a) || TextUtils.isEmpty(commandShareHttpResMsg.token)) {
+            if (!(extra instanceof d.a.m0.r.m.a) || TextUtils.isEmpty(commandShareHttpResMsg.token)) {
                 return;
             }
-            d.a.j0.r.m.a aVar = (d.a.j0.r.m.a) extra;
-            String replace = aVar.f49836a.n0.replace("TOKEN", commandShareHttpResMsg.token);
-            ShareItem shareItem = aVar.f49836a;
+            d.a.m0.r.m.a aVar = (d.a.m0.r.m.a) extra;
+            String replace = aVar.f49880a.n0.replace("TOKEN", commandShareHttpResMsg.token);
+            ShareItem shareItem = aVar.f49880a;
             shareItem.n0 = replace;
-            int i2 = aVar.f49838c;
+            int i2 = aVar.f49882c;
             if (i2 == 0) {
-                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.f49837b, aVar.f49836a, false);
-                shareDialogConfig.onCancelListener = aVar.f49839d;
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(aVar.f49881b, aVar.f49880a, false);
+                shareDialogConfig.onCancelListener = aVar.f49883d;
                 MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
                 return;
             }
-            d.a.j0.s.g.a.e(shareItem, aVar.f49837b, i2, aVar.f49839d);
+            d.a.m0.s.g.a.e(shareItem, aVar.f49881b, i2, aVar.f49883d);
         }
     }
 
@@ -68,7 +68,7 @@ public class ShareStatic {
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<e> run(CustomMessage<e> customMessage) {
-            return new CustomResponsedMessage<>(2001445, new d.a.k0.w2.c());
+            return new CustomResponsedMessage<>(2001445, new d.a.n0.x2.c());
         }
     }
 
@@ -76,7 +76,7 @@ public class ShareStatic {
     public static class c implements CustomMessageTask.CustomRunnable<ShareDialogConfig> {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<?> run(CustomMessage<ShareDialogConfig> customMessage) {
-            d.a.k0.w2.g.d dVar;
+            d.a.n0.x2.g.d dVar;
             ShareItem[] shareItemArr;
             if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof ShareDialogConfig)) {
                 MessageManager.getInstance().sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
@@ -94,16 +94,16 @@ public class ShareStatic {
                     return null;
                 } else {
                     if (data instanceof PbPostShareDialogConfig) {
-                        dVar = new d.a.k0.w2.g.c(data.getContext(), data.isLandscape, data.hideMode, ((PbPostShareDialogConfig) data).getPbPostData());
+                        dVar = new d.a.n0.x2.g.c(data.getContext(), data.isLandscape, data.hideMode, ((PbPostShareDialogConfig) data).getPbPostData());
                     } else if (data.isImageViewerDialog) {
-                        dVar = new d.a.k0.w2.g.b(data.getContext(), data.originImgText, data.showAddEmotion, data.showQRCode, data.dialogSaveToDiskListener, data.dialogAddToExpressionListener, data.dialogDownloadOriginListener, data.dialogRecognizePicListener, data.qrCodeClickListener, data.onWeChatEmotionShareListener);
+                        dVar = new d.a.n0.x2.g.b(data.getContext(), data.originImgText, data.showAddEmotion, data.showQRCode, data.dialogSaveToDiskListener, data.dialogAddToExpressionListener, data.dialogDownloadOriginListener, data.dialogRecognizePicListener, data.qrCodeClickListener, data.onWeChatEmotionShareListener);
                         if (data.shareItem != null) {
                             Bundle bundle = new Bundle();
                             bundle.putInt("obj_locate", 13);
                             data.shareItem.k(bundle);
                         }
                     } else {
-                        dVar = new d.a.k0.w2.g.d(data.getContext(), data.isLandscape, data.hideMode);
+                        dVar = new d.a.n0.x2.g.d(data.getContext(), data.isLandscape, data.hideMode);
                     }
                     dVar.L(data.shareItem, data.showLocation);
                     if (data.hasSpecialItem && (shareItemArr = data.specialShareItems) != null && shareItemArr.length > 0) {
@@ -162,7 +162,7 @@ public class ShareStatic {
             if (customMessage != null && (customMessage instanceof ImplicitShareMessage)) {
                 ImplicitShareMessage implicitShareMessage = (ImplicitShareMessage) customMessage;
                 if (implicitShareMessage.getContext() != null && implicitShareMessage.getData() != null) {
-                    new d.a.k0.w2.a(implicitShareMessage.getContext()).c(implicitShareMessage.getChannel(), implicitShareMessage.getData(), implicitShareMessage.isShowLocation());
+                    new d.a.n0.x2.a(implicitShareMessage.getContext()).c(implicitShareMessage.getChannel(), implicitShareMessage.getData(), implicitShareMessage.isShowLocation());
                 }
             }
             return null;
@@ -208,7 +208,7 @@ public class ShareStatic {
     }
 
     public static void h(ShareDialogConfig shareDialogConfig) {
-        d.a.k0.w2.g.a aVar = new d.a.k0.w2.g.a(shareDialogConfig.getContext(), shareDialogConfig.isLandscape, shareDialogConfig.hideMode);
+        d.a.n0.x2.g.a aVar = new d.a.n0.x2.g.a(shareDialogConfig.getContext(), shareDialogConfig.isLandscape, shareDialogConfig.hideMode);
         aVar.t(shareDialogConfig.shareItem, shareDialogConfig.showLocation);
         View.OnClickListener onClickListener = shareDialogConfig.copyLinkListener;
         if (onClickListener != null) {
@@ -233,7 +233,7 @@ public class ShareStatic {
         if (shareDialogConfig == null || shareDialogConfig.shareItem == null) {
             return;
         }
-        d.a.k0.k3.c cVar = new d.a.k0.k3.c(shareDialogConfig.getContext());
+        d.a.n0.l3.c cVar = new d.a.n0.l3.c(shareDialogConfig.getContext());
         cVar.m((!TbadkCoreApplication.isLogin() || shareDialogConfig.mIsAlaLive || shareDialogConfig.shareItem.f()) ? false : true);
         cVar.l(shareDialogConfig);
         cVar.k(shareDialogConfig.onDismissListener);

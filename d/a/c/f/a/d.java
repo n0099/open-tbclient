@@ -5,30 +5,30 @@ import android.graphics.drawable.BitmapDrawable;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public BitmapDrawable f39354a;
+    public BitmapDrawable f39018a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a.c.j.d.a f39355b;
+    public d.a.c.j.d.a f39019b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f39356c = true;
+    public volatile boolean f39020c = true;
 
     public int a() {
         if (e()) {
-            return this.f39354a.getIntrinsicHeight();
+            return this.f39018a.getIntrinsicHeight();
         }
         if (d()) {
-            return this.f39355b.m();
+            return this.f39019b.m();
         }
         return 0;
     }
 
     public int b() {
         if (e()) {
-            return this.f39354a.getIntrinsicWidth();
+            return this.f39018a.getIntrinsicWidth();
         }
         if (d()) {
-            return this.f39355b.r();
+            return this.f39019b.r();
         }
         return 0;
     }
@@ -38,17 +38,17 @@ public class d {
     }
 
     public boolean d() {
-        d.a.c.j.d.a aVar = this.f39355b;
+        d.a.c.j.d.a aVar = this.f39019b;
         return aVar != null && aVar.w();
     }
 
     public boolean e() {
-        BitmapDrawable bitmapDrawable = this.f39354a;
-        return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f39354a.getBitmap().isRecycled()) ? false : true;
+        BitmapDrawable bitmapDrawable = this.f39018a;
+        return (bitmapDrawable == null || bitmapDrawable.getBitmap() == null || this.f39018a.getBitmap().isRecycled()) ? false : true;
     }
 
     public void f() {
-        this.f39355b = null;
-        this.f39354a = null;
+        this.f39019b = null;
+        this.f39018a = null;
     }
 }

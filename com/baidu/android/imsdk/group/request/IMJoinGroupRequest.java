@@ -4,6 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.util.Pair;
 import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
@@ -11,16 +12,17 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class IMJoinGroupRequest extends GroupBaseHttpRequest {
+public class IMJoinGroupRequest extends FansGroupBaseHttpRequest {
     public static final String TAG = "IMJoinGroupRequest";
-    public long mAppid;
     public int mChannel;
     public String mGroupId;
     public long mInviterbuid;
+    public boolean mIsFansGroup;
     public String mKey;
     public String mWhy;
 
@@ -45,42 +47,51 @@ public class IMJoinGroupRequest extends GroupBaseHttpRequest {
                 str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(IMJoinGroupRequest.this.mKey);
-            if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
-                return;
+            if (removeListener instanceof BIMValueCallBack) {
+                ((BIMValueCallBack) removeListener).onResult(i2, str, IMJoinGroupRequest.this.mGroupId);
             }
-            ((BIMValueCallBack) removeListener).onResult(i2, str, IMJoinGroupRequest.this.mGroupId);
         }
     }
 
-    public IMJoinGroupRequest(Context context, String str, long j, String str2, long j2, int i2, String str3) {
+    public IMJoinGroupRequest(Context context, String str, boolean z, String str2, long j, int i2, String str3) {
         this.mContext = context;
-        this.mAppid = j;
         this.mKey = str;
-        this.mInviterbuid = j2;
+        this.mIsFansGroup = z;
+        this.mInviterbuid = j;
         this.mGroupId = str2;
         this.mChannel = i2;
         this.mWhy = str3;
     }
 
-    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
-    public String getContentType() {
-        return "application/x-www-form-urlencoded";
+    private String getFansGroupRequestParam() throws NoSuchAlgorithmException {
+        StringBuilder sb = new StringBuilder();
+        sb.append("method=join");
+        sb.append("&group_id=");
+        sb.append(this.mGroupId);
+        sb.append("&channel=");
+        sb.append(this.mChannel);
+        if (this.mInviterbuid > 0) {
+            sb.append("&invitor_uk=");
+            sb.append(Utility.transBDUID(String.valueOf(this.mInviterbuid)));
+        }
+        sb.append(getCommonParams());
+        return sb.toString();
     }
 
-    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
-    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+    private String getNormalGroupRequestParam() throws NoSuchAlgorithmException {
         String bduss = IMConfigInternal.getInstance().getIMConfig(this.mContext).getBduss(this.mContext);
+        long appid = AccountManager.getAppid(this.mContext);
         long currentTimeMillis = System.currentTimeMillis() / 1000;
         StringBuilder sb = new StringBuilder();
         sb.append("method=join");
         sb.append("&appid=");
-        sb.append(this.mAppid);
+        sb.append(appid);
         sb.append("&group_id=");
         sb.append(this.mGroupId);
         sb.append("&timestamp=");
         sb.append(currentTimeMillis);
         sb.append("&sign=");
-        sb.append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
+        sb.append(getMd5("" + currentTimeMillis + bduss + appid));
         if (this.mInviterbuid > 0) {
             sb.append("&inviter=");
             sb.append(this.mInviterbuid);
@@ -91,7 +102,31 @@ public class IMJoinGroupRequest extends GroupBaseHttpRequest {
         }
         sb.append("&channel=");
         sb.append(this.mChannel);
-        return sb.toString().getBytes();
+        return sb.toString();
+    }
+
+    @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getContentType() {
+        return "application/x-www-form-urlencoded";
+    }
+
+    @Override // com.baidu.android.imsdk.group.request.FansGroupBaseHttpRequest, com.baidu.android.imsdk.group.request.GroupBaseHttpRequest, com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public String getHost() {
+        if (getHostUrl() == null) {
+            return null;
+        }
+        if (this.mIsFansGroup) {
+            return getHostUrl() + "rest/2.0/im/groupchatv1";
+        }
+        return getHostUrl() + "rest/2.0/im/groupchat";
+    }
+
+    @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
+    public byte[] getRequestParameter() throws NoSuchAlgorithmException {
+        if (this.mIsFansGroup) {
+            return getFansGroupRequestParam().getBytes();
+        }
+        return getNormalGroupRequestParam().getBytes();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

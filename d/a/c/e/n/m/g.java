@@ -19,31 +19,31 @@ import java.util.concurrent.ConcurrentHashMap;
 public class g {
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile g f39159i;
+    public static volatile g f38823i;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f39161b;
+    public String f38825b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.a.c.e.n.b f39162c;
+    public d.a.c.e.n.b f38826c;
 
     /* renamed from: d  reason: collision with root package name */
-    public i f39163d;
+    public i f38827d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f39164e;
+    public f f38828e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.e.n.c f39165f;
+    public d.a.c.e.n.c f38829f;
 
     /* renamed from: a  reason: collision with root package name */
-    public final ConcurrentHashMap<String, d.a.c.e.n.h.a> f39160a = new ConcurrentHashMap<>();
+    public final ConcurrentHashMap<String, d.a.c.e.n.h.a> f38824a = new ConcurrentHashMap<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public Handler f39166g = new a(Looper.getMainLooper());
+    public Handler f38830g = new a(Looper.getMainLooper());
 
     /* renamed from: h  reason: collision with root package name */
-    public j f39167h = new e();
+    public j f38831h = new e();
 
     /* loaded from: classes.dex */
     public class a extends Handler {
@@ -56,7 +56,7 @@ public class g {
             if (message.what != 6) {
                 return;
             }
-            for (Map.Entry entry : g.this.f39160a.entrySet()) {
+            for (Map.Entry entry : g.this.f38824a.entrySet()) {
                 d.a.c.e.n.h.a aVar = (d.a.c.e.n.h.a) entry.getValue();
                 if (aVar.u() > 0) {
                     g.this.x(aVar, true, true);
@@ -72,28 +72,28 @@ public class g {
     public class b extends DiskFileOperate {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f39169a;
+        public final /* synthetic */ d.a.c.e.n.h.a f38833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ boolean f39170b;
+        public final /* synthetic */ boolean f38834b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f39171c;
+        public final /* synthetic */ boolean f38835c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public b(g gVar, String str, String str2, String str3, String str4, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar, boolean z, boolean z2) {
             super(str, str2, str3, str4, action);
-            this.f39169a = aVar;
-            this.f39170b = z;
-            this.f39171c = z2;
+            this.f38833a = aVar;
+            this.f38834b = z;
+            this.f38835c = z2;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f39169a.H(0L);
-                d.a.c.e.n.l.b.m().r(this.f39169a, this.f39170b, true, this.f39171c);
+                this.f38833a.H(0L);
+                d.a.c.e.n.l.b.m().r(this.f38833a, this.f38834b, true, this.f38835c);
             }
         }
     }
@@ -102,19 +102,19 @@ public class g {
     public class c extends DiskFileOperate {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f39172a;
+        public final /* synthetic */ d.a.c.e.n.h.a f38836a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public c(g gVar, String str, String str2, String str3, String str4, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar) {
             super(str, str2, str3, str4, action);
-            this.f39172a = aVar;
+            this.f38836a = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f39172a.H(0L);
+                this.f38836a.H(0L);
             }
         }
     }
@@ -123,19 +123,19 @@ public class g {
     public class d extends d.a.c.e.a.f.d {
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ d.a.c.e.n.h.a f39173c;
+        public final /* synthetic */ d.a.c.e.n.h.a f38837c;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public d(g gVar, String str, String str2, DiskFileOperate.Action action, d.a.c.e.n.h.a aVar) {
             super(str, str2, action);
-            this.f39173c = aVar;
+            this.f38837c = aVar;
         }
 
         @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
         public void callback(boolean z) {
             super.callback(z);
             if (z) {
-                this.f39173c.H(getFileInfo().length());
+                this.f38837c.H(getFileInfo().length());
             }
         }
     }
@@ -179,14 +179,14 @@ public class g {
     }
 
     public static g h() {
-        if (f39159i == null) {
+        if (f38823i == null) {
             synchronized (g.class) {
-                if (f39159i == null) {
-                    f39159i = new g();
+                if (f38823i == null) {
+                    f38823i = new g();
                 }
             }
         }
-        return f39159i;
+        return f38823i;
     }
 
     public void A(d.a.c.e.n.h.a aVar) {
@@ -201,7 +201,7 @@ public class g {
     }
 
     public void B(String str) {
-        this.f39161b = str;
+        this.f38825b = str;
     }
 
     public void C(String str, String str2, String str3, String str4, d.a.c.e.n.a aVar, Object... objArr) {
@@ -221,8 +221,8 @@ public class g {
         if (objArr != null && objArr.length > 0) {
             aVar.c(objArr);
         }
-        if (this.f39161b != null && !str.equals("stat")) {
-            aVar.b("uid", this.f39161b);
+        if (this.f38825b != null && !str.equals("stat")) {
+            aVar.b("uid", this.f38825b);
         }
         if (str3 != null && !str.equals("stat")) {
             aVar.b("c_logid", str3);
@@ -242,7 +242,7 @@ public class g {
             }
         }
         if (d.a.c.e.n.f.e() && d.a.c.e.n.f.d(i2)) {
-            aVar.d(this.f39165f);
+            aVar.d(this.f38829f);
             i2.c(aVar);
         }
         if (d.a.c.e.n.k.a.o().u(str, str2)) {
@@ -253,14 +253,14 @@ public class g {
     }
 
     public void e() {
-        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f39160a.entrySet()) {
+        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f38824a.entrySet()) {
             d.a.c.e.n.h.a value = entry.getValue();
-            d.a.c.e.n.b bVar = this.f39162c;
+            d.a.c.e.n.b bVar = this.f38826c;
             if (bVar != null) {
                 long logUploadTime = bVar.getLogUploadTime(value.o());
                 if (logUploadTime <= 0) {
                     logUploadTime = System.currentTimeMillis();
-                    this.f39162c.setLogUploadTime(value.o(), logUploadTime);
+                    this.f38826c.setLogUploadTime(value.o(), logUploadTime);
                 }
                 value.L(logUploadTime);
             }
@@ -286,17 +286,17 @@ public class g {
     }
 
     public void f() {
-        if (this.f39163d == null) {
-            this.f39163d = new i();
+        if (this.f38827d == null) {
+            this.f38827d = new i();
         }
-        this.f39163d.a();
+        this.f38827d.a();
     }
 
     public final void g() {
-        Message obtainMessage = this.f39166g.obtainMessage();
+        Message obtainMessage = this.f38830g.obtainMessage();
         obtainMessage.what = 6;
-        this.f39166g.removeMessages(6);
-        this.f39166g.sendMessageDelayed(obtainMessage, 3000L);
+        this.f38830g.removeMessages(6);
+        this.f38830g.sendMessageDelayed(obtainMessage, 3000L);
     }
 
     public synchronized d.a.c.e.n.h.a i(String str) {
@@ -304,40 +304,40 @@ public class g {
             return null;
         }
         String g2 = d.a.c.e.n.h.a.g(str);
-        d.a.c.e.n.h.a aVar = this.f39160a.get(g2);
+        d.a.c.e.n.h.a aVar = this.f38824a.get(g2);
         if (aVar == null) {
             if ("alert".equals(g2)) {
                 aVar = new d.a.c.e.n.m.a(null);
             } else if ("error".equals(g2)) {
-                aVar = new d.a.c.e.n.m.c(this.f39167h);
+                aVar = new d.a.c.e.n.m.c(this.f38831h);
             } else if ("dbg".equals(g2)) {
-                aVar = new d.a.c.e.n.m.b(this.f39167h);
+                aVar = new d.a.c.e.n.m.b(this.f38831h);
             } else if ("stat".equals(g2)) {
-                aVar = new d.a.c.e.n.m.f(this.f39167h);
+                aVar = new d.a.c.e.n.m.f(this.f38831h);
             } else if ("pfmonitor".equals(g2)) {
-                aVar = new d.a.c.e.n.m.e(this.f39167h);
+                aVar = new d.a.c.e.n.m.e(this.f38831h);
             } else {
-                aVar = new d.a.c.e.n.m.c(this.f39167h);
+                aVar = new d.a.c.e.n.m.c(this.f38831h);
             }
             aVar.I(g2);
-            this.f39160a.put(g2, aVar);
+            this.f38824a.put(g2, aVar);
         }
         return aVar;
     }
 
     public String j() {
-        return this.f39161b;
+        return this.f38825b;
     }
 
     public void k(d.a.c.e.n.c cVar) {
-        if (this.f39164e == null) {
-            this.f39164e = new f(this, null);
+        if (this.f38828e == null) {
+            this.f38828e = new f(this, null);
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction("adp.bdstatisticsmanager.account_changed");
-            BdBaseApplication.getInst().registerReceiver(this.f39164e, intentFilter);
+            BdBaseApplication.getInst().registerReceiver(this.f38828e, intentFilter);
         }
-        this.f39162c = BdStatisticsManager.getInstance().getBdLogSetting();
-        this.f39165f = cVar;
+        this.f38826c = BdStatisticsManager.getInstance().getBdLogSetting();
+        this.f38829f = cVar;
     }
 
     public final boolean l(d.a.c.e.n.h.a aVar) {
@@ -383,7 +383,7 @@ public class g {
     }
 
     public void o() {
-        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f39160a.entrySet()) {
+        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f38824a.entrySet()) {
             d.a.c.e.n.h.a value = entry.getValue();
             y(value);
             t(value);
@@ -391,7 +391,7 @@ public class g {
     }
 
     public void p() {
-        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f39160a.entrySet()) {
+        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f38824a.entrySet()) {
             d.a.c.e.n.h.a value = entry.getValue();
             A(value);
             v(value);
@@ -406,7 +406,7 @@ public class g {
     }
 
     public void r() {
-        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f39160a.entrySet()) {
+        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f38824a.entrySet()) {
             d.a.c.e.n.h.a value = entry.getValue();
             A(value);
             x(value, false, false);
@@ -415,7 +415,7 @@ public class g {
     }
 
     public void s() {
-        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f39160a.entrySet()) {
+        for (Map.Entry<String, d.a.c.e.n.h.a> entry : this.f38824a.entrySet()) {
             d.a.c.e.n.h.a value = entry.getValue();
             y(value);
             t(value);

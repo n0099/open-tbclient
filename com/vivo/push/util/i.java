@@ -9,45 +9,45 @@ import com.vivo.push.model.InsideNotificationItem;
 public final class i implements BaseNotifyDataAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public Resources f36775a;
+    public Resources f36704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f36776b;
+    public String f36705b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f36777c;
+    public String f36706c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f36778d;
+    public String f36707d;
 
     private int a(String str) {
         while (!TextUtils.isEmpty(str)) {
-            Resources resources = this.f36775a;
-            int identifier = resources.getIdentifier("vivo_push_rom" + str + "_notifyicon", "drawable", this.f36776b);
+            Resources resources = this.f36704a;
+            int identifier = resources.getIdentifier("vivo_push_rom" + str + "_notifyicon", "drawable", this.f36705b);
             if (identifier > 0) {
                 return identifier;
             }
             str = str.substring(0, str.length() - 1);
         }
-        return this.f36775a.getIdentifier("vivo_push_notifyicon", "drawable", this.f36776b);
+        return this.f36704a.getIdentifier("vivo_push_notifyicon", "drawable", this.f36705b);
     }
 
     private int b(String str) {
         while (!TextUtils.isEmpty(str)) {
-            Resources resources = this.f36775a;
-            int identifier = resources.getIdentifier("vivo_push_rom" + str + "_icon", "drawable", this.f36776b);
+            Resources resources = this.f36704a;
+            int identifier = resources.getIdentifier("vivo_push_rom" + str + "_icon", "drawable", this.f36705b);
             if (identifier > 0) {
                 return identifier;
             }
             str = str.substring(0, str.length() - 1);
         }
-        return this.f36775a.getIdentifier("vivo_push_icon", "drawable", this.f36776b);
+        return this.f36704a.getIdentifier("vivo_push_icon", "drawable", this.f36705b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyDataAdapter
     public final int getDefaultNotifyIcon() {
         int i2;
-        String str = this.f36778d;
+        String str = this.f36707d;
         while (true) {
             if (Build.VERSION.SDK_INT < 26) {
                 break;
@@ -56,7 +56,7 @@ public final class i implements BaseNotifyDataAdapter {
                 break;
             } else {
                 String str2 = "vivo_push_ard" + str + "_notifyicon";
-                i2 = this.f36775a.getIdentifier(str2, "drawable", this.f36776b);
+                i2 = this.f36704a.getIdentifier(str2, "drawable", this.f36705b);
                 if (i2 > 0) {
                     p.d("DefaultNotifyDataAdapter", "get notify icon : " + str2);
                     break;
@@ -66,13 +66,13 @@ public final class i implements BaseNotifyDataAdapter {
             }
         }
         i2 = -1;
-        return i2 != -1 ? i2 : a(this.f36777c);
+        return i2 != -1 ? i2 : a(this.f36706c);
     }
 
     @Override // com.vivo.push.util.BaseNotifyDataAdapter
     public final int getDefaultSmallIconId() {
         int i2;
-        String str = this.f36778d;
+        String str = this.f36707d;
         while (true) {
             if (Build.VERSION.SDK_INT < 26) {
                 break;
@@ -81,7 +81,7 @@ public final class i implements BaseNotifyDataAdapter {
                 break;
             } else {
                 String str2 = "vivo_push_ard" + str + "_icon";
-                i2 = this.f36775a.getIdentifier(str2, "drawable", this.f36776b);
+                i2 = this.f36704a.getIdentifier(str2, "drawable", this.f36705b);
                 if (i2 > 0) {
                     p.d("DefaultNotifyDataAdapter", "get small icon : " + str2);
                     break;
@@ -91,7 +91,7 @@ public final class i implements BaseNotifyDataAdapter {
             }
         }
         i2 = -1;
-        return i2 != -1 ? i2 : b(this.f36777c);
+        return i2 != -1 ? i2 : b(this.f36706c);
     }
 
     @Override // com.vivo.push.util.BaseNotifyDataAdapter
@@ -101,10 +101,10 @@ public final class i implements BaseNotifyDataAdapter {
 
     @Override // com.vivo.push.util.BaseNotifyDataAdapter
     public final void init(Context context) {
-        this.f36776b = context.getPackageName();
-        this.f36775a = context.getResources();
-        this.f36777c = k.a();
+        this.f36705b = context.getPackageName();
+        this.f36704a = context.getResources();
+        this.f36706c = k.a();
         String str = Build.VERSION.RELEASE;
-        this.f36778d = TextUtils.isEmpty(str) ? null : str.replace(".", "");
+        this.f36707d = TextUtils.isEmpty(str) ? null : str.replace(".", "");
     }
 }

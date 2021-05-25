@@ -14,14 +14,14 @@ import javax.net.ssl.HttpsURLConnection;
 public class h extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ String f6813a;
+    public final /* synthetic */ String f6713a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ e f6814b;
+    public final /* synthetic */ e f6714b;
 
     public h(e eVar, String str) {
-        this.f6814b = eVar;
-        this.f6813a = str;
+        this.f6714b = eVar;
+        this.f6713a = str;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:110:0x01da */
@@ -68,9 +68,9 @@ public class h extends Thread {
         ?? r122;
         Object obj;
         StringBuffer stringBuffer;
-        this.f6814b.a();
-        this.f6814b.b();
-        this.f6814b.f6807h = this.f6813a;
+        this.f6714b.a();
+        this.f6714b.b();
+        this.f6714b.f6707h = this.f6713a;
         HttpsURLConnection httpsURLConnection2 = null;
         InputStream inputStream2 = null;
         try {
@@ -94,20 +94,20 @@ public class h extends Thread {
         }
         try {
             try {
-                httpsURLConnection = (HttpsURLConnection) new URL(this.f6814b.f6807h).openConnection();
+                httpsURLConnection = (HttpsURLConnection) new URL(this.f6714b.f6707h).openConnection();
                 try {
                     httpsURLConnection.setInstanceFollowRedirects(false);
                     httpsURLConnection.setDoOutput(true);
                     httpsURLConnection.setDoInput(true);
-                    httpsURLConnection.setConnectTimeout(a.f6768b);
-                    httpsURLConnection.setReadTimeout(a.f6769c);
+                    httpsURLConnection.setConnectTimeout(a.f6668b);
+                    httpsURLConnection.setReadTimeout(a.f6669c);
                     httpsURLConnection.setRequestMethod("POST");
                     httpsURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpsURLConnection.setRequestProperty("Accept-Encoding", AsyncHttpClient.ENCODING_GZIP);
                     if (k.ax != null) {
                         httpsURLConnection.setRequestProperty("bd-loc-android", k.ax);
                     }
-                    for (Map.Entry<String, Object> entry : this.f6814b.k.entrySet()) {
+                    for (Map.Entry<String, Object> entry : this.f6714b.k.entrySet()) {
                         stringBuffer.append(entry.getKey());
                         stringBuffer.append("=");
                         stringBuffer.append(entry.getValue());
@@ -146,21 +146,21 @@ public class h extends Thread {
                                     try {
                                         outputStream.close();
                                     } catch (Exception unused) {
-                                        Log.d(a.f6767a, "close os IOException!");
+                                        Log.d(a.f6667a, "close os IOException!");
                                     }
                                 }
                                 if (inputStream != null) {
                                     try {
                                         inputStream.close();
                                     } catch (Exception unused2) {
-                                        Log.d(a.f6767a, "close is IOException!");
+                                        Log.d(a.f6667a, "close is IOException!");
                                     }
                                 }
                                 if (r12 != 0) {
                                     try {
                                         r12.close();
                                     } catch (Exception unused3) {
-                                        Log.d(a.f6767a, "close baos IOException!");
+                                        Log.d(a.f6667a, "close baos IOException!");
                                     }
                                 }
                                 throw th;
@@ -174,16 +174,16 @@ public class h extends Thread {
                                     }
                                     r122.write(bArr, 0, read);
                                 }
-                                this.f6814b.j = new String(r122.toByteArray(), "utf-8");
-                                this.f6814b.a(true);
+                                this.f6714b.j = new String(r122.toByteArray(), "utf-8");
+                                this.f6714b.a(true);
                                 inputStream2 = inputStream;
                                 r122 = r122;
                             } catch (Error e6) {
                                 e = e6;
                                 e.printStackTrace();
-                                Log.i(a.f6767a, "https NetworkCommunicationError!");
-                                this.f6814b.j = null;
-                                this.f6814b.a(false);
+                                Log.i(a.f6667a, "https NetworkCommunicationError!");
+                                this.f6714b.j = null;
+                                this.f6714b.a(false);
                                 if (httpsURLConnection != null) {
                                 }
                                 if (outputStream != null) {
@@ -196,9 +196,9 @@ public class h extends Thread {
                             } catch (Exception e7) {
                                 e = e7;
                                 e.printStackTrace();
-                                Log.i(a.f6767a, "https NetworkCommunicationException!");
-                                this.f6814b.j = null;
-                                this.f6814b.a(false);
+                                Log.i(a.f6667a, "https NetworkCommunicationException!");
+                                this.f6714b.j = null;
+                                this.f6714b.a(false);
                                 if (httpsURLConnection != null) {
                                 }
                                 if (outputStream != null) {
@@ -210,8 +210,8 @@ public class h extends Thread {
                                 r122.close();
                             }
                         } else {
-                            this.f6814b.j = null;
-                            this.f6814b.a(false);
+                            this.f6714b.j = null;
+                            this.f6714b.a(false);
                             r122 = 0;
                         }
                         if (httpsURLConnection != null) {
@@ -221,14 +221,14 @@ public class h extends Thread {
                             try {
                                 outputStream.close();
                             } catch (Exception unused4) {
-                                Log.d(a.f6767a, "close os IOException!");
+                                Log.d(a.f6667a, "close os IOException!");
                             }
                         }
                         if (inputStream2 != null) {
                             try {
                                 inputStream2.close();
                             } catch (Exception unused5) {
-                                Log.d(a.f6767a, "close is IOException!");
+                                Log.d(a.f6667a, "close is IOException!");
                             }
                         }
                         if (r122 == 0) {
@@ -253,9 +253,9 @@ public class h extends Thread {
                     outputStream = null;
                     r122 = outputStream;
                     e.printStackTrace();
-                    Log.i(a.f6767a, "https NetworkCommunicationError!");
-                    this.f6814b.j = null;
-                    this.f6814b.a(false);
+                    Log.i(a.f6667a, "https NetworkCommunicationError!");
+                    this.f6714b.j = null;
+                    this.f6714b.a(false);
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
                     }
@@ -263,14 +263,14 @@ public class h extends Thread {
                         try {
                             outputStream.close();
                         } catch (Exception unused6) {
-                            Log.d(a.f6767a, "close os IOException!");
+                            Log.d(a.f6667a, "close os IOException!");
                         }
                     }
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (Exception unused7) {
-                            Log.d(a.f6767a, "close is IOException!");
+                            Log.d(a.f6667a, "close is IOException!");
                         }
                     }
                     if (r122 == 0) {
@@ -283,9 +283,9 @@ public class h extends Thread {
                     outputStream = null;
                     r122 = outputStream;
                     e.printStackTrace();
-                    Log.i(a.f6767a, "https NetworkCommunicationException!");
-                    this.f6814b.j = null;
-                    this.f6814b.a(false);
+                    Log.i(a.f6667a, "https NetworkCommunicationException!");
+                    this.f6714b.j = null;
+                    this.f6714b.a(false);
                     if (httpsURLConnection != null) {
                         httpsURLConnection.disconnect();
                     }
@@ -293,14 +293,14 @@ public class h extends Thread {
                         try {
                             outputStream.close();
                         } catch (Exception unused8) {
-                            Log.d(a.f6767a, "close os IOException!");
+                            Log.d(a.f6667a, "close os IOException!");
                         }
                     }
                     if (inputStream != null) {
                         try {
                             inputStream.close();
                         } catch (Exception unused9) {
-                            Log.d(a.f6767a, "close is IOException!");
+                            Log.d(a.f6667a, "close is IOException!");
                         }
                     }
                     if (r122 == 0) {
@@ -320,9 +320,9 @@ public class h extends Thread {
                 outputStream = httpsURLConnection;
                 r122 = outputStream;
                 e.printStackTrace();
-                Log.i(a.f6767a, "https NetworkCommunicationError!");
-                this.f6814b.j = null;
-                this.f6814b.a(false);
+                Log.i(a.f6667a, "https NetworkCommunicationError!");
+                this.f6714b.j = null;
+                this.f6714b.a(false);
                 if (httpsURLConnection != null) {
                 }
                 if (outputStream != null) {
@@ -339,9 +339,9 @@ public class h extends Thread {
                 outputStream = httpsURLConnection;
                 r122 = outputStream;
                 e.printStackTrace();
-                Log.i(a.f6767a, "https NetworkCommunicationException!");
-                this.f6814b.j = null;
-                this.f6814b.a(false);
+                Log.i(a.f6667a, "https NetworkCommunicationException!");
+                this.f6714b.j = null;
+                this.f6714b.a(false);
                 if (httpsURLConnection != null) {
                 }
                 if (outputStream != null) {
@@ -368,7 +368,7 @@ public class h extends Thread {
             }
             r122.close();
         } catch (Exception unused10) {
-            Log.d(a.f6767a, "close baos IOException!");
+            Log.d(a.f6667a, "close baos IOException!");
         }
     }
 }

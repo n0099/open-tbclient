@@ -5,9 +5,13 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.account.AccountManager;
+import com.baidu.android.imsdk.chatmessage.ChatMsgManager;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
+import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.messages.FansInfoUpdateMsg;
+import com.baidu.android.imsdk.chatmessage.messages.GroupDisbandMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupInfoChangeMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupMemberAddMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupMemberDelMsg;
@@ -27,6 +31,7 @@ import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.bumptech.glide.load.engine.GlideException;
 import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public class GroupMessageManagerImpl {
     public static final String TAG = "GroupMessageManagerImpl";
@@ -60,7 +65,7 @@ public class GroupMessageManagerImpl {
         }
         GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberAddMsg.getGroupnum());
         if (memberBuids.contains(AccountManager.getUid(mContext))) {
-            GroupInfoSyncManagerImpl.activeSyncAllMembers(mContext, valueOf);
+            GroupInfoSyncManagerImpl.activeSyncAllMembers(mContext, valueOf, chatMsg.getGroupType());
         } else {
             GroupInfoSyncManagerImpl.addSyncGroupMemeber(valueOf, memberBuids);
         }
@@ -90,9 +95,7 @@ public class GroupMessageManagerImpl {
         try {
             GroupInfoDAOImpl.deletedGroupMember(mContext, valueOf);
             LogUtils.d(TAG, "handleDeleteGroup quitgroup");
-            GroupInfoDAOImpl.quitGroup(mContext, valueOf);
-            DialogRecordDBManager.getInstance(mContext).delete(1, groupid);
-            ConversationManagerImpl.getInstance(mContext).deleteConversation(1, valueOf);
+            quitGroupByGroupId(groupid);
             ArrayList<ChatMsg> arrayList = new ArrayList<>();
             arrayList.add(chatMsg);
             ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
@@ -114,11 +117,7 @@ public class GroupMessageManagerImpl {
         if (memberBuids.contains(AccountManager.getUid(mContext))) {
             if (chatMsg.isStarMessage()) {
                 try {
-                    GroupInfoDAOImpl.quitGroup(mContext, valueOf);
-                    String str2 = TAG;
-                    LogUtils.d(str2, "handleDeleteMemberMsg stargroup " + valueOf);
-                    DialogRecordDBManager.getInstance(mContext).delete(1, groupMemberDelMsg.getContacter());
-                    ConversationManagerImpl.getInstance(mContext).deleteConversation(1, valueOf);
+                    quitGroupByGroupId(groupMemberDelMsg.getContacter());
                 } catch (Exception e2) {
                     LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
                     new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
@@ -128,11 +127,175 @@ public class GroupMessageManagerImpl {
                 ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
                 return;
             }
-            String str3 = TAG;
-            LogUtils.d(str3, "handleDeleteMemberMsg " + valueOf + " loginuser was kicked out");
+            String str2 = TAG;
+            LogUtils.d(str2, "handleDeleteMemberMsg " + valueOf + " loginuser was kicked out");
             GroupInfoDAOImpl.deletedGroupMember(mContext, valueOf);
             GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, 0);
         }
+    }
+
+    private void handleDisbandMsg(ChatMsg chatMsg) {
+        GroupDisbandMsg groupDisbandMsg = (GroupDisbandMsg) chatMsg;
+        try {
+            LogUtils.d(TAG, "GroupMessageManager GroupDisbandMsg");
+            quitGroupByGroupId(groupDisbandMsg.getContacter());
+            ArrayList<ChatMsg> arrayList = new ArrayList<>();
+            arrayList.add(chatMsg);
+            ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList);
+        } catch (Exception e2) {
+            LogUtils.d(TAG, "handleDisbandMsg exception, this is normal for device sync logic");
+            new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
+        }
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    private void handleFansGroupSystemMessage(ArrayList<ChatMsg> arrayList) {
+        long j;
+        Iterator<ChatMsg> it;
+        ArrayList<String> arrayList2;
+        long max;
+        if (arrayList != null && arrayList.size() != 0) {
+            String valueOf = String.valueOf(arrayList.get(0).getContacter());
+            ArrayList<String> arrayList3 = new ArrayList<>();
+            arrayList3.add(valueOf);
+            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList3);
+            long j2 = Long.MAX_VALUE;
+            if (groupInfo == null || groupInfo.size() <= 0) {
+                j = Long.MAX_VALUE;
+            } else {
+                GroupInfo groupInfo2 = groupInfo.get(0);
+                j2 = groupInfo2.getMembersVersion();
+                j = groupInfo2.getInfoVersion();
+            }
+            Iterator<ChatMsg> it2 = arrayList.iterator();
+            long j3 = 0;
+            long j4 = 0;
+            while (it2.hasNext()) {
+                ChatMsg next = it2.next();
+                next.setChatType(57);
+                int msgType = next.getMsgType();
+                switch (msgType) {
+                    case 1002:
+                        it = it2;
+                        arrayList2 = arrayList3;
+                        GroupMemberJoinMsg groupMemberJoinMsg = (GroupMemberJoinMsg) next;
+                        if (TextUtils.equals(groupMemberJoinMsg.getMemberBuid(), AccountManager.getUid(mContext))) {
+                            GroupInfoDAOImpl.setGroupState(mContext, valueOf, 0);
+                        }
+                        if (groupMemberJoinMsg.getMemberVersion() > j2) {
+                            GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberJoinMsg.getGroupnum());
+                        }
+                        GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
+                        j4 = Math.max(groupMemberJoinMsg.getMemberVersion(), j4);
+                        continue;
+                        it2 = it;
+                        arrayList3 = arrayList2;
+                    case 1003:
+                        it = it2;
+                        arrayList2 = arrayList3;
+                        GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) next;
+                        String quitBuid = groupMemberQuitMsg.getQuitBuid();
+                        if (TextUtils.equals(quitBuid, AccountManager.getUid(mContext))) {
+                            quitGroupByGroupId(groupMemberQuitMsg.getContacter());
+                            break;
+                        } else {
+                            j4 = Math.max(groupMemberQuitMsg.getMemberVersion(), j4);
+                            if (groupMemberQuitMsg.getMemberVersion() > j2) {
+                                ArrayList arrayList4 = new ArrayList();
+                                arrayList4.add(quitBuid);
+                                GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberQuitMsg.getGroupnum());
+                                GroupInfoDAOImpl.delGroupMember(mContext, valueOf, arrayList4);
+                            }
+                            GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
+                            break;
+                        }
+                    case 1004:
+                        it = it2;
+                        arrayList2 = arrayList3;
+                        GroupMemberDelMsg groupMemberDelMsg = (GroupMemberDelMsg) next;
+                        ArrayList<String> memberBuids = groupMemberDelMsg.getMemberBuids();
+                        if (memberBuids.contains(AccountManager.getUid(mContext))) {
+                            quitGroupByGroupId(groupMemberDelMsg.getContacter());
+                            ArrayList<ChatMsg> arrayList5 = new ArrayList<>();
+                            arrayList5.add(next);
+                            ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList5);
+                            break;
+                        } else {
+                            if (groupMemberDelMsg.getMemberVersion() > j2) {
+                                GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberDelMsg.getGroupnum());
+                                GroupInfoDAOImpl.delGroupMember(mContext, valueOf, memberBuids);
+                            }
+                            max = Math.max(groupMemberDelMsg.getMemberVersion(), j4);
+                            GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
+                            j4 = max;
+                            break;
+                        }
+                    case 1005:
+                        it = it2;
+                        arrayList2 = arrayList3;
+                        GroupInfoChangeMsg groupInfoChangeMsg = (GroupInfoChangeMsg) next;
+                        if (groupInfoChangeMsg.getInfoVersion() > j) {
+                            GroupInfoDAOImpl.modifyGroupName(mContext, valueOf, groupInfoChangeMsg.getGroupname());
+                            ConversationManagerImpl.getInstance(mContext).updateConversationName(groupInfoChangeMsg.getGroupname(), 1, valueOf);
+                        }
+                        j3 = Math.max(groupInfoChangeMsg.getInfoVersion(), j3);
+                        break;
+                    default:
+                        switch (msgType) {
+                            case 1012:
+                                GroupMemberNameChangeMsg groupMemberNameChangeMsg = (GroupMemberNameChangeMsg) next;
+                                if (groupMemberNameChangeMsg.getMemberVersion() > j2) {
+                                    String memberChangedid = groupMemberNameChangeMsg.memberChangedid();
+                                    it = it2;
+                                    GroupInfoDAOImpl.updateMemberNickName(mContext, valueOf, memberChangedid, groupMemberNameChangeMsg.getNickname());
+                                    arrayList2 = arrayList3;
+                                    ChatSession chatSession = ChatMsgManager.getChatSession(mContext, 1, next.getContacter());
+                                    if (chatSession != null && TextUtils.equals(memberChangedid, String.valueOf(chatSession.getLastMsgUid()))) {
+                                        chatSession.setLastMsgName(groupMemberNameChangeMsg.getNickname());
+                                        ChatMessageDBManager.getInstance(mContext).updateChatSession(1, chatSession);
+                                    }
+                                } else {
+                                    it = it2;
+                                    arrayList2 = arrayList3;
+                                }
+                                max = Math.max(groupMemberNameChangeMsg.getMemberVersion(), j4);
+                                j4 = max;
+                                break;
+                            case 1013:
+                                handleDisbandMsg(next);
+                                it = it2;
+                                arrayList2 = arrayList3;
+                                break;
+                            case 1014:
+                                j3 = Math.max(((FansInfoUpdateMsg) next).getInfoVersion(), j3);
+                                it = it2;
+                                arrayList2 = arrayList3;
+                                continue;
+                            default:
+                                it = it2;
+                                arrayList2 = arrayList3;
+                                break;
+                        }
+                        it2 = it;
+                        arrayList3 = arrayList2;
+                        break;
+                }
+                it2 = it;
+                arrayList3 = arrayList2;
+            }
+            ArrayList<String> arrayList6 = arrayList3;
+            if (j < j3) {
+                LogUtils.d(TAG, "getFansGroupInfo sInfoVersion = " + j + " maxInfoVersion = " + j3);
+                GroupManagerImpl.getInstance(mContext).getFansGroupInfo(arrayList6, true, null);
+            }
+            if (j2 < j4) {
+                LogUtils.d(TAG, "getFansGroupMember sMemberVersion = " + j2 + " maxMemberVersion = " + j4);
+                GroupManagerImpl.getInstance(mContext).getFansGroupMember(valueOf, null, true, null);
+                return;
+            }
+            return;
+        }
+        LogUtils.d(TAG, "handleGroupSystemMessage msg is null");
     }
 
     private void handleGroupSystemMessage(ChatMsg chatMsg) {
@@ -265,10 +428,7 @@ public class GroupMessageManagerImpl {
         String newMaster = groupMemberQuitMsg.getNewMaster();
         if (quitBuid != null && quitBuid.equals(AccountManager.getUid(mContext))) {
             try {
-                GroupInfoDAOImpl.quitGroup(mContext, valueOf);
-                LogUtils.d(TAG, "handleQuitGroupMsg quitgroup");
-                DialogRecordDBManager.getInstance(mContext).delete(1, groupMemberQuitMsg.getContacter());
-                ConversationManagerImpl.getInstance(mContext).deleteConversation(1, valueOf);
+                quitGroupByGroupId(groupMemberQuitMsg.getContacter());
                 return;
             } catch (Exception e2) {
                 LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
@@ -298,7 +458,7 @@ public class GroupMessageManagerImpl {
         String str2 = TAG;
         LogUtils.d(str2, "handlestarJoinGroupMsg " + valueOf + GlideException.IndentedAppendable.INDENT + memberBuid);
         if (memberBuid.contains(AccountManager.getUid(mContext))) {
-            GroupInfoSyncManagerImpl.activeSyncAllMembers(mContext, valueOf);
+            GroupInfoSyncManagerImpl.activeSyncAllMembers(mContext, valueOf, chatMsg.getGroupType());
             GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
             if (chatMsg.isStarMessage()) {
                 GroupInfoDAOImpl.setGroupDisturb(mContext, valueOf, 1);
@@ -327,14 +487,27 @@ public class GroupMessageManagerImpl {
     private boolean isExistChatMsg(ArrayList<ChatMsg> arrayList) {
         for (int i2 = 0; i2 < arrayList.size(); i2++) {
             int msgType = arrayList.get(i2).getMsgType();
+            int groupType = arrayList.get(i2).getGroupType();
             if ((msgType >= 0 && msgType <= 100) || msgType == 2001) {
                 return true;
             }
             if ((msgType >= 1010 && msgType <= 1011) || msgType == 1007) {
                 return true;
             }
+            if (msgType == 1005 && groupType == 3) {
+                return true;
+            }
         }
         return false;
+    }
+
+    private void quitGroupByGroupId(long j) {
+        String valueOf = String.valueOf(j);
+        GroupInfoDAOImpl.quitGroup(mContext, valueOf);
+        String str = TAG;
+        LogUtils.d(str, "quitGroupByGroupId groupID = " + j);
+        DialogRecordDBManager.getInstance(mContext).delete(1, j);
+        ConversationManagerImpl.getInstance(mContext).deleteConversation(1, valueOf);
     }
 
     private void recordLastMsg(String str, ChatObject chatObject, boolean z) {
@@ -357,7 +530,7 @@ public class GroupMessageManagerImpl {
         int clickState = Utility.getClickState(chatMsg);
         String str4 = TAG;
         LogUtils.e(str4, str + "   lastMsg : " + chatMsg.toString());
-        ChatMessageDBManager.getInstance(mContext).recordLastMsg(chatObject, recommendDescription, chatMsg.getMsgTime(), unReadCount, 0, clickState, chatMsg.isStarMessage(), null);
+        ChatMessageDBManager.getInstance(mContext).recordLastMsg(chatObject, recommendDescription, chatMsg.getMsgTime(), unReadCount, 0, clickState, chatMsg.isStarMessage(), null, chatMsg.getSenderUid());
     }
 
     public ArrayList<ChatMsg> addMsgs(ArrayList<ChatMsg> arrayList, boolean z) {
@@ -366,37 +539,36 @@ public class GroupMessageManagerImpl {
             ChatMsg chatMsg = arrayList.get(arrayList.size() - 1);
             if (chatMsg.getMsgType() == 1003) {
                 GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) chatMsg;
-                String valueOf = String.valueOf(groupMemberQuitMsg.getContacter());
                 String quitBuid = groupMemberQuitMsg.getQuitBuid();
                 if (quitBuid != null && quitBuid.equals(AccountManager.getUid(mContext))) {
                     try {
-                        LogUtils.d(TAG, "GroupMessageManager quitgroup");
-                        GroupInfoDAOImpl.quitGroup(mContext, valueOf);
-                        DialogRecordDBManager.getInstance(mContext).delete(1, groupMemberQuitMsg.getContacter());
-                        ConversationManagerImpl.getInstance(mContext).deleteConversation(1, valueOf);
+                        quitGroupByGroupId(groupMemberQuitMsg.getContacter());
                     } catch (Exception e2) {
                         LogUtils.d(TAG, "handleQuitGroupMsg exception, this is normal for device sync logic");
                         new IMTrack.CrashBuilder(mContext).exception(Log.getStackTraceString(e2)).build();
                     }
                     return arrayList;
                 }
+            } else if (chatMsg.getMsgType() == 1013) {
+                handleDisbandMsg(chatMsg);
+                return arrayList;
             }
             LogUtils.d(TAG, "STAR receive group message ");
             ChatMsg chatMsg2 = arrayList.get(0);
             boolean isStarMessage = chatMsg2.isStarMessage();
-            String valueOf2 = String.valueOf(String.valueOf(chatMsg2.getContacter()));
-            if (!GroupInfoDAOImpl.isExistGroup(mContext, valueOf2)) {
+            String valueOf = String.valueOf(chatMsg2.getContacter());
+            if (!GroupInfoDAOImpl.isExistGroup(mContext, valueOf)) {
                 String str = TAG;
-                LogUtils.d(str, "STAR table " + valueOf2 + " is not exist");
-                i2 = GroupInfoDAOImpl.createGroup(mContext, valueOf2);
+                LogUtils.d(str, "STAR table " + valueOf + " is not exist");
+                i2 = GroupInfoDAOImpl.createGroup(mContext, valueOf);
                 if (isStarMessage) {
-                    GroupInfoDAOImpl.setGroupType(mContext, valueOf2, 2);
-                    GroupInfoDAOImpl.setGroupDisturb(mContext, valueOf2, 1);
+                    GroupInfoDAOImpl.setGroupType(mContext, valueOf, 2);
+                    GroupInfoDAOImpl.setGroupDisturb(mContext, valueOf, 1);
                 }
-                GroupInfoSyncManagerImpl.activeSyncAllMembers(mContext, valueOf2);
+                GroupInfoSyncManagerImpl.activeSyncAllMembers(mContext, valueOf, chatMsg2.getGroupType());
             } else {
                 String str2 = TAG;
-                LogUtils.d(str2, "STAR group table " + valueOf2 + " has exist");
+                LogUtils.d(str2, "STAR group table " + valueOf + " has exist");
                 i2 = 0;
             }
             if (i2 < 0) {
@@ -407,42 +579,47 @@ public class GroupMessageManagerImpl {
                 LogUtils.e(TAG, "STAR group id is 0, return null");
                 return null;
             } else {
-                ChatObject chatObject = new ChatObject(mContext, chatMsg2.getCategory(), chatMsg2.getContacter(), chatMsg2.getPaid(), 3);
+                int i3 = chatMsg2.getGroupType() == 3 ? 57 : 3;
+                ChatObject chatObject = new ChatObject(mContext, chatMsg2.getCategory(), chatMsg2.getContacter(), chatMsg2.getPaid(), i3);
                 String str4 = TAG;
                 LogUtils.d(str4, "STAR receive group message, size is " + arrayList.size());
-                if (arrayList != null && arrayList.size() > 0) {
-                    for (int i3 = 0; i3 < arrayList.size(); i3++) {
-                        ChatMsg chatMsg3 = arrayList.get(i3);
-                        handleGroupSystemMessage(chatMsg3);
-                        chatMsg3.setChatType(3);
+                if (arrayList.size() > 0) {
+                    if (i3 != 57) {
+                        for (int i4 = 0; i4 < arrayList.size(); i4++) {
+                            ChatMsg chatMsg3 = arrayList.get(i4);
+                            handleGroupSystemMessage(chatMsg3);
+                            chatMsg3.setChatType(3);
+                        }
+                    } else {
+                        handleFansGroupSystemMessage(arrayList);
                     }
-                    GroupInfoSyncManagerImpl.activeSyncGroup(mContext, valueOf2);
-                    ArrayList<Long> addChatMsg = GroupMessageDAOImpl.addChatMsg(mContext, valueOf2, arrayList);
+                    GroupInfoSyncManagerImpl.activeSyncGroup(mContext, valueOf);
+                    ArrayList<Long> addChatMsg = GroupMessageDAOImpl.addChatMsg(mContext, valueOf, arrayList);
                     String str5 = TAG;
-                    LogUtils.d(str5, "msgs : ret " + addChatMsg + ",groupid: " + valueOf2);
+                    LogUtils.d(str5, "msgs : ret " + addChatMsg + ",groupid: " + valueOf);
                     String str6 = TAG;
-                    LogUtils.d(str6, "msgs : msgs.size() " + arrayList.size() + ",groupid: " + valueOf2);
+                    LogUtils.d(str6, "msgs : msgs.size() " + arrayList.size() + ",groupid: " + valueOf);
                     if (addChatMsg == null) {
                         String str7 = TAG;
-                        LogUtils.d(str7, "STAR add chat msg error. ret " + addChatMsg + ",groupid: " + valueOf2);
+                        LogUtils.d(str7, "STAR add chat msg error. ret " + addChatMsg + ",groupid: " + valueOf);
                         return null;
                     } else if (addChatMsg.size() == 1 && addChatMsg.get(0).longValue() < 0) {
                         String str8 = TAG;
-                        LogUtils.d(str8, "STAR add chat msg error. return.  ret = " + addChatMsg + ",groupid: " + valueOf2);
+                        LogUtils.d(str8, "STAR add chat msg error. return.  ret = " + addChatMsg + ",groupid: " + valueOf);
                         return arrayList;
                     } else {
                         if (addChatMsg.size() != arrayList.size()) {
                             String str9 = TAG;
-                            LogUtils.e(str9, addChatMsg.size() + " ret.size() -- msgs.size()" + arrayList.size() + ",groupid: " + valueOf2);
+                            LogUtils.e(str9, addChatMsg.size() + " ret.size() -- msgs.size()" + arrayList.size() + ",groupid: " + valueOf);
                         }
-                        boolean isActiveGroup = GroupMessageDAOImpl.isActiveGroup(mContext, valueOf2);
+                        boolean isActiveGroup = GroupMessageDAOImpl.isActiveGroup(mContext, valueOf);
                         boolean isExistChatMsg = isActiveGroup ? false : isExistChatMsg(arrayList);
                         String str10 = TAG;
-                        LogUtils.d(str10, "isActive : " + isActiveGroup + ",isExistChatMsg : " + isExistChatMsg + ",groupid: " + valueOf2);
+                        LogUtils.d(str10, "isActive : " + isActiveGroup + ",isExistChatMsg : " + isExistChatMsg + ",groupid: " + valueOf);
                         if (isActiveGroup || isExistChatMsg) {
-                            recordLastMsg(valueOf2, chatObject, isStarMessage);
+                            recordLastMsg(valueOf, chatObject, isStarMessage);
                             if (!isActiveGroup) {
-                                GroupInfoDAOImpl.activeGroupState(mContext, valueOf2);
+                                GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
                             }
                         }
                     }
@@ -471,5 +648,36 @@ public class GroupMessageManagerImpl {
             return null;
         }
         return GroupMessageDAOImpl.fetchGroupSystemMsg(mContext, str, chatMsg, i2, z);
+    }
+
+    public boolean isValidGroup(ChatMsg chatMsg) {
+        int msgType = chatMsg.getMsgType();
+        if (msgType == 1003 || msgType == 1013 || msgType == 1004) {
+            long contacter = chatMsg.getContacter();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(String.valueOf(contacter));
+            ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
+            boolean z = groupInfo == null || groupInfo.size() == 0;
+            if (msgType == 1003) {
+                if (TextUtils.equals(((GroupMemberQuitMsg) chatMsg).getQuitBuid(), AccountManager.getUid(mContext))) {
+                    if (!z) {
+                        quitGroupByGroupId(contacter);
+                    }
+                    return false;
+                }
+            } else if (msgType == 1013) {
+                if (!z) {
+                    quitGroupByGroupId(contacter);
+                }
+                return false;
+            } else if (msgType == 1004 && ((GroupMemberDelMsg) chatMsg).getMemberBuids().contains(AccountManager.getUid(mContext))) {
+                if (!z) {
+                    quitGroupByGroupId(contacter);
+                }
+                return false;
+            }
+            return true;
+        }
+        return true;
     }
 }

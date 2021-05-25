@@ -22,76 +22,76 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     public static final /* synthetic */ KProperty[] k = {Reflection.property1(new PropertyReference1Impl(Reflection.getOrCreateKotlinClass(VideoMiddlePageViewModel.class), "model", "getModel()Lcom/baidu/tieba/frs/videomiddlepage/VideoMiddleModel;"))};
 
     /* renamed from: a  reason: collision with root package name */
-    public final MutableLiveData<List<BaseCardInfo>> f15915a = new MutableLiveData<>();
+    public final MutableLiveData<List<BaseCardInfo>> f15818a = new MutableLiveData<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public final MutableLiveData<Boolean> f15916b = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> f15819b = new MutableLiveData<>();
 
     /* renamed from: c  reason: collision with root package name */
-    public final MutableLiveData<Boolean> f15917c = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> f15820c = new MutableLiveData<>();
 
     /* renamed from: d  reason: collision with root package name */
-    public final MutableLiveData<String> f15918d = new MutableLiveData<>();
+    public final MutableLiveData<String> f15821d = new MutableLiveData<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public final MutableLiveData<Integer> f15919e = new MutableLiveData<>();
+    public final MutableLiveData<Integer> f15822e = new MutableLiveData<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final MutableLiveData<Configuration> f15920f = new MutableLiveData<>();
+    public final MutableLiveData<Configuration> f15823f = new MutableLiveData<>();
 
     /* renamed from: g  reason: collision with root package name */
-    public final Lazy f15921g = LazyKt__LazyJVMKt.lazy(new VideoMiddlePageViewModel$model$2(this));
+    public final Lazy f15824g = LazyKt__LazyJVMKt.lazy(new VideoMiddlePageViewModel$model$2(this));
 
     /* renamed from: h  reason: collision with root package name */
-    public String f15922h = "";
+    public String f15825h = "";
 
     /* renamed from: i  reason: collision with root package name */
-    public String f15923i = "";
+    public String f15826i = "";
     public final TbPageContext<?> j;
 
     public VideoMiddlePageViewModel(TbPageContext<?> tbPageContext) {
         this.j = tbPageContext;
-        this.f15916b.setValue(Boolean.FALSE);
-        this.f15917c.setValue(Boolean.FALSE);
-        this.f15915a.setValue(new ArrayList());
-        this.f15919e.setValue(0);
+        this.f15819b.setValue(Boolean.FALSE);
+        this.f15820c.setValue(Boolean.FALSE);
+        this.f15818a.setValue(new ArrayList());
+        this.f15822e.setValue(0);
     }
 
     public final void a(List<? extends BaseCardInfo> list) {
-        List<BaseCardInfo> value = this.f15915a.getValue();
+        List<BaseCardInfo> value = this.f15818a.getValue();
         if (value != null) {
             value.addAll(list);
         }
-        MutableLiveData<List<BaseCardInfo>> mutableLiveData = this.f15915a;
+        MutableLiveData<List<BaseCardInfo>> mutableLiveData = this.f15818a;
         mutableLiveData.setValue(mutableLiveData.getValue());
     }
 
     public final MutableLiveData<Configuration> b() {
-        return this.f15920f;
+        return this.f15823f;
     }
 
     public final MutableLiveData<Integer> c() {
-        return this.f15919e;
+        return this.f15822e;
     }
 
     public final String d() {
-        return this.f15923i;
+        return this.f15826i;
     }
 
     public final String e() {
-        return this.f15922h;
+        return this.f15825h;
     }
 
     public final MutableLiveData<Boolean> f() {
-        return this.f15917c;
+        return this.f15820c;
     }
 
     public final MutableLiveData<String> g() {
-        return this.f15918d;
+        return this.f15821d;
     }
 
     public final VideoMiddleModel h() {
-        Lazy lazy = this.f15921g;
+        Lazy lazy = this.f15824g;
         KProperty kProperty = k[0];
         return (VideoMiddleModel) lazy.getValue();
     }
@@ -101,41 +101,41 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     }
 
     public final MutableLiveData<List<BaseCardInfo>> j() {
-        return this.f15915a;
+        return this.f15818a;
     }
 
     public final MutableLiveData<Boolean> k() {
-        return this.f15916b;
+        return this.f15819b;
     }
 
     public final void l() {
-        if (Intrinsics.areEqual(this.f15916b.getValue(), Boolean.FALSE)) {
-            this.f15916b.setValue(Boolean.TRUE);
-            h().setFrom(this.f15923i);
+        if (Intrinsics.areEqual(this.f15819b.getValue(), Boolean.FALSE)) {
+            this.f15819b.setValue(Boolean.TRUE);
+            h().setFrom(this.f15826i);
             h().LoadData();
         }
     }
 
     public final void m() {
-        List<BaseCardInfo> value = this.f15915a.getValue();
+        List<BaseCardInfo> value = this.f15818a.getValue();
         Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-        Integer value2 = this.f15919e.getValue();
+        Integer value2 = this.f15822e.getValue();
         if (valueOf == null || valueOf.intValue() <= 0 || value2 == null || value2.intValue() <= 0) {
             return;
         }
-        MutableLiveData<Integer> mutableLiveData = this.f15919e;
+        MutableLiveData<Integer> mutableLiveData = this.f15822e;
         Integer value3 = mutableLiveData.getValue();
         mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() - 1) : null);
     }
 
     public final void n() {
-        List<BaseCardInfo> value = this.f15915a.getValue();
+        List<BaseCardInfo> value = this.f15818a.getValue();
         Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-        Integer value2 = this.f15919e.getValue();
+        Integer value2 = this.f15822e.getValue();
         if (valueOf == null || valueOf.intValue() <= 0 || value2 == null || value2.intValue() >= valueOf.intValue() - 1) {
             return;
         }
-        MutableLiveData<Integer> mutableLiveData = this.f15919e;
+        MutableLiveData<Integer> mutableLiveData = this.f15822e;
         Integer value3 = mutableLiveData.getValue();
         mutableLiveData.setValue(value3 != null ? Integer.valueOf(value3.intValue() + 1) : null);
         if ((valueOf.intValue() - 1) - value2.intValue() <= 3) {
@@ -144,13 +144,13 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     }
 
     public final void o(int i2) {
-        List<BaseCardInfo> value = this.f15915a.getValue();
+        List<BaseCardInfo> value = this.f15818a.getValue();
         Integer valueOf = value != null ? Integer.valueOf(value.size()) : null;
-        Integer value2 = this.f15919e.getValue();
+        Integer value2 = this.f15822e.getValue();
         if (valueOf == null || valueOf.intValue() <= 0 || Intrinsics.compare(i2, valueOf.intValue()) >= 0) {
             return;
         }
-        this.f15919e.setValue(Integer.valueOf(i2));
+        this.f15822e.setValue(Integer.valueOf(i2));
         if (value2 == null || (valueOf.intValue() - 1) - value2.intValue() > 3) {
             return;
         }
@@ -158,7 +158,7 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     }
 
     public final void p() {
-        Integer value = this.f15919e.getValue();
+        Integer value = this.f15822e.getValue();
         if (value == null) {
             value = 0;
         }
@@ -166,12 +166,12 @@ public final class VideoMiddlePageViewModel extends ViewModel {
     }
 
     public final void q(String str) {
-        this.f15923i = str;
+        this.f15826i = str;
         h().setFrom(str);
     }
 
     public final void r(String str) {
-        this.f15922h = str;
+        this.f15825h = str;
         h().x(str);
     }
 

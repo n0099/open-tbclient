@@ -15,19 +15,19 @@ import com.baidu.adp.R;
 public class BdExpandImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public float f2302e;
+    public float f2307e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f2303f;
+    public float f2308f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final float f2304g;
+    public final float f2309g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final Rect f2305h;
+    public final Rect f2310h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final Rect f2306i;
+    public final Rect f2311i;
     public int j;
     public boolean k;
     public final Paint l;
@@ -35,16 +35,16 @@ public class BdExpandImageView extends ImageView {
 
     public BdExpandImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f2302e = 0.0f;
-        this.f2305h = new Rect();
-        this.f2306i = new Rect();
+        this.f2307e = 0.0f;
+        this.f2310h = new Rect();
+        this.f2311i = new Rect();
         setScaleType(ImageView.ScaleType.MATRIX);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ExpandListView);
-        this.f2302e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0) / 2.0f;
-        this.f2303f = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_beforeExpandHeight, 0);
+        this.f2307e = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_expandDistance, 0) / 2.0f;
+        this.f2308f = obtainStyledAttributes.getDimensionPixelSize(R.styleable.ExpandListView_beforeExpandHeight, 0);
         obtainStyledAttributes.recycle();
         int i2 = getResources().getDisplayMetrics().widthPixels;
-        this.f2304g = this.f2303f + (this.f2302e * 2.0f);
+        this.f2309g = this.f2308f + (this.f2307e * 2.0f);
         this.l = new Paint();
         getResources().getDisplayMetrics();
     }
@@ -56,7 +56,7 @@ public class BdExpandImageView extends ImageView {
             float intrinsicHeight = drawable.getIntrinsicHeight();
             float f2 = intrinsicHeight / 10.0f;
             this.m = f2;
-            this.j = (int) (intrinsicHeight - (((f2 * ((this.f2304g - measuredHeight) / 2.0f)) / this.f2302e) * 2.0f));
+            this.j = (int) (intrinsicHeight - (((f2 * ((this.f2309g - measuredHeight) / 2.0f)) / this.f2307e) * 2.0f));
         }
     }
 
@@ -75,14 +75,14 @@ public class BdExpandImageView extends ImageView {
         int height = bitmap.getHeight();
         int i2 = this.j;
         int i3 = (height - i2) / 2;
-        this.f2305h.set(0, i3, width, i2 + i3);
+        this.f2310h.set(0, i3, width, i2 + i3);
         int width2 = getWidth();
         float f2 = width;
         float max = Math.max(width2 / f2, getHeight() / this.j);
         int i4 = (int) (f2 * max);
         int i5 = (i4 - width2) / 2;
-        this.f2306i.set(-i5, 0, i4 - (i5 * 2), (int) (this.j * max));
-        canvas.drawBitmap(bitmap, this.f2305h, this.f2306i, this.l);
+        this.f2311i.set(-i5, 0, i4 - (i5 * 2), (int) (this.j * max));
+        canvas.drawBitmap(bitmap, this.f2310h, this.f2311i, this.l);
     }
 
     @Override // android.view.View

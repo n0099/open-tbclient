@@ -26,22 +26,22 @@ import java.util.Map;
 public class d extends d.a.j.b.a {
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f48468f;
+    public Context f40132f;
 
     /* renamed from: g  reason: collision with root package name */
-    public g f48469g;
+    public g f40133g;
 
     /* loaded from: classes.dex */
     public static final class a implements Comparable<a> {
 
         /* renamed from: f  reason: collision with root package name */
-        public static final String[] f48470f = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
+        public static final String[] f40134f = {"read0", "read1", "read2", "read3", "access0", "access1", "access2", "access3", "sync0", "sync1", "sync2", "sync3", "open0", "open1", "open2", "open3"};
 
         /* renamed from: e  reason: collision with root package name */
-        public final int f48471e;
+        public final int f40135e;
 
         public a(int i2) {
-            this.f48471e = i2;
+            this.f40135e = i2;
         }
 
         public static a b(byte b2, boolean z) {
@@ -60,26 +60,26 @@ public class d extends d.a.j.b.a {
         @Override // java.lang.Comparable
         /* renamed from: a */
         public int compareTo(a aVar) {
-            return this.f48471e - aVar.f48471e;
+            return this.f40135e - aVar.f40135e;
         }
 
         public String d() {
-            return f48470f[this.f48471e];
+            return f40134f[this.f40135e];
         }
 
         public byte e() {
-            return (byte) this.f48471e;
+            return (byte) this.f40135e;
         }
 
         public boolean equals(Object obj) {
             if (this == obj) {
                 return true;
             }
-            return obj != null && a.class == obj.getClass() && this.f48471e == ((a) obj).f48471e;
+            return obj != null && a.class == obj.getClass() && this.f40135e == ((a) obj).f40135e;
         }
 
         public int hashCode() {
-            return this.f48471e;
+            return this.f40135e;
         }
     }
 
@@ -87,7 +87,7 @@ public class d extends d.a.j.b.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Map<a, Integer> f48472a = new HashMap();
+        public Map<a, Integer> f40136a = new HashMap();
 
         /* loaded from: classes.dex */
         public class a implements Comparator<Map.Entry<a, Integer>> {
@@ -104,7 +104,7 @@ public class d extends d.a.j.b.a {
         }
 
         public List<a> a() {
-            ArrayList arrayList = new ArrayList(this.f48472a.entrySet());
+            ArrayList arrayList = new ArrayList(this.f40136a.entrySet());
             Collections.sort(arrayList, new a(this));
             ArrayList arrayList2 = new ArrayList(6);
             int min = Math.min(6, arrayList.size());
@@ -118,8 +118,8 @@ public class d extends d.a.j.b.a {
         }
 
         public void b(a aVar) {
-            Integer num = this.f48472a.get(aVar);
-            this.f48472a.put(aVar, num == null ? 1 : Integer.valueOf(num.intValue() + 1));
+            Integer num = this.f40136a.get(aVar);
+            this.f40136a.put(aVar, num == null ? 1 : Integer.valueOf(num.intValue() + 1));
         }
     }
 
@@ -127,22 +127,22 @@ public class d extends d.a.j.b.a {
     public class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f48473a;
+        public int f40137a;
 
         /* renamed from: b  reason: collision with root package name */
-        public a[] f48474b;
+        public a[] f40138b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f48475c;
+        public int f40139c;
 
         public c(d dVar) {
-            this.f48473a = 33;
-            this.f48474b = new a[33];
+            this.f40137a = 33;
+            this.f40138b = new a[33];
         }
 
         public c(d dVar, byte[] bArr) {
-            this.f48473a = 33;
-            this.f48474b = new a[33];
+            this.f40137a = 33;
+            this.f40138b = new a[33];
             if (bArr == null || bArr.length <= 0) {
                 return;
             }
@@ -155,33 +155,33 @@ public class d extends d.a.j.b.a {
         }
 
         public int a() {
-            return this.f48475c;
+            return this.f40139c;
         }
 
         public a b(int i2) {
-            if (i2 < this.f48475c) {
-                return this.f48474b[i2];
+            if (i2 < this.f40139c) {
+                return this.f40138b[i2];
             }
-            throw new IndexOutOfBoundsException("idx " + i2 + " size " + this.f48475c);
+            throw new IndexOutOfBoundsException("idx " + i2 + " size " + this.f40139c);
         }
 
         public void c(a aVar) {
-            d(this.f48475c + 1);
-            a[] aVarArr = this.f48474b;
-            int i2 = this.f48475c;
-            this.f48475c = i2 + 1;
+            d(this.f40139c + 1);
+            a[] aVarArr = this.f40138b;
+            int i2 = this.f40139c;
+            this.f40139c = i2 + 1;
             aVarArr[i2] = aVar;
         }
 
         public final void d(int i2) {
-            a[] aVarArr = this.f48474b;
+            a[] aVarArr = this.f40138b;
             if (i2 - aVarArr.length > 0) {
                 int length = aVarArr.length;
                 int i3 = length + (length >> 1);
                 if (i3 - i2 >= 0) {
                     i2 = i3;
                 }
-                this.f48474b = (a[]) Arrays.copyOf(this.f48474b, i2);
+                this.f40138b = (a[]) Arrays.copyOf(this.f40138b, i2);
             }
         }
 
@@ -190,7 +190,7 @@ public class d extends d.a.j.b.a {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int i3 = 0;
             while (true) {
-                i2 = this.f48475c;
+                i2 = this.f40139c;
                 if (i3 >= i2 / 2) {
                     break;
                 }
@@ -207,22 +207,22 @@ public class d extends d.a.j.b.a {
 
     /* renamed from: d.a.j.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C1086d {
+    public static class C0547d {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<b> f48476a = new ArrayList();
+        public List<b> f40140a = new ArrayList();
 
         /* renamed from: d.a.j.b.d$d$a */
         /* loaded from: classes.dex */
         public class a implements Comparator<b> {
-            public a(C1086d c1086d) {
+            public a(C0547d c0547d) {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(b bVar, b bVar2) {
-                return bVar.f48477a - bVar2.f48477a;
+                return bVar.f40141a - bVar2.f40141a;
             }
         }
 
@@ -231,28 +231,28 @@ public class d extends d.a.j.b.a {
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public int f48477a;
+            public int f40141a;
 
             /* renamed from: b  reason: collision with root package name */
-            public a f48478b;
+            public a f40142b;
 
             public b(a aVar) {
-                this.f48478b = aVar;
+                this.f40142b = aVar;
             }
 
             public void b() {
-                this.f48477a++;
+                this.f40141a++;
             }
         }
 
         public List<b> a() {
-            ArrayList arrayList = new ArrayList(this.f48476a);
+            ArrayList arrayList = new ArrayList(this.f40140a);
             Collections.sort(arrayList, new a(this));
             return arrayList;
         }
 
         public void b(a aVar) {
-            this.f48476a.add(new b(aVar));
+            this.f40140a.add(new b(aVar));
         }
     }
 
@@ -260,18 +260,18 @@ public class d extends d.a.j.b.a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f48479a;
+        public byte[] f40143a;
 
         /* renamed from: b  reason: collision with root package name */
-        public byte f48480b;
+        public byte f40144b;
 
         /* renamed from: c  reason: collision with root package name */
-        public byte[] f48481c;
+        public byte[] f40145c;
 
         public e(byte[] bArr, byte b2, byte[] bArr2) {
-            this.f48479a = bArr;
-            this.f48480b = b2;
-            this.f48481c = bArr2;
+            this.f40143a = bArr;
+            this.f40144b = b2;
+            this.f40145c = bArr2;
         }
 
         public static e a(l.a aVar) {
@@ -288,7 +288,7 @@ public class d extends d.a.j.b.a {
 
         public l.a b() {
             try {
-                return l.e(f.c.a(this.f48479a, "", true), new String(new byte[]{this.f48480b}, "UTF-8"), this.f48481c != null ? new String(this.f48481c, "UTF-8") : null);
+                return l.e(f.c.a(this.f40143a, "", true), new String(new byte[]{this.f40144b}, "UTF-8"), this.f40145c != null ? new String(this.f40145c, "UTF-8") : null);
             } catch (Exception unused) {
                 return null;
             }
@@ -299,10 +299,10 @@ public class d extends d.a.j.b.a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f48482a;
+        public int f40146a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f48483b;
+        public int f40147b;
 
         public String toString() {
             return "";
@@ -313,23 +313,23 @@ public class d extends d.a.j.b.a {
     public static class g {
 
         /* renamed from: a  reason: collision with root package name */
-        public Method f48484a;
+        public Method f40148a;
 
         /* renamed from: b  reason: collision with root package name */
-        public Method f48485b;
+        public Method f40149b;
 
         /* renamed from: c  reason: collision with root package name */
-        public Method f48486c;
+        public Method f40150c;
 
         /* renamed from: d  reason: collision with root package name */
-        public Method f48487d;
+        public Method f40151d;
 
         /* renamed from: e  reason: collision with root package name */
-        public Method f48488e;
+        public Method f40152e;
 
         public int a(Context context, Uri uri, int i2, int i3, int i4) {
             try {
-                return ((Integer) this.f48484a.invoke(context, uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
+                return ((Integer) this.f40148a.invoke(context, uri, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))).intValue();
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -337,18 +337,18 @@ public class d extends d.a.j.b.a {
 
         public void b() {
             try {
-                this.f48484a = i.b(Context.class, i.a(d.a.j.a.c.d()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
-                this.f48485b = i.b(Context.class, i.a(d.a.j.a.c.e()), new Class[]{String.class, Uri.class, Integer.TYPE});
-                this.f48486c = i.b(ContentResolver.class, i.a(d.a.j.a.c.f()), new Class[]{Uri.class, Integer.TYPE});
-                this.f48487d = i.b(Context.class, i.a(d.a.j.a.c.g()), new Class[]{Uri.class, Integer.TYPE});
-                this.f48488e = i.b(ContentResolver.class, i.a(d.a.j.a.c.h()), new Class[]{Uri.class, Integer.TYPE});
+                this.f40148a = i.b(Context.class, i.a(d.a.j.a.c.d()), new Class[]{Uri.class, Integer.TYPE, Integer.TYPE, Integer.TYPE});
+                this.f40149b = i.b(Context.class, i.a(d.a.j.a.c.e()), new Class[]{String.class, Uri.class, Integer.TYPE});
+                this.f40150c = i.b(ContentResolver.class, i.a(d.a.j.a.c.f()), new Class[]{Uri.class, Integer.TYPE});
+                this.f40151d = i.b(Context.class, i.a(d.a.j.a.c.g()), new Class[]{Uri.class, Integer.TYPE});
+                this.f40152e = i.b(ContentResolver.class, i.a(d.a.j.a.c.h()), new Class[]{Uri.class, Integer.TYPE});
             } catch (Exception unused) {
             }
         }
 
         public void c(ContentResolver contentResolver, Uri uri, int i2) {
             try {
-                this.f48486c.invoke(contentResolver, uri, Integer.valueOf(i2));
+                this.f40150c.invoke(contentResolver, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -356,7 +356,7 @@ public class d extends d.a.j.b.a {
 
         public void d(Context context, Uri uri, int i2) {
             try {
-                this.f48487d.invoke(context, uri, Integer.valueOf(i2));
+                this.f40151d.invoke(context, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -364,7 +364,7 @@ public class d extends d.a.j.b.a {
 
         public void e(Context context, String str, Uri uri, int i2) {
             try {
-                this.f48485b.invoke(context, str, uri, Integer.valueOf(i2));
+                this.f40149b.invoke(context, str, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -372,7 +372,7 @@ public class d extends d.a.j.b.a {
 
         public void f(ContentResolver contentResolver, Uri uri, int i2) {
             try {
-                this.f48488e.invoke(contentResolver, uri, Integer.valueOf(i2));
+                this.f40152e.invoke(contentResolver, uri, Integer.valueOf(i2));
             } catch (Exception e2) {
                 throw new i.a(e2);
             }
@@ -382,7 +382,7 @@ public class d extends d.a.j.b.a {
     public d() {
         super("upc", 9000000L);
         g gVar = new g();
-        this.f48469g = gVar;
+        this.f40133g = gVar;
         gVar.b();
     }
 
@@ -408,10 +408,10 @@ public class d extends d.a.j.b.a {
     public a.f a(a.e eVar, l.a aVar) {
         e a2;
         if (Build.VERSION.SDK_INT >= 26 && (a2 = e.a(aVar)) != null) {
-            c cVar = new c(this, a2.f48479a);
-            cVar.c(a.b(a2.f48480b, false));
-            cVar.c(a.b(a2.f48480b, true));
-            byte[] bArr = a2.f48481c;
+            c cVar = new c(this, a2.f40143a);
+            cVar.c(a.b(a2.f40144b, false));
+            cVar.c(a.b(a2.f40144b, true));
+            byte[] bArr = a2.f40145c;
             if (bArr != null) {
                 for (byte b2 : bArr) {
                     cVar.c(a.b(b2, false));
@@ -448,7 +448,7 @@ public class d extends d.a.j.b.a {
             return a.h.d();
         }
         try {
-            i2 = this.f48468f.getPackageManager().getPackageUid(str, 0);
+            i2 = this.f40132f.getPackageManager().getPackageUid(str, 0);
         } catch (PackageManager.NameNotFoundException unused) {
             i2 = -1;
         }
@@ -457,20 +457,20 @@ public class d extends d.a.j.b.a {
         }
         f fVar = new f();
         c cVar = new c(this);
-        C1086d c1086d = new C1086d();
-        C1086d c1086d2 = new C1086d();
+        C0547d c0547d = new C0547d();
+        C0547d c0547d2 = new C0547d();
         for (int i3 = 0; i3 < 16; i3++) {
             a c2 = a.c(i3);
             if (q(str, c2, i2)) {
-                c1086d.b(c2);
+                c0547d.b(c2);
             } else {
-                c1086d2.b(c2);
+                c0547d2.b(c2);
             }
         }
         for (int i4 = 0; i4 < 32; i4++) {
-            a g2 = g(str, i4, c1086d.a(), i2, fVar);
+            a g2 = g(str, i4, c0547d.a(), i2, fVar);
             if (g2 == null) {
-                g2 = g(str, i4, c1086d2.a(), i2, fVar);
+                g2 = g(str, i4, c0547d2.a(), i2, fVar);
             }
             if (g2 == null) {
                 return a.h.d();
@@ -513,9 +513,9 @@ public class d extends d.a.j.b.a {
             for (int i9 = 34; i8 < i9; i9 = 34) {
                 int i10 = i8;
                 c cVar4 = cVar3;
-                a g3 = g(str, i8, c1086d.a(), i2, fVar);
+                a g3 = g(str, i8, c0547d.a(), i2, fVar);
                 if (g3 == null) {
-                    g3 = g(str, i10, c1086d2.a(), i2, fVar);
+                    g3 = g(str, i10, c0547d2.a(), i2, fVar);
                 }
                 if (g3 == null) {
                     return a.h.d();
@@ -532,9 +532,9 @@ public class d extends d.a.j.b.a {
         if (z) {
             c cVar5 = new c(this);
             for (int i11 = 34; i11 < 94; i11++) {
-                a g4 = g(str, i11, c1086d.a(), i2, fVar);
+                a g4 = g(str, i11, c0547d.a(), i2, fVar);
                 if (g4 == null) {
-                    g4 = g(str, i11, c1086d2.a(), i2, fVar);
+                    g4 = g(str, i11, c0547d2.a(), i2, fVar);
                 }
                 if (g4 == null) {
                     break;
@@ -550,14 +550,14 @@ public class d extends d.a.j.b.a {
 
     @Override // d.a.j.b.a
     public void e(a.d dVar) {
-        this.f48468f = this.f48442a.f48446a;
+        this.f40132f = this.f40106a.f40110a;
     }
 
-    public final a g(String str, int i2, List<C1086d.b> list, int i3, f fVar) {
-        for (C1086d.b bVar : list) {
-            if (p(str, i2, bVar.f48478b, i3, fVar)) {
+    public final a g(String str, int i2, List<C0547d.b> list, int i3, f fVar) {
+        for (C0547d.b bVar : list) {
+            if (p(str, i2, bVar.f40142b, i3, fVar)) {
                 bVar.b();
-                return bVar.f48478b;
+                return bVar.f40142b;
             }
         }
         return null;
@@ -572,26 +572,26 @@ public class d extends d.a.j.b.a {
     }
 
     public final void j(UriMatcher uriMatcher) {
-        uriMatcher.addURI(t(this.f48468f.getPackageName()), "dat/v1/*/*", 1);
-        uriMatcher.addURI(t(this.f48468f.getPackageName()), "dic/v1/*", 2);
+        uriMatcher.addURI(t(this.f40132f.getPackageName()), "dat/v1/*/*", 1);
+        uriMatcher.addURI(t(this.f40132f.getPackageName()), "dic/v1/*", 2);
     }
 
     public final boolean k(int i2, a aVar) {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        return l(Uri.parse(h(this.f48468f.getPackageName(), i2, aVar)));
+        return l(Uri.parse(h(this.f40132f.getPackageName(), i2, aVar)));
     }
 
     public final boolean l(Uri uri) {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        Context context = this.f48468f;
+        Context context = this.f40132f;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            this.f48469g.e(context, context.getPackageName(), uri, 65);
-            this.f48469g.c(contentResolver, uri, 1);
+            this.f40133g.e(context, context.getPackageName(), uri, 65);
+            this.f40133g.c(contentResolver, uri, 1);
             return true;
         } catch (Exception unused) {
             return false;
@@ -602,11 +602,11 @@ public class d extends d.a.j.b.a {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        Context context = this.f48468f;
+        Context context = this.f40132f;
         ContentResolver contentResolver = context.getContentResolver();
         try {
-            this.f48469g.d(context, uri, i2);
-            this.f48469g.f(contentResolver, uri, i2);
+            this.f40133g.d(context, uri, i2);
+            this.f40133g.f(contentResolver, uri, i2);
             return true;
         } catch (Exception unused) {
             return false;
@@ -617,7 +617,7 @@ public class d extends d.a.j.b.a {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        return l(Uri.parse(i(this.f48468f.getPackageName(), aVar)));
+        return l(Uri.parse(i(this.f40132f.getPackageName(), aVar)));
     }
 
     public final boolean o(c cVar, List<a> list) {
@@ -626,7 +626,7 @@ public class d extends d.a.j.b.a {
         if (Build.VERSION.SDK_INT < 26) {
             return false;
         }
-        ContentResolver contentResolver = this.f48468f.getContentResolver();
+        ContentResolver contentResolver = this.f40132f.getContentResolver();
         UriMatcher uriMatcher = new UriMatcher(-1);
         j(uriMatcher);
         List<UriPermission> persistedUriPermissions = contentResolver.getPersistedUriPermissions();
@@ -674,13 +674,13 @@ public class d extends d.a.j.b.a {
         }
         int a2 = cVar.a();
         for (int i3 = 0; i3 < a2; i3++) {
-            if (!p(this.f48468f.getPackageName(), i3, cVar.b(i3), Process.myUid(), null)) {
+            if (!p(this.f40132f.getPackageName(), i3, cVar.b(i3), Process.myUid(), null)) {
                 return true;
             }
         }
         int size = list.size();
         for (int i4 = 0; i4 < size; i4++) {
-            if (!q(this.f48468f.getPackageName(), list.get(i4), Process.myUid())) {
+            if (!q(this.f40132f.getPackageName(), list.get(i4), Process.myUid())) {
                 return true;
             }
         }
@@ -698,7 +698,7 @@ public class d extends d.a.j.b.a {
             }
             if (fVar != null) {
                 try {
-                    fVar.f48482a++;
+                    fVar.f40146a++;
                 } catch (Throwable unused) {
                     try {
                         Thread.sleep(5L);
@@ -707,14 +707,14 @@ public class d extends d.a.j.b.a {
                     i5++;
                 }
             }
-            i4 = this.f48469g.a(this.f48468f, parse, 0, i3, 1);
+            i4 = this.f40133g.a(this.f40132f, parse, 0, i3, 1);
             break;
         }
         if (i4 == 0) {
             return true;
         }
         if (fVar != null) {
-            fVar.f48483b++;
+            fVar.f40147b++;
         }
         return false;
     }
@@ -729,7 +729,7 @@ public class d extends d.a.j.b.a {
                 break;
             }
             try {
-                i3 = this.f48469g.a(this.f48468f, parse, 0, i2, 1);
+                i3 = this.f40133g.a(this.f40132f, parse, 0, i2, 1);
                 break;
             } catch (Throwable unused) {
                 try {

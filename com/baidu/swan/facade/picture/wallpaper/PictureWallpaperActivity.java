@@ -14,11 +14,11 @@ import com.baidu.swan.apps.SwanAppBaseActivity;
 import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
 import com.baidu.swan.facade.picture.widget.PictureCropView;
 import com.baidu.swan.facade.picture.widget.PictureView;
-import d.a.i0.a.v2.n0;
-import d.a.i0.a.v2.q;
-import d.a.i0.a.v2.q0;
-import d.a.i0.a.z1.b.f.e;
-import d.a.i0.e.d;
+import d.a.l0.a.v2.n0;
+import d.a.l0.a.v2.q;
+import d.a.l0.a.v2.q0;
+import d.a.l0.a.z1.b.f.e;
+import d.a.l0.e.d;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class PictureWallpaperActivity extends SwanAppBaseActivity implements View.OnClickListener {
@@ -34,8 +34,8 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
 
         /* renamed from: com.baidu.swan.facade.picture.wallpaper.PictureWallpaperActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0158a implements PictureView.c {
-            public C0158a() {
+        public class C0159a implements PictureView.c {
+            public C0159a() {
             }
 
             @Override // com.baidu.swan.facade.picture.widget.PictureView.c
@@ -54,7 +54,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
 
         @Override // java.lang.Runnable
         public void run() {
-            PictureWallpaperActivity.this.mCropView.setData(PictureWallpaperActivity.this.mPicUrl, PictureWallpaperActivity.this.mPicUrlReferer, new C0158a());
+            PictureWallpaperActivity.this.mCropView.setData(PictureWallpaperActivity.this.mPicUrl, PictureWallpaperActivity.this.mPicUrlReferer, new C0159a());
         }
     }
 
@@ -62,16 +62,16 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ PictureCropView f11568e;
+        public final /* synthetic */ PictureCropView f11469e;
 
         public b(PictureCropView pictureCropView) {
-            this.f11568e = pictureCropView;
+            this.f11469e = pictureCropView;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             boolean z;
-            Bitmap croppedImage = this.f11568e.getCroppedImage();
+            Bitmap croppedImage = this.f11469e.getCroppedImage();
             if (croppedImage != null) {
                 try {
                     WallpaperManager.getInstance(PictureWallpaperActivity.this.getApplicationContext()).setBitmap(croppedImage);
@@ -90,19 +90,19 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ boolean f11570e;
+        public final /* synthetic */ boolean f11471e;
 
         public c(boolean z) {
-            this.f11570e = z;
+            this.f11471e = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PictureWallpaperActivity.this.mLoadingView.setVisibility(8);
-            if (this.f11570e) {
-                e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.i0.e.e.swan_app_picture_set_wallpaper_succeed).u();
+            if (this.f11471e) {
+                e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.l0.e.e.swan_app_picture_set_wallpaper_succeed).u();
             } else {
-                e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.i0.e.e.swan_app_picture_set_wallpaper_fail).u();
+                e.f(PictureWallpaperActivity.this.getApplicationContext(), d.a.l0.e.e.swan_app_picture_set_wallpaper_fail).u();
             }
             PictureWallpaperActivity.this.finish();
         }
@@ -119,12 +119,12 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     }
 
     private void initView() {
-        this.mCropView = (PictureCropView) findViewById(d.a.i0.e.c.picture_wallpaper_browseview);
-        LoadingView loadingView = (LoadingView) findViewById(d.a.i0.e.c.picture_set_wallpaper_loading_view);
+        this.mCropView = (PictureCropView) findViewById(d.a.l0.e.c.picture_wallpaper_browseview);
+        LoadingView loadingView = (LoadingView) findViewById(d.a.l0.e.c.picture_set_wallpaper_loading_view);
         this.mLoadingView = loadingView;
-        loadingView.setMsg(d.a.i0.e.e.swan_app_picture_set_wallpaper_doing);
-        findViewById(d.a.i0.e.c.picture_wallpaper_cancel).setOnClickListener(this);
-        findViewById(d.a.i0.e.c.picture_wallpaper_pick).setOnClickListener(this);
+        loadingView.setMsg(d.a.l0.e.e.swan_app_picture_set_wallpaper_doing);
+        findViewById(d.a.l0.e.c.picture_wallpaper_cancel).setOnClickListener(this);
+        findViewById(d.a.l0.e.c.picture_wallpaper_pick).setOnClickListener(this);
         this.mCropView.post(new a());
     }
 
@@ -138,7 +138,7 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         }
         context.startActivity(intent);
         if (z) {
-            ((Activity) context).overridePendingTransition(d.a.i0.e.a.aiapps_slide_in_from_right, 0);
+            ((Activity) context).overridePendingTransition(d.a.l0.e.a.aiapps_slide_in_from_right, 0);
         }
     }
 
@@ -160,14 +160,14 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (id == d.a.i0.e.c.picture_wallpaper_cancel) {
+        if (id == d.a.l0.e.c.picture_wallpaper_cancel) {
             onBackPressed();
-        } else if (id == d.a.i0.e.c.picture_wallpaper_pick) {
+        } else if (id == d.a.l0.e.c.picture_wallpaper_pick) {
             onSetWallpaper();
         }
     }
 
-    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.i0.o.a.a.f, android.app.Activity
+    @Override // com.baidu.swan.apps.SwanAppBaseActivity, com.baidu.swan.support.v4.app.FragmentActivity, d.a.l0.o.a.a.f, android.app.Activity
     public void onCreate(Bundle bundle) {
         int Z = q0.Z(this);
         super.onCreate(bundle);
@@ -183,6 +183,6 @@ public class PictureWallpaperActivity extends SwanAppBaseActivity implements Vie
         if (pictureCropView == null || !z) {
             return;
         }
-        findViewById(d.a.i0.e.c.picture_wallpaper_pick).setEnabled(pictureCropView.f());
+        findViewById(d.a.l0.e.c.picture_wallpaper_pick).setEnabled(pictureCropView.f());
     }
 }

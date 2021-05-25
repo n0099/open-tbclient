@@ -8,7 +8,7 @@ import com.baidu.sapi2.CoreViewRouter;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.result.SapiResult;
 import com.baidu.sapi2.utils.SapiUtils;
-import d.a.y.a.f;
+import d.a.a0.a.f;
 import java.net.URLDecoder;
 /* loaded from: classes2.dex */
 public class AuthWidgetActivity extends BaseActivity {

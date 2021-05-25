@@ -13,7 +13,7 @@ import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import d.a.c.e.p.l;
-import d.a.k0.u3.c;
+import d.a.n0.v3.c;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class FloorImageTextViewNew extends AbsFloorImageTextView {
@@ -52,7 +52,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
 
     @Override // com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView
     public void f(ImageUrlData imageUrlData) {
-        this.f12698e = imageUrlData;
+        this.f12606e = imageUrlData;
         JSONArray jSONArray = null;
         if (imageUrlData != null) {
             try {
@@ -81,9 +81,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         }
         if (((Integer) pair.second).intValue() > 2) {
             if (i()) {
-                this.p = s + AbsFloorImageTextView.f12696h + AbsFloorImageTextView.f12697i;
+                this.p = s + AbsFloorImageTextView.f12604h + AbsFloorImageTextView.f12605i;
             } else {
-                this.p = r + AbsFloorImageTextView.f12696h + AbsFloorImageTextView.f12697i;
+                this.p = r + AbsFloorImageTextView.f12604h + AbsFloorImageTextView.f12605i;
             }
         } else {
             this.p = -2;
@@ -101,8 +101,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         this.n.S = true;
         EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.scrollview);
         this.o = editorScrollView;
-        editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f12697i);
-        this.o.setOnTouchListener(this.f12700g);
+        editorScrollView.setPadding(0, l.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.f12605i);
+        this.o.setOnTouchListener(this.f12608g);
         ((ViewGroup.MarginLayoutParams) this.o.getLayoutParams()).topMargin = l.g(TbadkApplication.getInst(), R.dimen.tbds174);
         setVisibility(8);
     }

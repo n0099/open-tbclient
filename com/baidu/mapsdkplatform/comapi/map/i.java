@@ -18,10 +18,10 @@ import java.util.Arrays;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f7740a;
+    public static int f7640a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static Context f7741b = BMapManager.getContext();
+    public static Context f7641b = BMapManager.getContext();
 
     static {
         if (!com.baidu.mapapi.VersionInfo.getApiVersion().equals(VersionInfo.getApiVersion())) {
@@ -36,16 +36,16 @@ public class i {
     }
 
     public static void a() {
-        if (f7740a == 0) {
-            if (f7741b == null) {
+        if (f7640a == 0) {
+            if (f7641b == null) {
                 throw new IllegalStateException("BDMapSDKException: you have not supplyed the global app context info from SDKInitializer.initialize(Context) function.");
             }
             VMsg.init();
-            AppEngine.InitEngine(f7741b);
+            AppEngine.InitEngine(f7641b);
             AppEngine.StartSocketProc();
-            NetworkUtil.updateNetworkProxy(f7741b);
+            NetworkUtil.updateNetworkProxy(f7641b);
         }
-        f7740a++;
+        f7640a++;
     }
 
     public static void a(Context context) {
@@ -111,8 +111,8 @@ public class i {
     }
 
     public static void b() {
-        int i2 = f7740a - 1;
-        f7740a = i2;
+        int i2 = f7640a - 1;
+        f7640a = i2;
         if (i2 == 0) {
             AppEngine.UnInitEngine();
             VMsg.destroy();

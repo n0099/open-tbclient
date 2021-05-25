@@ -1,52 +1,48 @@
 package d.a.j0.j;
+/* loaded from: classes2.dex */
+public class a {
 
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbSingleton;
-import com.facebook.common.util.UriUtil;
-import d.a.j0.m0.o.b;
-/* loaded from: classes3.dex */
-public class a extends Thread {
+    /* renamed from: a  reason: collision with root package name */
+    public int f40450a;
 
-    /* renamed from: d.a.j0.j.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1116a implements MessageQueue.IdleHandler {
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            try {
-                new a("BenchmarkThread").start();
-                return false;
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return false;
-            }
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public String f40451b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f40452c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public int f40453d;
+
+    public int a() {
+        return this.f40450a;
     }
 
-    public a(String str) {
-        super(str);
+    public void b(int i2) {
+        this.f40450a = i2;
     }
 
-    public static void a() {
-        Looper.myQueue().addIdleHandler(new C1116a());
+    public void c(String str) {
+        this.f40451b = str;
     }
 
-    public final void b() {
-        double nanoTime = System.nanoTime();
-        float f2 = 10.0f;
-        for (int i2 = 0; i2 < 1000000; i2++) {
-            f2 = f2 + 1.9509029f + 98.90882f + 1998.158f + 989.98895f + 1.1599002f + 16.2098f + 8899.087f + i2;
-        }
-        BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f2);
-        TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
-        b.a();
+    public String d() {
+        return this.f40451b;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        synchronized (this) {
-            b();
-        }
+    public void e(int i2) {
+        this.f40452c = i2;
+    }
+
+    public int f() {
+        return this.f40452c;
+    }
+
+    public void g(int i2) {
+        this.f40453d = i2;
+    }
+
+    public int h() {
+        return this.f40453d;
     }
 }

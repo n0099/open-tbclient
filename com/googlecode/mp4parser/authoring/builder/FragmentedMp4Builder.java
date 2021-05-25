@@ -72,22 +72,22 @@ public class FragmentedMp4Builder implements Mp4Builder {
     public class a implements Comparator<Track> {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Map f31524e;
+        public final /* synthetic */ Map f31453e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f31525f;
+        public final /* synthetic */ int f31454f;
 
         public a(FragmentedMp4Builder fragmentedMp4Builder, Map map, int i2) {
-            this.f31524e = map;
-            this.f31525f = i2;
+            this.f31453e = map;
+            this.f31454f = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
         public int compare(Track track, Track track2) {
-            long j = ((long[]) this.f31524e.get(track))[this.f31525f];
-            long j2 = ((long[]) this.f31524e.get(track2))[this.f31525f];
+            long j = ((long[]) this.f31453e.get(track))[this.f31454f];
+            long j2 = ((long[]) this.f31453e.get(track2))[this.f31454f];
             long[] sampleDurations = track.getSampleDurations();
             long[] sampleDurations2 = track2.getSampleDurations();
             long j3 = 0;
@@ -106,22 +106,22 @@ public class FragmentedMp4Builder implements Mp4Builder {
     public class b implements Box {
 
         /* renamed from: e  reason: collision with root package name */
-        public Container f31526e;
+        public Container f31455e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f31527f = -1;
+        public long f31456f = -1;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ long f31529h;
+        public final /* synthetic */ long f31458h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ long f31530i;
+        public final /* synthetic */ long f31459i;
         public final /* synthetic */ Track j;
         public final /* synthetic */ int k;
 
         public b(long j, long j2, Track track, int i2) {
-            this.f31529h = j;
-            this.f31530i = j2;
+            this.f31458h = j;
+            this.f31459i = j2;
             this.j = track;
             this.k = i2;
         }
@@ -133,7 +133,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
             allocate.put(IsoFile.fourCCtoBytes(getType()));
             allocate.rewind();
             writableByteChannel.write(allocate);
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31529h, this.f31530i, this.j, this.k)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31458h, this.f31459i, this.j, this.k)) {
                 sample.writeTo(writableByteChannel);
             }
         }
@@ -145,20 +145,20 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public Container getParent() {
-            return this.f31526e;
+            return this.f31455e;
         }
 
         @Override // com.coremedia.iso.boxes.Box
         public long getSize() {
-            long j = this.f31527f;
+            long j = this.f31456f;
             if (j != -1) {
                 return j;
             }
             long j2 = 8;
-            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31529h, this.f31530i, this.j, this.k)) {
+            for (Sample sample : FragmentedMp4Builder.this.getSamples(this.f31458h, this.f31459i, this.j, this.k)) {
                 j2 += sample.getSize();
             }
-            this.f31527f = j2;
+            this.f31456f = j2;
             return j2;
         }
 
@@ -173,7 +173,7 @@ public class FragmentedMp4Builder implements Mp4Builder {
 
         @Override // com.coremedia.iso.boxes.Box
         public void setParent(Container container) {
-            this.f31526e = container;
+            this.f31455e = container;
         }
     }
 

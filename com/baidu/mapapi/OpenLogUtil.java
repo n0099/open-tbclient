@@ -3,10 +3,10 @@ package com.baidu.mapapi;
 public class OpenLogUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ModuleName f6832a;
+    public static ModuleName f6732a;
 
     public static void setModuleLogEnable(ModuleName moduleName, boolean z) {
-        f6832a = moduleName;
+        f6732a = moduleName;
         com.baidu.mapsdkplatform.comjni.tools.a.a(z, moduleName.ordinal());
     }
 }

@@ -10,25 +10,25 @@ import com.baidu.tbadk.TbPageContextSupport;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.a.j;
-import d.a.k0.d3.a;
+import d.a.n0.e3.a;
 /* loaded from: classes3.dex */
 public class PbLocationInfoView extends TextView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f18139e;
+    public int f18049e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Rect f18140f;
+    public Rect f18050f;
 
     public PbLocationInfoView(Context context) {
         this(context, null);
     }
 
     public void a() {
-        if (this.f18139e == 1) {
+        if (this.f18049e == 1) {
             Drawable drawable = SkinManager.getDrawable(R.drawable.icon_posts_pin_loading_anim);
             if (drawable != null) {
-                drawable.setBounds(this.f18140f);
+                drawable.setBounds(this.f18050f);
             }
             setCompoundDrawables(drawable, null, null, null);
             a.a((TbPageContextSupport) j.b(getContext()), (Animatable) drawable);
@@ -36,13 +36,13 @@ public class PbLocationInfoView extends TextView {
         }
         Drawable drawable2 = SkinManager.getDrawable(R.drawable.icon_tips_site);
         if (drawable2 != null) {
-            drawable2.setBounds(this.f18140f);
+            drawable2.setBounds(this.f18050f);
         }
         setCompoundDrawables(drawable2, null, null, null);
     }
 
     public final void b() {
-        this.f18140f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
+        this.f18050f = new Rect(0, 0, getResources().getDimensionPixelSize(R.dimen.ds32), getResources().getDimensionPixelSize(R.dimen.ds32));
         setState(0, null);
         c();
     }
@@ -53,11 +53,11 @@ public class PbLocationInfoView extends TextView {
     }
 
     public int getState() {
-        return this.f18139e;
+        return this.f18049e;
     }
 
     public void setState(int i2, String str) {
-        this.f18139e = i2;
+        this.f18049e = i2;
         if (i2 == 1) {
             if (str == null) {
                 str = getResources().getString(R.string.location_loading);

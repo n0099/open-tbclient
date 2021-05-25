@@ -11,86 +11,86 @@ import com.baidu.mobads.cid.cesium.g;
 public final class DeviceId {
 
     /* renamed from: b  reason: collision with root package name */
-    public static g.a f8126b = null;
+    public static g.a f8026b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static g.a f8127c = null;
+    public static g.a f8027c = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile DeviceId f8128f = null;
+    public static volatile DeviceId f8028f = null;
     public static boolean sDataCuidInfoShable = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Context f8129a;
+    public final Context f8029a;
 
     /* renamed from: d  reason: collision with root package name */
-    public g f8130d;
+    public g f8030d;
 
     /* renamed from: e  reason: collision with root package name */
-    public f f8131e;
+    public f f8031e;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f8132g = new c();
+    public c f8032g = new c();
 
     public DeviceId(Context context) {
-        this.f8129a = context.getApplicationContext();
-        this.f8130d = new g(this.f8129a, new a(this.f8129a), this.f8132g);
-        this.f8131e = new f(this.f8129a, this.f8132g);
+        this.f8029a = context.getApplicationContext();
+        this.f8030d = new g(this.f8029a, new a(this.f8029a), this.f8032g);
+        this.f8031e = new f(this.f8029a, this.f8032g);
     }
 
     public static DeviceId a(Context context) {
         DeviceId deviceId;
         synchronized (e.class) {
-            if (f8128f == null) {
-                f8128f = new DeviceId(context);
+            if (f8028f == null) {
+                f8028f = new DeviceId(context);
             }
-            deviceId = f8128f;
+            deviceId = f8028f;
         }
         return deviceId;
     }
 
     private g.a a() {
         g.a a2 = a((String) null);
-        return a2 == null ? this.f8130d.a() : a2;
+        return a2 == null ? this.f8030d.a() : a2;
     }
 
     private g.a a(String str) {
-        g.a b2 = this.f8130d.b();
+        g.a b2 = this.f8030d.b();
         return b2 == null ? b(str) : b2;
     }
 
     public static g.a b(Context context) {
-        if (f8126b == null) {
+        if (f8026b == null) {
             synchronized (e.class) {
-                if (f8126b == null) {
+                if (f8026b == null) {
                     SystemClock.uptimeMillis();
-                    f8126b = a(context).a();
+                    f8026b = a(context).a();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return f8126b;
+        return f8026b;
     }
 
     private g.a b(String str) {
-        e a2 = this.f8131e.a(str);
+        e a2 = this.f8031e.a(str);
         if (a2 != null) {
-            return this.f8130d.a(a2);
+            return this.f8030d.a(a2);
         }
         return null;
     }
 
     public static g.a c(Context context) {
-        if (f8127c == null) {
+        if (f8027c == null) {
             synchronized (e.class) {
-                if (f8127c == null) {
+                if (f8027c == null) {
                     SystemClock.uptimeMillis();
-                    f8127c = a(context).f8130d.c();
+                    f8027c = a(context).f8030d.c();
                     SystemClock.uptimeMillis();
                 }
             }
         }
-        return f8127c;
+        return f8027c;
     }
 
     public static String getSelfCUID(Context context) {

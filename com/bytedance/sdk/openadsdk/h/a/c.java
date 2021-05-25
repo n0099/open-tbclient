@@ -13,35 +13,35 @@ import org.json.JSONObject;
 public class c<T extends c> implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f29250a;
+    public String f29179a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29251b;
+    public String f29180b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f29252c;
+    public String f29181c;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29254e;
+    public String f29183e;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f29257h;
+    public String f29186h;
     public String j;
     public String k;
     public String l;
     public String m;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29253d = "3.4.5.5";
+    public String f29182d = "3.4.5.5";
 
     /* renamed from: f  reason: collision with root package name */
-    public long f29255f = System.currentTimeMillis() / 1000;
+    public long f29184f = System.currentTimeMillis() / 1000;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f29256g = 0;
+    public int f29185g = 0;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f29258i = 0;
+    public int f29187i = 0;
 
     public static c<c> b() {
         return new c<>();
@@ -117,7 +117,7 @@ public class c<T extends c> implements a {
     }
 
     public String c() {
-        return this.f29250a;
+        return this.f29179a;
     }
 
     public String d() {
@@ -125,35 +125,35 @@ public class c<T extends c> implements a {
     }
 
     public String e() {
-        return this.f29251b;
+        return this.f29180b;
     }
 
     public String f() {
-        return this.f29252c;
+        return this.f29181c;
     }
 
     public String g() {
-        return this.f29253d;
+        return this.f29182d;
     }
 
     public String h() {
-        return this.f29254e;
+        return this.f29183e;
     }
 
     public long i() {
-        return this.f29255f;
+        return this.f29184f;
     }
 
     public int j() {
-        return this.f29256g;
+        return this.f29185g;
     }
 
     public String k() {
-        return this.f29257h;
+        return this.f29186h;
     }
 
     public int l() {
-        return this.f29258i;
+        return this.f29187i;
     }
 
     public String m() {
@@ -174,22 +174,22 @@ public class c<T extends c> implements a {
     }
 
     public T c(String str) {
-        this.f29251b = str;
+        this.f29180b = str;
         return q();
     }
 
     public T d(String str) {
-        this.f29252c = str;
+        this.f29181c = str;
         return q();
     }
 
     public T e(String str) {
-        this.f29253d = str;
+        this.f29182d = str;
         return q();
     }
 
     public T f(String str) {
-        this.f29257h = str;
+        this.f29186h = str;
         return q();
     }
 
@@ -209,22 +209,22 @@ public class c<T extends c> implements a {
     }
 
     public T b(int i2) {
-        this.f29258i = i2;
+        this.f29187i = i2;
         return q();
     }
 
     public T c(long j) {
-        this.f29255f = j;
+        this.f29184f = j;
         return q();
     }
 
     public T a(String str) {
-        this.f29250a = str;
+        this.f29179a = str;
         return q();
     }
 
     public T a(int i2) {
-        this.f29256g = i2;
+        this.f29185g = i2;
         return q();
     }
 }

@@ -8,10 +8,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5287a = "logsender";
+    public static final String f5187a = "logsender";
 
     /* renamed from: b  reason: collision with root package name */
-    public ConcurrentHashMap<String, Long> f5288b;
+    public ConcurrentHashMap<String, Long> f5188b;
 
     /* loaded from: classes2.dex */
     public enum ETag {
@@ -25,11 +25,11 @@ public class StatService {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static StatService f5289a = new StatService();
+        public static StatService f5189a = new StatService();
     }
 
     public static StatService a() {
-        return a.f5289a;
+        return a.f5189a;
     }
 
     public static void b(String str, String str2, Collection<String> collection) {
@@ -44,7 +44,7 @@ public class StatService {
     }
 
     public StatService() {
-        this.f5288b = new ConcurrentHashMap<>();
+        this.f5188b = new ConcurrentHashMap<>();
     }
 
     public static synchronized void a(String str, ETag eTag, Collection<String> collection) {
@@ -99,17 +99,17 @@ public class StatService {
     }
 
     public static void a(String str) {
-        a().f5288b.put(str, Long.valueOf(System.currentTimeMillis()));
+        a().f5188b.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 
     public static ArrayList<String> a(String str, String str2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        Long l = a().f5288b.get(str);
+        Long l = a().f5188b.get(str);
         if (l == null) {
             return null;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-        a().f5288b.remove(str);
+        a().f5188b.remove(str);
         arrayList.add(Long.toString(valueOf.longValue()));
         arrayList.add(str2);
         return arrayList;

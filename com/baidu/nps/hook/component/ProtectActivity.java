@@ -1,9 +1,9 @@
 package com.baidu.nps.hook.component;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.baidu.searchbox.common.security.SecurityUtils;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import java.util.HashMap;
 import kotlin.Metadata;
@@ -41,9 +41,10 @@ public final class ProtectActivity extends Activity {
             }
         }
         super.onCreate(bundle);
-        if (SecurityUtils.checkActivityRefuseServiceAndFinish(this)) {
-            return;
+        try {
+            setIntent(new Intent());
+            finish();
+        } catch (Exception unused2) {
         }
-        finish();
     }
 }

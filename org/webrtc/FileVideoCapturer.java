@@ -46,7 +46,7 @@ public class FileVideoCapturer implements VideoCapturer {
 
         public VideoReaderY4M(String str) throws IOException {
             String[] split;
-            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7772a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile(str, r.f7672a);
             this.mediaFile = randomAccessFile;
             this.mediaFileChannel = randomAccessFile.getChannel();
             StringBuilder sb = new StringBuilder();

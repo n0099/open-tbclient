@@ -16,24 +16,24 @@ import com.baidu.tieba.pb.pb.sub.SubPbRequestMessage;
 import com.baidu.tieba.pb.pb.sub.SubPbSocketResponseMessage;
 import com.baidu.tieba.tbadkCore.data.PostData;
 import d.a.c.e.p.l;
-import d.a.k0.d2.h.q;
+import d.a.n0.e2.h.r;
 /* loaded from: classes5.dex */
 public class PbFakeFloorModel extends DataModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public String f19288e;
+    public String f19208e;
 
     /* renamed from: f  reason: collision with root package name */
-    public q f19289f;
+    public r f19209f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f19290g;
+    public boolean f19210g;
 
     /* renamed from: h  reason: collision with root package name */
-    public SubPbRequestMessage f19291h;
+    public SubPbRequestMessage f19211h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TbPageContext f19292i;
+    public TbPageContext f19212i;
     public b j;
     public String k;
     public d.a.c.c.g.a l;
@@ -52,31 +52,31 @@ public class PbFakeFloorModel extends DataModel {
                 return;
             }
             boolean z = false;
-            PbFakeFloorModel.this.f19290g = false;
+            PbFakeFloorModel.this.f19210g = false;
             if (responsedMessage.hasError()) {
                 if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = PbFakeFloorModel.this.f19292i.getPageActivity().getResources().getString(R.string.neterror);
+                    errorString = PbFakeFloorModel.this.f19212i.getPageActivity().getResources().getString(R.string.neterror);
                 } else {
                     errorString = responsedMessage.getErrorString();
                 }
-                PbFakeFloorModel.this.f19292i.showToast(errorString);
+                PbFakeFloorModel.this.f19212i.showToast(errorString);
                 return;
             }
-            q qVar = null;
+            r rVar = null;
             if (responsedMessage instanceof SubPbHttpResponseMessage) {
-                qVar = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
+                rVar = ((SubPbHttpResponseMessage) responsedMessage).pbFloorData;
             } else if (responsedMessage instanceof SubPbSocketResponseMessage) {
-                qVar = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
+                rVar = ((SubPbSocketResponseMessage) responsedMessage).pbFloorData;
             }
-            if (qVar == null || qVar.k() == null) {
+            if (rVar == null || rVar.k() == null) {
                 return;
             }
-            PostData postData = (PostData) ListUtils.getItem(qVar.k(), qVar.k().size() - 1);
-            if (postData != null && PbFakeFloorModel.this.f19289f != null && PbFakeFloorModel.this.f19289f.i() != null) {
-                if (PbFakeFloorModel.this.f19289f.l() != null && PbFakeFloorModel.this.f19289f.l().T() != null && postData.t() != null && (userId = PbFakeFloorModel.this.f19289f.l().T().getUserId()) != null && userId.equals(postData.t().getUserId())) {
+            PostData postData = (PostData) ListUtils.getItem(rVar.k(), rVar.k().size() - 1);
+            if (postData != null && PbFakeFloorModel.this.f19209f != null && PbFakeFloorModel.this.f19209f.i() != null) {
+                if (PbFakeFloorModel.this.f19209f.l() != null && PbFakeFloorModel.this.f19209f.l().T() != null && postData.t() != null && (userId = PbFakeFloorModel.this.f19209f.l().T().getUserId()) != null && userId.equals(postData.t().getUserId())) {
                     z = true;
                 }
-                postData.z0(PbFakeFloorModel.this.f19292i, z);
+                postData.z0(PbFakeFloorModel.this.f19212i, z);
             }
             if (PbFakeFloorModel.this.j != null) {
                 PbFakeFloorModel.this.j.a(postData);
@@ -91,44 +91,44 @@ public class PbFakeFloorModel extends DataModel {
 
     public PbFakeFloorModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f19289f = null;
-        this.f19290g = false;
+        this.f19209f = null;
+        this.f19210g = false;
         this.j = null;
         a aVar = new a(CmdConfigHttp.SubPb_HTTP_CMD, 302002);
         this.l = aVar;
-        this.f19292i = tbPageContext;
+        this.f19212i = tbPageContext;
         registerListener(aVar);
     }
 
     public void A(PostData postData) {
         if (postData != null) {
-            this.f19289f.i().e(postData);
-            this.f19289f.i().f(postData);
-            this.f19289f.i().p0(true);
+            this.f19209f.i().e(postData);
+            this.f19209f.i().f(postData);
+            this.f19209f.i().p0(true);
         }
     }
 
     public final SubPbRequestMessage B() {
-        q qVar = this.f19289f;
-        if (qVar != null && qVar.l() != null && this.f19289f.l().o0() != null && this.f19289f.i() != null && this.f19289f.i().E() != null) {
-            this.f19290g = true;
+        r rVar = this.f19209f;
+        if (rVar != null && rVar.l() != null && this.f19209f.l().o0() != null && this.f19209f.i() != null && this.f19209f.i().E() != null) {
+            this.f19210g = true;
             float f2 = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int k = l.k(TbadkCoreApplication.getInst().getApp());
             int i2 = l.i(TbadkCoreApplication.getInst().getApp());
-            long f3 = d.a.c.e.m.b.f(this.f19289f.i().E(), 0L);
-            return new SubPbRequestMessage(this.f19292i.getPageActivity(), d.a.c.e.m.b.f(this.f19289f.l().o0(), 0L), f3, 0L, 1, k, i2, f2, "", 1);
+            long f3 = d.a.c.e.m.b.f(this.f19209f.i().E(), 0L);
+            return new SubPbRequestMessage(this.f19212i.getPageActivity(), d.a.c.e.m.b.f(this.f19209f.l().o0(), 0L), f3, 0L, 1, k, i2, f2, "", 1);
         }
-        this.f19290g = false;
+        this.f19210g = false;
         return null;
     }
 
     public void C() {
-        if (this.f19290g) {
+        if (this.f19210g) {
             return;
         }
         cancelMessage();
         SubPbRequestMessage B = B();
-        this.f19291h = B;
+        this.f19211h = B;
         if (B == null) {
             return;
         }
@@ -139,8 +139,8 @@ public class PbFakeFloorModel extends DataModel {
         this.j = bVar;
     }
 
-    public void E(q qVar) {
-        this.f19289f = qVar;
+    public void E(r rVar) {
+        this.f19209f = rVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -156,7 +156,7 @@ public class PbFakeFloorModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public String s() {
-        return this.f19288e;
+        return this.f19208e;
     }
 
     public void setFromForumId(String str) {
@@ -164,7 +164,7 @@ public class PbFakeFloorModel extends DataModel {
     }
 
     public void setPostId(String str) {
-        this.f19288e = str;
+        this.f19208e = str;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -175,24 +175,24 @@ public class PbFakeFloorModel extends DataModel {
 
     @Override // com.baidu.tbadk.editortools.pb.DataModel
     public WriteData t(String str) {
-        q qVar = this.f19289f;
-        if (qVar == null || qVar.d() == null || this.f19289f.l() == null || this.f19289f.i() == null) {
+        r rVar = this.f19209f;
+        if (rVar == null || rVar.d() == null || this.f19209f.l() == null || this.f19209f.i() == null) {
             return null;
         }
         WriteData writeData = new WriteData();
-        boolean m2 = this.f19289f.l().m2();
-        if (m2) {
-            writeData.setVForumId(this.f19289f.d().getId());
-            writeData.setVForumName(this.f19289f.d().getName());
+        boolean n2 = this.f19209f.l().n2();
+        if (n2) {
+            writeData.setVForumId(this.f19209f.d().getId());
+            writeData.setVForumName(this.f19209f.d().getName());
         } else {
-            writeData.setForumName(this.f19289f.d().getName());
-            writeData.setForumId(this.f19289f.d().getId());
+            writeData.setForumName(this.f19209f.d().getName());
+            writeData.setForumId(this.f19209f.d().getId());
         }
         writeData.setFromForumId(this.k);
-        writeData.setFloor(this.f19289f.i().E());
+        writeData.setFloor(this.f19209f.i().E());
         writeData.setType(2);
-        writeData.setCanNoForum(m2);
-        writeData.setThreadId(this.f19289f.l().o0());
+        writeData.setCanNoForum(n2);
+        writeData.setThreadId(this.f19209f.l().o0());
         writeData.setFloorNum(0);
         return writeData;
     }

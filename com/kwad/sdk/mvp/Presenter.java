@@ -16,16 +16,16 @@ import java.util.List;
 public class Presenter {
 
     /* renamed from: b  reason: collision with root package name */
-    public View f33399b;
+    public View f33328b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Object f33400c;
+    public Object f33329c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<Presenter> f33398a = new ArrayList();
+    public final List<Presenter> f33327a = new ArrayList();
 
     /* renamed from: d  reason: collision with root package name */
-    public PresenterState f33401d = PresenterState.INIT;
+    public PresenterState f33330d = PresenterState.INIT;
 
     /* loaded from: classes6.dex */
     public enum PresenterState {
@@ -37,9 +37,9 @@ public class Presenter {
         CREATE(1) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.2
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f33398a) {
+                for (Presenter presenter2 : presenter.f33327a) {
                     try {
-                        presenter2.a(presenter.f33399b);
+                        presenter2.a(presenter.f33328b);
                     } catch (Exception e2) {
                         a.a(e2);
                         com.kwad.sdk.core.d.a.a(e2);
@@ -50,9 +50,9 @@ public class Presenter {
         BIND(2) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.3
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f33398a) {
+                for (Presenter presenter2 : presenter.f33327a) {
                     try {
-                        presenter2.a(presenter.f33400c);
+                        presenter2.a(presenter.f33329c);
                     } catch (Exception e2) {
                         a.a(e2);
                         com.kwad.sdk.core.d.a.a(e2);
@@ -63,7 +63,7 @@ public class Presenter {
         UNBIND(3) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.4
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f33398a) {
+                for (Presenter presenter2 : presenter.f33327a) {
                     try {
                         presenter2.f();
                     } catch (Exception e2) {
@@ -76,7 +76,7 @@ public class Presenter {
         DESTROY(4) { // from class: com.kwad.sdk.mvp.Presenter.PresenterState.5
             @Override // com.kwad.sdk.mvp.Presenter.PresenterState
             public void performCallState(Presenter presenter) {
-                for (Presenter presenter2 : presenter.f33398a) {
+                for (Presenter presenter2 : presenter.f33327a) {
                     try {
                         presenter2.g();
                     } catch (Exception e2) {
@@ -101,7 +101,7 @@ public class Presenter {
     }
 
     public final <T extends View> T a(int i2) {
-        return (T) this.f33399b.findViewById(i2);
+        return (T) this.f33328b.findViewById(i2);
     }
 
     public void a() {
@@ -109,32 +109,32 @@ public class Presenter {
 
     @UiThread
     public final void a(View view) {
-        this.f33401d = PresenterState.CREATE;
-        this.f33399b = view;
+        this.f33330d = PresenterState.CREATE;
+        this.f33328b = view;
         b();
-        this.f33401d.performCallState(this);
+        this.f33330d.performCallState(this);
     }
 
     public final void a(Presenter presenter) {
-        this.f33398a.add(presenter);
+        this.f33327a.add(presenter);
         if (!h() || presenter.h()) {
             return;
         }
-        a(this.f33399b);
+        a(this.f33328b);
     }
 
     @UiThread
     public final void a(@NonNull Object obj) {
-        if (this.f33401d != PresenterState.INIT) {
+        if (this.f33330d != PresenterState.INIT) {
             PresenterState presenterState = PresenterState.DESTROY;
         }
-        if (this.f33401d == PresenterState.BIND) {
+        if (this.f33330d == PresenterState.BIND) {
             f();
         }
-        this.f33401d = PresenterState.BIND;
-        this.f33400c = obj;
+        this.f33330d = PresenterState.BIND;
+        this.f33329c = obj;
         a();
-        this.f33401d.performCallState(this);
+        this.f33330d.performCallState(this);
     }
 
     public void b() {
@@ -148,27 +148,27 @@ public class Presenter {
 
     @UiThread
     public final void f() {
-        this.f33401d = PresenterState.UNBIND;
+        this.f33330d = PresenterState.UNBIND;
         c();
-        this.f33401d.performCallState(this);
+        this.f33330d.performCallState(this);
     }
 
     @UiThread
     public final void g() {
-        if (this.f33401d == PresenterState.BIND) {
+        if (this.f33330d == PresenterState.BIND) {
             f();
         }
-        this.f33401d = PresenterState.DESTROY;
+        this.f33330d = PresenterState.DESTROY;
         d();
-        this.f33401d.performCallState(this);
+        this.f33330d.performCallState(this);
     }
 
     public final boolean h() {
-        return this.f33401d.index() >= PresenterState.CREATE.index();
+        return this.f33330d.index() >= PresenterState.CREATE.index();
     }
 
     public View i() {
-        return this.f33399b;
+        return this.f33328b;
     }
 
     @Nullable
@@ -196,11 +196,11 @@ public class Presenter {
     }
 
     public Object k() {
-        return this.f33400c;
+        return this.f33329c;
     }
 
     public final Context l() {
-        View view = this.f33399b;
+        View view = this.f33328b;
         if (view == null) {
             return null;
         }

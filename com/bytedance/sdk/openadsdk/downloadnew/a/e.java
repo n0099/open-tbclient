@@ -19,51 +19,51 @@ import org.json.JSONObject;
 public class e implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Context> f29070a;
+    public WeakReference<Context> f28999a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f29071b;
+    public String f29000b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.o.a.a.a.c.d f29072c;
+    public d.o.a.a.a.c.d f29001c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final l f29073d;
+    public final l f29002d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f29074e;
+    public String f29003e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.o.a.a.a.c.b f29075f;
+    public d.o.a.a.a.c.b f29004f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.o.a.a.a.c.c f29076g;
+    public d.o.a.a.a.c.c f29005g;
 
     public e(Context context, String str, l lVar, String str2) {
-        this.f29070a = new WeakReference<>(context);
-        this.f29073d = lVar;
-        this.f29074e = str2;
-        this.f29071b = str;
-        this.f29072c = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(str, str2, lVar, null).p();
-        this.f29075f = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f29073d).e();
-        this.f29076g = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f29073d, this.f29074e).d();
+        this.f28999a = new WeakReference<>(context);
+        this.f29002d = lVar;
+        this.f29003e = str2;
+        this.f29000b = str;
+        this.f29001c = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(str, str2, lVar, null).p();
+        this.f29004f = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f29002d).e();
+        this.f29005g = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f29002d, this.f29003e).d();
         a();
     }
 
     private Context k() {
-        WeakReference<Context> weakReference = this.f29070a;
-        return (weakReference == null || weakReference.get() == null) ? p.a() : this.f29070a.get();
+        WeakReference<Context> weakReference = this.f28999a;
+        return (weakReference == null || weakReference.get() == null) ? p.a() : this.f28999a.get();
     }
 
     private synchronized void l() {
-        g.d().f(this.f29071b, hashCode());
+        g.d().f(this.f29000b, hashCode());
     }
 
     private synchronized void m() {
         if (n()) {
-            g.d().n().a(k(), this.f29072c.d(), this.f29072c.u(), null, hashCode());
+            g.d().n().a(k(), this.f29001c.d(), this.f29001c.u(), null, hashCode());
         } else {
-            g.d().d(k(), hashCode(), null, this.f29072c);
+            g.d().d(k(), hashCode(), null, this.f29001c);
         }
     }
 
@@ -91,7 +91,7 @@ public class e implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
         TTCustomController e2 = i.d().e();
         if (e2 != null && !e2.isCanUseWriteExternal()) {
             try {
-                String str = g.f29079a;
+                String str = g.f29008a;
                 String absolutePath = Environment.getDataDirectory().getAbsolutePath();
                 if (str != null) {
                     if (!str.startsWith(absolutePath)) {
@@ -102,14 +102,14 @@ public class e implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
             }
         }
         if (n()) {
-            g.d().n().c(k(), null, true, this.f29072c, this.f29076g, this.f29075f, null, hashCode());
+            g.d().n().c(k(), null, true, this.f29001c, this.f29005g, this.f29004f, null, hashCode());
         } else {
-            g.d().g(this.f29071b, this.f29072c.d(), 2, this.f29076g, this.f29075f);
+            g.d().g(this.f29000b, this.f29001c.d(), 2, this.f29005g, this.f29004f);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
-    public void a(int i2, a.InterfaceC0302a interfaceC0302a) {
+    public void a(int i2, a.InterfaceC0303a interfaceC0303a) {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
@@ -145,17 +145,17 @@ public class e implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
     public void d() {
         l();
-        WeakReference<Context> weakReference = this.f29070a;
+        WeakReference<Context> weakReference = this.f28999a;
         if (weakReference != null) {
             weakReference.clear();
-            this.f29070a = null;
+            this.f28999a = null;
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
     public void e() {
-        if (a(this.f29073d)) {
-            b(this.f29073d);
+        if (a(this.f29002d)) {
+            b(this.f29002d);
         } else {
             p();
         }
@@ -211,12 +211,12 @@ public class e implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
         k aa = lVar.aa();
         String a3 = aa != null ? aa.a() : "";
         boolean z = lVar.Z() == 4;
-        com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, this.f29074e, "pop_up", o());
+        com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, this.f29003e, "pop_up", o());
         com.bytedance.sdk.openadsdk.utils.g.a(k(), lVar.am(), W, new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.e.1
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void a() {
                 e.this.p();
-                com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, e.this.f29074e, "pop_up_download", e.this.o());
+                com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, e.this.f29003e, "pop_up_download", e.this.o());
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
@@ -225,12 +225,12 @@ public class e implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void c() {
-                com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, e.this.f29074e, "pop_up_cancel", e.this.o());
+                com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, e.this.f29003e, "pop_up_cancel", e.this.o());
             }
         }, a2, a3, z);
     }
 
     public void a(long j) {
-        g.d().i(this.f29071b, true);
+        g.d().i(this.f29000b, true);
     }
 }

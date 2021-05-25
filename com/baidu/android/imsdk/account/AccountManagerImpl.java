@@ -27,7 +27,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.android.pushservice.PushManager;
-import d.a.r.a;
+import d.a.s.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Map;
@@ -118,7 +118,7 @@ public class AccountManagerImpl {
             this.mToken = str2;
             Utility.writeAccessToken(mContext, str2);
             try {
-                a.e(mContext).d(mContext, creatMethodIntent);
+                a.g(mContext).f(mContext, creatMethodIntent);
                 Utility.writeLoginFlag(mContext, "6Y", "startLoginService");
             } catch (Exception e2) {
                 Utility.writeLoginFlag(mContext, "6N_1", "startLoginService exception");
@@ -144,7 +144,7 @@ public class AccountManagerImpl {
                 Utility.writeLoginFlag(context, "5N", "startLoginServiceRunnable begin, loginType = " + i2 + "，needLogout :" + z);
                 if (!z) {
                     LogUtils.d(TAG, "need logout before login");
-                    if (a.f64518e) {
+                    if (a.f64463e) {
                         BIMManager.imLogoutByLcp(mContext);
                         startLoginService(i2, str, str2, str3, str4, iLoginListener);
                         return;
@@ -192,7 +192,7 @@ public class AccountManagerImpl {
             Intent intent = new Intent(mContext, a.class);
             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
             intent.setPackage(mContext.getPackageName());
-            a.e(context).d(mContext, intent);
+            a.g(context).f(mContext, intent);
         } catch (Exception unused) {
             LogUtils.e(TAG, "tryConnection failed......");
         }
@@ -224,7 +224,7 @@ public class AccountManagerImpl {
             Utility.clearCache(mContext);
             this.mToken = null;
         }
-        if (!a.f64518e) {
+        if (!a.f64463e) {
             clearLoginParam(mContext);
             clearUid(mContext);
             disconnect(str);
@@ -253,7 +253,7 @@ public class AccountManagerImpl {
             intent.putExtra(Constants.EXTRA_LISTENER_ID, str);
             intent.putExtra(Constants.EXTRA_DISCONNECT, "1");
             intent.setPackage(mContext.getPackageName());
-            a.e(mContext).d(mContext, intent);
+            a.g(mContext).f(mContext, intent);
         } catch (Exception e2) {
             LogUtils.e(TAG, "disconnect", e2);
             IMListener removeListener = ListenerManager.getInstance().removeListener(str);
@@ -483,7 +483,7 @@ public class AccountManagerImpl {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             creatMethodIntent.putExtra(Constants.EXTRA_CLEAR_AFTER_LOGOUT, i2);
             try {
-                a.e(mContext).d(mContext, creatMethodIntent);
+                a.g(mContext).f(mContext, creatMethodIntent);
                 return;
             } catch (Exception e2) {
                 LogUtils.e(TAG, "Exception ", e2);
@@ -527,7 +527,7 @@ public class AccountManagerImpl {
             ConversationStudioManImpl.getInstance(mContext).clearAckCastList();
             noticeStateChanged(3);
             BIMManager.connectStatusNotify(0);
-            if (!a.f64518e) {
+            if (!a.f64463e) {
                 Utility.sendConnectionStateBroadCast(mContext, 0);
             }
         } else {
@@ -753,7 +753,7 @@ public class AccountManagerImpl {
             Intent intent = new Intent(mContext, a.class);
             intent.setPackage(mContext.getPackageName());
             intent.setAction(Constants.ACTION_STOP);
-            a.e(mContext).d(mContext, intent);
+            a.g(mContext).f(mContext, intent);
             return true;
         } catch (Exception unused) {
             LogUtils.e(TAG, "Stop Service SecurityException");

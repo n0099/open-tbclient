@@ -22,19 +22,19 @@ import java.util.ArrayList;
 public class KSNativeAdVideoH5OpenView extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f30770a;
+    public TextView f30699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FrameLayout f30771b;
+    public FrameLayout f30700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public ImageView f30772c;
+    public ImageView f30701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f30773d;
+    public TextView f30702d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f30774e;
+    public Button f30703e;
 
     public KSNativeAdVideoH5OpenView(Context context) {
         this(context, null);
@@ -59,32 +59,32 @@ public class KSNativeAdVideoH5OpenView extends c {
             ((ViewGroup) videoView.getParent()).removeView(videoView);
         }
         if (videoView != null) {
-            this.f30771b.removeAllViews();
-            this.f30771b.addView(videoView);
+            this.f30700b.removeAllViews();
+            this.f30700b.addView(videoView);
         }
-        this.f30772c.setImageBitmap(ksNativeAd.getSdkLogo());
-        this.f30770a.setText(ksNativeAd.getAdDescription());
-        this.f30773d.setText(ksNativeAd.getAdSource());
-        this.f30774e.setText(ksNativeAd.getActionDescription());
+        this.f30701c.setImageBitmap(ksNativeAd.getSdkLogo());
+        this.f30699a.setText(ksNativeAd.getAdDescription());
+        this.f30702d.setText(ksNativeAd.getAdSource());
+        this.f30703e.setText(ksNativeAd.getActionDescription());
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30770a = (TextView) findViewById(R.id.ad_description);
-        this.f30771b = (FrameLayout) findViewById(R.id.ad_video);
-        this.f30772c = (ImageView) findViewById(R.id.ad_logo);
-        this.f30773d = (TextView) findViewById(R.id.ad_h5_description);
-        this.f30774e = (Button) findViewById(R.id.ad_h5_open);
+        this.f30699a = (TextView) findViewById(R.id.ad_description);
+        this.f30700b = (FrameLayout) findViewById(R.id.ad_video);
+        this.f30701c = (ImageView) findViewById(R.id.ad_logo);
+        this.f30702d = (TextView) findViewById(R.id.ad_h5_description);
+        this.f30703e = (Button) findViewById(R.id.ad_h5_open);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30771b.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30700b.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i6;
         layoutParams.height = (int) (i6 / 1.78f);
-        this.f30771b.setLayoutParams(layoutParams);
+        this.f30700b.setLayoutParams(layoutParams);
     }
 }

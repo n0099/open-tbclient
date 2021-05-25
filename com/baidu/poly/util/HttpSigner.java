@@ -1,7 +1,7 @@
 package com.baidu.poly.util;
 
 import android.text.TextUtils;
-import d.a.a0.k.a.b;
+import d.a.c0.k.a.b;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Map;
@@ -31,7 +31,7 @@ public class HttpSigner {
         sb.append(str);
         sb.append("=");
         sb.append(nativeGetStatisticsKey(i2));
-        return d.a.a0.k.g.b.c(sb.toString());
+        return d.a.c0.k.g.b.c(sb.toString());
     }
 
     public static void b(b bVar) {
@@ -61,7 +61,7 @@ public class HttpSigner {
         sb.append(nativeGetCommissionSk());
         sb.append("&");
         sb.append(bVar.b("timestamp"));
-        bVar.e("sign", d.a.a0.k.g.b.c(sb.toString()));
+        bVar.e("sign", d.a.c0.k.g.b.c(sb.toString()));
     }
 
     public static native String nativeGetCommissionSk();

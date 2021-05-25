@@ -27,31 +27,31 @@ public class PassBiometricUtil {
     public static final String CPU_TYPE_X86 = "x86";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f9076a = "PassBiometricUtil";
+    public static final String f8976a = "PassBiometricUtil";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f9077b = 480;
+    public static final int f8977b = 480;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f9078c = 480;
+    public static final int f8978c = 480;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f9079d = 192;
+    public static final int f8979d = 192;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f9080e = 480;
+    public static final int f8980e = 480;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f9081f = 620;
+    public static final int f8981f = 620;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f9082g = 250;
+    public static final int f8982g = 250;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f9083h = 250;
+    public static final int f8983h = 250;
 
     /* renamed from: i  reason: collision with root package name */
-    public static final int f9084i = 728;
+    public static final int f8984i = 728;
     public static final int j = 194;
     public static final int k = 750;
     public static final int l = 1335;
@@ -153,12 +153,12 @@ public class PassBiometricUtil {
                 try {
                     String readLine = bufferedReader.readLine();
                     String[] split = readLine.split("\\s+");
-                    Log.d(f9076a, "getCpuType()str2:" + readLine);
+                    Log.d(f8976a, "getCpuType()str2:" + readLine);
                     for (int i2 = 2; i2 < split.length; i2++) {
                         strArr[0] = strArr[0] + split[i2] + " ";
                     }
                     String readLine2 = bufferedReader.readLine();
-                    Log.d(f9076a, "getCpuType()str2" + readLine2);
+                    Log.d(f8976a, "getCpuType()str2" + readLine2);
                     String[] split2 = readLine2.split("\\s+");
                     strArr[1] = strArr[1] + split2[2];
                     try {
@@ -184,7 +184,7 @@ public class PassBiometricUtil {
                     if (Build.VERSION.SDK_INT >= 8) {
                     }
                     str2 = "none";
-                    Log.i(f9076a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+                    Log.i(f8976a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
                     if (str.equals("armeabi")) {
                     }
                 }
@@ -226,13 +226,13 @@ public class PassBiometricUtil {
             try {
                 str2 = (String) Build.class.getDeclaredField("cpuAbi2").get(null);
             } catch (Exception e8) {
-                Log.w(f9076a, "getCpuType() abi2" + e8.toString());
+                Log.w(f8976a, "getCpuType() abi2" + e8.toString());
             }
-            Log.i(f9076a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+            Log.i(f8976a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
             return (!str.equals("armeabi") || str2.equals("armeabi")) ? "armeabi" : (str.equals("armeabi-v7a") || str2.equals("armeabi-v7a")) ? "armeabi-v7a" : (str.equals("arm64-v8a") || str2.equals("arm64-v8a")) ? "arm64-v8a" : (str.equals("x86") || str2.equals("x86")) ? "x86" : strArr[0].toLowerCase().contains("armv7") ? "armeabi-v7a" : strArr[0].toLowerCase().contains("arm") ? "armeabi" : strArr[0].toLowerCase().contains("arm64") ? "arm64-v8a" : strArr[0].toLowerCase().contains("x86") ? "x86" : "armeabi";
         }
         str2 = "none";
-        Log.i(f9076a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
+        Log.i(f8976a, "getCpuType()" + strArr[0] + strArr[1] + str + str2);
         if (str.equals("armeabi")) {
         }
     }

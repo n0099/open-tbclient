@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class b extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f9371b = "b";
+    public static final String f9271b = "b";
 
     /* renamed from: c  reason: collision with root package name */
-    public String f9372c;
+    public String f9272c;
 
     private LatLng a(JSONObject jSONObject) {
         if (jSONObject == null) {
@@ -47,7 +47,7 @@ public class b extends com.baidu.platform.base.d {
                 return false;
             }
             geoCodeResult.setLocation(a(optJSONObject.optJSONObject("location")));
-            geoCodeResult.setAddress(this.f9372c);
+            geoCodeResult.setAddress(this.f9272c);
             geoCodeResult.setPrecise(optJSONObject.optInt("precise"));
             geoCodeResult.setConfidence(optJSONObject.optInt("confidence"));
             geoCodeResult.setLevel(optJSONObject.optString("level"));
@@ -55,7 +55,7 @@ public class b extends com.baidu.platform.base.d {
             return true;
         } catch (JSONException e2) {
             geoCodeResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
-            Log.e(f9371b, "Parse GeoCodeResult catch JSONException", e2);
+            Log.e(f9271b, "Parse GeoCodeResult catch JSONException", e2);
             return true;
         }
     }
@@ -77,7 +77,7 @@ public class b extends com.baidu.platform.base.d {
                 jSONObject = new JSONObject(str);
                 c2 = 0;
             } catch (JSONException e2) {
-                Log.e(f9371b, "JSONException caught", e2);
+                Log.e(f9271b, "JSONException caught", e2);
             }
             if (!jSONObject.has("SDK_InnerError")) {
                 if (!a(str, geoCodeResult, false) && !a(str, geoCodeResult)) {
@@ -117,6 +117,6 @@ public class b extends com.baidu.platform.base.d {
     }
 
     public void b(String str) {
-        this.f9372c = str;
+        this.f9272c = str;
     }
 }

@@ -7,21 +7,21 @@ import java.util.concurrent.Executors;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7842a = 4000;
+    public int f7742a = 4000;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7843b = 4000;
+    public int f7743b = 4000;
 
     /* renamed from: c  reason: collision with root package name */
-    public ExecutorService f7844c = Executors.newCachedThreadPool();
+    public ExecutorService f7744c = Executors.newCachedThreadPool();
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.synchronization.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static abstract class AbstractRunnableC0099a implements Runnable {
-        public AbstractRunnableC0099a() {
+    public static abstract class AbstractRunnableC0100a implements Runnable {
+        public AbstractRunnableC0100a() {
         }
 
-        public /* synthetic */ AbstractRunnableC0099a(b bVar) {
+        public /* synthetic */ AbstractRunnableC0100a(b bVar) {
             this();
         }
 
@@ -43,6 +43,6 @@ public class a {
         if (str == null || str.isEmpty()) {
             throw new IllegalArgumentException("Request URL cannot be null");
         }
-        this.f7844c.submit(new b(this, eVar, str));
+        this.f7744c.submit(new b(this, eVar, str));
     }
 }

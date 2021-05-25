@@ -5,12 +5,12 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
-import d.a.j0.w.v.c.c;
+import d.a.m0.w.v.c.c;
 /* loaded from: classes3.dex */
 public class KPSwitchRootLinearLayout extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f12877e;
+    public c f12785e;
 
     public KPSwitchRootLinearLayout(Context context) {
         super(context);
@@ -18,12 +18,12 @@ public class KPSwitchRootLinearLayout extends LinearLayout {
     }
 
     public final void a() {
-        this.f12877e = new c(this);
+        this.f12785e = new c(this);
     }
 
     @Override // android.widget.LinearLayout, android.view.View
     public void onMeasure(int i2, int i3) {
-        this.f12877e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
+        this.f12785e.b(View.MeasureSpec.getSize(i2), View.MeasureSpec.getSize(i3));
         super.onMeasure(i2, i3);
     }
 

@@ -5,31 +5,31 @@ import android.text.TextUtils;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25287a;
+    public String f25216a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f25288b;
+    public String f25217b;
 
     public String a() {
-        if (TextUtils.isEmpty(this.f25287a)) {
-            return this.f25287a;
+        if (TextUtils.isEmpty(this.f25216a)) {
+            return this.f25216a;
         }
-        return this.f25287a;
+        return this.f25216a;
     }
 
     public String b() {
-        return this.f25288b;
+        return this.f25217b;
     }
 
     public String toString() {
-        return "CardInfoDisplayModel [content=" + this.f25287a + ", flag=" + this.f25288b + "]";
+        return "CardInfoDisplayModel [content=" + this.f25216a + ", flag=" + this.f25217b + "]";
     }
 
     public void b(String str) {
-        this.f25288b = str;
+        this.f25217b = str;
     }
 
     public void a(String str) {
-        this.f25287a = str;
+        this.f25216a = str;
     }
 }

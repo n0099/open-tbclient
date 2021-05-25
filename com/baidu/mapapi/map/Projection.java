@@ -10,15 +10,15 @@ import com.baidu.mapsdkplatform.comapi.map.ab;
 public final class Projection {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mapsdkplatform.comapi.map.e f7091a;
+    public com.baidu.mapsdkplatform.comapi.map.e f6991a;
 
     public Projection(com.baidu.mapsdkplatform.comapi.map.e eVar) {
-        this.f7091a = eVar;
+        this.f6991a = eVar;
     }
 
     public LatLng fromScreenLocation(Point point) {
         com.baidu.mapsdkplatform.comapi.map.e eVar;
-        if (point == null || (eVar = this.f7091a) == null) {
+        if (point == null || (eVar = this.f6991a) == null) {
             return null;
         }
         return CoordUtil.mc2ll(eVar.b(point.x, point.y));
@@ -28,7 +28,7 @@ public final class Projection {
         if (f2 <= 0.0f) {
             return 0.0f;
         }
-        return (float) (f2 / this.f7091a.K());
+        return (float) (f2 / this.f6991a.K());
     }
 
     public PointF toOpenGLLocation(LatLng latLng, MapStatus mapStatus) {
@@ -36,8 +36,8 @@ public final class Projection {
             return null;
         }
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        ab abVar = mapStatus.f6994a;
-        return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f7674d), (float) (ll2mc.getLatitudeE6() - abVar.f7675e));
+        ab abVar = mapStatus.f6894a;
+        return new PointF((float) (ll2mc.getLongitudeE6() - abVar.f7574d), (float) (ll2mc.getLatitudeE6() - abVar.f7575e));
     }
 
     public PointF toOpenGLNormalization(LatLng latLng, MapStatus mapStatus) {
@@ -45,14 +45,14 @@ public final class Projection {
             return null;
         }
         GeoPoint ll2mc = CoordUtil.ll2mc(latLng);
-        ab.a aVar = mapStatus.f6994a.k;
-        return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.f7680a) * 2.0d) / Math.abs(aVar.f7681b - aVar.f7680a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f7683d) * 2.0d) / Math.abs(aVar.f7682c - aVar.f7683d)) - 1.0d));
+        ab.a aVar = mapStatus.f6894a.k;
+        return new PointF((float) ((((ll2mc.getLongitudeE6() - aVar.f7580a) * 2.0d) / Math.abs(aVar.f7581b - aVar.f7580a)) - 1.0d), (float) ((((ll2mc.getLatitudeE6() - aVar.f7583d) * 2.0d) / Math.abs(aVar.f7582c - aVar.f7583d)) - 1.0d));
     }
 
     public Point toScreenLocation(LatLng latLng) {
-        if (latLng == null || this.f7091a == null) {
+        if (latLng == null || this.f6991a == null) {
             return null;
         }
-        return this.f7091a.a(CoordUtil.ll2mc(latLng));
+        return this.f6991a.a(CoordUtil.ll2mc(latLng));
     }
 }

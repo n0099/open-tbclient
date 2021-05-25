@@ -10,10 +10,10 @@ import androidx.recyclerview.widget.RecyclerView;
 public class AlaBannerRecyclerView extends RecyclerView {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f14018e;
+    public int f13921e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14019f;
+    public int f13922f;
 
     public AlaBannerRecyclerView(Context context) {
         super(context);
@@ -40,8 +40,8 @@ public class AlaBannerRecyclerView extends RecyclerView {
         if (action != 0) {
             if (action != 1) {
                 if (action == 2) {
-                    int i2 = y - this.f14018e;
-                    int i3 = x - this.f14019f;
+                    int i2 = y - this.f13921e;
+                    int i3 = x - this.f13922f;
                     if (Math.abs(i2) > ViewConfiguration.getTouchSlop() && Math.abs(i2) > Math.abs(i3)) {
                         getParent().requestDisallowInterceptTouchEvent(false);
                     } else {
@@ -51,12 +51,12 @@ public class AlaBannerRecyclerView extends RecyclerView {
             }
             getParent().requestDisallowInterceptTouchEvent(false);
         } else {
-            this.f14018e = y;
-            this.f14019f = x;
+            this.f13921e = y;
+            this.f13922f = x;
             getParent().requestDisallowInterceptTouchEvent(true);
         }
-        this.f14018e = y;
-        this.f14019f = x;
+        this.f13921e = y;
+        this.f13922f = x;
         return super.dispatchTouchEvent(motionEvent);
     }
 

@@ -15,13 +15,13 @@ import org.json.JSONException;
 public class c extends a<Object> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Charset f5199a = Charset.forName("UTF-8");
+    public static final Charset f5099a = Charset.forName("UTF-8");
 
     private Charset a(com.baidu.fsg.base.restnet.http.a aVar) {
         if (aVar != null && !TextUtils.isEmpty(aVar.j())) {
             return Charset.forName(aVar.j());
         }
-        return f5199a;
+        return f5099a;
     }
 
     @Override // com.baidu.fsg.base.restnet.a.a

@@ -21,7 +21,7 @@ import java.util.ArrayList;
 public class DownloadHandlerService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f35890a = DownloadHandlerService.class.getSimpleName();
+    public static final String f35819a = DownloadHandlerService.class.getSimpleName();
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
@@ -45,33 +45,33 @@ public class DownloadHandlerService extends Service {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f35892e;
+        public final /* synthetic */ DownloadInfo f35821e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ d.f f35893f;
+        public final /* synthetic */ d.f f35822f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ d.o.a.e.b.f.d f35894g;
+        public final /* synthetic */ d.o.a.e.b.f.d f35823g;
 
         public b(DownloadInfo downloadInfo, d.f fVar, d.o.a.e.b.f.d dVar) {
-            this.f35892e = downloadInfo;
-            this.f35893f = fVar;
-            this.f35894g = dVar;
+            this.f35821e = downloadInfo;
+            this.f35822f = fVar;
+            this.f35823g = dVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             PackageInfo i2;
             try {
-                File file = new File(this.f35892e.F0(), this.f35892e.q0());
+                File file = new File(this.f35821e.F0(), this.f35821e.q0());
                 if (file.exists()) {
                     try {
-                        String str = (d.o.a.e.b.g.d.l() == null || (i2 = d.o.a.e.a.d.i(this.f35892e, file)) == null) ? "" : i2.packageName;
-                        if (this.f35893f != null) {
-                            this.f35893f.b(this.f35892e.c0(), 3, str, -3, this.f35892e.M());
+                        String str = (d.o.a.e.b.g.d.l() == null || (i2 = d.o.a.e.a.d.i(this.f35821e, file)) == null) ? "" : i2.packageName;
+                        if (this.f35822f != null) {
+                            this.f35822f.b(this.f35821e.c0(), 3, str, -3, this.f35821e.M());
                         }
-                        if (this.f35894g != null) {
-                            this.f35894g.a(3, this.f35892e, str, "");
+                        if (this.f35823g != null) {
+                            this.f35823g.a(3, this.f35821e, str, "");
                         }
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -160,7 +160,7 @@ public class DownloadHandlerService extends Service {
     public int onStartCommand(Intent intent, int i2, int i3) {
         super.onStartCommand(intent, i2, i3);
         if (d.o.a.e.b.c.a.e()) {
-            d.o.a.e.b.c.a.g(f35890a, "onStartCommand");
+            d.o.a.e.b.c.a.g(f35819a, "onStartCommand");
         }
         a(intent);
         stopSelf();

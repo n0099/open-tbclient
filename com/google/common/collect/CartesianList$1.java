@@ -20,7 +20,7 @@ public class CartesianList$1 extends ImmutableList<E> {
         ImmutableList immutableList;
         n.n(i2, size());
         c2 = this.this$0.c(this.val$index, i2);
-        immutableList = this.this$0.f66248e;
+        immutableList = this.this$0.f66291e;
         return ((List) immutableList.get(i2)).get(c2);
     }
 
@@ -32,7 +32,7 @@ public class CartesianList$1 extends ImmutableList<E> {
     @Override // java.util.AbstractCollection, java.util.Collection, java.util.List
     public int size() {
         ImmutableList immutableList;
-        immutableList = this.this$0.f66248e;
+        immutableList = this.this$0.f66291e;
         return immutableList.size();
     }
 }

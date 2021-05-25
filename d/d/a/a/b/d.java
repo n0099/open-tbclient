@@ -13,16 +13,16 @@ import java.util.HashMap;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerThread f66004a;
+    public HandlerThread f66047a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f66005b;
+    public Handler f66048b;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f66006a = new d(null);
+        public static d f66049a = new d(null);
     }
 
     /* loaded from: classes6.dex */
@@ -52,7 +52,7 @@ public class d {
     }
 
     public static d h() {
-        return a.f66006a;
+        return a.f66049a;
     }
 
     public void a() {
@@ -79,13 +79,13 @@ public class d {
             return false;
         }
         h.b f2 = h.a().f(str);
-        if (f2.f66015a == 0 || TextUtils.isEmpty(f2.f66016b) || !e(f2.f66016b, null)) {
+        if (f2.f66058a == 0 || TextUtils.isEmpty(f2.f66059b) || !e(f2.f66059b, null)) {
             return false;
         }
         if (str.equals("normal_log")) {
-            f.a().d(c2, e.e(f2.f66016b.getBytes(), false));
+            f.a().d(c2, e.e(f2.f66059b.getBytes(), false));
         }
-        i.a().b(str, f2.f66015a);
+        i.a().b(str, f2.f66058a);
         return true;
     }
 
@@ -120,12 +120,12 @@ public class d {
         if (c2 == null) {
             return;
         }
-        this.f66005b.removeMessages(10001);
+        this.f66048b.removeMessages(10001);
         int i2 = d.d.a.a.a.e().f().get3GSendingInterval();
         if (e.k(c2)) {
             i2 = d.d.a.a.a.e().f().getWifiSendingInterval();
         }
-        this.f66005b.sendEmptyMessageDelayed(10001, i2 * 60000);
+        this.f66048b.sendEmptyMessageDelayed(10001, i2 * 60000);
     }
 
     public final boolean g(Context context, String str) {
@@ -137,13 +137,13 @@ public class d {
     }
 
     public void i(String str) {
-        this.f66005b.obtainMessage(10000, str).sendToTarget();
+        this.f66048b.obtainMessage(10000, str).sendToTarget();
     }
 
     public d() {
         HandlerThread handlerThread = new HandlerThread("SensorLogSenderThread");
-        this.f66004a = handlerThread;
+        this.f66047a = handlerThread;
         handlerThread.start();
-        this.f66005b = new b(this.f66004a.getLooper());
+        this.f66048b = new b(this.f66047a.getLooper());
     }
 }

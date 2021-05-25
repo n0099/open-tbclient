@@ -5,19 +5,19 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class a {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final a f68388b = new a();
+    public static final a f68431b = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicReference<b> f68389a = new AtomicReference<>();
+    public final AtomicReference<b> f68432a = new AtomicReference<>();
 
     public static a a() {
-        return f68388b;
+        return f68431b;
     }
 
     public b b() {
-        if (this.f68389a.get() == null) {
-            this.f68389a.compareAndSet(null, b.a());
+        if (this.f68432a.get() == null) {
+            this.f68432a.compareAndSet(null, b.a());
         }
-        return this.f68389a.get();
+        return this.f68432a.get();
     }
 }

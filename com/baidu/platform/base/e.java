@@ -16,13 +16,13 @@ import com.baidu.mapsdkplatform.comjni.util.AppMD5;
 public abstract class e {
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f9353b = true;
+    public boolean f9253b = true;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f9354c = true;
+    public boolean f9254c = true;
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.platform.util.a f9352a = new com.baidu.platform.util.a();
+    public com.baidu.platform.util.a f9252a = new com.baidu.platform.util.a();
 
     private String a(SearchType searchType, String str) {
         if (TextUtils.isEmpty(str)) {
@@ -89,15 +89,15 @@ public abstract class e {
             }
             authToken = HttpClient.getAuthToken();
         }
-        if (this.f9353b) {
-            this.f9352a.a("token", authToken);
+        if (this.f9253b) {
+            this.f9252a.a("token", authToken);
         }
-        String a3 = this.f9352a.a();
+        String a3 = this.f9252a.a();
         if (b(searchType)) {
             a3 = a(searchType, a3);
         }
         String str = a3 + HttpClient.getPhoneInfo();
-        if (this.f9354c) {
+        if (this.f9254c) {
             str = str + "&sign=" + AppMD5.getSignMD5String(str);
         }
         return a2 + "?" + str;
@@ -106,10 +106,10 @@ public abstract class e {
     public abstract String a(com.baidu.platform.domain.c cVar);
 
     public void a(boolean z) {
-        this.f9354c = z;
+        this.f9254c = z;
     }
 
     public void b(boolean z) {
-        this.f9353b = z;
+        this.f9253b = z;
     }
 }

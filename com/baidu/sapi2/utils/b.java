@@ -15,9 +15,9 @@ import android.widget.TextView;
 import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.sapi2.views.SweepLightLoadingView;
-import d.a.y.a.d;
-import d.a.y.a.e;
-import d.a.y.a.f;
+import d.a.a0.a.d;
+import d.a.a0.a.e;
+import d.a.a0.a.f;
 /* loaded from: classes2.dex */
 public class b {
 
@@ -25,32 +25,32 @@ public class b {
     public static class a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ WebView f9933a;
+        public final /* synthetic */ WebView f9833a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ View f9934b;
+        public final /* synthetic */ View f9834b;
 
         /* renamed from: com.baidu.sapi2.utils.b$a$a  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0126a implements Runnable {
-            public RunnableC0126a() {
+        public class RunnableC0127a implements Runnable {
+            public RunnableC0127a() {
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                a.this.f9934b.setVisibility(4);
-                a.this.f9933a.reload();
+                a.this.f9834b.setVisibility(4);
+                a.this.f9833a.reload();
             }
         }
 
         public a(WebView webView, View view) {
-            this.f9933a = webView;
-            this.f9934b = view;
+            this.f9833a = webView;
+            this.f9834b = view;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            this.f9933a.post(new RunnableC0126a());
+            this.f9833a.post(new RunnableC0127a());
         }
     }
 
@@ -68,7 +68,7 @@ public class b {
         try {
             ProgressBar progressBar = new ProgressBar(context, null, 16842872);
             progressBar.setLayoutParams(new AbsoluteLayout.LayoutParams(-1, SapiUtils.dip2px(context, 2.0f), 0, 0));
-            progressBar.setBackgroundColor(context.getResources().getColor(d.a.y.a.b.sapi_sdk_dark_mode_color));
+            progressBar.setBackgroundColor(context.getResources().getColor(d.a.a0.a.b.sapi_sdk_dark_mode_color));
             sapiWebView.setProgressBar(progressBar);
         } catch (Throwable th) {
             Log.e(th);
@@ -91,13 +91,13 @@ public class b {
         View inflate = ((LayoutInflater) context.getSystemService("layout_inflater")).inflate(f.layout_sapi_sdk_loading_timeout, (ViewGroup) null);
         Button button = (Button) inflate.findViewById(e.btn_retry);
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode && inflate != null) {
-            ((LinearLayout) inflate.findViewById(e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(d.a.y.a.b.sapi_sdk_dark_mode_color));
-            ((TextView) inflate.findViewById(e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(d.a.y.a.b.sapi_sdk_dark_mode_no_network_tv_color));
+            ((LinearLayout) inflate.findViewById(e.sapi_sdk_loading_timeout_bg_layout)).setBackgroundColor(context.getResources().getColor(d.a.a0.a.b.sapi_sdk_dark_mode_color));
+            ((TextView) inflate.findViewById(e.sapi_sdk_loading_timeout_tv)).setTextColor(context.getResources().getColor(d.a.a0.a.b.sapi_sdk_dark_mode_no_network_tv_color));
             ((ImageView) inflate.findViewById(e.sapi_sdk_loading_timeout_iv)).setImageResource(d.sapi_sdk_icon_connection_failed_dark);
             button.setBackgroundResource(d.sapi_sdk_btn_gray);
             Resources resources = context.getResources();
             if (resources != null) {
-                button.setTextColor(resources.getColorStateList(d.a.y.a.b.sapi_sdk_text_white));
+                button.setTextColor(resources.getColorStateList(d.a.a0.a.b.sapi_sdk_text_white));
             }
         }
         button.setOnClickListener(new a(webView, inflate));

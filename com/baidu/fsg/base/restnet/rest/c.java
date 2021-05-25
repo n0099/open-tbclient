@@ -10,35 +10,35 @@ import java.util.concurrent.TimeoutException;
 public class c implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5255a = 30000;
+    public static final int f5155a = 30000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5256b = 30000;
+    public static final int f5156b = 30000;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5257c = 10;
+    public static final int f5157c = 10;
 
     /* renamed from: d  reason: collision with root package name */
-    public static final int f5258d = 10;
+    public static final int f5158d = 10;
 
     /* renamed from: e  reason: collision with root package name */
-    public static final int f5259e = 8192;
+    public static final int f5159e = 8192;
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f5260f = 3;
+    public static final int f5160f = 3;
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f5261g = 1000;
+    public static final int f5161g = 1000;
 
     /* renamed from: h  reason: collision with root package name */
-    public static final String f5262h = "RestHttpNetwork";
+    public static final String f5162h = "RestHttpNetwork";
 
     /* renamed from: i  reason: collision with root package name */
-    public final b f5263i;
+    public final b f5163i;
     public final g j = new g(3, 1000);
 
     public c(b bVar) {
-        this.f5263i = bVar;
+        this.f5163i = bVar;
     }
 
     /*  JADX ERROR: IF instruction can be used only in fallback mode
@@ -85,7 +85,7 @@ public class c implements b {
             r6 = 0
         Ld:
             if (r5 == 0) goto Lde
-            com.baidu.fsg.base.restnet.rest.b r4 = r10.f5263i     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
+            com.baidu.fsg.base.restnet.rest.b r4 = r10.f5163i     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
             com.baidu.fsg.base.restnet.rest.e r4 = r4.a(r11)     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
             if (r4 == 0) goto L2c
             com.baidu.fsg.base.restnet.http.HttpStatus r5 = r4.e()     // Catch: java.io.IOException -> L2d java.util.concurrent.TimeoutException -> L38 java.lang.NullPointerException -> L5c java.net.UnknownHostException -> L83
@@ -186,6 +186,6 @@ public class c implements b {
 
     @Override // com.baidu.fsg.base.restnet.rest.b
     public void a() {
-        this.f5263i.a();
+        this.f5163i.a();
     }
 }

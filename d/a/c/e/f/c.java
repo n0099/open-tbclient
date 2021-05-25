@@ -8,37 +8,37 @@ import java.security.InvalidParameterException;
 public class c {
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f38907d = "_crashtime";
+    public static String f38571d = "_crashtime";
 
     /* renamed from: e  reason: collision with root package name */
-    public static String f38908e = "_crashtype";
+    public static String f38572e = "_crashtype";
 
     /* renamed from: a  reason: collision with root package name */
-    public int f38909a;
+    public int f38573a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f38910b;
+    public int f38574b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f38911c;
+    public b f38575c;
 
     public c(b bVar) {
-        this.f38909a = 0;
-        this.f38910b = 0;
-        this.f38911c = null;
+        this.f38573a = 0;
+        this.f38574b = 0;
+        this.f38575c = null;
         if (bVar != null) {
-            this.f38911c = bVar;
-            if (bVar.d() > 0 && this.f38911c.c() != null) {
+            this.f38575c = bVar;
+            if (bVar.d() > 0 && this.f38575c.c() != null) {
                 int f2 = f();
-                this.f38909a = f2;
+                this.f38573a = f2;
                 if (f2 == -1) {
                     h();
                 }
             }
             if (!bVar.h()) {
-                this.f38910b = g();
+                this.f38574b = g();
             }
-            this.f38911c.a(this.f38910b, true);
+            this.f38575c.a(this.f38574b, true);
             return;
         }
         throw new InvalidParameterException("SwitchHolder data is null");
@@ -47,33 +47,33 @@ public class c {
     public boolean a(String str) {
         String[] g2;
         String[] c2;
-        if (str != null && this.f38911c.d() > 0) {
-            if (this.f38911c.c() != null) {
-                for (String str2 : this.f38911c.c()) {
+        if (str != null && this.f38575c.d() > 0) {
+            if (this.f38575c.c() != null) {
+                for (String str2 : this.f38575c.c()) {
                     if (!TextUtils.isEmpty(str2) && str.indexOf(str2) != -1) {
-                        int i2 = this.f38909a + 1;
-                        this.f38909a = i2;
+                        int i2 = this.f38573a + 1;
+                        this.f38573a = i2;
                         k(i2);
-                        if (this.f38909a >= this.f38911c.d()) {
-                            l(this.f38911c.f());
-                            this.f38910b = this.f38911c.f();
-                            b bVar = this.f38911c;
+                        if (this.f38573a >= this.f38575c.d()) {
+                            l(this.f38575c.f());
+                            this.f38574b = this.f38575c.f();
+                            b bVar = this.f38575c;
                             bVar.a(bVar.f(), false);
                         }
                         return true;
                     }
                 }
             }
-            if (this.f38911c.g() != null) {
-                for (String str3 : this.f38911c.g()) {
+            if (this.f38575c.g() != null) {
+                for (String str3 : this.f38575c.g()) {
                     if (!TextUtils.isEmpty(str3) && str.equals(str3)) {
-                        int i3 = this.f38909a + 1;
-                        this.f38909a = i3;
+                        int i3 = this.f38573a + 1;
+                        this.f38573a = i3;
                         k(i3);
-                        if (this.f38909a >= this.f38911c.d()) {
-                            l(this.f38911c.f());
-                            this.f38910b = this.f38911c.f();
-                            b bVar2 = this.f38911c;
+                        if (this.f38573a >= this.f38575c.d()) {
+                            l(this.f38575c.f());
+                            this.f38574b = this.f38575c.f();
+                            b bVar2 = this.f38575c;
                             bVar2.a(bVar2.f(), false);
                         }
                         return true;
@@ -85,61 +85,61 @@ public class c {
     }
 
     public b b() {
-        return this.f38911c;
+        return this.f38575c;
     }
 
     public int c() {
-        return this.f38911c.b();
+        return this.f38575c.b();
     }
 
     public String d() {
-        return this.f38911c.e();
+        return this.f38575c.e();
     }
 
     public int e() {
-        return this.f38910b;
+        return this.f38574b;
     }
 
     public final int f() {
         SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-        return sharedPreferences.getInt(this.f38911c.e() + f38907d, -1);
+        return sharedPreferences.getInt(this.f38575c.e() + f38571d, -1);
     }
 
     public final int g() {
         SharedPreferences sharedPreferences = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0);
-        return sharedPreferences.getInt(this.f38911c.e() + f38908e, this.f38911c.b());
+        return sharedPreferences.getInt(this.f38575c.e() + f38572e, this.f38575c.b());
     }
 
     public void h() {
-        this.f38909a = 0;
+        this.f38573a = 0;
     }
 
     public void i(int i2) {
-        this.f38909a = i2;
+        this.f38573a = i2;
     }
 
     public boolean j(int i2) {
-        if (this.f38911c.d() >= 0 && this.f38909a >= this.f38911c.d() + 2) {
-            i2 = this.f38911c.f();
+        if (this.f38575c.d() >= 0 && this.f38573a >= this.f38575c.d() + 2) {
+            i2 = this.f38575c.f();
         }
-        if (i2 == this.f38910b) {
+        if (i2 == this.f38574b) {
             return false;
         }
-        this.f38910b = i2;
-        this.f38911c.a(i2, false);
+        this.f38574b = i2;
+        this.f38575c.a(i2, false);
         l(i2);
         return true;
     }
 
     public final void k(int i2) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.f38911c.e() + f38907d, i2);
+        edit.putInt(this.f38575c.e() + f38571d, i2);
         edit.commit();
     }
 
     public final void l(int i2) {
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        edit.putInt(this.f38911c.e() + f38908e, i2);
+        edit.putInt(this.f38575c.e() + f38572e, i2);
         edit.commit();
     }
 }

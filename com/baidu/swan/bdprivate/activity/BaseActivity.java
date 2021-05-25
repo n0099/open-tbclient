@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import androidx.annotation.Nullable;
-import d.a.i0.b.b;
+import d.a.l0.b.b;
 /* loaded from: classes3.dex */
 public class BaseActivity extends Activity {
     public static final int ACTION_BAR_TEXT_SIZE = 14;

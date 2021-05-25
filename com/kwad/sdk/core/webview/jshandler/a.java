@@ -13,35 +13,35 @@ import org.json.JSONObject;
 public class a implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f32893a;
+    public final com.kwad.sdk.core.webview.a f32822a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f32894b = new Handler(Looper.getMainLooper());
+    public Handler f32823b = new Handler(Looper.getMainLooper());
     @Nullable
 
     /* renamed from: c  reason: collision with root package name */
-    public final com.kwad.sdk.core.download.b.b f32895c;
+    public final com.kwad.sdk.core.download.b.b f32824c;
     @Nullable
 
     /* renamed from: d  reason: collision with root package name */
-    public b f32896d;
+    public b f32825d;
     @Nullable
 
     /* renamed from: e  reason: collision with root package name */
-    public c f32897e;
+    public c f32826e;
 
     /* renamed from: com.kwad.sdk.core.webview.jshandler.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class C0373a extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
+    public static final class C0374a extends com.kwad.sdk.core.response.a.a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f32903a;
+        public boolean f32832a;
     }
 
     /* loaded from: classes6.dex */
     public interface b {
         @WorkerThread
-        void a(@Nullable C0373a c0373a);
+        void a(@Nullable C0374a c0374a);
     }
 
     /* loaded from: classes6.dex */
@@ -51,12 +51,12 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     }
 
     public a(@NonNull com.kwad.sdk.core.webview.a aVar, @Nullable com.kwad.sdk.core.download.b.b bVar, @Nullable b bVar2) {
-        this.f32893a = aVar;
-        this.f32895c = bVar;
+        this.f32822a = aVar;
+        this.f32824c = bVar;
         if (bVar != null) {
             bVar.a(1);
         }
-        this.f32896d = bVar2;
+        this.f32825d = bVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -69,45 +69,45 @@ public class a implements com.kwad.sdk.core.webview.a.a {
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         Handler handler;
         Runnable runnable;
-        if (this.f32893a.f32867b == null) {
+        if (this.f32822a.f32796b == null) {
             cVar.a(-1, "native adTemplate is null");
             return;
         }
-        final C0373a c0373a = new C0373a();
+        final C0374a c0374a = new C0374a();
         try {
-            c0373a.parseJson(new JSONObject(str));
+            c0374a.parseJson(new JSONObject(str));
         } catch (JSONException e2) {
             com.kwad.sdk.core.d.a.a(e2);
         }
-        if (!this.f32893a.f32872g) {
-            if (this.f32896d != null) {
-                handler = this.f32894b;
+        if (!this.f32822a.f32801g) {
+            if (this.f32825d != null) {
+                handler = this.f32823b;
                 runnable = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (a.this.f32896d != null) {
-                            a.this.f32896d.a(c0373a);
+                        if (a.this.f32825d != null) {
+                            a.this.f32825d.a(c0374a);
                         }
                     }
                 };
             }
             cVar.a(null);
         }
-        handler = this.f32894b;
+        handler = this.f32823b;
         runnable = new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f32893a.f32873h || c0373a.f32903a) {
-                    int a2 = com.kwad.sdk.core.download.b.a.a(a.this.f32893a.f32870e.getContext(), a.this.f32893a.f32867b, new a.InterfaceC0363a() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
-                        @Override // com.kwad.sdk.core.download.b.a.InterfaceC0363a
+                if (a.this.f32822a.f32802h || c0374a.f32832a) {
+                    int a2 = com.kwad.sdk.core.download.b.a.a(a.this.f32822a.f32799e.getContext(), a.this.f32822a.f32796b, new a.InterfaceC0364a() { // from class: com.kwad.sdk.core.webview.jshandler.a.1.1
+                        @Override // com.kwad.sdk.core.download.b.a.InterfaceC0364a
                         public void a() {
-                            if (a.this.f32896d != null) {
-                                a.this.f32896d.a(c0373a);
+                            if (a.this.f32825d != null) {
+                                a.this.f32825d.a(c0374a);
                             }
                         }
-                    }, a.this.f32895c, c0373a.f32903a);
-                    if (a.this.f32897e != null) {
-                        a.this.f32897e.a(a2);
+                    }, a.this.f32824c, c0374a.f32832a);
+                    if (a.this.f32826e != null) {
+                        a.this.f32826e.a(a2);
                     }
                 }
             }
@@ -118,7 +118,7 @@ public class a implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f32894b.removeCallbacksAndMessages(null);
-        this.f32896d = null;
+        this.f32823b.removeCallbacksAndMessages(null);
+        this.f32825d = null;
     }
 }

@@ -12,48 +12,48 @@ import com.baidu.tieba.R;
 public class DressupItemView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f18312e;
+    public Context f18222e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f18313f;
+    public View f18223f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TbImageView f18314g;
+    public TbImageView f18224g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TbImageView f18315h;
+    public TbImageView f18225h;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f18316i;
+    public TextView f18226i;
     public TextView j;
 
     public DressupItemView(Context context) {
         super(context);
-        this.f18312e = context;
+        this.f18222e = context;
         a();
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(this.f18312e).inflate(R.layout.index_dressup_item, this);
-        this.f18313f = inflate;
-        this.f18314g = (TbImageView) inflate.findViewById(R.id.bg_image);
-        TbImageView tbImageView = (TbImageView) this.f18313f.findViewById(R.id.permission_icon);
-        this.f18315h = tbImageView;
+        View inflate = LayoutInflater.from(this.f18222e).inflate(R.layout.index_dressup_item, this);
+        this.f18223f = inflate;
+        this.f18224g = (TbImageView) inflate.findViewById(R.id.bg_image);
+        TbImageView tbImageView = (TbImageView) this.f18223f.findViewById(R.id.permission_icon);
+        this.f18225h = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
-        this.f18315h.setDefaultBgResource(R.drawable.transparent_bg);
-        this.f18316i = (TextView) this.f18313f.findViewById(R.id.txt_type);
-        this.j = (TextView) this.f18313f.findViewById(R.id.txt_name);
+        this.f18225h.setDefaultBgResource(R.drawable.transparent_bg);
+        this.f18226i = (TextView) this.f18223f.findViewById(R.id.txt_type);
+        this.j = (TextView) this.f18223f.findViewById(R.id.txt_name);
     }
 
     public DressupItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f18312e = context;
+        this.f18222e = context;
         a();
     }
 
     public DressupItemView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet);
-        this.f18312e = context;
+        this.f18222e = context;
         a();
     }
 }

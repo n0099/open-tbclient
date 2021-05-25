@@ -14,21 +14,21 @@ import java.net.URL;
 public class M extends AsyncTask {
 
     /* renamed from: a  reason: collision with root package name */
-    public O f36947a;
+    public O f36876a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f36948b;
+    public final /* synthetic */ String f36877b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ boolean f36949c;
+    public final /* synthetic */ boolean f36878c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final /* synthetic */ Q f36950d;
+    public final /* synthetic */ Q f36879d;
 
     public M(Q q, String str, boolean z) {
-        this.f36950d = q;
-        this.f36948b = str;
-        this.f36949c = z;
+        this.f36879d = q;
+        this.f36877b = str;
+        this.f36878c = z;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[IF] complete} */
@@ -49,14 +49,14 @@ public class M extends AsyncTask {
         Void[] voidArr = (Void[]) objArr;
         int i2 = 1;
         try {
-            httpURLConnection = (HttpURLConnection) new URL(this.f36948b).openConnection();
+            httpURLConnection = (HttpURLConnection) new URL(this.f36877b).openConnection();
             try {
                 try {
-                    if (this.f36949c) {
+                    if (this.f36878c) {
                         httpURLConnection.connect();
                         int contentLength = httpURLConnection.getContentLength();
                         if (contentLength <= 0) {
-                            this.f36947a = new O("Invalid content length. The URL is probably not pointing to a file");
+                            this.f36876a = new O("Invalid content length. The URL is probably not pointing to a file");
                             cancel(true);
                         }
                         inputStream = new BufferedInputStream(httpURLConnection.getInputStream(), 8192);
@@ -82,7 +82,7 @@ public class M extends AsyncTask {
                             th = th;
                             try {
                                 if (!isCancelled()) {
-                                    this.f36947a = new O(th);
+                                    this.f36876a = new O(th);
                                     cancel(true);
                                 }
                                 if (httpURLConnection != null) {
@@ -175,8 +175,8 @@ public class M extends AsyncTask {
 
     @Override // android.os.AsyncTask
     public void onCancelled() {
-        this.f36950d.f36987b.remove(this.f36948b);
-        ((j) this.f36950d.f36986a).a(this.f36947a);
+        this.f36879d.f36916b.remove(this.f36877b);
+        ((j) this.f36879d.f36915a).a(this.f36876a);
     }
 
     @Override // android.os.AsyncTask
@@ -185,16 +185,16 @@ public class M extends AsyncTask {
         File file2;
         Bitmap bitmap = (Bitmap) obj;
         if (bitmap == null) {
-            ((j) this.f36950d.f36986a).a(new O("downloaded file could not be decoded as bitmap"));
+            ((j) this.f36879d.f36915a).a(new O("downloaded file could not be decoded as bitmap"));
         } else {
-            j jVar = (j) this.f36950d.f36986a;
-            PBSplash pBSplash = jVar.f37144b;
+            j jVar = (j) this.f36879d.f36915a;
+            PBSplash pBSplash = jVar.f37073b;
             if (pBSplash.j) {
                 file = pBSplash.l;
                 if (!file.exists()) {
-                    file2 = jVar.f37144b.l;
+                    file2 = jVar.f37073b.l;
                     i iVar = new i(jVar);
-                    Bitmap.CompressFormat compressFormat = jVar.f37143a;
+                    Bitmap.CompressFormat compressFormat = jVar.f37072a;
                     if (file2.isDirectory()) {
                         new O("the specified path points to a directory, should be a file");
                     } else if (file2.exists()) {
@@ -217,25 +217,25 @@ public class M extends AsyncTask {
                     }
                 }
             } else {
-                PBSplashListener pBSplashListener = pBSplash.f36978e;
+                PBSplashListener pBSplashListener = pBSplash.f36907e;
                 if (pBSplashListener != null) {
-                    pBSplash.f36976c = bitmap;
+                    pBSplash.f36905c = bitmap;
                     pBSplashListener.onLoaded();
-                    jVar.f37144b.f36982i = true;
+                    jVar.f37073b.f36911i = true;
                 }
             }
         }
-        this.f36950d.f36987b.remove(this.f36948b);
+        this.f36879d.f36916b.remove(this.f36877b);
         System.gc();
     }
 
     @Override // android.os.AsyncTask
     public void onPreExecute() {
-        this.f36950d.f36987b.add(this.f36948b);
+        this.f36879d.f36916b.add(this.f36877b);
     }
 
     @Override // android.os.AsyncTask
     public void onProgressUpdate(Object[] objArr) {
-        ((j) this.f36950d.f36986a).a(((Integer[]) objArr)[0].intValue());
+        ((j) this.f36879d.f36915a).a(((Integer[]) objArr)[0].intValue());
     }
 }

@@ -7,28 +7,28 @@ import java.util.LinkedList;
 public class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f39021a;
+    public int f38685a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f39022b;
+    public int f38686b;
 
     /* renamed from: c  reason: collision with root package name */
-    public LinkedList<T> f39023c;
+    public LinkedList<T> f38687c;
 
     /* renamed from: d  reason: collision with root package name */
-    public c<T> f39024d;
+    public c<T> f38688d;
 
     public b(c<T> cVar, int i2, int i3) {
-        this.f39021a = 10;
-        this.f39022b = 0;
-        this.f39023c = null;
-        this.f39024d = null;
+        this.f38685a = 10;
+        this.f38686b = 0;
+        this.f38687c = null;
+        this.f38688d = null;
         if (cVar != null && i2 > 0 && i3 <= i2) {
-            this.f39024d = cVar;
-            this.f39021a = i2;
-            this.f39022b = i3;
-            this.f39023c = new LinkedList<>();
-            a(this.f39022b);
+            this.f38688d = cVar;
+            this.f38685a = i2;
+            this.f38686b = i3;
+            this.f38687c = new LinkedList<>();
+            a(this.f38686b);
             return;
         }
         throw new InvalidParameterException("invalid params");
@@ -41,12 +41,12 @@ public class b<T> {
             for (int i3 = 0; i3 < i2; i3++) {
                 Object obj = null;
                 try {
-                    obj = this.f39024d.a(this.f39024d.d());
+                    obj = this.f38688d.a(this.f38688d.d());
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
                 if (obj != null) {
-                    this.f39023c.offer(obj);
+                    this.f38687c.offer(obj);
                 }
             }
         }
@@ -57,12 +57,12 @@ public class b<T> {
         synchronized (this) {
             t = null;
             try {
-                if (this.f39023c.size() > 0) {
-                    t = this.f39024d.a(this.f39023c.poll());
+                if (this.f38687c.size() > 0) {
+                    t = this.f38688d.a(this.f38687c.poll());
                 } else {
-                    t = this.f39024d.a(this.f39024d.d());
+                    t = this.f38688d.a(this.f38688d.d());
                 }
-                a(this.f39022b - this.f39023c.size());
+                a(this.f38686b - this.f38687c.size());
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
@@ -72,7 +72,7 @@ public class b<T> {
 
     public void c() {
         synchronized (this) {
-            this.f39023c.clear();
+            this.f38687c.clear();
         }
     }
 
@@ -80,7 +80,7 @@ public class b<T> {
         synchronized (this) {
             for (int i3 = 0; i3 < i2; i3++) {
                 try {
-                    this.f39024d.b(this.f39023c.poll());
+                    this.f38688d.b(this.f38687c.poll());
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
@@ -90,42 +90,42 @@ public class b<T> {
 
     public void e(T t) {
         synchronized (this) {
-            if (this.f39023c.size() < this.f39021a) {
+            if (this.f38687c.size() < this.f38685a) {
                 T t2 = null;
                 try {
-                    t2 = this.f39024d.c(t);
+                    t2 = this.f38688d.c(t);
                 } catch (Exception e2) {
                     BdLog.e(e2.getMessage());
                 }
                 if (t2 != null) {
-                    this.f39023c.offer(t2);
+                    this.f38687c.offer(t2);
                 }
             } else {
-                this.f39024d.b(t);
+                this.f38688d.b(t);
             }
         }
     }
 
     public void f(int i2) {
         synchronized (this) {
-            if (i2 < this.f39022b) {
-                i2 = this.f39022b;
+            if (i2 < this.f38686b) {
+                i2 = this.f38686b;
             }
             if (i2 <= 0) {
                 i2 = 1;
             }
-            this.f39021a = i2;
-            d(this.f39023c.size() - this.f39021a);
+            this.f38685a = i2;
+            d(this.f38687c.size() - this.f38685a);
         }
     }
 
     public void g(int i2) {
         synchronized (this) {
-            if (i2 > this.f39021a) {
-                i2 = this.f39021a;
+            if (i2 > this.f38685a) {
+                i2 = this.f38685a;
             }
-            this.f39022b = i2;
-            a(i2 - this.f39023c.size());
+            this.f38686b = i2;
+            a(i2 - this.f38687c.size());
         }
     }
 }

@@ -42,12 +42,12 @@ import com.idlefish.flutterboost.containers.ViewSplashScreen;
 import d.a.c.a.g;
 import d.a.c.a.h;
 import d.a.c.e.p.l;
-import d.a.j0.a.s;
-import d.a.j0.k0.a;
-import d.a.j0.k0.b;
-import d.a.j0.k0.d;
-import d.a.j0.k0.e;
-import d.a.j0.r.c;
+import d.a.m0.a.s;
+import d.a.m0.k0.a;
+import d.a.m0.k0.b;
+import d.a.m0.k0.d;
+import d.a.m0.k0.e;
+import d.a.m0.r.c;
 import io.flutter.embedding.android.SplashScreen;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -58,7 +58,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     public static int flog = 1;
     public static Class<? extends TbPageContext> mClazz4GetPageContext = FlutterActivityPageContext.class;
     public long lastResumeTime;
-    public d.a.j0.r.a mLayoutInflateFactory;
+    public d.a.m0.r.a mLayoutInflateFactory;
     public c mLayoutMode;
     public SwipeBackLayout mSwipeBackLayout;
     public TbPageContext<T> pageContext;
@@ -96,7 +96,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
     @Override // android.app.Activity, android.view.Window.Callback
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         s.a(motionEvent, getPageId(), 0L);
-        d.a.k0.i3.a.getInstance().behaviorRecordEvent(motionEvent, this);
+        d.a.n0.j3.a.getInstance().behaviorRecordEvent(motionEvent, this);
         try {
             return super.dispatchTouchEvent(motionEvent);
         } catch (Exception e2) {
@@ -130,16 +130,16 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         hashMap.put("native_view_cost", Long.valueOf(this.creatTime));
         hashMap.put("native_start_time", Long.valueOf(this.startTime));
         hashMap.put("flutter_start_time", Long.valueOf(this.flutterStartTime));
-        hashMap.put("sorce_key_list", d.a.j0.k0.c.a(getCurrentPageSourceKeyList()));
+        hashMap.put("sorce_key_list", d.a.m0.k0.c.a(getCurrentPageSourceKeyList()));
         return hashMap;
     }
 
-    @Override // d.a.j0.k0.a
+    @Override // d.a.m0.k0.a
     public String getCurrentPageKey() {
         return getContainerUrl();
     }
 
-    @Override // d.a.j0.k0.a
+    @Override // d.a.m0.k0.a
     public List<String> getCurrentPageSourceKeyList() {
         Intent intent = getIntent();
         if (intent != null) {
@@ -152,7 +152,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return this.mLayoutMode;
     }
 
-    @Override // d.a.j0.k0.a
+    @Override // d.a.m0.k0.a
     public List<String> getNextPageSourceKeyList() {
         ArrayList arrayList;
         ArrayList arrayList2 = (ArrayList) getCurrentPageSourceKeyList();
@@ -190,20 +190,20 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         return this.pageStayDurationItem;
     }
 
-    @Override // d.a.j0.k0.a
+    @Override // d.a.m0.k0.a
     public b getPageStayFilter() {
         return new b() { // from class: com.baidu.tieba.flutter.base.view.FlutterPageActivity.2
-            @Override // d.a.j0.k0.b
+            @Override // d.a.m0.k0.b
             public boolean canStat(d dVar) {
                 return false;
             }
 
-            @Override // d.a.j0.k0.b
+            @Override // d.a.m0.k0.b
             public int getMaxCost() {
                 return e.b().c();
             }
 
-            @Override // d.a.j0.k0.b
+            @Override // d.a.m0.k0.b
             public boolean isCurrentPageCanBeAddToSourceTrace() {
                 return true;
             }
@@ -269,7 +269,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
             BdSocketLinkService.startService(false, "app start");
         }
         this.mLayoutMode = new c();
-        d.a.j0.r.a aVar = new d.a.j0.r.a();
+        d.a.m0.r.a aVar = new d.a.m0.r.a();
         this.mLayoutInflateFactory = aVar;
         aVar.a(this.mLayoutMode);
         TbadkCoreApplication.setIsAppRunning(true);
@@ -301,7 +301,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
 
     @Override // com.idlefish.flutterboost.containers.BoostFlutterActivity, android.app.Activity
     public void onPause() {
-        d.a.k0.i3.a.getInstance().onPause(this);
+        d.a.n0.j3.a.getInstance().onPause(this);
         super.onPause();
         if (TbSingleton.getInstance().isShowBackLabel && this == TbadkCoreApplication.getInst().getCurrentActivity()) {
             hideFloatingWindow();
@@ -329,7 +329,7 @@ public class FlutterPageActivity<T> extends BoostFlutterActivity implements TbPa
         this.flutterStartTime = System.currentTimeMillis();
         TbadkCoreApplication.getInst().AddResumeNum();
         super.onResume();
-        d.a.k0.i3.a.getInstance().onResume(this);
+        d.a.n0.j3.a.getInstance().onResume(this);
         this.lastResumeTime = System.currentTimeMillis();
         TiebaStaticHelper.setCurrentActivity(FlutterPageActivity.class.getName());
         TbadkCoreApplication.getInst().setCurrentActivity(getPageContext().getPageActivity());

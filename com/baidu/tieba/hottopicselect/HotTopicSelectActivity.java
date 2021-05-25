@@ -38,7 +38,7 @@ import d.a.c.e.p.l;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.t0.a, HotTopicSelectModel.c {
+public class HotTopicSelectActivity extends SuspendedActivity implements d.a.m0.t0.a, HotTopicSelectModel.c {
     public TextView mCancelBtn;
     public ImageView mClearView;
     public HotTopicSelectModel mHotModel;
@@ -47,12 +47,12 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
     public ExpandableListView mLvNoSearch;
     public ViewGroup mMainLayout;
     public NoDataView mNoDataView;
-    public d.a.k0.d1.e mNoSearchAdapter;
+    public d.a.n0.e1.e mNoSearchAdapter;
     public Intent mResultIntent;
-    public d.a.k0.d1.b mSuggestAdatper;
+    public d.a.n0.e1.b mSuggestAdatper;
     public BdListView mSuggestView;
     public TextView mTopicText;
-    public final List<d.a.k0.d1.d> mSearchList = new ArrayList();
+    public final List<d.a.n0.e1.d> mSearchList = new ArrayList();
     public final View.OnClickListener mOnClickListener = new a();
     public final AdapterView.OnItemClickListener mOnItemClickListener = new b();
     public final ExpandableListView.OnGroupClickListener mOnGroupClickListener = new c();
@@ -80,7 +80,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            d.a.k0.d1.d dVar = (d.a.k0.d1.d) ListUtils.getItem(HotTopicSelectActivity.this.mSuggestAdatper.d(), i2);
+            d.a.n0.e1.d dVar = (d.a.n0.e1.d) ListUtils.getItem(HotTopicSelectActivity.this.mSuggestAdatper.d(), i2);
             if (dVar != null) {
                 String b2 = dVar.b();
                 HotTopicSelectActivity.this.createIntent(b2);
@@ -111,13 +111,13 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
 
         @Override // android.widget.ExpandableListView.OnChildClickListener
         public boolean onChildClick(ExpandableListView expandableListView, View view, int i2, int i3, long j) {
-            d.a.k0.d1.d child;
+            d.a.n0.e1.d child;
             if (HotTopicSelectActivity.this.mNoSearchAdapter == null || (child = HotTopicSelectActivity.this.mNoSearchAdapter.getChild(i2, i3)) == null) {
                 return false;
             }
             String b2 = child.b();
             HotTopicSelectActivity.this.createIntent(b2);
-            d.a.k0.d1.c group = HotTopicSelectActivity.this.mNoSearchAdapter.getGroup(i2);
+            d.a.n0.e1.c group = HotTopicSelectActivity.this.mNoSearchAdapter.getGroup(i2);
             if (group != null) {
                 HotTopicSelectActivity.this.addClickStats(b2, group.c() == 0 ? 1 : 2);
                 return false;
@@ -202,7 +202,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         this.mLvNoSearch.setVisibility(0);
         this.mSuggestView.setVisibility(8);
         this.mSuggestAdatper.b();
-        d.a.k0.d1.e eVar = this.mNoSearchAdapter;
+        d.a.n0.e1.e eVar = this.mNoSearchAdapter;
         if (eVar != null && !ListUtils.isEmpty(eVar.f())) {
             this.mListCustomView.setVisibility(0);
             return;
@@ -232,8 +232,8 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         finish();
     }
 
-    private d.a.k0.d1.d createSearchData(String str) {
-        d.a.k0.d1.d dVar = new d.a.k0.d1.d();
+    private d.a.n0.e1.d createSearchData(String str) {
+        d.a.n0.e1.d dVar = new d.a.n0.e1.d();
         dVar.d(str);
         return dVar;
     }
@@ -267,11 +267,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         layoutParams.gravity = 17;
         this.mMainLayout.addView(this.mNoDataView, layoutParams);
         this.mNoDataView.setVisibility(8);
-        d.a.k0.d1.b bVar = new d.a.k0.d1.b(getPageContext());
+        d.a.n0.e1.b bVar = new d.a.n0.e1.b(getPageContext());
         this.mSuggestAdatper = bVar;
         this.mSuggestView.setAdapter((ListAdapter) bVar);
         this.mLvNoSearch = (ExpandableListView) findViewById(R.id.home_no_search_listview);
-        d.a.k0.d1.e eVar = new d.a.k0.d1.e(getPageContext());
+        d.a.n0.e1.e eVar = new d.a.n0.e1.e(getPageContext());
         this.mNoSearchAdapter = eVar;
         this.mLvNoSearch.setAdapter(eVar);
         this.mSuggestView.setOnItemClickListener(this.mOnItemClickListener);
@@ -283,7 +283,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         initInputEdit();
     }
 
-    private void parseAndDealData(d.a.k0.d1.c cVar, boolean z) {
+    private void parseAndDealData(d.a.n0.e1.c cVar, boolean z) {
         if (cVar == null || ListUtils.isEmpty(cVar.b())) {
             return;
         }
@@ -312,25 +312,25 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         showLoadingView(this.mMainLayout, true, getResources().getDimensionPixelSize(R.dimen.ds320));
     }
 
-    @Override // d.a.j0.t0.a
+    @Override // d.a.m0.t0.a
     public Intent getResultIntent() {
         return this.mResultIntent;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public d.a.j0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public d.a.m0.t0.a getSuspendedContentView(LinearLayout linearLayout, NavigationBar navigationBar) {
         LayoutInflater.from(this).inflate(R.layout.hot_navigation_view_layout, (ViewGroup) navigationBar.getContentLayout(), true);
         this.mCancel.setVisibility(8);
         LayoutInflater.from(this).inflate(R.layout.hot_select_main, (ViewGroup) linearLayout, true);
         return this;
     }
 
-    @Override // d.a.j0.t0.a
+    @Override // d.a.m0.t0.a
     public boolean isOnViewCancel() {
         return true;
     }
 
-    @Override // d.a.j0.t0.a
+    @Override // d.a.m0.t0.a
     public boolean isOnViewTop() {
         ListView listView;
         View childAt;
@@ -356,11 +356,11 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         if (noDataView != null) {
             noDataView.f(getPageContext(), i2);
         }
-        d.a.k0.d1.b bVar = this.mSuggestAdatper;
+        d.a.n0.e1.b bVar = this.mSuggestAdatper;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
-        d.a.k0.d1.e eVar = this.mNoSearchAdapter;
+        d.a.n0.e1.e eVar = this.mNoSearchAdapter;
         if (eVar != null) {
             eVar.notifyDataSetChanged();
         }
@@ -414,7 +414,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataNoSearchSuccess(d.a.k0.d1.c cVar, d.a.k0.d1.c cVar2) {
+    public void onHotSelectDataNoSearchSuccess(d.a.n0.e1.c cVar, d.a.n0.e1.c cVar2) {
         this.mListCustomView.setVisibility(0);
         this.mLvNoSearch.setVisibility(0);
         this.mSuggestView.setVisibility(8);
@@ -436,14 +436,14 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         this.mSuggestView.setVisibility(0);
         hideLoadingView(this.mMainLayout);
         String searchKey = getSearchKey();
-        d.a.k0.d1.d createSearchData = createSearchData(searchKey);
+        d.a.n0.e1.d createSearchData = createSearchData(searchKey);
         this.mSearchList.clear();
         this.mSearchList.add(createSearchData);
         this.mSuggestAdatper.e(searchKey, this.mSearchList);
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void onHotSelectDataSearchSuccess(d.a.k0.d1.c cVar) {
+    public void onHotSelectDataSearchSuccess(d.a.n0.e1.c cVar) {
         this.mListCustomView.setVisibility(0);
         this.mLvNoSearch.setVisibility(8);
         this.mSuggestView.setVisibility(0);
@@ -469,7 +469,7 @@ public class HotTopicSelectActivity extends SuspendedActivity implements d.a.j0.
         }
     }
 
-    @Override // d.a.j0.t0.a
+    @Override // d.a.m0.t0.a
     public void onViewChangeSkinType(int i2) {
     }
 

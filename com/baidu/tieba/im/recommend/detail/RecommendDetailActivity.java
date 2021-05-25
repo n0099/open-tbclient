@@ -17,7 +17,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     public RecommendDetailModel mModel;
     public long mUserId;
     public String mUserName;
-    public d.a.k0.e1.q.a.b mView;
+    public d.a.n0.f1.q.a.b mView;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -45,7 +45,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
         if (this.mView == null) {
             return;
         }
-        if (!d.a.j0.s.d.b.g0().N(String.valueOf(this.mUserId))) {
+        if (!d.a.m0.s.d.b.g0().N(String.valueOf(this.mUserId))) {
             this.mView.g();
         } else {
             this.mView.a();
@@ -87,7 +87,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.k0.e1.q.a.b bVar = this.mView;
+        d.a.n0.f1.q.a.b bVar = this.mView;
         if (bVar != null) {
             bVar.d(i2);
         }
@@ -96,7 +96,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.a.k0.e1.q.a.b(this);
+        this.mView = new d.a.n0.f1.q.a.b(this);
         this.mModel = new RecommendDetailModel(getPageContext(), this);
         initData(bundle);
         checkIsShowAcceptSwitch();
@@ -137,7 +137,7 @@ public class RecommendDetailActivity extends BaseActivity<RecommendDetailActivit
 
     @Override // com.baidu.tieba.im.recommend.detail.RecommendDetailModel.d
     public void onSuccess(UserInfoBigVip userInfoBigVip, boolean z) {
-        d.a.k0.e1.q.a.b bVar = this.mView;
+        d.a.n0.f1.q.a.b bVar = this.mView;
         if (bVar == null || userInfoBigVip == null) {
             return;
         }

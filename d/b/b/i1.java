@@ -9,38 +9,38 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class i1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f64997a;
+    public final String f65040a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f64998b;
+    public final String f65041b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final Boolean f64999c;
+    public final Boolean f65042c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final Long f65000d;
+    public final Long f65043d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final Long f65001e;
+    public final Long f65044e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Integer f65002f;
+    public final Integer f65045f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Long f65003g;
+    public final Long f65046g;
 
     public i1(String str, String str2, Boolean bool, Long l, Long l2, Integer num, Long l3) {
-        this.f64997a = str;
-        this.f64998b = str2;
-        this.f64999c = bool;
-        this.f65000d = l;
-        this.f65001e = l2;
-        this.f65002f = num;
-        this.f65003g = l3;
+        this.f65040a = str;
+        this.f65041b = str2;
+        this.f65042c = bool;
+        this.f65043d = l;
+        this.f65044e = l2;
+        this.f65045f = num;
+        this.f65046g = l3;
     }
 
     @Nullable
@@ -61,26 +61,26 @@ public final class i1 {
     @NonNull
     public Map<String, String> b() {
         HashMap hashMap = new HashMap();
-        f1.h(hashMap, "id", this.f64997a);
-        f1.h(hashMap, IAdRequestParam.REQ_ID, this.f64998b);
-        f1.h(hashMap, "is_track_limited", String.valueOf(this.f64999c));
-        f1.h(hashMap, "take_ms", String.valueOf(this.f65000d));
-        f1.h(hashMap, "time", String.valueOf(this.f65001e));
-        f1.h(hashMap, "query_times", String.valueOf(this.f65002f));
-        f1.h(hashMap, "hw_id_version_code", String.valueOf(this.f65003g));
+        f1.h(hashMap, "id", this.f65040a);
+        f1.h(hashMap, IAdRequestParam.REQ_ID, this.f65041b);
+        f1.h(hashMap, "is_track_limited", String.valueOf(this.f65042c));
+        f1.h(hashMap, "take_ms", String.valueOf(this.f65043d));
+        f1.h(hashMap, "time", String.valueOf(this.f65044e));
+        f1.h(hashMap, "query_times", String.valueOf(this.f65045f));
+        f1.h(hashMap, "hw_id_version_code", String.valueOf(this.f65046g));
         return hashMap;
     }
 
     @NonNull
     public JSONObject c() {
         JSONObject jSONObject = new JSONObject();
-        f1.i(jSONObject, "id", this.f64997a);
-        f1.i(jSONObject, IAdRequestParam.REQ_ID, this.f64998b);
-        f1.i(jSONObject, "is_track_limited", this.f64999c);
-        f1.i(jSONObject, "take_ms", this.f65000d);
-        f1.i(jSONObject, "time", this.f65001e);
-        f1.i(jSONObject, "query_times", this.f65002f);
-        f1.i(jSONObject, "hw_id_version_code", this.f65003g);
+        f1.i(jSONObject, "id", this.f65040a);
+        f1.i(jSONObject, IAdRequestParam.REQ_ID, this.f65041b);
+        f1.i(jSONObject, "is_track_limited", this.f65042c);
+        f1.i(jSONObject, "take_ms", this.f65043d);
+        f1.i(jSONObject, "time", this.f65044e);
+        f1.i(jSONObject, "query_times", this.f65045f);
+        f1.i(jSONObject, "hw_id_version_code", this.f65046g);
         return jSONObject;
     }
 

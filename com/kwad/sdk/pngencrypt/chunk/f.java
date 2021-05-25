@@ -5,10 +5,10 @@ import java.util.List;
 public class f extends e {
 
     /* renamed from: d  reason: collision with root package name */
-    public final List<PngChunk> f33480d;
+    public final List<PngChunk> f33409d;
 
     @Override // com.kwad.sdk.pngencrypt.chunk.e
     public String toString() {
-        return "ChunkList: written: " + a().size() + " queue: " + this.f33480d.size();
+        return "ChunkList: written: " + a().size() + " queue: " + this.f33409d.size();
     }
 }

@@ -321,19 +321,19 @@ public final class ObservableBufferTimed<T, U extends Collection<? super T>> ext
         public final class RemoveFromBuffer implements Runnable {
 
             /* renamed from: b  reason: collision with root package name */
-            public final U f68952b;
+            public final U f68995b;
 
             public RemoveFromBuffer(U u) {
-                this.f68952b = u;
+                this.f68995b = u;
             }
 
             @Override // java.lang.Runnable
             public void run() {
                 synchronized (BufferSkipBoundedObserver.this) {
-                    BufferSkipBoundedObserver.this.buffers.remove(this.f68952b);
+                    BufferSkipBoundedObserver.this.buffers.remove(this.f68995b);
                 }
                 BufferSkipBoundedObserver bufferSkipBoundedObserver = BufferSkipBoundedObserver.this;
-                bufferSkipBoundedObserver.fastPathOrderedEmit(this.f68952b, false, bufferSkipBoundedObserver.w);
+                bufferSkipBoundedObserver.fastPathOrderedEmit(this.f68995b, false, bufferSkipBoundedObserver.w);
             }
         }
 

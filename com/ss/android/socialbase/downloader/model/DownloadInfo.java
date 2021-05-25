@@ -2019,31 +2019,31 @@ public class DownloadInfo implements Parcelable {
         public boolean V;
 
         /* renamed from: a  reason: collision with root package name */
-        public String f36141a;
+        public String f36070a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f36142b;
+        public String f36071b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f36143c;
+        public String f36072c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f36144d;
+        public String f36073d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f36145e;
+        public String f36074e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f36146f;
+        public boolean f36075f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f36147g;
+        public String f36076g;
 
         /* renamed from: h  reason: collision with root package name */
-        public List<c> f36148h;
+        public List<c> f36077h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f36149i;
+        public int f36078i;
         public String[] j;
         public int[] k;
         public int l;
@@ -2074,7 +2074,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b B(boolean z) {
-            this.f36146f = z;
+            this.f36075f = z;
             return this;
         }
 
@@ -2093,7 +2093,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b G(String str) {
-            this.f36142b = str;
+            this.f36071b = str;
             return this;
         }
 
@@ -2118,7 +2118,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b M(String str) {
-            this.f36143c = str;
+            this.f36072c = str;
             return this;
         }
 
@@ -2128,7 +2128,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b P(String str) {
-            this.f36144d = str;
+            this.f36073d = str;
             return this;
         }
 
@@ -2153,7 +2153,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b W(String str) {
-            this.f36147g = str;
+            this.f36076g = str;
             return this;
         }
 
@@ -2243,7 +2243,7 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b y(String str) {
-            this.f36141a = str;
+            this.f36070a = str;
             return this;
         }
 
@@ -2253,12 +2253,12 @@ public class DownloadInfo implements Parcelable {
         }
 
         public b z(List<c> list) {
-            this.f36148h = list;
+            this.f36077h = list;
             return this;
         }
 
         public b(String str) {
-            this.f36143c = str;
+            this.f36072c = str;
         }
     }
 
@@ -2283,10 +2283,10 @@ public class DownloadInfo implements Parcelable {
         if (bVar == null) {
             return;
         }
-        this.name = bVar.f36141a;
-        this.title = bVar.f36142b;
-        this.url = bVar.f36143c;
-        String str = bVar.f36144d;
+        this.name = bVar.f36070a;
+        this.title = bVar.f36071b;
+        this.url = bVar.f36072c;
+        String str = bVar.f36073d;
         if (TextUtils.isEmpty(str)) {
             try {
                 str = e.E0();
@@ -2295,13 +2295,13 @@ public class DownloadInfo implements Parcelable {
             }
         }
         this.savePath = str;
-        this.tempPath = bVar.f36145e;
+        this.tempPath = bVar.f36074e;
         this.status = new AtomicInteger(0);
         this.curBytes = new AtomicLong(0L);
-        this.extra = bVar.f36147g;
-        this.onlyWifi = bVar.f36146f;
-        this.extraHeaders = bVar.f36148h;
-        this.maxBytes = bVar.f36149i;
+        this.extra = bVar.f36076g;
+        this.onlyWifi = bVar.f36075f;
+        this.extraHeaders = bVar.f36077h;
+        this.maxBytes = bVar.f36078i;
         this.retryCount = bVar.l;
         this.backUpUrlRetryCount = bVar.m;
         this.force = bVar.n;

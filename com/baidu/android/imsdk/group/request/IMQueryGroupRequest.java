@@ -15,6 +15,8 @@ import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.upload.action.IMTrack;
+import com.baidu.android.imsdk.upload.action.IMTrackManager;
+import com.baidu.android.imsdk.upload.action.pb.IMPushPb;
 import com.baidu.android.imsdk.utils.LogUtils;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -30,6 +32,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public long mAppid;
     public ArrayList<String> mGroupIds;
     public String mKey;
+    public String mRequestParam;
 
     /* loaded from: classes.dex */
     public class Mytask extends TaskManager.Task {
@@ -37,8 +40,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             super(str, str2);
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:37:0x0152  */
-        /* JADX WARN: Removed duplicated region for block: B:46:0x01c1  */
+        /* JADX WARN: Removed duplicated region for block: B:41:0x0182  */
+        /* JADX WARN: Removed duplicated region for block: B:50:0x01f1  */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -127,6 +130,9 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                             i2 = 1010;
                             new IMTrack.CrashBuilder(IMQueryGroupRequest.this.mContext).exception(Log.getStackTraceString(e)).build();
                             str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                            if (i2 == 0) {
+                            }
+                            IMQueryGroupRequest.this.uploadGroupInfoFailInfo("get_groupinfo_request_onSuccess", "param = " + IMQueryGroupRequest.this.mRequestParam + "  reponse = " + mytask.mJson);
                             if (i2 != 0) {
                             }
                         }
@@ -136,6 +142,9 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                 str = optString;
             } catch (JSONException e4) {
                 e = e4;
+            }
+            if (i2 == 0 || arrayList.size() <= 0) {
+                IMQueryGroupRequest.this.uploadGroupInfoFailInfo("get_groupinfo_request_onSuccess", "param = " + IMQueryGroupRequest.this.mRequestParam + "  reponse = " + mytask.mJson);
             }
             if (i2 != 0) {
                 IMListener removeListener = ListenerManager.getInstance().removeListener(IMQueryGroupRequest.this.mKey);
@@ -185,6 +194,13 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         this.isCreateGroup = z;
     }
 
+    /* JADX INFO: Access modifiers changed from: private */
+    public void uploadGroupInfoFailInfo(String str, String str2) {
+        String str3 = TAG;
+        LogUtils.d(str3, "exception=" + str + "  ext =" + str2);
+        IMTrackManager.uploadIMRealAction(this.mContext, IMPushPb.Action.newBuilder().setActionType(IMPushPb.ActionType.CRASH).setCrash(IMPushPb.Crash.newBuilder().setException(str).setExt(str2).build()).build());
+    }
+
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
         return "application/x-www-form-urlencoded";
@@ -212,12 +228,15 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
         }
         sb.append("&sign=");
         sb.append(getMd5("" + currentTimeMillis + bduss + this.mAppid));
-        return sb.toString().getBytes();
+        String sb2 = sb.toString();
+        this.mRequestParam = sb2;
+        return sb2.getBytes();
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i2, byte[] bArr, Throwable th) {
         Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        uploadGroupInfoFailInfo("get_groupinfo_request_onFailure", "param = " + this.mRequestParam + "  reponse = " + new String(bArr));
         IMListener removeListener = ListenerManager.getInstance().removeListener(this.mKey);
         if (removeListener == null || !(removeListener instanceof BIMValueCallBack)) {
             return;

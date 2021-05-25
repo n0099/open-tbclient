@@ -3,29 +3,29 @@ package d.o.a.e.b.m;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile d.o.a.e.b.g.m f67360a;
+    public static volatile d.o.a.e.b.g.m f67403a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile d.o.a.e.b.g.m f67361b;
+    public static volatile d.o.a.e.b.g.m f67404b;
 
     public static d.o.a.e.b.g.m a(boolean z) {
         if (z) {
-            if (f67361b == null) {
+            if (f67404b == null) {
                 synchronized (l.class) {
-                    if (f67361b == null) {
-                        f67361b = new n();
+                    if (f67404b == null) {
+                        f67404b = new n();
                     }
                 }
             }
-            return f67361b;
+            return f67404b;
         }
-        if (f67360a == null) {
+        if (f67403a == null) {
             synchronized (l.class) {
-                if (f67360a == null) {
-                    f67360a = new o();
+                if (f67403a == null) {
+                    f67403a = new o();
                 }
             }
         }
-        return f67360a;
+        return f67403a;
     }
 }

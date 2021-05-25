@@ -11,31 +11,31 @@ import android.util.Log;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f30801a = null;
+    public static Context f30730a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30802b = false;
+    public static boolean f30731b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static q f30803c;
+    public static q f30732c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static Object f30804d = new Object();
+    public static Object f30733d = new Object();
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f30805e;
+    public static HandlerThread f30734e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f30806f;
+    public static Handler f30735f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f30807g;
+    public static String f30736g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static String f30808h;
+    public static String f30737h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile p f30809i;
+    public static volatile p f30738i;
     public static volatile n j;
 
     public static void a() {
@@ -47,39 +47,39 @@ public class p {
             } catch (Exception e2) {
                 e2.printStackTrace();
                 str = "0";
-                f30802b = "1".equals(str);
+                f30731b = "1".equals(str);
             }
         } catch (Throwable unused) {
             str = "0";
-            f30802b = "1".equals(str);
+            f30731b = "1".equals(str);
         }
-        f30802b = "1".equals(str);
+        f30731b = "1".equals(str);
     }
 
     public static p a(Context context) {
-        if (f30809i == null) {
+        if (f30738i == null) {
             synchronized (p.class) {
-                f30801a = context.getApplicationContext();
-                f30809i = new p();
+                f30730a = context.getApplicationContext();
+                f30738i = new p();
             }
         }
         if (j == null) {
             synchronized (p.class) {
-                f30801a = context.getApplicationContext();
+                f30730a = context.getApplicationContext();
                 HandlerThread handlerThread = new HandlerThread("SqlWorkThread");
-                f30805e = handlerThread;
+                f30734e = handlerThread;
                 handlerThread.start();
-                f30806f = new o(f30805e.getLooper());
-                j = new n(f30801a);
+                f30735f = new o(f30734e.getLooper());
+                j = new n(f30730a);
                 a();
             }
         }
-        return f30809i;
+        return f30738i;
     }
 
     public void a(int i2, String str) {
-        synchronized (f30804d) {
-            Message obtainMessage = f30806f.obtainMessage();
+        synchronized (f30733d) {
+            Message obtainMessage = f30735f.obtainMessage();
             obtainMessage.what = 11;
             Bundle bundle = new Bundle();
             bundle.putInt("type", i2);
@@ -87,29 +87,29 @@ public class p {
                 bundle.putString("appid", str);
             }
             obtainMessage.setData(bundle);
-            f30806f.sendMessage(obtainMessage);
+            f30735f.sendMessage(obtainMessage);
             long uptimeMillis = SystemClock.uptimeMillis();
             try {
-                f30804d.wait(2000L);
+                f30733d.wait(2000L);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }
             if (SystemClock.uptimeMillis() - uptimeMillis < 2000) {
                 if (i2 == 0) {
-                    f30808h = f30807g;
+                    f30737h = f30736g;
                 } else if (i2 != 1) {
                     if (i2 != 2) {
                         if (i2 != 4) {
                         }
-                    } else if (f30807g != null) {
-                        f30807g = null;
+                    } else if (f30736g != null) {
+                        f30736g = null;
                     } else {
                         Log.e("VMS_IDLG_SDK_Client", "get aaid failed");
                     }
-                } else if (f30807g == null) {
+                } else if (f30736g == null) {
                     Log.e("VMS_IDLG_SDK_Client", "get vaid failed");
                 }
-                f30807g = null;
+                f30736g = null;
             } else {
                 Log.d("VMS_IDLG_SDK_Client", "query timeout");
             }

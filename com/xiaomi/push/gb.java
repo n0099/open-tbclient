@@ -6,43 +6,43 @@ import android.text.TextUtils;
 public class gb extends gc {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f37699a;
+    public boolean f37628a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f37700b;
+    public String f37629b;
 
     /* renamed from: b  reason: collision with other field name */
     public boolean f422b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37701c;
+    public String f37630c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f37702d;
+    public String f37631d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37703e;
+    public String f37632e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f37704f;
+    public String f37633f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f37705g;
+    public String f37634g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f37706h;
+    public String f37635h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f37707i;
+    public String f37636i;
     public String j;
     public String k;
     public String l;
 
     public gb() {
-        this.f37700b = null;
-        this.f37701c = null;
-        this.f37699a = false;
-        this.f37707i = "";
+        this.f37629b = null;
+        this.f37630c = null;
+        this.f37628a = false;
+        this.f37636i = "";
         this.j = "";
         this.k = "";
         this.l = "";
@@ -51,24 +51,24 @@ public class gb extends gc {
 
     public gb(Bundle bundle) {
         super(bundle);
-        this.f37700b = null;
-        this.f37701c = null;
-        this.f37699a = false;
-        this.f37707i = "";
+        this.f37629b = null;
+        this.f37630c = null;
+        this.f37628a = false;
+        this.f37636i = "";
         this.j = "";
         this.k = "";
         this.l = "";
         this.f422b = false;
-        this.f37700b = bundle.getString("ext_msg_type");
-        this.f37702d = bundle.getString("ext_msg_lang");
-        this.f37701c = bundle.getString("ext_msg_thread");
-        this.f37703e = bundle.getString("ext_msg_sub");
-        this.f37704f = bundle.getString("ext_msg_body");
-        this.f37705g = bundle.getString("ext_body_encode");
-        this.f37706h = bundle.getString("ext_msg_appid");
-        this.f37699a = bundle.getBoolean("ext_msg_trans", false);
+        this.f37629b = bundle.getString("ext_msg_type");
+        this.f37631d = bundle.getString("ext_msg_lang");
+        this.f37630c = bundle.getString("ext_msg_thread");
+        this.f37632e = bundle.getString("ext_msg_sub");
+        this.f37633f = bundle.getString("ext_msg_body");
+        this.f37634g = bundle.getString("ext_body_encode");
+        this.f37635h = bundle.getString("ext_msg_appid");
+        this.f37628a = bundle.getBoolean("ext_msg_trans", false);
         this.f422b = bundle.getBoolean("ext_msg_encrypt", false);
-        this.f37707i = bundle.getString("ext_msg_seq");
+        this.f37636i = bundle.getString("ext_msg_seq");
         this.j = bundle.getString("ext_msg_mseq");
         this.k = bundle.getString("ext_msg_fseq");
         this.l = bundle.getString("ext_msg_status");
@@ -77,37 +77,37 @@ public class gb extends gc {
     @Override // com.xiaomi.push.gc
     public Bundle a() {
         Bundle a2 = super.a();
-        if (!TextUtils.isEmpty(this.f37700b)) {
-            a2.putString("ext_msg_type", this.f37700b);
+        if (!TextUtils.isEmpty(this.f37629b)) {
+            a2.putString("ext_msg_type", this.f37629b);
         }
-        String str = this.f37702d;
+        String str = this.f37631d;
         if (str != null) {
             a2.putString("ext_msg_lang", str);
         }
-        String str2 = this.f37703e;
+        String str2 = this.f37632e;
         if (str2 != null) {
             a2.putString("ext_msg_sub", str2);
         }
-        String str3 = this.f37704f;
+        String str3 = this.f37633f;
         if (str3 != null) {
             a2.putString("ext_msg_body", str3);
         }
-        if (!TextUtils.isEmpty(this.f37705g)) {
-            a2.putString("ext_body_encode", this.f37705g);
+        if (!TextUtils.isEmpty(this.f37634g)) {
+            a2.putString("ext_body_encode", this.f37634g);
         }
-        String str4 = this.f37701c;
+        String str4 = this.f37630c;
         if (str4 != null) {
             a2.putString("ext_msg_thread", str4);
         }
-        String str5 = this.f37706h;
+        String str5 = this.f37635h;
         if (str5 != null) {
             a2.putString("ext_msg_appid", str5);
         }
-        if (this.f37699a) {
+        if (this.f37628a) {
             a2.putBoolean("ext_msg_trans", true);
         }
-        if (!TextUtils.isEmpty(this.f37707i)) {
-            a2.putString("ext_msg_seq", this.f37707i);
+        if (!TextUtils.isEmpty(this.f37636i)) {
+            a2.putString("ext_msg_seq", this.f37636i);
         }
         if (!TextUtils.isEmpty(this.j)) {
             a2.putString("ext_msg_mseq", this.j);
@@ -134,7 +134,7 @@ public class gb extends gc {
             sb.append(p());
             sb.append("\"");
         }
-        if (this.f37702d != null) {
+        if (this.f37631d != null) {
             sb.append(" xml:lang=\"");
             sb.append(h());
             sb.append("\"");
@@ -179,45 +179,45 @@ public class gb extends gc {
             sb.append(gn.a(k()));
             sb.append("\"");
         }
-        if (this.f37699a) {
+        if (this.f37628a) {
             sb.append(" transient=\"true\"");
         }
-        if (!TextUtils.isEmpty(this.f37706h)) {
+        if (!TextUtils.isEmpty(this.f37635h)) {
             sb.append(" appid=\"");
             sb.append(c());
             sb.append("\"");
         }
-        if (!TextUtils.isEmpty(this.f37700b)) {
+        if (!TextUtils.isEmpty(this.f37629b)) {
             sb.append(" type=\"");
-            sb.append(this.f37700b);
+            sb.append(this.f37629b);
             sb.append("\"");
         }
         if (this.f422b) {
             sb.append(" s=\"1\"");
         }
         sb.append(">");
-        if (this.f37703e != null) {
+        if (this.f37632e != null) {
             sb.append("<subject>");
-            sb.append(gn.a(this.f37703e));
+            sb.append(gn.a(this.f37632e));
             sb.append("</subject>");
         }
-        if (this.f37704f != null) {
+        if (this.f37633f != null) {
             sb.append("<body");
-            if (!TextUtils.isEmpty(this.f37705g)) {
+            if (!TextUtils.isEmpty(this.f37634g)) {
                 sb.append(" encode=\"");
-                sb.append(this.f37705g);
+                sb.append(this.f37634g);
                 sb.append("\"");
             }
             sb.append(">");
-            sb.append(gn.a(this.f37704f));
+            sb.append(gn.a(this.f37633f));
             sb.append("</body>");
         }
-        if (this.f37701c != null) {
+        if (this.f37630c != null) {
             sb.append("<thread>");
-            sb.append(this.f37701c);
+            sb.append(this.f37630c);
             sb.append("</thread>");
         }
-        if ("error".equalsIgnoreCase(this.f37700b) && (m330a = m330a()) != null) {
+        if ("error".equalsIgnoreCase(this.f37629b) && (m330a = m330a()) != null) {
             sb.append(m330a.m334a());
         }
         sb.append(o());
@@ -227,26 +227,26 @@ public class gb extends gc {
 
     @Override // com.xiaomi.push.gc
     public void a(String str) {
-        this.f37706h = str;
+        this.f37635h = str;
     }
 
     @Override // com.xiaomi.push.gc
     public void a(String str, String str2) {
-        this.f37704f = str;
-        this.f37705g = str2;
+        this.f37633f = str;
+        this.f37634g = str2;
     }
 
     public void a(boolean z) {
-        this.f37699a = z;
+        this.f37628a = z;
     }
 
     @Override // com.xiaomi.push.gc
     public String b() {
-        return this.f37700b;
+        return this.f37629b;
     }
 
     public void b(String str) {
-        this.f37707i = str;
+        this.f37636i = str;
     }
 
     public void b(boolean z) {
@@ -254,7 +254,7 @@ public class gb extends gc {
     }
 
     public String c() {
-        return this.f37706h;
+        return this.f37635h;
     }
 
     public void c(String str) {
@@ -262,7 +262,7 @@ public class gb extends gc {
     }
 
     public String d() {
-        return this.f37707i;
+        return this.f37636i;
     }
 
     public void d(String str) {
@@ -287,15 +287,15 @@ public class gb extends gc {
         }
         gb gbVar = (gb) obj;
         if (super.equals(gbVar)) {
-            String str = this.f37704f;
-            if (str == null ? gbVar.f37704f == null : str.equals(gbVar.f37704f)) {
-                String str2 = this.f37702d;
-                if (str2 == null ? gbVar.f37702d == null : str2.equals(gbVar.f37702d)) {
-                    String str3 = this.f37703e;
-                    if (str3 == null ? gbVar.f37703e == null : str3.equals(gbVar.f37703e)) {
-                        String str4 = this.f37701c;
-                        if (str4 == null ? gbVar.f37701c == null : str4.equals(gbVar.f37701c)) {
-                            return this.f37700b == gbVar.f37700b;
+            String str = this.f37633f;
+            if (str == null ? gbVar.f37633f == null : str.equals(gbVar.f37633f)) {
+                String str2 = this.f37631d;
+                if (str2 == null ? gbVar.f37631d == null : str2.equals(gbVar.f37631d)) {
+                    String str3 = this.f37632e;
+                    if (str3 == null ? gbVar.f37632e == null : str3.equals(gbVar.f37632e)) {
+                        String str4 = this.f37630c;
+                        if (str4 == null ? gbVar.f37630c == null : str4.equals(gbVar.f37630c)) {
+                            return this.f37629b == gbVar.f37629b;
                         }
                         return false;
                     }
@@ -313,7 +313,7 @@ public class gb extends gc {
     }
 
     public void f(String str) {
-        this.f37700b = str;
+        this.f37629b = str;
     }
 
     public String g() {
@@ -321,36 +321,36 @@ public class gb extends gc {
     }
 
     public void g(String str) {
-        this.f37703e = str;
+        this.f37632e = str;
     }
 
     public String h() {
-        return this.f37702d;
+        return this.f37631d;
     }
 
     public void h(String str) {
-        this.f37704f = str;
+        this.f37633f = str;
     }
 
     @Override // com.xiaomi.push.gc
     public int hashCode() {
-        String str = this.f37700b;
+        String str = this.f37629b;
         int hashCode = (str != null ? str.hashCode() : 0) * 31;
-        String str2 = this.f37704f;
+        String str2 = this.f37633f;
         int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-        String str3 = this.f37701c;
+        String str3 = this.f37630c;
         int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-        String str4 = this.f37702d;
+        String str4 = this.f37631d;
         int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
-        String str5 = this.f37703e;
+        String str5 = this.f37632e;
         return hashCode4 + (str5 != null ? str5.hashCode() : 0);
     }
 
     public void i(String str) {
-        this.f37701c = str;
+        this.f37630c = str;
     }
 
     public void j(String str) {
-        this.f37702d = str;
+        this.f37631d = str;
     }
 }

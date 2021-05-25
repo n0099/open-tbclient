@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import d.a.j0.r.f0.q.b;
+import d.a.m0.r.f0.q.b;
 /* loaded from: classes5.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
     public a s;
@@ -25,25 +25,25 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
         this(context, null);
     }
 
-    @Override // d.a.j0.r.f0.q.b
-    public void a(boolean z, int i2, boolean z2) {
-        e(z, i2);
-    }
-
-    @Override // d.a.j0.r.f0.q.b
-    public void b(View view) {
+    @Override // d.a.m0.r.f0.q.b
+    public void a(View view) {
         a aVar = this.s;
         if (aVar != null) {
             aVar.a(view);
         }
     }
 
-    @Override // d.a.j0.r.f0.q.b
-    public void c(View.OnClickListener onClickListener) {
+    @Override // d.a.m0.r.f0.q.b
+    public void b(View.OnClickListener onClickListener) {
         setOnClickListener(onClickListener);
     }
 
-    @Override // d.a.j0.r.f0.q.b
+    @Override // d.a.m0.r.f0.q.b
+    public void c(boolean z, int i2, boolean z2) {
+        e(z, i2);
+    }
+
+    @Override // d.a.m0.r.f0.q.b
     public void d(int i2) {
     }
 
@@ -62,13 +62,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
     public void s(boolean z) {
         if (this.u) {
             if (z) {
-                d.a.j0.r.f0.m.b bVar = new d.a.j0.r.f0.m.b();
+                d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
                 bVar.p();
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                d.a.j0.r.f0.m.b bVar2 = new d.a.j0.r.f0.m.b();
+                d.a.m0.r.f0.m.b bVar2 = new d.a.m0.r.f0.m.b();
                 bVar2.s(R.color.CAM_X0105);
                 bVar2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
                 bVar2.i(R.drawable.icon_pure_add12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
@@ -78,13 +78,13 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
                 setText(TbadkCoreApplication.getInst().getString(R.string.attention));
             }
         } else if (z) {
-            d.a.j0.r.f0.m.b bVar3 = new d.a.j0.r.f0.m.b();
+            d.a.m0.r.f0.m.b bVar3 = new d.a.m0.r.f0.m.b();
             bVar3.r(R.color.CAM_X0109);
             setConfig(bVar3);
             setClickable(true);
             setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
         } else {
-            d.a.j0.r.f0.m.b bVar4 = new d.a.j0.r.f0.m.b();
+            d.a.m0.r.f0.m.b bVar4 = new d.a.m0.r.f0.m.b();
             bVar4.q(R.color.CAM_X0302);
             if (this.t) {
                 bVar4.g(UtilHelper.getDimenPixelSize(R.dimen.tbds24));
@@ -115,7 +115,7 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements b {
 
     public DynamicUserLikeButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        d.a.j0.r.f0.m.b bVar = new d.a.j0.r.f0.m.b();
+        d.a.m0.r.f0.m.b bVar = new d.a.m0.r.f0.m.b();
         bVar.q(R.color.CAM_X0302);
         setConfig(bVar);
         setText(TbadkCoreApplication.getInst().getString(R.string.attention));

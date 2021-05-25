@@ -10,13 +10,13 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f6399a;
+    public Context f6299a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<HashMap<String, String>> f6400b = null;
+    public List<HashMap<String, String>> f6300b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public a<String> f6401c = null;
+    public a<String> f6301c = null;
 
     /* loaded from: classes2.dex */
     public interface a<Result> {
@@ -24,7 +24,7 @@ public class e {
     }
 
     public e(Context context) {
-        this.f6399a = context;
+        this.f6299a = context;
     }
 
     private List<HashMap<String, String>> a(HashMap<String, String> hashMap, String[] strArr) {
@@ -68,7 +68,7 @@ public class e {
                 e2.printStackTrace();
             }
         }
-        a<String> aVar = this.f6401c;
+        a<String> aVar = this.f6301c;
         if (aVar != null) {
             aVar.a(jSONObject.toString());
         }
@@ -87,7 +87,7 @@ public class e {
         while (i3 < list.size()) {
             com.baidu.lbsapi.auth.a.a("syncConnect resuest " + i3 + "  start!!!");
             HashMap<String, String> hashMap = list.get(i3);
-            g gVar = new g(this.f6399a);
+            g gVar = new g(this.f6299a);
             if (gVar.a()) {
                 String a2 = gVar.a(hashMap);
                 if (a2 == null) {
@@ -129,8 +129,8 @@ public class e {
     }
 
     public void a(HashMap<String, String> hashMap, String[] strArr, a<String> aVar) {
-        this.f6400b = a(hashMap, strArr);
-        this.f6401c = aVar;
+        this.f6300b = a(hashMap, strArr);
+        this.f6301c = aVar;
         new Thread(new f(this)).start();
     }
 }

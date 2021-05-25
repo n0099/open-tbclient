@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 public class AsyncTaskExecutor {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ThreadPoolExecutor f37080a = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
+    public static final ThreadPoolExecutor f37009a = new ThreadPoolExecutor(3, 3, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue(), new AsyncTaskThreadFactory());
 
     public static boolean isMainThread() {
         return Looper.myLooper() == Looper.getMainLooper();
@@ -19,7 +19,7 @@ public class AsyncTaskExecutor {
         if (runnable == null) {
             return;
         }
-        f37080a.execute(runnable);
+        f37009a.execute(runnable);
     }
 
     public static void runOnMainThread(Runnable runnable) {
@@ -30,10 +30,10 @@ public class AsyncTaskExecutor {
     }
 
     public static void shutDown() {
-        ThreadPoolExecutor threadPoolExecutor = f37080a;
-        if (threadPoolExecutor == null || threadPoolExecutor.isShutdown() || f37080a.isTerminating()) {
+        ThreadPoolExecutor threadPoolExecutor = f37009a;
+        if (threadPoolExecutor == null || threadPoolExecutor.isShutdown() || f37009a.isTerminating()) {
             return;
         }
-        f37080a.shutdown();
+        f37009a.shutdown();
     }
 }

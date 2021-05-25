@@ -6,31 +6,31 @@ import java.lang.Thread;
 public class ad implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final ad f8571a = new ad();
+    public static final ad f8471a = new ad();
 
     /* renamed from: b  reason: collision with root package name */
-    public Thread.UncaughtExceptionHandler f8572b;
+    public Thread.UncaughtExceptionHandler f8472b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Context f8573c;
+    public Context f8473c;
 
     public static ad a() {
-        return f8571a;
+        return f8471a;
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
-        ExceptionAnalysis.getInstance().saveCrashInfo(this.f8573c, th, true);
-        if (this.f8572b.equals(this)) {
+        ExceptionAnalysis.getInstance().saveCrashInfo(this.f8473c, th, true);
+        if (this.f8472b.equals(this)) {
             return;
         }
-        this.f8572b.uncaughtException(thread, th);
+        this.f8472b.uncaughtException(thread, th);
     }
 
     public void a(Context context) {
-        this.f8573c = context;
-        if (this.f8572b == null) {
-            this.f8572b = Thread.getDefaultUncaughtExceptionHandler();
+        this.f8473c = context;
+        if (this.f8472b == null) {
+            this.f8472b = Thread.getDefaultUncaughtExceptionHandler();
             Thread.setDefaultUncaughtExceptionHandler(this);
         }
     }

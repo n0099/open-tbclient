@@ -20,7 +20,7 @@ import java.util.Set;
 public final class PayRequestCache implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    public final HashMap<String, BeanRequestBase> f25571a;
+    public final HashMap<String, BeanRequestBase> f25500a;
 
     /* loaded from: classes5.dex */
     public enum BindCategory {
@@ -53,7 +53,7 @@ public final class PayRequestCache implements NoProguard {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayRequestCache f25572a = new PayRequestCache();
+        public static PayRequestCache f25501a = new PayRequestCache();
     }
 
     public static BindFastRequest getBindRequest(Activity activity) {
@@ -65,22 +65,22 @@ public final class PayRequestCache implements NoProguard {
     }
 
     public static PayRequestCache getInstance() {
-        return a.f25572a;
+        return a.f25501a;
     }
 
     public void addBeanRequestToCache(String str, BeanRequestBase beanRequestBase) {
         if (str == null || str.equals("") || beanRequestBase == null) {
             return;
         }
-        this.f25571a.put(str, beanRequestBase);
+        this.f25500a.put(str, beanRequestBase);
     }
 
     public void clearPaySdkRequestCache() {
         LogUtil.e(PayRequestCache.class.getSimpleName(), "clearPaySdkRequestCache", null);
-        Set<String> keySet = this.f25571a.keySet();
+        Set<String> keySet = this.f25500a.keySet();
         HashSet<String> hashSet = new HashSet();
         for (String str : keySet) {
-            if (this.f25571a.get(str) != null && this.f25571a.get(str).mBelongPaySdk) {
+            if (this.f25500a.get(str) != null && this.f25500a.get(str).mBelongPaySdk) {
                 hashSet.add(str);
             }
         }
@@ -90,14 +90,14 @@ public final class PayRequestCache implements NoProguard {
     }
 
     public void clearRequestCache() {
-        this.f25571a.clear();
+        this.f25500a.clear();
     }
 
     public BeanRequestBase getBeanRequestFromCache(String str) {
         if (str == null || str.equals("")) {
             return null;
         }
-        return this.f25571a.get(str);
+        return this.f25500a.get(str);
     }
 
     public BindCategory getBindCategoryByIntent(Intent intent) {
@@ -167,10 +167,10 @@ public final class PayRequestCache implements NoProguard {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        this.f25571a.remove(str);
+        this.f25500a.remove(str);
     }
 
     public PayRequestCache() {
-        this.f25571a = new HashMap<>();
+        this.f25500a = new HashMap<>();
     }
 }

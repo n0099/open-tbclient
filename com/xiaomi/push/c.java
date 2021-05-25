@@ -9,7 +9,7 @@ import kotlinx.coroutines.scheduling.CoroutineScheduler;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f37448a;
+    public final int f37377a;
 
     /* renamed from: a  reason: collision with other field name */
     public final OutputStream f167a;
@@ -18,7 +18,7 @@ public final class c {
     public final byte[] f168a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f37449b;
+    public int f37378b;
 
     /* loaded from: classes7.dex */
     public static class a extends IOException {
@@ -30,15 +30,15 @@ public final class c {
     public c(OutputStream outputStream, byte[] bArr) {
         this.f167a = outputStream;
         this.f168a = bArr;
-        this.f37449b = 0;
-        this.f37448a = bArr.length;
+        this.f37378b = 0;
+        this.f37377a = bArr.length;
     }
 
     public c(byte[] bArr, int i2, int i3) {
         this.f167a = null;
         this.f168a = bArr;
-        this.f37449b = i2;
-        this.f37448a = i2 + i3;
+        this.f37378b = i2;
+        this.f37377a = i2 + i3;
     }
 
     public static int a(int i2) {
@@ -163,8 +163,8 @@ public final class c {
         if (outputStream == null) {
             throw new a();
         }
-        outputStream.write(this.f168a, 0, this.f37449b);
-        this.f37449b = 0;
+        outputStream.write(this.f168a, 0, this.f37378b);
+        this.f37378b = 0;
     }
 
     public static int d(int i2) {
@@ -182,7 +182,7 @@ public final class c {
 
     public int a() {
         if (this.f167a == null) {
-            return this.f37448a - this.f37449b;
+            return this.f37377a - this.f37378b;
         }
         throw new UnsupportedOperationException("spaceLeft() can only be called on CodedOutputStreams that are writing to a flat array.");
     }
@@ -195,12 +195,12 @@ public final class c {
     }
 
     public void a(byte b2) {
-        if (this.f37449b == this.f37448a) {
+        if (this.f37378b == this.f37377a) {
             c();
         }
         byte[] bArr = this.f168a;
-        int i2 = this.f37449b;
-        this.f37449b = i2 + 1;
+        int i2 = this.f37378b;
+        this.f37378b = i2 + 1;
         bArr[i2] = b2;
     }
 
@@ -285,25 +285,25 @@ public final class c {
 
     /* renamed from: a  reason: collision with other method in class */
     public void m193a(byte[] bArr, int i2, int i3) {
-        int i4 = this.f37448a;
-        int i5 = this.f37449b;
+        int i4 = this.f37377a;
+        int i5 = this.f37378b;
         if (i4 - i5 >= i3) {
             System.arraycopy(bArr, i2, this.f168a, i5, i3);
-            this.f37449b += i3;
+            this.f37378b += i3;
             return;
         }
         int i6 = i4 - i5;
         System.arraycopy(bArr, i2, this.f168a, i5, i6);
         int i7 = i2 + i6;
         int i8 = i3 - i6;
-        this.f37449b = this.f37448a;
+        this.f37378b = this.f37377a;
         c();
-        if (i8 > this.f37448a) {
+        if (i8 > this.f37377a) {
             this.f167a.write(bArr, i7, i8);
             return;
         }
         System.arraycopy(bArr, i7, this.f168a, 0, i8);
-        this.f37449b = i8;
+        this.f37378b = i8;
     }
 
     public void b() {

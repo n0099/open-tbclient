@@ -6,15 +6,15 @@ import java.util.concurrent.FutureTask;
 public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f29617a;
+    public int f29546a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f29618b;
+    public int f29547b;
 
     public f(Callable<V> callable, int i2, int i3) {
         super(callable);
-        this.f29617a = i2 == -1 ? 5 : i2;
-        this.f29618b = i3;
+        this.f29546a = i2 == -1 ? 5 : i2;
+        this.f29547b = i3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -28,12 +28,12 @@ public class f<V> extends FutureTask<V> implements Comparable<f<V>> {
     }
 
     public int a() {
-        return this.f29617a;
+        return this.f29546a;
     }
 
     public f(Runnable runnable, V v, int i2, int i3) {
         super(runnable, v);
-        this.f29617a = i2 == -1 ? 5 : i2;
-        this.f29618b = i3;
+        this.f29546a = i2 == -1 ? 5 : i2;
+        this.f29547b = i3;
     }
 }

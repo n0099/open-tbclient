@@ -39,13 +39,16 @@ public abstract class IMSubscriptionBaseRequest extends BaseHttpRequest {
     private String getHostUrl() {
         int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
         if (readIntData != 0) {
-            if (readIntData == 1 || readIntData == 2) {
-                return "http://rd-im-server.bcc-szth.baidu.com:8111/";
+            if (readIntData != 1) {
+                if (readIntData != 2) {
+                    if (readIntData != 3) {
+                        return null;
+                    }
+                    return Constants.URL_HTTP_BOX;
+                }
+                return Constants.URL_HTTP_QA;
             }
-            if (readIntData != 3) {
-                return null;
-            }
-            return Constants.URL_HTTP_BOX;
+            return "http://rd-im-server.bcc-szth.baidu.com:8111/";
         }
         return "https://pim.baidu.com/";
     }

@@ -25,8 +25,8 @@ import com.baidu.tieba.R;
 import d.a.c.a.j;
 import d.a.c.d.a;
 import d.a.c.f.a.i;
-import d.a.j0.m.d;
-import d.a.j0.z0.o;
+import d.a.m0.m.d;
+import d.a.m0.z0.o;
 import java.io.IOException;
 /* loaded from: classes3.dex */
 public class GifView extends TbImageView implements Runnable, View.OnClickListener, i {
@@ -261,7 +261,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
 
     @Override // com.baidu.tbadk.widget.TbImageView
     public float[] getRadius() {
-        return d.a.j0.r.u.d.a.b(this.a1);
+        return d.a.m0.r.u.d.a.b(this.a1);
     }
 
     @Override // com.baidu.tbadk.widget.TbImageView
@@ -291,7 +291,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
     @Override // com.baidu.tbadk.widget.TbImageView, android.view.View.OnClickListener
     public void onClick(View view) {
         d dVar = this.T0;
-        if (dVar == null || !dVar.b(view)) {
+        if (dVar == null || !dVar.a(view)) {
             if (this.e1 != null) {
                 boolean f2 = o.f();
                 GifInfo gifInfo = this.e1;
@@ -634,7 +634,7 @@ public class GifView extends TbImageView implements Runnable, View.OnClickListen
         if (bArr == null || bArr.length < i3) {
             return;
         }
-        d.a.c.j.d.a a2 = a.C0496a.b().a(bArr, 0, i3);
+        d.a.c.j.d.a a2 = a.C0480a.b().a(bArr, 0, i3);
         this.W0 = true;
         setGif(a2);
     }

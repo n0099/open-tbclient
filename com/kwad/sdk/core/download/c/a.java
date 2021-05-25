@@ -35,21 +35,21 @@ import java.util.HashMap;
 public class a implements f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, WeakReference<Bitmap>> f32245a = new HashMap<>();
+    public static HashMap<String, WeakReference<Bitmap>> f32174a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Handler f32246b = new HandlerC0364a();
+    public static final Handler f32175b = new HandlerC0365a();
 
     /* renamed from: com.kwad.sdk.core.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class HandlerC0364a extends Handler {
+    public static class HandlerC0365a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public final SparseArray<Long> f32247a;
+        public final SparseArray<Long> f32176a;
 
-        public HandlerC0364a() {
+        public HandlerC0365a() {
             super(Looper.getMainLooper());
-            this.f32247a = new SparseArray<>();
+            this.f32176a = new SparseArray<>();
         }
 
         @Override // android.os.Handler
@@ -57,7 +57,7 @@ public class a implements f {
             boolean z = message.arg1 == 1;
             boolean z2 = message.arg2 == 1;
             boolean z3 = message.arg2 == 2;
-            Long l = this.f32247a.get(message.what);
+            Long l = this.f32176a.get(message.what);
             NotificationManager notificationManager = (NotificationManager) b.a().getSystemService(ActionJsonData.TAG_NOTIFICATION);
             if (notificationManager == null) {
                 return;
@@ -72,17 +72,17 @@ public class a implements f {
                     notificationManager.cancel(message.what);
                 }
                 a.b(message.what, (Notification) message.obj);
-                this.f32247a.put(message.what, Long.valueOf(System.currentTimeMillis()));
+                this.f32176a.put(message.what, Long.valueOf(System.currentTimeMillis()));
             }
         }
     }
 
     private Bitmap a(Context context, String str) {
-        WeakReference<Bitmap> weakReference = f32245a.get(str);
+        WeakReference<Bitmap> weakReference = f32174a.get(str);
         Bitmap bitmap = weakReference != null ? weakReference.get() : null;
         if (bitmap == null || bitmap.isRecycled()) {
             Bitmap decodeResource = BitmapFactory.decodeResource(ab.a(context), ab.a(context, str));
-            f32245a.put(str, new WeakReference<>(decodeResource));
+            f32174a.put(str, new WeakReference<>(decodeResource));
             return decodeResource;
         }
         return bitmap;
@@ -139,11 +139,11 @@ public class a implements f {
 
     private Bitmap b(File file) {
         String absolutePath = file.getAbsolutePath();
-        WeakReference<Bitmap> weakReference = f32245a.get(absolutePath);
+        WeakReference<Bitmap> weakReference = f32174a.get(absolutePath);
         Bitmap bitmap = weakReference != null ? weakReference.get() : null;
         if (bitmap == null || bitmap.isRecycled()) {
             Bitmap decodeFile = BitmapFactory.decodeFile(absolutePath);
-            f32245a.put(absolutePath, new WeakReference<>(decodeFile));
+            f32174a.put(absolutePath, new WeakReference<>(decodeFile));
             return decodeFile;
         }
         return bitmap;
@@ -222,8 +222,8 @@ public class a implements f {
         createProgressView.setProgress(100, smallFileSoFarBytes, false);
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createProgressView.build()).setWhen(System.currentTimeMillis()).setOngoing(true).setOnlyAlertOnce(true).setPriority(-1).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f32246b.removeMessages(downloadTask.getId());
-        f32246b.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
+        f32175b.removeMessages(downloadTask.getId());
+        f32175b.obtainMessage(downloadTask.getId(), z ? 1 : 0, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -257,8 +257,8 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(file, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f32246b.removeMessages(a3.mTaskId);
-        f32246b.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f32175b.removeMessages(a3.mTaskId);
+        f32175b.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -288,8 +288,8 @@ public class a implements f {
         createCompletedView.setInstallText("立刻打开");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(true).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(a3.mPkgname, a3.mTaskId)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f32246b.removeMessages(a3.mTaskId);
-        f32246b.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
+        f32175b.removeMessages(a3.mTaskId);
+        f32175b.obtainMessage(a3.mTaskId, 1, 2, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -324,8 +324,8 @@ public class a implements f {
         }
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createProgressView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setOnlyAlertOnce(true).setPriority(-1).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f32246b.removeMessages(downloadTask.getId());
-        f32246b.obtainMessage(downloadTask.getId(), 1, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
+        f32175b.removeMessages(downloadTask.getId());
+        f32175b.obtainMessage(downloadTask.getId(), 1, downloadTask.isCompleted() ? 1 : 0, builder.build()).sendToTarget();
     }
 
     @Override // com.ksad.download.f
@@ -361,7 +361,7 @@ public class a implements f {
         createCompletedView.setInstallText("立即安装");
         KsNotificationCompat.Builder builder = new KsNotificationCompat.Builder(context, "download_channel");
         builder.setContent(createCompletedView.build()).setWhen(System.currentTimeMillis()).setOngoing(false).setAutoCancel(false).setOnlyAlertOnce(true).setPriority(-1).setContentIntent(g.a(downloadTask)).setSmallIcon(ab.a(context, "ksad_notification_small_icon"));
-        f32246b.removeMessages(downloadTask.getId());
-        f32246b.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
+        f32175b.removeMessages(downloadTask.getId());
+        f32175b.obtainMessage(downloadTask.getId(), 1, 1, builder.build()).sendToTarget();
     }
 }

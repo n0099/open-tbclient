@@ -5,13 +5,13 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import d.a.k0.i2.j.l;
+import d.a.n0.j2.j.l;
 import tbclient.User;
 /* loaded from: classes5.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public l f19953e;
+    public l f19875e;
 
     public abstract void D0(boolean z);
 
@@ -26,7 +26,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        l lVar = this.f19953e;
+        l lVar = this.f19875e;
         if (lVar != null) {
             lVar.dettachView(view);
         }
@@ -35,7 +35,7 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        l lVar = this.f19953e;
+        l lVar = this.f19875e;
         if (lVar != null) {
             lVar.onChangeSkinType();
         }
@@ -43,16 +43,16 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.f19953e == null) {
+        if (this.f19875e == null) {
             l lVar = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.f19953e = lVar;
+            this.f19875e = lVar;
             lVar.e(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.f19953e.d(null);
-            this.f19953e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.f19953e.f();
-            this.f19953e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            this.f19875e.d(null);
+            this.f19875e.c(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.f19875e.f();
+            this.f19875e.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.f19953e.onChangeSkinType();
-        this.f19953e.attachView(view, z);
+        this.f19875e.onChangeSkinType();
+        this.f19875e.attachView(view, z);
     }
 }

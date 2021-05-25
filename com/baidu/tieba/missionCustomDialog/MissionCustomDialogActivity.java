@@ -22,7 +22,7 @@ import com.baidu.tbadk.widget.mission.SignItemView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import d.a.c.e.p.l;
-import d.a.j0.a.r;
+import d.a.m0.a.r;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class MissionCustomDialogActivity extends BaseActivity {
@@ -59,7 +59,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.j0.a.c.y().D() ? 2 : 1).param("obj_type", 3));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.m0.a.c.y().D() ? 2 : 1).param("obj_type", 3));
             MissionCustomDialogActivity.this.finish();
         }
     }
@@ -140,7 +140,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
             this.mBottonActionText.setVisibility(0);
             this.mBottonActionText.setText("未开始");
         }
-        d.a.j0.r.f0.m.a aVar = new d.a.j0.r.f0.m.a();
+        d.a.m0.r.f0.m.a aVar = new d.a.m0.r.f0.m.a();
         aVar.o(R.color.CAM_X0301);
         aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
         this.mBottomActionBtn.setConfig(aVar);
@@ -149,7 +149,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void handleTask() {
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.j0.a.c.y().D() ? 2 : 1).param("obj_type", 2));
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_MULTI_TASK_DIALOG_SHOW_AND_CLICK).param("obj_source", d.a.m0.a.c.y().D() ? 2 : 1).param("obj_type", 2));
         ActiveCenterData activeCenterData = this.mActiveCenterData;
         if (activeCenterData == null) {
             return;
@@ -301,7 +301,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
         SkinManager.setViewTextColor(this.mBottomActionDetail, R.color.CAM_X0109);
         SkinManager.setViewTextColor(this.mBottonActionText, R.color.CAM_X0109);
         if (this.mBottomActionBtn != null) {
-            d.a.j0.r.f0.m.a aVar = new d.a.j0.r.f0.m.a();
+            d.a.m0.r.f0.m.a aVar = new d.a.m0.r.f0.m.a();
             aVar.o(R.color.CAM_X0301);
             aVar.k(l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds28));
             this.mBottomActionBtn.setConfig(aVar);

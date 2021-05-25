@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import d.a.m0.c1.b.e;
 /* loaded from: classes3.dex */
 public class SquareSearchActivityConfig extends IntentConfig {
     public static final String BACK_SPECIAL = "back_special";
@@ -16,6 +17,24 @@ public class SquareSearchActivityConfig extends IntentConfig {
         super(context);
         getIntent().putExtra("start_from", str);
         getIntent().putExtra("back_special", z);
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public boolean startActivity(Class<?> cls) {
+        if (e.d()) {
+            e.g(getContext());
+            return false;
+        }
+        return super.startActivity(cls);
+    }
+
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public void startActivityForResult(int i2, Class<?> cls) {
+        if (e.d()) {
+            e.g(getContext());
+        } else {
+            super.startActivityForResult(i2, cls);
+        }
     }
 
     public SquareSearchActivityConfig(Context context, String str, boolean z, String str2) {

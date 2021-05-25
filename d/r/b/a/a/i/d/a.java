@@ -9,25 +9,25 @@ import d.r.b.a.a.i.c.j;
 public final class a extends d.r.b.a.a.i.e.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67810a = "DxmPayProxy";
+    public String f67853a = "DxmPayProxy";
 
     /* renamed from: b  reason: collision with root package name */
-    public e f67811b;
+    public e f67854b;
 
     /* renamed from: d.r.b.a.a.i.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1898a implements d {
+    public static final class C1902a implements d {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f67813b;
+        public final /* synthetic */ IPayCallback f67856b;
 
-        public C1898a(IPayCallback iPayCallback) {
-            this.f67813b = iPayCallback;
+        public C1902a(IPayCallback iPayCallback) {
+            this.f67856b = iPayCallback;
         }
 
         @Override // d.r.b.a.a.i.d.d
         public void onSuccess(int i2, String str) {
-            a.this.onPayResult(i2, str, this.f67813b);
+            a.this.onPayResult(i2, str, this.f67856b);
         }
     }
 
@@ -35,20 +35,20 @@ public final class a extends d.r.b.a.a.i.e.a {
     public static final class b implements d {
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ IPayCallback f67815b;
+        public final /* synthetic */ IPayCallback f67858b;
 
         public b(IPayCallback iPayCallback) {
-            this.f67815b = iPayCallback;
+            this.f67858b = iPayCallback;
         }
 
         @Override // d.r.b.a.a.i.d.d
         public void onSuccess(int i2, String str) {
-            a.this.onPayResult(i2, str, this.f67815b);
+            a.this.onPayResult(i2, str, this.f67858b);
         }
     }
 
     public a(e eVar) {
-        this.f67811b = eVar;
+        this.f67854b = eVar;
     }
 
     @Override // d.r.b.a.a.i.e.a, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
@@ -62,7 +62,7 @@ public final class a extends d.r.b.a.a.i.e.a {
     }
 
     public final void onPayResult(int i2, String str, IPayCallback<PurchaseInfo> iPayCallback) {
-        String str2 = this.f67810a;
+        String str2 = this.f67853a;
         d.r.b.a.a.f.d.d.b(str2, "onPayResult state=" + i2 + " p1=" + str);
         if (i2 == 0) {
             if (iPayCallback != null) {
@@ -80,11 +80,11 @@ public final class a extends d.r.b.a.a.i.e.a {
 
     @Override // d.r.b.a.a.i.e.a
     public void requestPay(Activity activity, long j, j jVar, String str, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
-        this.f67811b.sendPay(j, activity, str, new C1898a(iPayCallback));
+        this.f67854b.sendPay(j, activity, str, new C1902a(iPayCallback));
     }
 
     @Override // d.r.b.a.a.i.e.a, com.yy.mobile.framework.revenuesdk.payapi.payservice.IPayMethod
     public void requestPay(Activity activity, long j, String str, String str2, boolean z, IPayCallback<PurchaseInfo> iPayCallback) {
-        this.f67811b.sendPay(j, activity, str2, new b(iPayCallback));
+        this.f67854b.sendPay(j, activity, str2, new b(iPayCallback));
     }
 }

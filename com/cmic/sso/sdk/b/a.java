@@ -12,16 +12,16 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f30530a;
+    public String f30459a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30531b;
+    public String f30460b;
 
     public c a(c cVar, b bVar, com.cmic.sso.sdk.a aVar) {
         List<String> list;
         Map<String, List<String>> b2 = bVar.b();
-        if (TextUtils.isEmpty(this.f30530a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
-            this.f30530a = list.get(0);
+        if (TextUtils.isEmpty(this.f30459a) && (list = b2.get("pplocation")) != null && list.size() > 0) {
+            this.f30459a = list.get(0);
         }
         s.b(aVar, String.valueOf(bVar.a()));
         List<String> list2 = b2.get("Location");
@@ -30,7 +30,7 @@ public class a {
         }
         if (list2 != null && list2.size() > 0) {
             String str = list2.get(0);
-            this.f30531b = str;
+            this.f30460b = str;
             if (!TextUtils.isEmpty(str)) {
                 String b3 = aVar.b("operatortype", "0");
                 if ("2".equals(b3)) {
@@ -42,7 +42,7 @@ public class a {
                 }
             }
         }
-        c a2 = a(this.f30531b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
+        c a2 = a(this.f30460b, cVar.f(), "GET", new com.cmic.sso.sdk.b.b.c(cVar.k().a()));
         a2.a(cVar.h());
         return a2;
     }
@@ -58,9 +58,9 @@ public class a {
         }
         s.b(aVar, String.valueOf(bVar.a()));
         d dVar = new d(cVar.k().a(), "1.0", bVar.c());
-        c a2 = a("http://www.cmpassport.com/unisdk" + this.f30530a, cVar.f(), "POST", dVar);
+        c a2 = a("http://www.cmpassport.com/unisdk" + this.f30459a, cVar.f(), "POST", dVar);
         a2.a(cVar.h());
-        this.f30530a = null;
+        this.f30459a = null;
         return a2;
     }
 
@@ -73,6 +73,6 @@ public class a {
     }
 
     public String a() {
-        return this.f30530a;
+        return this.f30459a;
     }
 }

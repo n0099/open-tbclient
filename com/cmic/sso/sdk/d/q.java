@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f30662a = false;
+    public static volatile boolean f30591a = false;
 
     /* JADX WARN: Removed duplicated region for block: B:193:0x0314 A[Catch: all -> 0x0356, Exception -> 0x0358, Merged into TryCatch #0 {all -> 0x0356, Exception -> 0x0358, blocks: (B:3:0x001a, B:5:0x0027, B:6:0x0046, B:8:0x004c, B:11:0x005a, B:14:0x0066, B:16:0x006e, B:21:0x007b, B:23:0x0081, B:25:0x0087, B:44:0x00d9, B:46:0x00e0, B:48:0x00e8, B:50:0x00f7, B:52:0x00fc, B:54:0x0101, B:56:0x0107, B:58:0x010f, B:63:0x011c, B:65:0x0122, B:66:0x012c, B:68:0x0133, B:70:0x0142, B:73:0x0148, B:75:0x014e, B:78:0x015e, B:80:0x0164, B:82:0x0174, B:84:0x0183, B:87:0x018b, B:89:0x0191, B:91:0x0195, B:93:0x019f, B:98:0x01ac, B:100:0x01b2, B:103:0x01c3, B:105:0x01d3, B:109:0x01e1, B:111:0x01e7, B:113:0x01eb, B:118:0x01fd, B:120:0x0203, B:123:0x0214, B:125:0x0219, B:127:0x021f, B:129:0x0225, B:131:0x022b, B:133:0x023b, B:135:0x024a, B:137:0x0250, B:139:0x0256, B:141:0x025a, B:143:0x0264, B:148:0x0272, B:150:0x0278, B:153:0x0289, B:155:0x0299, B:159:0x02aa, B:161:0x02b0, B:163:0x02b4, B:166:0x02be, B:167:0x02c1, B:169:0x02c7, B:171:0x02d7, B:173:0x02dc, B:146:0x026b, B:116:0x01f6, B:96:0x01a6, B:175:0x02e1, B:177:0x02e6, B:179:0x02eb, B:181:0x02f0, B:183:0x02f7, B:185:0x02fc, B:187:0x0301, B:189:0x0306, B:191:0x030b, B:193:0x0314, B:195:0x031c, B:197:0x0327, B:200:0x0332, B:201:0x033b, B:203:0x033f, B:206:0x0349, B:61:0x0118, B:28:0x00a1, B:31:0x00a9, B:35:0x00b2, B:38:0x00ba, B:40:0x00c0, B:41:0x00cb, B:19:0x0077, B:211:0x0359), top: B:216:0x001a }, TRY_LEAVE] */
     /* JADX WARN: Removed duplicated region for block: B:75:0x014e A[Catch: all -> 0x0356, Exception -> 0x0358, Merged into TryCatch #0 {all -> 0x0356, Exception -> 0x0358, blocks: (B:3:0x001a, B:5:0x0027, B:6:0x0046, B:8:0x004c, B:11:0x005a, B:14:0x0066, B:16:0x006e, B:21:0x007b, B:23:0x0081, B:25:0x0087, B:44:0x00d9, B:46:0x00e0, B:48:0x00e8, B:50:0x00f7, B:52:0x00fc, B:54:0x0101, B:56:0x0107, B:58:0x010f, B:63:0x011c, B:65:0x0122, B:66:0x012c, B:68:0x0133, B:70:0x0142, B:73:0x0148, B:75:0x014e, B:78:0x015e, B:80:0x0164, B:82:0x0174, B:84:0x0183, B:87:0x018b, B:89:0x0191, B:91:0x0195, B:93:0x019f, B:98:0x01ac, B:100:0x01b2, B:103:0x01c3, B:105:0x01d3, B:109:0x01e1, B:111:0x01e7, B:113:0x01eb, B:118:0x01fd, B:120:0x0203, B:123:0x0214, B:125:0x0219, B:127:0x021f, B:129:0x0225, B:131:0x022b, B:133:0x023b, B:135:0x024a, B:137:0x0250, B:139:0x0256, B:141:0x025a, B:143:0x0264, B:148:0x0272, B:150:0x0278, B:153:0x0289, B:155:0x0299, B:159:0x02aa, B:161:0x02b0, B:163:0x02b4, B:166:0x02be, B:167:0x02c1, B:169:0x02c7, B:171:0x02d7, B:173:0x02dc, B:146:0x026b, B:116:0x01f6, B:96:0x01a6, B:175:0x02e1, B:177:0x02e6, B:179:0x02eb, B:181:0x02f0, B:183:0x02f7, B:185:0x02fc, B:187:0x0301, B:189:0x0306, B:191:0x030b, B:193:0x0314, B:195:0x031c, B:197:0x0327, B:200:0x0332, B:201:0x033b, B:203:0x033f, B:206:0x0349, B:61:0x0118, B:28:0x00a1, B:31:0x00a9, B:35:0x00b2, B:38:0x00ba, B:40:0x00c0, B:41:0x00cb, B:19:0x0077, B:211:0x0359), top: B:216:0x001a }, TRY_LEAVE] */
@@ -320,11 +320,11 @@ public class q {
     }
 
     public static void a(com.cmic.sso.sdk.a aVar) {
-        if (f30662a) {
+        if (f30591a) {
             c.a("UmcConfigUtil", "正在获取配置中...");
             return;
         }
-        f30662a = true;
+        f30591a = true;
         com.cmic.sso.sdk.b.c.a.a().a(aVar.b("isNeedToGetCert", true), aVar, new com.cmic.sso.sdk.b.c.d() { // from class: com.cmic.sso.sdk.d.q.1
             @Override // com.cmic.sso.sdk.b.c.d
             public void a(String str, String str2, JSONObject jSONObject) {
@@ -335,7 +335,7 @@ public class q {
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
-                boolean unused = q.f30662a = false;
+                boolean unused = q.f30591a = false;
             }
         });
     }

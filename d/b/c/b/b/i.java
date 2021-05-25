@@ -11,13 +11,13 @@ import java.util.concurrent.TimeoutException;
 public class i<T> implements o.a<T>, Future<o<T>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public Request<?> f65667e;
+    public Request<?> f65710e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f65668f = false;
+    public boolean f65711f = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public o<T> f65669g;
+    public o<T> f65712g;
 
     public static <E> i<E> c() {
         return new i<>();
@@ -25,27 +25,27 @@ public class i<T> implements o.a<T>, Future<o<T>> {
 
     @Override // d.b.c.b.d.o.a
     public synchronized void a(o<T> oVar) {
-        this.f65668f = true;
-        this.f65669g = oVar;
+        this.f65711f = true;
+        this.f65712g = oVar;
         notifyAll();
     }
 
     @Override // d.b.c.b.d.o.a
     public synchronized void b(o<T> oVar) {
-        this.f65668f = true;
-        this.f65669g = oVar;
+        this.f65711f = true;
+        this.f65712g = oVar;
         notifyAll();
     }
 
     @Override // java.util.concurrent.Future
     public synchronized boolean cancel(boolean z) {
-        if (this.f65667e == null) {
+        if (this.f65710e == null) {
             return false;
         }
         if (isDone()) {
             return false;
         }
-        this.f65667e.cancel();
+        this.f65710e.cancel();
         return true;
     }
 
@@ -57,8 +57,8 @@ public class i<T> implements o.a<T>, Future<o<T>> {
     }
 
     public final synchronized o<T> e(Long l) throws InterruptedException, TimeoutException {
-        if (this.f65668f) {
-            return this.f65669g;
+        if (this.f65711f) {
+            return this.f65712g;
         }
         if (l == null) {
             while (!isDone()) {
@@ -72,8 +72,8 @@ public class i<T> implements o.a<T>, Future<o<T>> {
                 uptimeMillis = SystemClock.uptimeMillis();
             }
         }
-        if (this.f65668f) {
-            return this.f65669g;
+        if (this.f65711f) {
+            return this.f65712g;
         }
         throw new TimeoutException();
     }
@@ -91,7 +91,7 @@ public class i<T> implements o.a<T>, Future<o<T>> {
 
     @Override // java.util.concurrent.Future
     public boolean isCancelled() {
-        Request<?> request = this.f65667e;
+        Request<?> request = this.f65710e;
         if (request == null) {
             return false;
         }
@@ -101,7 +101,7 @@ public class i<T> implements o.a<T>, Future<o<T>> {
     @Override // java.util.concurrent.Future
     public synchronized boolean isDone() {
         boolean z;
-        if (!this.f65668f) {
+        if (!this.f65711f) {
             z = isCancelled();
         }
         return z;

@@ -16,31 +16,31 @@ import org.json.JSONObject;
 public class aw {
 
     /* renamed from: b  reason: collision with root package name */
-    public static aw f8706b = new aw();
+    public static aw f8606b = new aw();
 
     /* renamed from: a  reason: collision with root package name */
-    public a f8707a;
+    public a f8607a;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f8709d;
+    public Handler f8609d;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f8710e;
+    public volatile int f8610e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f8711f;
+    public int f8611f;
 
     /* renamed from: c  reason: collision with root package name */
-    public HandlerThread f8708c = new HandlerThread("fullTraceHandleThread");
+    public HandlerThread f8608c = new HandlerThread("fullTraceHandleThread");
 
     /* renamed from: g  reason: collision with root package name */
-    public JSONObject f8712g = new JSONObject();
+    public JSONObject f8612g = new JSONObject();
 
     /* renamed from: h  reason: collision with root package name */
-    public JSONArray f8713h = new JSONArray();
+    public JSONArray f8613h = new JSONArray();
 
     /* renamed from: i  reason: collision with root package name */
-    public JSONArray f8714i = new JSONArray();
+    public JSONArray f8614i = new JSONArray();
     public JSONArray j = new JSONArray();
     public JSONArray k = new JSONArray();
 
@@ -50,25 +50,25 @@ public class aw {
     }
 
     public aw() {
-        this.f8708c.start();
-        this.f8708c.setPriority(10);
-        this.f8709d = new Handler(this.f8708c.getLooper());
+        this.f8608c.start();
+        this.f8608c.setPriority(10);
+        this.f8609d = new Handler(this.f8608c.getLooper());
     }
 
     private void b(JSONObject jSONObject) {
     }
 
     private void d(Context context) {
-        this.f8714i = b(this.f8714i, BDStatCore.instance().getPageSessionHead());
+        this.f8614i = b(this.f8614i, BDStatCore.instance().getPageSessionHead());
         b(context, false);
         b();
     }
 
     public void c(Context context, boolean z) {
-        this.f8712g = new JSONObject();
+        this.f8612g = new JSONObject();
         b(context);
-        this.f8714i = new JSONArray();
-        this.f8713h = new JSONArray();
+        this.f8614i = new JSONArray();
+        this.f8613h = new JSONArray();
         this.j = new JSONArray();
         this.k = new JSONArray();
         if (!z) {
@@ -84,23 +84,23 @@ public class aw {
             b();
         }
         try {
-            b(context, this.f8712g);
+            b(context, this.f8612g);
         } catch (Exception unused) {
         }
-        if (this.f8713h.length() == 0 && this.f8714i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
+        if (this.f8613h.length() == 0 && this.f8614i.length() == 0 && this.j.length() == 0 && this.k.length() == 0) {
             return;
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, this.f8712g);
+            jSONObject.put(Config.HEADER_PART, this.f8612g);
         } catch (Exception unused2) {
         }
         try {
-            jSONObject.put(Config.PRINCIPAL_PART, this.f8714i);
+            jSONObject.put(Config.PRINCIPAL_PART, this.f8614i);
         } catch (Exception unused3) {
         }
         try {
-            jSONObject.put("ev", this.f8713h);
+            jSONObject.put("ev", this.f8613h);
         } catch (Exception unused4) {
         }
         try {
@@ -112,15 +112,15 @@ public class aw {
         } catch (Exception unused6) {
         }
         try {
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8704b));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8604b));
         } catch (Exception unused7) {
         }
         try {
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8703a));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8603a));
         } catch (Exception unused8) {
         }
         try {
-            jSONObject.put("sd", au.a().a(au.a.f8705c));
+            jSONObject.put("sd", au.a().a(au.a.f8605c));
         } catch (Exception unused9) {
         }
         c(context, jSONObject);
@@ -146,15 +146,15 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8710e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8610e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        a(this.f8714i, jSONObject);
+        a(this.f8614i, jSONObject);
     }
 
     public static aw a() {
-        return f8706b;
+        return f8606b;
     }
 
     public void a(Context context) {
@@ -207,14 +207,14 @@ public class aw {
     public void c(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f8712g.toString()));
-            jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.f8714i.toString()));
-            jSONObject.put("ev", new JSONArray(this.f8713h.toString()));
+            jSONObject.put(Config.HEADER_PART, new JSONObject(this.f8612g.toString()));
+            jSONObject.put(Config.PRINCIPAL_PART, new JSONArray(this.f8614i.toString()));
+            jSONObject.put("ev", new JSONArray(this.f8613h.toString()));
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8704b));
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8703a));
-            jSONObject.put("sd", au.a().a(au.a.f8705c));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f8604b));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f8603a));
+            jSONObject.put("sd", au.a().a(au.a.f8605c));
         } catch (Exception unused) {
         }
         String jSONObject2 = jSONObject.toString();
@@ -222,7 +222,7 @@ public class aw {
         if (length >= 184320) {
             return;
         }
-        this.f8710e = length;
+        this.f8610e = length;
         String u = bw.u(context);
         bo.a(context, u + Config.STAT_FULL_CACHE_FILE_NAME, jSONObject2, false);
     }
@@ -236,7 +236,7 @@ public class aw {
         Iterator<aq> it = arrayList.iterator();
         while (it.hasNext()) {
             aq next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f8704b), au.a().a(next.f(), au.a.f8705c), bj.c(next.c()));
+            JSONObject a2 = next.a(au.a().a(next.b(), au.a.f8604b), au.a().a(next.f(), au.a.f8605c), bj.c(next.c()));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -246,14 +246,14 @@ public class aw {
     }
 
     public void b(Context context) {
-        CooperService.instance().getHeadObject().installHeader(context, this.f8712g);
+        CooperService.instance().getHeadObject().installHeader(context, this.f8612g);
     }
 
     private void b(Context context, JSONObject jSONObject) {
         CooperService.instance().getHeadObject().installHeader(context, jSONObject);
         try {
             jSONObject.put("t", System.currentTimeMillis());
-            jSONObject.put(Config.SEQUENCE_INDEX, this.f8711f);
+            jSONObject.put(Config.SEQUENCE_INDEX, this.f8611f);
             jSONObject.put("ss", BDStatCore.instance().getSessionStartTime());
             jSONObject.put("at", "1");
             jSONObject.put("sign", CooperService.instance().getUUID());
@@ -262,7 +262,7 @@ public class aw {
     }
 
     private void c() {
-        this.f8711f = 0;
+        this.f8611f = 0;
     }
 
     private void c(Context context, JSONObject jSONObject) {
@@ -281,14 +281,14 @@ public class aw {
     }
 
     private void b() {
-        this.f8711f++;
+        this.f8611f++;
     }
 
     private void b(Context context, String str) {
         LogSender.instance().saveLogData(context, str, true);
-        if (this.f8707a != null) {
+        if (this.f8607a != null) {
             try {
-                this.f8707a.a(new JSONObject(str));
+                this.f8607a.a(new JSONObject(str));
             } catch (Exception unused) {
             }
         }
@@ -303,7 +303,7 @@ public class aw {
         Iterator<ap> it = arrayList.iterator();
         while (it.hasNext()) {
             ap next = it.next();
-            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f8705c));
+            JSONObject a2 = next.a(au.a().a(next.a(), au.a.f8605c));
             if (a2 != null) {
                 jSONArray.put(a2);
             }
@@ -317,7 +317,7 @@ public class aw {
     }
 
     public void a(final Context context, final String str, final String str2, final int i2, final long j, final String str3, final JSONArray jSONArray, final String str4, final JSONArray jSONArray2, final String str5, final Map<String, String> map, final boolean z, final JSONObject jSONObject, final String str6) {
-        this.f8709d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
+        this.f8609d.post(new Runnable() { // from class: com.baidu.mobstat.aw.1
             @Override // java.lang.Runnable
             public void run() {
                 long sessionStartTime = BDStatCore.instance().getSessionStartTime();
@@ -336,7 +336,7 @@ public class aw {
     }
 
     public void b(final Context context, final ArrayList<aq> arrayList) {
-        this.f8709d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
+        this.f8609d.post(new Runnable() { // from class: com.baidu.mobstat.aw.6
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.d(context, arrayList);
@@ -349,16 +349,16 @@ public class aw {
         if (context == null || aoVar == null) {
             return;
         }
-        JSONArray b2 = b(this.f8714i, BDStatCore.instance().getPageSessionHead());
-        this.f8714i = b2;
+        JSONArray b2 = b(this.f8614i, BDStatCore.instance().getPageSessionHead());
+        this.f8614i = b2;
         if (b2.length() == 0) {
             return;
         }
-        long a2 = a(this.f8714i);
+        long a2 = a(this.f8614i);
         if (a2 <= 0) {
             return;
         }
-        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f8704b), au.a().a(aoVar.b(), au.a.f8705c)));
+        d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f8604b), au.a().a(aoVar.b(), au.a.f8605c)));
         c(context);
     }
 
@@ -374,11 +374,11 @@ public class aw {
         if (a(context, jSONObject2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8710e + "; addedSize:" + jSONObject2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8610e + "; addedSize:" + jSONObject2.length());
             }
             d(context);
         }
-        EventAnalysis.doEventMerge(this.f8713h, jSONObject);
+        EventAnalysis.doEventMerge(this.f8613h, jSONObject);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -454,11 +454,11 @@ public class aw {
     }
 
     private boolean a(Context context, String str) {
-        return (str != null ? str.getBytes().length : 0) + this.f8710e > 184320;
+        return (str != null ? str.getBytes().length : 0) + this.f8610e > 184320;
     }
 
     public void a(final Context context, final boolean z) {
-        this.f8709d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
+        this.f8609d.post(new Runnable() { // from class: com.baidu.mobstat.aw.2
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.b(context, z);
@@ -467,7 +467,7 @@ public class aw {
     }
 
     public void a(final JSONObject jSONObject) {
-        this.f8709d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
+        this.f8609d.post(new Runnable() { // from class: com.baidu.mobstat.aw.3
             @Override // java.lang.Runnable
             public void run() {
                 JSONObject jSONObject2 = jSONObject;
@@ -475,13 +475,13 @@ public class aw {
                     return;
                 }
                 aw awVar = aw.this;
-                awVar.f8714i = awVar.b(awVar.f8714i, jSONObject);
+                awVar.f8614i = awVar.b(awVar.f8614i, jSONObject);
             }
         });
     }
 
     public void a(final Context context, final ao aoVar) {
-        this.f8709d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
+        this.f8609d.post(new Runnable() { // from class: com.baidu.mobstat.aw.4
             @Override // java.lang.Runnable
             public void run() {
                 if (BDStatCore.instance().getSessionStartTime() <= 0) {
@@ -493,7 +493,7 @@ public class aw {
     }
 
     public void a(final Context context, final ArrayList<ap> arrayList) {
-        this.f8709d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
+        this.f8609d.post(new Runnable() { // from class: com.baidu.mobstat.aw.5
             @Override // java.lang.Runnable
             public void run() {
                 aw.this.c(context, arrayList);
@@ -543,7 +543,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8710e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8610e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }
@@ -573,7 +573,7 @@ public class aw {
         if (a(context, jSONArray2)) {
             if (bh.c().b()) {
                 bh c3 = bh.c();
-                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8710e + "; addedSize:" + jSONArray2.length());
+                c3.a("checkExceedLogLimit exceed:true; mCacheLogSize: " + this.f8610e + "; addedSize:" + jSONArray2.length());
             }
             d(context);
         }

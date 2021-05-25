@@ -4,29 +4,29 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
-import d.a.i0.a.w1.i.a;
-import d.a.i0.a.w1.j.g;
-import d.a.i0.a.w1.k.b;
+import d.a.l0.a.w1.i.a;
+import d.a.l0.a.w1.j.g;
+import d.a.l0.a.w1.k.b;
 /* loaded from: classes3.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout implements b {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f11136e;
+    public a f11037e;
 
     public SPSwitchFSPanelLinearLayout(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f11136e = new a(this);
+        this.f11037e = new a(this);
     }
 
-    @Override // d.a.i0.a.w1.k.b
+    @Override // d.a.l0.a.w1.k.b
     public void onSoftInputShowing(boolean z) {
-        this.f11136e.a(z);
+        this.f11037e.a(z);
     }
 
-    @Override // d.a.i0.a.w1.k.b
+    @Override // d.a.l0.a.w1.k.b
     public void refreshHeight(int i2) {
         g.g(this, i2);
     }

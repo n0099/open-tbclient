@@ -14,31 +14,31 @@ import java.util.concurrent.ConcurrentHashMap;
 public class b {
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f67567g = "KWE_NS";
+    public static String f67610g = "KWE_NS";
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f67568a;
+    public Context f67611a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67569b;
+    public String f67612b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67570c;
+    public String f67613c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f67571d;
+    public String f67614d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f67572e;
+    public boolean f67615e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d f67573f;
+    public d f67616f;
 
     public b() {
-        this.f67569b = "";
-        this.f67570c = "";
-        this.f67571d = "";
-        this.f67572e = false;
+        this.f67612b = "";
+        this.f67613c = "";
+        this.f67614d = "";
+        this.f67615e = false;
     }
 
     public /* synthetic */ b(e eVar) {
@@ -54,10 +54,10 @@ public class b {
     }
 
     public String c(Context context, String str, boolean z) {
-        if (TextUtils.isEmpty(this.f67570c)) {
+        if (TextUtils.isEmpty(this.f67613c)) {
             return null;
         }
-        return this.f67570c;
+        return this.f67613c;
     }
 
     public final void e(Context context) {
@@ -70,9 +70,9 @@ public class b {
 
     public void f(Context context, boolean z, d dVar) {
         try {
-            this.f67573f = dVar;
-            this.f67568a = context;
-            this.f67572e = z;
+            this.f67616f = dVar;
+            this.f67611a = context;
+            this.f67615e = z;
             Thread thread = new Thread(new e(this));
             thread.setName("adsence-dfp");
             thread.start();
@@ -86,17 +86,17 @@ public class b {
 
     public final void h(d dVar) {
         try {
-            boolean b2 = new d.q.a.a.c.a.e(this.f67568a).b();
-            e(this.f67568a);
+            boolean b2 = new d.q.a.a.c.a.e(this.f67611a).b();
+            e(this.f67611a);
             i(b2);
-            this.f67571d = a.a().c(this.f67568a, this.f67572e, TextUtils.isEmpty(this.f67570c));
+            this.f67614d = a.a().c(this.f67611a, this.f67615e, TextUtils.isEmpty(this.f67613c));
             if (dVar != null) {
-                if (TextUtils.isEmpty(this.f67570c) && TextUtils.isEmpty(this.f67571d)) {
+                if (TextUtils.isEmpty(this.f67613c) && TextUtils.isEmpty(this.f67614d)) {
                     dVar.a(-2, "need check");
                     return;
                 }
                 try {
-                    dVar.a(this.f67570c, this.f67571d);
+                    dVar.a(this.f67613c, this.f67614d);
                 } catch (Throwable unused) {
                 }
             }
@@ -113,28 +113,28 @@ public class b {
 
     public final void i(boolean z) {
         try {
-            Pair a2 = c.b(this.f67568a).a();
+            Pair a2 = c.b(this.f67611a).a();
             if (a2 != null && a2.second != null) {
                 String str = (String) ((ConcurrentHashMap) a2.second).get("cache_e");
                 if (!TextUtils.isEmpty(str)) {
-                    this.f67570c = str;
+                    this.f67613c = str;
                 }
             }
-            if (TextUtils.isEmpty(this.f67570c)) {
-                String c2 = Build.VERSION.SDK_INT < 29 ? d.q.a.a.c.a.d.c(this.f67568a, "k_w_o_d_out_dtt") : null;
+            if (TextUtils.isEmpty(this.f67613c)) {
+                String c2 = Build.VERSION.SDK_INT < 29 ? d.q.a.a.c.a.d.c(this.f67611a, "k_w_o_d_out_dtt") : null;
                 String str2 = "";
                 if (TextUtils.isEmpty(c2)) {
                     d.q.a.a.c.b.a.b();
-                    if (d.q.a.a.c.b.e.e(this.f67568a, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
-                        str2 = c.b(this.f67568a).g("Lm91a2R0ZnQ=");
+                    if (d.q.a.a.c.b.e.e(this.f67611a, new String[]{"android.permission.READ_EXTERNAL_STORAGE", StorageUtils.EXTERNAL_STORAGE_PERMISSION})) {
+                        str2 = c.b(this.f67611a).g("Lm91a2R0ZnQ=");
                     }
                 }
                 if (TextUtils.isEmpty(c2) && TextUtils.isEmpty(str2)) {
                     return;
                 }
-                LinkedHashMap d2 = c.b(this.f67568a).d(c2);
+                LinkedHashMap d2 = c.b(this.f67611a).d(c2);
                 if (d2 == null || d2.size() == 0) {
-                    d2 = c.b(this.f67568a).d(str2);
+                    d2 = c.b(this.f67611a).d(str2);
                 }
                 if (d2 == null || d2.size() <= 0) {
                     return;
@@ -143,7 +143,7 @@ public class b {
                 if (TextUtils.isEmpty(str3)) {
                     return;
                 }
-                this.f67570c = str3;
+                this.f67613c = str3;
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);

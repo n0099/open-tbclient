@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.atomData.FrsGameSubPbActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import d.a.c.j.e.n;
-import d.a.k0.q0.w1.c;
-import d.a.k0.q0.w1.d.a;
+import d.a.n0.r0.w1.c;
+import d.a.n0.r0.w1.d.a;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
@@ -22,36 +22,36 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     public boolean isDelComment;
     public View.OnClickListener mCommonClickListener;
     public int mForumId;
-    public d.a.k0.q0.w1.c mHalfToFullScreenController;
+    public d.a.n0.r0.w1.c mHalfToFullScreenController;
     public String mMainTowerId;
-    public d.a.k0.q0.w1.d.a mSubPbModel;
-    public d.a.k0.q0.w1.e.a mSubPbView;
+    public d.a.n0.r0.w1.d.a mSubPbModel;
+    public d.a.n0.r0.w1.e.a mSubPbView;
 
     /* loaded from: classes4.dex */
     public class a implements c.e {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f15606a = false;
+        public boolean f15509a = false;
 
         public a() {
         }
 
-        @Override // d.a.k0.q0.w1.c.e
+        @Override // d.a.n0.r0.w1.c.e
         public void a() {
             FrsGameSubPbActivity.this.mSubPbView.P(false);
-            this.f15606a = true;
+            this.f15509a = true;
         }
 
-        @Override // d.a.k0.q0.w1.c.e
+        @Override // d.a.n0.r0.w1.c.e
         public void b() {
         }
 
-        @Override // d.a.k0.q0.w1.c.e
+        @Override // d.a.n0.r0.w1.c.e
         public boolean c() {
-            if (!this.f15606a) {
+            if (!this.f15509a) {
                 return FrsGameSubPbActivity.this.mSubPbView.y() != null && FrsGameSubPbActivity.this.mSubPbView.y().getTop() == 0;
             }
-            this.f15606a = false;
+            this.f15509a = false;
             return false;
         }
     }
@@ -74,8 +74,8 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
         public c() {
         }
 
-        @Override // d.a.k0.q0.w1.d.a.d
-        public void a(boolean z, int i2, String str, boolean z2, boolean z3, d.a.k0.q0.w1.d.b bVar, List<n> list) {
+        @Override // d.a.n0.r0.w1.d.a.d
+        public void a(boolean z, int i2, String str, boolean z2, boolean z3, d.a.n0.r0.w1.d.b bVar, List<n> list) {
             if (FrsGameSubPbActivity.this.mHalfToFullScreenController != null && FrsGameSubPbActivity.this.mHalfToFullScreenController.h()) {
                 FrsGameSubPbActivity.this.mHalfToFullScreenController.k(R.color.cp_bg_line_k_alpha10_1);
             }
@@ -87,8 +87,8 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
                     return;
                 }
                 n nVar = list.get(list.size() - 1);
-                if (nVar instanceof d.a.k0.q0.w1.d.d) {
-                    FrsGameSubPbActivity.this.mSubPbModel.m(((d.a.k0.q0.w1.d.d) nVar).f59632e);
+                if (nVar instanceof d.a.n0.r0.w1.d.d) {
+                    FrsGameSubPbActivity.this.mSubPbModel.m(((d.a.n0.r0.w1.d.d) nVar).f59773e);
                 }
             } else if (z3) {
             } else {
@@ -106,16 +106,16 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             }
         }
 
-        @Override // d.a.k0.q0.w1.d.a.d
-        public void b(boolean z, int i2, String str, d.a.k0.q0.w1.d.d dVar) {
+        @Override // d.a.n0.r0.w1.d.a.d
+        public void b(boolean z, int i2, String str, d.a.n0.r0.w1.d.d dVar) {
             FrsGameSubPbActivity.this.mSubPbView.z(z, str, dVar);
             if (z) {
                 FrsGameSubPbActivity.this.isAddComment = true;
             }
         }
 
-        @Override // d.a.k0.q0.w1.d.a.d
-        public void c(boolean z, int i2, String str, d.a.k0.q0.w1.d.d dVar) {
+        @Override // d.a.n0.r0.w1.d.a.d
+        public void c(boolean z, int i2, String str, d.a.n0.r0.w1.d.d dVar) {
             FrsGameSubPbActivity.this.mSubPbView.A(z, str, dVar);
             if (z) {
                 FrsGameSubPbActivity.this.isDelComment = true;
@@ -185,17 +185,17 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
             finish();
         }
         initListeners();
-        d.a.k0.q0.w1.e.a aVar = new d.a.k0.q0.w1.e.a(this, this.mCommonClickListener, this.mMainTowerId);
+        d.a.n0.r0.w1.e.a aVar = new d.a.n0.r0.w1.e.a(this, this.mCommonClickListener, this.mMainTowerId);
         this.mSubPbView = aVar;
         setContentView(aVar.x());
-        d.a.k0.q0.w1.c cVar = new d.a.k0.q0.w1.c(this, this.mSubPbView.u(), this.mSubPbView.v());
+        d.a.n0.r0.w1.c cVar = new d.a.n0.r0.w1.c(this, this.mSubPbView.u(), this.mSubPbView.v());
         this.mHalfToFullScreenController = cVar;
         cVar.g();
         this.mHalfToFullScreenController.j(new a());
         this.mSubPbView.H(this.mHalfToFullScreenController);
         this.mSubPbView.P(true);
         this.mSubPbView.I(new b());
-        d.a.k0.q0.w1.d.a aVar2 = new d.a.k0.q0.w1.d.a(this, this.mForumId, this.mMainTowerId);
+        d.a.n0.r0.w1.d.a aVar2 = new d.a.n0.r0.w1.d.a(this, this.mForumId, this.mMainTowerId);
         this.mSubPbModel = aVar2;
         aVar2.l(new c());
         this.mSubPbModel.h(false);
@@ -204,7 +204,7 @@ public class FrsGameSubPbActivity extends BaseActivity<FrsGameSubPbActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        d.a.k0.q0.w1.e.a aVar = this.mSubPbView;
+        d.a.n0.r0.w1.e.a aVar = this.mSubPbView;
         if (aVar != null) {
             aVar.E();
         }

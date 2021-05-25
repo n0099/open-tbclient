@@ -13,35 +13,35 @@ import org.json.JSONObject;
 public class a extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static CopyOnWriteArrayList<Throwable> f30624a = new CopyOnWriteArrayList<>();
+    public static CopyOnWriteArrayList<Throwable> f30553a = new CopyOnWriteArrayList<>();
     public String A;
     public String B;
     public String C;
     public JSONArray p;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f30625b = null;
+    public String f30554b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f30626c = null;
+    public String f30555c = null;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f30627d = null;
+    public String f30556d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f30628e = null;
+    public String f30557e = null;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f30629f = null;
+    public String f30558f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f30630g = null;
+    public String f30559g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f30631h = null;
+    public String f30560h = null;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f30632i = null;
+    public String f30561i = null;
     public String j = null;
     public String k = null;
     public String l = "";
@@ -73,7 +73,7 @@ public class a extends g {
     }
 
     public void a(String str) {
-        this.f30625b = str;
+        this.f30554b = str;
     }
 
     public void b(String str) {
@@ -109,15 +109,15 @@ public class a extends g {
     }
 
     public void j(String str) {
-        this.f30627d = str;
+        this.f30556d = str;
     }
 
     public void k(String str) {
-        this.f30628e = str;
+        this.f30557e = str;
     }
 
     public void l(String str) {
-        this.f30630g = str;
+        this.f30559g = str;
     }
 
     public void m(String str) {
@@ -145,11 +145,11 @@ public class a extends g {
     }
 
     public void t(String str) {
-        this.f30626c = str;
+        this.f30555c = str;
     }
 
     public void u(String str) {
-        this.f30631h = str;
+        this.f30560h = str;
     }
 
     public void v(String str) {
@@ -157,7 +157,7 @@ public class a extends g {
     }
 
     public void w(String str) {
-        this.f30632i = str;
+        this.f30561i = str;
     }
 
     public void x(String str) {
@@ -165,7 +165,7 @@ public class a extends g {
     }
 
     public void y(String str) {
-        this.f30629f = str;
+        this.f30558f = str;
     }
 
     public void z(String str) {
@@ -180,15 +180,15 @@ public class a extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("appid", this.f30625b);
-            jSONObject.put("traceId", this.f30626c);
-            jSONObject.put("appName", this.f30627d);
-            jSONObject.put("appVersion", this.f30628e);
-            jSONObject.put(CommandMessage.SDK_VERSION, this.f30629f);
+            jSONObject.put("appid", this.f30554b);
+            jSONObject.put("traceId", this.f30555c);
+            jSONObject.put("appName", this.f30556d);
+            jSONObject.put("appVersion", this.f30557e);
+            jSONObject.put(CommandMessage.SDK_VERSION, this.f30558f);
             jSONObject.put("clientType", "android");
-            jSONObject.put("timeOut", this.f30630g);
-            jSONObject.put("requestTime", this.f30631h);
-            jSONObject.put("responseTime", this.f30632i);
+            jSONObject.put("timeOut", this.f30559g);
+            jSONObject.put("requestTime", this.f30560h);
+            jSONObject.put("responseTime", this.f30561i);
             jSONObject.put("elapsedTime", this.j);
             jSONObject.put(AdExtParam.KEY_REQUEST_TYPE, this.k);
             jSONObject.put("interfaceType", this.l);

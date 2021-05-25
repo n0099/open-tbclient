@@ -10,23 +10,23 @@ import org.json.JSONStringer;
 public class w0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37228a;
+    public Context f37157a;
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONStringer f37229b = new JSONStringer();
+    public JSONStringer f37158b = new JSONStringer();
 
     /* renamed from: c  reason: collision with root package name */
-    public String f37230c = "";
+    public String f37159c = "";
 
     public w0(x0 x0Var, Context context) {
-        this.f37228a = context;
+        this.f37157a = context;
     }
 
     public w0 a(int i2, long j) {
         JSONStringer object;
         try {
             object = new JSONStringer().object();
-            this.f37229b = object;
+            this.f37158b = object;
             a("e", "bce").a("timeis", x0.b()).a("co", i2).a("dr", j);
         } catch (JSONException unused) {
         }
@@ -35,7 +35,7 @@ public class w0 {
 
     public w0 a(y0 y0Var) {
         try {
-            this.f37229b = x0.a("as", y0Var);
+            this.f37158b = x0.a("as", y0Var);
         } catch (JSONException unused) {
         }
         return this;
@@ -43,7 +43,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, int i2) {
         try {
-            this.f37229b = x0.a("wde", y0Var);
+            this.f37158b = x0.a("wde", y0Var);
             a("co", i2);
         } catch (JSONException unused) {
         }
@@ -52,7 +52,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, int i2, int i3) {
         try {
-            this.f37229b = x0.a("asr", y0Var);
+            this.f37158b = x0.a("asr", y0Var);
             a("width", i2);
             a("height", i3);
         } catch (JSONException unused) {
@@ -62,7 +62,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, int i2, long j) {
         try {
-            this.f37229b = x0.a("bpe", y0Var);
+            this.f37158b = x0.a("bpe", y0Var);
             a("co", i2).a("dr", j);
         } catch (JSONException unused) {
         }
@@ -71,7 +71,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, int i2, String str) {
         try {
-            this.f37229b = x0.a("wbe", y0Var);
+            this.f37158b = x0.a("wbe", y0Var);
             a("co", i2).a("msg", x0.a(str));
         } catch (JSONException unused) {
         }
@@ -80,7 +80,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, long j, int i2, int i3) {
         try {
-            this.f37229b = x0.a("be", y0Var);
+            this.f37158b = x0.a("be", y0Var);
             a("dr", j).a("co", i2).a("num", i3);
         } catch (JSONException unused) {
         }
@@ -89,7 +89,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, String str) {
         try {
-            this.f37229b = x0.a("ac", y0Var);
+            this.f37158b = x0.a("ac", y0Var);
             a("msg", x0.a(str));
         } catch (JSONException unused) {
         }
@@ -98,7 +98,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, String str, int i2) {
         try {
-            this.f37229b = x0.a("dplop", y0Var);
+            this.f37158b = x0.a("dplop", y0Var);
             a("msg", x0.a(str));
             a("co", i2);
         } catch (JSONException unused) {
@@ -108,7 +108,7 @@ public class w0 {
 
     public w0 a(String str, long j) {
         try {
-            this.f37229b.key(str).value(j);
+            this.f37158b.key(str).value(j);
         } catch (JSONException unused) {
         }
         return this;
@@ -117,7 +117,7 @@ public class w0 {
     public w0 a(String str, String str2) {
         try {
             if (!TextUtils.isEmpty(str2)) {
-                this.f37229b.key(str).value(str2);
+                this.f37158b.key(str).value(str2);
             }
         } catch (JSONException unused) {
         }
@@ -125,15 +125,15 @@ public class w0 {
     }
 
     public final boolean a(String str) {
-        if (s1.l(this.f37228a) < 0) {
+        if (s1.l(this.f37157a) < 0) {
             return false;
         }
-        return z.a(x0.f37243a, str) ? s1.l(this.f37228a) < 1 : z.a(x0.f37244b, str) ? s1.l(this.f37228a) < 2 : z.a(x0.f37245c, str) ? s1.l(this.f37228a) < 3 : z.a(x0.f37246d, str) && s1.l(this.f37228a) < 4;
+        return z.a(x0.f37172a, str) ? s1.l(this.f37157a) < 1 : z.a(x0.f37173b, str) ? s1.l(this.f37157a) < 2 : z.a(x0.f37174c, str) ? s1.l(this.f37157a) < 3 : z.a(x0.f37175d, str) && s1.l(this.f37157a) < 4;
     }
 
     public w0 b(y0 y0Var, int i2) {
         try {
-            this.f37229b = x0.a("wdin", y0Var);
+            this.f37158b = x0.a("wdin", y0Var);
             a("co", i2);
         } catch (JSONException unused) {
         }
@@ -143,16 +143,16 @@ public class w0 {
     public void a() {
         JSONArray jSONArray = new JSONArray();
         try {
-            if (!TextUtils.isEmpty(this.f37229b.toString())) {
-                this.f37229b.endObject();
-                this.f37230c = this.f37229b.toString();
+            if (!TextUtils.isEmpty(this.f37158b.toString())) {
+                this.f37158b.endObject();
+                this.f37159c = this.f37158b.toString();
             }
-            JSONObject jSONObject = new JSONObject(this.f37230c);
+            JSONObject jSONObject = new JSONObject(this.f37159c);
             String optString = jSONObject.optString("e");
             if (a(optString)) {
                 return;
             }
-            boolean z = !z.a(x0.f37243a, optString);
+            boolean z = !z.a(x0.f37172a, optString);
             jSONArray.put(jSONObject);
             u1.a(new v0(this, z, jSONArray.toString()));
         } catch (JSONException unused) {
@@ -161,7 +161,7 @@ public class w0 {
 
     public w0 a(y0 y0Var, String str, int i2, int i3) {
         try {
-            this.f37229b = x0.a("wdre", y0Var);
+            this.f37158b = x0.a("wdre", y0Var);
             try {
                 str = z.a(str);
             } catch (Exception unused) {

@@ -9,6 +9,7 @@ public interface IAdRequestParam {
     public static final String APID = "apid";
     public static final String APINFO = "apinfo";
     public static final String APPID = "appid";
+    public static final String APV = "app_ver";
     public static final String BDR = "bdr";
     public static final String BRAND = "brd";
     public static final String CELL_ID = "cid";

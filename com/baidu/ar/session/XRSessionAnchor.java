@@ -12,7 +12,7 @@ import com.baidu.searchbox.v8engine.V8Engine;
 import com.baidu.smallgame.sdk.permission.PermissionListener;
 import com.baidu.smallgame.sdk.permission.PermissionProxy;
 import com.google.ar.core.ArCoreApk;
-import d.a.e0.a.a;
+import d.a.g0.a.a;
 import java.io.File;
 @NotProguard
 /* loaded from: classes.dex */

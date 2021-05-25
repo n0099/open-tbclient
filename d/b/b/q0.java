@@ -1,5 +1,5 @@
 package d.b.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class q0 {
     public static long a() {
         return System.currentTimeMillis() / 86400000;

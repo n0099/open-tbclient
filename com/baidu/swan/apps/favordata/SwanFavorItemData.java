@@ -3,7 +3,7 @@ package com.baidu.swan.apps.favordata;
 import android.net.Uri;
 import android.text.TextUtils;
 import com.baidu.searchbox.NoProGuard;
-import d.a.i0.a.f1.e.c;
+import d.a.l0.a.f1.e.c;
 import java.io.Serializable;
 /* loaded from: classes2.dex */
 public class SwanFavorItemData implements Serializable, NoProGuard {

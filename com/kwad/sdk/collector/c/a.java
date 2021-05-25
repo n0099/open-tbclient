@@ -26,19 +26,19 @@ import java.util.List;
 public class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public HandlerC0356a f31956a = new HandlerC0356a();
+    public HandlerC0357a f31885a = new HandlerC0357a();
 
     /* renamed from: b  reason: collision with root package name */
-    public Messenger f31957b = new Messenger(this.f31956a);
+    public Messenger f31886b = new Messenger(this.f31885a);
 
     /* renamed from: com.kwad.sdk.collector.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static class HandlerC0356a extends Handler {
+    public static class HandlerC0357a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<Service> f31958a;
+        public WeakReference<Service> f31887a;
 
-        public HandlerC0356a() {
+        public HandlerC0357a() {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -52,16 +52,16 @@ public class a extends c {
 
         public void a(@Nullable Service service) {
             if (service != null) {
-                this.f31958a = new WeakReference<>(service);
+                this.f31887a = new WeakReference<>(service);
             } else {
-                this.f31958a = null;
+                this.f31887a = null;
             }
         }
 
         @Override // android.os.Handler
         public void handleMessage(@NonNull Message message) {
             super.handleMessage(message);
-            WeakReference<Service> weakReference = this.f31958a;
+            WeakReference<Service> weakReference = this.f31887a;
             final Service service = weakReference != null ? weakReference.get() : null;
             if (service == null) {
                 return;
@@ -87,7 +87,7 @@ public class a extends c {
                     } catch (RemoteException unused) {
                     }
                     service.stopSelf();
-                    if (HandlerC0356a.this.a((Context) service)) {
+                    if (HandlerC0357a.this.a((Context) service)) {
                         com.kwad.sdk.core.d.a.a("RemoteService", "gotta kill myself");
                         Process.killProcess(Process.myPid());
                     }
@@ -110,19 +110,19 @@ public class a extends c {
 
     @Override // com.kwad.sdk.b.c, com.kwad.sdk.api.proxy.IServiceProxy
     public IBinder onBind(@NonNull Service service, Intent intent) {
-        return this.f31957b.getBinder();
+        return this.f31886b.getBinder();
     }
 
     @Override // com.kwad.sdk.b.c, com.kwad.sdk.api.proxy.IServiceProxy
     public void onCreate(Service service) {
         super.onCreate(service);
         com.kwad.sdk.core.d.a.a("RemoteService", "onCreate processName:" + aa.a(service));
-        this.f31956a.a(service);
+        this.f31885a.a(service);
     }
 
     @Override // com.kwad.sdk.b.c, com.kwad.sdk.api.proxy.IServiceProxy
     public void onDestroy(@NonNull Service service) {
         super.onDestroy(service);
-        this.f31956a.a((Service) null);
+        this.f31885a.a((Service) null);
     }
 }

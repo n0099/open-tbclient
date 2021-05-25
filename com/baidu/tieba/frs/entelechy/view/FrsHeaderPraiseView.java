@@ -24,36 +24,36 @@ import tbclient.SimpleUser;
 public class FrsHeaderPraiseView extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15411e;
+    public View f15314e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f15412f;
+    public View f15315f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f15413g;
+    public TextView f15316g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FrameLayout f15414h;
+    public FrameLayout f15317h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f15415i;
+    public ImageView f15318i;
 
     /* loaded from: classes4.dex */
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ AgreeBanner f15416e;
+        public final /* synthetic */ AgreeBanner f15319e;
 
         public a(AgreeBanner agreeBanner) {
-            this.f15416e = agreeBanner;
+            this.f15319e = agreeBanner;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (TextUtils.isEmpty(this.f15416e.url)) {
+            if (TextUtils.isEmpty(this.f15319e.url)) {
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(FrsHeaderPraiseView.this.getContext(), null, this.f15416e.url, true)));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(FrsHeaderPraiseView.this.getContext(), null, this.f15319e.url, true)));
         }
     }
 
@@ -62,12 +62,12 @@ public class FrsHeaderPraiseView extends RelativeLayout {
     }
 
     public final void a() {
-        this.f15411e = findViewById(R.id.divider_top);
-        this.f15412f = findViewById(R.id.divider_bottom);
-        this.f15413g = (TextView) findViewById(R.id.frs_praise_title);
-        this.f15414h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
+        this.f15314e = findViewById(R.id.divider_top);
+        this.f15315f = findViewById(R.id.divider_bottom);
+        this.f15316g = (TextView) findViewById(R.id.frs_praise_title);
+        this.f15317h = (FrameLayout) findViewById(R.id.frs_praise_portrait);
         ImageView imageView = (ImageView) findViewById(R.id.frs_praise_more);
-        this.f15415i = imageView;
+        this.f15318i = imageView;
         SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
     }
 
@@ -77,9 +77,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             return;
         }
         setVisibility(0);
-        this.f15413g.setText(agreeBanner.text);
+        this.f15316g.setText(agreeBanner.text);
         List<SimpleUser> list = agreeBanner.top_agree_user;
-        this.f15414h.removeAllViews();
+        this.f15317h.removeAllViews();
         if (list != null) {
             ArrayList arrayList = new ArrayList();
             if (list.size() > 5) {
@@ -89,7 +89,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             } else {
                 arrayList.addAll(list);
             }
-            for (int size = arrayList.size() - 1; size >= 0 && this.f15414h.getChildCount() != 5; size--) {
+            for (int size = arrayList.size() - 1; size >= 0 && this.f15317h.getChildCount() != 5; size--) {
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(getResources().getDimensionPixelSize(R.dimen.ds40), getResources().getDimensionPixelSize(R.dimen.ds40));
                 HeadImageView headImageView = new HeadImageView(getContext());
                 headImageView.setDefaultResource(17170445);
@@ -102,7 +102,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                     layoutParams.rightMargin = (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds40)) - (((arrayList.size() - 1) - size) * getResources().getDimensionPixelSize(R.dimen.ds8));
                 }
                 layoutParams.gravity = 5;
-                this.f15414h.addView(headImageView, layoutParams);
+                this.f15317h.addView(headImageView, layoutParams);
             }
         }
         setOnClickListener(new a(agreeBanner));

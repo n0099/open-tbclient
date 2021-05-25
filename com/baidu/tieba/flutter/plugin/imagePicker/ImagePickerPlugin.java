@@ -26,8 +26,8 @@ import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerAuto;
 import com.baidu.tieba.flutter.plugin.imagePicker.PostAsyncTask;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.j0.z0.q;
-import d.a.k0.m0.a.d.e;
+import d.a.m0.z0.q;
+import d.a.n0.n0.a.d.e;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import java.util.HashMap;
 /* loaded from: classes4.dex */
@@ -121,12 +121,12 @@ public class ImagePickerPlugin implements FlutterPlugin, ImagePickerAuto.HostIma
             return;
         }
         q qVar = new q(currentActivity, str, new q.a() { // from class: com.baidu.tieba.flutter.plugin.imagePicker.ImagePickerPlugin.1
-            @Override // d.a.j0.z0.q.a
+            @Override // d.a.m0.z0.q.a
             public void onError(int i2, String str2) {
                 ImagePickerPlugin.this.notifyFlutter(i2, str2, "");
             }
 
-            @Override // d.a.j0.z0.q.a
+            @Override // d.a.m0.z0.q.a
             public void onSuccess(String str2) {
                 ImagePickerPlugin.this.notifyFlutter(0, "保存成功！", "");
             }

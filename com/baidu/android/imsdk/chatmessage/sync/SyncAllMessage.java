@@ -1,12 +1,12 @@
 package com.baidu.android.imsdk.chatmessage.sync;
 
 import android.content.Context;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 /* loaded from: classes.dex */
 public class SyncAllMessage extends SyncStrategy {
-    public static final String FETCHED_MAX_NOTIFY_MSGID = "fetched_max_msgid";
     public static final String TAG = "SyncAllMessage";
     public static SyncAllMessage mInstance;
     public long mMaxMsgid = -1;
@@ -18,7 +18,7 @@ public class SyncAllMessage extends SyncStrategy {
     private long getDeviceMaxNotifyMsgid() {
         if (this.mMaxMsgid == -1) {
             Context context = this.mContext;
-            this.mMaxMsgid = Utility.readLongData(context, "fetched_max_msgid" + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
+            this.mMaxMsgid = Utility.readLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
         }
         return this.mMaxMsgid;
     }
@@ -43,13 +43,13 @@ public class SyncAllMessage extends SyncStrategy {
     public void clearCache() {
         reset();
         Context context = this.mContext;
-        Utility.writeLongData(context, "fetched_max_msgid" + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
+        Utility.writeLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), -1L);
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.sync.SyncStrategy
     public boolean commitDeviceMaxNotifyMsgid() {
         Context context = this.mContext;
-        Utility.writeLongData(context, "fetched_max_msgid" + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), this.mMaxMsgid);
+        Utility.writeLongData(context, IMConstants.FETCHED_MAX_NOTIFY_MSGID + AccountManager.getAppid(this.mContext) + AccountManager.getUid(this.mContext), this.mMaxMsgid);
         this.mCount.set(0);
         return true;
     }

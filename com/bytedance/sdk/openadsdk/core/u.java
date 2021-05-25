@@ -8,89 +8,89 @@ import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    public static u f28443a;
+    public static u f28372a;
 
     /* renamed from: b  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.video.nativevideo.c f28444b;
+    public com.bytedance.sdk.openadsdk.core.video.nativevideo.c f28373b;
 
     /* renamed from: d  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f28446d;
+    public com.bytedance.sdk.openadsdk.core.d.l f28375d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TTRewardVideoAd.RewardAdInteractionListener f28447e;
+    public TTRewardVideoAd.RewardAdInteractionListener f28376e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.downloadnew.core.a f28448f;
+    public com.bytedance.sdk.openadsdk.downloadnew.core.a f28377f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f28449g;
+    public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener f28378g;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28445c = true;
+    public boolean f28374c = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28450h = false;
+    public boolean f28379h = false;
 
     @MainThread
     public static u a() {
-        if (f28443a == null) {
-            f28443a = new u();
+        if (f28372a == null) {
+            f28372a = new u();
         }
-        return f28443a;
+        return f28372a;
     }
 
     public boolean b() {
-        return this.f28445c;
+        return this.f28374c;
     }
 
     @NonNull
     public com.bytedance.sdk.openadsdk.core.d.l c() {
-        return this.f28446d;
+        return this.f28375d;
     }
 
     public TTRewardVideoAd.RewardAdInteractionListener d() {
-        return this.f28447e;
+        return this.f28376e;
     }
 
     public TTFullScreenVideoAd.FullScreenVideoAdInteractionListener e() {
-        return this.f28449g;
+        return this.f28378g;
     }
 
     public com.bytedance.sdk.openadsdk.downloadnew.core.a f() {
-        return this.f28448f;
+        return this.f28377f;
     }
 
     public void g() {
-        this.f28444b = null;
-        this.f28446d = null;
-        this.f28447e = null;
-        this.f28449g = null;
-        this.f28448f = null;
-        this.f28450h = false;
-        this.f28445c = true;
+        this.f28373b = null;
+        this.f28375d = null;
+        this.f28376e = null;
+        this.f28378g = null;
+        this.f28377f = null;
+        this.f28379h = false;
+        this.f28374c = true;
     }
 
     public void b(boolean z) {
-        this.f28450h = z;
+        this.f28379h = z;
     }
 
     public void a(boolean z) {
-        this.f28445c = z;
+        this.f28374c = z;
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        this.f28446d = lVar;
+        this.f28375d = lVar;
     }
 
     public void a(TTFullScreenVideoAd.FullScreenVideoAdInteractionListener fullScreenVideoAdInteractionListener) {
-        this.f28449g = fullScreenVideoAdInteractionListener;
+        this.f28378g = fullScreenVideoAdInteractionListener;
     }
 
     public void a(TTRewardVideoAd.RewardAdInteractionListener rewardAdInteractionListener) {
-        this.f28447e = rewardAdInteractionListener;
+        this.f28376e = rewardAdInteractionListener;
     }
 
     public void a(com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
-        this.f28448f = aVar;
+        this.f28377f = aVar;
     }
 }

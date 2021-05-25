@@ -1,208 +1,239 @@
 package d.a.y.a;
+
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.cyberplayer.sdk.CyberTaskExcutor;
+import com.baidu.cyberplayer.sdk.SDKVersion;
+import com.baidu.cyberplayer.sdk.config.CyberCfgManager;
+import com.baidu.media.duplayer.LibsInfoDef;
+import com.baidu.media.duplayer.Utils;
+import com.baidu.media.duplayer.d;
+import dalvik.system.BaseDexClassLoader;
+import java.io.File;
+import java.util.Iterator;
+import java.util.LinkedHashSet;
+import java.util.Set;
 /* loaded from: classes2.dex */
-public final class e {
-    public static final int action_bar = 2131296340;
-    public static final int action_bar_activity_content = 2131296341;
-    public static final int action_bar_container = 2131296342;
-    public static final int action_bar_root = 2131296345;
-    public static final int action_bar_spinner = 2131296346;
-    public static final int action_bar_subtitle = 2131296347;
-    public static final int action_bar_title = 2131296348;
-    public static final int action_container = 2131296350;
-    public static final int action_context_bar = 2131296351;
-    public static final int action_divider = 2131296352;
-    public static final int action_image = 2131296354;
-    public static final int action_menu_divider = 2131296356;
-    public static final int action_menu_presenter = 2131296357;
-    public static final int action_mode_bar = 2131296358;
-    public static final int action_mode_bar_stub = 2131296359;
-    public static final int action_mode_close_button = 2131296360;
-    public static final int action_text = 2131296361;
-    public static final int actions = 2131296363;
-    public static final int activity_chooser_view_content = 2131296367;
-    public static final int add = 2131296461;
-    public static final int alertTitle = 2131296837;
-    public static final int async = 2131296931;
-    public static final int barrier = 2131297083;
-    public static final int bg_layout = 2131297287;
-    public static final int blocking = 2131297355;
-    public static final int bottom = 2131297373;
-    public static final int btn_retry = 2131297515;
-    public static final int buttonPanel = 2131297549;
-    public static final int cancel_clip_btn = 2131297630;
-    public static final int chains = 2131298014;
-    public static final int check_code = 2131298049;
-    public static final int checkbox = 2131298052;
-    public static final int chronometer = 2131298127;
-    public static final int code_container = 2131298169;
-    public static final int content = 2131298263;
-    public static final int contentPanel = 2131298267;
-    public static final int custom = 2131298422;
-    public static final int customPanel = 2131298423;
-    public static final int decor_content_parent = 2131298473;
-    public static final int default_activity_button = 2131298476;
-    public static final int dialog_loading_view = 2131298547;
-    public static final int dialog_msg = 2131298551;
-    public static final int dialog_title = 2131298559;
-    public static final int dimensions = 2131298566;
-    public static final int direct = 2131298568;
-    public static final int edit_query = 2131298798;
-    public static final int end = 2131298921;
-    public static final int expand_activities_button = 2131299011;
-    public static final int expanded_menu = 2131299022;
-    public static final int forever = 2131299254;
-    public static final int get_code = 2131299858;
-    public static final int gone = 2131299939;
-    public static final int group_divider = 2131299971;
-    public static final int home = 2131300095;
-    public static final int icon = 2131300287;
-    public static final int icon_group = 2131300307;
-    public static final int image = 2131300390;
-    public static final int info = 2131300528;
-    public static final int invisible = 2131300599;
-    public static final int italic = 2131300609;
-    public static final int iv_pose_warning_tip = 2131300754;
-    public static final int iv_recog_circle = 2131300756;
-    public static final int iv_recog_logo = 2131300757;
-    public static final int layout_pose_warning = 2131301073;
-    public static final int left = 2131301114;
-    public static final int line1 = 2131301186;
-    public static final int line3 = 2131301188;
-    public static final int listMode = 2131301223;
-    public static final int list_item = 2131301228;
-    public static final int loading_container = 2131301335;
-    public static final int message = 2131301564;
-    public static final int msg_text = 2131301665;
-    public static final int multiply = 2131301699;
-    public static final int negative_btn = 2131301805;
-    public static final int neutral_btn = 2131301820;
-    public static final int none = 2131301935;
-    public static final int normal = 2131301944;
-    public static final int notification_background = 2131301959;
-    public static final int notification_main_column = 2131301961;
-    public static final int notification_main_column_container = 2131301962;
-    public static final int packed = 2131302084;
-    public static final int parent = 2131302092;
-    public static final int parentPanel = 2131302093;
-    public static final int pass_base_ui_dialog_content = 2131302097;
-    public static final int pass_base_ui_dialog_horizontal_split_line = 2131302098;
-    public static final int pass_base_ui_dialog_root_view = 2131302099;
-    public static final int pass_base_ui_dialog_title = 2131302100;
-    public static final int pass_base_ui_dialog_vertical_split_line = 2131302101;
-    public static final int pass_base_ui_first_btn_layout = 2131302102;
-    public static final int pass_bio_camera_pre_view = 2131302103;
-    public static final int pass_bio_circle_hide_view = 2131302104;
-    public static final int pass_bio_circle_image_view = 2131302105;
-    public static final int pass_bio_dialog_alert_ll_content = 2131302106;
-    public static final int pass_bio_dialog_ll_content = 2131302107;
-    public static final int pass_bio_dialog_time_center = 2131302108;
-    public static final int pass_bio_dialog_time_left = 2131302109;
-    public static final int pass_bio_dialog_time_right = 2131302110;
-    public static final int pass_bio_liveness_recog_close = 2131302111;
-    public static final int pass_bio_liveness_recog_cpv = 2131302112;
-    public static final int pass_bio_liveness_recog_tip_text = 2131302113;
-    public static final int pass_bio_loading_view = 2131302114;
-    public static final int percent = 2131302459;
-    public static final int phone = 2131302665;
-    public static final int positive_btn = 2131302763;
-    public static final int progressBar1 = 2131302904;
-    public static final int progress_bar = 2131302907;
-    public static final int progress_circular = 2131302908;
-    public static final int progress_horizontal = 2131302910;
-    public static final int prompt = 2131302927;
-    public static final int radio = 2131303077;
-    public static final int right = 2131303280;
-    public static final int right_icon = 2131303300;
-    public static final int right_side = 2131303306;
-    public static final int rim_base_toast_icon = 2131303314;
-    public static final int rim_base_toast_message = 2131303315;
-    public static final int root_view = 2131303405;
-    public static final int sapi_background_picture = 2131303464;
-    public static final int sapi_bottom_back = 2131303468;
-    public static final int sapi_clip_box = 2131303469;
-    public static final int sapi_layout_bottom_back = 2131303470;
-    public static final int sapi_sdk_bottom_divider_line = 2131303545;
-    public static final int sapi_sdk_fingerprint_icon = 2131303567;
-    public static final int sapi_sdk_fingerprint_negative_btn = 2131303568;
-    public static final int sapi_sdk_fingerprint_positive_btn = 2131303569;
-    public static final int sapi_sdk_fingerprint_sub_title = 2131303570;
-    public static final int sapi_sdk_fingerprint_title = 2131303571;
-    public static final int sapi_sdk_fl_ocr_camera_border = 2131303572;
-    public static final int sapi_sdk_fl_take_photo = 2131303573;
-    public static final int sapi_sdk_iv_ocr_id_card_emblem = 2131303584;
-    public static final int sapi_sdk_iv_ocr_id_card_people = 2131303585;
-    public static final int sapi_sdk_loading_logo = 2131303592;
-    public static final int sapi_sdk_loading_timeout_bg_layout = 2131303593;
-    public static final int sapi_sdk_loading_timeout_iv = 2131303594;
-    public static final int sapi_sdk_loading_timeout_tv = 2131303595;
-    public static final int sapi_sdk_ocr_frame_layout = 2131303610;
-    public static final int sapi_sdk_sweep_bg_view = 2131303628;
-    public static final int sapi_sdk_sweep_iv = 2131303629;
-    public static final int sapi_sdk_sweep_light_loading_bg_layout = 2131303630;
-    public static final int sapi_sdk_tv_light_tip = 2131303646;
-    public static final int sapi_sdk_tv_type_tip = 2131303647;
-    public static final int sapi_textview_back = 2131303652;
-    public static final int sapi_title_bg_layout = 2131303653;
-    public static final int sapi_title_layout = 2131303654;
-    public static final int sapi_webview = 2131303655;
-    public static final int screen = 2131303678;
-    public static final int scrollIndicatorDown = 2131303689;
-    public static final int scrollIndicatorUp = 2131303690;
-    public static final int scrollView = 2131303691;
-    public static final int search_badge = 2131303711;
-    public static final int search_bar = 2131303712;
-    public static final int search_button = 2131303722;
-    public static final int search_close_btn = 2131303723;
-    public static final int search_edit_frame = 2131303726;
-    public static final int search_go_btn = 2131303732;
-    public static final int search_mag_icon = 2131303742;
-    public static final int search_plate = 2131303743;
-    public static final int search_src_text = 2131303748;
-    public static final int search_voice_btn = 2131303757;
-    public static final int select_dialog_listview = 2131303817;
-    public static final int separate_line = 2131303841;
-    public static final int shortcut = 2131303927;
-    public static final int spacer = 2131304049;
-    public static final int split_action_bar = 2131304063;
-    public static final int spread = 2131304064;
-    public static final int spread_inside = 2131304066;
-    public static final int src_atop = 2131304113;
-    public static final int src_in = 2131304114;
-    public static final int src_over = 2131304115;
-    public static final int standard = 2131304123;
-    public static final int start = 2131304125;
-    public static final int stub_bottom_back = 2131304167;
-    public static final int submenuarrow = 2131304187;
-    public static final int submit_area = 2131304188;
-    public static final int sure_clip_btn = 2131304208;
-    public static final int tabMode = 2131304253;
-    public static final int tag_transition_group = 2131304373;
-    public static final int tag_unhandled_key_event_manager = 2131304374;
-    public static final int tag_unhandled_key_listeners = 2131304375;
-    public static final int text = 2131304501;
-    public static final int text2 = 2131304502;
-    public static final int textSpacerNoButtons = 2131304506;
-    public static final int textSpacerNoTitle = 2131304507;
-    public static final int time = 2131304716;
-    public static final int time_out_dialog_msg = 2131304717;
-    public static final int tipTextView = 2131304726;
-    public static final int title = 2131304767;
-    public static final int titleDividerNoCustom = 2131304773;
-    public static final int title_btn_left_iv = 2131304794;
-    public static final int title_btn_left_tv = 2131304795;
-    public static final int title_btn_right = 2131304796;
-    public static final int title_divider_line = 2131304806;
-    public static final int title_left_btn_layout = 2131304813;
-    public static final int title_right_close = 2131304829;
-    public static final int title_template = 2131304842;
-    public static final int title_text = 2131304843;
-    public static final int top = 2131304913;
-    public static final int topPanel = 2131304916;
-    public static final int tv_pose_warning_tip = 2131305435;
-    public static final int uniform = 2131305586;
-    public static final int up = 2131305611;
-    public static final int view_switcher = 2131305927;
-    public static final int webview = 2131306223;
-    public static final int wrap = 2131306277;
-    public static final int wrap_content = 2131306278;
+public class e {
+
+    /* renamed from: a  reason: collision with root package name */
+    public static e f64871a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public static String f64872b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f64873c;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static final Set<String> f64874d = new LinkedHashSet();
+
+    /* loaded from: classes2.dex */
+    public class a implements Runnable {
+        public a() {
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            File[] listFiles;
+            try {
+                for (File file : new File(e.f64873c).listFiles()) {
+                    if (file.isFile()) {
+                        e.this.g(file);
+                    } else if (file.getName().equals(e.f64872b)) {
+                        e.this.k(file);
+                    } else {
+                        Utils.d(file);
+                    }
+                }
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static synchronized e b() {
+        e eVar;
+        synchronized (e.class) {
+            if (f64871a == null) {
+                f64872b = Utils.q();
+                f64871a = new e();
+            }
+            eVar = f64871a;
+        }
+        return eVar;
+    }
+
+    public com.baidu.media.duplayer.d a(int i2) {
+        return LibsInfoDef.getAllGroupMap().get(Integer.valueOf(i2));
+    }
+
+    public final String c(Context context, com.baidu.media.duplayer.d dVar) {
+        StringBuilder sb;
+        String str;
+        if (dVar.e() == d.a.LIB_TYPE_JAR) {
+            if (dVar.c().equals(d(dVar.a())) && d.a.y.b.a.e(context.getClassLoader())) {
+                return "apk_internal_jar";
+            }
+            sb = new StringBuilder();
+            sb.append(f64873c);
+            sb.append(File.separator);
+            sb.append(dVar.a());
+            sb.append("_");
+            sb.append(dVar.c());
+            str = ".jar";
+        } else if (dVar.e() != d.a.LIB_TYPE_SO) {
+            return null;
+        } else {
+            String findLibrary = dVar.c().equals(d(dVar.a())) ? ((BaseDexClassLoader) context.getClassLoader()).findLibrary(dVar.a()) : null;
+            if (!TextUtils.isEmpty(findLibrary)) {
+                return findLibrary;
+            }
+            sb = new StringBuilder();
+            sb.append(f64873c);
+            sb.append(File.separator);
+            sb.append(f64872b);
+            sb.append(File.separator);
+            sb.append(dVar.a());
+            sb.append("_");
+            sb.append(dVar.c());
+            sb.append(File.separator);
+            sb.append("lib");
+            sb.append(dVar.a());
+            str = ".so";
+        }
+        sb.append(str);
+        return sb.toString();
+    }
+
+    public final String d(String str) {
+        return CyberCfgManager.getInstance().getPrefStr(str, "");
+    }
+
+    public void e(Context context, String str) {
+        if (SDKVersion.VERSION.equals(CyberPlayerManager.getSDKVersion())) {
+            u();
+        }
+        i(context, str);
+    }
+
+    public final void g(File file) {
+        try {
+            if (!file.isFile() || file.getName().contains(SDKVersion.VERSION)) {
+                return;
+            }
+            file.delete();
+        } catch (Exception unused) {
+        }
+    }
+
+    public int h(int i2) {
+        int i3 = (i2 & 2) == 2 ? 92 : 28;
+        if ((i2 & 4) == 4) {
+            i3 |= 32;
+        }
+        if ((i2 & 8) == 8) {
+            i3 |= 896;
+        }
+        if ((i2 & 16) == 16) {
+            i3 |= 3;
+        }
+        return (i2 & 32) == 32 ? i3 | 2048 : i3;
+    }
+
+    public final void i(Context context, String str) {
+        f64873c = str + File.separator + "libs";
+        for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
+            String c2 = c(context, dVar);
+            dVar.b(c2);
+            if (dVar.e() == d.a.LIB_TYPE_SO) {
+                File parentFile = new File(c2).getParentFile();
+                if (!parentFile.exists() || parentFile.isFile()) {
+                    parentFile.mkdirs();
+                }
+                f64874d.add(parentFile.getAbsolutePath());
+            }
+        }
+    }
+
+    public final void k(File file) {
+        File[] listFiles;
+        boolean z;
+        try {
+            for (File file2 : file.listFiles()) {
+                Iterator<String> it = f64874d.iterator();
+                while (true) {
+                    if (it.hasNext()) {
+                        if (it.next().contains(file2.getAbsolutePath())) {
+                            z = false;
+                            break;
+                        }
+                    } else {
+                        z = true;
+                        break;
+                    }
+                }
+                if (z) {
+                    Utils.d(file2);
+                }
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    public String[] l() {
+        Set<String> set = f64874d;
+        return (String[]) set.toArray(new String[set.size()]);
+    }
+
+    public String m() {
+        return f64872b;
+    }
+
+    public String n(int i2) {
+        com.baidu.media.duplayer.d a2 = a(i2);
+        if (a2 == null) {
+            return null;
+        }
+        return f64872b + "_" + a2.a() + "_" + a2.c() + ".zip";
+    }
+
+    public void o() {
+        long prefLong = CyberCfgManager.getInstance().getPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, 0L);
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - prefLong > 432000000) {
+            CyberCfgManager.getInstance().setPrefLong(CyberCfgManager.LAST_CHECK_UNUSED_LIBS_TIME, currentTimeMillis);
+            CyberTaskExcutor.getInstance().execute(new a());
+        }
+    }
+
+    public boolean p(int i2) {
+        return (i2 & 28) == i2;
+    }
+
+    public boolean r(int i2) {
+        return (i2 & 32) == i2;
+    }
+
+    public boolean t(int i2) {
+        return (i2 & 64) == i2;
+    }
+
+    public final void u() {
+        for (com.baidu.media.duplayer.d dVar : LibsInfoDef.getAllGroupMap().values()) {
+            CyberCfgManager.getInstance().setPrefStr(dVar.a(), dVar.c());
+        }
+    }
+
+    public boolean v(int i2) {
+        return (i2 & 896) == i2;
+    }
+
+    public boolean w(int i2) {
+        return (i2 & 2048) == i2;
+    }
+
+    public boolean x(int i2) {
+        return (i2 & 3) == i2;
+    }
 }

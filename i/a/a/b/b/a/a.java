@@ -12,38 +12,38 @@ import tv.athena.revenue.api.pay.IMiddlePayService;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Activity f68723a;
+    public Activity f68766a;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f68725c;
+    public long f68768c;
 
     /* renamed from: e  reason: collision with root package name */
-    public j f68727e;
+    public j f68770e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f68728f;
+    public int f68771f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68729g;
+    public int f68772g;
     public Map<String, Object> k;
     public IPayCallback<String> l;
     public IToken m;
 
     /* renamed from: b  reason: collision with root package name */
-    public PayType f68724b = PayType.ALI_PAY;
+    public PayType f68767b = PayType.ALI_PAY;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f68726d = "";
+    public String f68769d = "";
 
     /* renamed from: h  reason: collision with root package name */
-    public IMiddlePayService.SubscriptType f68730h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
+    public IMiddlePayService.SubscriptType f68773h = IMiddlePayService.SubscriptType.NORMAL_CHARGE;
 
     /* renamed from: i  reason: collision with root package name */
-    public IMiddlePayService.ChargeSource f68731i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
+    public IMiddlePayService.ChargeSource f68774i = IMiddlePayService.ChargeSource.WALLET_CHARGE;
     public String j = "";
 
     public final Activity a() {
-        Activity activity = this.f68723a;
+        Activity activity = this.f68766a;
         if (activity == null) {
             Intrinsics.throwUninitializedPropertyAccessException("activity");
         }
@@ -55,11 +55,11 @@ public final class a {
     }
 
     public final IMiddlePayService.ChargeSource c() {
-        return this.f68731i;
+        return this.f68774i;
     }
 
     public final int d() {
-        return this.f68729g;
+        return this.f68772g;
     }
 
     public final Map<String, Object> e() {
@@ -67,7 +67,7 @@ public final class a {
     }
 
     public final j f() {
-        j jVar = this.f68727e;
+        j jVar = this.f68770e;
         if (jVar == null) {
             Intrinsics.throwUninitializedPropertyAccessException("info");
         }
@@ -75,7 +75,7 @@ public final class a {
     }
 
     public final PayType g() {
-        return this.f68724b;
+        return this.f68767b;
     }
 
     public final String h() {
@@ -83,11 +83,11 @@ public final class a {
     }
 
     public final IMiddlePayService.SubscriptType i() {
-        return this.f68730h;
+        return this.f68773h;
     }
 
     public final String j() {
-        return this.f68726d;
+        return this.f68769d;
     }
 
     public final IToken k() {
@@ -95,15 +95,15 @@ public final class a {
     }
 
     public final long l() {
-        return this.f68725c;
+        return this.f68768c;
     }
 
     public final int m() {
-        return this.f68728f;
+        return this.f68771f;
     }
 
     public final void n(Activity activity) {
-        this.f68723a = activity;
+        this.f68766a = activity;
     }
 
     public final void o(IPayCallback<String> iPayCallback) {
@@ -111,7 +111,7 @@ public final class a {
     }
 
     public final void p(int i2) {
-        this.f68729g = i2;
+        this.f68772g = i2;
     }
 
     public final void q(Map<String, Object> map) {
@@ -119,15 +119,15 @@ public final class a {
     }
 
     public final void r(j jVar) {
-        this.f68727e = jVar;
+        this.f68770e = jVar;
     }
 
     public final void s(PayType payType) {
-        this.f68724b = payType;
+        this.f68767b = payType;
     }
 
     public final void t(String str) {
-        this.f68726d = str;
+        this.f68769d = str;
     }
 
     public final void u(IToken iToken) {
@@ -135,10 +135,10 @@ public final class a {
     }
 
     public final void v(long j) {
-        this.f68725c = j;
+        this.f68768c = j;
     }
 
     public final void w(int i2) {
-        this.f68728f = i2;
+        this.f68771f = i2;
     }
 }

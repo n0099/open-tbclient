@@ -13,25 +13,25 @@ public class b implements Runnable {
     public static Object p = new Object();
 
     /* renamed from: f  reason: collision with root package name */
-    public AudioTrack f39239f;
+    public AudioTrack f38903f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f39240g;
+    public String f38904g;
 
     /* renamed from: i  reason: collision with root package name */
-    public Amrnb f39242i;
+    public Amrnb f38906i;
     public final Handler j;
     public int n;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile int f39238e = 0;
+    public volatile int f38902e = 0;
 
     /* renamed from: h  reason: collision with root package name */
-    public final short[] f39241h = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
+    public final short[] f38905h = {12, 13, 15, 17, 19, 20, 26, 31, 5, 0, 0, 0, 0, 0, 0, 0};
     public int k = 0;
     public final Handler l = new Handler();
     public final Runnable m = new a();
-    public final Runnable o = new RunnableC0506b();
+    public final Runnable o = new RunnableC0490b();
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
@@ -40,11 +40,11 @@ public class b implements Runnable {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (b.this.f39239f == null) {
+            if (b.this.f38903f == null) {
                 return;
             }
             try {
-                if (b.this.f39239f.getPlayState() != 3) {
+                if (b.this.f38903f.getPlayState() != 3) {
                     return;
                 }
             } catch (NullPointerException unused) {
@@ -62,8 +62,8 @@ public class b implements Runnable {
 
     /* renamed from: d.a.c.e.q.b$b  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public class RunnableC0506b implements Runnable {
-        public RunnableC0506b() {
+    public class RunnableC0490b implements Runnable {
+        public RunnableC0490b() {
         }
 
         @Override // java.lang.Runnable
@@ -78,7 +78,7 @@ public class b implements Runnable {
         this.j = handler;
         try {
             Amrnb amrnb = new Amrnb();
-            this.f39242i = amrnb;
+            this.f38906i = amrnb;
             if (amrnb != null || this.j == null) {
                 return;
             }
@@ -92,16 +92,16 @@ public class b implements Runnable {
     }
 
     public int g() {
-        AudioTrack audioTrack = this.f39239f;
+        AudioTrack audioTrack = this.f38903f;
         if (audioTrack == null) {
             return 0;
         }
         try {
             int playbackHeadPosition = audioTrack.getPlaybackHeadPosition();
-            if (this.f39239f == null) {
+            if (this.f38903f == null) {
                 return 0;
             }
-            int sampleRate = this.f39239f.getSampleRate();
+            int sampleRate = this.f38903f.getSampleRate();
             if (sampleRate == 0) {
                 return 0;
             }
@@ -113,12 +113,12 @@ public class b implements Runnable {
 
     public final void h() {
         try {
-            this.f39239f = new AudioTrack(h.f39247b, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
+            this.f38903f = new AudioTrack(h.f38911b, 8000, 2, 2, Math.min(AudioTrack.getMinBufferSize(8000, 2, 2) * 8, 4096), 1);
         } catch (IllegalArgumentException e2) {
-            this.f39239f = null;
+            this.f38903f = null;
             BdLog.e(e2.getMessage());
         }
-        this.f39238e = 1;
+        this.f38902e = 1;
     }
 
     public void i() {
@@ -128,19 +128,19 @@ public class b implements Runnable {
             handler.removeCallbacks(this.o);
         }
         synchronized (p) {
-            if (this.f39239f != null) {
+            if (this.f38903f != null) {
                 try {
-                    i2 = this.f39239f.getPlaybackHeadPosition();
+                    i2 = this.f38903f.getPlaybackHeadPosition();
                     try {
-                        this.f39239f.stop();
-                        this.f39239f.release();
+                        this.f38903f.stop();
+                        this.f38903f.release();
                     } catch (Exception unused) {
                     }
                 } catch (Exception unused2) {
                     i2 = 0;
                 }
                 this.n = 0;
-                this.f39239f = null;
+                this.f38903f = null;
             } else {
                 i2 = 0;
             }
@@ -153,11 +153,11 @@ public class b implements Runnable {
                 this.j.sendMessage(obtainMessage);
             }
         }
-        this.f39238e = 0;
+        this.f38902e = 0;
     }
 
     public void j(String str) {
-        this.f39240g = str;
+        this.f38904g = str;
     }
 
     public void k(int i2) {
@@ -165,7 +165,7 @@ public class b implements Runnable {
     }
 
     public void l() {
-        this.f39238e = 3;
+        this.f38902e = 3;
         i();
     }
 
@@ -180,7 +180,7 @@ public class b implements Runnable {
         byte[] bArr;
         short[] sArr;
         Process.setThreadPriority(-19);
-        if (this.f39242i == null) {
+        if (this.f38906i == null) {
             Handler handler = this.j;
             if (handler != null) {
                 handler.sendMessage(handler.obtainMessage(2));
@@ -189,7 +189,7 @@ public class b implements Runnable {
             return;
         }
         boolean z = true;
-        if (this.f39240g == null) {
+        if (this.f38904g == null) {
             Handler handler2 = this.j;
             if (handler2 != null) {
                 handler2.sendMessage(handler2.obtainMessage(1));
@@ -197,7 +197,7 @@ public class b implements Runnable {
             }
             return;
         }
-        File file = new File(this.f39240g);
+        File file = new File(this.f38904g);
         if (!file.exists()) {
             Handler handler3 = this.j;
             if (handler3 != null) {
@@ -208,27 +208,27 @@ public class b implements Runnable {
         }
         FileInputStream fileInputStream = null;
         h();
-        AudioTrack audioTrack = this.f39239f;
+        AudioTrack audioTrack = this.f38903f;
         if (audioTrack != null && audioTrack.getState() != 0) {
             if (this.n > 0) {
-                this.f39239f.reloadStaticData();
-                this.f39239f.setPlaybackHeadPosition(this.n);
+                this.f38903f.reloadStaticData();
+                this.f38903f.setPlaybackHeadPosition(this.n);
             }
             boolean z2 = false;
             try {
-                this.f39239f.play();
-                this.f39238e = 2;
+                this.f38903f.play();
+                this.f38902e = 2;
                 this.l.post(this.m);
                 FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
                     bool = Boolean.TRUE;
                     bArr = new byte[32];
-                    this.f39242i.decoderInit();
+                    this.f38906i.decoderInit();
                     sArr = new short[160];
                 } catch (Exception unused) {
                 }
                 try {
-                    while (this.f39238e == 2) {
+                    while (this.f38902e == 2) {
                         if (bool.booleanValue()) {
                             if (fileInputStream2.read(bArr, 0, 6) != 6 || bArr[0] != 35 || bArr[1] != 33 || bArr[2] != 65 || bArr[3] != 77 || bArr[4] != 82 || bArr[5] != 10) {
                                 break;
@@ -236,19 +236,19 @@ public class b implements Runnable {
                             bool = Boolean.FALSE;
                         }
                         if (fileInputStream2.read(bArr, 0, 1) > 0) {
-                            short s = this.f39241h[(bArr[0] >> 3) & 15];
+                            short s = this.f38905h[(bArr[0] >> 3) & 15];
                             if (fileInputStream2.read(bArr, 1, s) == s) {
                                 synchronized (p) {
-                                    if (this.f39239f != null && this.f39239f.getPlayState() == 3) {
-                                        this.f39242i.decoderDecode(bArr, sArr);
-                                        this.f39239f.write(sArr, 0, 160);
+                                    if (this.f38903f != null && this.f38903f.getPlayState() == 3) {
+                                        this.f38906i.decoderDecode(bArr, sArr);
+                                        this.f38903f.write(sArr, 0, 160);
                                     }
                                 }
                             }
                         }
                     }
                     fileInputStream2.close();
-                    this.f39242i.decoderDeinit();
+                    this.f38906i.decoderDeinit();
                 } catch (Exception unused2) {
                     z2 = z;
                     fileInputStream = fileInputStream2;
@@ -264,14 +264,14 @@ public class b implements Runnable {
                         }
                     }
                     z = z2;
-                    this.f39238e = 3;
+                    this.f38902e = 3;
                     if (!z) {
                     }
                 }
                 z = false;
             } catch (Exception unused3) {
             }
-            this.f39238e = 3;
+            this.f38902e = 3;
             if (!z) {
                 this.j.postDelayed(this.o, 500L);
                 return;

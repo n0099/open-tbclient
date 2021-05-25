@@ -16,11 +16,11 @@ public class e extends d {
     public static /* synthetic */ class AnonymousClass1 {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f3505a;
+        public static final /* synthetic */ int[] f3508a;
 
         static {
             int[] iArr = new int[com.baidu.android.pushservice.a.c.values().length];
-            f3505a = iArr;
+            f3508a = iArr;
             try {
                 iArr[com.baidu.android.pushservice.a.c.PUSH_CLIENT.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
@@ -58,40 +58,40 @@ public class e extends d {
         int a2 = kVar.a();
         byte[] i3 = kVar.i();
         String d2 = kVar.d();
-        PublicMsg a3 = j.a(this.f3504a, f2, c2, bArr);
+        PublicMsg a3 = j.a(this.f3507a, f2, c2, bArr);
         if (a3 == null || TextUtils.isEmpty(a3.mDescription)) {
-            m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f3504a);
+            m.a("MultiPrivateNotificationHandler*BBind*>>> pMsg JSON parsing error!", this.f3507a);
             i2 = 2;
         } else {
-            com.baidu.android.pushservice.a.d a4 = com.baidu.android.pushservice.a.d.a(this.f3504a, c2);
-            if (TextUtils.isEmpty(d2) || !m.b(this.f3504a, d2)) {
+            com.baidu.android.pushservice.a.d a4 = com.baidu.android.pushservice.a.d.a(this.f3507a, c2);
+            if (TextUtils.isEmpty(d2) || !m.b(this.f3507a, d2)) {
                 if (a4.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT) {
-                    d2 = a4.f2723a.b();
+                    d2 = a4.f2726a.b();
                 }
-                m.a(this.f3504a, a3);
+                m.a(this.f3507a, a3);
                 i2 = 1;
-                if (AnonymousClass1.f3505a[a4.a().ordinal()] == 1) {
-                    m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f3504a);
+                if (AnonymousClass1.f3508a[a4.a().ordinal()] == 1) {
+                    m.a("MultiPrivateNotificationHandler*BBind*>>> Don't Show pMsg private Notification! package name is null", this.f3507a);
                     i2 = 7;
                 } else {
-                    PackageManager packageManager = this.f3504a.getPackageManager();
+                    PackageManager packageManager = this.f3507a.getPackageManager();
                     try {
                         ApplicationInfo applicationInfo = packageManager.getApplicationInfo(a3.mPkgName, 128);
                         if (TextUtils.isEmpty(a3.mTitle)) {
                             a3.mTitle = packageManager.getApplicationLabel(applicationInfo).toString();
                         }
-                        f.a(this.f3504a, a3, f2, c2, g2, i3, bArr, a2);
-                        m.a(f2 + " is showing Notification!", this.f3504a);
+                        f.a(this.f3507a, a3, f2, c2, g2, i3, bArr, a2);
+                        m.a(f2 + " is showing Notification!", this.f3507a);
                     } catch (PackageManager.NameNotFoundException e2) {
-                        new b.c(this.f3504a).a(Log.getStackTraceString(e2)).a();
+                        new b.c(this.f3507a).a(Log.getStackTraceString(e2)).a();
                         i2 = 8;
                     }
                 }
             }
             a3.mPkgName = d2;
-            m.a(this.f3504a, a3);
+            m.a(this.f3507a, a3);
             i2 = 1;
-            if (AnonymousClass1.f3505a[a4.a().ordinal()] == 1) {
+            if (AnonymousClass1.f3508a[a4.a().ordinal()] == 1) {
             }
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();

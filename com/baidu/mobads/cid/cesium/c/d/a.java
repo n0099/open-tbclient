@@ -3,23 +3,23 @@ package com.baidu.mobads.cid.cesium.c.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public c f8265a;
+    public c f8165a;
 
     public static a a() {
         a aVar = new a();
         c cVar = new c();
-        aVar.f8265a = cVar;
+        aVar.f8165a = cVar;
         cVar.a("PKCS1Padding");
         return aVar;
     }
 
     public void a(int i2, d dVar) {
-        this.f8265a.a(i2, dVar, b.f8266a);
+        this.f8165a.a(i2, dVar, b.f8166a);
     }
 
     public final byte[] a(byte[] bArr) {
         if (bArr != null) {
-            return this.f8265a.a(bArr, 0, bArr.length);
+            return this.f8165a.a(bArr, 0, bArr.length);
         }
         throw new IllegalArgumentException("Null input buffer");
     }

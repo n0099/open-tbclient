@@ -22,7 +22,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import d.a.c.e.p.l;
-import d.a.k0.y1.g.f;
+import d.a.n0.z1.g.f;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Map;
@@ -107,12 +107,12 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         }
         FragmentTabHost.b bVar = new FragmentTabHost.b();
         FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(getPageContext().getContext());
-        bVar.f12243c = fragment;
-        bVar.f12241a = i2;
+        bVar.f12151c = fragment;
+        bVar.f12149a = i2;
         fragmentTabIndicator.setText(str);
         fragmentTabIndicator.l = R.color.s_actionbar_text_color;
         fragmentTabIndicator.setTextSize(0, getResources().getDimension(R.dimen.fontsize32));
-        bVar.f12242b = fragmentTabIndicator;
+        bVar.f12150b = fragmentTabIndicator;
         this.mTabHost.a(bVar);
     }
 
@@ -186,7 +186,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTitleBar.setRightText(string);
     }
 
-    @Override // d.a.k0.y1.g.f
+    @Override // d.a.n0.z1.g.f
     public boolean canChooseMore() {
         return this.mChoosedNum < 24;
     }
@@ -204,7 +204,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         this.mTabHost.o(i2);
     }
 
-    @Override // d.a.k0.y1.g.f
+    @Override // d.a.n0.z1.g.f
     public void onChoose() {
         this.mChoosedNum++;
         updateChoosedNum();
@@ -226,7 +226,7 @@ public class PickFaceTabActivity extends BaseFragmentActivity implements f {
         initFragment();
     }
 
-    @Override // d.a.k0.y1.g.f
+    @Override // d.a.n0.z1.g.f
     public void onUnChoose() {
         int i2 = this.mChoosedNum;
         if (i2 > 0) {

@@ -5,13 +5,13 @@ import java.util.Map;
 public class t0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37193a;
+    public int f37122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f37194b;
+    public byte[] f37123b;
 
     public t0(int i2, byte[] bArr, Map map) {
-        this.f37193a = i2;
-        this.f37194b = bArr;
+        this.f37122a = i2;
+        this.f37123b = bArr;
     }
 }

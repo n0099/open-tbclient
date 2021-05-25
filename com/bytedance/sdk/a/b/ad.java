@@ -13,10 +13,10 @@ public enum ad {
     
 
     /* renamed from: f  reason: collision with root package name */
-    public final String f26937f;
+    public final String f26866f;
 
     ad(String str) {
-        this.f26937f = str;
+        this.f26866f = str;
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */

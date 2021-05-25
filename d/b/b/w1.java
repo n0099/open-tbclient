@@ -2,19 +2,19 @@ package d.b.b;
 
 import android.content.Context;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class w1 extends v1 {
 
     /* renamed from: d  reason: collision with root package name */
-    public final i f65079d;
+    public final i f65122d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final j f65080e;
+    public final j f65123e;
 
     public w1(Context context, j jVar, i iVar) {
         super(context);
-        this.f65080e = jVar;
-        this.f65079d = iVar;
+        this.f65123e = jVar;
+        this.f65122d = iVar;
     }
 
     @Override // d.b.b.v1
@@ -24,28 +24,28 @@ public class w1 extends v1 {
 
     @Override // d.b.b.v1
     public long b() {
-        return this.f65079d.D() + 21600000;
+        return this.f65122d.D() + 21600000;
     }
 
     @Override // d.b.b.v1
     public long[] c() {
-        return b2.f64937g;
+        return b2.f64980g;
     }
 
     @Override // d.b.b.v1
     public boolean d() {
-        JSONObject c2 = this.f65080e.c();
-        if (this.f65080e.v() == 0 || c2 == null || this.f65079d.D() + 21600000 > System.currentTimeMillis()) {
+        JSONObject c2 = this.f65123e.c();
+        if (this.f65123e.v() == 0 || c2 == null || this.f65122d.D() + 21600000 > System.currentTimeMillis()) {
             return false;
         }
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("magic_tag", "ss_app_log");
         jSONObject.put("header", c2);
         jSONObject.put("_gen_time", System.currentTimeMillis());
-        JSONObject j = x.j(x.e(y.a(this.f65074a, this.f65080e.c(), x.b().d(), true, a.k()), x.f65085e), jSONObject);
-        a.f().d(!s0.f(j, this.f65079d.C()), j);
+        JSONObject j = x.j(x.e(y.a(this.f65117a, this.f65123e.c(), x.b().d(), true, a.k()), x.f65128e), jSONObject);
+        a.f().d(!s0.f(j, this.f65122d.C()), j);
         if (j != null) {
-            this.f65079d.u(j);
+            this.f65122d.u(j);
             return true;
         }
         return false;

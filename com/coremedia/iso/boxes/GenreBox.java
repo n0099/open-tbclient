@@ -11,11 +11,11 @@ import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class GenreBox extends AbstractFullBox {
     public static final String TYPE = "gnre";
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_2 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_3 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_4 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_2 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_3 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_4 = null;
     public String genre;
     public String language;
 

@@ -6,22 +6,22 @@ import com.vivo.push.sdk.PushMessageCallback;
 public final class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ com.vivo.push.b.p f36669a;
+    public final /* synthetic */ com.vivo.push.b.p f36598a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ n f36670b;
+    public final /* synthetic */ n f36599b;
 
     public o(n nVar, com.vivo.push.b.p pVar) {
-        this.f36670b = nVar;
-        this.f36669a = pVar;
+        this.f36599b = nVar;
+        this.f36598a = pVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         Context context;
-        n nVar = this.f36670b;
-        PushMessageCallback pushMessageCallback = ((ab) nVar).f36641b;
-        context = nVar.f36823a;
-        pushMessageCallback.onLog(context, this.f36669a.d(), this.f36669a.e(), this.f36669a.f());
+        n nVar = this.f36599b;
+        PushMessageCallback pushMessageCallback = ((ab) nVar).f36570b;
+        context = nVar.f36752a;
+        pushMessageCallback.onLog(context, this.f36598a.d(), this.f36598a.e(), this.f36598a.f());
     }
 }

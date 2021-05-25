@@ -5,10 +5,10 @@ import android.util.Log;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f6393a = false;
+    public static boolean f6293a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6394b = "BaiduApiAuth";
+    public static String f6294b = "BaiduApiAuth";
 
     public static String a() {
         StackTraceElement stackTraceElement = new Throwable().getStackTrace()[2];
@@ -16,10 +16,10 @@ public class a {
     }
 
     public static void a(String str) {
-        if (!f6393a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f6293a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        String str2 = f6394b;
+        String str2 = f6294b;
         Log.d(str2, a() + ";" + str);
     }
 
@@ -27,14 +27,14 @@ public class a {
         if (Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        Log.i(f6394b, str);
+        Log.i(f6294b, str);
     }
 
     public static void c(String str) {
-        if (!f6393a || Thread.currentThread().getStackTrace().length == 0) {
+        if (!f6293a || Thread.currentThread().getStackTrace().length == 0) {
             return;
         }
-        String str2 = f6394b;
+        String str2 = f6294b;
         Log.e(str2, a() + ";" + str);
     }
 }

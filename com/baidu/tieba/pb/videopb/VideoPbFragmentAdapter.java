@@ -15,55 +15,55 @@ import java.util.List;
 public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f19531a;
+    public List<String> f19453a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ArrayList<BaseFragment> f19532b;
+    public ArrayList<BaseFragment> f19454b;
 
     public VideoPbFragmentAdapter(FragmentManager fragmentManager, VideoPbFragment videoPbFragment) {
         super(fragmentManager);
-        if (this.f19531a == null) {
-            this.f19531a = new ArrayList();
+        if (this.f19453a == null) {
+            this.f19453a = new ArrayList();
         }
-        this.f19531a.clear();
-        if (videoPbFragment.A3()) {
-            this.f19531a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
-            this.f19531a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+        this.f19453a.clear();
+        if (videoPbFragment.C3()) {
+            this.f19453a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_detail_info));
+            this.f19453a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         } else {
-            this.f19531a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
+            this.f19453a.add(TbadkCoreApplication.getInst().getString(R.string.pb_video_reply));
         }
-        if (this.f19532b == null) {
-            this.f19532b = new ArrayList<>();
+        if (this.f19454b == null) {
+            this.f19454b = new ArrayList<>();
         }
-        this.f19532b.clear();
-        if (videoPbFragment.A3()) {
-            this.f19532b.add(DetailInfoFragment.P0(videoPbFragment));
-            this.f19532b.add(ReplyFragment.e1(videoPbFragment));
+        this.f19454b.clear();
+        if (videoPbFragment.C3()) {
+            this.f19454b.add(DetailInfoFragment.P0(videoPbFragment));
+            this.f19454b.add(ReplyFragment.e1(videoPbFragment));
             return;
         }
-        this.f19532b.add(DetailInfoAndReplyFragment.h1(videoPbFragment));
+        this.f19454b.add(DetailInfoAndReplyFragment.h1(videoPbFragment));
     }
 
     public BaseFragment b(int i2) {
-        ArrayList<BaseFragment> arrayList = this.f19532b;
+        ArrayList<BaseFragment> arrayList = this.f19454b;
         if (arrayList == null || i2 >= arrayList.size()) {
             return null;
         }
-        return this.f19532b.get(i2);
+        return this.f19454b.get(i2);
     }
 
     public ArrayList<BaseFragment> c() {
-        return this.f19532b;
+        return this.f19454b;
     }
 
     public void d(int i2) {
-        if (this.f19532b == null) {
+        if (this.f19454b == null) {
             return;
         }
         int i3 = 0;
-        while (i3 < this.f19532b.size()) {
-            if (this.f19532b.get(i3) != null) {
-                this.f19532b.get(i3).setPrimary(i3 == i2);
+        while (i3 < this.f19454b.size()) {
+            if (this.f19454b.get(i3) != null) {
+                this.f19454b.get(i3).setPrimary(i3 == i2);
             }
             i3++;
         }
@@ -71,7 +71,7 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getCount() {
-        ArrayList<BaseFragment> arrayList = this.f19532b;
+        ArrayList<BaseFragment> arrayList = this.f19454b;
         if (arrayList == null) {
             return 0;
         }
@@ -85,10 +85,10 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public CharSequence getPageTitle(int i2) {
-        List<String> list = this.f19531a;
+        List<String> list = this.f19453a;
         if (list == null || i2 < 0 || i2 >= list.size()) {
             return null;
         }
-        return this.f19531a.get(i2);
+        return this.f19453a.get(i2);
     }
 }

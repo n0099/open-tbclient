@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import d.a.j0.r.q.o;
+import d.a.m0.r.q.o;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
@@ -29,7 +29,7 @@ public class AudioInfoData extends o implements Serializable {
         return this.voiceId;
     }
 
-    @Override // d.a.j0.r.q.o
+    @Override // d.a.m0.r.q.o
     public void parserJson(String str) {
         if (str == null) {
             return;
@@ -41,7 +41,7 @@ public class AudioInfoData extends o implements Serializable {
         }
     }
 
-    @Override // d.a.j0.r.q.o
+    @Override // d.a.m0.r.q.o
     public void parserJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;

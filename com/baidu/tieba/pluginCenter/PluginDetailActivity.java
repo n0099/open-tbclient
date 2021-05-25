@@ -25,7 +25,7 @@ import com.baidu.tbadk.plugin.ShadowLayout;
 import com.baidu.tieba.R;
 import d.a.c.e.p.j;
 import d.a.c.e.p.k;
-import d.a.j0.r.s.a;
+import d.a.m0.r.s.a;
 import java.io.File;
 @SuppressLint({"ResourceAsColor"})
 /* loaded from: classes5.dex */
@@ -68,8 +68,8 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public b() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             SkinManager.setViewTextColor(PluginDetailActivity.this.mEnableText, R.color.CAM_X0109, 1);
             PluginDetailActivity.this.mEnableText.setEnabled(false);
             PluginPackageManager.O().x0(PluginDetailActivity.this.mPluginConfig, PluginDetailActivity.this.mDownLoadAndInstallCallback);
@@ -82,8 +82,8 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         public c() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             aVar.dismiss();
         }
     }
@@ -239,7 +239,7 @@ public class PluginDetailActivity extends BaseActivity<PluginDetailActivity> {
         if (pluginConfig == null || pluginConfig.newest == null) {
             return;
         }
-        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
         boolean z = this.mStatus == 1;
         float f2 = this.mPluginConfig.newest.size / 1048576.0f;
         if (z) {

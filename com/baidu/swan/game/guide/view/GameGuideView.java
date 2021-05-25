@@ -27,10 +27,10 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
 import com.baidu.swan.game.guide.view.GameGuideProgressView;
 import com.sina.weibo.sdk.constant.WBConstants;
-import d.a.i0.a.k;
-import d.a.i0.f.j.h;
-import d.a.i0.f.j.i;
-import d.a.i0.f.j.j;
+import d.a.l0.a.k;
+import d.a.l0.f.j.h;
+import d.a.l0.f.j.i;
+import d.a.l0.f.j.j;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -40,19 +40,19 @@ import kotlin.jvm.internal.Ref;
 public final class GameGuideView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f11711e;
+    public int f11612e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11712f;
+    public int f11613f;
 
     /* renamed from: g  reason: collision with root package name */
-    public float f11713g;
+    public float f11614g;
 
     /* renamed from: h  reason: collision with root package name */
-    public float f11714h;
+    public float f11615h;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f11715i;
+    public boolean f11616i;
     public LottieComposition j;
     public String k;
     public String l;
@@ -63,10 +63,10 @@ public final class GameGuideView extends FrameLayout {
     public static final class a implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f11716e;
+        public final /* synthetic */ View f11617e;
 
         public a(View view) {
-            this.f11716e = view;
+            this.f11617e = view;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
@@ -75,8 +75,8 @@ public final class GameGuideView extends FrameLayout {
             Object animatedValue = it.getAnimatedValue();
             if (animatedValue != null) {
                 float floatValue = ((Float) animatedValue).floatValue();
-                this.f11716e.setScaleX(floatValue);
-                this.f11716e.setScaleY(floatValue);
+                this.f11617e.setScaleX(floatValue);
+                this.f11617e.setScaleY(floatValue);
                 return;
             }
             throw new NullPointerException("null cannot be cast to non-null type kotlin.Float");
@@ -101,7 +101,7 @@ public final class GameGuideView extends FrameLayout {
 
         @Override // com.baidu.swan.game.guide.view.GameGuideProgressView.a
         public void c() {
-            if (GameGuideView.this.f11715i && (GameGuideView.this.f11712f == 0 || GameGuideView.this.f11712f == 1)) {
+            if (GameGuideView.this.f11616i && (GameGuideView.this.f11613f == 0 || GameGuideView.this.f11613f == 1)) {
                 ((GameGuideProgressView) GameGuideView.this.a(h.progress_view)).i(0.0f);
             }
             GameGuideView.this.t();
@@ -172,33 +172,33 @@ public final class GameGuideView extends FrameLayout {
     public static final class e extends AnimatorListenerAdapter {
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Ref.BooleanRef f11721f;
+        public final /* synthetic */ Ref.BooleanRef f11622f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ double f11722g;
+        public final /* synthetic */ double f11623g;
 
         public e(Ref.BooleanRef booleanRef, double d2) {
-            this.f11721f = booleanRef;
-            this.f11722g = d2;
+            this.f11622f = booleanRef;
+            this.f11623g = d2;
         }
 
         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
             super.onAnimationEnd(animator);
-            if (GameGuideView.this.f11715i) {
-                Ref.BooleanRef booleanRef = this.f11721f;
+            if (GameGuideView.this.f11616i) {
+                Ref.BooleanRef booleanRef = this.f11622f;
                 if (booleanRef.element) {
                     return;
                 }
                 booleanRef.element = true;
                 LottieAnimationView tailing_view = (LottieAnimationView) GameGuideView.this.a(h.tailing_view);
                 Intrinsics.checkNotNullExpressionValue(tailing_view, "tailing_view");
-                tailing_view.setRotation(90 - ((float) this.f11722g));
+                tailing_view.setRotation(90 - ((float) this.f11623g));
                 GameGuideView.this.m();
                 LottieAnimationView tailing_view2 = (LottieAnimationView) GameGuideView.this.a(h.tailing_view);
                 Intrinsics.checkNotNullExpressionValue(tailing_view2, "tailing_view");
                 tailing_view2.setVisibility(8);
-                int i2 = GameGuideView.this.f11712f;
+                int i2 = GameGuideView.this.f11613f;
                 if (i2 == 0) {
                     LottieAnimationView done_coin_1 = (LottieAnimationView) GameGuideView.this.a(h.done_coin_1);
                     Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
@@ -207,7 +207,7 @@ public final class GameGuideView extends FrameLayout {
                     Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
                     normal_coin_1.setVisibility(4);
                     ((LottieAnimationView) GameGuideView.this.a(h.done_coin_1)).playAnimation();
-                    GameGuideView.this.f11712f = 1;
+                    GameGuideView.this.f11613f = 1;
                     GameGuideView gameGuideView = GameGuideView.this;
                     LottieAnimationView done_coin_12 = (LottieAnimationView) gameGuideView.a(h.done_coin_1);
                     Intrinsics.checkNotNullExpressionValue(done_coin_12, "done_coin_1");
@@ -221,7 +221,7 @@ public final class GameGuideView extends FrameLayout {
                     Intrinsics.checkNotNullExpressionValue(normal_coin_2, "normal_coin_2");
                     normal_coin_2.setVisibility(4);
                     ((LottieAnimationView) GameGuideView.this.a(h.done_coin_2)).playAnimation();
-                    GameGuideView.this.f11712f = 2;
+                    GameGuideView.this.f11613f = 2;
                     GameGuideView gameGuideView2 = GameGuideView.this;
                     LottieAnimationView done_coin_22 = (LottieAnimationView) gameGuideView2.a(h.done_coin_2);
                     Intrinsics.checkNotNullExpressionValue(done_coin_22, "done_coin_2");
@@ -235,7 +235,7 @@ public final class GameGuideView extends FrameLayout {
                     Intrinsics.checkNotNullExpressionValue(normal_coin_3, "normal_coin_3");
                     normal_coin_3.setVisibility(4);
                     ((LottieAnimationView) GameGuideView.this.a(h.done_coin_3)).playAnimation();
-                    GameGuideView.this.f11712f = 3;
+                    GameGuideView.this.f11613f = 3;
                     ((LottieAnimationView) GameGuideView.this.a(h.spark_view)).cancelAnimation();
                     LottieAnimationView spark_view = (LottieAnimationView) GameGuideView.this.a(h.spark_view);
                     Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
@@ -282,33 +282,33 @@ public final class GameGuideView extends FrameLayout {
     }
 
     private final int getProgressViewWidth() {
-        if (this.f11711e == 0) {
+        if (this.f11612e == 0) {
             GameGuideProgressView progress_view = (GameGuideProgressView) a(h.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
-            this.f11711e = progress_view.getWidth();
+            this.f11612e = progress_view.getWidth();
         }
-        return this.f11711e;
+        return this.f11612e;
     }
 
     private final float getTailingViewOriginCenterX() {
-        if (this.f11713g == 0.0f) {
+        if (this.f11614g == 0.0f) {
             GameGuideProgressView progress_view = (GameGuideProgressView) a(h.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
-            this.f11713g = progress_view.getX() + getProgressViewWidth();
+            this.f11614g = progress_view.getX() + getProgressViewWidth();
         }
-        return this.f11713g;
+        return this.f11614g;
     }
 
     private final float getTailingViewOriginCenterY() {
-        if (this.f11714h == 0.0f) {
+        if (this.f11615h == 0.0f) {
             GameGuideProgressView progress_view = (GameGuideProgressView) a(h.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view, "progress_view");
             float y = progress_view.getY();
             GameGuideProgressView progress_view2 = (GameGuideProgressView) a(h.progress_view);
             Intrinsics.checkNotNullExpressionValue(progress_view2, "progress_view");
-            this.f11714h = y + (progress_view2.getHeight() / 2);
+            this.f11615h = y + (progress_view2.getHeight() / 2);
         }
-        return this.f11714h;
+        return this.f11615h;
     }
 
     private final void setSaveDisable(LottieAnimationView lottieAnimationView) {
@@ -334,16 +334,16 @@ public final class GameGuideView extends FrameLayout {
     }
 
     public final int getCurrentStatus() {
-        return this.f11712f;
+        return this.f11613f;
     }
 
     public final boolean i(long j) {
         if (j < 0) {
-            if (k.f43025a) {
+            if (k.f43199a) {
                 Log.d("GameTimeView", "传入的时间不能小于0");
             }
             return false;
-        } else if (j <= SapiWebView.DEFAULT_TIMEOUT_MILLIS || !k.f43025a) {
+        } else if (j <= SapiWebView.DEFAULT_TIMEOUT_MILLIS || !k.f43199a) {
             return true;
         } else {
             Log.d("GameTimeView", "传入的时间大于最大值 90000");
@@ -352,7 +352,7 @@ public final class GameGuideView extends FrameLayout {
     }
 
     public final void j() {
-        if (d.a.i0.f.j.b.o.L()) {
+        if (d.a.l0.f.j.b.o.L()) {
             return;
         }
         if (this.l.length() > 0) {
@@ -362,7 +362,7 @@ public final class GameGuideView extends FrameLayout {
             TextView tips2 = (TextView) a(h.tips);
             Intrinsics.checkNotNullExpressionValue(tips2, "tips");
             tips2.setText(this.l);
-            d.a.i0.f.j.b.o.b0();
+            d.a.l0.f.j.b.o.b0();
         }
     }
 
@@ -405,7 +405,7 @@ public final class GameGuideView extends FrameLayout {
             try {
                 ((GameGuideProgressView) a(h.progress_view)).setProgressColor(Color.parseColor(this.k));
             } catch (Exception e2) {
-                if (k.f43025a) {
+                if (k.f43199a) {
                     throw e2;
                 }
             }
@@ -459,8 +459,8 @@ public final class GameGuideView extends FrameLayout {
 
     public final void o(long j) {
         if (i(j)) {
-            if (this.f11715i) {
-                if (k.f43025a) {
+            if (this.f11616i) {
+                if (k.f43199a) {
                     Log.e("GameTimeView", "已经在计时当中");
                     return;
                 }
@@ -468,19 +468,19 @@ public final class GameGuideView extends FrameLayout {
             }
             s(j);
             if (j >= SapiWebView.DEFAULT_TIMEOUT_MILLIS) {
-                if (k.f43025a) {
+                if (k.f43199a) {
                     Log.d("GameTimeView", "已经达到了最大的计时");
                 }
                 ((GameGuideProgressView) a(h.progress_view)).i(1.0f);
                 return;
             }
-            this.f11715i = true;
+            this.f11616i = true;
             ((GameGuideProgressView) a(h.progress_view)).i(((float) (j % StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD)) / ((float) StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD));
         }
     }
 
     public final void p() {
-        this.f11715i = false;
+        this.f11616i = false;
         ((GameGuideProgressView) a(h.progress_view)).j();
         ((LottieAnimationView) a(h.done_coin_1)).cancelAnimation();
         ((LottieAnimationView) a(h.done_coin_2)).cancelAnimation();
@@ -501,7 +501,7 @@ public final class GameGuideView extends FrameLayout {
         float height;
         long j;
         float f2;
-        int i2 = this.f11712f;
+        int i2 = this.f11613f;
         if (i2 == 0) {
             ImageView normal_coin_1 = (ImageView) a(h.normal_coin_1);
             Intrinsics.checkNotNullExpressionValue(normal_coin_1, "normal_coin_1");
@@ -587,7 +587,7 @@ public final class GameGuideView extends FrameLayout {
             Intrinsics.checkNotNullExpressionValue(tips2, "tips");
             tips2.setVisibility(8);
         }
-        this.f11712f = 0;
+        this.f11613f = 0;
         ((LottieAnimationView) a(h.done_coin_1)).cancelAnimation();
         LottieAnimationView done_coin_1 = (LottieAnimationView) a(h.done_coin_1);
         Intrinsics.checkNotNullExpressionValue(done_coin_1, "done_coin_1");
@@ -645,7 +645,7 @@ public final class GameGuideView extends FrameLayout {
             Intrinsics.checkNotNullExpressionValue(spark_view, "spark_view");
             spark_view.setVisibility(0);
             ((LottieAnimationView) a(h.spark_view)).playAnimation();
-            this.f11712f = 0;
+            this.f11613f = 0;
         } else if (StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD <= j && 60000 > j) {
             LottieAnimationView done_coin_12 = (LottieAnimationView) a(h.done_coin_1);
             Intrinsics.checkNotNullExpressionValue(done_coin_12, "done_coin_1");
@@ -666,7 +666,7 @@ public final class GameGuideView extends FrameLayout {
             Intrinsics.checkNotNullExpressionValue(spark_view2, "spark_view");
             spark_view2.setVisibility(0);
             ((LottieAnimationView) a(h.spark_view)).playAnimation();
-            this.f11712f = 1;
+            this.f11613f = 1;
         } else if (60000 <= j && SapiWebView.DEFAULT_TIMEOUT_MILLIS > j) {
             LottieAnimationView done_coin_13 = (LottieAnimationView) a(h.done_coin_1);
             Intrinsics.checkNotNullExpressionValue(done_coin_13, "done_coin_1");
@@ -690,7 +690,7 @@ public final class GameGuideView extends FrameLayout {
             Intrinsics.checkNotNullExpressionValue(spark_view3, "spark_view");
             spark_view3.setVisibility(0);
             ((LottieAnimationView) a(h.spark_view)).playAnimation();
-            this.f11712f = 2;
+            this.f11613f = 2;
         } else {
             LottieAnimationView done_coin_14 = (LottieAnimationView) a(h.done_coin_1);
             Intrinsics.checkNotNullExpressionValue(done_coin_14, "done_coin_1");
@@ -717,7 +717,7 @@ public final class GameGuideView extends FrameLayout {
             Intrinsics.checkNotNullExpressionValue(spark_view4, "spark_view");
             spark_view4.setVisibility(8);
             ((LottieAnimationView) a(h.spark_view)).cancelAnimation();
-            this.f11712f = 3;
+            this.f11613f = 3;
         }
     }
 

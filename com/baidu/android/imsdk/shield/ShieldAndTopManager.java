@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatuser.IStatusListener;
@@ -340,25 +339,16 @@ public class ShieldAndTopManager {
         HttpHelper.executor(this.mContext, iMGetShieldAndTopListRequest, iMGetShieldAndTopListRequest);
     }
 
-    public void setForbid(final long j, final long j2, final int i2, final ISetForbidListener iSetForbidListener) {
-        Context context = this.mContext;
-        if (context == null) {
-            iSetForbidListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, true, "");
-        } else {
-            TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.shield.ShieldAndTopManager.9
-                @Override // java.lang.Runnable
-                public void run() {
-                    String addListener = iSetForbidListener != null ? ListenerManager.getInstance().addListener(iSetForbidListener) : "";
-                    ArrayList arrayList = new ArrayList();
-                    arrayList.add(0);
-                    arrayList.add(1);
-                    arrayList.add(2);
-                    arrayList.add(8);
-                    IMForbidRequest iMForbidRequest = new IMForbidRequest(ShieldAndTopManager.this.mContext, j, j2, i2, ChatMessageDBManager.getInstance(ShieldAndTopManager.this.mContext).fetchMsgsByMsgTypes(new ChatObject(ShieldAndTopManager.this.mContext, i2, j), 0L, 5L, arrayList), addListener);
-                    HttpHelper.executor(ShieldAndTopManager.this.mContext, iMForbidRequest, iMForbidRequest);
-                }
-            });
+    public void setForbid(long j, long j2, int i2, ISetForbidListener iSetForbidListener) {
+        if (this.mContext == null) {
+            if (iSetForbidListener != null) {
+                iSetForbidListener.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, true, "");
+                return;
+            }
+            return;
         }
+        IMForbidRequest iMForbidRequest = new IMForbidRequest(this.mContext, j, j2, i2, ListenerManager.getInstance().addListener(iSetForbidListener));
+        HttpHelper.executor(this.mContext, iMForbidRequest, iMForbidRequest);
     }
 
     public void setMarkTop(long j, int i2, int i3, IStatusListener iStatusListener) {

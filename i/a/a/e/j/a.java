@@ -3,13 +3,13 @@ package i.a.a.e.j;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f68829a;
+    public int f68872a;
 
     public a(int i2) {
-        this.f68829a = i2;
+        this.f68872a = i2;
     }
 
     public String toString() {
-        return "NativeOperationParams{opCode=" + this.f68829a + '}';
+        return "NativeOperationParams{opCode=" + this.f68872a + '}';
     }
 }

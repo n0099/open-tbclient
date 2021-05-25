@@ -19,16 +19,16 @@ import java.util.List;
 public class GDTNativeUnifiedImg3View extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public LinearLayout f30717d;
+    public LinearLayout f30646d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f30718e;
+    public ImageView f30647e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f30719f;
+    public ImageView f30648f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f30720g;
+    public ImageView f30649g;
 
     public GDTNativeUnifiedImg3View(Context context) {
         this(context, null);
@@ -48,7 +48,7 @@ public class GDTNativeUnifiedImg3View extends b {
         arrayList.add(this.f1296c);
         arrayList.add(((b) this).f1295b);
         arrayList.add(((b) this).f1294a);
-        arrayList.add(this.f30717d);
+        arrayList.add(this.f30646d);
         return arrayList;
     }
 
@@ -58,7 +58,7 @@ public class GDTNativeUnifiedImg3View extends b {
         d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
         Context context = getContext();
         String str = nativeUnifiedADData.getImgList().get(0);
-        ImageView imageView = this.f30718e;
+        ImageView imageView = this.f30647e;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + str, new Object[0]);
         } else if (context instanceof Activity) {
@@ -73,7 +73,7 @@ public class GDTNativeUnifiedImg3View extends b {
         }
         Context context2 = getContext();
         String str2 = nativeUnifiedADData.getImgList().get(1);
-        ImageView imageView2 = this.f30719f;
+        ImageView imageView2 = this.f30648f;
         if (context2 == null) {
             d.b("GlideHelper: context is null when load: " + str2, new Object[0]);
         } else if (context2 instanceof Activity) {
@@ -88,7 +88,7 @@ public class GDTNativeUnifiedImg3View extends b {
         }
         Context context3 = getContext();
         String str3 = nativeUnifiedADData.getImgList().get(2);
-        ImageView imageView3 = this.f30720g;
+        ImageView imageView3 = this.f30649g;
         if (context3 == null) {
             d.b("GlideHelper: context is null when load: " + str3, new Object[0]);
         } else if (context3 instanceof Activity) {
@@ -106,22 +106,22 @@ public class GDTNativeUnifiedImg3View extends b {
     @Override // a.a.a.a.t.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30717d = (LinearLayout) findViewById(R.id.ad_img_container);
-        this.f30718e = (ImageView) findViewById(R.id.ad_img_1);
-        this.f30719f = (ImageView) findViewById(R.id.ad_img_2);
-        this.f30720g = (ImageView) findViewById(R.id.ad_img_3);
+        this.f30646d = (LinearLayout) findViewById(R.id.ad_img_container);
+        this.f30647e = (ImageView) findViewById(R.id.ad_img_1);
+        this.f30648f = (ImageView) findViewById(R.id.ad_img_2);
+        this.f30649g = (ImageView) findViewById(R.id.ad_img_3);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30717d.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30646d.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
-        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30718e.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30719f.getLayoutParams();
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30720g.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.f30647e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.f30648f.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.f30649g.getLayoutParams();
         layoutParams.width = i6;
         layoutParams.height = (int) (((((((i6 - layoutParams2.leftMargin) - layoutParams2.rightMargin) - layoutParams3.leftMargin) - layoutParams3.rightMargin) - layoutParams4.leftMargin) - layoutParams4.rightMargin) / 1.52f);
-        this.f30717d.setLayoutParams(layoutParams);
+        this.f30646d.setLayoutParams(layoutParams);
     }
 }

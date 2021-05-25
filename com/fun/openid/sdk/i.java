@@ -3,8 +3,8 @@ package com.fun.openid.sdk;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static f f30794a = null;
+    public static f f30723a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f30795b = false;
+    public static boolean f30724b = false;
 }

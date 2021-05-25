@@ -10,30 +10,30 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import d.a.c.e.d.l;
-import d.a.j0.r.r.a;
-import d.a.k0.h2.b;
+import d.a.m0.r.r.a;
+import d.a.n0.i2.b;
 /* loaded from: classes5.dex */
 public class PersonBarModel extends BdBaseModel {
 
     /* renamed from: i  reason: collision with root package name */
-    public static final String f19822i;
+    public static final String f19744i;
     public static TbHttpMessageTask j;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f19823e;
+    public b f19745e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f19824f;
+    public boolean f19746f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f19825g;
+    public String f19747g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f19826h;
+    public int f19748h;
 
     static {
         String str = TbConfig.SERVER_ADDRESS + "c/f/forum/like";
-        f19822i = str;
+        f19744i = str;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_LIKE_BAR_CMD, str);
         j = tbHttpMessageTask;
         tbHttpMessageTask.setResponsedClass(PersonBarResponseMessage.class);
@@ -42,8 +42,8 @@ public class PersonBarModel extends BdBaseModel {
 
     public PersonBarModel(TbPageContext tbPageContext, boolean z) {
         super(tbPageContext);
-        this.f19823e = new b();
-        this.f19824f = z;
+        this.f19745e = new b();
+        this.f19746f = z;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -57,18 +57,18 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public String getId() {
-        return this.f19825g;
+        return this.f19747g;
     }
 
     public b s() {
-        return this.f19823e;
+        return this.f19745e;
     }
 
     public void setSex(int i2) {
     }
 
     public boolean t() {
-        return this.f19824f;
+        return this.f19746f;
     }
 
     public void u() {
@@ -89,7 +89,7 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void w(String str) {
-        if (this.f19826h == 1 && this.f19824f) {
+        if (this.f19748h == 1 && this.f19746f) {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
@@ -105,10 +105,10 @@ public class PersonBarModel extends BdBaseModel {
     }
 
     public void x(int i2) {
-        this.f19826h = i2;
+        this.f19748h = i2;
     }
 
     public void y(String str) {
-        this.f19825g = str;
+        this.f19747g = str;
     }
 }

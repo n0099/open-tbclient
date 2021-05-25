@@ -12,7 +12,7 @@ import com.baidu.mapsdkplatform.comapi.map.r;
 import java.io.IOException;
 /* loaded from: classes.dex */
 public class RectangleShapeParser {
-    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", r.f7772a, "hd");
+    public static JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "p", "s", r.f7672a, "hd");
 
     public static RectangleShape parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {
         String str = null;

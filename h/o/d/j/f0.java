@@ -5,7 +5,7 @@ import java.lang.reflect.Field;
 public final class f0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final a f68672a;
+    public static final a f68715a;
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -56,12 +56,12 @@ public final class f0 {
             aVar = (a) declaredField.get(null);
         } catch (Throwable unused) {
         }
-        f68672a = aVar;
+        f68715a = aVar;
     }
 
     public static long a(Class<?> cls, String str) {
         try {
-            return f68672a.g(cls.getDeclaredField(str));
+            return f68715a.g(cls.getDeclaredField(str));
         } catch (NoSuchFieldException e2) {
             InternalError internalError = new InternalError();
             internalError.initCause(e2);

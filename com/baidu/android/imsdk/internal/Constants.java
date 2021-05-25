@@ -19,7 +19,7 @@ public final class Constants {
     public static final long APPID_QUANMIN = 11564577;
     public static final long APPID_TIEBA = 10773430;
     public static final long APPID_YIMEI = 16595346;
-    public static final String BIG_VERSION = "6";
+    public static final String BIG_VERSION = "7";
     public static final int CHATSESSION_OPERATION_DELETE = 2;
     public static final int CHATSESSION_OPERATION_NONE = 3;
     public static final int CHATSESSION_OPERATION_UPDATE = 1;
@@ -61,6 +61,7 @@ public final class Constants {
     public static final String EXTRA_CAST_ID = "mcast_id";
     public static final String EXTRA_CAST_IDS = "mcast_ids";
     public static final String EXTRA_CATEGORY = "category";
+    public static final String EXTRA_CHAT_TYPE = "chat_type";
     public static final String EXTRA_CLEAR_AFTER_LOGOUT = "clear_after_logout";
     public static final String EXTRA_CLIENT_MAX_MSGID = "client_max_msgid";
     public static final String EXTRA_CONFIG_CURSOR = "cursor";
@@ -162,7 +163,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "5";
+    public static final String LITTLE_VERSION = "0";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -204,6 +205,7 @@ public final class Constants {
     public static final int METHOD_IM_QUERY_PRESENCE = 21;
     public static final int METHOD_IM_QUIT_CAST = 202;
     public static final int METHOD_IM_RTC_NOTIFY_MSG = 231;
+    public static final int METHOD_IM_RTC_SEND_MSG = 230;
     public static final int METHOD_IM_SCRIBE_PA = 100;
     public static final int METHOD_IM_SEARCH_PA = 103;
     public static final int METHOD_IM_SEND_GROUP_MSG = 65;
@@ -220,7 +222,7 @@ public final class Constants {
     public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "8";
+    public static final String MIDDLE_VERSION = "4";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;
@@ -260,7 +262,7 @@ public final class Constants {
     public static final int TYPE_GET_CHAT_OBJECT = 2;
     public static final String URL_HTTP_BOX = "http://180.97.36.95:8080/";
     public static final String URL_HTTP_ONLINE = "https://pim.baidu.com/";
-    public static final String URL_HTTP_QA = "http://10.64.132.67:8080/";
+    public static final String URL_HTTP_QA = "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/";
     public static final String URL_HTTP_RD = "http://rd-im-server.bcc-szth.baidu.com:8080/";
     public static final int URL_SOCKET_PORT_OL_BOX = 8100;
     public static final int URL_SOCKET_PORT_QA = 8100;

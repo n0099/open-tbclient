@@ -14,7 +14,7 @@ public class Prefetch {
         }
         String i6 = Utils.i();
         String str5 = i6 == null ? "" : i6;
-        if (Utils.a() > Utils.f8093b) {
+        if (Utils.a() > Utils.f7993b) {
             nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, i3, i5, str4);
         }
     }
@@ -26,7 +26,7 @@ public class Prefetch {
         }
         String i5 = Utils.i();
         String str5 = i5 == null ? "" : i5;
-        if (Utils.a() > Utils.f8093b) {
+        if (Utils.a() > Utils.f7993b) {
             nativeAdd(str, str2 != null ? str2 : "", str3 != null ? str3 : "", str5, i2, 0, i4, str4);
         }
     }

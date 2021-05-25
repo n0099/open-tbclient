@@ -1,61 +1,129 @@
 package d.a.w.b;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import com.baidu.cyberplayer.sdk.CyberLog;
-import com.baidu.cyberplayer.sdk.rtc.CaptureManagerProvider;
-import com.baidu.cyberplayer.sdk.rtc.CyberMediaExtProvider;
-import com.baidu.cyberplayer.sdk.rtc.RTCRoomProvider;
-import com.baidu.cyberplayer.sdk.rtc.RTCVideoViewProvider;
+import android.graphics.SurfaceTexture;
+import android.util.Log;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import d.a.w.b.g.c;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes2.dex */
 public class a {
 
+    /* renamed from: d  reason: collision with root package name */
+    public static final String f64716d = "a";
+
     /* renamed from: a  reason: collision with root package name */
-    public static CyberMediaExtProvider f64823a;
+    public d.a.w.b.c.a f64717a;
 
-    public static CaptureManagerProvider a(Context context, int i2, int i3, int i4, int i5, int i6) {
-        CaptureManagerProvider createCaptureManagerProvider = d() ? f64823a.createCaptureManagerProvider(context, i2, i3, i4, i5, i6) : null;
-        CyberLog.i("CyberExtRTCInvoker", "createCaptureManager provider = " + createCaptureManagerProvider + " isExtJarLoader = " + d());
-        return createCaptureManagerProvider;
+    /* renamed from: b  reason: collision with root package name */
+    public List<b> f64718b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public int f64719c = 0;
+
+    public a(Object obj, List<c> list) {
+        b(obj, list);
     }
 
-    public static RTCVideoViewProvider b(Context context, AttributeSet attributeSet) {
-        RTCVideoViewProvider createRTCVideoView = d() ? f64823a.createRTCVideoView(context, attributeSet) : null;
-        CyberLog.i("CyberExtRTCInvoker", "createRTCVideoView provider = " + createRTCVideoView + " isExtJarLoader = " + d());
-        return createRTCVideoView;
-    }
-
-    public static void c(boolean z) {
-        if (d()) {
-            f64823a.setRTCVerbose(z);
+    public void a(long j) {
+        List<b> list;
+        if (this.f64717a == null || (list = this.f64718b) == null || list.size() == 0) {
+            return;
         }
+        synchronized (this) {
+            for (b bVar : this.f64718b) {
+                this.f64717a.b(bVar.c());
+                bVar.b(j);
+            }
+            notifyAll();
+        }
+        this.f64717a.d(j);
+        this.f64717a.e();
     }
 
-    public static boolean d() {
-        return f64823a != null;
-    }
-
-    public static boolean e(ClassLoader classLoader) {
-        if (classLoader != null && !d()) {
+    public final void b(Object obj, List<c> list) {
+        b bVar;
+        d.a.w.b.c.a aVar;
+        if (list == null || list.size() == 0) {
+            return;
+        }
+        List<b> list2 = this.f64718b;
+        if (list2 == null) {
+            this.f64718b = new ArrayList();
+        } else {
+            list2.clear();
+        }
+        for (int i2 = 0; i2 < list.size(); i2++) {
             try {
-                f64823a = (CyberMediaExtProvider) Class.forName("com.baidu.cybermedia.ext.rtc.CyberMediaExtProviderImpl", true, classLoader).newInstance();
-            } catch (Exception unused) {
-                f64823a = null;
-                CyberLog.e("CyberExtRTCInvoker", "CyberMediaExtProviderImpl not found");
+                this.f64718b.add(new b(list.get(i2)));
+                if (list.get(i2).l()) {
+                    this.f64719c = i2;
+                }
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
         }
-        return d();
-    }
-
-    public static RTCRoomProvider f() {
-        RTCRoomProvider createRtcRoom = d() ? f64823a.createRtcRoom() : null;
-        CyberLog.i("CyberExtRTCInvoker", "createRtcRoom provider = " + createRtcRoom + " isExtJarLoader = " + d());
-        return createRtcRoom;
-    }
-
-    public static void g(boolean z) {
-        if (d()) {
-            f64823a.enableRTCCaptureDebug(z);
+        int size = this.f64718b.size();
+        int i3 = this.f64719c;
+        if (size > i3) {
+            if (obj != null) {
+                if (obj instanceof Surface) {
+                    this.f64717a = new d.a.w.b.c.a(this.f64718b.get(this.f64719c).c(), (Surface) obj, true);
+                } else if (obj instanceof SurfaceTexture) {
+                    this.f64717a = new d.a.w.b.c.a(this.f64718b.get(this.f64719c).c(), (SurfaceTexture) obj);
+                } else if (obj instanceof SurfaceHolder) {
+                    this.f64717a = new d.a.w.b.c.a(this.f64718b.get(this.f64719c).c(), (SurfaceHolder) obj);
+                }
+            } else {
+                List<b> list3 = this.f64718b;
+                if (list3 != null && list3 != null && (bVar = list3.get(i3)) != null && (aVar = this.f64717a) != null) {
+                    aVar.f(bVar.c());
+                }
+            }
         }
+        for (b bVar2 : this.f64718b) {
+            d.a.w.b.c.a aVar2 = this.f64717a;
+            if (aVar2 != null) {
+                aVar2.b(bVar2.c());
+                bVar2.f();
+            }
+        }
+    }
+
+    public void c() {
+        d.a.w.b.c.a aVar = this.f64717a;
+        if (aVar != null) {
+            aVar.g();
+            this.f64717a = null;
+        }
+        List<b> list = this.f64718b;
+        if (list != null) {
+            for (b bVar : list) {
+                bVar.e();
+            }
+            this.f64718b.clear();
+            this.f64718b = null;
+        }
+    }
+
+    public void d(d.a.w.b.e.c cVar) {
+        for (b bVar : this.f64718b) {
+            d.a.w.b.c.a aVar = this.f64717a;
+            if (aVar != null) {
+                aVar.b(bVar.c());
+                bVar.g(cVar);
+            }
+        }
+    }
+
+    public void e(List<c> list) {
+        Log.d(f64716d, "updateSurfaceDrawer !!!");
+        this.f64717a.c();
+        for (b bVar : this.f64718b) {
+            bVar.e();
+        }
+        this.f64718b.clear();
+        b(null, list);
     }
 }

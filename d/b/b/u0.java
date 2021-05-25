@@ -5,16 +5,16 @@ import android.content.Intent;
 import android.text.TextUtils;
 import d.b.b.g1;
 import d.b.b.n1;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class u0<SERVICE> implements g1 {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f65066a;
+    public final String f65109a;
 
     /* renamed from: b  reason: collision with root package name */
-    public t0<Boolean> f65067b = new a();
+    public t0<Boolean> f65110b = new a();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends t0<Boolean> {
         public a() {
         }
@@ -23,12 +23,12 @@ public abstract class u0<SERVICE> implements g1 {
         @Override // d.b.b.t0
         /* renamed from: c */
         public Boolean a(Object... objArr) {
-            return Boolean.valueOf(z0.b((Context) objArr[0], u0.this.f65066a));
+            return Boolean.valueOf(z0.b((Context) objArr[0], u0.this.f65109a));
         }
     }
 
     public u0(String str) {
-        this.f65066a = str;
+        this.f65109a = str;
     }
 
     @Override // d.b.b.g1
@@ -36,7 +36,7 @@ public abstract class u0<SERVICE> implements g1 {
         if (context == null) {
             return false;
         }
-        return this.f65067b.b(context).booleanValue();
+        return this.f65110b.b(context).booleanValue();
     }
 
     @Override // d.b.b.g1
@@ -53,7 +53,7 @@ public abstract class u0<SERVICE> implements g1 {
             return null;
         }
         g1.a aVar = new g1.a();
-        aVar.f64980a = str;
+        aVar.f65023a = str;
         return aVar;
     }
 }

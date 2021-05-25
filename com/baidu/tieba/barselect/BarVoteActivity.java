@@ -12,14 +12,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.BarVoteModel;
 import d.a.c.e.p.l;
-import d.a.k0.v.b.f;
+import d.a.n0.x.b.f;
 /* loaded from: classes4.dex */
 public class BarVoteActivity extends BaseActivity {
     public long fid;
     public int source;
     public BdUniqueId mPageId = BdUniqueId.gen();
     public BarVoteModel mModel = null;
-    public d.a.k0.v.a mView = null;
+    public d.a.n0.x.a mView = null;
     public BarVoteModel.c mCallBack = new a();
 
     /* loaded from: classes4.dex */
@@ -104,7 +104,7 @@ public class BarVoteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        d.a.k0.v.a aVar = this.mView;
+        d.a.n0.x.a aVar = this.mView;
         if (aVar != null) {
             aVar.z(i2);
         }
@@ -115,7 +115,7 @@ public class BarVoteActivity extends BaseActivity {
         if (view.getId() == R.id.right_textview) {
             UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://c.tieba.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
         } else if (view.getId() == R.id.pb_more) {
-            d.a.k0.v.a aVar = this.mView;
+            d.a.n0.x.a aVar = this.mView;
             if (aVar != null && aVar.v() != null) {
                 this.mView.v().L();
             }
@@ -126,7 +126,7 @@ public class BarVoteActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.mView = new d.a.k0.v.a(this);
+        this.mView = new d.a.n0.x.a(this);
         this.fid = getIntent().getLongExtra("fid", 0L);
         this.source = getIntent().getIntExtra("source", 0);
         BarVoteModel barVoteModel = new BarVoteModel(this);
@@ -138,7 +138,7 @@ public class BarVoteActivity extends BaseActivity {
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
-        d.a.k0.v.a aVar = this.mView;
+        d.a.n0.x.a aVar = this.mView;
         if (aVar != null) {
             aVar.y();
         }

@@ -6,14 +6,14 @@ import android.animation.AnimatorListenerAdapter;
 public class p extends AnimatorListenerAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ SwipeDismissTouchListener f7199a;
+    public final /* synthetic */ SwipeDismissTouchListener f7099a;
 
     public p(SwipeDismissTouchListener swipeDismissTouchListener) {
-        this.f7199a = swipeDismissTouchListener;
+        this.f7099a = swipeDismissTouchListener;
     }
 
     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
     public void onAnimationEnd(Animator animator) {
-        this.f7199a.a();
+        this.f7099a.a();
     }
 }

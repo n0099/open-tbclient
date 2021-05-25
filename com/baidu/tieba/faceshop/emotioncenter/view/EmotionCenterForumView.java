@@ -18,51 +18,51 @@ import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 public class EmotionCenterForumView extends RelativeLayout implements View.OnClickListener {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f14919e;
+    public TbPageContext f14822e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f14920f;
+    public TextView f14823f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f14921g;
+    public TextView f14824g;
 
     /* renamed from: h  reason: collision with root package name */
-    public ImageView f14922h;
+    public ImageView f14825h;
 
     /* renamed from: i  reason: collision with root package name */
-    public EmotionCenterData.EmotionForumData f14923i;
+    public EmotionCenterData.EmotionForumData f14826i;
 
     public EmotionCenterForumView(TbPageContext tbPageContext) {
         super(tbPageContext.getPageActivity());
-        this.f14919e = tbPageContext;
+        this.f14822e = tbPageContext;
         a();
     }
 
     public final void a() {
         LayoutInflater.from(getContext()).inflate(R.layout.emotion_forum_layout, this);
-        this.f14920f = (TextView) findViewById(R.id.forum_title_tv);
-        this.f14921g = (TextView) findViewById(R.id.forum_recommend_tv);
-        this.f14922h = (ImageView) findViewById(R.id.forum_arrow);
+        this.f14823f = (TextView) findViewById(R.id.forum_title_tv);
+        this.f14824g = (TextView) findViewById(R.id.forum_recommend_tv);
+        this.f14825h = (ImageView) findViewById(R.id.forum_arrow);
         setOnClickListener(this);
     }
 
     public void b(int i2) {
-        SkinManager.setViewTextColor(this.f14920f, R.color.CAM_X0105, i2);
-        SkinManager.setViewTextColor(this.f14921g, R.color.cp_cont_r, i2);
-        SkinManager.setBackgroundResource(this.f14922h, R.drawable.emotion_center_arrow, i2);
+        SkinManager.setViewTextColor(this.f14823f, R.color.CAM_X0105, i2);
+        SkinManager.setViewTextColor(this.f14824g, R.color.cp_cont_r, i2);
+        SkinManager.setBackgroundResource(this.f14825h, R.drawable.emotion_center_arrow, i2);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != this || this.f14923i == null) {
+        if (view != this || this.f14826i == null) {
             return;
         }
-        this.f14919e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f14919e.getPageActivity()).createNormalCfg(this.f14923i.forum_name, null)));
+        this.f14822e.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.f14822e.getPageActivity()).createNormalCfg(this.f14826i.forum_name, null)));
     }
 
     public void setData(EmotionCenterData.EmotionForumData emotionForumData) {
         b(TbadkCoreApplication.getInst().getSkinType());
-        this.f14923i = emotionForumData;
+        this.f14826i = emotionForumData;
     }
 
     public EmotionCenterForumView(Context context, AttributeSet attributeSet) {

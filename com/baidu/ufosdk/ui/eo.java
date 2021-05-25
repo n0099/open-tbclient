@@ -6,24 +6,24 @@ import com.baidu.ufosdk.UfoSDK;
 public final class eo implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22875a;
+    public final /* synthetic */ FeedbackInputActivity f22804a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f22876b;
+    public final /* synthetic */ String f22805b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final /* synthetic */ ej f22877c;
+    public final /* synthetic */ ej f22806c;
 
     public eo(ej ejVar, FeedbackInputActivity feedbackInputActivity, String str) {
-        this.f22877c = ejVar;
-        this.f22875a = feedbackInputActivity;
-        this.f22876b = str;
+        this.f22806c = ejVar;
+        this.f22804a = feedbackInputActivity;
+        this.f22805b = str;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        Context applicationContext = this.f22875a.getApplicationContext();
+        Context applicationContext = this.f22804a.getApplicationContext();
         String str = UfoSDK.clientid;
-        com.baidu.ufosdk.e.a.b(applicationContext, this.f22875a.f22665f, this.f22876b);
+        com.baidu.ufosdk.e.a.b(applicationContext, this.f22804a.f22594f, this.f22805b);
     }
 }

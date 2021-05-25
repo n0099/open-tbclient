@@ -10,20 +10,20 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class b implements a {
 
     /* renamed from: d  reason: collision with root package name */
-    public static AtomicBoolean f67485d = new AtomicBoolean(false);
+    public static AtomicBoolean f67528d = new AtomicBoolean(false);
 
     /* renamed from: a  reason: collision with root package name */
-    public a f67486a;
+    public a f67529a;
 
     /* renamed from: b  reason: collision with root package name */
-    public CountDownLatch f67487b;
+    public CountDownLatch f67530b;
 
     /* renamed from: c  reason: collision with root package name */
-    public d.q.a.a.a.b.b f67488c;
+    public d.q.a.a.a.b.b f67531c;
 
     public b() {
-        this.f67487b = null;
-        this.f67488c = null;
+        this.f67530b = null;
+        this.f67531c = null;
     }
 
     public /* synthetic */ b(byte b2) {
@@ -32,7 +32,7 @@ public final class b implements a {
 
     public static final b c() {
         b bVar;
-        bVar = d.f67492a;
+        bVar = d.f67535a;
         return bVar;
     }
 
@@ -43,8 +43,8 @@ public final class b implements a {
     @Override // d.q.a.a.a.a.a
     public final void a(boolean z, d.q.a.a.a.b.b bVar) {
         try {
-            if (this.f67486a != null) {
-                this.f67486a.a(z, bVar);
+            if (this.f67529a != null) {
+                this.f67529a.a(z, bVar);
             }
         } catch (Throwable th) {
             d.q.a.a.c.b.b.c(th);
@@ -53,12 +53,12 @@ public final class b implements a {
 
     public final void f(Context context, a aVar) {
         try {
-            if (!f67485d.compareAndSet(false, true)) {
+            if (!f67528d.compareAndSet(false, true)) {
                 d.q.a.a.c.b.b.e("OaHelper has been initialized,return");
                 return;
             }
             if (Build.VERSION.SDK_INT >= 29) {
-                this.f67487b = new CountDownLatch(1);
+                this.f67530b = new CountDownLatch(1);
             }
             new Thread(new c(this, aVar, context)).start();
         } catch (Throwable th) {
@@ -68,7 +68,7 @@ public final class b implements a {
     }
 
     public final void h() {
-        CountDownLatch countDownLatch = this.f67487b;
+        CountDownLatch countDownLatch = this.f67530b;
         if (countDownLatch != null) {
             countDownLatch.countDown();
         }
@@ -76,11 +76,11 @@ public final class b implements a {
 
     public final void i() {
         try {
-            if (this.f67487b == null || this.f67487b.getCount() <= 0) {
+            if (this.f67530b == null || this.f67530b.getCount() <= 0) {
                 return;
             }
             d.q.a.a.c.b.b.e("awaitCdOaid");
-            this.f67487b.await(2000L, TimeUnit.MILLISECONDS);
+            this.f67530b.await(2000L, TimeUnit.MILLISECONDS);
         } catch (InterruptedException e2) {
             d.q.a.a.c.b.b.c(e2);
         }

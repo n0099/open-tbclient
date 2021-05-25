@@ -13,23 +13,23 @@ import java.util.Map;
 public class ad {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile ad f34084a;
+    public static volatile ad f34013a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f34085b = false;
+    public boolean f34014b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public k.a f34086c;
+    public k.a f34015c;
 
     public static ad a() {
-        if (f34084a == null) {
+        if (f34013a == null) {
             synchronized (ad.class) {
-                if (f34084a == null) {
-                    f34084a = new ad();
+                if (f34013a == null) {
+                    f34013a = new ad();
                 }
             }
         }
-        return f34084a;
+        return f34013a;
     }
 
     private boolean a(String str) {
@@ -57,29 +57,29 @@ public class ad {
     }
 
     private void b() {
-        k.a aVar = this.f34086c;
+        k.a aVar = this.f34015c;
         if (aVar == null) {
             return;
         }
-        if (!this.f34085b && aVar.f32110c.size() > 0) {
-            for (String str : this.f34086c.f32110c) {
+        if (!this.f34014b && aVar.f32039c.size() > 0) {
+            for (String str : this.f34015c.f32039c) {
                 boolean a2 = a(str);
-                this.f34085b = a2;
+                this.f34014b = a2;
                 if (a2) {
                     break;
                 }
             }
         }
-        if (this.f34085b) {
+        if (this.f34014b) {
             ArrayList arrayList = new ArrayList();
-            if (this.f34086c.f32108a.size() > 0) {
-                for (Map.Entry<Integer, String> entry : this.f34086c.f32108a.entrySet()) {
+            if (this.f34015c.f32037a.size() > 0) {
+                for (Map.Entry<Integer, String> entry : this.f34015c.f32037a.entrySet()) {
                     if (a(entry.getValue())) {
                         arrayList.add(entry.getKey());
                     }
                 }
             }
-            com.kwad.sdk.core.report.e.a(a(this.f34086c.f32109b), arrayList);
+            com.kwad.sdk.core.report.e.a(a(this.f34015c.f32038b), arrayList);
         }
     }
 
@@ -88,15 +88,15 @@ public class ad {
             SharedPreferences sharedPreferences = context.getSharedPreferences("ksadsdk_config", 0);
             if (sharedPreferences != null) {
                 c.a.ao.a(sharedPreferences);
-                this.f34086c = c.a.ao.b();
+                this.f34015c = c.a.ao.b();
             }
-            if (this.f34086c != null) {
+            if (this.f34015c != null) {
                 b();
             }
         }
     }
 
     public void a(KsScene ksScene, String str) {
-        com.kwad.sdk.core.report.e.a(ksScene, this.f34085b ? a(this.f34086c.f32109b) : false, str);
+        com.kwad.sdk.core.report.e.a(ksScene, this.f34014b ? a(this.f34015c.f32038b) : false, str);
     }
 }

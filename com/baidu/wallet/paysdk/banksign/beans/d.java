@@ -21,11 +21,11 @@ import java.util.Map;
 public class d extends PayBaseBean<QueryResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f25168a;
+    public String f25097a;
 
     public d(Context context) {
         super(context);
-        this.f25168a = null;
+        this.f25097a = null;
     }
 
     @Override // com.baidu.apollon.beans.ApollonBean
@@ -56,17 +56,17 @@ public class d extends PayBaseBean<QueryResponse> {
         }
         String b2 = com.baidu.wallet.paysdk.banksign.a.a.a().b();
         if (!TextUtils.isEmpty(b2)) {
-            this.f25168a = b2;
+            this.f25097a = b2;
         } else if (PayDataCache.getInstance().isFromPreCashier()) {
-            this.f25168a = PayDataCache.getInstance().getSelectedCardNo();
+            this.f25097a = PayDataCache.getInstance().getSelectedCardNo();
         } else {
             CardData.BondCard selectCard = PayRequestCache.getInstance().getSelectCard();
             if (selectCard != null) {
-                this.f25168a = selectCard.account_no;
+                this.f25097a = selectCard.account_no;
             }
         }
-        if (!TextUtils.isEmpty(this.f25168a)) {
-            arrayList.add(new RestNameValuePair("selected_card_no", this.f25168a));
+        if (!TextUtils.isEmpty(this.f25097a)) {
+            arrayList.add(new RestNameValuePair("selected_card_no", this.f25097a));
         }
         String sessionId = NetworkBean.SessionCache.getInstance().getSessionId(null);
         if (!TextUtils.isEmpty(sessionId)) {

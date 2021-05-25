@@ -16,14 +16,14 @@ import java.util.List;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8294a;
+    public Context f8194a;
 
     /* renamed from: b  reason: collision with root package name */
-    public c f8295b;
+    public c f8195b;
 
     public f(Context context, c cVar) {
-        this.f8294a = context;
-        this.f8295b = cVar;
+        this.f8194a = context;
+        this.f8195b = cVar;
     }
 
     private e a() {
@@ -35,18 +35,18 @@ public class f {
     }
 
     private e a(Context context) {
-        List<b> b2 = this.f8295b.b(context);
+        List<b> b2 = this.f8195b.b(context);
         e eVar = null;
         if (b2 != null) {
-            String str = com.baidu.fsg.face.base.b.c.f5597g;
+            String str = com.baidu.fsg.face.base.b.c.f5497g;
             File filesDir = context.getFilesDir();
-            if (!com.baidu.fsg.face.base.b.c.f5597g.equals(filesDir.getName())) {
+            if (!com.baidu.fsg.face.base.b.c.f5497g.equals(filesDir.getName())) {
                 Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
                 str = filesDir.getName();
             }
             for (b bVar : b2) {
-                if (!bVar.f8160d) {
-                    File file = new File(new File(bVar.f8157a.dataDir, str), "libcuid.so");
+                if (!bVar.f8060d) {
+                    File file = new File(new File(bVar.f8057a.dataDir, str), "libcuid.so");
                     if (file.exists() && (eVar = e.b(com.baidu.mobads.cid.cesium.f.c.a(file))) != null) {
                         break;
                     }
@@ -61,12 +61,12 @@ public class f {
     }
 
     private boolean b(String str) {
-        return this.f8294a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f8194a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private String c(String str) {
         try {
-            return Settings.System.getString(this.f8294a.getContentResolver(), str);
+            return Settings.System.getString(this.f8194a.getContentResolver(), str);
         } catch (Exception e2) {
             com.baidu.mobads.cid.cesium.f.c.a(e2);
             return null;
@@ -114,7 +114,7 @@ public class f {
     }
 
     public e a(String str) {
-        e a2 = a(this.f8294a);
+        e a2 = a(this.f8194a);
         if (a2 == null) {
             a2 = e.b(c("com.baidu.deviceid.v2"));
         }

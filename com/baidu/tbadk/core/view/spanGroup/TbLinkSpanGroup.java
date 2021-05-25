@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
-import d.a.j0.r.f0.p.a;
-import d.a.j0.r.q.v;
+import d.a.m0.r.f0.p.a;
+import d.a.m0.r.q.v;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     public static final String r = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
 
     /* renamed from: i  reason: collision with root package name */
-    public v f12604i;
+    public v f12512i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -92,7 +92,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         l(new TbLinkForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // d.a.j0.r.f0.p.a
+    @Override // d.a.m0.r.f0.p.a
     public void a(Editable editable, int i2, int i3, int i4) {
         super.a(editable, i2, i3, i4);
         if (this.j == LINK_TYPE.PARSED_EXTERNAL_LINK) {
@@ -104,14 +104,14 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         this.m = editable.subSequence(i5, i3);
     }
 
-    @Override // d.a.j0.r.f0.p.a
+    @Override // d.a.m0.r.f0.p.a
     public void p(Editable editable) {
-        v vVar = this.f12604i;
-        if (vVar != null && vVar.f50093f == 2) {
+        v vVar = this.f12512i;
+        if (vVar != null && vVar.f50137f == 2) {
             if (vVar.l != null) {
                 StringBuilder sb = new StringBuilder();
                 sb.append("#(commodity,commo_");
-                sb.append(this.f12604i.l);
+                sb.append(this.f12512i.l);
                 sb.append("_commo)");
                 i(sb);
                 return;
@@ -124,9 +124,9 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         i(sb2);
     }
 
-    @Override // d.a.j0.r.f0.p.a
+    @Override // d.a.m0.r.f0.p.a
     public void q(Editable editable, int i2) {
-        if (this.f12604i == null) {
+        if (this.f12512i == null) {
             String str = k.isEmpty(this.n) ? "0" : this.n;
             String str2 = (this.j == LINK_TYPE.INTERNAL_LINK && k.isEmpty(this.o)) ? "" : this.p;
             StringBuilder sb = new StringBuilder();
@@ -147,10 +147,10 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put("goods_id", this.f12604i.q);
+                    jSONObject2.put("goods_id", this.f12512i.q);
                     jSONObject2.put(QuickPersistConfigConst.KEY_SPLASH_SORT, i2);
-                    jSONObject2.put("title", this.f12604i.f50095h);
-                    jSONObject2.put("url", this.f12604i.o);
+                    jSONObject2.put("title", this.f12512i.f50139h);
+                    jSONObject2.put("url", this.f12512i.o);
                     StringBuilder sb2 = new StringBuilder();
                     jSONObject.put("goods", jSONObject2);
                     sb2.append("#(goods,");
@@ -173,15 +173,15 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         sb3.append(",");
         sb3.append(k.getUrlEncode(str3));
         sb3.append(",");
-        sb3.append(k.getUrlEncode(this.f12604i.p));
+        sb3.append(k.getUrlEncode(this.f12512i.p));
         sb3.append(",");
-        sb3.append(this.f12604i.f50096i);
+        sb3.append(this.f12512i.f50140i);
         sb3.append(",");
-        sb3.append(k.getUrlEncode(this.f12604i.j));
+        sb3.append(k.getUrlEncode(this.f12512i.j));
         sb3.append(",");
         sb3.append(i2);
         sb3.append(",");
-        sb3.append(this.f12604i.s);
+        sb3.append(this.f12512i.s);
         sb3.append(SmallTailInfo.EMOTION_SUFFIX);
         sb3.append(this.m);
         i(sb3);
@@ -205,11 +205,11 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         this.n = tbLinkSpanGroup.n;
         this.o = tbLinkSpanGroup.o;
         this.p = tbLinkSpanGroup.p;
-        this.f12604i = tbLinkSpanGroup.f12604i;
+        this.f12512i = tbLinkSpanGroup.f12512i;
     }
 
     public v t() {
-        return this.f12604i;
+        return this.f12512i;
     }
 
     public LINK_TYPE u() {
@@ -225,7 +225,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     }
 
     public void y(v vVar) {
-        this.f12604i = vVar;
+        this.f12512i = vVar;
     }
 
     public void z(String str) {

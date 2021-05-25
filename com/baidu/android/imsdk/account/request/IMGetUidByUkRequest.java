@@ -63,7 +63,7 @@ public class IMGetUidByUkRequest implements HttpHelper.Request, HttpHelper.Respo
                     }
                     return "http://180.97.36.95:8080/rest/2.0/im/zhidahao";
                 }
-                return "http://10.64.132.67:8080/rest/2.0/im/zhidahao";
+                return "http://sz-shaheenv-odprestapi-b.bcc-szwg.baidu.com:8080/rest/2.0/im/zhidahao";
             }
             return "http://rd-im-server.bcc-szth.baidu.com:8080/rest/2.0/im/zhidahao";
         }

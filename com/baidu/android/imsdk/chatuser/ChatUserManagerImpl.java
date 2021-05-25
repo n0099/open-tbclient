@@ -26,7 +26,7 @@ import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
-import d.a.r.a;
+import d.a.s.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -207,7 +207,7 @@ public class ChatUserManagerImpl {
                 creatMethodIntent.putExtras(bundle);
                 creatMethodIntent.putExtra(Constants.EXTRA_SAVE_TO_DB, i2);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e2) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -292,7 +292,7 @@ public class ChatUserManagerImpl {
                 bundle.putSerializable(Constants.EXTRA_UIDS, arrayList);
                 creatMethodIntent.putExtras(bundle);
                 try {
-                    a.e(mContext).d(mContext, creatMethodIntent);
+                    a.g(mContext).f(mContext, creatMethodIntent);
                     return;
                 } catch (Exception e2) {
                     ListenerManager.getInstance().removeListener(addListener);

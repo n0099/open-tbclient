@@ -70,11 +70,11 @@ public final class PayBeanFactory implements IBeanFactory {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static PayBeanFactory f25174a = new PayBeanFactory();
+        public static PayBeanFactory f25103a = new PayBeanFactory();
     }
 
     public static PayBeanFactory getInstance() {
-        return a.f25174a;
+        return a.f25103a;
     }
 
     public PayBeanFactory() {

@@ -7,10 +7,10 @@ import java.util.Comparator;
 public class ContactInfo implements Comparator<ContactInfo> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24822a;
+    public String f24751a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24823b;
+    public String f24752b;
 
     /* loaded from: classes5.dex */
     public static class Phone implements Serializable {
@@ -35,30 +35,30 @@ public class ContactInfo implements Comparator<ContactInfo> {
         } else if (contactInfo2 == null) {
             return contactInfo == null ? 0 : -1;
         } else {
-            contactInfo.f24823b = a(contactInfo.f24822a);
-            contactInfo2.f24823b = a(contactInfo2.f24822a);
-            if (TextUtils.isEmpty(contactInfo.f24823b) && TextUtils.isEmpty(contactInfo2.f24823b)) {
+            contactInfo.f24752b = a(contactInfo.f24751a);
+            contactInfo2.f24752b = a(contactInfo2.f24751a);
+            if (TextUtils.isEmpty(contactInfo.f24752b) && TextUtils.isEmpty(contactInfo2.f24752b)) {
                 return 0;
             }
-            if (TextUtils.isEmpty(contactInfo.f24823b)) {
-                return !TextUtils.isEmpty(contactInfo2.f24823b) ? 1 : 0;
+            if (TextUtils.isEmpty(contactInfo.f24752b)) {
+                return !TextUtils.isEmpty(contactInfo2.f24752b) ? 1 : 0;
             }
-            if (TextUtils.isEmpty(contactInfo2.f24823b)) {
-                return TextUtils.isEmpty(contactInfo.f24823b) ? 0 : -1;
+            if (TextUtils.isEmpty(contactInfo2.f24752b)) {
+                return TextUtils.isEmpty(contactInfo.f24752b) ? 0 : -1;
             }
-            contactInfo.f24823b = contactInfo.f24823b.toUpperCase();
-            String upperCase = contactInfo2.f24823b.toUpperCase();
-            contactInfo2.f24823b = upperCase;
-            if (contactInfo.f24823b.equals(upperCase)) {
+            contactInfo.f24752b = contactInfo.f24752b.toUpperCase();
+            String upperCase = contactInfo2.f24752b.toUpperCase();
+            contactInfo2.f24752b = upperCase;
+            if (contactInfo.f24752b.equals(upperCase)) {
                 return 0;
             }
-            if (contactInfo.f24823b.equals("#")) {
+            if (contactInfo.f24752b.equals("#")) {
                 return 1;
             }
-            if (contactInfo2.f24823b.equals("#")) {
+            if (contactInfo2.f24752b.equals("#")) {
                 return -1;
             }
-            return contactInfo.f24823b.compareTo(contactInfo2.f24823b);
+            return contactInfo.f24752b.compareTo(contactInfo2.f24752b);
         }
     }
 

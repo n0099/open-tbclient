@@ -10,10 +10,10 @@ import com.baidu.wallet.paysdk.datamodel.GetCardInfoResponse;
 public class CertificateMenuItemView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f26111a;
+    public TextView f26040a;
 
     /* renamed from: b  reason: collision with root package name */
-    public GetCardInfoResponse.CertificateTypeInfo f26112b;
+    public GetCardInfoResponse.CertificateTypeInfo f26041b;
 
     public CertificateMenuItemView(Context context) {
         super(context);
@@ -22,19 +22,19 @@ public class CertificateMenuItemView extends RelativeLayout {
 
     private void a() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_menu_cert_item_view"), this);
-        this.f26111a = (TextView) findViewById(ResUtils.id(getContext(), "certi_text"));
+        this.f26040a = (TextView) findViewById(ResUtils.id(getContext(), "certi_text"));
     }
 
     public GetCardInfoResponse.CertificateTypeInfo getCertificateTypeInfo() {
-        return this.f26112b;
+        return this.f26041b;
     }
 
     public void updateItem(GetCardInfoResponse.CertificateTypeInfo certificateTypeInfo) {
         if (certificateTypeInfo == null) {
             return;
         }
-        this.f26112b = certificateTypeInfo;
-        this.f26111a.setTextColor(ResUtils.getColor(getContext(), certificateTypeInfo.isDisplay() ? "wallet_base_mainColor" : "wallet_base_font_text2Color"));
-        this.f26111a.setText(certificateTypeInfo.description);
+        this.f26041b = certificateTypeInfo;
+        this.f26040a.setTextColor(ResUtils.getColor(getContext(), certificateTypeInfo.isDisplay() ? "wallet_base_mainColor" : "wallet_base_font_text2Color"));
+        this.f26040a.setText(certificateTypeInfo.description);
     }
 }

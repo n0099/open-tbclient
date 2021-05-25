@@ -8,14 +8,14 @@ import com.baidu.platform.core.a.e;
 public class DistrictSearch extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public e f7296a;
+    public e f7196a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f7297b = false;
+    public boolean f7197b = false;
 
     public DistrictSearch() {
-        this.f7296a = null;
-        this.f7296a = new d();
+        this.f7196a = null;
+        this.f7196a = new d();
     }
 
     public static DistrictSearch newInstance() {
@@ -24,27 +24,27 @@ public class DistrictSearch extends l {
     }
 
     public void destroy() {
-        if (this.f7297b) {
+        if (this.f7197b) {
             return;
         }
-        this.f7297b = true;
-        this.f7296a.a();
+        this.f7197b = true;
+        this.f7196a.a();
         BMapManager.destroy();
     }
 
     public boolean searchDistrict(DistrictSearchOption districtSearchOption) {
         String str;
-        if (this.f7296a != null) {
+        if (this.f7196a != null) {
             if (districtSearchOption == null || (str = districtSearchOption.mCityName) == null || str.equals("")) {
                 throw new IllegalArgumentException("BDMapSDKException: option or city name can not be null or empty.");
             }
-            return this.f7296a.a(districtSearchOption);
+            return this.f7196a.a(districtSearchOption);
         }
         throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
     }
 
     public void setOnDistrictSearchListener(OnGetDistricSearchResultListener onGetDistricSearchResultListener) {
-        e eVar = this.f7296a;
+        e eVar = this.f7196a;
         if (eVar == null) {
             throw new IllegalStateException("BDMapSDKException: searcher is null, please call newInstance first.");
         }

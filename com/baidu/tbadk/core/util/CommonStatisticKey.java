@@ -91,6 +91,8 @@ public class CommonStatisticKey {
     public static final String UBS_TEST_PUBLISH_BUTTON_CLICK = "c13702";
     public static final String USER_ICON_VISIT = "c10134";
     public static final String VIDEO_PLAY_STATE = "c11685";
+    public static final String WINDOW_CLICK = "c14076";
+    public static final String WINDOW_EXPOSURE = "c14075";
 
     /* loaded from: classes3.dex */
     public static final class Transmitthread {

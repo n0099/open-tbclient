@@ -11,58 +11,58 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import d.a.i0.v.a;
+import d.a.l0.v.a;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
 /* loaded from: classes3.dex */
-public class TextureRenderView extends TextureView implements d.a.i0.v.a {
+public class TextureRenderView extends TextureView implements d.a.l0.v.a {
 
     /* renamed from: e  reason: collision with root package name */
-    public d.a.i0.v.b f11983e;
+    public d.a.l0.v.b f11884e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11984f;
+    public int f11885f;
 
     /* renamed from: g  reason: collision with root package name */
-    public SurfaceTexture f11985g;
+    public SurfaceTexture f11886g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f11986h;
+    public b f11887h;
 
     /* loaded from: classes3.dex */
     public static final class a implements a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public TextureRenderView f11987a;
+        public TextureRenderView f11888a;
 
         public a(TextureRenderView textureRenderView) {
-            this.f11987a = textureRenderView;
+            this.f11888a = textureRenderView;
         }
 
-        @Override // d.a.i0.v.a.b
+        @Override // d.a.l0.v.a.b
         @TargetApi(16)
         public void a(MediaPlayer mediaPlayer) {
-            if (mediaPlayer == null || this.f11987a.getSurfaceTexture() == null) {
+            if (mediaPlayer == null || this.f11888a.getSurfaceTexture() == null) {
                 return;
             }
-            if (mediaPlayer.hashCode() != this.f11987a.getCurrentMediaPlayerCode()) {
+            if (mediaPlayer.hashCode() != this.f11888a.getCurrentMediaPlayerCode()) {
                 mediaPlayer.setSurface(c());
-            } else if (!this.f11987a.getLastSurfaceTexture().equals(this.f11987a.getSurfaceTexture())) {
-                TextureRenderView textureRenderView = this.f11987a;
+            } else if (!this.f11888a.getLastSurfaceTexture().equals(this.f11888a.getSurfaceTexture())) {
+                TextureRenderView textureRenderView = this.f11888a;
                 textureRenderView.setSurfaceTexture(textureRenderView.getLastSurfaceTexture());
             }
-            this.f11987a.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
+            this.f11888a.setCurrentMediaPlayerCode(mediaPlayer.hashCode());
         }
 
-        @Override // d.a.i0.v.a.b
-        public d.a.i0.v.a b() {
-            return this.f11987a;
+        @Override // d.a.l0.v.a.b
+        public d.a.l0.v.a b() {
+            return this.f11888a;
         }
 
         public Surface c() {
-            return new Surface(this.f11987a.getSurfaceTexture());
+            return new Surface(this.f11888a.getSurfaceTexture());
         }
     }
 
@@ -70,91 +70,91 @@ public class TextureRenderView extends TextureView implements d.a.i0.v.a {
     public static final class b implements TextureView.SurfaceTextureListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public SurfaceTexture f11988e;
+        public SurfaceTexture f11889e;
 
         /* renamed from: f  reason: collision with root package name */
-        public boolean f11989f;
+        public boolean f11890f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f11990g;
+        public int f11891g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f11991h;
+        public int f11892h;
         public WeakReference<TextureRenderView> j;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile boolean f11992i = false;
-        public Map<a.InterfaceC1076a, Object> k = new ConcurrentHashMap();
+        public volatile boolean f11893i = false;
+        public Map<a.InterfaceC1087a, Object> k = new ConcurrentHashMap();
 
         public b(TextureRenderView textureRenderView) {
             this.j = new WeakReference<>(textureRenderView);
         }
 
-        public void a(a.InterfaceC1076a interfaceC1076a) {
+        public void a(a.InterfaceC1087a interfaceC1087a) {
             a aVar;
-            this.k.put(interfaceC1076a, interfaceC1076a);
-            if (this.f11988e != null) {
+            this.k.put(interfaceC1087a, interfaceC1087a);
+            if (this.f11889e != null) {
                 aVar = new a(this.j.get());
-                interfaceC1076a.b(aVar, this.f11990g, this.f11991h);
+                interfaceC1087a.b(aVar, this.f11891g, this.f11892h);
             } else {
                 aVar = null;
             }
-            if (this.f11989f) {
+            if (this.f11890f) {
                 if (aVar == null) {
                     aVar = new a(this.j.get());
                 }
-                interfaceC1076a.c(aVar, 0, this.f11990g, this.f11991h);
+                interfaceC1087a.c(aVar, 0, this.f11891g, this.f11892h);
             }
         }
 
-        public void b(a.InterfaceC1076a interfaceC1076a) {
-            this.k.remove(interfaceC1076a);
+        public void b(a.InterfaceC1087a interfaceC1087a) {
+            this.k.remove(interfaceC1087a);
         }
 
         public void c(boolean z) {
-            this.f11992i = z;
+            this.f11893i = z;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         @TargetApi(16)
         public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i2, int i3) {
-            this.f11988e = surfaceTexture;
+            this.f11889e = surfaceTexture;
             if (this.j.get() == null) {
                 Log.e("TextureRenderView", "!!!!!Too bad, textureview in callback is released. function will not work normally");
             } else if (this.j.get().getLastSurfaceTexture() == null) {
                 this.j.get().setLastSurfaceTexture(surfaceTexture);
             }
-            this.f11989f = false;
-            this.f11990g = 0;
-            this.f11991h = 0;
+            this.f11890f = false;
+            this.f11891g = 0;
+            this.f11892h = 0;
             a aVar = new a(this.j.get());
-            for (a.InterfaceC1076a interfaceC1076a : this.k.keySet()) {
-                interfaceC1076a.b(aVar, 0, 0);
+            for (a.InterfaceC1087a interfaceC1087a : this.k.keySet()) {
+                interfaceC1087a.b(aVar, 0, 0);
             }
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
-            this.f11988e = surfaceTexture;
-            this.f11989f = false;
-            this.f11990g = 0;
-            this.f11991h = 0;
+            this.f11889e = surfaceTexture;
+            this.f11890f = false;
+            this.f11891g = 0;
+            this.f11892h = 0;
             a aVar = new a(this.j.get());
-            for (a.InterfaceC1076a interfaceC1076a : this.k.keySet()) {
-                interfaceC1076a.a(aVar);
+            for (a.InterfaceC1087a interfaceC1087a : this.k.keySet()) {
+                interfaceC1087a.a(aVar);
             }
-            return this.f11992i;
+            return this.f11893i;
         }
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i2, int i3) {
-            this.f11988e = surfaceTexture;
-            this.f11989f = true;
-            this.f11990g = i2;
-            this.f11991h = i3;
+            this.f11889e = surfaceTexture;
+            this.f11890f = true;
+            this.f11891g = i2;
+            this.f11892h = i3;
             a aVar = new a(this.j.get());
-            for (a.InterfaceC1076a interfaceC1076a : this.k.keySet()) {
-                interfaceC1076a.c(aVar, 0, i2, i3);
+            for (a.InterfaceC1087a interfaceC1087a : this.k.keySet()) {
+                interfaceC1087a.c(aVar, 0, i2, i3);
             }
         }
 
@@ -165,40 +165,40 @@ public class TextureRenderView extends TextureView implements d.a.i0.v.a {
 
     public TextureRenderView(Context context) {
         super(context);
-        this.f11984f = 0;
+        this.f11885f = 0;
         c(context);
     }
 
-    @Override // d.a.i0.v.a
-    public void a(a.InterfaceC1076a interfaceC1076a) {
-        this.f11986h.b(interfaceC1076a);
+    @Override // d.a.l0.v.a
+    public void a(a.InterfaceC1087a interfaceC1087a) {
+        this.f11887h.b(interfaceC1087a);
     }
 
-    @Override // d.a.i0.v.a
-    public void b(a.InterfaceC1076a interfaceC1076a) {
-        this.f11986h.a(interfaceC1076a);
+    @Override // d.a.l0.v.a
+    public void b(a.InterfaceC1087a interfaceC1087a) {
+        this.f11887h.a(interfaceC1087a);
     }
 
     public final void c(Context context) {
-        this.f11983e = new d.a.i0.v.b(this);
+        this.f11884e = new d.a.l0.v.b(this);
         b bVar = new b(this);
-        this.f11986h = bVar;
+        this.f11887h = bVar;
         setSurfaceTextureListener(bVar);
     }
 
     public int getCurrentMediaPlayerCode() {
-        return this.f11984f;
+        return this.f11885f;
     }
 
     public SurfaceTexture getLastSurfaceTexture() {
-        return this.f11985g;
+        return this.f11886g;
     }
 
     public a.b getSurfaceHolder() {
         return new a(this);
     }
 
-    @Override // d.a.i0.v.a
+    @Override // d.a.l0.v.a
     public View getView() {
         return this;
     }
@@ -223,39 +223,39 @@ public class TextureRenderView extends TextureView implements d.a.i0.v.a {
 
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
-        this.f11983e.a(i2, i3);
-        setMeasuredDimension(this.f11983e.c(), this.f11983e.b());
+        this.f11884e.a(i2, i3);
+        setMeasuredDimension(this.f11884e.c(), this.f11884e.b());
     }
 
-    @Override // d.a.i0.v.a
+    @Override // d.a.l0.v.a
     @TargetApi(16)
     public void release() {
-        if (this.f11985g != null) {
+        if (this.f11886g != null) {
             if (isAvailable()) {
-                this.f11986h.c(true);
+                this.f11887h.c(true);
                 return;
             }
-            this.f11985g.release();
-            this.f11985g = null;
+            this.f11886g.release();
+            this.f11886g = null;
         }
     }
 
-    @Override // d.a.i0.v.a
+    @Override // d.a.l0.v.a
     public void setAspectRatio(int i2) {
-        this.f11983e.d(i2);
+        this.f11884e.d(i2);
         requestLayout();
     }
 
     public void setCurrentMediaPlayerCode(int i2) {
-        this.f11984f = i2;
+        this.f11885f = i2;
     }
 
     public void setLastSurfaceTexture(SurfaceTexture surfaceTexture) {
-        this.f11985g = surfaceTexture;
+        this.f11886g = surfaceTexture;
     }
 
     public void setVideoRotation(int i2) {
-        this.f11983e.e(i2);
+        this.f11884e.e(i2);
         setRotation(i2);
     }
 
@@ -263,28 +263,28 @@ public class TextureRenderView extends TextureView implements d.a.i0.v.a {
         if (i2 <= 0 || i3 <= 0) {
             return;
         }
-        this.f11983e.f(i2, i3);
+        this.f11884e.f(i2, i3);
         requestLayout();
     }
 
-    @Override // d.a.i0.v.a
+    @Override // d.a.l0.v.a
     public void setVideoSize(int i2, int i3) {
         if (i2 <= 0 || i3 <= 0) {
             return;
         }
-        this.f11983e.g(i2, i3);
+        this.f11884e.g(i2, i3);
         requestLayout();
     }
 
     public TextureRenderView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11984f = 0;
+        this.f11885f = 0;
         c(context);
     }
 
     public TextureRenderView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11984f = 0;
+        this.f11885f = 0;
         c(context);
     }
 }

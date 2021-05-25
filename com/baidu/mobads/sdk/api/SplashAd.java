@@ -13,8 +13,8 @@ import com.baidu.mobads.sdk.internal.XAdErrorCode;
 import com.baidu.mobads.sdk.internal.XAdLogger;
 import com.baidu.mobads.sdk.internal.XErrorCode;
 import com.baidu.mobads.sdk.internal.XSplashAdProd;
-import d.a.b0.a.b.a;
-import d.a.d0.a.g.d;
+import d.a.d0.a.b.a;
+import d.a.f0.a.g.d;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -88,7 +88,7 @@ public class SplashAd implements d {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("place_id", this.mAdPlaceId);
-            jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f38533a.get().A()) ? "bes_cpc" : "gd");
+            jSONObject.put("source", TextUtils.equals(this.mAdPlaceId, a.f39590a.get().A()) ? "bes_cpc" : "gd");
         } catch (JSONException e2) {
             e2.printStackTrace();
         }

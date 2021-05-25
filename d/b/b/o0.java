@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.telephony.TelephonyManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class o0 {
     public static boolean a(Context context) {
         try {

@@ -20,15 +20,15 @@ import com.baidu.searchbox.bdeventbus.Action;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
-import d.a.i0.a.g;
-import d.a.i0.a.k;
-import d.a.i0.a.v2.f;
-import d.a.i0.a.v2.q0;
+import d.a.l0.a.g;
+import d.a.l0.a.k;
+import d.a.l0.a.v2.f;
+import d.a.l0.a.v2.q0;
 import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class BaseActivityDialog extends Activity implements DialogInterface {
-    public static final boolean DEBUG = k.f43025a;
+    public static final boolean DEBUG = k.f43199a;
     public static final String KEY_FOR_BUILDER = "BOX_ACTIVITY_DIALOG_FOR_BUILDER";
     public static final String KEY_FROM = "BOX_ACTIVITY_DIALOG_FROM";
     public static final String KEY_NIGHT_MODE = "BOX_ACTIVITY_DIALOG_NIGHT_MODE";
@@ -72,7 +72,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         @Override // com.baidu.searchbox.bdeventbus.Action
         /* renamed from: a */
         public void call(e.b bVar) {
-            if (bVar.f11337a == BaseActivityDialog.this.mBuilder.r) {
+            if (bVar.f11238a == BaseActivityDialog.this.mBuilder.r) {
                 BaseActivityDialog.this.dismiss();
             }
         }
@@ -110,31 +110,31 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public static ArrayList u = new ArrayList();
 
         /* renamed from: a  reason: collision with root package name */
-        public String f11326a;
+        public String f11227a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CharSequence f11327b;
+        public CharSequence f11228b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f11328c;
+        public String f11229c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f11329d;
+        public String f11230d;
 
         /* renamed from: e  reason: collision with root package name */
-        public View f11330e;
+        public View f11231e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Drawable f11331f;
+        public Drawable f11232f;
 
         /* renamed from: g  reason: collision with root package name */
-        public boolean f11332g;
+        public boolean f11233g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f11333h;
+        public int f11234h;
 
         /* renamed from: i  reason: collision with root package name */
-        public Bundle f11334i;
+        public Bundle f11235i;
         public DialogInterface.OnClickListener j;
         public DialogInterface.OnClickListener k;
         public DialogInterface.OnCancelListener l;
@@ -150,10 +150,10 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ boolean f11335e;
+            public final /* synthetic */ boolean f11236e;
 
             public a(boolean z) {
-                this.f11335e = z;
+                this.f11236e = z;
             }
 
             @Override // java.lang.Runnable
@@ -163,14 +163,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     e.this.o = BaseActivityDialog.class;
                 }
                 Intent intent = new Intent(appContext, e.this.o);
-                intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f11335e);
+                intent.putExtra(BaseActivityDialog.KEY_NIGHT_MODE, this.f11236e);
                 String valueOf = String.valueOf(intent.hashCode());
                 intent.putExtra(BaseActivityDialog.KEY_FOR_BUILDER, valueOf);
                 if (!TextUtils.isEmpty(e.this.q)) {
                     intent.putExtra(BaseActivityDialog.KEY_FROM, e.this.q);
                 }
-                if (e.this.f11334i != null) {
-                    intent.putExtras(e.this.f11334i);
+                if (e.this.f11235i != null) {
+                    intent.putExtras(e.this.f11235i);
                 }
                 e.t(valueOf, e.this);
                 intent.addFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
@@ -182,21 +182,21 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public static class b {
 
             /* renamed from: a  reason: collision with root package name */
-            public Object f11337a;
+            public Object f11238a;
         }
 
         /* loaded from: classes3.dex */
         public static class c {
 
             /* renamed from: a  reason: collision with root package name */
-            public DialogInterface f11338a;
+            public DialogInterface f11239a;
 
             /* renamed from: b  reason: collision with root package name */
-            public int f11339b;
+            public int f11240b;
 
             public c(DialogInterface dialogInterface, int i2) {
-                this.f11338a = dialogInterface;
-                this.f11339b = i2;
+                this.f11239a = dialogInterface;
+                this.f11240b = i2;
             }
         }
 
@@ -225,7 +225,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public e A(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f11328c = str;
+            this.f11229c = str;
             this.j = onClickListener;
             return this;
         }
@@ -236,7 +236,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public e C(String str) {
-            this.f11326a = str;
+            this.f11227a = str;
             return this;
         }
 
@@ -253,14 +253,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
             DialogInterface.OnClickListener onClickListener = null;
-            int i2 = cVar.f11339b;
+            int i2 = cVar.f11240b;
             if (i2 == -2) {
                 onClickListener = this.k;
             } else if (i2 == -1) {
                 onClickListener = this.j;
             }
             if (onClickListener != null) {
-                onClickListener.onClick(cVar.f11338a, cVar.f11339b);
+                onClickListener.onClick(cVar.f11239a, cVar.f11240b);
             }
         }
 
@@ -270,8 +270,8 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.k = null;
             this.l = null;
             this.m = null;
-            this.f11330e = null;
-            this.f11331f = null;
+            this.f11231e = null;
+            this.f11232f = null;
         }
 
         public e u(int i2) {
@@ -280,7 +280,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public e v(String str) {
-            this.f11327b = str;
+            this.f11228b = str;
             return this;
         }
 
@@ -290,7 +290,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public e x(String str, DialogInterface.OnClickListener onClickListener) {
-            this.f11329d = str;
+            this.f11230d = str;
             this.k = onClickListener;
             return this;
         }
@@ -306,7 +306,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
 
         public e(Class<? extends Activity> cls) {
-            this.f11332g = true;
+            this.f11233g = true;
             this.p = -1;
             this.n = AppRuntime.getAppContext();
             this.o = cls;
@@ -340,7 +340,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources b2 = d.a.i0.a.c1.a.H().b();
+        Resources b2 = d.a.l0.a.c1.a.H().b();
         return b2 != null ? b2 : super.getResources();
     }
 
@@ -372,26 +372,26 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
     }
 
     public void initViews() {
-        this.mTitle = (TextView) findViewById(d.a.i0.a.f.dialog_title);
-        this.mMessage = (TextView) findViewById(d.a.i0.a.f.dialog_message);
-        this.mMessageContent = (LinearLayout) findViewById(d.a.i0.a.f.dialog_message_content);
-        this.mPositiveButton = (TextView) findViewById(d.a.i0.a.f.positive_button);
-        this.mNegativeButton = (TextView) findViewById(d.a.i0.a.f.negative_button);
-        this.mNeutralButton = (TextView) findViewById(d.a.i0.a.f.neutral_button);
-        this.mDivider3 = findViewById(d.a.i0.a.f.divider3);
-        this.mDivider4 = findViewById(d.a.i0.a.f.divider4);
-        this.mDialogContent = (FrameLayout) findViewById(d.a.i0.a.f.dialog_custom_content);
-        this.mIcon = (ImageView) findViewById(d.a.i0.a.f.dialog_icon);
-        this.mDialogLayout = (RelativeLayout) findViewById(d.a.i0.a.f.searchbox_alert_dialog);
-        this.mDivider2 = findViewById(d.a.i0.a.f.divider2);
-        this.mScrollView = (SwanAppScrollView) findViewById(d.a.i0.a.f.message_scrollview);
-        this.mBtnPanelLayout = (LinearLayout) findViewById(d.a.i0.a.f.btn_panel);
-        this.mBtnHeight = getResources().getDimensionPixelSize(d.a.i0.a.d.aiapps_dialog_btns_height);
+        this.mTitle = (TextView) findViewById(d.a.l0.a.f.dialog_title);
+        this.mMessage = (TextView) findViewById(d.a.l0.a.f.dialog_message);
+        this.mMessageContent = (LinearLayout) findViewById(d.a.l0.a.f.dialog_message_content);
+        this.mPositiveButton = (TextView) findViewById(d.a.l0.a.f.positive_button);
+        this.mNegativeButton = (TextView) findViewById(d.a.l0.a.f.negative_button);
+        this.mNeutralButton = (TextView) findViewById(d.a.l0.a.f.neutral_button);
+        this.mDivider3 = findViewById(d.a.l0.a.f.divider3);
+        this.mDivider4 = findViewById(d.a.l0.a.f.divider4);
+        this.mDialogContent = (FrameLayout) findViewById(d.a.l0.a.f.dialog_custom_content);
+        this.mIcon = (ImageView) findViewById(d.a.l0.a.f.dialog_icon);
+        this.mDialogLayout = (RelativeLayout) findViewById(d.a.l0.a.f.searchbox_alert_dialog);
+        this.mDivider2 = findViewById(d.a.l0.a.f.divider2);
+        this.mScrollView = (SwanAppScrollView) findViewById(d.a.l0.a.f.message_scrollview);
+        this.mBtnPanelLayout = (LinearLayout) findViewById(d.a.l0.a.f.btn_panel);
+        this.mBtnHeight = getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_dialog_btns_height);
         if (this.mBuilder.p > 0) {
             this.mScrollView.getLayoutParams().height = this.mBuilder.p;
         }
-        if (d.a.i0.a.v2.d.k() || d.a.i0.a.v2.d.l()) {
-            int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(d.a.i0.a.d.aiapps_dialog_text_padding);
+        if (d.a.l0.a.v2.d.k() || d.a.l0.a.v2.d.l()) {
+            int dimensionPixelSize = this.mMessage.getResources().getDimensionPixelSize(d.a.l0.a.d.aiapps_dialog_text_padding);
             this.mMessage.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
         }
     }
@@ -463,7 +463,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.mMessage.setText(charSequence);
         this.mMessageContent.setVisibility(!TextUtils.isEmpty(charSequence) ? 0 : 8);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-        layoutParams.addRule(3, d.a.i0.a.f.dialog_message_content);
+        layoutParams.addRule(3, d.a.l0.a.f.dialog_message_content);
         this.mBtnPanelLayout.setLayoutParams(layoutParams);
     }
 
@@ -521,7 +521,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 this.mDialogContent.addView(view);
                 this.mMessageContent.setVisibility(8);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-                layoutParams.addRule(3, d.a.i0.a.f.dialog_customPanel);
+                layoutParams.addRule(3, d.a.l0.a.f.dialog_customPanel);
                 this.mBtnPanelLayout.setLayoutParams(layoutParams);
             }
         }
@@ -532,23 +532,23 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         if (eVar == null) {
             return;
         }
-        setTitle(eVar.f11326a);
-        setIcon(eVar.f11331f);
-        setMessage(eVar.f11327b);
-        setView(eVar.f11330e);
-        setPositiveEnable(eVar.f11332g);
-        setPositiveTextColor(eVar.f11333h);
-        setPositiveButton(eVar.f11328c);
-        setNegativeButton(eVar.f11329d);
+        setTitle(eVar.f11227a);
+        setIcon(eVar.f11232f);
+        setMessage(eVar.f11228b);
+        setView(eVar.f11231e);
+        setPositiveEnable(eVar.f11233g);
+        setPositiveTextColor(eVar.f11234h);
+        setPositiveButton(eVar.f11229c);
+        setNegativeButton(eVar.f11230d);
         setBtnsPanlVisible(eVar.s);
     }
 
     public void show() {
         Resources resources = getResources();
-        int color = resources.getColor(d.a.i0.a.c.aiapps_dialog_title_text_color);
-        int color2 = resources.getColor(d.a.i0.a.c.aiapps_box_dialog_message_text_color);
-        int color3 = resources.getColor(d.a.i0.a.c.aiapps_dialog_gray);
-        this.mDialogLayout.setBackground(resources.getDrawable(d.a.i0.a.e.aiapps_dialog_bg_white));
+        int color = resources.getColor(d.a.l0.a.c.aiapps_dialog_title_text_color);
+        int color2 = resources.getColor(d.a.l0.a.c.aiapps_box_dialog_message_text_color);
+        int color3 = resources.getColor(d.a.l0.a.c.aiapps_dialog_gray);
+        this.mDialogLayout.setBackground(resources.getDrawable(d.a.l0.a.e.aiapps_dialog_bg_white));
         this.mTitle.setTextColor(color);
         this.mMessage.setTextColor(color2);
         this.mPositiveButton.setTextColor(color);
@@ -557,12 +557,12 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.mDivider2.setBackgroundColor(color3);
         this.mDivider3.setBackgroundColor(color3);
         this.mDivider4.setBackgroundColor(color3);
-        this.mPositiveButton.setBackground(resources.getDrawable(d.a.i0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
-        this.mNegativeButton.setBackground(resources.getDrawable(d.a.i0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
-        this.mNeutralButton.setBackground(resources.getDrawable(d.a.i0.a.e.aiapp_alertdialog_button_day_bg_selector));
+        this.mPositiveButton.setBackground(resources.getDrawable(d.a.l0.a.e.aiapp_alertdialog_button_day_bg_right_selector));
+        this.mNegativeButton.setBackground(resources.getDrawable(d.a.l0.a.e.aiapp_alertdialog_button_day_bg_left_selector));
+        this.mNeutralButton.setBackground(resources.getDrawable(d.a.l0.a.e.aiapp_alertdialog_button_day_bg_selector));
         TextView ifOnlyOneBtnGetIt = ifOnlyOneBtnGetIt();
         if (ifOnlyOneBtnGetIt != null) {
-            ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(d.a.i0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
+            ifOnlyOneBtnGetIt.setBackground(resources.getDrawable(d.a.l0.a.e.aiapp_alertdialog_button_day_bg_all_selector));
         }
     }
 }

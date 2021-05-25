@@ -6,27 +6,27 @@ import android.widget.RelativeLayout;
 public class c {
 
     /* renamed from: e  reason: collision with root package name */
-    public RelativeLayout.LayoutParams f40323e;
+    public RelativeLayout.LayoutParams f40015e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f40324f;
+    public int f40016f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f40325g;
+    public View f40017g;
 
     /* renamed from: h  reason: collision with root package name */
-    public l0 f40326h;
+    public l0 f40018h;
 
     public View b() {
-        return this.f40325g;
+        return this.f40017g;
     }
 
     public int c() {
-        return this.f40324f;
+        return this.f40016f;
     }
 
     public RelativeLayout.LayoutParams d() {
-        return this.f40323e;
+        return this.f40015e;
     }
 
     public void e() {
@@ -36,18 +36,18 @@ public class c {
     }
 
     public void g(View view) {
-        this.f40325g = view;
+        this.f40017g = view;
     }
 
     public void h(int i2) {
-        this.f40324f = i2;
+        this.f40016f = i2;
     }
 
     public void i(RelativeLayout.LayoutParams layoutParams) {
-        this.f40323e = layoutParams;
+        this.f40015e = layoutParams;
     }
 
     public void j(l0 l0Var) {
-        this.f40326h = l0Var;
+        this.f40018h = l0Var;
     }
 }

@@ -14,11 +14,11 @@ public class ActivityStackManager implements Application.ActivityLifecycleCallba
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static ActivityStackManager f23940a = new ActivityStackManager();
+        public static ActivityStackManager f23869a = new ActivityStackManager();
     }
 
     public static ActivityStackManager getInstance() {
-        return a.f23940a;
+        return a.f23869a;
     }
 
     public void addActivity(Activity activity) {

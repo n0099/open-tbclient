@@ -5,10 +5,10 @@ import java.nio.ByteBuffer;
 public abstract class jb {
 
     /* renamed from: a  reason: collision with root package name */
-    public jl f38047a;
+    public jl f37976a;
 
     public jb(jl jlVar) {
-        this.f38047a = jlVar;
+        this.f37976a = jlVar;
     }
 
     public abstract byte a();

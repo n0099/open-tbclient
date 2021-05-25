@@ -7,7 +7,7 @@ import java.nio.ByteOrder;
 public abstract class a extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final ByteBuffer f66269a = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
+    public final ByteBuffer f66312a = ByteBuffer.allocate(8).order(ByteOrder.LITTLE_ENDIAN);
 
     @Override // d.g.c.d.f, d.g.c.d.j
     public /* bridge */ /* synthetic */ j a(int i2) {
@@ -49,17 +49,17 @@ public abstract class a extends c {
 
     @Override // d.g.c.d.c
     public f k(char c2) {
-        this.f66269a.putChar(c2);
+        this.f66312a.putChar(c2);
         l(2);
         return this;
     }
 
     public final f l(int i2) {
         try {
-            p(this.f66269a.array(), 0, i2);
+            p(this.f66312a.array(), 0, i2);
             return this;
         } finally {
-            this.f66269a.clear();
+            this.f66312a.clear();
         }
     }
 
@@ -84,14 +84,14 @@ public abstract class a extends c {
 
     @Override // d.g.c.d.f, d.g.c.d.j
     public f a(int i2) {
-        this.f66269a.putInt(i2);
+        this.f66312a.putInt(i2);
         l(4);
         return this;
     }
 
     @Override // d.g.c.d.f, d.g.c.d.j
     public f b(long j) {
-        this.f66269a.putLong(j);
+        this.f66312a.putLong(j);
         l(8);
         return this;
     }

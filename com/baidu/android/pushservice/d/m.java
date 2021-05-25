@@ -8,11 +8,11 @@ import java.util.HashMap;
 public class m extends c {
 
     /* renamed from: d  reason: collision with root package name */
-    public String f3031d;
+    public String f3034d;
 
     public m(i iVar, Context context, String str) {
         super(iVar, context);
-        this.f3031d = str;
+        this.f3034d = str;
     }
 
     @Override // com.baidu.android.pushservice.d.a
@@ -32,6 +32,6 @@ public class m extends c {
     public void b(HashMap<String, String> hashMap) {
         super.b(hashMap);
         hashMap.put("method", "settags");
-        hashMap.put(CommandMessage.TYPE_TAGS, this.f3031d);
+        hashMap.put(CommandMessage.TYPE_TAGS, this.f3034d);
     }
 }

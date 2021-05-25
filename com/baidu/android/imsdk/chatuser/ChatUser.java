@@ -27,6 +27,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
     public int mAttrBlack;
     public int mAttrDisturb;
     public long mBuid;
+    public int mGroupStatus;
     public int mHasSpecialIdentity;
     public String mIconUrl;
     public String mIdentity;
@@ -75,6 +76,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mHasSpecialIdentity = 0;
         this.mSpecialIdentity = "";
         this.mUserExt = "";
+        this.mGroupStatus = 1;
         this.mUk = j;
         this.mBuid = j2;
         this.mUserName = str;
@@ -100,6 +102,10 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
 
     public int getDisturb() {
         return this.mAttrDisturb;
+    }
+
+    public int getGroupStatus() {
+        return this.mGroupStatus;
     }
 
     public int getHasSpecialIdentity() {
@@ -239,6 +245,10 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mAttrDisturb = i2;
     }
 
+    public void setGroupStatus(int i2) {
+        this.mGroupStatus = i2;
+    }
+
     public void setHasSpecialIdentity(int i2) {
         this.mHasSpecialIdentity = i2;
     }
@@ -337,7 +347,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
     }
 
     public String toString() {
-        return "ChatUser [mUk=" + this.mUk + ", mBuid=" + this.mBuid + ", mUserName=" + this.mUserName + ", mIconUrl=" + this.mIconUrl + ", mSex=" + this.mSex + ", mTinyUrl=" + this.mTinyUrl + ", mPhone=" + this.mPhone + ", mUserDetail=" + this.mUserDetail + ", mUserNamePy=" + this.mUserNamePy + ", mAccountType=" + this.mAccountType + ", mIsIpLocatonExist=" + this.mIsIpLocatonExist + ", mIpInfo=" + this.mIpInfo + ", mAttrDisturb=" + this.mAttrDisturb + ", mAttrBlack=" + this.mAttrBlack + ", vPortrait=" + this.vPortrait + ", mIdentity=" + this.mIdentity + ", mLastUpdate=" + this.mLastUpdate + ", mShield=" + this.mShield + ", mShieldTime=" + this.mShieldTime + ", mVipId=" + this.mVipId + ", mMarkTop=" + this.mMarkTop + ", mMarkTopTime=" + this.mMarkTopTime + ", mSubscribe=" + this.mSubscribe + "mPhoneRelation=" + this.mPhoneRelation + ", mHasSpecialIdentity= " + this.mHasSpecialIdentity + ", mUserExt=" + this.mUserExt + ", mSchema=" + this.mSchema + ", mSpecialIdentity= " + this.mSpecialIdentity + "]";
+        return "ChatUser [mUk=" + this.mUk + ", mBuid=" + this.mBuid + ", mUserName=" + this.mUserName + ", mIconUrl=" + this.mIconUrl + ", mSex=" + this.mSex + ", mTinyUrl=" + this.mTinyUrl + ", mPhone=" + this.mPhone + ", mUserDetail=" + this.mUserDetail + ", mUserNamePy=" + this.mUserNamePy + ", mAccountType=" + this.mAccountType + ", mIsIpLocatonExist=" + this.mIsIpLocatonExist + ", mIpInfo=" + this.mIpInfo + ", mAttrDisturb=" + this.mAttrDisturb + ", mAttrBlack=" + this.mAttrBlack + ", vPortrait=" + this.vPortrait + ", mIdentity=" + this.mIdentity + ", mLastUpdate=" + this.mLastUpdate + ", mShield=" + this.mShield + ", mShieldTime=" + this.mShieldTime + ", mVipId=" + this.mVipId + ", mMarkTop=" + this.mMarkTop + ", mMarkTopTime=" + this.mMarkTopTime + ", mSubscribe=" + this.mSubscribe + "mPhoneRelation=" + this.mPhoneRelation + ", mHasSpecialIdentity= " + this.mHasSpecialIdentity + ", mUserExt=" + this.mUserExt + ", mSchema=" + this.mSchema + ", mSpecialIdentity= " + this.mSpecialIdentity + ", mGroupStatus=" + this.mGroupStatus + "]";
     }
 
     @Override // android.os.Parcelable
@@ -368,6 +378,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         parcel.writeString(this.mSpecialIdentity);
         parcel.writeString(this.mUserExt);
         parcel.writeString(this.mSchema);
+        parcel.writeInt(this.mGroupStatus);
     }
 
     public ChatUser(Parcel parcel) {
@@ -393,6 +404,7 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mHasSpecialIdentity = 0;
         this.mSpecialIdentity = "";
         this.mUserExt = "";
+        this.mGroupStatus = 1;
         this.mUk = parcel.readLong();
         this.mBuid = parcel.readLong();
         this.mUserName = parcel.readString();
@@ -419,5 +431,6 @@ public final class ChatUser implements Parcelable, NoProGuard, PinYinUtils.PinYi
         this.mSpecialIdentity = parcel.readString();
         this.mUserExt = parcel.readString();
         this.mSchema = parcel.readString();
+        this.mGroupStatus = parcel.readInt();
     }
 }

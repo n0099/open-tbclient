@@ -126,15 +126,15 @@ public class BdSailorWebViewClientExt implements INoProGuard {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ BdSailorWebView f4281e;
+        public final /* synthetic */ BdSailorWebView f4284e;
 
         public a(BdSailorWebViewClientExt bdSailorWebViewClientExt, BdSailorWebView bdSailorWebView) {
-            this.f4281e = bdSailorWebView;
+            this.f4284e = bdSailorWebView;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            this.f4281e.showEmbeddedTitleBar(false);
+            this.f4284e.showEmbeddedTitleBar(false);
         }
     }
 

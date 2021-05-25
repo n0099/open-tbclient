@@ -13,19 +13,19 @@ import com.baidu.tieba.R;
 public class SlidingTabStrip extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f17014e;
+    public final int f16924e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final Paint f17015f;
+    public final Paint f16925f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final Paint f17016g;
+    public final Paint f16926g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f17017h;
+    public int f16927h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f17018i;
+    public int f16928i;
     public int j;
 
     public SlidingTabStrip(Context context) {
@@ -37,17 +37,17 @@ public class SlidingTabStrip extends LinearLayout {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds64);
         int dimensionPixelSize2 = getResources().getDimensionPixelSize(R.dimen.ds14);
         if (i2 == 0) {
-            this.f17018i = childAt.getLeft();
+            this.f16928i = childAt.getLeft();
         } else {
-            this.f17018i = childAt.getLeft() + dimensionPixelSize2;
+            this.f16928i = childAt.getLeft() + dimensionPixelSize2;
         }
-        this.j = this.f17018i + dimensionPixelSize;
+        this.j = this.f16928i + dimensionPixelSize;
         if (f2 < 0.0f || i2 >= getChildCount() - 1) {
             return;
         }
         View childAt2 = getChildAt(i2 + 1);
         float f3 = 1.0f - f2;
-        this.f17018i = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f2) + (this.f17018i * f3));
+        this.f16928i = (int) (((childAt2.getLeft() + dimensionPixelSize2) * f2) + (this.f16928i * f3));
         this.j = (int) ((f2 * (childAt2.getLeft() + dimensionPixelSize2 + dimensionPixelSize)) + (f3 * this.j));
     }
 
@@ -58,15 +58,15 @@ public class SlidingTabStrip extends LinearLayout {
 
     public final void c(Canvas canvas, int i2) {
         int i3;
-        if (this.j <= 0 && (i3 = this.f17017h) >= 0 && i3 < getChildCount()) {
-            this.j = getChildAt(this.f17017h).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
+        if (this.j <= 0 && (i3 = this.f16927h) >= 0 && i3 < getChildCount()) {
+            this.j = getChildAt(this.f16927h).getRight() - getResources().getDimensionPixelSize(R.dimen.ds14);
         }
-        canvas.drawRoundRect(new RectF(this.f17018i, i2 - this.f17014e, this.j, i2), 10.0f, 10.0f, this.f17015f);
+        canvas.drawRoundRect(new RectF(this.f16928i, i2 - this.f16924e, this.j, i2), 10.0f, 10.0f, this.f16925f);
     }
 
     public void d(int i2) {
-        this.f17015f.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
-        this.f17016g.setColor(SkinManager.getColor(R.color.CAM_X0204));
+        this.f16925f.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
+        this.f16926g.setColor(SkinManager.getColor(R.color.CAM_X0204));
         invalidate();
         int childCount = getChildCount();
         if (childCount <= 0) {
@@ -77,7 +77,7 @@ public class SlidingTabStrip extends LinearLayout {
             if (childAt instanceof TabItemView) {
                 TabItemView tabItemView = (TabItemView) childAt;
                 tabItemView.a();
-                if (i3 == this.f17017h) {
+                if (i3 == this.f16927h) {
                     SkinManager.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0105, 1);
                 } else {
                     SkinManager.setViewTextColor(tabItemView.getTextView(), R.color.CAM_X0107, 1);
@@ -89,15 +89,15 @@ public class SlidingTabStrip extends LinearLayout {
     public void e(int i2, float f2) {
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.ds14);
         View childAt = getChildAt(i2);
-        View childAt2 = getChildAt(this.f17017h);
+        View childAt2 = getChildAt(this.f16927h);
         int left = childAt.getLeft();
         float left2 = (childAt2.getLeft() - left) * f2;
-        if (this.f17017h == 0) {
-            this.f17018i = (int) (left + left2);
+        if (this.f16927h == 0) {
+            this.f16928i = (int) (left + left2);
         } else {
-            this.f17018i = (int) (left + left2 + dimensionPixelSize);
+            this.f16928i = (int) (left + left2 + dimensionPixelSize);
         }
-        this.j = this.f17018i + getResources().getDimensionPixelSize(R.dimen.ds64);
+        this.j = this.f16928i + getResources().getDimensionPixelSize(R.dimen.ds64);
         invalidate();
     }
 
@@ -105,7 +105,7 @@ public class SlidingTabStrip extends LinearLayout {
         if (i2 == i3) {
             return;
         }
-        this.f17017h = i2;
+        this.f16927h = i2;
         int childCount = getChildCount();
         if (i2 >= 0 && i2 < childCount) {
             View childAt = getChildAt(i2);
@@ -138,12 +138,12 @@ public class SlidingTabStrip extends LinearLayout {
     public SlidingTabStrip(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         setWillNotDraw(false);
-        this.f17014e = getResources().getDimensionPixelSize(R.dimen.ds5);
+        this.f16924e = getResources().getDimensionPixelSize(R.dimen.ds5);
         Paint paint = new Paint();
-        this.f17015f = paint;
+        this.f16925f = paint;
         paint.setColor(SkinManager.getSkinColor(null, R.color.CAM_X0105));
         Paint paint2 = new Paint();
-        this.f17016g = paint2;
+        this.f16926g = paint2;
         paint2.setColor(SkinManager.getColor(R.color.CAM_X0204));
     }
 }

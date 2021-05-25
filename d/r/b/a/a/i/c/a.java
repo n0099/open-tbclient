@@ -3,27 +3,27 @@ package d.r.b.a.a.i.c;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67743a;
+    public int f67786a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f67744b;
+    public long f67787b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f67745c;
+    public int f67788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67746d;
+    public int f67789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f67747e;
+    public long f67790e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f67748f;
+    public long f67791f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f67749g;
+    public String f67792g;
 
     public String toString() {
-        return "CurrencyChargeMessage{appid=" + this.f67743a + ", uid=" + this.f67744b + ", usedChannel=" + this.f67745c + ", currencyType=" + this.f67746d + ", amount=" + this.f67747e + ", currencyAmount=" + this.f67748f + ", expand='" + this.f67749g + "'}";
+        return "CurrencyChargeMessage{appid=" + this.f67786a + ", uid=" + this.f67787b + ", usedChannel=" + this.f67788c + ", currencyType=" + this.f67789d + ", amount=" + this.f67790e + ", currencyAmount=" + this.f67791f + ", expand='" + this.f67792g + "'}";
     }
 }

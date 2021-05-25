@@ -5,17 +5,17 @@ import android.content.Context;
 public abstract class c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f31954a;
+    public boolean f31883a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f31955b = false;
+    public boolean f31884b = false;
 
     public c(boolean z) {
-        this.f31954a = z;
+        this.f31883a = z;
     }
 
     public final T a(Context context) {
-        if (this.f31954a && !this.f31955b) {
+        if (this.f31883a && !this.f31884b) {
             try {
                 return b(context);
             } catch (Throwable th) {

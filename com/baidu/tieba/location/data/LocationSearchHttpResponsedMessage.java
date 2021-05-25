@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.squareup.wire.Wire;
-import d.a.k0.n1.c.a;
+import d.a.n0.o1.c.a;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes3.dex */
 public class LocationSearchHttpResponsedMessage extends HttpResponsedMessage {

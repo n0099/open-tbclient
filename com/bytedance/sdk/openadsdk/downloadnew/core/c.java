@@ -9,25 +9,25 @@ import java.util.List;
 public class c implements TTAppDownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final List<TTAppDownloadListener> f29097a = Collections.synchronizedList(new LinkedList());
+    public final List<TTAppDownloadListener> f29026a = Collections.synchronizedList(new LinkedList());
 
     public void a(TTAppDownloadListener tTAppDownloadListener) {
         if (tTAppDownloadListener != null) {
-            for (TTAppDownloadListener tTAppDownloadListener2 : this.f29097a) {
+            for (TTAppDownloadListener tTAppDownloadListener2 : this.f29026a) {
                 if (tTAppDownloadListener2 != null && tTAppDownloadListener2 == tTAppDownloadListener) {
                     return;
                 }
             }
-            synchronized (this.f29097a) {
-                this.f29097a.add(tTAppDownloadListener);
+            synchronized (this.f29026a) {
+                this.f29026a.add(tTAppDownloadListener);
             }
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadActive(long j, long j2, String str, String str2) {
-        synchronized (this.f29097a) {
-            Iterator<TTAppDownloadListener> it = this.f29097a.iterator();
+        synchronized (this.f29026a) {
+            Iterator<TTAppDownloadListener> it = this.f29026a.iterator();
             while (it.hasNext()) {
                 TTAppDownloadListener next = it.next();
                 if (next == null) {
@@ -41,8 +41,8 @@ public class c implements TTAppDownloadListener {
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadFailed(long j, long j2, String str, String str2) {
-        synchronized (this.f29097a) {
-            Iterator<TTAppDownloadListener> it = this.f29097a.iterator();
+        synchronized (this.f29026a) {
+            Iterator<TTAppDownloadListener> it = this.f29026a.iterator();
             while (it.hasNext()) {
                 TTAppDownloadListener next = it.next();
                 if (next == null) {
@@ -56,8 +56,8 @@ public class c implements TTAppDownloadListener {
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadFinished(long j, String str, String str2) {
-        synchronized (this.f29097a) {
-            Iterator<TTAppDownloadListener> it = this.f29097a.iterator();
+        synchronized (this.f29026a) {
+            Iterator<TTAppDownloadListener> it = this.f29026a.iterator();
             while (it.hasNext()) {
                 TTAppDownloadListener next = it.next();
                 if (next == null) {
@@ -71,8 +71,8 @@ public class c implements TTAppDownloadListener {
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadPaused(long j, long j2, String str, String str2) {
-        synchronized (this.f29097a) {
-            Iterator<TTAppDownloadListener> it = this.f29097a.iterator();
+        synchronized (this.f29026a) {
+            Iterator<TTAppDownloadListener> it = this.f29026a.iterator();
             while (it.hasNext()) {
                 TTAppDownloadListener next = it.next();
                 if (next == null) {
@@ -86,8 +86,8 @@ public class c implements TTAppDownloadListener {
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onIdle() {
-        synchronized (this.f29097a) {
-            Iterator<TTAppDownloadListener> it = this.f29097a.iterator();
+        synchronized (this.f29026a) {
+            Iterator<TTAppDownloadListener> it = this.f29026a.iterator();
             while (it.hasNext()) {
                 TTAppDownloadListener next = it.next();
                 if (next == null) {
@@ -101,8 +101,8 @@ public class c implements TTAppDownloadListener {
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onInstalled(String str, String str2) {
-        synchronized (this.f29097a) {
-            Iterator<TTAppDownloadListener> it = this.f29097a.iterator();
+        synchronized (this.f29026a) {
+            Iterator<TTAppDownloadListener> it = this.f29026a.iterator();
             while (it.hasNext()) {
                 TTAppDownloadListener next = it.next();
                 if (next == null) {
@@ -115,9 +115,9 @@ public class c implements TTAppDownloadListener {
     }
 
     public void a() {
-        if (this.f29097a.isEmpty()) {
+        if (this.f29026a.isEmpty()) {
             return;
         }
-        this.f29097a.clear();
+        this.f29026a.clear();
     }
 }

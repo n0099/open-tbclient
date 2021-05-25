@@ -23,12 +23,17 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
             return new GroupMemberNameChangeMsg[i2];
         }
     };
+    public long mMemberVersion;
     public String nickname;
     public long wasmodifed;
     public long whodo;
 
     public GroupMemberNameChangeMsg() {
         setMsgType(1012);
+    }
+
+    public long getMemberVersion() {
+        return this.mMemberVersion;
     }
 
     public String getNickname() {
@@ -51,6 +56,7 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
             this.whodo = jSONObject.optLong("operator");
             this.wasmodifed = jSONObject.optLong("member");
             this.nickname = jSONObject.optString("name");
+            this.mMemberVersion = jSONObject.optLong("member_version");
             return true;
         } catch (JSONException e2) {
             LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
@@ -64,6 +70,7 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
         parcel.writeLong(this.whodo);
         parcel.writeLong(this.wasmodifed);
         parcel.writeString(this.nickname);
+        parcel.writeLong(this.mMemberVersion);
     }
 
     public GroupMemberNameChangeMsg(Parcel parcel) {
@@ -71,5 +78,6 @@ public class GroupMemberNameChangeMsg extends NotifyMsg implements Parcelable, N
         this.whodo = parcel.readLong();
         this.wasmodifed = parcel.readLong();
         this.nickname = parcel.readString();
+        this.mMemberVersion = parcel.readLong();
     }
 }

@@ -20,56 +20,56 @@ import javax.net.ssl.HttpsURLConnection;
 public class s0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public URL f37183a;
+    public URL f37112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public byte[] f37184b;
+    public byte[] f37113b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Map f37185c;
+    public Map f37114c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Map f37186d;
+    public Map f37115d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f37187e;
+    public String f37116e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f37188f = -1;
+    public int f37117f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f37189g = false;
+    public boolean f37118g = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f37190h = true;
+    public boolean f37119h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f37191i = 20000;
+    public int f37120i = 20000;
     public int j = 20000;
 
     public s0(String str, String str2, Map map) {
-        this.f37187e = "GET";
-        this.f37183a = new URL(str);
-        this.f37187e = str2;
-        this.f37185c = map;
+        this.f37116e = "GET";
+        this.f37112a = new URL(str);
+        this.f37116e = str2;
+        this.f37114c = map;
     }
 
     public t0 a() {
         HttpURLConnection httpURLConnection;
         InputStream errorStream;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        String url = this.f37183a.toString();
+        String url = this.f37112a.toString();
         if (!TextUtils.isEmpty(url) ? url.startsWith("http") : false) {
-            httpURLConnection = (HttpURLConnection) this.f37183a.openConnection();
+            httpURLConnection = (HttpURLConnection) this.f37112a.openConnection();
         } else {
-            httpURLConnection = (HttpsURLConnection) this.f37183a.openConnection();
+            httpURLConnection = (HttpsURLConnection) this.f37112a.openConnection();
         }
-        httpURLConnection.setRequestMethod(this.f37187e);
-        httpURLConnection.setInstanceFollowRedirects(this.f37190h);
+        httpURLConnection.setRequestMethod(this.f37116e);
+        httpURLConnection.setInstanceFollowRedirects(this.f37119h);
         httpURLConnection.setReadTimeout(this.j);
-        httpURLConnection.setConnectTimeout(this.f37191i);
+        httpURLConnection.setConnectTimeout(this.f37120i);
         httpURLConnection.setDoInput(true);
-        Map map = this.f37185c;
+        Map map = this.f37114c;
         if (map != null && map.size() > 0) {
             for (Map.Entry entry : map.entrySet()) {
                 String str = (String) entry.getKey();
@@ -79,18 +79,18 @@ public class s0 {
                 }
             }
         }
-        if (this.f37187e.equals("POST")) {
+        if (this.f37116e.equals("POST")) {
             httpURLConnection.setDoInput(true);
             httpURLConnection.setDoOutput(true);
             PrintWriter printWriter = null;
             PrintWriter printWriter2 = null;
             try {
                 OutputStream outputStream = httpURLConnection.getOutputStream();
-                byte[] bArr = this.f37184b;
+                byte[] bArr = this.f37113b;
                 if (bArr == null) {
                     PrintWriter printWriter3 = new PrintWriter((Writer) new OutputStreamWriter(outputStream, "UTF-8"), true);
                     try {
-                        URL url2 = this.f37183a;
+                        URL url2 = this.f37112a;
                         printWriter3.print(url2 != null ? url2.getQuery() : null);
                         printWriter3.flush();
                         printWriter2 = printWriter3;
@@ -113,10 +113,10 @@ public class s0 {
                 th = th2;
             }
         }
-        this.f37188f = httpURLConnection.getResponseCode();
+        this.f37117f = httpURLConnection.getResponseCode();
         httpURLConnection.getContentLength();
         if (httpURLConnection.getHeaderFields() != null) {
-            this.f37186d = httpURLConnection.getHeaderFields();
+            this.f37115d = httpURLConnection.getHeaderFields();
         }
         try {
             String contentEncoding = httpURLConnection.getContentEncoding();
@@ -130,7 +130,7 @@ public class s0 {
         BufferedInputStream bufferedInputStream = new BufferedInputStream(errorStream);
         byte[] bArr2 = new byte[4096];
         int i2 = 0;
-        while (!this.f37189g && i2 != -1) {
+        while (!this.f37118g && i2 != -1) {
             i2 = bufferedInputStream.read(bArr2);
             if (i2 > 0) {
                 byteArrayOutputStream.write(bArr2, 0, i2);
@@ -139,6 +139,6 @@ public class s0 {
         httpURLConnection.disconnect();
         byteArrayOutputStream.flush();
         errorStream.close();
-        return new t0(this.f37188f, byteArrayOutputStream.toByteArray(), this.f37186d);
+        return new t0(this.f37117f, byteArrayOutputStream.toByteArray(), this.f37115d);
     }
 }

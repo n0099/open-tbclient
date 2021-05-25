@@ -4,15 +4,15 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.mobstat.Config;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class n extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65024e;
+    public final Context f65067e;
 
     public n(Context context, i iVar) {
         super(true, false);
-        this.f65024e = context;
+        this.f65067e = context;
     }
 
     @Override // d.b.b.h2

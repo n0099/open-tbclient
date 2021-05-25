@@ -13,7 +13,7 @@ public class f0 extends h {
     public f0(Context context) {
         super(context);
         int g2 = d.a.c.e.p.l.g(context, R.dimen.M_H_X003);
-        int g3 = d.a.c.e.p.l.g(context, d.a.j0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        int g3 = d.a.c.e.p.l.g(context, d.a.m0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
         r(g2);
         q(g3);
         this.l = new RecommendInfoLayout(context);
@@ -30,14 +30,14 @@ public class f0 extends h {
     }
 
     public void s() {
-        if (d.a.j0.b.d.U()) {
-            int g2 = d.a.c.e.p.l.g(this.f40316f, R.dimen.M_H_X003);
-            int g3 = d.a.c.e.p.l.g(this.f40316f, d.a.j0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
+        if (d.a.m0.b.d.V()) {
+            int g2 = d.a.c.e.p.l.g(this.f40008f, R.dimen.M_H_X003);
+            int g3 = d.a.c.e.p.l.g(this.f40008f, d.a.m0.b.g.b.c(R.dimen.tbds21, R.dimen.tbds0));
             r(g2);
             q(g3);
             return;
         }
-        int g4 = d.a.c.e.p.l.g(this.f40316f, R.dimen.tbds10);
+        int g4 = d.a.c.e.p.l.g(this.f40008f, R.dimen.tbds10);
         r(g4);
         q(0);
         u(this.l, g4, 0);
@@ -46,7 +46,7 @@ public class f0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: t */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         this.l.setData(aVar);
     }
 

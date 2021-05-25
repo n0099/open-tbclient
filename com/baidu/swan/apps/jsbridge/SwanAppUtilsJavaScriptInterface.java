@@ -10,15 +10,15 @@ import androidx.annotation.NonNull;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.wallet.lightapp.base.LightappJsNativeClient;
-import d.a.i0.a.a2.e;
-import d.a.i0.a.c1.d.i;
-import d.a.i0.a.e0.d;
-import d.a.i0.a.f1.e.b;
-import d.a.i0.a.j2.c;
-import d.a.i0.a.k;
-import d.a.i0.a.r1.k.f;
-import d.a.i0.a.v2.q0;
-import d.a.i0.a.v2.w;
+import d.a.l0.a.a2.e;
+import d.a.l0.a.c1.d.i;
+import d.a.l0.a.e0.d;
+import d.a.l0.a.f1.e.b;
+import d.a.l0.a.j2.c;
+import d.a.l0.a.k;
+import d.a.l0.a.r1.k.f;
+import d.a.l0.a.v2.q0;
+import d.a.l0.a.v2.w;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
@@ -38,23 +38,23 @@ public class SwanAppUtilsJavaScriptInterface {
     public Context mContext;
     public boolean mIsForceLight = false;
     public String mSource = "";
-    public d.a.i0.a.h0.f.a mWebView;
-    public static final boolean DEBUG = k.f43025a;
-    public static final int SWAN_UBC_LOG_MAX_SIZE_BYTES = d.a.i0.a.c1.a.Z().x() * 1024;
+    public d.a.l0.a.h0.f.a mWebView;
+    public static final boolean DEBUG = k.f43199a;
+    public static final int SWAN_UBC_LOG_MAX_SIZE_BYTES = d.a.l0.a.c1.a.Z().x() * 1024;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10902e;
+        public final /* synthetic */ String f10803e;
 
         public a(String str) {
-            this.f10902e = str;
+            this.f10803e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            String str = this.f10902e;
+            String str = this.f10803e;
             if (!str.startsWith("javascript:")) {
                 str = "javascript:" + str;
             }
@@ -69,24 +69,24 @@ public class SwanAppUtilsJavaScriptInterface {
     public class b implements i.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ String f10904a;
+        public final /* synthetic */ String f10805a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ String f10905b;
+        public final /* synthetic */ String f10806b;
 
         public b(String str, String str2) {
-            this.f10904a = str;
-            this.f10905b = str2;
+            this.f10805a = str;
+            this.f10806b = str2;
         }
 
-        @Override // d.a.i0.a.c1.d.i.a
+        @Override // d.a.l0.a.c1.d.i.a
         public void a() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10905b, String.valueOf(false));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10806b, String.valueOf(false));
         }
 
-        @Override // d.a.i0.a.c1.d.i.a
+        @Override // d.a.l0.a.c1.d.i.a
         public void b() {
-            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10904a, String.valueOf(true));
+            SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.f10805a, String.valueOf(true));
         }
     }
 
@@ -94,10 +94,10 @@ public class SwanAppUtilsJavaScriptInterface {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f10907e;
+        public final /* synthetic */ String f10808e;
 
         public c(String str) {
-            this.f10907e = str;
+            this.f10808e = str;
         }
 
         @Override // java.lang.Runnable
@@ -105,11 +105,11 @@ public class SwanAppUtilsJavaScriptInterface {
             if (SwanAppUtilsJavaScriptInterface.DEBUG) {
                 Log.d(SwanAppUtilsJavaScriptInterface.TAG, "ubcEvent in thread pool");
             }
-            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f10907e);
+            SwanAppUtilsJavaScriptInterface.this.doUbcEvent(this.f10808e);
         }
     }
 
-    public SwanAppUtilsJavaScriptInterface(Context context, d.a.i0.a.h0.f.a aVar) {
+    public SwanAppUtilsJavaScriptInterface(Context context, d.a.l0.a.h0.f.a aVar) {
         this.mActivity = context;
         this.mContext = context.getApplicationContext();
         this.mWebView = aVar;
@@ -127,7 +127,7 @@ public class SwanAppUtilsJavaScriptInterface {
             if ((TextUtils.isEmpty(optString) ? 0L : Long.valueOf(optString).longValue()) < UBC_MIN_VERSION) {
                 return;
             }
-            d.a.i0.a.j2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
+            d.a.l0.a.j2.b.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
             f.j().i().d(jSONObject);
         } catch (NumberFormatException | JSONException e2) {
             if (DEBUG) {
@@ -153,10 +153,10 @@ public class SwanAppUtilsJavaScriptInterface {
         try {
             JSONObject jSONObject = new JSONObject();
             b.a L = Q.L();
-            SwanCoreVersion N = d.a.i0.a.g1.f.V().N();
+            SwanCoreVersion N = d.a.l0.a.g1.f.V().N();
             int l = Q.l();
             jSONObject.putOpt("scheme", L.W());
-            jSONObject.putOpt(KEY_EXT_SWAN_JS, d.a.i0.a.m2.b.i(N, l));
+            jSONObject.putOpt(KEY_EXT_SWAN_JS, d.a.l0.a.m2.b.i(N, l));
             if (str != null && str.length() > 1024) {
                 jSONObject.putOpt("params", str.substring(0, 1024));
             }
@@ -202,7 +202,7 @@ public class SwanAppUtilsJavaScriptInterface {
         } catch (JSONException e2) {
             e2.printStackTrace();
         }
-        d.a.i0.a.c1.a.Y().a(context, d2, new b(str3, str4));
+        d.a.l0.a.c1.a.Y().a(context, d2, new b(str3, str4));
     }
 
     public void setActivity(Activity activity) {
@@ -226,8 +226,8 @@ public class SwanAppUtilsJavaScriptInterface {
             reportUbcBusinessEvent(str);
             return;
         }
-        d.a.i0.a.h0.f.a aVar = this.mWebView;
-        if (d.a.i0.a.h0.l.g.f.a(aVar, "ubcEvent - " + str)) {
+        d.a.l0.a.h0.f.a aVar = this.mWebView;
+        if (d.a.l0.a.h0.l.g.f.a(aVar, "ubcEvent - " + str)) {
             return;
         }
         ExecutorUtilsExt.postOnElastic(new c(str), "ubcEvent", 3);

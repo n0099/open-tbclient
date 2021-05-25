@@ -4,21 +4,21 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface bo extends IInterface {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static abstract class a extends Binder implements bo {
 
         /* renamed from: com.bytedance.embedapplog.bo$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0274a implements bo {
+        /* loaded from: classes6.dex */
+        public static class C0275a implements bo {
 
             /* renamed from: a  reason: collision with root package name */
-            public IBinder f26907a;
+            public IBinder f26836a;
 
-            public C0274a(IBinder iBinder) {
-                this.f26907a = iBinder;
+            public C0275a(IBinder iBinder) {
+                this.f26836a = iBinder;
             }
 
             @Override // com.bytedance.embedapplog.bo
@@ -30,7 +30,7 @@ public interface bo extends IInterface {
                     obtain.writeString(str);
                     obtain.writeString(str2);
                     obtain.writeString(str3);
-                    this.f26907a.transact(1, obtain, obtain2, 0);
+                    this.f26836a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -41,7 +41,7 @@ public interface bo extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f26907a;
+                return this.f26836a;
             }
         }
 
@@ -53,7 +53,7 @@ public interface bo extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof bo)) {
                 return (bo) queryLocalInterface;
             }
-            return new C0274a(iBinder);
+            return new C0275a(iBinder);
         }
 
         @Override // android.os.Binder

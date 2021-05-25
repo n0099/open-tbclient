@@ -13,21 +13,21 @@ import java.util.List;
 public final class a implements IDiffDevOAuth {
 
     /* renamed from: d  reason: collision with root package name */
-    public d f36367d;
+    public d f36296d;
     public Handler handler = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public List<OAuthListener> f36366c = new ArrayList();
+    public List<OAuthListener> f36295c = new ArrayList();
 
     /* renamed from: e  reason: collision with root package name */
-    public OAuthListener f36368e = new b(this);
+    public OAuthListener f36297e = new b(this);
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
     public final void addListener(OAuthListener oAuthListener) {
-        if (this.f36366c.contains(oAuthListener)) {
+        if (this.f36295c.contains(oAuthListener)) {
             return;
         }
-        this.f36366c.add(oAuthListener);
+        this.f36295c.add(oAuthListener);
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
@@ -41,12 +41,12 @@ public final class a implements IDiffDevOAuth {
             this.handler = new Handler(Looper.getMainLooper());
         }
         addListener(oAuthListener);
-        if (this.f36367d != null) {
+        if (this.f36296d != null) {
             Log.d("MicroMsg.SDK.DiffDevOAuth", "auth, already running, no need to start auth again");
             return true;
         }
-        d dVar = new d(str, str2, str3, str4, str5, this.f36368e);
-        this.f36367d = dVar;
+        d dVar = new d(str, str2, str3, str4, str5, this.f36297e);
+        this.f36296d = dVar;
         if (Build.VERSION.SDK_INT >= 11) {
             dVar.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         } else {
@@ -58,18 +58,18 @@ public final class a implements IDiffDevOAuth {
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
     public final void detach() {
         Log.i("MicroMsg.SDK.DiffDevOAuth", "detach");
-        this.f36366c.clear();
+        this.f36295c.clear();
         stopAuth();
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
     public final void removeAllListeners() {
-        this.f36366c.clear();
+        this.f36295c.clear();
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
     public final void removeListener(OAuthListener oAuthListener) {
-        this.f36366c.remove(oAuthListener);
+        this.f36295c.remove(oAuthListener);
     }
 
     @Override // com.tencent.mm.opensdk.diffdev.IDiffDevOAuth
@@ -77,12 +77,12 @@ public final class a implements IDiffDevOAuth {
         boolean z;
         Log.i("MicroMsg.SDK.DiffDevOAuth", "stopAuth");
         try {
-            z = this.f36367d == null ? true : this.f36367d.a();
+            z = this.f36296d == null ? true : this.f36296d.a();
         } catch (Exception e2) {
             Log.w("MicroMsg.SDK.DiffDevOAuth", "stopAuth fail, ex = " + e2.getMessage());
             z = false;
         }
-        this.f36367d = null;
+        this.f36296d = null;
         return z;
     }
 }

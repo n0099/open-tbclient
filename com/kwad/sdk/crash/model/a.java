@@ -3,14 +3,14 @@ package com.kwad.sdk.crash.model;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f33053a;
+    public String f32982a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f33054b;
+    public String f32983b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f33055c;
+    public String f32984c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f33056d;
+    public String f32985d;
 }

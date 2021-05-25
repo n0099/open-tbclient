@@ -137,7 +137,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
 
     @Override // d.a.c.e.l.e
     public boolean isNeedLoad() {
-        return d.a.j0.r.k.c().g();
+        return d.a.m0.r.k.c().g();
     }
 
     public Bitmap resizeBitmapSize(Bitmap bitmap, int i2, int i3) {
@@ -145,7 +145,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
             return null;
         }
         if (bitmap.getWidth() > i2 || bitmap.getHeight() > i3) {
-            d.a.j0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            d.a.m0.a0.c.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
             return BitmapHelper.resizeBitmap(bitmap, i2, i3, true);
         }
         return bitmap;
@@ -173,7 +173,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(cVar);
-            bVar.f39031a = diskCancelWorker;
+            bVar.f38695a = diskCancelWorker;
         }
     }
 
@@ -185,7 +185,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 long currentTimeMillis = System.currentTimeMillis();
                 aVar.A(i2);
                 aVar.z(i3);
-                d.a.j0.a0.c.k().d(str, aVar);
+                d.a.m0.a0.c.k().d(str, aVar);
                 d.a.c.e.l.a.l(true, System.currentTimeMillis() - currentTimeMillis);
             }
         }
@@ -216,7 +216,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
         if (bVar != null) {
             DiskCancelWorker diskCancelWorker = new DiskCancelWorker();
             diskCancelWorker.setOperate(createDiskPicOperate);
-            bVar.f39031a = diskCancelWorker;
+            bVar.f38695a = diskCancelWorker;
         }
         if (!d.a.c.e.a.d.g().a(createDiskPicOperate)) {
             d.a.c.e.l.a.f(false, 0L);
@@ -251,7 +251,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
     @Override // d.a.c.e.l.e
     public a getFromMemory(String str, String str2, int i2, int i3, boolean z, Object... objArr) {
         long currentTimeMillis = System.currentTimeMillis();
-        a m = d.a.j0.a0.c.k().m(str);
+        a m = d.a.m0.a0.c.k().m(str);
         if (z) {
             d.a.c.e.l.a.i(m != null, System.currentTimeMillis() - currentTimeMillis);
         }
@@ -321,7 +321,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                 z = true;
                 webClient = new WebClient();
                 if (bVar != null) {
-                    bVar.f39031a = webClient;
+                    bVar.f38695a = webClient;
                 }
                 downloadImageBytes = webClient.downloadImageBytes(str3, !isFromCDN);
                 boolean needCache = webClient.needCache();
@@ -380,14 +380,14 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     webClient2 = webClient;
                     i4 = 1;
                     c2 = 0;
-                    if (!webClient2.getResponse().f38977a) {
+                    if (!webClient2.getResponse().f38641a) {
                         d.a.c.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);
                         ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "NetworkError", System.currentTimeMillis() - currentTimeMillis, webClient2.isMobileProxy(), getProcType());
                         return null;
                     }
                 }
                 if (downloadImageBytes != null) {
-                    if (webClient2.getResponse().f38977a) {
+                    if (webClient2.getResponse().f38641a) {
                         return null;
                     }
                     d.a.c.e.l.a.j(false, str3, webClient2.mStat, 0L, 0L);
@@ -411,7 +411,7 @@ public abstract class AbstractImageLoaderProc implements e<a> {
                     ImageLogger.imagePerfNetLog(str, false, str3, Boolean.valueOf(z), webClient2.mStat, "bytes<1", currentTimeMillis2, webClient2.isMobileProxy(), getProcType());
                 }
                 byte[] bArr2 = bArr;
-                d.a.j0.a0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
+                d.a.m0.a0.c.k().i(TbConfig.getPbImageSize() + bArr2.length);
                 if (getProcType() == 19) {
                     i7 = 1;
                     Object[] objArr3 = new Object[1];

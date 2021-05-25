@@ -14,6 +14,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -43,6 +45,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NavigationBarShadowView;
 import com.baidu.tbadk.core.view.NoDataView;
@@ -50,28 +53,33 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.myAttentionAndFans.ConcernSelectView;
 import com.baidu.tieba.myAttentionAndFans.PersonListModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import d.a.j0.r.q.g1;
-import d.a.k0.n0.a.d;
+import d.a.m0.r.q.g1;
+import d.a.n0.o0.a.d;
 /* loaded from: classes3.dex */
 public class PersonListActivity extends BaseActivity<PersonListActivity> {
+    public static final int FOLLOW_TIP_X_OFFSET = 50;
     public static final int MAX_TIP_COUNT = 2;
+    public static final int SHOW_FOLLOW_TIP_MAX_COUNT = 1;
     public static final String TAG_FOLLOW = "follow";
     public static final String TAG_ID = "user_id";
     public static final String TAG_PORTRAIT = "portrait";
     public static final String TAG_SEX = "user_sex";
     public static final String TAG_TOTLEFOLLOWNUM = "total_follow_num";
+    public static final int TIP_DISMISS_TIME = 3000;
     public static final int TYPE_SHOW_BOTH_REMOVE_AND_LOOK = 3;
     public static final int TYPE_SHOW_LOOK_ALL = 1;
     public static final int TYPE_SHOW_REMOVE_ALL = 2;
     public NavigationBarShadowView mConcernSelectShadowView;
     public RelativeLayout mContainer;
     public NavigationBarCoverTip mCoverTipNaviBar;
-    public d.a.k0.n0.a.d mForbiddenFansController;
+    public d.a.n0.d0.e mFollowSwitchTipController;
+    public d.a.n0.o0.a.d mForbiddenFansController;
     public View mForbiddenTipContainer;
     public TextView mForbiddenTipView;
     public boolean mHasNetData;
@@ -82,27 +90,40 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     public NoDataView mNoDataView;
     public String mPortrait;
     public TextView mResultTipView;
-    public d.a.k0.b0.e mSelectMenuGuideTipController;
+    public d.a.n0.d0.e mSelectMenuGuideTipController;
     public ConcernSelectView mSelectView;
+    public static final int M_W_X002 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002);
+    public static final int TBDS26 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
     public BdListView mFollowListView = null;
     public View mSubTitleViewRoot = null;
     public View mSubTitleViewParent = null;
     public TextView mSubTitleText = null;
     public View mHeaderTitleViewRoot = null;
     public TextView mHeaderTitleText = null;
-    public d.a.k0.v1.b mAdapter = null;
+    public d.a.n0.w1.b mAdapter = null;
     public NoPressedRelativeLayout mParent = null;
     public boolean isFirstEnter = true;
     public TextView mTitleText = null;
+    public ImageView mFollowSwitch = null;
+    public View mTitleLayout = null;
     public int mUserSex = 0;
     public boolean mIsBjhUser = false;
     public int mTotalFollowNum = 0;
     public int mChatPersonPosition = 0;
-    public final AntiHelper.k mAntiInjectListener = new g();
-    public CustomMessageListener attentionListener = new h(2001115);
-    public HttpMessageListener mRemoveFansListener = new i(CmdConfigHttp.CMD_REMOVE_FANS);
-    public AbsListView.OnScrollListener mOnScrollListener = new j();
-    public PersonListModel.c mCallBack = new l();
+    public AttentionMode mAttentionMode = AttentionMode.NULL;
+    public final AntiHelper.k mAntiInjectListener = new i();
+    public CustomMessageListener attentionListener = new j(2001115);
+    public HttpMessageListener mRemoveFansListener = new k(CmdConfigHttp.CMD_REMOVE_FANS);
+    public AbsListView.OnScrollListener mOnScrollListener = new l();
+    public PersonListModel.d mCallBack = new n();
+    public View.OnClickListener mFollowSwitchListener = new d();
+
+    /* loaded from: classes3.dex */
+    public enum AttentionMode {
+        ALL,
+        TIEBA,
+        NULL
+    }
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -160,6 +181,31 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
+            PersonListActivity.this.hideFollowSwitchGuideTip();
+            if (PersonListActivity.this.mModel == null) {
+                return;
+            }
+            int i2 = h.f18390a[PersonListActivity.this.mAttentionMode.ordinal()];
+            if (i2 == 1) {
+                PersonListActivity.this.mAttentionMode = AttentionMode.TIEBA;
+                PersonListActivity.this.mTitleText.setText(R.string.tieba_attention);
+                PersonListActivity.this.sendFollowSwitchMessage(2);
+            } else if (i2 != 2) {
+            } else {
+                PersonListActivity.this.mAttentionMode = AttentionMode.ALL;
+                PersonListActivity.this.mTitleText.setText(R.string.all_attention);
+                PersonListActivity.this.sendFollowSwitchMessage(1);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class e implements View.OnClickListener {
+        public e() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
             if (PersonListActivity.this.mSelectMenuGuideTipController != null) {
                 PersonListActivity.this.mSelectMenuGuideTipController.I();
             }
@@ -167,8 +213,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class e extends ClickableSpan {
-        public e() {
+    public class f extends ClickableSpan {
+        public f() {
         }
 
         @Override // android.text.style.ClickableSpan
@@ -186,8 +232,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class f extends ClickableSpan {
-        public f() {
+    public class g extends ClickableSpan {
+        public g() {
         }
 
         @Override // android.text.style.ClickableSpan
@@ -205,24 +251,44 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class g implements AntiHelper.k {
-        public g() {
+    public static /* synthetic */ class h {
+
+        /* renamed from: a  reason: collision with root package name */
+        public static final /* synthetic */ int[] f18390a;
+
+        static {
+            int[] iArr = new int[AttentionMode.values().length];
+            f18390a = iArr;
+            try {
+                iArr[AttentionMode.ALL.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                f18390a[AttentionMode.TIEBA.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class i implements AntiHelper.k {
+        public i() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(d.a.j0.r.s.a aVar) {
+        public void onNavigationButtonClick(d.a.m0.r.s.a aVar) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(d.a.j0.r.s.a aVar) {
+        public void onPositiveButtonClick(d.a.m0.r.s.a aVar) {
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
         }
     }
 
     /* loaded from: classes3.dex */
-    public class h extends CustomMessageListener {
-        public h(int i2) {
+    public class j extends CustomMessageListener {
+        public j(int i2) {
             super(i2);
         }
 
@@ -232,7 +298,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             Message<?> message;
             if (customResponsedMessage instanceof UpdateAttentionMessage) {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
-                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f12668c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PersonListActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().l == null || AntiHelper.t(PersonListActivity.this.getActivity(), updateAttentionMessage.getData().l, PersonListActivity.this.mAntiInjectListener) == null) {
+                if (updateAttentionMessage.getData() == null || updateAttentionMessage.getData().f12576c == null || (message = updateAttentionMessage.getmOrginalMessage()) == null || message.getTag() == null || !message.getTag().equals(PersonListActivity.this.getPageContext().getUniqueId()) || updateAttentionMessage.getData().l == null || AntiHelper.t(PersonListActivity.this.getActivity(), updateAttentionMessage.getData().l, PersonListActivity.this.mAntiInjectListener) == null) {
                     return;
                 }
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
@@ -241,8 +307,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class i extends HttpMessageListener {
-        public i(int i2) {
+    public class k extends HttpMessageListener {
+        public k(int i2) {
             super(i2);
         }
 
@@ -257,15 +323,15 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 PersonListActivity.this.mAdapter.b();
                 PersonListActivity.this.mAdapter.notifyDataSetChanged();
             }
-            if (PersonListActivity.this.mAdapter.f62379f) {
+            if (PersonListActivity.this.mAdapter.f62485f) {
                 PersonListActivity.this.processNoData(null, false);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class j implements AbsListView.OnScrollListener {
-        public j() {
+    public class l implements AbsListView.OnScrollListener {
+        public l() {
         }
 
         @Override // android.widget.AbsListView.OnScrollListener
@@ -300,17 +366,17 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class k implements d.e {
-        public k() {
+    public class m implements d.e {
+        public m() {
         }
 
-        @Override // d.a.k0.n0.a.d.e
+        @Override // d.a.n0.o0.a.d.e
         public void a() {
             PersonListActivity personListActivity = PersonListActivity.this;
             personListActivity.showLoadingDialog(personListActivity.getString(R.string.remove_fans_loading));
         }
 
-        @Override // d.a.k0.n0.a.d.e
+        @Override // d.a.n0.o0.a.d.e
         public void b(int i2, String str, boolean z, int i3, long j) {
             if (z) {
                 PersonListActivity.this.closeLoadingDialog();
@@ -341,20 +407,20 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class l implements PersonListModel.c {
-        public l() {
+    public class n implements PersonListModel.d {
+        public n() {
         }
 
-        @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.c
+        @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.d
         public g1 a(g1 g1Var, boolean z) {
-            if (g1Var != null && g1Var.f49985e != PersonListActivity.this.mTotalFollowNum && PersonListActivity.this.mModel != null && PersonListActivity.this.mModel.y() && PersonListActivity.this.mModel.z() == 0) {
-                PersonListActivity.this.mModel.I(PersonListActivity.this.mPortrait);
+            if (g1Var != null && g1Var.f50029e != PersonListActivity.this.mTotalFollowNum && PersonListActivity.this.mModel != null && PersonListActivity.this.mModel.y() && PersonListActivity.this.mModel.z() == 0) {
+                PersonListActivity.this.mModel.K(PersonListActivity.this.mPortrait);
             }
             PersonListActivity.this.update(g1Var, z);
             return null;
         }
 
-        @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.c
+        @Override // com.baidu.tieba.myAttentionAndFans.PersonListModel.d
         public void b(String str, boolean z) {
             if (z) {
                 return;
@@ -371,8 +437,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class m implements NoPressedRelativeLayout.a {
-        public m() {
+    public class o implements NoPressedRelativeLayout.a {
+        public o() {
         }
 
         @Override // com.baidu.tbadk.core.view.NoPressedRelativeLayout.a
@@ -389,8 +455,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class n implements View.OnClickListener {
-        public n() {
+    public class p implements View.OnClickListener {
+        public p() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -413,8 +479,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class o implements View.OnClickListener {
-        public o() {
+    public class q implements View.OnClickListener {
+        public q() {
         }
 
         @Override // android.view.View.OnClickListener
@@ -432,7 +498,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void StartChat() {
         UserData userData;
-        d.a.k0.v1.b bVar = this.mAdapter;
+        d.a.n0.w1.b bVar = this.mAdapter;
         if (bVar == null || bVar.getItemViewType(this.mChatPersonPosition) != 0 || (userData = (UserData) this.mAdapter.getItem(this.mChatPersonPosition)) == null || userData.getUserId() == null || userData.getUserName() == null || userData.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
             return;
         }
@@ -444,6 +510,28 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
+    private void addFollowSwitch() {
+        this.mTitleText.setText(R.string.all_attention);
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mTitleText.getLayoutParams();
+        int i2 = M_W_X002;
+        layoutParams.rightMargin = i2;
+        layoutParams.leftMargin = i2;
+        this.mTitleText.setLayoutParams(layoutParams);
+        ImageView imageView = (ImageView) this.mNavigationBar.getCenterImgBox();
+        this.mFollowSwitch = imageView;
+        imageView.setVisibility(0);
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.mFollowSwitch.getLayoutParams();
+        int i3 = TBDS26;
+        layoutParams2.width = i3;
+        layoutParams2.height = i3;
+        this.mFollowSwitch.setLayoutParams(layoutParams2);
+        View centerImgBoxLayout = this.mNavigationBar.getCenterImgBoxLayout();
+        this.mTitleLayout = centerImgBoxLayout;
+        centerImgBoxLayout.setClickable(true);
+        this.mTitleLayout.setOnClickListener(this.mFollowSwitchListener);
+        this.mTitleLayout.setVisibility(8);
+    }
+
     private void attatchListTitleHeader() {
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.person_list_newheader, (ViewGroup) null);
         this.mHeaderTitleViewRoot = inflate;
@@ -452,6 +540,14 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         this.mHeaderTitleViewRoot.setEnabled(false);
         this.mHeaderTitleText = (TextView) this.mHeaderTitleViewRoot.findViewById(R.id.person_list_title);
         this.mFollowListView.addHeaderView(this.mHeaderTitleViewRoot, null, false);
+    }
+
+    private void dealFollowSwitchGuideTip() {
+        if (d.a.m0.r.d0.b.j().g("key_follow_guide_tip", false)) {
+            return;
+        }
+        d.a.m0.r.d0.b.j().t("key_follow_guide_tip", true);
+        showFollowSwitchGuideTip();
     }
 
     private SpannableStringBuilder getForbiddenTipSpannableString(String str, int i2) {
@@ -482,10 +578,10 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             spannableStringBuilder.append((CharSequence) str2);
         }
         if (!StringUtils.isNull(str3)) {
-            UtilHelper.setSpan(spannableStringBuilder, spannableStringBuilder.toString(), str3, new e());
+            UtilHelper.setSpan(spannableStringBuilder, spannableStringBuilder.toString(), str3, new f());
         }
         if (!StringUtils.isNull(str2)) {
-            UtilHelper.setSpan(spannableStringBuilder, spannableStringBuilder.toString(), str2, new f());
+            UtilHelper.setSpan(spannableStringBuilder, spannableStringBuilder.toString(), str2, new g());
         }
         return spannableStringBuilder;
     }
@@ -512,8 +608,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         PersonListModel personListModel = new PersonListModel(this, this.mCallBack);
         this.mModel = personListModel;
         if (bundle != null) {
-            personListModel.G(bundle.getBoolean("follow", false));
-            this.mModel.F(bundle.getString("user_id"));
+            personListModel.I(bundle.getBoolean("follow", false));
+            this.mModel.H(bundle.getString("user_id"));
             this.mUserSex = bundle.getInt("user_sex");
             this.mIsBjhUser = bundle.getBoolean(IntentConfig.IS_BJH_USER, false);
             this.mTotalFollowNum = bundle.getInt("total_follow_num");
@@ -522,8 +618,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             return;
         }
         Intent intent = getIntent();
-        this.mModel.G(intent.getBooleanExtra("follow", false));
-        this.mModel.F(intent.getStringExtra("user_id"));
+        this.mModel.I(intent.getBooleanExtra("follow", false));
+        this.mModel.H(intent.getStringExtra("user_id"));
         this.mUserSex = intent.getIntExtra("user_sex", 0);
         this.mIsBjhUser = intent.getBooleanExtra(IntentConfig.IS_BJH_USER, false);
         this.mTotalFollowNum = intent.getIntExtra("total_follow_num", 0);
@@ -554,7 +650,10 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         if (currentAccount != null && currentAccount.equals(id)) {
             if (this.mModel.y()) {
                 this.mTitleText.setText(R.string.my_attention);
-                this.mParent.setDispathEventAction(new m());
+                if (FollowListSwitch.isOn()) {
+                    addFollowSwitch();
+                }
+                this.mParent.setDispathEventAction(new o());
             } else {
                 this.mTitleText.setText(R.string.fans);
             }
@@ -577,17 +676,17 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 this.mTitleText.setText(R.string.attention_to_it);
             }
         }
-        n nVar = new n();
-        o oVar = new o();
+        p pVar = new p();
+        q qVar = new q();
         a aVar = new a();
         z = (this.mModel.getId() == null || !this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : false;
         int sex = this.mModel.getSex();
         if (getIntent().getBooleanExtra("follow", false)) {
-            this.mAdapter = new d.a.k0.v1.d(this, getIntent().getBooleanExtra("follow", false), z, sex, nVar, oVar, aVar);
+            this.mAdapter = new d.a.n0.w1.d(this, getIntent().getBooleanExtra("follow", false), z, sex, pVar, qVar, aVar);
             this.mSubTitleViewRoot.setVisibility(0);
             this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mParent, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, d.a.c.e.p.l.g(getActivity(), R.dimen.tbds530)), null, null);
         } else {
-            this.mAdapter = new d.a.k0.v1.c(this, z, sex, nVar, aVar);
+            this.mAdapter = new d.a.n0.w1.c(this, z, sex, pVar, aVar);
             this.mSubTitleViewRoot.setVisibility(8);
             this.mNoDataView = NoDataViewFactory.a(getPageContext().getPageActivity(), this.mParent, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.GIFT, d.a.c.e.p.l.g(getActivity(), R.dimen.tbds530)), null, null);
         }
@@ -615,7 +714,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
 
     private void loadDataFirstTime() {
         showLoadingView(this.mContainer);
-        this.mModel.E();
+        this.mModel.G();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -628,8 +727,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0196  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x01a7  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x01c4  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x01d5  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -650,12 +749,21 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 textView = this.mSubTitleText;
                 textView.setVisibility(0);
                 this.mSelectView.setVisibility(0);
-                if (this.mModel.z() == 0) {
-                    string = getPageContext().getString(R.string.all_concerned);
+                if (FollowListSwitch.isOn()) {
+                    if (this.mModel.z() == 0) {
+                        string = getPageContext().getString(R.string.altogether_attention);
+                    } else {
+                        string = getPageContext().getString(R.string.each_concerned);
+                    }
+                    string2 = getPageContext().getString(R.string.forum_friend);
                 } else {
-                    string = getPageContext().getString(R.string.each_concerned);
+                    if (this.mModel.z() == 0) {
+                        string = getPageContext().getString(R.string.all_concerned);
+                    } else {
+                        string = getPageContext().getString(R.string.each_concerned);
+                    }
+                    string2 = getPageContext().getString(R.string.person);
                 }
-                string2 = getPageContext().getString(R.string.person);
                 this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(R.string.not_have_attention)));
             } else {
                 this.mSubTitleViewRoot.setVisibility(8);
@@ -679,7 +787,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     textView.setText(getPageContext().getString(R.string.we_common_fans));
                     return;
                 }
-                textView.setText(string + StringHelper.numberUniformFormat(g1Var.f49985e) + string2);
+                textView.setText(string + StringHelper.numberUniformFormat(g1Var.f50029e) + string2);
                 return;
             }
         } else {
@@ -715,6 +823,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     public void processNoData(g1 g1Var, boolean z) {
         String string;
+        String string2;
         this.mFollowListView.setVisibility(8);
         if (!z) {
             this.mNoDataView.setVisibility(0);
@@ -725,12 +834,21 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                 this.mSubTitleText.setVisibility(0);
                 this.mSubTitleViewRoot.setVisibility(0);
                 this.mHeaderTitleViewRoot.setVisibility(8);
-                if (this.mModel.z() == 0) {
-                    string = getPageContext().getString(R.string.all_concerned);
+                if (FollowListSwitch.isOn()) {
+                    if (this.mModel.z() == 0) {
+                        string = getPageContext().getString(R.string.altogether_attention);
+                    } else {
+                        string = getPageContext().getString(R.string.each_concerned);
+                    }
+                    string2 = getPageContext().getString(R.string.forum_friend);
                 } else {
-                    string = getPageContext().getString(R.string.each_concerned);
+                    if (this.mModel.z() == 0) {
+                        string = getPageContext().getString(R.string.all_concerned);
+                    } else {
+                        string = getPageContext().getString(R.string.each_concerned);
+                    }
+                    string2 = getPageContext().getString(R.string.person);
                 }
-                String string2 = getPageContext().getString(R.string.person);
                 this.mNoDataView.setTextOption(NoDataViewFactory.e.d(null, getResources().getString(this.mModel.z() == 0 ? R.string.not_have_attention : R.string.not_have_each_attention)));
                 TextView textView = this.mSubTitleText;
                 textView.setText(string + 0 + string2);
@@ -744,8 +862,8 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         this.mSelectView.setVisibility(8);
         this.mSubTitleText.setVisibility(8);
         if (this.mModel.getId() != null && this.mModel.getId().equals(TbadkCoreApplication.getCurrentAccount())) {
-            if (g1Var != null && !StringUtils.isNull(g1Var.f49987g) && !this.mIsBjhUser) {
-                this.mNoDataView.getSuTextView().setText(getForbiddenTipSpannableString(g1Var.f49987g, g1Var.f49988h));
+            if (g1Var != null && !StringUtils.isNull(g1Var.f50031g) && !this.mIsBjhUser) {
+                this.mNoDataView.getSuTextView().setText(getForbiddenTipSpannableString(g1Var.f50031g, g1Var.f50032h));
                 this.mNoDataView.getSuTextView().setMovementMethod(LinkMovementMethod.getInstance());
                 this.mNoDataView.getSuTextView().setHighlightColor(getResources().getColor(R.color.transparent));
                 TiebaStatic.log(new StatisticItem("c13106").param("obj_locate", 1));
@@ -768,26 +886,64 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
+    public void sendFollowSwitchMessage(int i2) {
+        BdListView bdListView = this.mFollowListView;
+        if (bdListView != null) {
+            bdListView.setVisibility(8);
+        }
+        d.a.n0.w1.b bVar = this.mAdapter;
+        if (bVar != null) {
+            bVar.e();
+        }
+        PersonListModel personListModel = this.mModel;
+        if (personListModel != null) {
+            personListModel.J(0);
+        }
+        showLoadingView(this.mContainer);
+        setTitleClickable(false);
+        this.mModel.F(i2);
+    }
+
+    private void setTitleClickable(boolean z) {
+        View view = this.mTitleLayout;
+        if (view != null) {
+            view.setClickable(z);
+        }
+    }
+
+    private void showFollowSwitchGuideTip() {
+        if (this.mFollowSwitchTipController == null) {
+            d.a.n0.d0.e eVar = new d.a.n0.d0.e(getPageContext(), this.mTitleLayout);
+            this.mFollowSwitchTipController = eVar;
+            eVar.g0(R.drawable.bg_tip_blue_up);
+            this.mFollowSwitchTipController.T(1);
+            this.mFollowSwitchTipController.N(3000);
+            this.mFollowSwitchTipController.j0(50);
+        }
+        this.mFollowSwitchTipController.l0(getResources().getString(R.string.click_to_view_tieba_attention));
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
     public void showGuideTip() {
         if (this.mSelectMenuGuideTipController == null) {
-            d.a.k0.b0.e eVar = new d.a.k0.b0.e(getPageContext(), this.mSelectView.l);
+            d.a.n0.d0.e eVar = new d.a.n0.d0.e(getPageContext(), this.mSelectView.l);
             this.mSelectMenuGuideTipController = eVar;
             eVar.g0(R.drawable.bg_tip_blue_up);
             this.mSelectMenuGuideTipController.T(2);
             this.mSelectMenuGuideTipController.N(3000);
             this.mSelectMenuGuideTipController.j0(-10);
             this.mSelectMenuGuideTipController.k0(-16);
-            this.mSelectMenuGuideTipController.M(new d());
+            this.mSelectMenuGuideTipController.M(new e());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startGetNetData() {
-        d.a.k0.v1.b bVar = this.mAdapter;
+        d.a.n0.w1.b bVar = this.mAdapter;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
-        this.mModel.E();
+        this.mModel.G();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -803,20 +959,21 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             updateLoadMoreView(g1Var);
             updateAdapter(g1Var, z);
             if (!this.mModel.y()) {
-                d.a.j0.s.d.b.g0().c0(0);
+                d.a.m0.s.d.b.g0().c0(0);
             }
             updateView(g1Var, z);
+            updateTitleView(g1Var);
         }
     }
 
     private void updateAdapter(g1 g1Var, boolean z) {
-        d.a.k0.v1.b bVar = this.mAdapter;
+        d.a.n0.w1.b bVar = this.mAdapter;
         if (bVar != null) {
             if (!z) {
-                if (g1Var.f49984d == 1) {
+                if (g1Var.f50028d == 1) {
                     bVar.e();
                 }
-                this.mAdapter.f(g1Var.f49986f);
+                this.mAdapter.f(g1Var.f50030f);
                 this.mAdapter.a(g1Var);
                 this.mAdapter.b();
                 this.mAdapter.notifyDataSetChanged();
@@ -833,13 +990,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         if (g1Var == null) {
             return;
         }
-        if (!g1Var.f49986f && !StringUtils.isNull(g1Var.f49987g) && !this.mIsBjhUser) {
-            initAndRefreshForbiddenTipView(g1Var.f49987g, g1Var.f49988h);
+        if (!g1Var.f50030f && !StringUtils.isNull(g1Var.f50031g) && !this.mIsBjhUser) {
+            initAndRefreshForbiddenTipView(g1Var.f50031g, g1Var.f50032h);
             this.mFollowListView.removeFooterView(this.mForbiddenTipContainer);
             this.mFollowListView.addFooterView(this.mForbiddenTipContainer);
             this.mFollowListView.removeFooterView(this.mLoadMoreView.b());
             TiebaStatic.log(new StatisticItem("c13106").param("obj_locate", 2));
-        } else if (!g1Var.f49986f) {
+        } else if (!g1Var.f50030f) {
             this.mFollowListView.removeFooterView(this.mForbiddenTipContainer);
             this.mLoadMoreView.A(getString(R.string.no_more_data_tip));
             this.mLoadMoreView.f();
@@ -851,18 +1008,52 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     private void updateModel(g1 g1Var) {
-        this.mModel.H(g1Var.f49984d);
+        this.mModel.J(g1Var.f50028d);
+    }
+
+    private void updateTitleView(g1 g1Var) {
+        if (this.mTitleLayout != null) {
+            if (isLoadingViewAttached()) {
+                hideLoadingView(this.mContainer);
+                setTitleClickable(true);
+            }
+            if (g1Var.f50029e > 0) {
+                processHaveData(g1Var);
+            }
+            int i2 = g1Var.j;
+            if (i2 == 1) {
+                this.mAttentionMode = AttentionMode.ALL;
+                this.mTitleLayout.setVisibility(0);
+                this.mTitleText.setText(R.string.all_attention);
+                dealFollowSwitchGuideTip();
+            } else if (i2 != 2) {
+                this.mAttentionMode = AttentionMode.NULL;
+            } else {
+                this.mAttentionMode = AttentionMode.TIEBA;
+                this.mTitleLayout.setVisibility(0);
+                this.mTitleText.setText(R.string.tieba_attention);
+            }
+        }
     }
 
     private void updateView(g1 g1Var, boolean z) {
         if (this.mModel.A() == 0 || this.mModel.A() == 1) {
             hideLoadingView(this.mContainer);
-            if (g1Var.f49985e > 0 && !ListUtils.isEmpty(g1Var.b())) {
+            setTitleClickable(true);
+            if (g1Var.f50029e > 0 && !ListUtils.isEmpty(g1Var.b())) {
                 processHaveData(g1Var);
             } else {
                 processNoData(g1Var, z);
             }
         }
+    }
+
+    public void hideFollowSwitchGuideTip() {
+        d.a.n0.d0.e eVar = this.mFollowSwitchTipController;
+        if (eVar == null || !eVar.J()) {
+            return;
+        }
+        this.mFollowSwitchTipController.I();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -877,7 +1068,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         SkinManager.setBackgroundResource(this.mParent, R.color.CAM_X0201);
         SkinManager.setBackgroundResource(this.mContainer, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i2);
-        d.a.k0.v1.b bVar = this.mAdapter;
+        d.a.n0.w1.b bVar = this.mAdapter;
         if (bVar != null) {
             bVar.notifyDataSetChanged();
         }
@@ -904,6 +1095,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         this.mForbiddenFansController.d();
         this.mLoadMoreView.C(SkinManager.getColor(R.color.CAM_X0109));
         this.mLoadMoreView.d(i2);
+        WebPManager.setPureDrawable(this.mFollowSwitch, R.drawable.icon_pure_topbar_fans_change, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -912,11 +1104,12 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         setContentView(R.layout.person_list_activity);
         initData(bundle);
         initUI();
-        d.a.k0.n0.a.d dVar = new d.a.k0.n0.a.d(getPageContext(), getUniqueId());
+        d.a.n0.o0.a.d dVar = new d.a.n0.o0.a.d(getPageContext(), getUniqueId());
         this.mForbiddenFansController = dVar;
-        dVar.g(new k());
+        dVar.g(new m());
         registerListener(this.attentionListener);
         registerListener(this.mRemoveFansListener);
+        this.mModel.D();
         this.mModel.C();
         if (this.isFirstEnter) {
             this.isFirstEnter = false;
@@ -929,12 +1122,16 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
         if (this.mAdapter != null) {
             this.mAdapter = null;
         }
-        d.a.k0.b0.e eVar = this.mSelectMenuGuideTipController;
+        d.a.n0.d0.e eVar = this.mSelectMenuGuideTipController;
         if (eVar != null) {
             eVar.I();
         }
+        d.a.n0.d0.e eVar2 = this.mFollowSwitchTipController;
+        if (eVar2 != null) {
+            eVar2.I();
+        }
         this.mCoverTipNaviBar.i();
-        this.mModel.D();
+        this.mModel.E();
         super.onDestroy();
     }
 

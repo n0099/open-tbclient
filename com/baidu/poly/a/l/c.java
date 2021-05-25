@@ -9,23 +9,23 @@ import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import d.a.a0.b;
-import d.a.a0.f;
-import d.a.a0.g;
+import d.a.c0.b;
+import d.a.c0.f;
+import d.a.c0.g;
 /* loaded from: classes2.dex */
 public class c extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9390e;
+    public ImageView f9290e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9391f;
+    public TextView f9291f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Animation f9392g;
+    public Animation f9292g;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f9393h;
+    public boolean f9293h;
 
     public c(Context context) {
         this(context, null);
@@ -33,9 +33,9 @@ public class c extends FrameLayout {
 
     public final void a(Context context) {
         LayoutInflater.from(context).inflate(g.view_toast_loading, (ViewGroup) this, true);
-        this.f9390e = (ImageView) findViewById(f.toast_loading_view);
-        this.f9391f = (TextView) findViewById(f.toast_text_view);
-        this.f9392g = AnimationUtils.loadAnimation(context, b.loading_rotate);
+        this.f9290e = (ImageView) findViewById(f.toast_loading_view);
+        this.f9291f = (TextView) findViewById(f.toast_text_view);
+        this.f9292g = AnimationUtils.loadAnimation(context, b.loading_rotate);
         setClickable(true);
     }
 
@@ -50,23 +50,23 @@ public class c extends FrameLayout {
     }
 
     public boolean getIsLoading() {
-        return this.f9393h;
+        return this.f9293h;
     }
 
     public void setLoading(boolean z) {
         b();
-        this.f9393h = z;
+        this.f9293h = z;
         if (z) {
             setVisibility(0);
-            this.f9390e.startAnimation(this.f9392g);
+            this.f9290e.startAnimation(this.f9292g);
             return;
         }
-        this.f9390e.clearAnimation();
+        this.f9290e.clearAnimation();
         setVisibility(8);
     }
 
     public void setText(String str) {
-        this.f9391f.setText(str);
+        this.f9291f.setText(str);
     }
 
     public c(Context context, AttributeSet attributeSet) {

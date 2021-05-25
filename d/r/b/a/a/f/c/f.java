@@ -3,8 +3,8 @@ package d.r.b.a.a.f.c;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f67661a;
+    public long f67704a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67662b;
+    public String f67705b;
 }

@@ -3,7 +3,7 @@ package d.m.b.b.d;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface a {
     String a();
 

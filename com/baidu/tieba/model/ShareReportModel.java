@@ -8,7 +8,7 @@ import com.baidu.tieba.model.message.ShareReportHttpResponseMessage;
 import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
 import d.a.c.e.m.b;
-import d.a.k0.d3.d0.a;
+import d.a.n0.e3.d0.a;
 /* loaded from: classes3.dex */
 public class ShareReportModel extends BdBaseModel {
     public ShareReportModel(TbPageContext tbPageContext) {

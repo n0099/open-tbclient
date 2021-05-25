@@ -10,7 +10,7 @@ import android.util.ArrayMap;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
     @SuppressLint({"PrivateApi"})
     public static Activity a() {

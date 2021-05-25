@@ -14,38 +14,38 @@ import org.json.JSONObject;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static c f66766a;
+    public static c f66809a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static d f66767b;
+    public static d f66810b;
 
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f66768a;
+        public static final /* synthetic */ int[] f66811a;
 
         static {
             int[] iArr = new int[com.ss.android.socialbase.downloader.network.l.values().length];
-            f66768a = iArr;
+            f66811a = iArr;
             try {
                 iArr[com.ss.android.socialbase.downloader.network.l.POOR.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f66768a[com.ss.android.socialbase.downloader.network.l.MODERATE.ordinal()] = 2;
+                f66811a[com.ss.android.socialbase.downloader.network.l.MODERATE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f66768a[com.ss.android.socialbase.downloader.network.l.GOOD.ordinal()] = 3;
+                f66811a[com.ss.android.socialbase.downloader.network.l.GOOD.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             try {
-                f66768a[com.ss.android.socialbase.downloader.network.l.EXCELLENT.ordinal()] = 4;
+                f66811a[com.ss.android.socialbase.downloader.network.l.EXCELLENT.ordinal()] = 4;
             } catch (NoSuchFieldError unused4) {
             }
             try {
-                f66768a[com.ss.android.socialbase.downloader.network.l.UNKNOWN.ordinal()] = 5;
+                f66811a[com.ss.android.socialbase.downloader.network.l.UNKNOWN.ordinal()] = 5;
             } catch (NoSuchFieldError unused5) {
             }
         }
@@ -55,20 +55,20 @@ public class g {
     public static class b implements d.o.a.e.b.g.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f66769a;
+        public final String f66812a;
 
         /* renamed from: b  reason: collision with root package name */
-        public c f66770b;
+        public c f66813b;
 
         public b(c cVar, String str) {
-            this.f66770b = cVar;
-            this.f66769a = str;
+            this.f66813b = cVar;
+            this.f66812a = str;
         }
 
         @Override // d.o.a.e.b.g.i
         public int a(long j) {
             c cVar;
-            if (!d.o.a.d.n.k.J(this.f66769a) || (cVar = this.f66770b) == null) {
+            if (!d.o.a.d.n.k.J(this.f66812a) || (cVar = this.f66813b) == null) {
                 return 1;
             }
             return cVar.a(j);
@@ -79,10 +79,10 @@ public class g {
     public static class d implements d.o.a.e.b.g.h {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66773a;
+        public int f66816a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<int[]> f66774b = new ArrayList<>();
+        public ArrayList<int[]> f66817b = new ArrayList<>();
 
         public d(JSONObject jSONObject) {
             b(jSONObject);
@@ -94,31 +94,31 @@ public class g {
         }
 
         public final void b(JSONObject jSONObject) {
-            this.f66773a = jSONObject.optInt("is_open_exp", 0);
+            this.f66816a = jSONObject.optInt("is_open_exp", 0);
             e(jSONObject);
         }
 
         public boolean c() {
-            int i2 = this.f66773a;
+            int i2 = this.f66816a;
             return i2 == 2 || i2 == 3;
         }
 
         public final int d(int i2, com.ss.android.socialbase.downloader.network.l lVar) {
-            if (this.f66774b.size() < 5) {
+            if (this.f66817b.size() < 5) {
                 return i2;
             }
             int[] iArr = null;
-            int i3 = a.f66768a[lVar.ordinal()];
+            int i3 = a.f66811a[lVar.ordinal()];
             if (i3 == 1) {
-                iArr = this.f66774b.get(0);
+                iArr = this.f66817b.get(0);
             } else if (i3 == 2) {
-                iArr = this.f66774b.get(1);
+                iArr = this.f66817b.get(1);
             } else if (i3 == 3) {
-                iArr = this.f66774b.get(2);
+                iArr = this.f66817b.get(2);
             } else if (i3 == 4) {
-                iArr = this.f66774b.get(3);
+                iArr = this.f66817b.get(3);
             } else if (i3 == 5) {
-                iArr = this.f66774b.get(4);
+                iArr = this.f66817b.get(4);
             }
             if (iArr == null || iArr.length < 2) {
                 return i2;
@@ -162,7 +162,7 @@ public class g {
                     String[] split2 = optString2.split(",");
                     if (split.length >= 5 && split2.length >= 5) {
                         for (int i2 = 0; i2 < 5; i2++) {
-                            this.f66774b.add(new int[]{Integer.parseInt(split[i2]), Integer.parseInt(split2[i2])});
+                            this.f66817b.add(new int[]{Integer.parseInt(split[i2]), Integer.parseInt(split2[i2])});
                         }
                     }
                 } catch (Throwable unused) {
@@ -175,25 +175,25 @@ public class g {
     public class e implements h {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d.o.a.d.f.a.c f66775a;
+        public static d.o.a.d.f.a.c f66818a;
 
         /* loaded from: classes7.dex */
         public class a implements d.o.a.d.f.a.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66776a;
+            public final /* synthetic */ d.o.a.b.a.c.b f66819a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ InterfaceC1866g f66777b;
+            public final /* synthetic */ InterfaceC1870g f66820b;
 
-            public a(e eVar, d.o.a.b.a.c.b bVar, InterfaceC1866g interfaceC1866g) {
-                this.f66776a = bVar;
-                this.f66777b = interfaceC1866g;
+            public a(e eVar, d.o.a.b.a.c.b bVar, InterfaceC1870g interfaceC1870g) {
+                this.f66819a = bVar;
+                this.f66820b = interfaceC1870g;
             }
 
             @Override // d.o.a.d.f.a.c
             public void a() {
-                d.o.a.d.f.a.c unused = e.f66775a = null;
+                d.o.a.d.f.a.c unused = e.f66818a = null;
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("pause_optimise_type", "apk_size");
@@ -201,12 +201,12 @@ public class g {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                j.c.a().t("pause_optimise", jSONObject, this.f66776a);
+                j.c.a().t("pause_optimise", jSONObject, this.f66819a);
             }
 
             @Override // d.o.a.d.f.a.c
             public void b() {
-                d.o.a.d.f.a.c unused = e.f66775a = null;
+                d.o.a.d.f.a.c unused = e.f66818a = null;
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("pause_optimise_type", "apk_size");
@@ -214,13 +214,13 @@ public class g {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                j.c.a().t("pause_optimise", jSONObject, this.f66776a);
-                this.f66777b.a(this.f66776a);
+                j.c.a().t("pause_optimise", jSONObject, this.f66819a);
+                this.f66820b.a(this.f66819a);
             }
         }
 
         public static d.o.a.d.f.a.c c() {
-            return f66775a;
+            return f66818a;
         }
 
         public static String e(long j) {
@@ -235,7 +235,7 @@ public class g {
         }
 
         @Override // d.o.a.d.f.g.h
-        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1866g interfaceC1866g) {
+        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1870g interfaceC1870g) {
             DownloadInfo c2;
             if (bVar == null || bVar.c0() || !f(bVar) || (c2 = d.o.a.d.l.b(null).c(bVar.a())) == null) {
                 return false;
@@ -245,7 +245,7 @@ public class g {
             if (b2 <= 0 || Q0 <= 0 || Q0 > b(bVar.s())) {
                 return false;
             }
-            f66775a = new a(this, bVar, interfaceC1866g);
+            f66818a = new a(this, bVar, interfaceC1870g);
             TTDelegateActivity.a(bVar, String.format("该下载任务仅需%s，即将下载完成，是否继续下载？", e(Q0 - b2)), "继续", "暂停");
             bVar.a1(true);
             return true;
@@ -264,25 +264,25 @@ public class g {
     public class f implements h {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d.o.a.d.f.a.c f66778a;
+        public static d.o.a.d.f.a.c f66821a;
 
         /* loaded from: classes7.dex */
         public class a implements d.o.a.d.f.a.c {
 
             /* renamed from: a  reason: collision with root package name */
-            public final /* synthetic */ d.o.a.b.a.c.b f66779a;
+            public final /* synthetic */ d.o.a.b.a.c.b f66822a;
 
             /* renamed from: b  reason: collision with root package name */
-            public final /* synthetic */ InterfaceC1866g f66780b;
+            public final /* synthetic */ InterfaceC1870g f66823b;
 
-            public a(f fVar, d.o.a.b.a.c.b bVar, InterfaceC1866g interfaceC1866g) {
-                this.f66779a = bVar;
-                this.f66780b = interfaceC1866g;
+            public a(f fVar, d.o.a.b.a.c.b bVar, InterfaceC1870g interfaceC1870g) {
+                this.f66822a = bVar;
+                this.f66823b = interfaceC1870g;
             }
 
             @Override // d.o.a.d.f.a.c
             public void a() {
-                d.o.a.d.f.a.c unused = f.f66778a = null;
+                d.o.a.d.f.a.c unused = f.f66821a = null;
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("pause_optimise_type", "download_percent");
@@ -290,12 +290,12 @@ public class g {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                j.c.a().t("pause_optimise", jSONObject, this.f66779a);
+                j.c.a().t("pause_optimise", jSONObject, this.f66822a);
             }
 
             @Override // d.o.a.d.f.a.c
             public void b() {
-                d.o.a.d.f.a.c unused = f.f66778a = null;
+                d.o.a.d.f.a.c unused = f.f66821a = null;
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.putOpt("pause_optimise_type", "download_percent");
@@ -303,17 +303,17 @@ public class g {
                 } catch (JSONException e2) {
                     e2.printStackTrace();
                 }
-                j.c.a().t("pause_optimise", jSONObject, this.f66779a);
-                this.f66780b.a(this.f66779a);
+                j.c.a().t("pause_optimise", jSONObject, this.f66822a);
+                this.f66823b.a(this.f66822a);
             }
         }
 
         public static d.o.a.d.f.a.c c() {
-            return f66778a;
+            return f66821a;
         }
 
         @Override // d.o.a.d.f.g.h
-        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1866g interfaceC1866g) {
+        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1870g interfaceC1870g) {
             DownloadInfo c2;
             if (bVar == null || bVar.d0() || !e(bVar) || (c2 = d.o.a.d.l.b(null).c(bVar.a())) == null) {
                 return false;
@@ -323,7 +323,7 @@ public class g {
             if (E > 0 && Q0 > 0) {
                 int a2 = m.a(c2.c0(), (int) ((E * 100) / Q0));
                 if (a2 > b(bVar.s())) {
-                    f66778a = new a(this, bVar, interfaceC1866g);
+                    f66821a = new a(this, bVar, interfaceC1870g);
                     TTDelegateActivity.b(bVar, String.format("已下载%s%%，即将下载完成，是否继续下载？", Integer.valueOf(a2)), "继续", "暂停");
                     bVar.b1(true);
                     return true;
@@ -343,19 +343,19 @@ public class g {
 
     /* renamed from: d.o.a.d.f.g$g  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC1866g {
+    public interface InterfaceC1870g {
         void a(d.o.a.b.a.c.b bVar);
     }
 
     /* loaded from: classes7.dex */
     public interface h {
-        boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1866g interfaceC1866g);
+        boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1870g interfaceC1870g);
     }
 
     /* loaded from: classes7.dex */
     public class i implements h {
         @Override // d.o.a.d.f.g.h
-        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1866g interfaceC1866g) {
+        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1870g interfaceC1870g) {
             if (bVar != null && c(bVar.s())) {
                 if (System.currentTimeMillis() - bVar.O() <= b(bVar.s())) {
                     JSONObject jSONObject = new JSONObject();
@@ -385,70 +385,70 @@ public class g {
     public class j {
 
         /* renamed from: b  reason: collision with root package name */
-        public static j f66781b;
+        public static j f66824b;
 
         /* renamed from: a  reason: collision with root package name */
-        public List<h> f66782a;
+        public List<h> f66825a;
 
         public j() {
             ArrayList arrayList = new ArrayList();
-            this.f66782a = arrayList;
+            this.f66825a = arrayList;
             arrayList.add(new i());
-            this.f66782a.add(new k());
-            this.f66782a.add(new f());
-            this.f66782a.add(new e());
+            this.f66825a.add(new k());
+            this.f66825a.add(new f());
+            this.f66825a.add(new e());
         }
 
         public static j a() {
-            if (f66781b == null) {
+            if (f66824b == null) {
                 synchronized (j.class) {
-                    if (f66781b == null) {
-                        f66781b = new j();
+                    if (f66824b == null) {
+                        f66824b = new j();
                     }
                 }
             }
-            return f66781b;
+            return f66824b;
         }
 
-        public void b(d.o.a.b.a.c.b bVar, int i2, InterfaceC1866g interfaceC1866g) {
-            List<h> list = this.f66782a;
+        public void b(d.o.a.b.a.c.b bVar, int i2, InterfaceC1870g interfaceC1870g) {
+            List<h> list = this.f66825a;
             if (list != null && list.size() != 0 && bVar != null) {
                 DownloadInfo c2 = d.o.a.d.l.b(null).c(bVar.a());
                 if (c2 != null && "application/vnd.android.package-archive".equals(c2.m0())) {
                     boolean z = d.o.a.e.b.j.a.d(bVar.s()).b("pause_optimise_switch", 0) == 1;
-                    for (h hVar : this.f66782a) {
+                    for (h hVar : this.f66825a) {
                         if (z || (hVar instanceof k)) {
-                            if (hVar.a(bVar, i2, interfaceC1866g)) {
+                            if (hVar.a(bVar, i2, interfaceC1870g)) {
                                 return;
                             }
                         }
                     }
-                    interfaceC1866g.a(bVar);
+                    interfaceC1870g.a(bVar);
                     return;
                 }
-                interfaceC1866g.a(bVar);
+                interfaceC1870g.a(bVar);
                 return;
             }
-            interfaceC1866g.a(bVar);
+            interfaceC1870g.a(bVar);
         }
     }
 
     /* loaded from: classes7.dex */
     public class k implements h {
         @Override // d.o.a.d.f.g.h
-        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1866g interfaceC1866g) {
+        public boolean a(d.o.a.b.a.c.b bVar, int i2, InterfaceC1870g interfaceC1870g) {
             if (bVar == null) {
                 return false;
             }
-            return p.d(bVar, d.o.a.d.l.b(null).c(bVar.a()), i2, interfaceC1866g);
+            return p.d(bVar, d.o.a.d.l.b(null).c(bVar.a()), i2, interfaceC1870g);
         }
     }
 
     public static d.o.a.e.b.g.h a() {
-        if (f66767b == null) {
-            f66767b = new d(n.s());
+        if (f66810b == null) {
+            f66810b = new d(n.s());
         }
-        return f66767b;
+        return f66810b;
     }
 
     public static d.o.a.e.b.g.h b(JSONObject jSONObject) {
@@ -459,10 +459,10 @@ public class g {
     }
 
     public static d.o.a.e.b.g.i c(String str) {
-        if (f66766a == null) {
-            f66766a = new c(n.s());
+        if (f66809a == null) {
+            f66809a = new c(n.s());
         }
-        return new b(f66766a, str);
+        return new b(f66809a, str);
     }
 
     public static d.o.a.e.b.g.i d(String str, JSONObject jSONObject) {
@@ -484,10 +484,10 @@ public class g {
     public static class c implements d.o.a.e.b.g.i {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f66771a;
+        public int f66814a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ArrayList<int[]> f66772b = new ArrayList<>();
+        public ArrayList<int[]> f66815b = new ArrayList<>();
 
         public c(JSONObject jSONObject) {
             b(jSONObject);
@@ -502,12 +502,12 @@ public class g {
         }
 
         public final void b(JSONObject jSONObject) {
-            this.f66771a = jSONObject.optInt("is_open_exp", 0);
+            this.f66814a = jSONObject.optInt("is_open_exp", 0);
             d(jSONObject);
         }
 
         public boolean c() {
-            int i2 = this.f66771a;
+            int i2 = this.f66814a;
             return i2 == 1 || i2 == 3;
         }
 
@@ -543,7 +543,7 @@ public class g {
                     }
                     for (int i3 = 0; i3 < strArr2[i2].length - 1; i3 += 2) {
                         try {
-                            this.f66772b.add(new int[]{i2, Integer.parseInt(strArr2[i2][i3]), Integer.parseInt(strArr2[i2][i3 + 1])});
+                            this.f66815b.add(new int[]{i2, Integer.parseInt(strArr2[i2][i3]), Integer.parseInt(strArr2[i2][i3 + 1])});
                         } catch (Throwable th2) {
                             th2.printStackTrace();
                         }
@@ -557,8 +557,8 @@ public class g {
         }
 
         public final int a(int i2) {
-            for (int i3 = 0; i3 < this.f66772b.size(); i3++) {
-                int[] iArr = this.f66772b.get(i3);
+            for (int i3 = 0; i3 < this.f66815b.size(); i3++) {
+                int[] iArr = this.f66815b.get(i3);
                 if (i2 >= iArr[1] && i2 < iArr[2]) {
                     return iArr[0];
                 }

@@ -46,7 +46,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.davemorrissey.labs.subscaleview.ImageSource;
 import com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView;
-import d.a.j0.r.s.a;
+import d.a.m0.r.s.a;
 import java.io.File;
 /* loaded from: classes3.dex */
 public class UrlDragImageView extends RelativeLayout {
@@ -71,7 +71,7 @@ public class UrlDragImageView extends RelativeLayout {
     public boolean O;
     public boolean P;
     public boolean Q;
-    public d.a.j0.b0.b R;
+    public d.a.m0.b0.b R;
     public int S;
     public int T;
     public p U;
@@ -83,23 +83,23 @@ public class UrlDragImageView extends RelativeLayout {
     public String d0;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12768e;
+    public int f12676e;
     public String e0;
 
     /* renamed from: f  reason: collision with root package name */
-    public Context f12769f;
+    public Context f12677f;
     public CircleProgressView f0;
 
     /* renamed from: g  reason: collision with root package name */
-    public ProgressBar f12770g;
+    public ProgressBar f12678g;
     public boolean g0;
 
     /* renamed from: h  reason: collision with root package name */
-    public DragImageView f12771h;
+    public DragImageView f12679h;
     public boolean h0;
 
     /* renamed from: i  reason: collision with root package name */
-    public TextView f12772i;
+    public TextView f12680i;
     public Runnable i0;
     public SubsamplingScaleImageView j;
     public Runnable j0;
@@ -122,27 +122,27 @@ public class UrlDragImageView extends RelativeLayout {
     public final Matrix z;
 
     /* loaded from: classes3.dex */
-    public class a implements d.a.j0.a0.b {
+    public class a implements d.a.m0.a0.b {
         public a() {
         }
 
-        @Override // d.a.j0.a0.b
+        @Override // d.a.m0.a0.b
         public void a(d.a.c.j.d.a aVar, String str, boolean z) {
             UrlDragImageView.this.o = true;
-            UrlDragImageView.this.f12770g.setVisibility(8);
+            UrlDragImageView.this.f12678g.setVisibility(8);
             UrlDragImageView.this.d0 = null;
             UrlDragImageView.this.M(aVar);
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements d.a.j0.b1.i.b.a {
+    public class b implements d.a.m0.b1.i.b.a {
         public b() {
         }
 
-        @Override // d.a.j0.b1.i.b.a
+        @Override // d.a.m0.b1.i.b.a
         public void onLoadFinished() {
-            UrlDragImageView.this.f12770g.setVisibility(8);
+            UrlDragImageView.this.f12678g.setVisibility(8);
             UrlDragImageView.this.d0 = null;
         }
     }
@@ -151,20 +151,20 @@ public class UrlDragImageView extends RelativeLayout {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.j0.r.s.a f12775e;
+        public final /* synthetic */ d.a.m0.r.s.a f12683e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f12776f;
+        public final /* synthetic */ String f12684f;
 
-        public c(d.a.j0.r.s.a aVar, String str) {
-            this.f12775e = aVar;
-            this.f12776f = str;
+        public c(d.a.m0.r.s.a aVar, String str) {
+            this.f12683e = aVar;
+            this.f12684f = str;
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
-            this.f12775e.dismiss();
-            UrlDragImageView.this.c0(this.f12776f);
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            this.f12683e.dismiss();
+            UrlDragImageView.this.c0(this.f12684f);
         }
     }
 
@@ -172,35 +172,35 @@ public class UrlDragImageView extends RelativeLayout {
     public class d implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.j0.r.s.a f12778e;
+        public final /* synthetic */ d.a.m0.r.s.a f12686e;
 
-        public d(d.a.j0.r.s.a aVar) {
-            this.f12778e = aVar;
+        public d(d.a.m0.r.s.a aVar) {
+            this.f12686e = aVar;
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
-            this.f12778e.dismiss();
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            this.f12686e.dismiss();
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements d.a.j0.v.c {
+    public class e implements d.a.m0.v.c {
         public e() {
         }
 
-        @Override // d.a.j0.v.c
+        @Override // d.a.m0.v.c
         public void onFileDownloadFailed(DownloadData downloadData, int i2, String str) {
             UrlDragImageView.this.f0.setVisibility(8);
             UrlDragImageView.this.P = false;
-            BdToast c2 = BdToast.c(UrlDragImageView.this.f12769f, str);
+            BdToast c2 = BdToast.c(UrlDragImageView.this.f12677f, str);
             c2.a();
             c2.q();
             UrlDragImageView.this.N.originalProcess = -1;
             UrlDragImageView.this.b0();
         }
 
-        @Override // d.a.j0.v.c
+        @Override // d.a.m0.v.c
         public void onFileDownloadSucceed(DownloadData downloadData) {
             UrlDragImageView.this.f0.setVisibility(8);
             d.a.c.e.m.e.a().postDelayed(UrlDragImageView.this.j0, 1500L);
@@ -210,12 +210,12 @@ public class UrlDragImageView extends RelativeLayout {
             UrlDragImageView.this.F();
         }
 
-        @Override // d.a.j0.v.c
+        @Override // d.a.m0.v.c
         public boolean onFileDownloaded(DownloadData downloadData) {
             return true;
         }
 
-        @Override // d.a.j0.v.c
+        @Override // d.a.m0.v.c
         public void onFileUpdateProgress(DownloadData downloadData) {
             if (downloadData == null) {
                 return;
@@ -228,7 +228,7 @@ public class UrlDragImageView extends RelativeLayout {
             }
         }
 
-        @Override // d.a.j0.v.c
+        @Override // d.a.m0.v.c
         public boolean onPreDownload(DownloadData downloadData) {
             return true;
         }
@@ -284,15 +284,15 @@ public class UrlDragImageView extends RelativeLayout {
     public class h implements DragImageView.k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ DragImageView.k f12784a;
+        public final /* synthetic */ DragImageView.k f12692a;
 
         public h(DragImageView.k kVar) {
-            this.f12784a = kVar;
+            this.f12692a = kVar;
         }
 
         @Override // com.baidu.tbadk.widget.DragImageView.k
         public void a(DragImageView dragImageView, boolean z, boolean z2) {
-            DragImageView.k kVar = this.f12784a;
+            DragImageView.k kVar = this.f12692a;
             if (kVar != null) {
                 kVar.a(dragImageView, z, z2);
             }
@@ -304,23 +304,23 @@ public class UrlDragImageView extends RelativeLayout {
     public class i implements ValueAnimator.AnimatorUpdateListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Rect f12786e;
+        public final /* synthetic */ Rect f12694e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Rect f12787f;
+        public final /* synthetic */ Rect f12695f;
 
         public i(Rect rect, Rect rect2) {
-            this.f12786e = rect;
-            this.f12787f = rect2;
+            this.f12694e = rect;
+            this.f12695f = rect2;
         }
 
         @Override // android.animation.ValueAnimator.AnimatorUpdateListener
         public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            if (valueAnimator == null || this.f12786e == null || this.f12787f == null) {
+            if (valueAnimator == null || this.f12694e == null || this.f12695f == null) {
                 return;
             }
             UrlDragImageView.this.A(valueAnimator.getAnimatedFraction());
-            UrlDragImageView.this.B(this.f12787f, valueAnimator.getAnimatedFraction(), UrlDragImageView.this.h0);
+            UrlDragImageView.this.B(this.f12695f, valueAnimator.getAnimatedFraction(), UrlDragImageView.this.h0);
             UrlDragImageView.this.invalidate();
         }
     }
@@ -371,20 +371,20 @@ public class UrlDragImageView extends RelativeLayout {
     public class l implements SubsamplingScaleImageView.OnImageEventListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ int[] f12791a;
+        public final /* synthetic */ int[] f12699a;
 
         /* loaded from: classes3.dex */
         public class a implements View.OnTouchListener {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ float f12793e;
+            public final /* synthetic */ float f12701e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ PointF f12794f;
+            public final /* synthetic */ PointF f12702f;
 
             public a(float f2, PointF pointF) {
-                this.f12793e = f2;
-                this.f12794f = pointF;
+                this.f12701e = f2;
+                this.f12702f = pointF;
             }
 
             /* JADX WARN: Code restructure failed: missing block: B:12:0x0029, code lost:
@@ -417,9 +417,9 @@ public class UrlDragImageView extends RelativeLayout {
                         }
                     }
                     float scale = UrlDragImageView.this.j.getScale();
-                    float f2 = this.f12793e;
+                    float f2 = this.f12701e;
                     if (scale < f2) {
-                        UrlDragImageView.this.j.setScaleAndCenter(f2, this.f12794f);
+                        UrlDragImageView.this.j.setScaleAndCenter(f2, this.f12702f);
                     }
                     d.a.c.e.m.e.a().removeCallbacks(UrlDragImageView.this.i0);
                     d.a.c.e.m.e.a().postDelayed(UrlDragImageView.this.i0, 1000L);
@@ -429,7 +429,7 @@ public class UrlDragImageView extends RelativeLayout {
         }
 
         public l(int[] iArr) {
-            this.f12791a = iArr;
+            this.f12699a = iArr;
         }
 
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
@@ -438,12 +438,12 @@ public class UrlDragImageView extends RelativeLayout {
 
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
         public void onImageLoaded() {
-            if (!UrlDragImageView.this.N.isLongPic || this.f12791a[0] <= 0) {
+            if (!UrlDragImageView.this.N.isLongPic || this.f12699a[0] <= 0) {
                 return;
             }
-            UrlDragImageView.this.f12771h.c0();
-            float measuredWidth = (UrlDragImageView.this.getMeasuredWidth() * 1.0f) / this.f12791a[0];
-            PointF pointF = new PointF((this.f12791a[0] * 1.0f) / 2.0f, 0.0f);
+            UrlDragImageView.this.f12679h.c0();
+            float measuredWidth = (UrlDragImageView.this.getMeasuredWidth() * 1.0f) / this.f12699a[0];
+            PointF pointF = new PointF((this.f12699a[0] * 1.0f) / 2.0f, 0.0f);
             UrlDragImageView.this.j.setScaleAndCenter(measuredWidth, pointF);
             float f2 = 2.0f * measuredWidth;
             UrlDragImageView.this.j.setMaxScale(f2);
@@ -451,7 +451,7 @@ public class UrlDragImageView extends RelativeLayout {
             UrlDragImageView.this.j.setInitScale(measuredWidth);
             UrlDragImageView.this.j.setDoubleTapZoomStyle(4);
             UrlDragImageView.this.j.setOnTouchListener(new a(measuredWidth, pointF));
-            UrlDragImageView.this.f12771h.setVisibility(4);
+            UrlDragImageView.this.f12679h.setVisibility(4);
         }
 
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
@@ -461,9 +461,9 @@ public class UrlDragImageView extends RelativeLayout {
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
         public void onReady() {
             UrlDragImageView.this.d0 = null;
-            UrlDragImageView.this.f12770g.setVisibility(8);
-            UrlDragImageView.this.f12771h.p0();
-            UrlDragImageView.this.f12771h.setVisibility(4);
+            UrlDragImageView.this.f12678g.setVisibility(8);
+            UrlDragImageView.this.f12679h.p0();
+            UrlDragImageView.this.f12679h.setVisibility(4);
         }
 
         @Override // com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.OnImageEventListener
@@ -472,11 +472,11 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class m implements d.a.j0.b1.i.b.a {
+    public class m implements d.a.m0.b1.i.b.a {
         public m() {
         }
 
-        @Override // d.a.j0.b1.i.b.a
+        @Override // d.a.m0.b1.i.b.a
         public void onLoadFinished() {
         }
     }
@@ -489,8 +489,8 @@ public class UrlDragImageView extends RelativeLayout {
         @Override // d.a.c.e.l.c
         public void onCancelled(String str) {
             UrlDragImageView.this.p = false;
-            UrlDragImageView.this.f12771h.setVisibility(0);
-            UrlDragImageView.this.f12770g.setVisibility(8);
+            UrlDragImageView.this.f12679h.setVisibility(0);
+            UrlDragImageView.this.f12678g.setVisibility(8);
             UrlDragImageView.this.d0 = null;
         }
 
@@ -515,9 +515,9 @@ public class UrlDragImageView extends RelativeLayout {
 
     public UrlDragImageView(Context context) {
         super(context);
-        this.f12768e = 3;
-        this.f12770g = null;
-        this.f12771h = null;
+        this.f12676e = 3;
+        this.f12678g = null;
+        this.f12679h = null;
         this.l = null;
         this.m = false;
         this.p = false;
@@ -542,8 +542,8 @@ public class UrlDragImageView extends RelativeLayout {
         this.i0 = new f();
         this.j0 = new g();
         this.k0 = new k();
-        this.f12769f = context;
-        this.R = new d.a.j0.b0.b();
+        this.f12677f = context;
+        this.R = new d.a.m0.b0.b();
         N();
     }
 
@@ -554,18 +554,18 @@ public class UrlDragImageView extends RelativeLayout {
         }
         this.n = true;
         if (aVar.t()) {
-            this.f12771h.setImageUrlData(this.N);
-            this.f12771h.setImageBitmap(p2);
+            this.f12679h.setImageUrlData(this.N);
+            this.f12679h.setImageBitmap(p2);
             this.d0 = null;
             this.Q = false;
         } else {
             ImageUrlData imageUrlData = this.N;
             if (imageUrlData != null && imageUrlData.isLongPic) {
-                this.f12771h.T();
-                this.f12771h.setImageLoadCallBack(new m());
+                this.f12679h.T();
+                this.f12679h.setImageLoadCallBack(new m());
             }
-            this.f12771h.setImageUrlData(this.N);
-            this.f12771h.setImageData(p2, aVar.k());
+            this.f12679h.setImageUrlData(this.N);
+            this.f12679h.setImageData(p2, aVar.k());
         }
         a0();
     }
@@ -623,15 +623,15 @@ public class UrlDragImageView extends RelativeLayout {
 
     public void D(boolean z, boolean z2) {
         String str;
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         if (dragImageView == null || (str = (String) dragImageView.getTag()) == null) {
             return;
         }
-        if (this.f12771h.getImageType() == 1) {
-            if (this.f12771h.getGifCache() == null || !this.f12771h.Z()) {
+        if (this.f12679h.getImageType() == 1) {
+            if (this.f12679h.getGifCache() == null || !this.f12679h.Z()) {
                 U(str, z, z2);
             }
-        } else if (this.f12771h.getImageType() == 2) {
+        } else if (this.f12679h.getImageType() == 2) {
             U(str, z, z2);
         } else if (S()) {
             U(str, z, z2);
@@ -710,7 +710,7 @@ public class UrlDragImageView extends RelativeLayout {
     public void I() {
         String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(this.N.originalUrl);
         if (this.N.originalProcess >= 0) {
-            d.a.j0.v.d.j().f(nameMd5FromUrl, 13);
+            d.a.m0.v.d.j().f(nameMd5FromUrl, 13);
             this.N.originalProcess = -1;
             b0();
             return;
@@ -719,12 +719,12 @@ public class UrlDragImageView extends RelativeLayout {
         if (pVar != null) {
             pVar.a();
         }
-        d.a.c.a.f<?> a2 = d.a.c.a.j.a(this.f12769f);
+        d.a.c.a.f<?> a2 = d.a.c.a.j.a(this.f12677f);
         if (a2 == null) {
             c0(nameMd5FromUrl);
-        } else if (d.a.c.e.p.j.z() && !d.a.c.e.p.j.H() && !d.a.j0.r.d0.b.j().g("original_img_down_tip", false)) {
-            d.a.j0.r.d0.b.j().t("original_img_down_tip", true);
-            d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(a2.getPageActivity());
+        } else if (d.a.c.e.p.j.z() && !d.a.c.e.p.j.H() && !d.a.m0.r.d0.b.j().g("original_img_down_tip", false)) {
+            d.a.m0.r.d0.b.j().t("original_img_down_tip", true);
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(a2.getPageActivity());
             aVar.setMessageId(R.string.original_img_down_no_wifi_tip);
             aVar.setPositiveButton(R.string.alert_yes_button, new c(aVar, nameMd5FromUrl));
             aVar.setNegativeButton(R.string.cancel, new d(aVar));
@@ -740,15 +740,15 @@ public class UrlDragImageView extends RelativeLayout {
             ImageUrlData imageUrlData = this.N;
             if (imageUrlData == null || !imageUrlData.isLongPic || this.j.getVisibility() != 0 || this.j.isViewTop()) {
                 ImageUrlData imageUrlData2 = this.N;
-                if (imageUrlData2 == null || !imageUrlData2.isLongPic || this.j.getVisibility() == 0 || this.f12771h.Y() || this.f12771h.a0()) {
-                    if (this.j.getVisibility() == 0 || this.f12771h.f0()) {
+                if (imageUrlData2 == null || !imageUrlData2.isLongPic || this.j.getVisibility() == 0 || this.f12679h.Y() || this.f12679h.a0()) {
+                    if (this.j.getVisibility() == 0 || this.f12679h.f0()) {
                         if (this.v != null && getScrollY() == 0) {
                             ImageUrlData imageUrlData3 = this.N;
                             boolean z = (imageUrlData3 == null || !imageUrlData3.isLongPic) && ((f3 < -15.0f && !this.w) || (f3 > 15.0f && !this.w));
                             ImageUrlData imageUrlData4 = this.N;
                             boolean z2 = imageUrlData4 != null && imageUrlData4.isLongPic && f3 < 0.0f && !this.w;
-                            if (z || (z2 && this.f12771h.b0())) {
-                                this.f12771h.setImageOnLongClickListener(null);
+                            if (z || (z2 && this.f12679h.b0())) {
+                                this.f12679h.setImageOnLongClickListener(null);
                                 this.j.setOnLongClickListener(null);
                                 this.w = true;
                                 this.y = 0.0f;
@@ -814,25 +814,25 @@ public class UrlDragImageView extends RelativeLayout {
         }
         if (aVar != null && aVar.p() != null) {
             Bitmap p2 = aVar.p();
-            this.f12771h.setLoadBigImage(true);
+            this.f12679h.setLoadBigImage(true);
             if (aVar.t()) {
-                this.f12771h.setGifData(aVar.k(), p2);
-                this.f12771h.invalidate();
-                this.f12771h.h0();
+                this.f12679h.setGifData(aVar.k(), p2);
+                this.f12679h.invalidate();
+                this.f12679h.h0();
                 this.Q = false;
                 this.d0 = null;
-                this.f12770g.setVisibility(8);
+                this.f12678g.setVisibility(8);
             } else {
                 ImageUrlData imageUrlData = this.N;
                 if (imageUrlData != null && imageUrlData.isLongPic) {
-                    this.f12771h.T();
-                    this.f12771h.setImageLoadCallBack(new b());
+                    this.f12679h.T();
+                    this.f12679h.setImageLoadCallBack(new b());
                 } else {
-                    this.f12770g.setVisibility(8);
+                    this.f12678g.setVisibility(8);
                     this.d0 = null;
                 }
-                this.f12771h.setImageUrlData(this.N);
-                this.f12771h.setImageData(p2, aVar.k());
+                this.f12679h.setImageUrlData(this.N);
+                this.f12679h.setImageData(p2, aVar.k());
                 b0();
             }
             a0();
@@ -843,34 +843,34 @@ public class UrlDragImageView extends RelativeLayout {
 
     public void N() {
         this.H = TbadkCoreApplication.getInst().getCacheDir().getAbsolutePath();
-        this.S = d.a.c.e.p.l.k(this.f12769f);
-        this.T = d.a.c.e.p.l.i(this.f12769f) - ((int) this.f12769f.getResources().getDimension(R.dimen.ds166));
+        this.S = d.a.c.e.p.l.k(this.f12677f);
+        this.T = d.a.c.e.p.l.i(this.f12677f) - ((int) this.f12677f.getResources().getDimension(R.dimen.ds166));
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-        DragImageView dragImageView = new DragImageView(this.f12769f);
-        this.f12771h = dragImageView;
+        DragImageView dragImageView = new DragImageView(this.f12677f);
+        this.f12679h = dragImageView;
         dragImageView.setLayoutParams(layoutParams);
-        this.f12771h.setOnTouchListener(this.k0);
-        addView(this.f12771h);
-        SubsamplingScaleImageView subsamplingScaleImageView = new SubsamplingScaleImageView(this.f12769f);
+        this.f12679h.setOnTouchListener(this.k0);
+        addView(this.f12679h);
+        SubsamplingScaleImageView subsamplingScaleImageView = new SubsamplingScaleImageView(this.f12677f);
         this.j = subsamplingScaleImageView;
         subsamplingScaleImageView.setMaxScale(50.0f);
         this.j.setOnTouchListener(this.k0);
         this.j.setVisibility(4);
         addView(this.j, layoutParams);
-        ProgressBar progressBar = new ProgressBar(this.f12769f, null, 16843399);
-        this.f12770g = progressBar;
+        ProgressBar progressBar = new ProgressBar(this.f12677f, null, 16843399);
+        this.f12678g = progressBar;
         progressBar.setIndeterminateDrawable(getResources().getDrawable(R.drawable.progressbar));
         RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams2.addRule(13);
-        this.f12770g.setLayoutParams(layoutParams2);
-        this.f12770g.setIndeterminate(true);
-        addView(this.f12770g);
+        this.f12678g.setLayoutParams(layoutParams2);
+        this.f12678g.setIndeterminate(true);
+        addView(this.f12678g);
         O();
         this.h0 = TbSingleton.getInstance().isCutoutScreen(TbadkApplication.getInst().getCurrentActivity());
     }
 
     public final void O() {
-        CircleProgressView circleProgressView = new CircleProgressView(this.f12769f);
+        CircleProgressView circleProgressView = new CircleProgressView(this.f12677f);
         this.f0 = circleProgressView;
         circleProgressView.setCircleBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
         this.f0.setCircleForegroundColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -882,7 +882,7 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     public final boolean P() {
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         return dragImageView != null && dragImageView.Z();
     }
 
@@ -895,9 +895,9 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     public final boolean S() {
-        if (this.f12771h.getImageBitmap() != null && this.f12771h.Z()) {
+        if (this.f12679h.getImageBitmap() != null && this.f12679h.Z()) {
             ImageUrlData imageUrlData = this.N;
-            if (imageUrlData == null || !imageUrlData.isLongPic || this.f12771h.W()) {
+            if (imageUrlData == null || !imageUrlData.isLongPic || this.f12679h.W()) {
                 return false;
             }
             this.o = false;
@@ -919,21 +919,21 @@ public class UrlDragImageView extends RelativeLayout {
                     return;
                 }
                 this.p = true;
-                d.a.c.e.l.d.h().l(str, 27, new n(), 0, 0, false, null, Boolean.valueOf(z), this.f12771h.getImageData(), Boolean.valueOf(this.m));
+                d.a.c.e.l.d.h().l(str, 27, new n(), 0, 0, false, null, Boolean.valueOf(z), this.f12679h.getImageData(), Boolean.valueOf(this.m));
                 return;
             }
             return;
         }
-        this.f12770g.setVisibility(0);
+        this.f12678g.setVisibility(0);
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath(str);
         imageFileInfo.setTempFile(true);
         imageFileInfo.clearPageActions();
-        imageFileInfo.addPageAction(d.a.j0.b0.g.d.g(this.S, this.T));
+        imageFileInfo.addPageAction(d.a.m0.b0.g.d.g(this.S, this.T));
         d.a.c.j.d.a c2 = this.R.c(imageFileInfo, false);
         if (c2 != null) {
             this.o = true;
-            this.f12770g.setVisibility(8);
+            this.f12678g.setVisibility(8);
             this.d0 = null;
             M(c2);
             return;
@@ -946,13 +946,13 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     public void W(int i2) {
-        if (this.f12768e != i2) {
-            this.f12768e = i2;
+        if (this.f12676e != i2) {
+            this.f12676e = i2;
         }
     }
 
     public void X() {
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         if (dragImageView != null) {
             dragImageView.c0();
         }
@@ -965,21 +965,21 @@ public class UrlDragImageView extends RelativeLayout {
             bitmap.recycle();
             this.v = null;
         }
-        ProgressBar progressBar = this.f12770g;
+        ProgressBar progressBar = this.f12678g;
         if (progressBar != null) {
             this.d0 = null;
             progressBar.setVisibility(8);
         }
         d.a.c.e.m.e.a().removeCallbacks(this.i0);
-        d.a.k0.u3.c.a().d(-1);
+        d.a.n0.v3.c.a().d(-1);
     }
 
     public void Y() {
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         if (dragImageView != null) {
             dragImageView.l0();
         }
-        ProgressBar progressBar = this.f12770g;
+        ProgressBar progressBar = this.f12678g;
         if (progressBar != null) {
             this.d0 = null;
             progressBar.setVisibility(8);
@@ -989,12 +989,12 @@ public class UrlDragImageView extends RelativeLayout {
 
     public final void Z() {
         if (!this.n) {
-            this.f12771h.setDefaultBitmap();
+            this.f12679h.setDefaultBitmap();
         } else {
             this.o = false;
         }
         this.d0 = null;
-        this.f12770g.setVisibility(8);
+        this.f12678g.setVisibility(8);
     }
 
     public final void a0() {
@@ -1002,29 +1002,29 @@ public class UrlDragImageView extends RelativeLayout {
         if (!(this.n || this.o) || (imageUrlData = this.N) == null || imageUrlData.mPicType != 1 || TextUtils.isEmpty(imageUrlData.mTagName)) {
             return;
         }
-        TextView textView = this.f12772i;
+        TextView textView = this.f12680i;
         if (textView != null) {
             textView.setVisibility(8);
-            this.f12772i = null;
+            this.f12680i = null;
         }
-        TextView textView2 = new TextView(this.f12769f);
-        this.f12772i = textView2;
+        TextView textView2 = new TextView(this.f12677f);
+        this.f12680i = textView2;
         textView2.setText(this.N.mTagName);
-        this.f12772i.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize26));
-        SkinManager.setViewTextColor(this.f12772i, R.color.common_color_10013, 1, 0);
-        SkinManager.setBackgroundColor(this.f12772i, R.color.common_color_10215);
-        this.f12772i.setAlpha(0.75f);
-        this.f12772i.setIncludeFontPadding(false);
-        this.f12772i.setGravity(17);
-        int g2 = d.a.c.e.p.l.g(this.f12769f, R.dimen.ds2);
-        this.f12772i.setPadding(g2, g2, g2, g2);
+        this.f12680i.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize26));
+        SkinManager.setViewTextColor(this.f12680i, R.color.common_color_10013, 1, 0);
+        SkinManager.setBackgroundColor(this.f12680i, R.color.common_color_10215);
+        this.f12680i.setAlpha(0.75f);
+        this.f12680i.setIncludeFontPadding(false);
+        this.f12680i.setGravity(17);
+        int g2 = d.a.c.e.p.l.g(this.f12677f, R.dimen.ds2);
+        this.f12680i.setPadding(g2, g2, g2, g2);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.bottomMargin = this.f12771h.getBottomOffset();
-        layoutParams.leftMargin = this.f12771h.getLeftOffset();
+        layoutParams.bottomMargin = this.f12679h.getBottomOffset();
+        layoutParams.leftMargin = this.f12679h.getLeftOffset();
         layoutParams.addRule(12);
         layoutParams.addRule(9);
-        addView(this.f12772i, layoutParams);
-        this.f12772i.setVisibility(0);
+        addView(this.f12680i, layoutParams);
+        this.f12680i.setVisibility(0);
     }
 
     public void b0() {
@@ -1057,7 +1057,7 @@ public class UrlDragImageView extends RelativeLayout {
         downloadData.setType(13);
         downloadData.setPath(this.H + StorageFile.getInstance().getDirectoryName(str) + "/" + str);
         downloadData.setCallback(new e());
-        d.a.j0.v.d.j().l(downloadData, 100);
+        d.a.m0.v.d.j().l(downloadData, 100);
         this.g0 = true;
     }
 
@@ -1139,9 +1139,9 @@ public class UrlDragImageView extends RelativeLayout {
             if (i3 == 0) {
                 if (this.v == null) {
                     if (this.j.getVisibility() == 0) {
-                        this.v = d.a.j0.z0.h.a(this.j);
+                        this.v = d.a.m0.z0.h.a(this.j);
                     } else {
-                        this.v = d.a.j0.z0.h.a(this.f12771h);
+                        this.v = d.a.m0.z0.h.a(this.f12679h);
                     }
                 }
                 if (this.A == null && this.v != null) {
@@ -1158,10 +1158,10 @@ public class UrlDragImageView extends RelativeLayout {
                         i2 = this.j.getSHeight();
                         width = this.j.getSWidth();
                     } else {
-                        if (this.f12771h.getImageType() == 1) {
-                            imageBitmap = (this.f12771h.getCurrentFrame() == null || this.f12771h.getCurrentFrame().f13067a == null) ? this.v : this.f12771h.getCurrentFrame().f13067a;
+                        if (this.f12679h.getImageType() == 1) {
+                            imageBitmap = (this.f12679h.getCurrentFrame() == null || this.f12679h.getCurrentFrame().f12975a == null) ? this.v : this.f12679h.getCurrentFrame().f12975a;
                         } else {
-                            imageBitmap = this.f12771h.getImageBitmap() == null ? this.v : this.f12771h.getImageBitmap();
+                            imageBitmap = this.f12679h.getImageBitmap() == null ? this.v : this.f12679h.getImageBitmap();
                         }
                         int height = imageBitmap.getHeight();
                         width = imageBitmap.getWidth();
@@ -1194,11 +1194,11 @@ public class UrlDragImageView extends RelativeLayout {
                 this.s = y;
             }
             if (!this.t && !this.u) {
-                this.f12771h.setImageOnLongClickListener(this.c0);
+                this.f12679h.setImageOnLongClickListener(this.c0);
                 this.j.setOnLongClickListener(this.c0);
                 z = super.dispatchTouchEvent(motionEvent);
             } else {
-                this.f12771h.setImageOnLongClickListener(null);
+                this.f12679h.setImageOnLongClickListener(null);
                 this.j.setOnLongClickListener(null);
                 z = true;
             }
@@ -1232,15 +1232,15 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     public void e0() {
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         if (dragImageView == null || dragImageView.getImageType() != 1) {
             return;
         }
-        this.f12771h.s0();
+        this.f12679h.s0();
     }
 
     public DragImageView getImageView() {
-        return this.f12771h;
+        return this.f12679h;
     }
 
     public String getUserId() {
@@ -1264,7 +1264,7 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     public void setCanScale(boolean z) {
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         if (dragImageView != null) {
             dragImageView.setCanScale(z);
         }
@@ -1272,29 +1272,29 @@ public class UrlDragImageView extends RelativeLayout {
 
     public void setDragToExitListener(DragImageView.h hVar) {
         this.G = hVar;
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         if (dragImageView != null) {
             dragImageView.setDragToExitListener(hVar);
         }
     }
 
     public void setGifMaxUseableMem(int i2) {
-        this.f12771h.setGifMaxUseableMem(i2);
+        this.f12679h.setGifMaxUseableMem(i2);
     }
 
     public void setGifSetListener(DragImageView.i iVar) {
-        this.f12771h.setGifSetListener(iVar);
+        this.f12679h.setGifSetListener(iVar);
     }
 
     public void setHeadImage(boolean z) {
-        DragImageView dragImageView = this.f12771h;
+        DragImageView dragImageView = this.f12679h;
         if (dragImageView != null) {
             dragImageView.setIsHeadImage(z);
         }
     }
 
     public void setImageOnClickListener(View.OnClickListener onClickListener) {
-        this.f12771h.setImageOnClickListener(onClickListener);
+        this.f12679h.setImageOnClickListener(onClickListener);
         this.j.setOnClickListener(onClickListener);
         this.b0 = onClickListener;
     }
@@ -1304,7 +1304,7 @@ public class UrlDragImageView extends RelativeLayout {
         if (this.q) {
             return;
         }
-        this.f12771h.setImageOnLongClickListener(onLongClickListener);
+        this.f12679h.setImageOnLongClickListener(onLongClickListener);
         this.j.setOnLongClickListener(this.c0);
     }
 
@@ -1317,7 +1317,7 @@ public class UrlDragImageView extends RelativeLayout {
     }
 
     public void setOnSizeChangedListener(DragImageView.k kVar) {
-        this.f12771h.setOnSizeChangedListener(new h(kVar));
+        this.f12679h.setOnSizeChangedListener(new h(kVar));
     }
 
     public void setOriImgSelectedCallback(p pVar) {
@@ -1332,9 +1332,9 @@ public class UrlDragImageView extends RelativeLayout {
         if (str.contains("*")) {
             str = str.split("[*]")[0];
         }
-        this.f12771h.setTag(str);
-        this.f12771h.setLoadBigImage(false);
-        this.f12771h.setImageDrawable(null);
+        this.f12679h.setTag(str);
+        this.f12679h.setLoadBigImage(false);
+        this.f12679h.setImageDrawable(null);
         this.n = false;
         this.o = false;
         this.O = E();
@@ -1350,9 +1350,9 @@ public class UrlDragImageView extends RelativeLayout {
 
     public UrlDragImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f12768e = 3;
-        this.f12770g = null;
-        this.f12771h = null;
+        this.f12676e = 3;
+        this.f12678g = null;
+        this.f12679h = null;
         this.l = null;
         this.m = false;
         this.p = false;
@@ -1377,8 +1377,8 @@ public class UrlDragImageView extends RelativeLayout {
         this.i0 = new f();
         this.j0 = new g();
         this.k0 = new k();
-        this.f12769f = context;
-        this.R = new d.a.j0.b0.b();
+        this.f12677f = context;
+        this.R = new d.a.m0.b0.b();
         N();
     }
 }

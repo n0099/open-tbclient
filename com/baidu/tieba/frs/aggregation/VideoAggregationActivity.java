@@ -9,14 +9,14 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
-import d.a.j0.k0.d;
+import d.a.m0.k0.d;
 /* loaded from: classes4.dex */
 public class VideoAggregationActivity extends BaseFragmentActivity {
     public VideoAggregationFragment mFragment;
     public String mFrom;
     public String mId;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
     public String getCurrentPageKey() {
         return VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.mFrom) ? "a023" : "";
     }

@@ -2,7 +2,7 @@ package com.baidu.tbadk.img;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.tencent.open.SocialConstants;
-import d.a.j0.b0.c;
+import d.a.m0.b0.c;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;

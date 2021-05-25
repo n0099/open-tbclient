@@ -1,0 +1,106 @@
+package d.a.n0.z;
+
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.R;
+/* loaded from: classes4.dex */
+public class g extends b<d.a.n0.e0.e> {
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public TextView q;
+    public View r;
+    public View s;
+    public String t;
+
+    public g(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
+        s(l());
+    }
+
+    @Override // d.a.n0.z.b
+    public int g() {
+        return R.layout.card_frs_game_hot_topic_view_item;
+    }
+
+    @Override // d.a.n0.z.b
+    public void n(TbPageContext<?> tbPageContext, int i2) {
+        SkinManager.setBackgroundResource(l(), R.color.CAM_X0201);
+        SkinManager.setBackgroundResource(this.r, R.color.CAM_X0205);
+        SkinManager.setBackgroundResource(this.s, R.color.CAM_X0205);
+        SkinManager.setViewTextColor(this.m, R.color.CAM_X0106, 1);
+        SkinManager.setViewTextColor(this.n, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.o, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.p, R.color.CAM_X0105, 1);
+        SkinManager.setViewTextColor(this.q, R.color.CAM_X0105, 1);
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view) {
+        if (view == this.n || view == this.o || view == this.p || view == this.q) {
+            TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.t));
+            UrlManager.getInstance().dealOneLink((TbPageContext) d.a.c.a.j.a(this.f63441f.getPageActivity()), new String[]{(String) view.getTag()}, true);
+        }
+    }
+
+    public final void s(View view) {
+        this.m = (TextView) view.findViewById(R.id.card_frs_game_hot_title);
+        this.n = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_1);
+        this.o = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_2);
+        this.p = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_3);
+        this.q = (TextView) view.findViewById(R.id.card_frs_game_hot_topic_4);
+        this.n.setOnClickListener(this);
+        this.o.setOnClickListener(this);
+        this.p.setOnClickListener(this);
+        this.q.setOnClickListener(this);
+        this.r = view.findViewById(R.id.divider_line_1);
+        this.s = view.findViewById(R.id.divider_line_2);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // d.a.n0.z.b
+    /* renamed from: t */
+    public void m(d.a.n0.e0.e eVar) {
+        if (eVar == null || eVar.h() == null) {
+            return;
+        }
+        if (!TextUtils.isEmpty(eVar.h().title)) {
+            this.m.setText(eVar.h().title);
+        }
+        this.n.setVisibility(8);
+        this.o.setVisibility(8);
+        this.p.setVisibility(8);
+        this.q.setVisibility(8);
+        if (eVar.h().sub_nodes.size() >= 1) {
+            this.n.setVisibility(0);
+            this.n.setTag(eVar.h().sub_nodes.get(0).url);
+            this.n.setText(eVar.h().sub_nodes.get(0).title);
+        }
+        if (eVar.h().sub_nodes.size() >= 2) {
+            this.o.setVisibility(0);
+            this.o.setTag(eVar.h().sub_nodes.get(1).url);
+            this.o.setText(eVar.h().sub_nodes.get(1).title);
+        }
+        if (eVar.h().sub_nodes.size() >= 3) {
+            this.p.setVisibility(0);
+            this.p.setTag(eVar.h().sub_nodes.get(2).url);
+            this.p.setText(eVar.h().sub_nodes.get(2).title);
+        }
+        if (eVar.h().sub_nodes.size() >= 4) {
+            this.q.setVisibility(0);
+            this.q.setTag(eVar.h().sub_nodes.get(3).url);
+            this.q.setText(eVar.h().sub_nodes.get(3).title);
+        }
+    }
+
+    public void u(String str) {
+        this.t = str;
+    }
+}

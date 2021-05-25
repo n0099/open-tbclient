@@ -1,7 +1,7 @@
 package com.baidu.tieba.im.message;
 
 import com.squareup.wire.Wire;
-import d.a.k0.e1.w.b;
+import d.a.n0.f1.w.b;
 import protobuf.CommitGroupMsg.CommitGroupMsgResIdl;
 /* loaded from: classes4.dex */
 public class ResponseCommitGroupMessage extends ResponseCommitMessage {

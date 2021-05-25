@@ -5,12 +5,12 @@ import androidx.annotation.WorkerThread;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile long f30290a;
+    public static volatile long f30219a;
 
     @WorkerThread
     public static void a() {
         try {
-            f30290a = v.a(com.bytedance.sdk.openadsdk.downloadnew.a.g.f29079a);
+            f30219a = v.a(com.bytedance.sdk.openadsdk.downloadnew.a.g.f29008a);
         } catch (Throwable unused) {
         }
     }

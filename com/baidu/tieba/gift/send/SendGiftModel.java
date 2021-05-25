@@ -6,18 +6,18 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import d.a.c.a.f;
-import d.a.j0.r.q.i0;
+import d.a.m0.r.q.i0;
 /* loaded from: classes4.dex */
 public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public c f16177e;
+    public c f16080e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.g.a f16178f;
+    public d.a.c.c.g.a f16081f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f16179g;
+    public d.a.c.c.g.a f16082g;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -38,8 +38,8 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                 } else if (responsedMessage instanceof SendFreeGiftSocketResponse) {
                     i2 = ((SendFreeGiftSocketResponse) responsedMessage).getFreeChance();
                 }
-                if (SendGiftModel.this.f16177e != null) {
-                    SendGiftModel.this.f16177e.c(responsedMessage.getError(), responsedMessage.getErrorString(), i2);
+                if (SendGiftModel.this.f16080e != null) {
+                    SendGiftModel.this.f16080e.c(responsedMessage.getError(), responsedMessage.getErrorString(), i2);
                 }
             }
         }
@@ -58,14 +58,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             }
             boolean z = responsedMessage instanceof PlaceOrderHttpResponse;
             if (z || (responsedMessage instanceof PlaceOrderSocketResponse)) {
-                d.a.k0.u0.d.a aVar = null;
+                d.a.n0.v0.d.a aVar = null;
                 if (z) {
                     aVar = ((PlaceOrderHttpResponse) responsedMessage).getOrderInfo();
                 } else if (responsedMessage instanceof PlaceOrderSocketResponse) {
                     aVar = ((PlaceOrderSocketResponse) responsedMessage).getOrderInfo();
                 }
-                if (SendGiftModel.this.f16177e != null) {
-                    SendGiftModel.this.f16177e.a(responsedMessage.getError(), responsedMessage.getErrorString(), aVar);
+                if (SendGiftModel.this.f16080e != null) {
+                    SendGiftModel.this.f16080e.a(responsedMessage.getError(), responsedMessage.getErrorString(), aVar);
                 }
             }
         }
@@ -73,7 +73,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void a(int i2, String str, d.a.k0.u0.d.a aVar);
+        void a(int i2, String str, d.a.n0.v0.d.a aVar);
 
         void b();
 
@@ -82,14 +82,14 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     public SendGiftModel(f<GiftTabActivity> fVar) {
         super(fVar);
-        this.f16178f = new a(CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
-        this.f16179g = new b(CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
-        d.a.k0.d3.d0.a.h(309050, SendFreeGiftSocketResponse.class, false, false);
-        d.a.k0.d3.d0.a.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
-        d.a.k0.d3.d0.a.h(309051, PlaceOrderSocketResponse.class, false, false);
-        d.a.k0.d3.d0.a.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
-        registerListener(this.f16178f);
-        registerListener(this.f16179g);
+        this.f16081f = new a(CmdConfigHttp.CMD_SEND_FREE_GIFT, 309050);
+        this.f16082g = new b(CmdConfigHttp.CMD_GIFT_PALCE_ORDER, 309051);
+        d.a.n0.e3.d0.a.h(309050, SendFreeGiftSocketResponse.class, false, false);
+        d.a.n0.e3.d0.a.c(309050, CmdConfigHttp.CMD_SEND_FREE_GIFT, TbConfig.SEND_FREE_GIFT, SendFreeGiftHttpResponse.class, false, false, false, false);
+        d.a.n0.e3.d0.a.h(309051, PlaceOrderSocketResponse.class, false, false);
+        d.a.n0.e3.d0.a.c(309051, CmdConfigHttp.CMD_GIFT_PALCE_ORDER, TbConfig.GIFT_PLACE_ORDER, PlaceOrderHttpResponse.class, false, false, false, false);
+        registerListener(this.f16081f);
+        registerListener(this.f16082g);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -104,9 +104,9 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
 
     public void t(i0 i0Var, int i2, String str, long j, String str2, long j2, long j3) {
         if (i2 > 0 && i0Var != null && j > 0) {
-            if (i0Var.f50004f == 5) {
+            if (i0Var.f50048f == 5) {
                 SendFreeGiftRequest sendFreeGiftRequest = new SendFreeGiftRequest();
-                sendFreeGiftRequest.setGiftId(i0Var.f49999a);
+                sendFreeGiftRequest.setGiftId(i0Var.f50043a);
                 sendFreeGiftRequest.setToUserId(j);
                 sendFreeGiftRequest.setToUserName(str2);
                 sendFreeGiftRequest.setSceneFrom(str);
@@ -117,7 +117,7 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
                 return;
             }
             PlaceOrderRequest placeOrderRequest = new PlaceOrderRequest();
-            placeOrderRequest.setGiftId(i0Var.f49999a);
+            placeOrderRequest.setGiftId(i0Var.f50043a);
             placeOrderRequest.setToUserId(j);
             placeOrderRequest.setToUserName(str2);
             placeOrderRequest.setSceneFrom(str);
@@ -130,13 +130,13 @@ public class SendGiftModel extends BdBaseModel<GiftTabActivity> {
             sendMessage(placeOrderRequest);
             return;
         }
-        c cVar = this.f16177e;
+        c cVar = this.f16080e;
         if (cVar != null) {
             cVar.b();
         }
     }
 
     public void u(c cVar) {
-        this.f16177e = cVar;
+        this.f16080e = cVar;
     }
 }

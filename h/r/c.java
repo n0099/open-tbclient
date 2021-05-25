@@ -11,31 +11,31 @@ import java.util.concurrent.ScheduledExecutorService;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile h.n.b<Throwable> f68688a;
+    public static volatile h.n.b<Throwable> f68731a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile h.n.f<d.a, d.a> f68689b;
+    public static volatile h.n.f<d.a, d.a> f68732b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile h.n.f<h.c, h.c> f68690c;
+    public static volatile h.n.f<h.c, h.c> f68733c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static volatile h.n.f<b.f, b.f> f68691d;
+    public static volatile h.n.f<b.f, b.f> f68734d;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile h.n.g<h.d, d.a, d.a> f68692e;
+    public static volatile h.n.g<h.d, d.a, d.a> f68735e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile h.n.g<h.h, h.c, h.c> f68693f;
+    public static volatile h.n.g<h.h, h.c, h.c> f68736f;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile h.n.g<h.b, b.f, b.f> f68694g;
+    public static volatile h.n.g<h.b, b.f, b.f> f68737g;
 
     /* renamed from: h  reason: collision with root package name */
-    public static volatile h.n.f<h.g, h.g> f68695h;
+    public static volatile h.n.f<h.g, h.g> f68738h;
 
     /* renamed from: i  reason: collision with root package name */
-    public static volatile h.n.f<h.g, h.g> f68696i;
+    public static volatile h.n.f<h.g, h.g> f68739i;
     public static volatile h.n.f<h.g, h.g> j;
     public static volatile h.n.f<h.n.a, h.n.a> k;
     public static volatile h.n.f<h.k, h.k> l;
@@ -82,7 +82,7 @@ public final class c {
 
     /* renamed from: h.r.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1934c implements h.n.f<d.a, d.a> {
+    public static class C1938c implements h.n.f<d.a, d.a> {
         public d.a a(d.a aVar) {
             h.r.f.c().d().a(aVar);
             return aVar;
@@ -286,12 +286,12 @@ public final class c {
     }
 
     public static void b() {
-        f68688a = new f();
-        f68692e = new g();
+        f68731a = new f();
+        f68735e = new g();
         l = new h();
-        f68693f = new i();
+        f68736f = new i();
         m = new j();
-        f68694g = new k();
+        f68737g = new k();
         k = new l();
         o = new m();
         r = new n();
@@ -301,9 +301,9 @@ public final class c {
     }
 
     public static void c() {
-        f68689b = new C1934c();
-        f68690c = new d();
-        f68691d = new e();
+        f68732b = new C1938c();
+        f68733c = new d();
+        f68734d = new e();
     }
 
     public static Throwable d(Throwable th) {
@@ -312,32 +312,32 @@ public final class c {
     }
 
     public static <T> b.f e(h.b bVar, b.f fVar) {
-        h.n.g<h.b, b.f, b.f> gVar = f68694g;
+        h.n.g<h.b, b.f, b.f> gVar = f68737g;
         return gVar != null ? gVar.a(bVar, fVar) : fVar;
     }
 
     public static h.g f(h.g gVar) {
-        h.n.f<h.g, h.g> fVar = f68695h;
+        h.n.f<h.g, h.g> fVar = f68738h;
         return fVar != null ? fVar.call(gVar) : gVar;
     }
 
     public static b.f g(b.f fVar) {
-        h.n.f<b.f, b.f> fVar2 = f68691d;
+        h.n.f<b.f, b.f> fVar2 = f68734d;
         return fVar2 != null ? fVar2.call(fVar) : fVar;
     }
 
     public static <T> d.a<T> h(d.a<T> aVar) {
-        h.n.f<d.a, d.a> fVar = f68689b;
+        h.n.f<d.a, d.a> fVar = f68732b;
         return fVar != null ? fVar.call(aVar) : aVar;
     }
 
     public static <T> h.c<T> i(h.c<T> cVar) {
-        h.n.f<h.c, h.c> fVar = f68690c;
+        h.n.f<h.c, h.c> fVar = f68733c;
         return fVar != null ? fVar.call(cVar) : cVar;
     }
 
     public static void j(Throwable th) {
-        h.n.b<Throwable> bVar = f68688a;
+        h.n.b<Throwable> bVar = f68731a;
         if (bVar != null) {
             try {
                 bVar.call(th);
@@ -353,7 +353,7 @@ public final class c {
     }
 
     public static h.g k(h.g gVar) {
-        h.n.f<h.g, h.g> fVar = f68696i;
+        h.n.f<h.g, h.g> fVar = f68739i;
         return fVar != null ? fVar.call(gVar) : gVar;
     }
 
@@ -378,7 +378,7 @@ public final class c {
     }
 
     public static <T> d.a<T> p(h.d<T> dVar, d.a<T> aVar) {
-        h.n.g<h.d, d.a, d.a> gVar = f68692e;
+        h.n.g<h.d, d.a, d.a> gVar = f68735e;
         return gVar != null ? gVar.a(dVar, aVar) : aVar;
     }
 
@@ -398,7 +398,7 @@ public final class c {
     }
 
     public static <T> h.c<T> t(h.h<T> hVar, h.c<T> cVar) {
-        h.n.g<h.h, h.c, h.c> gVar = f68693f;
+        h.n.g<h.h, h.c, h.c> gVar = f68736f;
         return gVar != null ? gVar.a(hVar, cVar) : cVar;
     }
 

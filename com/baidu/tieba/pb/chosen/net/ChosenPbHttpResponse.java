@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tieba.pb.chosen.PbChosenActivity;
 import com.squareup.wire.Wire;
 import d.a.c.e.d.l;
-import d.a.k0.d2.g.c.a;
+import d.a.n0.e2.g.c.a;
 import java.util.List;
 import tbclient.Error;
 import tbclient.ExcPbPage.DataRes;
@@ -25,37 +25,37 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
         super(i2);
     }
 
-    @Override // d.a.k0.d2.g.c.a
+    @Override // d.a.n0.e2.g.c.a
     public int getErroCode() {
         return super.getError();
     }
 
-    @Override // d.a.k0.d2.g.c.a
+    @Override // d.a.n0.e2.g.c.a
     public String getErrorText() {
         return getErrorString();
     }
 
-    @Override // d.a.k0.d2.g.c.a
+    @Override // d.a.n0.e2.g.c.a
     public List<Post> getPostList() {
         return this.postList;
     }
 
-    @Override // d.a.k0.d2.g.c.a
+    @Override // d.a.n0.e2.g.c.a
     public ExcellentPbThreadInfo getThreadInfo() {
         return this.threadInfo;
     }
 
-    @Override // d.a.k0.d2.g.c.a
+    @Override // d.a.n0.e2.g.c.a
     public UserInfo getUserInfo() {
         return this.userInfo;
     }
 
-    @Override // d.a.k0.d2.g.c.a
+    @Override // d.a.n0.e2.g.c.a
     public List<User> getUserList() {
         return this.userList;
     }
 
-    @Override // d.a.k0.d2.g.c.a
+    @Override // d.a.n0.e2.g.c.a
     public boolean isEmpty() {
         List<ExcContent> list;
         ExcellentPbThreadInfo excellentPbThreadInfo = this.threadInfo;
@@ -69,7 +69,7 @@ public class ChosenPbHttpResponse extends HttpResponsedMessage implements a {
         if (bArr == null || bArr.length <= 0) {
             return;
         }
-        l<byte[]> d2 = d.a.j0.r.r.a.f().d("tb.pb_normal");
+        l<byte[]> d2 = d.a.m0.r.r.a.f().d("tb.pb_normal");
         d2.remove(PbChosenActivity.CHOSEN_PB_TABLE_NAME);
         d2.g(PbChosenActivity.CHOSEN_PB_TABLE_NAME, bArr);
     }

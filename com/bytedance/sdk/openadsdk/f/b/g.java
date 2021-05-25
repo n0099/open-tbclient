@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class g extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<SSWebView> f29227a;
+    public WeakReference<SSWebView> f29156a;
 
     public g(SSWebView sSWebView) {
-        this.f29227a = new WeakReference<>(sSWebView);
+        this.f29156a = new WeakReference<>(sSWebView);
     }
 
     public static void a(q qVar, SSWebView sSWebView) {
@@ -28,7 +28,7 @@ public class g extends com.bytedance.sdk.openadsdk.f.a.e<JSONObject, JSONObject>
         JSONObject jSONObject2 = new JSONObject();
         try {
             boolean optBoolean = jSONObject.optBoolean("isPrevent", false);
-            SSWebView sSWebView = this.f29227a.get();
+            SSWebView sSWebView = this.f29156a.get();
             if (sSWebView != null) {
                 sSWebView.setIsPreventTouchEvent(optBoolean);
                 jSONObject2.put("success", true);

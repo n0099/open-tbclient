@@ -4,22 +4,22 @@ import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
-import d.a.k0.q.d.a;
+import d.a.n0.s.d.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f13714e;
+    public a f13617e;
 
     /* renamed from: f  reason: collision with root package name */
-    public byte[] f13715f;
+    public byte[] f13618f;
 
     public QuickSearchModel(QuickSearchActivity quickSearchActivity) {
         super(quickSearchActivity.getPageContext());
-        this.f13715f = new byte[0];
-        this.f13714e = a.d();
+        this.f13618f = new byte[0];
+        this.f13617e = a.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -33,17 +33,17 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<d.a.j0.s.f.a> s(String str) {
-        synchronized (this.f13715f) {
+    public List<d.a.m0.s.f.a> s(String str) {
+        synchronized (this.f13618f) {
             ArrayList arrayList = new ArrayList();
             if (TextUtils.isEmpty(str)) {
                 return arrayList;
             }
-            List<d.a.j0.s.f.a> c2 = this.f13714e.c();
+            List<d.a.m0.s.f.a> c2 = this.f13617e.c();
             if (c2 == null) {
                 return arrayList;
             }
-            for (d.a.j0.s.f.a aVar : c2) {
+            for (d.a.m0.s.f.a aVar : c2) {
                 String f2 = aVar.f();
                 String d2 = aVar.d();
                 if (!TextUtils.isEmpty(f2) && f2.toLowerCase().startsWith(str.toLowerCase())) {
@@ -52,7 +52,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                     arrayList.add(aVar);
                 }
             }
-            for (d.a.j0.s.f.a aVar2 : c2) {
+            for (d.a.m0.s.f.a aVar2 : c2) {
                 String f3 = aVar2.f();
                 String d3 = aVar2.d();
                 if (!arrayList.contains(aVar2)) {

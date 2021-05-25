@@ -16,41 +16,41 @@ import org.json.JSONObject;
 public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerManager.OnBufferingUpdateListener, CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnMediaSourceChangedListener, CyberPlayerManager.OnPreparedListener, CyberPlayerManager.OnSeekCompleteListener, CyberPlayerManager.OnVideoSizeChangedListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public CyberPlayer f5030a;
+    public CyberPlayer f4930a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5031b;
+    public int f4931b;
 
     /* renamed from: c  reason: collision with root package name */
-    public RemotePlayerService f5032c;
+    public RemotePlayerService f4932c;
 
     /* renamed from: e  reason: collision with root package name */
-    public Surface f5034e;
+    public Surface f4934e;
 
     /* renamed from: d  reason: collision with root package name */
-    public RemoteCallbackList<d> f5033d = new RemoteCallbackList<>();
+    public RemoteCallbackList<d> f4933d = new RemoteCallbackList<>();
 
     /* renamed from: f  reason: collision with root package name */
-    public final Object f5035f = new Object();
+    public final Object f4935f = new Object();
 
     public f(int i2, RemotePlayerService remotePlayerService) {
-        this.f5031b = i2;
-        this.f5032c = remotePlayerService;
+        this.f4931b = i2;
+        this.f4932c = remotePlayerService;
         CyberPlayer cyberPlayer = new CyberPlayer(i2, this, false);
-        this.f5030a = cyberPlayer;
+        this.f4930a = cyberPlayer;
         cyberPlayer.setIsInMainProcess(false);
-        this.f5030a.setOnPreparedListener(this);
-        this.f5030a.setOnCompletionListener(this);
-        this.f5030a.setOnBufferingUpdateListener(this);
-        this.f5030a.setOnVideoSizeChangedListener(this);
-        this.f5030a.setOnSeekCompleteListener(this);
-        this.f5030a.setOnErrorListener(this);
-        this.f5030a.setOnInfoListener(this);
-        this.f5030a.setOnMediaSourceChangedListener(this);
+        this.f4930a.setOnPreparedListener(this);
+        this.f4930a.setOnCompletionListener(this);
+        this.f4930a.setOnBufferingUpdateListener(this);
+        this.f4930a.setOnVideoSizeChangedListener(this);
+        this.f4930a.setOnSeekCompleteListener(this);
+        this.f4930a.setOnErrorListener(this);
+        this.f4930a.setOnInfoListener(this);
+        this.f4930a.setOnMediaSourceChangedListener(this);
     }
 
     private CyberPlayer q() {
-        return this.f5030a;
+        return this.f4930a;
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -86,17 +86,17 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.remote.b
     public void a(Surface surface) {
         q().setSurface(surface);
-        synchronized (this.f5035f) {
-            if (this.f5034e != null && this.f5034e != surface) {
-                this.f5034e.release();
+        synchronized (this.f4935f) {
+            if (this.f4934e != null && this.f4934e != surface) {
+                this.f4934e.release();
             }
-            this.f5034e = surface;
+            this.f4934e = surface;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
     public void a(d dVar) {
-        this.f5033d.register(dVar);
+        this.f4933d.register(dVar);
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -131,17 +131,17 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
             if (!str.equals(CyberPlayerManager.OPT_KERNEL_NET_NETHANDLE)) {
                 q().setOption(str, str2);
                 return;
-            } else if (TextUtils.isEmpty(str2) || this.f5032c == null) {
+            } else if (TextUtils.isEmpty(str2) || this.f4932c == null) {
                 return;
             } else {
                 q = q();
-                kernelNetHandle = this.f5032c.getKernelNetHandle();
+                kernelNetHandle = this.f4932c.getKernelNetHandle();
             }
-        } else if (TextUtils.isEmpty(str2) || this.f5032c == null) {
+        } else if (TextUtils.isEmpty(str2) || this.f4932c == null) {
             return;
         } else {
             q = q();
-            kernelNetHandle = this.f5032c.getPCDNNetHandle();
+            kernelNetHandle = this.f4932c.getPCDNNetHandle();
         }
         q.setOption(str3, String.valueOf(kernelNetHandle));
     }
@@ -168,7 +168,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
     public void b(d dVar) {
-        this.f5033d.unregister(dVar);
+        this.f4933d.unregister(dVar);
     }
 
     @Override // com.baidu.cyberplayer.sdk.remote.b
@@ -219,11 +219,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.HttpDNS
     public List<String> getIpList(String str) {
         ArrayList arrayList;
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             arrayList = null;
             for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i2);
+                d broadcastItem = this.f4933d.getBroadcastItem(i2);
                 if (broadcastItem != null) {
                     try {
                         ArrayList arrayList2 = new ArrayList();
@@ -237,7 +237,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
         return arrayList;
     }
@@ -265,19 +265,19 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.remote.b
     public void l() {
         synchronized (this) {
-            if (this.f5030a != null) {
-                this.f5030a.release();
+            if (this.f4930a != null) {
+                this.f4930a.release();
             }
         }
-        synchronized (this.f5033d) {
-            this.f5033d.kill();
+        synchronized (this.f4933d) {
+            this.f4933d.kill();
         }
-        if (this.f5034e != null) {
-            synchronized (this.f5035f) {
-                if (this.f5034e != null && this.f5034e.isValid()) {
+        if (this.f4934e != null) {
+            synchronized (this.f4935f) {
+                if (this.f4934e != null && this.f4934e.isValid()) {
                     CyberLog.i("remotePlayer", "release mSurface");
-                    this.f5034e.release();
-                    this.f5034e = null;
+                    this.f4934e.release();
+                    this.f4934e = null;
                 }
             }
         }
@@ -300,10 +300,10 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnBufferingUpdateListener
     public void onBufferingUpdate(int i2) {
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             for (int i3 = 0; i3 < beginBroadcast; i3++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i3);
+                d broadcastItem = this.f4933d.getBroadcastItem(i3);
                 if (broadcastItem != null) {
                     try {
                         broadcastItem.a(i2);
@@ -312,16 +312,16 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
     public void onCompletion() {
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i2);
+                d broadcastItem = this.f4933d.getBroadcastItem(i2);
                 if (broadcastItem != null) {
                     try {
                         broadcastItem.b();
@@ -330,18 +330,18 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
     public boolean onError(int i2, int i3, Object obj) {
         boolean z;
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             z = false;
             for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i4);
+                d broadcastItem = this.f4933d.getBroadcastItem(i4);
                 if (broadcastItem != null) {
                     try {
                         z = broadcastItem.a(i2, i3, obj instanceof String ? (String) obj : null);
@@ -350,7 +350,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
         return z;
     }
@@ -358,11 +358,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnInfoListener
     public boolean onInfo(int i2, int i3, Object obj) {
         boolean z;
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             z = false;
             for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i4);
+                d broadcastItem = this.f4933d.getBroadcastItem(i4);
                 if (broadcastItem != null) {
                     try {
                         z = broadcastItem.b(i2, i3, obj instanceof String ? (String) obj : null);
@@ -371,7 +371,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
         return z;
     }
@@ -379,11 +379,11 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnMediaSourceChangedListener
     public boolean onMediaSourceChanged(int i2, int i3, Object obj) {
         boolean z;
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             z = false;
             for (int i4 = 0; i4 < beginBroadcast; i4++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i4);
+                d broadcastItem = this.f4933d.getBroadcastItem(i4);
                 if (broadcastItem != null) {
                     try {
                         z = broadcastItem.c(i2, i3, obj instanceof String ? (String) obj : null);
@@ -392,17 +392,17 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
         return z;
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
     public void onPrepared() {
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i2);
+                d broadcastItem = this.f4933d.getBroadcastItem(i2);
                 if (broadcastItem != null) {
                     try {
                         broadcastItem.a();
@@ -411,16 +411,16 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnSeekCompleteListener
     public void onSeekComplete() {
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             for (int i2 = 0; i2 < beginBroadcast; i2++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i2);
+                d broadcastItem = this.f4933d.getBroadcastItem(i2);
                 if (broadcastItem != null) {
                     try {
                         broadcastItem.c();
@@ -429,16 +429,16 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnVideoSizeChangedListener
     public void onVideoSizeChanged(int i2, int i3, int i4, int i5) {
-        synchronized (this.f5033d) {
-            int beginBroadcast = this.f5033d.beginBroadcast();
+        synchronized (this.f4933d) {
+            int beginBroadcast = this.f4933d.beginBroadcast();
             for (int i6 = 0; i6 < beginBroadcast; i6++) {
-                d broadcastItem = this.f5033d.getBroadcastItem(i6);
+                d broadcastItem = this.f4933d.getBroadcastItem(i6);
                 if (broadcastItem != null) {
                     try {
                         broadcastItem.a(i2, i3, i4, i5);
@@ -447,7 +447,7 @@ public class f extends b.a implements CyberPlayerManager.HttpDNS, CyberPlayerMan
                     }
                 }
             }
-            this.f5033d.finishBroadcast();
+            this.f4933d.finishBroadcast();
         }
     }
 

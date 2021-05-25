@@ -95,8 +95,6 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_RATE_SCORE_DIALOG_SHOW = "c13073";
     public static final String KEY_RICH_TEXT_VIDEO_CLICK = "c10643";
     public static final String KEY_SCHEME_JUMP_CALL_NATIVE = "c10320";
-    public static final String KEY_SEERET_HINT_ACTIVITY_SHOW = "c13294";
-    public static final String KEY_SEERET_HINT_BUTTON_CLICK = "c13295";
     public static final String KEY_SHARE_CANCEL = "c12481";
     public static final String KEY_SHARE_CLICK = "c12386";
     public static final String KEY_SHARE_FORUM_OR_THREAD = "c10125";
@@ -112,6 +110,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_SIGN_REMIND_SWITCH = "c13254";
     public static final String KEY_SMALL_EMOTION_NUM = "c13990";
     public static final String KEY_SMART_APP_HISTORY_DELETE_CLICK = "c13436";
+    public static final String KEY_SMART_COLOR_FETCH_COLOR = "c14170";
     public static final String KEY_TASK_ENTRANCE = "c13422";
     public static final String KEY_THREAD_ACHIEVEMENT_SHARE = "c10898";
     public static final String KEY_TIEBA_UID_SHARE_DIALOG_CLICK = "c14148";

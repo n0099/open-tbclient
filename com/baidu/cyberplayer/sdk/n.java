@@ -49,32 +49,32 @@ import org.json.JSONTokener;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f5017a = ".video_cache";
+    public static String f4917a = ".video_cache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f5018b = "last_file_cache_time";
+    public static String f4918b = "last_file_cache_time";
 
     /* renamed from: c  reason: collision with root package name */
-    public static long f5019c = 86400000;
+    public static long f4919c = 86400000;
 
     /* renamed from: d  reason: collision with root package name */
-    public static long f5020d = 536870912;
+    public static long f4920d = 536870912;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile int f5021e = -1;
+    public static volatile int f4921e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static volatile int f5022f = -1;
+    public static volatile int f4922f = -1;
 
     /* renamed from: g  reason: collision with root package name */
-    public static volatile String f5023g;
+    public static volatile String f4923g;
 
     public static long a(Boolean bool) {
         if (bool.booleanValue() || r()) {
             long i2 = d.i();
             d.f();
             long i3 = d.i();
-            CyberCfgManager.getInstance().setPrefLong(f5018b, System.currentTimeMillis());
+            CyberCfgManager.getInstance().setPrefLong(f4918b, System.currentTimeMillis());
             StringBuilder sb = new StringBuilder();
             sb.append("delete file success,  beforeSpace = ");
             sb.append(i2);
@@ -552,26 +552,26 @@ public class n {
     }
 
     public static String l() {
-        if (TextUtils.isEmpty(f5023g)) {
-            f5023g = t();
-            if (TextUtils.isEmpty(f5023g)) {
-                f5023g = u();
+        if (TextUtils.isEmpty(f4923g)) {
+            f4923g = t();
+            if (TextUtils.isEmpty(f4923g)) {
+                f4923g = u();
             }
-            return f5023g;
+            return f4923g;
         }
-        return f5023g;
+        return f4923g;
     }
 
     public static boolean m() {
-        if (f5021e < 0) {
+        if (f4921e < 0) {
             Context applicationContext = CyberPlayerManager.getApplicationContext();
             if (applicationContext == null || applicationContext.getPackageName().equals(l())) {
-                f5021e = 1;
+                f4921e = 1;
             } else {
-                f5021e = 0;
+                f4921e = 0;
             }
         }
-        return f5021e == 1;
+        return f4921e == 1;
     }
 
     public static boolean n() {
@@ -598,10 +598,10 @@ public class n {
     /* JADX DEBUG: Multi-variable search result rejected for r0v13, resolved type: int */
     /* JADX WARN: Multi-variable type inference failed */
     public static String o() {
-        if (f5022f < 0) {
-            f5022f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
+        if (f4922f < 0) {
+            f4922f = Build.VERSION.SDK_INT >= 23 ? Process.is64Bit() : ((BaseDexClassLoader) CyberPlayerManager.getApplicationContext().getClassLoader()).findLibrary("c").contains("lib64");
         }
-        return f5022f == 1 ? "arm64-v8a" : "armeabi-v7a";
+        return f4922f == 1 ? "arm64-v8a" : "armeabi-v7a";
     }
 
     public static String p() {
@@ -611,7 +611,7 @@ public class n {
         String str = "";
         try {
             byte[] bArr = new byte[1024];
-            RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7772a);
+            RandomAccessFile randomAccessFile = new RandomAccessFile("/proc/cpuinfo", r.f7672a);
             randomAccessFile.read(bArr);
             String str2 = new String(bArr);
             int indexOf = str2.indexOf(0);
@@ -624,17 +624,17 @@ public class n {
     }
 
     public static long q() {
-        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f5020d);
+        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_max_size", f4920d);
     }
 
     public static boolean r() {
         try {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(f5018b, 0L);
+            long prefLong = CyberCfgManager.getInstance().getPrefLong(f4918b, 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (prefLong > 0) {
                 return (((currentTimeMillis - prefLong) > s() ? 1 : ((currentTimeMillis - prefLong) == s() ? 0 : -1)) > 0) || ((d.i() > q() ? 1 : (d.i() == q() ? 0 : -1)) > 0);
             }
-            CyberCfgManager.getInstance().setPrefLong(f5018b, currentTimeMillis);
+            CyberCfgManager.getInstance().setPrefLong(f4918b, currentTimeMillis);
             return false;
         } catch (Exception | OutOfMemoryError unused) {
             return true;
@@ -642,7 +642,7 @@ public class n {
     }
 
     public static long s() {
-        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f5019c);
+        return CyberCfgManager.getInstance().getCfgLongValue("file_cache_delete_interval", f4919c);
     }
 
     public static String t() {

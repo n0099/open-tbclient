@@ -181,10 +181,10 @@ public class AddLinkActivity extends BaseActivity {
     public class i implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f22024e;
+        public final /* synthetic */ String f21952e;
 
         public i(String str) {
-            this.f22024e = str;
+            this.f21952e = str;
         }
 
         @Override // java.lang.Runnable
@@ -195,7 +195,7 @@ public class AddLinkActivity extends BaseActivity {
             }
             WriteTipBubbleController writeTipBubbleController = AddLinkActivity.this.mFindNewLinkBubbleController;
             EditText editText = AddLinkActivity.this.mLinkEditView;
-            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f22024e, this.f22024e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
+            writeTipBubbleController.d(editText, AddLinkActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + this.f21952e, this.f21952e, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDIT_TEXT);
         }
     }
 
@@ -257,7 +257,7 @@ public class AddLinkActivity extends BaseActivity {
 
     private void setCompleteBtnColor() {
         int color = SkinManager.getColor(R.color.CAM_X0302);
-        this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{d.a.k0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), d.a.k0.d3.c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+        this.mCompleteBtn.setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{d.a.n0.e3.c.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), d.a.n0.e3.c.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -287,8 +287,8 @@ public class AddLinkActivity extends BaseActivity {
         setCompleteBtnColor();
         SkinManager.setViewTextColor(this.mLinkEditView, R.color.CAM_X0105);
         this.mLinkEditView.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
-        d.a.j0.r.u.c d2 = d.a.j0.r.u.c.d(this.mEditAreaLayout);
-        d2.k(R.string.J_X01);
+        d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.mEditAreaLayout);
+        d2.m(R.string.J_X01);
         d2.f(R.color.CAM_X0209);
         SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mDelBtn, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         SkinManager.setViewTextColor(this.mAddLinkTip, R.color.CAM_X0110);

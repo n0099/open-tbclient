@@ -9,14 +9,14 @@ import java.security.PublicKey;
 public abstract class ab extends com.vivo.push.v {
 
     /* renamed from: b  reason: collision with root package name */
-    public PushMessageCallback f36641b;
+    public PushMessageCallback f36570b;
 
     public ab(com.vivo.push.y yVar) {
         super(yVar);
     }
 
     public final void a(PushMessageCallback pushMessageCallback) {
-        this.f36641b = pushMessageCallback;
+        this.f36570b = pushMessageCallback;
     }
 
     public final boolean a(PublicKey publicKey, String str, String str2) {
@@ -37,7 +37,7 @@ public abstract class ab extends com.vivo.push.v {
                     return true;
                 }
                 com.vivo.push.util.p.d("OnVerifyCallBackCommand", "vertify fail srcDigest is " + str);
-                Context context = this.f36823a;
+                Context context = this.f36752a;
                 com.vivo.push.util.p.c(context, "vertify fail srcDigest is " + str);
                 return false;
             } catch (Exception e2) {

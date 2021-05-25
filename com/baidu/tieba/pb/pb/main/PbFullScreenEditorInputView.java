@@ -10,8 +10,8 @@ import com.baidu.tbadk.core.atomData.HotSelectActivityConfig;
 import com.baidu.tbadk.core.util.CustomToast;
 import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
 import com.baidu.tieba.R;
-import d.a.j0.s.c.v;
-import d.a.k0.k0.b;
+import d.a.m0.s.c.v;
+import d.a.n0.l0.b;
 import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class PbFullScreenEditorInputView extends SpanGroupEditText {
@@ -21,7 +21,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public a() {
         }
 
-        @Override // d.a.k0.k0.b.f
+        @Override // d.a.n0.l0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             PbFullScreenEditorInputView.this.setText(spannableStringBuilder);
             PbFullScreenEditorInputView pbFullScreenEditorInputView = PbFullScreenEditorInputView.this;
@@ -34,7 +34,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public b() {
         }
 
-        @Override // d.a.k0.k0.b.f
+        @Override // d.a.n0.l0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             PbFullScreenEditorInputView.this.setHint(spannableStringBuilder);
         }
@@ -45,7 +45,7 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         public c() {
         }
 
-        @Override // d.a.k0.k0.b.f
+        @Override // d.a.n0.l0.b.f
         public void a(SpannableStringBuilder spannableStringBuilder) {
             PbFullScreenEditorInputView.this.setText(spannableStringBuilder);
             PbFullScreenEditorInputView pbFullScreenEditorInputView = PbFullScreenEditorInputView.this;
@@ -87,24 +87,24 @@ public class PbFullScreenEditorInputView extends SpanGroupEditText {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        d.a.k0.k0.b.d(getContext(), str, new a());
+        d.a.n0.l0.b.d(getContext(), str, new a());
     }
 
     public void k(String str, String str2) {
         if (!TextUtils.isEmpty(str)) {
-            d.a.k0.k0.b.d(getContext(), str, new b());
+            d.a.n0.l0.b.d(getContext(), str, new b());
         }
         if (TextUtils.isEmpty(str2)) {
             return;
         }
-        d.a.k0.k0.b.d(getContext(), str2, new c());
+        d.a.n0.l0.b.d(getContext(), str2, new c());
     }
 
     public void l(v vVar) {
-        if (d.a.k0.k0.a.a(getText().toString()) >= 10) {
+        if (d.a.n0.l0.a.a(getText().toString()) >= 10) {
             CustomToast.newInstance().showToast(R.string.too_many_face);
         } else {
-            d.a.k0.k0.b.b(getContext(), vVar, this);
+            d.a.n0.l0.b.b(getContext(), vVar, this);
         }
     }
 

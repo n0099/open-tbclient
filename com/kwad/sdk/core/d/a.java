@@ -6,16 +6,16 @@ import com.kwad.sdk.b;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f32112a = true;
+    public static boolean f32041a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f32113b = "[KSAdSDK_3.3.8.3]";
+    public static String f32042b = "[KSAdSDK_3.3.8.3]";
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f32114c = false;
+    public static boolean f32043c = false;
 
     public static String a() {
-        return f32113b;
+        return f32042b;
     }
 
     public static void a(String str) {
@@ -23,27 +23,27 @@ public class a {
     }
 
     public static void a(String str, String str2) {
-        if (f32112a && b.f31890b.booleanValue()) {
+        if (f32041a && b.f31819b.booleanValue()) {
             b(a(), f(str, str2));
         }
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f32112a) {
+        if (f32041a) {
             Log.e(str, str2, th);
         }
     }
 
     public static void a(String str, boolean z) {
-        f32113b = "[" + str + "]";
-        f32112a = z;
+        f32042b = "[" + str + "]";
+        f32041a = z;
     }
 
     public static void a(Throwable th) {
-        if (f32112a && th != null) {
+        if (f32041a && th != null) {
             th.printStackTrace();
         }
-        if (b.f31890b.booleanValue()) {
+        if (b.f31819b.booleanValue()) {
             throw new RuntimeException(th);
         }
     }
@@ -51,7 +51,7 @@ public class a {
     public static String b() {
         String str;
         int i2;
-        if (f32114c) {
+        if (f32043c) {
             StackTraceElement[] stackTrace = new Throwable().getStackTrace();
             if (stackTrace.length > 3) {
                 str = stackTrace[3].getFileName();
@@ -75,26 +75,26 @@ public class a {
     }
 
     public static void b(Throwable th) {
-        if (!f32112a || th == null) {
+        if (!f32041a || th == null) {
             return;
         }
         th.printStackTrace();
     }
 
     public static void c(String str, String str2) {
-        if (f32112a) {
+        if (f32041a) {
             Log.i(a(), f(str, str2));
         }
     }
 
     public static void d(String str, String str2) {
-        if (f32112a) {
+        if (f32041a) {
             Log.w(a(), f(str, str2));
         }
     }
 
     public static void e(String str, String str2) {
-        if (f32112a) {
+        if (f32041a) {
             Log.e(a(), f(str, str2));
         }
     }

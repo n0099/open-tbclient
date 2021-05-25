@@ -28,18 +28,18 @@ import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
 import com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity;
 import d.a.c.e.p.l;
-import d.a.j0.e0.d;
+import d.a.m0.e0.d;
 /* loaded from: classes5.dex */
-public class PersonInfoDelegateStatic extends d.a.j0.e0.b {
+public class PersonInfoDelegateStatic extends d.a.m0.e0.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public MessageRedDotView f19741a;
+    public MessageRedDotView f19663a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Boolean f19742b = Boolean.FALSE;
+    public Boolean f19664b = Boolean.FALSE;
 
     /* renamed from: c  reason: collision with root package name */
-    public CustomMessageListener f19743c;
+    public CustomMessageListener f19665c;
 
     /* loaded from: classes5.dex */
     public static class a extends CustomMessageListener {
@@ -50,7 +50,7 @@ public class PersonInfoDelegateStatic extends d.a.j0.e0.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.j0.e0.c fragmentTabStructure;
+            d.a.m0.e0.c fragmentTabStructure;
             if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
@@ -59,7 +59,7 @@ public class PersonInfoDelegateStatic extends d.a.j0.e0.b {
             if (((d) customResponsedMessage.getData()).b() == null || (fragmentTabStructure = personInfoDelegateStatic.getFragmentTabStructure()) == null) {
                 return;
             }
-            fragmentTabStructure.f49290a.setArguments(new Bundle());
+            fragmentTabStructure.f49334a.setArguments(new Bundle());
         }
     }
 
@@ -72,19 +72,19 @@ public class PersonInfoDelegateStatic extends d.a.j0.e0.b {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007014 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof d.a.j0.e0.a)) {
+            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2007014 || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof d.a.m0.e0.a)) {
                 return;
             }
-            PersonInfoDelegateStatic.this.f19742b = Boolean.valueOf(((d.a.j0.e0.a) customResponsedMessage.getData()).f49289a);
-            if (PersonInfoDelegateStatic.this.f19742b.booleanValue()) {
-                PersonInfoDelegateStatic.this.f19741a.f(0);
-                PersonInfoDelegateStatic.this.f19741a.setVisibility(0);
+            PersonInfoDelegateStatic.this.f19664b = Boolean.valueOf(((d.a.m0.e0.a) customResponsedMessage.getData()).f49333a);
+            if (PersonInfoDelegateStatic.this.f19664b.booleanValue()) {
+                PersonInfoDelegateStatic.this.f19663a.f(0);
+                PersonInfoDelegateStatic.this.f19663a.setVisibility(0);
             } else {
-                PersonInfoDelegateStatic.this.f19741a.setVisibility(8);
+                PersonInfoDelegateStatic.this.f19663a.setVisibility(8);
             }
             AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (!PersonInfoDelegateStatic.this.f19742b.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                d.a.j0.r.d0.b.j().t("member_close_ad_mine_clicked", true);
+            if (!PersonInfoDelegateStatic.this.f19664b.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
+                d.a.m0.r.d0.b.j().t("member_close_ad_mine_clicked", true);
             }
         }
     }
@@ -96,14 +96,14 @@ public class PersonInfoDelegateStatic extends d.a.j0.e0.b {
             if (strArr == null || strArr[0] == null || tbPageContext == null || tbPageContext.getPageActivity() == null || !strArr[0].contains("openAiCustomService")) {
                 return 3;
             }
-            d.a.k0.g2.b.a().b();
+            d.a.n0.h2.b.a().b();
             return 0;
         }
     }
 
     static {
         d();
-        d.a.k0.t2.a.v();
+        d.a.n0.u2.a.v();
         a aVar = new a(2007002);
         aVar.setPriority(9);
         MessageManager.getInstance().registerListener(aVar);
@@ -111,12 +111,12 @@ public class PersonInfoDelegateStatic extends d.a.j0.e0.b {
         TbadkCoreApplication.getInst().RegisterIntent(MissionCustomDialogActivityConfig.class, MissionCustomDialogActivity.class);
         e();
         TbadkCoreApplication.getInst().RegisterIntent(UserTropicGiftBagActivityConfig.class, UserTropicGiftBagActivity.class);
-        d.a.k0.g2.b.a();
+        d.a.n0.h2.b.a();
     }
 
     public static void d() {
-        d.a.k0.d3.d0.a.h(303012, ProfileSocketResponseMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, d.a.k0.d3.d0.a.a("c/u/user/profile", 303012));
+        d.a.n0.e3.d0.a.h(303012, ProfileSocketResponseMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, d.a.n0.e3.d0.a.a("c/u/user/profile", 303012));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -129,53 +129,53 @@ public class PersonInfoDelegateStatic extends d.a.j0.e0.b {
         UrlManager.getInstance().addListener(new c());
     }
 
-    @Override // d.a.j0.e0.b
-    public d.a.j0.e0.c createFragmentTabStructure() {
-        d.a.j0.e0.c cVar = new d.a.j0.e0.c();
-        cVar.f49290a = new PersonCenterFragment();
-        cVar.f49294e = 8;
-        cVar.f49291b = R.string.mine;
-        cVar.f49295f = R.raw.lottie_tab_my;
-        cVar.f49298i = d.a.j0.e0.c.m;
-        cVar.f49297h = d.a.j0.e0.e.c.d().c("person");
+    @Override // d.a.m0.e0.b
+    public d.a.m0.e0.c createFragmentTabStructure() {
+        d.a.m0.e0.c cVar = new d.a.m0.e0.c();
+        cVar.f49334a = new PersonCenterFragment();
+        cVar.f49338e = 8;
+        cVar.f49335b = R.string.mine;
+        cVar.f49339f = R.raw.lottie_tab_my;
+        cVar.f49342i = d.a.m0.e0.c.m;
+        cVar.f49341h = d.a.m0.e0.e.c.d().c("person");
         return cVar;
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public TbFragmentTabIndicator getTabIndicator(Context context) {
         this.mIndicator = (MaintabBottomIndicator) LayoutInflater.from(context).inflate(R.layout.maintab_bottom_indicator, (ViewGroup) null);
-        this.f19741a = new MessageRedDotView(context);
+        this.f19663a = new MessageRedDotView(context);
         TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
-        aVar.f12964f = this.mIndicator;
-        aVar.f12961c = l.e(context, 10.0f);
-        aVar.f12959a = this.f19741a;
+        aVar.f12872f = this.mIndicator;
+        aVar.f12869c = l.e(context, 10.0f);
+        aVar.f12867a = this.f19663a;
         this.mIndicator.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-        boolean g2 = d.a.j0.r.d0.b.j().g("key_feedback_tip_tab_show", false);
-        if (!this.f19742b.booleanValue() && !g2) {
-            this.f19741a.setVisibility(8);
+        boolean g2 = d.a.m0.r.d0.b.j().g("key_feedback_tip_tab_show", false);
+        if (!this.f19664b.booleanValue() && !g2) {
+            this.f19663a.setVisibility(8);
         } else {
-            this.f19741a.f(0);
-            this.f19741a.setVisibility(0);
+            this.f19663a.f(0);
+            this.f19663a.setVisibility(0);
         }
         return this.mIndicator;
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public boolean isAvailable() {
         return MainTabActivityConfig.PERSON_TAB_AVAIBLE;
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public void onAdd() {
         b bVar = new b(2007014);
-        this.f19743c = bVar;
+        this.f19665c = bVar;
         bVar.setPriority(9);
-        MessageManager.getInstance().registerListener(this.f19743c);
+        MessageManager.getInstance().registerListener(this.f19665c);
     }
 
-    @Override // d.a.j0.e0.b
+    @Override // d.a.m0.e0.b
     public void onRemove() {
         super.onRemove();
-        MessageManager.getInstance().unRegisterListener(this.f19743c);
+        MessageManager.getInstance().unRegisterListener(this.f19665c);
     }
 }

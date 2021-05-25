@@ -8,26 +8,26 @@ import java.util.concurrent.TimeUnit;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f36770a;
+    public static final int f36699a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f36771b;
+    public static final int f36700b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f36772c;
+    public static final int f36701c;
 
     /* renamed from: d  reason: collision with root package name */
-    public static ExecutorService f36773d;
+    public static ExecutorService f36702d;
 
     static {
         int availableProcessors = Runtime.getRuntime().availableProcessors();
-        f36770a = availableProcessors;
-        f36771b = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f36772c = (f36770a * 2) + 1;
-        f36773d = a("COMMON_THREAD");
+        f36699a = availableProcessors;
+        f36700b = Math.max(2, Math.min(availableProcessors - 1, 4));
+        f36701c = (f36699a * 2) + 1;
+        f36702d = a("COMMON_THREAD");
     }
 
     public static ExecutorService a(String str) {
-        return new ThreadPoolExecutor(f36771b, f36772c, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(128), new f(str), new ThreadPoolExecutor.DiscardPolicy());
+        return new ThreadPoolExecutor(f36700b, f36701c, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(128), new f(str), new ThreadPoolExecutor.DiscardPolicy());
     }
 }

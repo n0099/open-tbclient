@@ -16,13 +16,13 @@ import com.baidu.tieba.setting.more.youngster.message.YoungsterVerifyHttpRespons
 public class YoungsterVerifyModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f20559e;
+    public b f20479e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TbPageContext<?> f20560f;
+    public TbPageContext<?> f20480f;
 
     /* renamed from: g  reason: collision with root package name */
-    public HttpMessageListener f20561g;
+    public HttpMessageListener f20481g;
 
     /* loaded from: classes5.dex */
     public class a extends HttpMessageListener {
@@ -48,10 +48,10 @@ public class YoungsterVerifyModel extends BdBaseModel {
             errorData.setError_code(YoungsterVerifyModel.this.mErrorCode);
             errorData.setError_msg(str);
             YoungsterVerifyHttpResponsedMessage youngsterVerifyHttpResponsedMessage = httpResponsedMessage instanceof YoungsterVerifyHttpResponsedMessage ? (YoungsterVerifyHttpResponsedMessage) httpResponsedMessage : null;
-            if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().f62532a) {
-                YoungsterVerifyModel.this.f20559e.onSuccess();
+            if (youngsterVerifyHttpResponsedMessage != null && youngsterVerifyHttpResponsedMessage.getData() != null && youngsterVerifyHttpResponsedMessage.getData().f62639a) {
+                YoungsterVerifyModel.this.f20479e.onSuccess();
             } else {
-                YoungsterVerifyModel.this.f20559e.onError(errorData);
+                YoungsterVerifyModel.this.f20479e.onError(errorData);
             }
         }
     }
@@ -66,11 +66,11 @@ public class YoungsterVerifyModel extends BdBaseModel {
     public YoungsterVerifyModel(TbPageContext<?> tbPageContext, b bVar) {
         super(tbPageContext);
         a aVar = new a(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
-        this.f20561g = aVar;
-        this.f20560f = tbPageContext;
+        this.f20481g = aVar;
+        this.f20480f = tbPageContext;
         aVar.setSelfListener(true);
-        registerListener(this.f20561g);
-        this.f20559e = bVar;
+        registerListener(this.f20481g);
+        this.f20479e = bVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -88,6 +88,6 @@ public class YoungsterVerifyModel extends BdBaseModel {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_YOUNGSTER_VERIFY_AUTHID);
         httpMessage.addParam(YoungsterVerifyActivityConfig.PARAMA_AUTH_ID, str);
         httpMessage.addParam("scene", YoungsterVerifyActivityConfig.PARAMA_TIEBA_AUTH);
-        this.f20560f.sendMessage(httpMessage);
+        this.f20480f.sendMessage(httpMessage);
     }
 }

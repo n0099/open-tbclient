@@ -5,8 +5,8 @@ import GetSugTopic.GetSugTopicResIdl;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.squareup.wire.Wire;
-import d.a.j0.r.r.a;
-import d.a.k0.d1.c;
+import d.a.m0.r.r.a;
+import d.a.n0.e1.c;
 import tbclient.Error;
 /* loaded from: classes4.dex */
 public class HotSelectHttpResponseMessage extends TbHttpResponsedMessage {

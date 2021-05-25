@@ -9,12 +9,12 @@ import android.os.Message;
 public class y extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ x f6697a;
+    public final /* synthetic */ x f6597a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public y(x xVar, Looper looper) {
         super(looper);
-        this.f6697a = xVar;
+        this.f6597a = xVar;
     }
 
     /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:37:0x009a -> B:39:0x009d). Please submit an issue!!! */
@@ -57,9 +57,9 @@ public class y extends Handler {
                     if (i3) {
                         h.a().d();
                     }
-                    handler = this.f6697a.f6695d;
+                    handler = this.f6597a.f6595d;
                     if (handler != null) {
-                        handler2 = this.f6697a.f6695d;
+                        handler2 = this.f6597a.f6595d;
                         handler2.sendEmptyMessageDelayed(4, com.baidu.location.e.k.R);
                     }
                 }

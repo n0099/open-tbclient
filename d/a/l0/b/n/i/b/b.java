@@ -1,0 +1,13 @@
+package d.a.l0.b.n.i.b;
+/* loaded from: classes3.dex */
+public class b {
+
+    /* renamed from: a  reason: collision with root package name */
+    public String f46440a;
+
+    /* renamed from: b  reason: collision with root package name */
+    public double f46441b;
+
+    /* renamed from: c  reason: collision with root package name */
+    public double f46442c;
+}

@@ -17,24 +17,24 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import d.a.k0.d3.c;
+import d.a.n0.e3.c;
 /* loaded from: classes3.dex */
 public class OvalActionButton extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f13084e;
+    public boolean f12992e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f13085f;
+    public boolean f12993f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f13086g;
+    public boolean f12994g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13087h;
+    public int f12995h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13088i;
+    public int f12996i;
     public Path j;
     public Paint k;
     public Paint l;
@@ -105,7 +105,7 @@ public class OvalActionButton extends ImageView {
             d();
             this.r = SkinManager.getColor(this.x, R.color.CAM_X0306);
             this.l.setColor(SkinManager.getColor(R.color.CAM_X0101));
-            this.f13084e = true;
+            this.f12992e = true;
             invalidate();
         }
     }
@@ -152,7 +152,7 @@ public class OvalActionButton extends ImageView {
         int i2;
         float f2;
         float f3;
-        if (this.f13087h <= 0 || this.f13088i <= 0) {
+        if (this.f12995h <= 0 || this.f12996i <= 0) {
             return;
         }
         if (getDrawable() != null) {
@@ -161,7 +161,7 @@ public class OvalActionButton extends ImageView {
             }
             int saveCount = canvas.getSaveCount();
             canvas.save();
-            canvas.scale(0.7f, 0.7f, this.f13087h / 2, this.f13088i / 2);
+            canvas.scale(0.7f, 0.7f, this.f12995h / 2, this.f12996i / 2);
             super.onDraw(canvas);
             if (saveCount < 1 || saveCount > canvas.getSaveCount()) {
                 return;
@@ -175,15 +175,15 @@ public class OvalActionButton extends ImageView {
         int saveCount2 = canvas.getSaveCount();
         canvas.save();
         a(canvas);
-        canvas.rotate(45.0f, this.f13087h / 2, this.f13088i / 2);
+        canvas.rotate(45.0f, this.f12995h / 2, this.f12996i / 2);
         Path path = this.j;
         if (path != null) {
             path.reset();
-            int i3 = this.f13087h;
+            int i3 = this.f12995h;
             float f4 = i3 * 0.15f;
             float f5 = i3 * 0.85f;
             float f6 = (f4 + f5) / 2.0f;
-            int i4 = this.f13088i;
+            int i4 = this.f12996i;
             float f7 = 0.15f * i4;
             float f8 = i4 * 0.85f;
             float f9 = (f7 + f8) / 2.0f;
@@ -199,18 +199,18 @@ public class OvalActionButton extends ImageView {
             this.j.cubicTo(f15, f8, f4, f14, f4, f9);
             this.j.cubicTo(f4, f13, f15, f7, f6, f7);
             this.j.close();
-            if (this.f13084e) {
+            if (this.f12992e) {
                 c2 = 0;
                 this.o = new LinearGradient(f4, 0.0f, f5, 0.0f, new int[]{this.p, this.q}, (float[]) null, Shader.TileMode.CLAMP);
-                this.f13084e = false;
+                this.f12992e = false;
             } else {
                 c2 = 0;
             }
-            if (this.f13086g) {
-                if (this.f13085f) {
+            if (this.f12994g) {
+                if (this.f12993f) {
                     this.k.setShadowLayer(16.0f, 5.0f, 5.0f, c.a(this.o == null ? this.r : this.q, 0.5f));
                 } else {
-                    int i5 = this.f13087h;
+                    int i5 = this.f12995h;
                     float f16 = i5 * 0.054f;
                     double radians = Math.toRadians(getRotation() - 45.0f);
                     double d2 = i5 * 0.0226f;
@@ -223,8 +223,8 @@ public class OvalActionButton extends ImageView {
             } else {
                 this.k.setColor(this.r);
             }
-            float f17 = this.f13087h * 0.032f;
-            if (this.f13085f) {
+            float f17 = this.f12995h * 0.032f;
+            if (this.f12993f) {
                 f2 = f9;
                 f3 = f6;
                 canvas.drawCircle(f3, f2, (i2 / 2) - 20, this.k);
@@ -272,8 +272,8 @@ public class OvalActionButton extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        this.f13087h = getMeasuredWidth();
-        this.f13088i = getMeasuredHeight();
+        this.f12995h = getMeasuredWidth();
+        this.f12996i = getMeasuredHeight();
     }
 
     public void setColor(int i2) {
@@ -328,7 +328,7 @@ public class OvalActionButton extends ImageView {
     }
 
     public void setHasShadow(boolean z) {
-        this.f13086g = z;
+        this.f12994g = z;
     }
 
     public void setIconFade(int i2) {
@@ -347,7 +347,7 @@ public class OvalActionButton extends ImageView {
     }
 
     public void setIsCircle(boolean z) {
-        this.f13085f = z;
+        this.f12993f = z;
     }
 
     @Override // android.view.View
@@ -359,7 +359,7 @@ public class OvalActionButton extends ImageView {
     public void setStartAndEndColor(String str, String str2) {
         this.p = c.c(str);
         this.q = c.c(str2);
-        this.f13084e = true;
+        this.f12992e = true;
         invalidate();
     }
 
@@ -369,8 +369,8 @@ public class OvalActionButton extends ImageView {
 
     public OvalActionButton(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13084e = true;
-        this.f13086g = true;
+        this.f12992e = true;
+        this.f12994g = true;
         this.m = new float[4];
         this.n = new float[4];
         this.r = SkinManager.getColor(R.color.CAM_X0306);
@@ -383,7 +383,7 @@ public class OvalActionButton extends ImageView {
     public void setStartAndEndColor(int i2, int i3) {
         this.p = i2;
         this.q = i3;
-        this.f13084e = true;
+        this.f12992e = true;
         invalidate();
     }
 }

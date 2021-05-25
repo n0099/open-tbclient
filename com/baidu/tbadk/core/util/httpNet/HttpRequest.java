@@ -9,13 +9,14 @@ import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tbadk.core.util.INetWorkCore;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import d.a.c.e.p.j;
-import d.a.j0.f0.f;
-import d.a.j0.r.d0.b;
-import d.a.j0.r.l.c;
-import d.a.j0.r.l.e;
-import d.a.j0.s.b.a;
+import d.a.m0.f0.f;
+import d.a.m0.r.d0.b;
+import d.a.m0.r.l.c;
+import d.a.m0.r.l.e;
+import d.a.m0.s.b.a;
 /* loaded from: classes3.dex */
 public class HttpRequest {
     public static final String BDUSS = "BDUSS";
@@ -134,6 +135,7 @@ public class HttpRequest {
         iNetWorkCore.addPostData("first_install_time", String.valueOf(TbSingleton.getInstance().getAppFirstInstallTime()));
         iNetWorkCore.addPostData(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, String.valueOf(TbSingleton.getInstance().getAppLastUpdateTime()));
         iNetWorkCore.addPostData("event_day", TbSingleton.getInstance().getData());
+        iNetWorkCore.addPostData("cmode", PermissionUtil.isAgreePrivacyPolicy() ? "1" : "2");
     }
 
     public String getApiName() {

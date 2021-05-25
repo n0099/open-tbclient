@@ -7,25 +7,25 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.nio.channels.FileLock;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class h2 {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f64986a;
+    public boolean f65029a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f64987b;
+    public boolean f65030b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f64988c;
+    public boolean f65031c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f64989d;
+    public boolean f65032d;
 
     public h2(boolean z, boolean z2) {
-        this.f64987b = z;
-        this.f64988c = z2;
-        this.f64989d = false;
+        this.f65030b = z;
+        this.f65031c = z2;
+        this.f65032d = false;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:66:0x00db A[EXC_TOP_SPLITTER, SYNTHETIC] */
@@ -85,7 +85,7 @@ public abstract class h2 {
                     e = e2;
                     try {
                         if (Build.VERSION.SDK_INT >= 23) {
-                            if (x1.f().f65091g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
+                            if (x1.f().f65134g.checkSelfPermission("android.permission.READ_EXTERNAL_STORAGE") == 0) {
                                 r0.b(e);
                             } else {
                                 throw new SecurityException(e);
@@ -143,8 +143,8 @@ public abstract class h2 {
     public abstract boolean b(JSONObject jSONObject);
 
     public h2(boolean z, boolean z2, boolean z3) {
-        this.f64987b = z;
-        this.f64988c = z2;
-        this.f64989d = z3;
+        this.f65030b = z;
+        this.f65031c = z2;
+        this.f65032d = z3;
     }
 }

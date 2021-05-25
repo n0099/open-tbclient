@@ -24,7 +24,7 @@ import com.baidu.searchbox.live.interfaces.yy.YYStatInfo;
 import com.baidu.ubc.Flow;
 import com.baidu.ubc.UBCManager;
 import com.baidu.webkit.internal.ABTestConstants;
-import d.a.t.c.b.a;
+import d.a.v.c.b.a;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;

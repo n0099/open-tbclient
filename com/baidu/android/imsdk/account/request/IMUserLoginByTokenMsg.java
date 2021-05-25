@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.webkit.internal.utils.ZeusInitConfigUtils;
-import d.a.r.a;
+import d.a.s.a;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -149,7 +149,7 @@ public class IMUserLoginByTokenMsg extends Message {
                         }
                     }
                 }
-                if (!a.f64518e) {
+                if (!a.f64463e) {
                     ChatMsgManagerImpl.getInstance(this.mContext).fetchConfigMsg(this.mContext, 0L, 20L);
                 }
             } catch (Exception e2) {

@@ -51,12 +51,12 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
-    public d.a.k0.v3.q.b mAdapter;
+    public d.a.n0.w3.q.b mAdapter;
     public View mBackView;
     public BaijiahaoData mBaijiahaoData;
-    public d.a.k0.v3.p.a mCheckCallback;
-    public d.a.k0.v3.p.b mCheckManager;
-    public d.a.k0.v3.p.c mCheckResponseData;
+    public d.a.n0.w3.p.a mCheckCallback;
+    public d.a.n0.w3.p.b mCheckManager;
+    public d.a.n0.w3.p.c mCheckResponseData;
     public FrameLayout mContentView;
     public View mDivider;
     public ImageView mIconSearch;
@@ -71,7 +71,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public LinearLayout mSearchLayout;
     public TextView mTextViewSearch;
     public TextView mTitleView;
-    public d.a.k0.v3.p.f mTransferSaveManager;
+    public d.a.n0.w3.p.f mTransferSaveManager;
     public String mTransmitOriginThreadComment;
     public String mTransmitThreadAuthorNameShow;
     public String mYyAnchorBdUid;
@@ -105,12 +105,12 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements d.a.k0.v3.p.a {
+    public class b implements d.a.n0.w3.p.a {
         public b() {
         }
 
-        @Override // d.a.k0.v3.p.a
-        public void a(d.a.k0.v3.p.c cVar, int i2, String str) {
+        @Override // d.a.n0.w3.p.a
+        public void a(d.a.n0.w3.p.c cVar, int i2, String str) {
             if (cVar == null) {
                 SelectForumActivity selectForumActivity = SelectForumActivity.this;
                 selectForumActivity.hideLoadingView(selectForumActivity.mContentView);
@@ -122,20 +122,20 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 return;
             }
             if (SelectForumActivity.this.mCheckResponseData != null) {
-                SelectForumActivity.this.mCheckResponseData.f62789c = cVar.f62789c;
-                SelectForumActivity.this.mCheckResponseData.f62790d = cVar.f62790d;
+                SelectForumActivity.this.mCheckResponseData.f62896c = cVar.f62896c;
+                SelectForumActivity.this.mCheckResponseData.f62897d = cVar.f62897d;
             }
-            d.a.k0.b0.f.b().h();
+            d.a.n0.d0.f.b().h();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements d.a.k0.v3.p.e {
+    public class c implements d.a.n0.w3.p.e {
         public c() {
         }
 
-        @Override // d.a.k0.v3.p.e
-        public void a(d.a.k0.v3.p.d dVar) {
+        @Override // d.a.n0.w3.p.e
+        public void a(d.a.n0.w3.p.d dVar) {
             if (dVar == null) {
                 SelectForumActivity selectForumActivity = SelectForumActivity.this;
                 selectForumActivity.showToast(selectForumActivity.getString(R.string.share_sdk_share_faild_default));
@@ -143,15 +143,15 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 intent.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, -2113);
                 SelectForumActivity.this.setResult(1008, intent);
             } else {
-                ErrorData errorData = dVar.f62796a;
+                ErrorData errorData = dVar.f62903a;
                 if (errorData != null && errorData.getError_code() != 0) {
-                    SelectForumActivity.this.showToast(dVar.f62796a.getError_msg());
+                    SelectForumActivity.this.showToast(dVar.f62903a.getError_msg());
                     Intent intent2 = new Intent();
-                    intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, dVar.f62796a.getError_code());
+                    intent2.putExtra(PmsConstant.Statistic.STATISTIC_ERRCODE, dVar.f62903a.getError_code());
                     SelectForumActivity.this.setResult(1008, intent2);
                 } else {
-                    TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.f62797b).param("tid", dVar.f62798c));
-                    SelectForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(SelectForumActivity.this).createNormalCfg(SelectForumActivity.this.mCheckResponseData.f62792f, "")));
+                    TiebaStatic.log(new StatisticItem("c13278").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", dVar.f62904b).param("tid", dVar.f62905c));
+                    SelectForumActivity.this.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(SelectForumActivity.this).createNormalCfg(SelectForumActivity.this.mCheckResponseData.f62899f, "")));
                 }
             }
             SelectForumActivity.this.finish();
@@ -227,8 +227,8 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 ArrayList<? extends Parcelable> arrayList = new ArrayList<>();
                 arrayList.add(transmitForumData);
                 if (SelectForumActivity.this.mCheckResponseData != null) {
-                    SelectForumActivity.this.mCheckResponseData.f62791e = String.valueOf(transmitForumData.forumId);
-                    SelectForumActivity.this.mCheckResponseData.f62792f = transmitForumData.forumName;
+                    SelectForumActivity.this.mCheckResponseData.f62898e = String.valueOf(transmitForumData.forumId);
+                    SelectForumActivity.this.mCheckResponseData.f62899f = transmitForumData.forumName;
                     SelectForumActivity.this.addShareSdkView(AddFriendActivityConfig.TYPE_FOCUS);
                 } else if (SelectForumActivity.this.mFrom != 1 || (SelectForumActivity.this.mLiveId <= 0 && TextUtils.isEmpty(SelectForumActivity.this.mYyAnchorBdUid))) {
                     if (SelectForumActivity.this.mFrom != 2) {
@@ -306,24 +306,24 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
                 TiebaStatic.log(new StatisticItem("c13275").param("uid", TbadkCoreApplication.getCurrentAccount()));
                 try {
                     Class.forName("com.baidu.tieba.enterForum.home.CoreSearchRequestStatic");
-                    Class.forName("d.a.k0.i0.h.a");
+                    Class.forName("d.a.n0.j0.h.a");
                 } catch (Exception unused) {
                 }
                 this.mFrom = 3;
-                d.a.k0.v3.p.c cVar = new d.a.k0.v3.p.c();
+                d.a.n0.w3.p.c cVar = new d.a.n0.w3.p.c();
                 this.mCheckResponseData = cVar;
-                cVar.f62787a = intent.getStringExtra("appkey");
-                this.mCheckResponseData.f62788b = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
-                this.mCheckResponseData.f62795i = intent.getStringExtra("image");
-                this.mCheckResponseData.f62793g = intent.getStringExtra("title");
-                this.mCheckResponseData.f62794h = intent.getStringExtra("desc");
+                cVar.f62894a = intent.getStringExtra("appkey");
+                this.mCheckResponseData.f62895b = intent.getStringExtra(SelectForumActivityConfig.KEY_APPLETSKEY);
+                this.mCheckResponseData.f62902i = intent.getStringExtra("image");
+                this.mCheckResponseData.f62900g = intent.getStringExtra("title");
+                this.mCheckResponseData.f62901h = intent.getStringExtra("desc");
                 this.mCheckResponseData.k = intent.getStringExtra("link");
                 this.mCheckResponseData.l = intent.getStringExtra(SelectForumActivityConfig.KEY_SHARE_APPLETS_LINK);
-                this.mCheckManager = new d.a.k0.v3.p.b(getUniqueId());
+                this.mCheckManager = new d.a.n0.w3.p.b(getUniqueId());
                 b bVar = new b();
                 this.mCheckCallback = bVar;
                 this.mCheckManager.e(bVar);
-                d.a.k0.v3.p.f fVar = new d.a.k0.v3.p.f(getUniqueId());
+                d.a.n0.w3.p.f fVar = new d.a.n0.w3.p.f(getUniqueId());
                 this.mTransferSaveManager = fVar;
                 fVar.c(new c());
                 return;
@@ -371,7 +371,7 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
         BdListView bdListView = (BdListView) findViewById(R.id.trasmit_grid_view);
         this.mListView = bdListView;
         bdListView.setOnItemClickListener(this.mOnItemClickListener);
-        d.a.k0.v3.q.b bVar = new d.a.k0.v3.q.b(getActivity());
+        d.a.n0.w3.q.b bVar = new d.a.n0.w3.q.b(getActivity());
         this.mAdapter = bVar;
         this.mListView.setAdapter((ListAdapter) bVar);
         this.mAdapter.b(this.mDataList);
@@ -427,10 +427,10 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
             setResult(-1, intent);
             finish();
         } else if (i3 == -1 && i2 == 25019) {
-            d.a.k0.v3.p.c cVar = this.mCheckResponseData;
+            d.a.n0.w3.p.c cVar = this.mCheckResponseData;
             if (cVar != null && intent != null) {
-                cVar.f62791e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
-                this.mCheckResponseData.f62792f = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
+                cVar.f62898e = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_ID);
+                this.mCheckResponseData.f62899f = intent.getStringExtra(SelectForumActivityConfig.SELECT_FORUM_NAME);
                 addShareSdkView("search");
                 return;
             }
@@ -475,9 +475,9 @@ public class SelectForumActivity extends BaseActivity<SelectForumActivity> {
     public void onResume() {
         super.onResume();
         if (this.mCheckManager != null && TbadkCoreApplication.isLogin() && ListUtils.isEmpty(this.mDataList)) {
-            d.a.k0.v3.p.c cVar = this.mCheckResponseData;
+            d.a.n0.w3.p.c cVar = this.mCheckResponseData;
             if (cVar != null) {
-                this.mCheckManager.d(cVar.f62787a, cVar.f62788b);
+                this.mCheckManager.d(cVar.f62894a, cVar.f62895b);
                 return;
             }
             return;

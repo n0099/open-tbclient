@@ -8,11 +8,11 @@ public class c extends com.baidu.platform.base.e {
     }
 
     private void a(GeoCodeOption geoCodeOption) {
-        this.f9352a.a("city", geoCodeOption.mCity);
-        this.f9352a.a("address", geoCodeOption.mAddress);
-        this.f9352a.a("output", "json");
-        this.f9352a.a("ret_coordtype", "bd09ll");
-        this.f9352a.a("from", "android_map_sdk");
+        this.f9252a.a("city", geoCodeOption.mCity);
+        this.f9252a.a("address", geoCodeOption.mAddress);
+        this.f9252a.a("output", "json");
+        this.f9252a.a("ret_coordtype", "bd09ll");
+        this.f9252a.a("from", "android_map_sdk");
     }
 
     @Override // com.baidu.platform.base.e

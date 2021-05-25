@@ -5,18 +5,18 @@ import android.location.Location;
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Location f6579a;
+    public final /* synthetic */ Location f6479a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ d f6580b;
+    public final /* synthetic */ d f6480b;
 
     public e(d dVar, Location location) {
-        this.f6580b = dVar;
-        this.f6579a = location;
+        this.f6480b = dVar;
+        this.f6479a = location;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f6580b.b(this.f6579a);
+        this.f6480b.b(this.f6479a);
     }
 }

@@ -26,31 +26,31 @@ public final class a {
     public static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f26704a;
+    public String f26633a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f26705b;
+    public int f26634b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26706c;
+    public int f26635c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f26707d;
+    public int f26636d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f26708e;
+    public String f26637e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f26709f;
+    public int f26638f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f26710g;
+    public String f26639g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f26711h;
+    public String f26640h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f26712i;
+    public String f26641i;
     public String j;
     public String k;
     public String l;
@@ -69,7 +69,7 @@ public final class a {
     }
 
     private String a(Context context, com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26710g)) {
+        if (TextUtils.isEmpty(this.f26639g)) {
             int e2 = e(context);
             int f2 = f(context);
             String str = Build.MANUFACTURER;
@@ -95,22 +95,22 @@ public final class a {
             stringBuffer.append(h2);
             stringBuffer.append("_");
             stringBuffer.append(str5);
-            this.f26710g = bVar.a(stringBuffer.toString().replace(".", "-"));
+            this.f26639g = bVar.a(stringBuffer.toString().replace(".", "-"));
         }
-        if (TextUtils.isEmpty(this.f26710g)) {
+        if (TextUtils.isEmpty(this.f26639g)) {
             throw new RuntimeException("BdLogBase: get ua null!");
         }
-        return this.f26710g;
+        return this.f26639g;
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26704a)) {
-            this.f26704a = bVar.e();
+        if (TextUtils.isEmpty(this.f26633a)) {
+            this.f26633a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f26704a)) {
+        if (TextUtils.isEmpty(this.f26633a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f26704a;
+        return this.f26633a;
     }
 
     private String b() {
@@ -162,13 +162,13 @@ public final class a {
     }
 
     private String b(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26711h)) {
-            this.f26711h = bVar.c();
+        if (TextUtils.isEmpty(this.f26640h)) {
+            this.f26640h = bVar.c();
         }
-        if (TextUtils.isEmpty(this.f26711h)) {
+        if (TextUtils.isEmpty(this.f26640h)) {
             throw new RuntimeException("BdLogBase: get from null!");
         }
-        return this.f26711h;
+        return this.f26640h;
     }
 
     private String c() {
@@ -179,13 +179,13 @@ public final class a {
     }
 
     private String c(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f26712i)) {
-            this.f26712i = bVar.d();
+        if (TextUtils.isEmpty(this.f26641i)) {
+            this.f26641i = bVar.d();
         }
-        if (TextUtils.isEmpty(this.f26712i)) {
+        if (TextUtils.isEmpty(this.f26641i)) {
             throw new RuntimeException("BdLogBase: get Cfrom null!");
         }
-        return this.f26712i;
+        return this.f26641i;
     }
 
     public static boolean c(Context context) {
@@ -210,19 +210,19 @@ public final class a {
     private void d(Context context) {
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.f26705b = displayMetrics.widthPixels;
-            this.f26706c = displayMetrics.heightPixels;
-            this.f26707d = displayMetrics.densityDpi;
+            this.f26634b = displayMetrics.widthPixels;
+            this.f26635c = displayMetrics.heightPixels;
+            this.f26636d = displayMetrics.densityDpi;
         } catch (Exception e2) {
             c.a(e2);
         }
     }
 
     private int e(Context context) {
-        if (this.f26705b == 0) {
+        if (this.f26634b == 0) {
             d(context);
         }
-        return this.f26705b;
+        return this.f26634b;
     }
 
     public static String e() {
@@ -241,10 +241,10 @@ public final class a {
     }
 
     private int f(Context context) {
-        if (this.f26706c == 0) {
+        if (this.f26635c == 0) {
             d(context);
         }
-        return this.f26706c;
+        return this.f26635c;
     }
 
     public static String f() {
@@ -252,22 +252,22 @@ public final class a {
     }
 
     private int g(Context context) {
-        if (this.f26707d == 0) {
+        if (this.f26636d == 0) {
             d(context);
         }
-        return this.f26707d;
+        return this.f26636d;
     }
 
     private String h(Context context) {
         try {
-            if (TextUtils.isEmpty(this.f26708e)) {
+            if (TextUtils.isEmpty(this.f26637e)) {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                this.f26708e = packageInfo.versionName;
-                this.f26708e = this.f26708e.substring(0, this.f26708e.length() - 1) + "1";
-                this.f26709f = packageInfo.versionCode;
-                c.e("BdLogSDK", "mVersionName = " + this.f26708e);
+                this.f26637e = packageInfo.versionName;
+                this.f26637e = this.f26637e.substring(0, this.f26637e.length() - 1) + "1";
+                this.f26638f = packageInfo.versionCode;
+                c.e("BdLogSDK", "mVersionName = " + this.f26637e);
             }
-            return this.f26708e;
+            return this.f26637e;
         } catch (Exception e2) {
             c.a(e2);
             return "1.0.0.0";
@@ -276,17 +276,17 @@ public final class a {
 
     private int i(Context context) {
         try {
-            if (this.f26709f <= 0) {
+            if (this.f26638f <= 0) {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                this.f26708e = packageInfo.versionName;
-                this.f26708e = this.f26708e.substring(0, this.f26708e.length() - 1) + "1";
-                this.f26709f = packageInfo.versionCode;
-                c.e("BdLogSDK", "mVersionName = " + this.f26708e);
+                this.f26637e = packageInfo.versionName;
+                this.f26637e = this.f26637e.substring(0, this.f26637e.length() - 1) + "1";
+                this.f26638f = packageInfo.versionCode;
+                c.e("BdLogSDK", "mVersionName = " + this.f26637e);
             }
         } catch (Exception e2) {
             c.a(e2);
         }
-        return this.f26709f;
+        return this.f26638f;
     }
 
     private String j(Context context) {
@@ -852,10 +852,10 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c d2 = b.a().e().d(str);
-        if ("full".equals(d2.f26745a)) {
+        if ("full".equals(d2.f26674a)) {
             return a(context);
         }
-        HashSet<String> hashSet = d2.f26747c;
+        HashSet<String> hashSet = d2.f26676c;
         JSONObject jSONObject = new JSONObject();
         if (hashSet != null) {
             try {

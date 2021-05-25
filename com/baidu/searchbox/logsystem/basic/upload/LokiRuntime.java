@@ -4,7 +4,7 @@ import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
 import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityNeedContext;
-import d.a.k0.y2.l;
+import d.a.n0.z2.l;
 @Autowired
 /* loaded from: classes2.dex */
 public class LokiRuntime {

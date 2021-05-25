@@ -25,19 +25,19 @@ import tv.athena.revenue.payui.widget.NoScrollGridView;
 public class YYPayWayView extends LinearLayout implements IYYPayWayView {
 
     /* renamed from: e  reason: collision with root package name */
-    public List<i.a.a.e.j.d> f69581e;
+    public List<i.a.a.e.j.d> f69624e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NoScrollGridView f69582f;
+    public NoScrollGridView f69625f;
 
     /* renamed from: g  reason: collision with root package name */
-    public i.a.a.e.m.b.b f69583g;
+    public i.a.a.e.m.b.b f69626g;
 
     /* renamed from: h  reason: collision with root package name */
-    public List<g> f69584h;
+    public List<g> f69627h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f69585i;
+    public int f69628i;
     public int j;
     public IYYPayWayView.a k;
     public i.a.a.e.j.d l;
@@ -55,24 +55,24 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     public class a implements AdapterView.OnItemClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f69586e;
+        public final /* synthetic */ Context f69629e;
 
         public a(Context context) {
-            this.f69586e = context;
+            this.f69629e = context;
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
             YYPayWayView yYPayWayView = YYPayWayView.this;
-            yYPayWayView.l = yYPayWayView.f69583g.getItem(i2);
-            if (YYPayWayView.this.f69583g.b() != i2) {
-                YYPayWayView.this.f69583g.c(i2);
-                YYPayWayView.this.f69583g.notifyDataSetChanged();
+            yYPayWayView.l = yYPayWayView.f69626g.getItem(i2);
+            if (YYPayWayView.this.f69626g.b() != i2) {
+                YYPayWayView.this.f69626g.c(i2);
+                YYPayWayView.this.f69626g.notifyDataSetChanged();
             }
-            if (YYPayWayView.this.l.f68834a != PayType.WECHAT_PAY || d.r.b.a.a.f.h.c.a(this.f69586e)) {
+            if (YYPayWayView.this.l.f68877a != PayType.WECHAT_PAY || d.r.b.a.a.f.h.c.a(this.f69629e)) {
                 return;
             }
-            Toast.makeText(this.f69586e, "未安装微信", 1).show();
+            Toast.makeText(this.f69629e, "未安装微信", 1).show();
         }
     }
 
@@ -80,26 +80,26 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
     public class b implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f69588e;
+        public final /* synthetic */ Context f69631e;
 
         public b(Context context) {
-            this.f69588e = context;
+            this.f69631e = context;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (YYPayWayView.this.l != null) {
-                if (YYPayWayView.this.l.f68834a != PayType.WECHAT_PAY || d.r.b.a.a.f.h.c.a(this.f69588e)) {
-                    if (YYPayWayView.this.k != null && YYPayWayView.this.n != null && YYPayWayView.this.n.f68830a != null) {
+                if (YYPayWayView.this.l.f68877a != PayType.WECHAT_PAY || d.r.b.a.a.f.h.c.a(this.f69631e)) {
+                    if (YYPayWayView.this.k != null && YYPayWayView.this.n != null && YYPayWayView.this.n.f68873a != null) {
                         YYPayWayView.this.k.a(YYPayWayView.this.l, YYPayWayView.this.n);
-                        i.a.a.e.k.a.c(YYPayWayView.this.f69585i, YYPayWayView.this.j, "paypagepaybt", String.valueOf(YYPayWayView.this.n.f68830a.f67793e));
-                        d.r.b.a.a.f.d.d.h("YYPayWayView", "paypagepaybt amount:" + YYPayWayView.this.n.f68830a.f67793e);
+                        i.a.a.e.k.a.c(YYPayWayView.this.f69628i, YYPayWayView.this.j, "paypagepaybt", String.valueOf(YYPayWayView.this.n.f68873a.f67836e));
+                        d.r.b.a.a.f.d.d.h("YYPayWayView", "paypagepaybt amount:" + YYPayWayView.this.n.f68873a.f67836e);
                         return;
                     }
                     d.r.b.a.a.f.d.d.e("YYPayWayView", "mCallback or mPayAmount or productInfo null", new Object[0]);
                     return;
                 }
-                Toast.makeText(this.f69588e, "未安装微信", 1).show();
+                Toast.makeText(this.f69631e, "未安装微信", 1).show();
                 return;
             }
             d.r.b.a.a.f.d.d.e("YYPayWayView", "mPayWay null", new Object[0]);
@@ -121,7 +121,7 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
                 } else {
                     d.r.b.a.a.f.d.d.e("YYPayWayView", "mContext not Activity", new Object[0]);
                 }
-                i.a.a.e.k.a.b(YYPayWayView.this.f69585i, YYPayWayView.this.j, "paypageprotocol");
+                i.a.a.e.k.a.b(YYPayWayView.this.f69628i, YYPayWayView.this.j, "paypageprotocol");
                 d.r.b.a.a.f.d.d.h("YYPayWayView", "paypageprotocol");
             }
         }
@@ -143,51 +143,51 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
 
     public YYPayWayView(Context context, int i2, int i3, IYYPayWayView.b bVar, i.a.a.e.i.c cVar) {
         super(context);
-        this.f69581e = new ArrayList();
+        this.f69624e = new ArrayList();
         this.u = "";
         if (bVar == null) {
             d.r.b.a.a.f.d.d.e("YYPayWayView", "YYPayWayView construct error viewParams null", new Object[0]);
         }
         LayoutInflater.from(context).inflate(i.a.a.e.d.yy_layout_pay_way_view, (ViewGroup) this, true);
         this.o = bVar;
-        this.f69584h = bVar.f69563a;
-        this.n = bVar.f69564b;
+        this.f69627h = bVar.f69606a;
+        this.n = bVar.f69607b;
         this.p = context;
         this.s = cVar;
-        this.f69585i = i2;
+        this.f69628i = i2;
         this.j = i3;
-        this.f69581e.clear();
-        this.f69581e.addAll(m());
-        this.f69583g = new i.a.a.e.m.b.b(context, this.f69581e);
+        this.f69624e.clear();
+        this.f69624e.addAll(m());
+        this.f69626g = new i.a.a.e.m.b.b(context, this.f69624e);
         NoScrollGridView noScrollGridView = (NoScrollGridView) findViewById(i.a.a.e.c.grid_recharge_way);
-        this.f69582f = noScrollGridView;
+        this.f69625f = noScrollGridView;
         noScrollGridView.setSelector(i.a.a.e.b.yy_selector_transparent);
-        this.f69582f.setAdapter((ListAdapter) this.f69583g);
-        this.f69582f.setOnItemClickListener(new a(context));
+        this.f69625f.setAdapter((ListAdapter) this.f69626g);
+        this.f69625f.setOnItemClickListener(new a(context));
         Button button = (Button) findViewById(i.a.a.e.c.btn_confirm_recharge);
         this.m = button;
         button.setOnClickListener(new b(context));
         TextView textView = (TextView) findViewById(i.a.a.e.c.tv_total_src_amount);
         TextView textView2 = (TextView) findViewById(i.a.a.e.c.tv_total_dst_amount);
         IYYPayWayView.b bVar2 = this.o;
-        if (bVar2 != null && bVar2.f69564b != null) {
+        if (bVar2 != null && bVar2.f69607b != null) {
             String str = "0.00";
             DecimalFormat decimalFormat = new DecimalFormat("0.00");
             decimalFormat.setRoundingMode(RoundingMode.DOWN);
-            Double b2 = this.o.f69564b.b();
+            Double b2 = this.o.f69607b.b();
             if (b2 != null) {
                 str = decimalFormat.format(b2);
                 textView.setText(str);
             } else {
                 textView.setText("0.00");
             }
-            textView2.setText(decimalFormat.format(this.o.f69564b.a()));
+            textView2.setText(decimalFormat.format(this.o.f69607b.a()));
             this.m.setText("确认支付 " + str + "元");
         }
-        if (this.f69581e.size() > 0) {
-            this.l = this.f69581e.get(0);
-            this.f69583g.c(0);
-            this.f69583g.notifyDataSetChanged();
+        if (this.f69624e.size() > 0) {
+            this.l = this.f69624e.get(0);
+            this.f69626g.c(0);
+            this.f69626g.notifyDataSetChanged();
         }
         TextView textView3 = (TextView) findViewById(i.a.a.e.c.tv_use_item);
         this.q = textView3;
@@ -207,17 +207,17 @@ public class YYPayWayView extends LinearLayout implements IYYPayWayView {
 
     public List<i.a.a.e.j.d> m() {
         ArrayList arrayList = new ArrayList();
-        List<g> list = this.f69584h;
+        List<g> list = this.f69627h;
         if (list != null && list.size() != 0) {
-            for (int i2 = 0; i2 < this.f69584h.size(); i2++) {
-                g gVar = this.f69584h.get(i2);
+            for (int i2 = 0; i2 < this.f69627h.size(); i2++) {
+                g gVar = this.f69627h.get(i2);
                 try {
-                    if (PayType.ALI_PAY.getChannel().equals(gVar.f67780d) && PayType.ALI_PAY.getMethod().equals(gVar.f67781e)) {
-                        arrayList.add(new i.a.a.e.j.d(PayType.ALI_PAY, "支付宝", gVar.f67779c));
-                    } else if (PayType.WECHAT_PAY.getChannel().equals(gVar.f67780d) && PayType.WECHAT_PAY.getMethod().equals(gVar.f67781e)) {
-                        arrayList.add(new i.a.a.e.j.d(PayType.WECHAT_PAY, "微信", gVar.f67779c));
-                    } else if (PayType.DXM_PAY.getChannel().equals(gVar.f67780d) && PayType.DXM_PAY.getMethod().equals(gVar.f67781e)) {
-                        arrayList.add(new i.a.a.e.j.d(PayType.DXM_PAY, "度小满", gVar.f67779c));
+                    if (PayType.ALI_PAY.getChannel().equals(gVar.f67823d) && PayType.ALI_PAY.getMethod().equals(gVar.f67824e)) {
+                        arrayList.add(new i.a.a.e.j.d(PayType.ALI_PAY, "支付宝", gVar.f67822c));
+                    } else if (PayType.WECHAT_PAY.getChannel().equals(gVar.f67823d) && PayType.WECHAT_PAY.getMethod().equals(gVar.f67824e)) {
+                        arrayList.add(new i.a.a.e.j.d(PayType.WECHAT_PAY, "微信", gVar.f67822c));
+                    } else if (PayType.DXM_PAY.getChannel().equals(gVar.f67823d) && PayType.DXM_PAY.getMethod().equals(gVar.f67824e)) {
+                        arrayList.add(new i.a.a.e.j.d(PayType.DXM_PAY, "度小满", gVar.f67822c));
                     }
                 } catch (Exception unused) {
                     d.r.b.a.a.f.d.d.e("YYPayWayView", "createRechargeWayList: error, payWayInfo=" + gVar, new Object[0]);

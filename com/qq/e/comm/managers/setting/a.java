@@ -13,11 +13,11 @@ public final class a extends e {
     }
 
     public final Object a(String str) {
-        return this.f35534a.opt(str);
+        return this.f35463a.opt(str);
     }
 
     public final Object a(String str, String str2) {
-        JSONObject optJSONObject = this.f35534a.optJSONObject("ps");
+        JSONObject optJSONObject = this.f35463a.optJSONObject("ps");
         JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject(str2) : null;
         if (optJSONObject2 != null) {
             return optJSONObject2.opt(str);
@@ -27,7 +27,7 @@ public final class a extends e {
 
     public final void a(String str, Object obj) {
         try {
-            this.f35534a.putOpt(str, obj);
+            this.f35463a.putOpt(str, obj);
         } catch (JSONException e2) {
             GDTLogger.e("Exception while update setting", e2);
         }
@@ -35,10 +35,10 @@ public final class a extends e {
 
     public final void a(String str, Object obj, String str2) {
         try {
-            JSONObject optJSONObject = this.f35534a.optJSONObject("ps");
+            JSONObject optJSONObject = this.f35463a.optJSONObject("ps");
             if (optJSONObject == null) {
                 optJSONObject = new JSONObject();
-                this.f35534a.putOpt("ps", optJSONObject);
+                this.f35463a.putOpt("ps", optJSONObject);
             }
             JSONObject optJSONObject2 = optJSONObject.optJSONObject(str2);
             if (optJSONObject2 == null) {

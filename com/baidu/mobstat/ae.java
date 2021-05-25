@@ -7,13 +7,13 @@ import android.os.Build;
 public class ae extends bn {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f8574a = "baidu_mtj_sdk_record";
+    public static final String f8474a = "baidu_mtj_sdk_record";
 
     /* renamed from: b  reason: collision with root package name */
-    public static ae f8575b = new ae();
+    public static ae f8475b = new ae();
 
     public static ae a() {
-        return f8575b;
+        return f8475b;
     }
 
     public Long b(Context context) {
@@ -39,9 +39,9 @@ public class ae extends bn {
     @Override // com.baidu.mobstat.bn
     public SharedPreferences a(Context context) {
         if (Build.VERSION.SDK_INT >= 11) {
-            return context.getSharedPreferences(f8574a, 4);
+            return context.getSharedPreferences(f8474a, 4);
         }
-        return context.getSharedPreferences(f8574a, 0);
+        return context.getSharedPreferences(f8474a, 0);
     }
 
     public void b(Context context, long j) {

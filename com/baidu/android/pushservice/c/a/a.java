@@ -3,17 +3,17 @@ package com.baidu.android.pushservice.c.a;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f2778a;
+    public String f2781a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f2779b;
+    public String f2782b;
 
     /* renamed from: c  reason: collision with root package name */
-    public long f2780c;
+    public long f2783c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f2781d;
+    public String f2784d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f2782e;
+    public long f2785e;
 }

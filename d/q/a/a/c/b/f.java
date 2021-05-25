@@ -8,17 +8,17 @@ import java.lang.reflect.Field;
 public final class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f67591c;
+    public static Context f67634c;
 
     /* renamed from: a  reason: collision with root package name */
-    public final Class f67592a;
+    public final Class f67635a;
 
     /* renamed from: b  reason: collision with root package name */
-    public h f67593b;
+    public h f67636b;
 
     public f() {
-        this.f67592a = g();
-        this.f67593b = new h(this);
+        this.f67635a = g();
+        this.f67636b = new h(this);
     }
 
     public /* synthetic */ f(byte b2) {
@@ -27,8 +27,8 @@ public final class f {
 
     public static f d(Context context) {
         f fVar;
-        f67591c = context;
-        fVar = g.f67594a;
+        f67634c = context;
+        fVar = g.f67637a;
         return fVar;
     }
 
@@ -47,7 +47,7 @@ public final class f {
         String f2 = f(str);
         if (f2 != null && str2 != null) {
             try {
-                obj = this.f67592a.getDeclaredMethod("getService", String.class).invoke(null, str);
+                obj = this.f67635a.getDeclaredMethod("getService", String.class).invoke(null, str);
                 try {
                     Field declaredField = Class.forName(f2 + "$Stub").getDeclaredField(str2);
                     declaredField.setAccessible(true);
@@ -83,7 +83,7 @@ public final class f {
         Parcel obtain2 = Parcel.obtain();
         String str2 = null;
         try {
-            ((IBinder) this.f67592a.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
+            ((IBinder) this.f67635a.getDeclaredMethod("getService", String.class).invoke(null, str)).transact(1598968902, obtain, obtain2, 0);
             str2 = obtain2.readString();
         } finally {
             try {

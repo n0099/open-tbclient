@@ -10,42 +10,42 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5314a = "f";
+    public static final String f5214a = "f";
 
     /* renamed from: b  reason: collision with root package name */
-    public JSONArray f5315b;
+    public JSONArray f5215b;
 
     /* renamed from: c  reason: collision with root package name */
-    public byte[] f5316c;
+    public byte[] f5216c;
 
     /* renamed from: d  reason: collision with root package name */
-    public byte[] f5317d;
+    public byte[] f5217d;
 
     /* renamed from: e  reason: collision with root package name */
-    public byte[] f5318e;
+    public byte[] f5218e;
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f5319a;
+        public int f5219a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5320b;
+        public String f5220b;
 
         /* renamed from: c  reason: collision with root package name */
-        public h[] f5321c;
+        public h[] f5221c;
     }
 
     /* loaded from: classes2.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static f f5322a = new f();
+        public static f f5222a = new f();
     }
 
     public static f a() {
-        return b.f5322a;
+        return b.f5222a;
     }
 
     public void b() {
@@ -82,27 +82,27 @@ public class f {
 
     public boolean c() {
         boolean z;
-        synchronized (this.f5317d) {
-            z = this.f5315b.length() == 0;
+        synchronized (this.f5217d) {
+            z = this.f5215b.length() == 0;
         }
         return z;
     }
 
     public JSONArray d() {
-        return this.f5315b;
+        return this.f5215b;
     }
 
     public f() {
-        this.f5315b = new JSONArray();
-        this.f5316c = new byte[0];
-        this.f5317d = new byte[0];
-        this.f5318e = new byte[0];
+        this.f5215b = new JSONArray();
+        this.f5216c = new byte[0];
+        this.f5217d = new byte[0];
+        this.f5218e = new byte[0];
     }
 
     public void a(JSONObject jSONObject) {
-        synchronized (this.f5317d) {
+        synchronized (this.f5217d) {
             try {
-                this.f5315b.put(this.f5315b.length(), jSONObject);
+                this.f5215b.put(this.f5215b.length(), jSONObject);
             } catch (JSONException unused) {
             }
         }
@@ -110,8 +110,8 @@ public class f {
 
     public void a(String str) {
         if (com.baidu.fsg.base.statistics.b.o.equals(str)) {
-            synchronized (this.f5317d) {
-                this.f5315b = new JSONArray();
+            synchronized (this.f5217d) {
+                this.f5215b = new JSONArray();
             }
             com.baidu.fsg.base.statistics.a.a(RimStatisticsUtil.getAppContext(), com.baidu.fsg.base.statistics.b.n, StringUtil.EMPTY_ARRAY, false);
         }

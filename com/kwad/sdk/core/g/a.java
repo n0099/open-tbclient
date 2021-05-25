@@ -16,18 +16,18 @@ import org.json.JSONArray;
 public class a extends com.kwad.sdk.core.network.d {
 
     /* renamed from: c  reason: collision with root package name */
-    public f f32290c;
+    public f f32219c;
 
     public a(f fVar, @Nullable List<String> list, boolean z, k kVar) {
         int i2;
         DevelopMangerPlugin.DevelopValue a2;
         try {
-            i2 = fVar.f32313a.getScreenOrientation();
+            i2 = fVar.f32242a.getScreenOrientation();
         } catch (Throwable unused) {
             i2 = 0;
         }
         super.a(i2);
-        this.f32290c = fVar;
+        this.f32219c = fVar;
         JSONArray jSONArray = new JSONArray();
         o.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);
@@ -45,7 +45,7 @@ public class a extends com.kwad.sdk.core.network.d {
         if (a3 != null) {
             a("campaignType", ((Integer) a3.getValue()).intValue());
         }
-        String a4 = this.f32290c.a("thirdUserId");
+        String a4 = this.f32219c.a("thirdUserId");
         if (a4 != null) {
             l a5 = l.a();
             a5.a(a4);

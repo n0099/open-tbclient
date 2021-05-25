@@ -12,7 +12,7 @@ import java.net.URL;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f22578a;
+    public static String f22507a;
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:68:0x0158 */
     /* JADX WARN: Multi-variable type inference failed */
@@ -66,10 +66,10 @@ public final class b {
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setUseCaches(false);
             httpURLConnection.setInstanceFollowRedirects(true);
-            if (f22578a == null) {
-                f22578a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
+            if (f22507a == null) {
+                f22507a = "UfoSDK/2.9.10 (" + e.a() + " " + e.b() + SmallTailInfo.EMOTION_SUFFIX;
             }
-            httpURLConnection.setRequestProperty("User-Agent", f22578a);
+            httpURLConnection.setRequestProperty("User-Agent", f22507a);
             httpURLConnection.setConnectTimeout(5000);
             httpURLConnection.setReadTimeout(5000);
             httpURLConnection.setChunkedStreamingMode(0);

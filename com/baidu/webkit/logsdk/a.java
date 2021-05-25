@@ -5,10 +5,10 @@ import android.content.Context;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f26702a;
+    public static boolean f26631a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f26703b;
+    public static boolean f26632b;
 
     public static void a(String str, String str2) {
         com.baidu.webkit.logsdk.a.b.a().a(str, str2, System.currentTimeMillis());

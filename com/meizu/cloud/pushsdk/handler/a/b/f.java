@@ -23,31 +23,31 @@ public class f implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public String f35015a;
+    public String f34944a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f35016b;
+    public String f34945b;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f35017c;
+    public boolean f34946c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f35018d;
+    public String f34947d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f35019e;
+    public String f34948e;
 
     public f() {
-        this.f35017c = false;
+        this.f34946c = false;
     }
 
     public f(Parcel parcel) {
-        this.f35017c = false;
-        this.f35015a = parcel.readString();
-        this.f35016b = parcel.readString();
-        this.f35017c = parcel.readByte() != 0;
-        this.f35018d = parcel.readString();
-        this.f35019e = parcel.readString();
+        this.f34946c = false;
+        this.f34944a = parcel.readString();
+        this.f34945b = parcel.readString();
+        this.f34946c = parcel.readByte() != 0;
+        this.f34947d = parcel.readString();
+        this.f34948e = parcel.readString();
     }
 
     public static f a(JSONObject jSONObject) {
@@ -75,39 +75,39 @@ public class f implements Parcelable {
     }
 
     public String a() {
-        return this.f35015a;
+        return this.f34944a;
     }
 
     public void a(String str) {
-        this.f35015a = str;
+        this.f34944a = str;
     }
 
     public void a(boolean z) {
-        this.f35017c = z;
+        this.f34946c = z;
     }
 
     public String b() {
-        return this.f35016b;
+        return this.f34945b;
     }
 
     public void b(String str) {
-        this.f35016b = str;
+        this.f34945b = str;
     }
 
     public void c(String str) {
-        this.f35018d = str;
+        this.f34947d = str;
     }
 
     public boolean c() {
-        return this.f35017c;
+        return this.f34946c;
     }
 
     public String d() {
-        return this.f35018d;
+        return this.f34947d;
     }
 
     public void d(String str) {
-        this.f35019e = str;
+        this.f34948e = str;
     }
 
     @Override // android.os.Parcelable
@@ -116,19 +116,19 @@ public class f implements Parcelable {
     }
 
     public String e() {
-        return this.f35019e;
+        return this.f34948e;
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.f35015a + "', time='" + this.f35016b + "', pushExtra=" + this.f35017c + ", deviceId='" + this.f35018d + "', seqId='" + this.f35019e + "'}";
+        return "Statics{taskId='" + this.f34944a + "', time='" + this.f34945b + "', pushExtra=" + this.f34946c + ", deviceId='" + this.f34947d + "', seqId='" + this.f34948e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f35015a);
-        parcel.writeString(this.f35016b);
-        parcel.writeByte(this.f35017c ? (byte) 1 : (byte) 0);
-        parcel.writeString(this.f35018d);
-        parcel.writeString(this.f35019e);
+        parcel.writeString(this.f34944a);
+        parcel.writeString(this.f34945b);
+        parcel.writeByte(this.f34946c ? (byte) 1 : (byte) 0);
+        parcel.writeString(this.f34947d);
+        parcel.writeString(this.f34948e);
     }
 }

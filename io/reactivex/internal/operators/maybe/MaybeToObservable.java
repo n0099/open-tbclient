@@ -18,7 +18,7 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
         public static final long serialVersionUID = 7603343402964826922L;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68949d;
+        public Disposable f68992d;
 
         public MaybeToObservableObserver(Observer<? super T> observer) {
             super(observer);
@@ -27,7 +27,7 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
         @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.disposables.Disposable
         public void dispose() {
             super.dispose();
-            this.f68949d.dispose();
+            this.f68992d.dispose();
         }
 
         @Override // io.reactivex.MaybeObserver
@@ -42,8 +42,8 @@ public final class MaybeToObservable<T> extends Observable<T> implements HasUpst
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68949d, disposable)) {
-                this.f68949d = disposable;
+            if (DisposableHelper.validate(this.f68992d, disposable)) {
+                this.f68992d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

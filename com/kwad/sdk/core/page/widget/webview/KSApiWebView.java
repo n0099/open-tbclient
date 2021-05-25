@@ -11,32 +11,32 @@ import com.kwad.sdk.utils.an;
 public class KSApiWebView extends ApiWebView {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f32580a;
+    public boolean f32509a;
 
     public KSApiWebView(Context context) {
         super(a(an.d(context)));
-        this.f32580a = true;
+        this.f32509a = true;
     }
 
     public KSApiWebView(Context context, AttributeSet attributeSet) {
         super(a(an.d(context)), attributeSet);
-        this.f32580a = true;
+        this.f32509a = true;
     }
 
     public KSApiWebView(Context context, AttributeSet attributeSet, int i2) {
         super(a(an.d(context)), attributeSet, i2);
-        this.f32580a = true;
+        this.f32509a = true;
     }
 
     @RequiresApi(api = 21)
     public KSApiWebView(Context context, AttributeSet attributeSet, int i2, int i3) {
         super(a(an.d(context)), attributeSet, i2, i3);
-        this.f32580a = true;
+        this.f32509a = true;
     }
 
     public KSApiWebView(Context context, AttributeSet attributeSet, int i2, boolean z) {
         super(a(an.d(context)), attributeSet, i2, z);
-        this.f32580a = true;
+        this.f32509a = true;
     }
 
     public static Context a(Context context) {
@@ -46,12 +46,12 @@ public class KSApiWebView extends ApiWebView {
 
     @Override // android.webkit.WebView
     public void destroy() {
-        if (this.f32580a) {
+        if (this.f32509a) {
             super.destroy();
         }
     }
 
     public void setEnableDestroy(boolean z) {
-        this.f32580a = z;
+        this.f32509a = z;
     }
 }

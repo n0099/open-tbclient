@@ -12,36 +12,36 @@ import java.io.IOException;
 public class a extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f10011f = 1001;
+    public static final int f9911f = 1001;
 
     /* renamed from: a  reason: collision with root package name */
-    public SurfaceHolder f10012a;
+    public SurfaceHolder f9912a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Camera f10013b;
+    public Camera f9913b;
 
     /* renamed from: c  reason: collision with root package name */
-    public b f10014c;
+    public b f9914c;
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f10015d;
+    public Handler f9915d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Camera.PreviewCallback f10016e;
+    public Camera.PreviewCallback f9916e;
 
     /* renamed from: com.baidu.sapi2.views.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class HandlerC0127a extends Handler {
-        public HandlerC0127a() {
+    public class HandlerC0128a extends Handler {
+        public HandlerC0128a() {
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            if (a.this.f10013b == null || a.this.f10014c == null) {
+            if (a.this.f9913b == null || a.this.f9914c == null) {
                 return;
             }
-            a.this.f10014c.a(a.this.f10015d, 1001);
-            a.this.f10013b.autoFocus(a.this.f10014c);
+            a.this.f9914c.a(a.this.f9915d, 1001);
+            a.this.f9913b.autoFocus(a.this.f9914c);
         }
     }
 
@@ -49,44 +49,44 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
     public static class b implements Camera.AutoFocusCallback {
 
         /* renamed from: c  reason: collision with root package name */
-        public static final String f10018c = b.class.getSimpleName();
+        public static final String f9918c = b.class.getSimpleName();
 
         /* renamed from: d  reason: collision with root package name */
-        public static final long f10019d = 500;
+        public static final long f9919d = 500;
 
         /* renamed from: a  reason: collision with root package name */
-        public Handler f10020a;
+        public Handler f9920a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f10021b;
+        public int f9921b;
 
         public void a(Handler handler, int i2) {
-            this.f10020a = handler;
-            this.f10021b = i2;
+            this.f9920a = handler;
+            this.f9921b = i2;
         }
 
         @Override // android.hardware.Camera.AutoFocusCallback
         public void onAutoFocus(boolean z, Camera camera) {
-            Handler handler = this.f10020a;
+            Handler handler = this.f9920a;
             if (handler != null) {
-                this.f10020a.sendMessageDelayed(handler.obtainMessage(this.f10021b, Boolean.valueOf(z)), 500L);
-                this.f10020a = null;
+                this.f9920a.sendMessageDelayed(handler.obtainMessage(this.f9921b, Boolean.valueOf(z)), 500L);
+                this.f9920a = null;
             }
         }
     }
 
     public a(Context context, Camera camera) {
         super(context);
-        this.f10015d = new HandlerC0127a();
-        this.f10013b = camera;
+        this.f9915d = new HandlerC0128a();
+        this.f9913b = camera;
         SurfaceHolder holder = getHolder();
-        this.f10012a = holder;
+        this.f9912a = holder;
         holder.addCallback(this);
-        this.f10012a.setType(3);
+        this.f9912a.setType(3);
     }
 
     public void setPreviewCallback(Camera.PreviewCallback previewCallback) {
-        this.f10016e = previewCallback;
+        this.f9916e = previewCallback;
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -96,18 +96,18 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
             return;
         }
         try {
-            this.f10013b.stopPreview();
-            this.f10013b.setDisplayOrientation(90);
-            this.f10013b.setPreviewDisplay(this.f10012a);
-            if (this.f10016e != null) {
-                this.f10013b.setPreviewCallback(this.f10016e);
+            this.f9913b.stopPreview();
+            this.f9913b.setDisplayOrientation(90);
+            this.f9913b.setPreviewDisplay(this.f9912a);
+            if (this.f9916e != null) {
+                this.f9913b.setPreviewCallback(this.f9916e);
             }
-            this.f10013b.startPreview();
-            if (this.f10014c == null) {
-                this.f10014c = new b();
+            this.f9913b.startPreview();
+            if (this.f9914c == null) {
+                this.f9914c = new b();
             }
-            this.f10014c.a(this.f10015d, 1001);
-            this.f10013b.autoFocus(this.f10014c);
+            this.f9914c.a(this.f9915d, 1001);
+            this.f9913b.autoFocus(this.f9914c);
         } catch (IOException e2) {
             e2.printStackTrace();
         }
@@ -125,17 +125,17 @@ public class a extends SurfaceView implements SurfaceHolder.Callback {
     }
 
     public void a() {
-        b bVar = this.f10014c;
+        b bVar = this.f9914c;
         if (bVar != null) {
             bVar.a(null, 0);
-            this.f10014c = null;
+            this.f9914c = null;
         }
-        Handler handler = this.f10015d;
+        Handler handler = this.f9915d;
         if (handler != null) {
             handler.removeCallbacksAndMessages(null);
-            this.f10015d = null;
+            this.f9915d = null;
         }
-        this.f10012a.removeCallback(this);
-        this.f10012a = null;
+        this.f9912a.removeCallback(this);
+        this.f9912a = null;
     }
 }

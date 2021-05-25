@@ -15,16 +15,16 @@ public interface p extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.p$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static class C0443a implements p {
+        public static class C0444a implements p {
 
             /* renamed from: a  reason: collision with root package name */
-            public static p f36050a;
+            public static p f35979a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f36051b;
+            public IBinder f35980b;
 
-            public C0443a(IBinder iBinder) {
-                this.f36051b = iBinder;
+            public C0444a(IBinder iBinder) {
+                this.f35980b = iBinder;
             }
 
             @Override // com.ss.android.socialbase.downloader.depend.p
@@ -36,7 +36,7 @@ public interface p extends IInterface {
                     obtain.writeLong(j);
                     obtain.writeLong(j2);
                     obtain.writeStrongBinder(oVar != null ? oVar.asBinder() : null);
-                    if (!this.f36051b.transact(1, obtain, obtain2, 0) && a.a() != null) {
+                    if (!this.f35980b.transact(1, obtain, obtain2, 0) && a.a() != null) {
                         return a.a().a(j, j2, oVar);
                     }
                     obtain2.readException();
@@ -49,7 +49,7 @@ public interface p extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f36051b;
+                return this.f35980b;
             }
         }
 
@@ -65,7 +65,7 @@ public interface p extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof p)) {
                 return (p) queryLocalInterface;
             }
-            return new C0443a(iBinder);
+            return new C0444a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -90,7 +90,7 @@ public interface p extends IInterface {
         }
 
         public static p a() {
-            return C0443a.f36050a;
+            return C0444a.f35979a;
         }
     }
 }

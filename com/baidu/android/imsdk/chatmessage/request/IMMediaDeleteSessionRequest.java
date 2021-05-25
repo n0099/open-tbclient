@@ -3,7 +3,9 @@ package com.baidu.android.imsdk.chatmessage.request;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
+import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.chatmessage.IMediaDeleteChatSessionListener;
+import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -60,7 +62,12 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
         try {
             putCommonParams(jSONObject);
             if (this.mContacter > 0) {
-                jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
+                if (this.mContactorType == 2) {
+                    jSONObject.put("contacter_im_uk", this.mContacter);
+                    jSONObject.put("group_type", 3);
+                } else {
+                    jSONObject.put("contacter", Utility.transBDUID(String.valueOf(this.mContacter)));
+                }
             }
             if (this.mContactorType >= 0) {
                 jSONObject.put("contacter_type", this.mContactorType);
@@ -99,6 +106,9 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
             JSONObject jSONObject = new JSONObject(str2);
             i3 = jSONObject.optInt("error_code", 0);
             str = jSONObject.optString("error_msg");
+            if (i3 == 0 && this.mContactorType == 2) {
+                ChatMessageDBManager.getInstance(this.mContext).deleteAllMsg(new ChatObject(this.mContext, 1, this.mContacter));
+            }
         } catch (JSONException e2) {
             LogUtils.e(TAG, "IMMediaDeleteSessionRequest JSONException", e2);
             i3 = 1010;

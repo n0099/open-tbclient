@@ -17,17 +17,17 @@ public enum DataSenderAdapterFactory {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f69550a;
+        public static final /* synthetic */ int[] f69593a;
 
         static {
             int[] iArr = new int[ProtocolType.values().length];
-            f69550a = iArr;
+            f69593a = iArr;
             try {
                 iArr[ProtocolType.HTTP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f69550a[ProtocolType.SERVICE.ordinal()] = 2;
+                f69593a[ProtocolType.SERVICE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -56,7 +56,7 @@ public enum DataSenderAdapterFactory {
     }
 
     public static b valueOf(ProtocolType protocolType) {
-        int i2 = a.f69550a[protocolType.ordinal()];
+        int i2 = a.f69593a[protocolType.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 return new c();

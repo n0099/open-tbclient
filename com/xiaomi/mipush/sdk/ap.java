@@ -5,9 +5,9 @@ import com.xiaomi.push.service.d;
 public class ap implements d.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ an f37313a;
+    public final /* synthetic */ an f37242a;
 
     public ap(an anVar) {
-        this.f37313a = anVar;
+        this.f37242a = anVar;
     }
 }

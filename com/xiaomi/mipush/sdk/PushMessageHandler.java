@@ -24,10 +24,10 @@ import java.util.concurrent.TimeUnit;
 public class PushMessageHandler extends BaseService {
 
     /* renamed from: a  reason: collision with root package name */
-    public static List<MiPushClient.ICallbackResult> f37290a = new ArrayList();
+    public static List<MiPushClient.ICallbackResult> f37219a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<MiPushClient.MiPushClientCallback> f37291b = new ArrayList();
+    public static List<MiPushClient.MiPushClientCallback> f37220b = new ArrayList();
 
     /* renamed from: a  reason: collision with other field name */
     public static ThreadPoolExecutor f55a = new ThreadPoolExecutor(1, 1, 15, TimeUnit.SECONDS, new LinkedBlockingQueue());
@@ -37,14 +37,14 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a() {
-        synchronized (f37291b) {
-            f37291b.clear();
+        synchronized (f37220b) {
+            f37220b.clear();
         }
     }
 
     public static void a(long j, String str, String str2) {
-        synchronized (f37291b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37291b) {
+        synchronized (f37220b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37220b) {
                 miPushClientCallback.onInitializeResult(j, str, str2);
             }
         }
@@ -83,8 +83,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, MiPushCommandMessage miPushCommandMessage) {
-        synchronized (f37290a) {
-            for (MiPushClient.ICallbackResult iCallbackResult : f37290a) {
+        synchronized (f37219a) {
+            for (MiPushClient.ICallbackResult iCallbackResult : f37219a) {
                 if (iCallbackResult instanceof MiPushClient.UPSRegisterCallBack) {
                     MiPushClient.TokenResult tokenResult = new MiPushClient.TokenResult();
                     if (miPushCommandMessage != null && miPushCommandMessage.getCommandArguments() != null && miPushCommandMessage.getCommandArguments().size() > 0) {
@@ -98,8 +98,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, MiPushMessage miPushMessage) {
-        synchronized (f37291b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37291b) {
+        synchronized (f37220b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37220b) {
                 if (a(miPushMessage.getCategory(), miPushClientCallback.getCategory())) {
                     miPushClientCallback.onReceiveMessage(miPushMessage.getContent(), miPushMessage.getAlias(), miPushMessage.getTopic(), miPushMessage.isNotified());
                     miPushClientCallback.onReceiveMessage(miPushMessage);
@@ -140,8 +140,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, String str, long j, String str2, String str3) {
-        synchronized (f37291b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37291b) {
+        synchronized (f37220b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37220b) {
                 if (a(str, miPushClientCallback.getCategory())) {
                     miPushClientCallback.onSubscribeResult(j, str2, str3);
                 }
@@ -150,8 +150,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(Context context, String str, String str2, long j, String str3, List<String> list) {
-        synchronized (f37291b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37291b) {
+        synchronized (f37220b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37220b) {
                 if (a(str, miPushClientCallback.getCategory())) {
                     miPushClientCallback.onCommandResult(str2, j, str3, list);
                 }
@@ -160,17 +160,17 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void a(MiPushClient.ICallbackResult iCallbackResult) {
-        synchronized (f37290a) {
-            if (!f37290a.contains(iCallbackResult)) {
-                f37290a.add(iCallbackResult);
+        synchronized (f37219a) {
+            if (!f37219a.contains(iCallbackResult)) {
+                f37219a.add(iCallbackResult);
             }
         }
     }
 
     public static void a(MiPushClient.MiPushClientCallback miPushClientCallback) {
-        synchronized (f37291b) {
-            if (!f37291b.contains(miPushClientCallback)) {
-                f37291b.add(miPushClientCallback);
+        synchronized (f37220b) {
+            if (!f37220b.contains(miPushClientCallback)) {
+                f37220b.add(miPushClientCallback);
             }
         }
     }
@@ -180,8 +180,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void b() {
-        synchronized (f37290a) {
-            f37290a.clear();
+        synchronized (f37219a) {
+            f37219a.clear();
         }
     }
 
@@ -269,8 +269,8 @@ public class PushMessageHandler extends BaseService {
     }
 
     public static void b(Context context, String str, long j, String str2, String str3) {
-        synchronized (f37291b) {
-            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37291b) {
+        synchronized (f37220b) {
+            for (MiPushClient.MiPushClientCallback miPushClientCallback : f37220b) {
                 if (a(str, miPushClientCallback.getCategory())) {
                     miPushClientCallback.onUnsubscribeResult(j, str2, str3);
                 }
@@ -280,7 +280,7 @@ public class PushMessageHandler extends BaseService {
 
     /* renamed from: b  reason: collision with other method in class */
     public static boolean m75b() {
-        return f37291b.isEmpty();
+        return f37220b.isEmpty();
     }
 
     public static void c(Context context, Intent intent) {

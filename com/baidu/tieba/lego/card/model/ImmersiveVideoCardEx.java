@@ -12,31 +12,31 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f17970a;
+        public String f17880a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f17971b;
+        public int f17881b;
 
         /* renamed from: c  reason: collision with root package name */
-        public int f17972c;
+        public int f17882c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f17973d;
+        public String f17883d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f17974e;
+        public int f17884e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f17975f;
+        public int f17885f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f17976g;
+        public int f17886g;
 
         /* renamed from: h  reason: collision with root package name */
-        public boolean f17977h;
+        public boolean f17887h;
 
         /* renamed from: i  reason: collision with root package name */
-        public boolean f17978i;
+        public boolean f17888i;
     }
 
     public ImmersiveVideoCardEx(JSONObject jSONObject) {
@@ -58,15 +58,15 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
             if (optInt > 0 && !TextUtils.isEmpty(optString)) {
                 a aVar = new a();
                 this.videoInfo = aVar;
-                aVar.f17970a = optString;
-                aVar.f17971b = optInt2;
-                aVar.f17972c = optInt3;
-                aVar.f17973d = optString2;
-                aVar.f17974e = optInt4;
-                aVar.f17975f = optInt5;
-                aVar.f17976g = optInt6;
-                aVar.f17977h = z;
-                aVar.f17978i = z2;
+                aVar.f17880a = optString;
+                aVar.f17881b = optInt2;
+                aVar.f17882c = optInt3;
+                aVar.f17883d = optString2;
+                aVar.f17884e = optInt4;
+                aVar.f17885f = optInt5;
+                aVar.f17886g = optInt6;
+                aVar.f17887h = z;
+                aVar.f17888i = z2;
                 return;
             }
             this.videoInfo = null;
@@ -79,8 +79,8 @@ public class ImmersiveVideoCardEx extends BaseCardInfo {
     public double getRatio() {
         int i2;
         a aVar = this.videoInfo;
-        if (aVar != null && (i2 = aVar.f17971b) > 0) {
-            return aVar.f17972c / i2;
+        if (aVar != null && (i2 = aVar.f17881b) > 0) {
+            return aVar.f17882c / i2;
         }
         return super.getRatio();
     }

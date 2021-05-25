@@ -9,7 +9,7 @@ import androidx.core.app.NotificationCompat;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
-import d.a.r.a;
+import d.a.s.a;
 /* loaded from: classes.dex */
 public class Heartbeat {
     public static int ALARM_TIMEOUT = 60000;
@@ -32,7 +32,7 @@ public class Heartbeat {
                             Intent intent = new Intent(Heartbeat.this.mContext, a.class);
                             intent.putExtra(Constants.EXTRA_ALARM_ALERT, "OK");
                             intent.setPackage(Heartbeat.this.mContext.getPackageName());
-                            a.e(Heartbeat.this.mContext).d(Heartbeat.this.mContext, intent);
+                            a.g(Heartbeat.this.mContext).f(Heartbeat.this.mContext, intent);
                             Heartbeat.this.mHandler.postDelayed(BoxHeartbeat.this.startIMServiceTask, Heartbeat.ALARM_TIMEOUT);
                         }
                     });

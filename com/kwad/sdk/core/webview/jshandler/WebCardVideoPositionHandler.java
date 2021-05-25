@@ -10,16 +10,16 @@ import org.json.JSONObject;
 public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final com.kwad.sdk.core.webview.a f32888a;
+    public final com.kwad.sdk.core.webview.a f32817a;
 
     /* renamed from: c  reason: collision with root package name */
-    public a f32890c;
+    public a f32819c;
 
     /* renamed from: b  reason: collision with root package name */
-    public VideoPosition f32889b = new VideoPosition();
+    public VideoPosition f32818b = new VideoPosition();
 
     /* renamed from: d  reason: collision with root package name */
-    public Handler f32891d = new Handler(Looper.getMainLooper());
+    public Handler f32820d = new Handler(Looper.getMainLooper());
 
     /* loaded from: classes6.dex */
     public static final class VideoPosition extends com.kwad.sdk.core.response.a.a implements Serializable {
@@ -36,8 +36,8 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     }
 
     public WebCardVideoPositionHandler(com.kwad.sdk.core.webview.a aVar, a aVar2) {
-        this.f32888a = aVar;
-        this.f32890c = aVar2;
+        this.f32817a = aVar;
+        this.f32819c = aVar2;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -49,12 +49,12 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
         try {
-            this.f32889b.parseJson(new JSONObject(str));
-            if (this.f32890c != null) {
-                this.f32891d.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
+            this.f32818b.parseJson(new JSONObject(str));
+            if (this.f32819c != null) {
+                this.f32820d.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.WebCardVideoPositionHandler.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        WebCardVideoPositionHandler.this.f32890c.a(WebCardVideoPositionHandler.this.f32889b);
+                        WebCardVideoPositionHandler.this.f32819c.a(WebCardVideoPositionHandler.this.f32818b);
                     }
                 });
             }
@@ -66,6 +66,6 @@ public class WebCardVideoPositionHandler implements com.kwad.sdk.core.webview.a.
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f32891d.removeCallbacksAndMessages(null);
+        this.f32820d.removeCallbacksAndMessages(null);
     }
 }

@@ -15,15 +15,15 @@ public class TransitRoutePlanOption {
         
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7434a;
+        public int f7334a;
 
         TransitPolicy(int i2) {
-            this.f7434a = 0;
-            this.f7434a = i2;
+            this.f7334a = 0;
+            this.f7334a = i2;
         }
 
         public int getInt() {
-            return this.f7434a;
+            return this.f7334a;
         }
     }
 

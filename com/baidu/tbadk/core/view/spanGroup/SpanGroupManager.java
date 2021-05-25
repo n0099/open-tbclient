@@ -25,9 +25,9 @@ import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.j0.r.f0.p.a;
-import d.a.j0.r.q.a2;
-import d.a.j0.r.q.v;
+import d.a.m0.r.f0.p.a;
+import d.a.m0.r.q.a2;
+import d.a.m0.r.q.v;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.regex.Matcher;
@@ -40,28 +40,28 @@ import tbclient.UrlParser.UrlParserResIdl;
 public class SpanGroupManager {
 
     /* renamed from: b  reason: collision with root package name */
-    public BdUniqueId f12591b;
+    public BdUniqueId f12499b;
 
     /* renamed from: c  reason: collision with root package name */
-    public SpanGroupEditText f12592c;
+    public SpanGroupEditText f12500c;
 
     /* renamed from: f  reason: collision with root package name */
-    public a.InterfaceC1127a f12595f;
+    public a.InterfaceC1136a f12503f;
 
     /* renamed from: a  reason: collision with root package name */
-    public TextWatcher f12590a = new a();
+    public TextWatcher f12498a = new a();
 
     /* renamed from: d  reason: collision with root package name */
-    public LinkedList<d.a.j0.r.f0.p.a> f12593d = new LinkedList<>();
+    public LinkedList<d.a.m0.r.f0.p.a> f12501d = new LinkedList<>();
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f12594e = true;
+    public boolean f12502e = true;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f12596g = new b(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, 309686);
+    public d.a.c.c.g.a f12504g = new b(CmdConfigHttp.CMD_URL_PARSER_MESSAGE, 309686);
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.c.g.a f12597h = new c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
+    public d.a.c.c.g.a f12505h = new c(CmdConfigHttp.CMD_GET_MY_POST, 303111);
 
     /* loaded from: classes3.dex */
     public enum ChangeSpanGroupType {
@@ -73,10 +73,10 @@ public class SpanGroupManager {
     public class a implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f12598e = -1;
+        public int f12506e = -1;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f12599f = -1;
+        public int f12507f = -1;
 
         public a() {
         }
@@ -88,14 +88,14 @@ public class SpanGroupManager {
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            this.f12598e = Selection.getSelectionStart(charSequence);
-            this.f12599f = Selection.getSelectionEnd(charSequence);
+            this.f12506e = Selection.getSelectionStart(charSequence);
+            this.f12507f = Selection.getSelectionEnd(charSequence);
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
             SpanGroupManager spanGroupManager = SpanGroupManager.this;
-            spanGroupManager.h(spanGroupManager.f12593d, this.f12598e, this.f12599f, i4 - i3, false, ChangeSpanGroupType.ON_TEXT_CHANGE);
+            spanGroupManager.h(spanGroupManager.f12501d, this.f12506e, this.f12507f, i4 - i3, false, ChangeSpanGroupType.ON_TEXT_CHANGE);
             SpanGroupManager.this.j();
         }
     }
@@ -126,9 +126,9 @@ public class SpanGroupManager {
             if (responseData == null || responseData.data == null || i2 == 0) {
                 return;
             }
-            d.a.j0.r.f0.p.d dVar = new d.a.j0.r.f0.p.d();
+            d.a.m0.r.f0.p.d dVar = new d.a.m0.r.f0.p.d();
             dVar.a(responseData);
-            dVar.f49736c = str;
+            dVar.f49780c = str;
             SpanGroupManager.this.z(dVar, i2);
         }
     }
@@ -152,7 +152,7 @@ public class SpanGroupManager {
                 return;
             }
             a2 a2Var = new a2();
-            a2Var.T2(responseData.data.thread_info);
+            a2Var.U2(responseData.data.thread_info);
             SpanGroupManager.this.A(a2Var);
         }
     }
@@ -175,55 +175,55 @@ public class SpanGroupManager {
         if (spanGroupEditText == null) {
             return;
         }
-        this.f12591b = bdUniqueId;
-        this.f12592c = spanGroupEditText;
-        spanGroupEditText.addTextChangedListener(this.f12590a);
-        this.f12592c.setEditableFactory(new d.a.j0.r.f0.p.b(new d.a.j0.r.f0.p.c(this)));
-        this.f12592c.setSoftKeyListener(new d());
-        this.f12597h.setTag(this.f12591b);
-        MessageManager.getInstance().registerListener(this.f12597h);
-        this.f12596g.setTag(this.f12591b);
-        MessageManager.getInstance().registerListener(this.f12596g);
+        this.f12499b = bdUniqueId;
+        this.f12500c = spanGroupEditText;
+        spanGroupEditText.addTextChangedListener(this.f12498a);
+        this.f12500c.setEditableFactory(new d.a.m0.r.f0.p.b(new d.a.m0.r.f0.p.c(this)));
+        this.f12500c.setSoftKeyListener(new d());
+        this.f12505h.setTag(this.f12499b);
+        MessageManager.getInstance().registerListener(this.f12505h);
+        this.f12504g.setTag(this.f12499b);
+        MessageManager.getInstance().registerListener(this.f12504g);
     }
 
     public final synchronized void A(a2 a2Var) {
-        this.f12592c.removeTextChangedListener(this.f12590a);
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        this.f12500c.removeTextChangedListener(this.f12498a);
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
+            d.a.m0.r.f0.p.a next = it.next();
             if (next.h() && (next instanceof TbLinkSpanGroup)) {
                 TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
-                if (tbLinkSpanGroup.u() == TbLinkSpanGroup.LINK_TYPE.INTERNAL_LINK && StringHelper.equals(a2Var.x1(), tbLinkSpanGroup.v())) {
-                    String y1 = a2Var.y1();
-                    if (k.isEmpty(y1)) {
-                        y1 = a2Var.C();
+                if (tbLinkSpanGroup.u() == TbLinkSpanGroup.LINK_TYPE.INTERNAL_LINK && StringHelper.equals(a2Var.y1(), tbLinkSpanGroup.v())) {
+                    String z1 = a2Var.z1();
+                    if (k.isEmpty(z1)) {
+                        z1 = a2Var.C();
                     }
-                    tbLinkSpanGroup.z(y1);
+                    tbLinkSpanGroup.z(z1);
                     int f2 = tbLinkSpanGroup.f();
                     int c2 = tbLinkSpanGroup.c();
                     tbLinkSpanGroup.E();
-                    h(this.f12593d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
+                    h(this.f12501d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
                     y();
                 }
             }
         }
-        this.f12592c.addTextChangedListener(this.f12590a);
+        this.f12500c.addTextChangedListener(this.f12498a);
     }
 
     public void B() {
         TextWatcher textWatcher;
-        SpanGroupEditText spanGroupEditText = this.f12592c;
-        if (spanGroupEditText == null || (textWatcher = this.f12590a) == null) {
+        SpanGroupEditText spanGroupEditText = this.f12500c;
+        if (spanGroupEditText == null || (textWatcher = this.f12498a) == null) {
             return;
         }
         spanGroupEditText.removeTextChangedListener(textWatcher);
     }
 
     public final void C(String str, int i2) {
-        long forumId = this.f12592c.getForumId();
+        long forumId = this.f12500c.getForumId();
         int u = u() + 1;
         RequestUrlParserNetMessage requestUrlParserNetMessage = new RequestUrlParserNetMessage();
-        requestUrlParserNetMessage.setTag(this.f12591b);
+        requestUrlParserNetMessage.setTag(this.f12499b);
         requestUrlParserNetMessage.setParams(forumId, u, str, i2);
         MessageManager.getInstance().sendMessage(requestUrlParserNetMessage);
     }
@@ -234,20 +234,20 @@ public class SpanGroupManager {
         float f2 = TbadkCoreApplication.getInst().getResources().getDisplayMetrics().density;
         int i3 = TbImageHelper.getInstance().isShowBigImage() ? 2 : 1;
         RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
-        requestGetMyPostNetMessage.setTag(this.f12591b);
+        requestGetMyPostNetMessage.setTag(this.f12499b);
         requestGetMyPostNetMessage.setParams(d.a.c.e.m.b.f(str, 0L), 0L, 0L, k, i2, f2, i3);
         MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
     }
 
     public final boolean E() {
         int selectionStart;
-        SpanGroupEditText spanGroupEditText = this.f12592c;
-        if (spanGroupEditText != null && (selectionStart = spanGroupEditText.getSelectionStart()) == this.f12592c.getSelectionEnd()) {
-            Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        SpanGroupEditText spanGroupEditText = this.f12500c;
+        if (spanGroupEditText != null && (selectionStart = spanGroupEditText.getSelectionStart()) == this.f12500c.getSelectionEnd()) {
+            Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
             while (it.hasNext()) {
-                d.a.j0.r.f0.p.a next = it.next();
+                d.a.m0.r.f0.p.a next = it.next();
                 if (next.h() && next.c() == selectionStart) {
-                    Selection.setSelection(this.f12592c.getText(), next.f(), next.c());
+                    Selection.setSelection(this.f12500c.getText(), next.f(), next.c());
                     return true;
                 }
             }
@@ -256,27 +256,27 @@ public class SpanGroupManager {
         return false;
     }
 
-    public void F(a.InterfaceC1127a interfaceC1127a) {
-        this.f12595f = interfaceC1127a;
+    public void F(a.InterfaceC1136a interfaceC1136a) {
+        this.f12503f = interfaceC1136a;
     }
 
     public void G(boolean z) {
-        this.f12594e = z;
+        this.f12502e = z;
     }
 
     public void g() {
         TextWatcher textWatcher;
-        SpanGroupEditText spanGroupEditText = this.f12592c;
-        if (spanGroupEditText == null || (textWatcher = this.f12590a) == null) {
+        SpanGroupEditText spanGroupEditText = this.f12500c;
+        if (spanGroupEditText == null || (textWatcher = this.f12498a) == null) {
             return;
         }
         spanGroupEditText.addTextChangedListener(textWatcher);
     }
 
-    public synchronized void h(LinkedList<d.a.j0.r.f0.p.a> linkedList, int i2, int i3, int i4, boolean z, ChangeSpanGroupType changeSpanGroupType) {
-        Iterator<d.a.j0.r.f0.p.a> it = linkedList.iterator();
+    public synchronized void h(LinkedList<d.a.m0.r.f0.p.a> linkedList, int i2, int i3, int i4, boolean z, ChangeSpanGroupType changeSpanGroupType) {
+        Iterator<d.a.m0.r.f0.p.a> it = linkedList.iterator();
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
+            d.a.m0.r.f0.p.a next = it.next();
             if (next.h() && (!z || next.f() != i2)) {
                 if (i2 <= next.f() && i3 <= next.f()) {
                     next.m(next.f() + i4);
@@ -296,10 +296,10 @@ public class SpanGroupManager {
 
     public boolean i(String str) {
         v t;
-        if (!ListUtils.isEmpty(this.f12593d) && !TextUtils.isEmpty(str)) {
-            Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        if (!ListUtils.isEmpty(this.f12501d) && !TextUtils.isEmpty(str)) {
+            Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
             while (it.hasNext()) {
-                d.a.j0.r.f0.p.a next = it.next();
+                d.a.m0.r.f0.p.a next = it.next();
                 if (!next.h()) {
                     return false;
                 }
@@ -312,7 +312,7 @@ public class SpanGroupManager {
     }
 
     public final synchronized void j() {
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         while (it.hasNext()) {
             if (!it.next().h()) {
                 it.remove();
@@ -321,47 +321,47 @@ public class SpanGroupManager {
     }
 
     public void k() {
-        this.f12593d.clear();
+        this.f12501d.clear();
     }
 
     public void l(int i2, int i3) {
-        if (w() || i2 > i3 || i2 >= this.f12592c.length()) {
+        if (w() || i2 > i3 || i2 >= this.f12500c.length()) {
             return;
         }
-        this.f12592c.removeTextChangedListener(this.f12590a);
-        this.f12592c.getText().delete(i2, i3);
-        h(this.f12593d, i2, i3, i2 - i3, false, ChangeSpanGroupType.DEFAULT);
+        this.f12500c.removeTextChangedListener(this.f12498a);
+        this.f12500c.getText().delete(i2, i3);
+        h(this.f12501d, i2, i3, i2 - i3, false, ChangeSpanGroupType.DEFAULT);
         j();
-        this.f12592c.addTextChangedListener(this.f12590a);
+        this.f12500c.addTextChangedListener(this.f12498a);
     }
 
     public synchronized void m() {
-        if (this.f12592c == null) {
+        if (this.f12500c == null) {
             return;
         }
-        Editable text = this.f12592c.getText();
+        Editable text = this.f12500c.getText();
         Matcher matcher = Pattern.compile("#\\(commodity,commo_[\\s\\S]+?_commo\\)").matcher(text);
         if (matcher.find()) {
             String group = matcher.group();
             String substring = group.substring(18, group.length() - 7);
             int start = matcher.start();
             int end = matcher.end();
-            d.a.k0.w0.a aVar = null;
+            d.a.n0.x0.a aVar = null;
             try {
-                aVar = d.a.k0.w0.a.g(new JSONObject(substring));
+                aVar = d.a.n0.x0.a.g(new JSONObject(substring));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
             if (aVar != null) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 v b2 = v.b(tbLinkSpanGroup, aVar);
-                tbLinkSpanGroup.a(text, start, end, (int) this.f12592c.getTextSize());
+                tbLinkSpanGroup.a(text, start, end, (int) this.f12500c.getTextSize());
                 b2.l = substring;
-                tbLinkSpanGroup.z(b2.f50095h);
+                tbLinkSpanGroup.z(b2.f50139h);
                 tbLinkSpanGroup.r();
-                h(this.f12593d, end, end, (tbLinkSpanGroup.w() - end) + start, false, ChangeSpanGroupType.DEFAULT);
-                tbLinkSpanGroup.k(this.f12595f);
-                this.f12593d.add(tbLinkSpanGroup);
+                h(this.f12501d, end, end, (tbLinkSpanGroup.w() - end) + start, false, ChangeSpanGroupType.DEFAULT);
+                tbLinkSpanGroup.k(this.f12503f);
+                this.f12501d.add(tbLinkSpanGroup);
             }
             m();
         }
@@ -369,8 +369,8 @@ public class SpanGroupManager {
 
     public final synchronized void n() {
         TbLinkSpanGroup tbLinkSpanGroup;
-        if (this.f12592c != null && this.f12594e) {
-            Editable text = this.f12592c.getText();
+        if (this.f12500c != null && this.f12502e) {
+            Editable text = this.f12500c.getText();
             Matcher matcher = TbPatternsCompat.WEB_URL_END_WITH_BLANK.matcher(text);
             if (matcher.find()) {
                 int start = matcher.start();
@@ -385,7 +385,7 @@ public class SpanGroupManager {
                     return;
                 }
                 CharSequence subSequence = text.subSequence(start, end);
-                if (this.f12592c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT) {
+                if (this.f12500c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_DEFAULT) {
                     if (UrlManager.getInstance().isPbUrl(subSequence)) {
                         tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.INTERNAL_LINK);
                         String tidFromPbUrl = UrlManager.getInstance().getTidFromPbUrl(subSequence.toString());
@@ -394,17 +394,17 @@ public class SpanGroupManager {
                     } else {
                         tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.DEAULT);
                     }
-                    tbLinkSpanGroup.a(text, start, end2, (int) this.f12592c.getTextSize());
+                    tbLinkSpanGroup.a(text, start, end2, (int) this.f12500c.getTextSize());
                     tbLinkSpanGroup.r();
-                    tbLinkSpanGroup.k(this.f12595f);
-                    this.f12593d.add(tbLinkSpanGroup);
-                } else if (this.f12592c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY) {
+                    tbLinkSpanGroup.k(this.f12503f);
+                    this.f12501d.add(tbLinkSpanGroup);
+                } else if (this.f12500c.getType() == SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY) {
                     TbLinkSpanGroup tbLinkSpanGroup2 = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.DEAULT);
-                    tbLinkSpanGroup2.a(text, start, end2, (int) this.f12592c.getTextSize());
+                    tbLinkSpanGroup2.a(text, start, end2, (int) this.f12500c.getTextSize());
                     tbLinkSpanGroup2.r();
                     C(subSequence.toString(), tbLinkSpanGroup2.e());
-                    tbLinkSpanGroup2.k(this.f12595f);
-                    this.f12593d.add(tbLinkSpanGroup2);
+                    tbLinkSpanGroup2.k(this.f12503f);
+                    this.f12501d.add(tbLinkSpanGroup2);
                 }
                 n();
             }
@@ -414,13 +414,13 @@ public class SpanGroupManager {
     public int o() {
         v t;
         int i2 = 0;
-        if (ListUtils.isEmpty(this.f12593d)) {
+        if (ListUtils.isEmpty(this.f12501d)) {
             return 0;
         }
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
-            if ((next instanceof TbLinkSpanGroup) && next.h() && (t = ((TbLinkSpanGroup) next).t()) != null && t.f50093f == 2) {
+            d.a.m0.r.f0.p.a next = it.next();
+            if ((next instanceof TbLinkSpanGroup) && next.h() && (t = ((TbLinkSpanGroup) next).t()) != null && t.f50137f == 2) {
                 i2++;
             }
         }
@@ -428,14 +428,14 @@ public class SpanGroupManager {
     }
 
     public synchronized String p() {
-        if (this.f12592c == null) {
+        if (this.f12500c == null) {
             return null;
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f12592c.getText());
-        LinkedList<d.a.j0.r.f0.p.a> linkedList = new LinkedList<>();
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f12500c.getText());
+        LinkedList<d.a.m0.r.f0.p.a> linkedList = new LinkedList<>();
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
+            d.a.m0.r.f0.p.a next = it.next();
             if (next.h()) {
                 if (next instanceof TbLinkSpanGroup) {
                     linkedList.add(TbLinkSpanGroup.x((TbLinkSpanGroup) next, spannableStringBuilder));
@@ -444,9 +444,9 @@ public class SpanGroupManager {
                 }
             }
         }
-        Iterator<d.a.j0.r.f0.p.a> it2 = linkedList.iterator();
+        Iterator<d.a.m0.r.f0.p.a> it2 = linkedList.iterator();
         while (it2.hasNext()) {
-            d.a.j0.r.f0.p.a next2 = it2.next();
+            d.a.m0.r.f0.p.a next2 = it2.next();
             int f2 = next2.f();
             int c2 = next2.c();
             next2.p(spannableStringBuilder);
@@ -455,10 +455,10 @@ public class SpanGroupManager {
         return spannableStringBuilder.toString();
     }
 
-    public d.a.j0.r.f0.p.a q(int i2) {
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+    public d.a.m0.r.f0.p.a q(int i2) {
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
+            d.a.m0.r.f0.p.a next = it.next();
             if (next.h() && i2 > next.f() && i2 < next.c()) {
                 return next;
             }
@@ -466,10 +466,10 @@ public class SpanGroupManager {
         return null;
     }
 
-    public d.a.j0.r.f0.p.a r(int i2) {
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+    public d.a.m0.r.f0.p.a r(int i2) {
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
+            d.a.m0.r.f0.p.a next = it.next();
             if (next.h() && i2 == next.e()) {
                 return next;
             }
@@ -477,19 +477,19 @@ public class SpanGroupManager {
         return null;
     }
 
-    public LinkedList<d.a.j0.r.f0.p.a> s() {
-        return this.f12593d;
+    public LinkedList<d.a.m0.r.f0.p.a> s() {
+        return this.f12501d;
     }
 
     public synchronized String t() {
-        if (this.f12592c == null) {
+        if (this.f12500c == null) {
             return null;
         }
-        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f12592c.getText());
-        LinkedList<d.a.j0.r.f0.p.a> linkedList = new LinkedList<>();
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.f12500c.getText());
+        LinkedList<d.a.m0.r.f0.p.a> linkedList = new LinkedList<>();
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
+            d.a.m0.r.f0.p.a next = it.next();
             if (next.h()) {
                 if (next instanceof TbLinkSpanGroup) {
                     linkedList.add(TbLinkSpanGroup.x((TbLinkSpanGroup) next, spannableStringBuilder));
@@ -498,10 +498,10 @@ public class SpanGroupManager {
                 }
             }
         }
-        Iterator<d.a.j0.r.f0.p.a> it2 = linkedList.iterator();
+        Iterator<d.a.m0.r.f0.p.a> it2 = linkedList.iterator();
         int i2 = 0;
         while (it2.hasNext()) {
-            d.a.j0.r.f0.p.a next2 = it2.next();
+            d.a.m0.r.f0.p.a next2 = it2.next();
             int f2 = next2.f();
             int c2 = next2.c();
             next2.q(spannableStringBuilder, i2);
@@ -516,10 +516,10 @@ public class SpanGroupManager {
     }
 
     public final int u() {
-        Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+        Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
         int i2 = 0;
         while (it.hasNext()) {
-            d.a.j0.r.f0.p.a next = it.next();
+            d.a.m0.r.f0.p.a next = it.next();
             if (next.h() && (next instanceof TbLinkSpanGroup) && ((TbLinkSpanGroup) next).u() != TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK) {
                 i2++;
             }
@@ -528,14 +528,14 @@ public class SpanGroupManager {
     }
 
     public void v(TbLinkSpanGroup tbLinkSpanGroup) {
-        if (this.f12593d != null) {
-            tbLinkSpanGroup.k(this.f12595f);
-            this.f12593d.add(tbLinkSpanGroup);
+        if (this.f12501d != null) {
+            tbLinkSpanGroup.k(this.f12503f);
+            this.f12501d.add(tbLinkSpanGroup);
         }
     }
 
     public boolean w() {
-        SpanGroupEditText spanGroupEditText = this.f12592c;
+        SpanGroupEditText spanGroupEditText = this.f12500c;
         return spanGroupEditText == null || spanGroupEditText.getText().length() <= 0;
     }
 
@@ -547,46 +547,46 @@ public class SpanGroupManager {
         if (w()) {
             return;
         }
-        int selectionStart = Selection.getSelectionStart(this.f12592c.getText());
-        int selectionEnd = Selection.getSelectionEnd(this.f12592c.getText());
-        d.a.j0.r.f0.p.a q = q(selectionStart);
-        d.a.j0.r.f0.p.a q2 = q(selectionEnd);
+        int selectionStart = Selection.getSelectionStart(this.f12500c.getText());
+        int selectionEnd = Selection.getSelectionEnd(this.f12500c.getText());
+        d.a.m0.r.f0.p.a q = q(selectionStart);
+        d.a.m0.r.f0.p.a q2 = q(selectionEnd);
         if (q instanceof TbLinkSpanGroup) {
-            Selection.setSelection(this.f12592c.getText(), q.f(), q.f());
+            Selection.setSelection(this.f12500c.getText(), q.f(), q.f());
         } else if (q2 instanceof TbLinkSpanGroup) {
-            Selection.setSelection(this.f12592c.getText(), q2.f(), q2.f());
+            Selection.setSelection(this.f12500c.getText(), q2.f(), q2.f());
         }
     }
 
-    public final synchronized void z(d.a.j0.r.f0.p.d dVar, int i2) {
+    public final synchronized void z(d.a.m0.r.f0.p.d dVar, int i2) {
         if (dVar != null) {
-            if (dVar.f49734a == 1 && dVar.f49735b != 3) {
-                this.f12592c.removeTextChangedListener(this.f12590a);
-                Iterator<d.a.j0.r.f0.p.a> it = this.f12593d.iterator();
+            if (dVar.f49778a == 1 && dVar.f49779b != 3) {
+                this.f12500c.removeTextChangedListener(this.f12498a);
+                Iterator<d.a.m0.r.f0.p.a> it = this.f12501d.iterator();
                 while (it.hasNext()) {
-                    d.a.j0.r.f0.p.a next = it.next();
+                    d.a.m0.r.f0.p.a next = it.next();
                     if (next.h() && (next instanceof TbLinkSpanGroup)) {
                         TbLinkSpanGroup tbLinkSpanGroup = (TbLinkSpanGroup) next;
-                        if (tbLinkSpanGroup.e() == i2 && (dVar.f49735b == 1 || dVar.f49735b == 2)) {
-                            tbLinkSpanGroup.z(dVar.f49738e);
-                            if (dVar.f49735b == 1) {
+                        if (tbLinkSpanGroup.e() == i2 && (dVar.f49779b == 1 || dVar.f49779b == 2)) {
+                            tbLinkSpanGroup.z(dVar.f49782e);
+                            if (dVar.f49779b == 1) {
                                 tbLinkSpanGroup.A(TbLinkSpanGroup.LINK_TYPE.INTERNAL_LINK);
-                            } else if (dVar.f49735b == 2) {
+                            } else if (dVar.f49779b == 2) {
                                 tbLinkSpanGroup.A(TbLinkSpanGroup.LINK_TYPE.PARSABLE_EXTERNAL_LINK);
                             }
                             v.c(tbLinkSpanGroup, dVar);
-                            if (this.f12595f != null) {
-                                this.f12595f.a(i2, true);
+                            if (this.f12503f != null) {
+                                this.f12503f.a(i2, true);
                             }
                             int f2 = tbLinkSpanGroup.f();
                             int c2 = tbLinkSpanGroup.c();
                             tbLinkSpanGroup.E();
-                            h(this.f12593d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
+                            h(this.f12501d, f2, c2, (tbLinkSpanGroup.c() - tbLinkSpanGroup.f()) - (c2 - f2), true, ChangeSpanGroupType.DEFAULT);
                             y();
                         }
                     }
                 }
-                this.f12592c.addTextChangedListener(this.f12590a);
+                this.f12500c.addTextChangedListener(this.f12498a);
             }
         }
     }

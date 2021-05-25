@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.chosen.net.zan;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.j0.z0.w;
+import d.a.m0.z0.w;
 import tbclient.ExcZan.DataReq;
 import tbclient.ExcZan.ExcZanReqIdl;
 /* loaded from: classes4.dex */

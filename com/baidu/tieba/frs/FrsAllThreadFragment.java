@@ -15,45 +15,45 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import d.a.j0.i0.c;
-import d.a.k0.q0.q0;
-import d.a.k0.q0.u;
+import d.a.m0.i0.c;
+import d.a.n0.r0.q0;
+import d.a.n0.r0.u;
 /* loaded from: classes4.dex */
 public class FrsAllThreadFragment extends BaseFragment implements q0 {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f15117e;
+    public View f15020e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RecyclerView f15118f;
+    public RecyclerView f15021f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f15119g;
+    public String f15022g;
 
-    @Override // d.a.k0.q0.q0
+    @Override // d.a.n0.r0.q0
     public void B0() {
-        RecyclerView recyclerView = this.f15118f;
+        RecyclerView recyclerView = this.f15021f;
         if (recyclerView != null) {
             recyclerView.scrollToPosition(0);
         }
     }
 
     public final void D0(int i2, String str) {
-        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15119g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
+        TiebaStatic.log(new StatisticItem("c13008").param("fid", this.f15022g).param("obj_type", str).param("obj_locate", i2).param("uid", TbadkCoreApplication.getCurrentAccount()));
     }
 
     public final void E0() {
-        View view = this.f15117e;
+        View view = this.f15020e;
         if (view == null || !(view.getParent() instanceof ViewGroup)) {
             return;
         }
-        ((ViewGroup) this.f15117e.getParent()).removeView(this.f15117e);
-        this.f15117e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        ((ViewGroup) this.f15020e.getParent()).removeView(this.f15020e);
+        this.f15020e.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
     }
 
     public void F0(View view) {
-        this.f15117e = view;
-        this.f15118f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
+        this.f15020e = view;
+        this.f15021f = (RecyclerView) view.findViewById(R.id.frs_lv_thread);
         E0();
     }
 
@@ -68,10 +68,10 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f15119g = arguments.getString("forum_id", "");
+            this.f15022g = arguments.getString("forum_id", "");
         }
         E0();
-        return this.f15117e;
+        return this.f15020e;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -83,12 +83,12 @@ public class FrsAllThreadFragment extends BaseFragment implements q0 {
         }
     }
 
-    @Override // d.a.k0.q0.q0
+    @Override // d.a.n0.r0.q0
     public void t() {
         B0();
         u uVar = new u();
-        uVar.f59520a = 1;
-        uVar.f59521b = true;
+        uVar.f59661a = 1;
+        uVar.f59662b = true;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
     }
 }

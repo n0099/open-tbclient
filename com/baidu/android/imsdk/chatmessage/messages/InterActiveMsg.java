@@ -3,6 +3,7 @@ package com.baidu.android.imsdk.chatmessage.messages;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -32,17 +33,19 @@ public class InterActiveMsg extends NormalMsg {
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public String getRecommendDescription() {
+        String str = "";
         try {
             JSONObject optJSONObject = new JSONObject(getJsonContent()).optJSONObject("text");
             if (optJSONObject != null) {
-                String optString = optJSONObject.optString("level2");
-                return TextUtils.isEmpty(optString) ? optJSONObject.optString("level1") : optString;
+                str = optJSONObject.optString("level2");
+                if (TextUtils.isEmpty(str)) {
+                    str = optJSONObject.optString("level1");
+                }
             }
-            return "";
         } catch (Exception e2) {
             LogUtils.e(TAG, "getRecommendDescription JSONException", e2);
-            return "";
         }
+        return TextUtils.isEmpty(str) ? IMConstants.INTER_ACTIVE_MSG_RECOMMEND_DESC : str;
     }
 
     public int getTemplate() {

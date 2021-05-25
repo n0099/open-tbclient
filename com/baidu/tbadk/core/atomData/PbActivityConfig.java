@@ -10,8 +10,8 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import d.a.j0.r.q.a2;
-import d.a.j0.r.q.k1;
+import d.a.m0.r.q.a2;
+import d.a.m0.r.q.k1;
 /* loaded from: classes3.dex */
 public class PbActivityConfig extends IntentConfig {
     public static final int ACTIVITY_RESULT_DELETE = 1;
@@ -214,13 +214,13 @@ public class PbActivityConfig extends IntentConfig {
             return this;
         }
         Intent intent = getIntent();
-        intent.putExtra("thread_id", a2Var.x1());
-        if (a2Var.A1() != null && !StringUtils.isNull(a2Var.A1().E())) {
-            intent.putExtra(KEY_GOD_REPLY_ID, a2Var.A1().E());
+        intent.putExtra("thread_id", a2Var.y1());
+        if (a2Var.B1() != null && !StringUtils.isNull(a2Var.B1().E())) {
+            intent.putExtra(KEY_GOD_REPLY_ID, a2Var.B1().E());
         }
-        intent.putExtra("is_good", a2Var.w0());
-        intent.putExtra("is_top", a2Var.x0());
-        intent.putExtra("thread_time", a2Var.B0());
+        intent.putExtra("is_good", a2Var.x0());
+        intent.putExtra("is_top", a2Var.y0());
+        intent.putExtra("thread_time", a2Var.C0());
         intent.putExtra("st_type", str2);
         intent.putExtra("squence", z);
         intent.putExtra("host_only", z2);
@@ -230,7 +230,7 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra("is_start_for_result", "1");
         intent.putExtra("request_code", i2);
         intent.putExtra("is_from_thread_config", true);
-        long num = a2Var.P0() == null ? 0L : a2Var.P0().getNum();
+        long num = a2Var.Q0() == null ? 0L : a2Var.Q0().getNum();
         intent.putExtra("extra_pb_cache_key", "zan=" + num);
         if (a2Var.T() != null && a2Var.T().getGodUserData().getId() != null) {
             intent.putExtra("extra_pb_funs_count_key", a2Var.T().getFansNum());
@@ -239,9 +239,9 @@ public class PbActivityConfig extends IntentConfig {
         intent.putExtra(KEY_VIDEO_SOURCE, this.key_video_source_value);
         String valueOf = String.valueOf(a2Var.c0());
         String i0 = a2Var.i0();
-        if (a2Var.C1 != null) {
+        if (a2Var.D1 != null) {
             setFromForumId(valueOf);
-            OriginalForumInfo originalForumInfo = a2Var.C1;
+            OriginalForumInfo originalForumInfo = a2Var.D1;
             String str3 = originalForumInfo.id;
             i0 = originalForumInfo.ori_fname;
             valueOf = str3;
@@ -611,16 +611,16 @@ public class PbActivityConfig extends IntentConfig {
         if (intent != null && a2Var != null) {
             BaijiahaoData V = a2Var.V();
             if (V != null) {
-                intent.putExtra("key_is_from_dynamic", a2Var.A2());
+                intent.putExtra("key_is_from_dynamic", a2Var.B2());
                 intent.putExtra("key_ori_ugc_nid", V.oriUgcNid);
                 intent.putExtra("key_ori_ugc_tid", V.oriUgcTid);
                 intent.putExtra("key_ori_ugc_type", V.oriUgcType);
                 intent.putExtra("key_ori_ugc_vid", V.oriUgcVid);
             }
-            intent.putExtra(KEY_REC_WEIGHT, a2Var.S0);
-            intent.putExtra(KEY_REC_SOURCE, a2Var.R0);
-            intent.putExtra(KEY_REC_AB_TAG, a2Var.T0);
-            intent.putExtra(KEY_REC_EXTRA, a2Var.U0);
+            intent.putExtra(KEY_REC_WEIGHT, a2Var.T0);
+            intent.putExtra(KEY_REC_SOURCE, a2Var.S0);
+            intent.putExtra(KEY_REC_AB_TAG, a2Var.U0);
+            intent.putExtra(KEY_REC_EXTRA, a2Var.V0);
         }
         return this;
     }

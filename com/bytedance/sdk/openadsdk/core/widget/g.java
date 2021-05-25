@@ -9,38 +9,38 @@ import com.bytedance.sdk.openadsdk.utils.al;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public final a f28757a;
+    public final a f28686a;
 
     /* renamed from: d  reason: collision with root package name */
-    public float f28760d;
+    public float f28689d;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f28761e;
+    public float f28690e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f28762f;
+    public int f28691f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f28763g;
+    public int f28692g;
     public boolean k;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f28758b = false;
+    public boolean f28687b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f28759c = false;
+    public boolean f28688c = false;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28764h = true;
+    public boolean f28693h = true;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f28765i = false;
+    public boolean f28694i = false;
     public final View.OnTouchListener j = new View.OnTouchListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.g.1
         @Override // android.view.View.OnTouchListener
         @SuppressLint({"ClickableViewAccessibility"})
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (g.this.f28757a.m()) {
-                return g.this.f28758b || !g.this.f28759c;
+            if (g.this.f28686a.m()) {
+                return g.this.f28687b || !g.this.f28688c;
             }
             float x = motionEvent.getX();
             float y = motionEvent.getY();
@@ -48,49 +48,49 @@ public class g {
             if (action == 0) {
                 g gVar = g.this;
                 gVar.k = gVar.a(motionEvent);
-                g.this.f28760d = x;
-                g.this.f28761e = y;
-                g.this.f28762f = (int) x;
-                g.this.f28763g = (int) y;
-                g.this.f28764h = true;
-                if (g.this.f28757a != null && g.this.f28759c && !g.this.f28758b) {
-                    g.this.f28757a.a(view, true);
+                g.this.f28689d = x;
+                g.this.f28690e = y;
+                g.this.f28691f = (int) x;
+                g.this.f28692g = (int) y;
+                g.this.f28693h = true;
+                if (g.this.f28686a != null && g.this.f28688c && !g.this.f28687b) {
+                    g.this.f28686a.a(view, true);
                 }
             } else if (action == 1) {
-                if (Math.abs(x - g.this.f28762f) > 20.0f || Math.abs(y - g.this.f28763g) > 20.0f) {
-                    g.this.f28764h = false;
+                if (Math.abs(x - g.this.f28691f) > 20.0f || Math.abs(y - g.this.f28692g) > 20.0f) {
+                    g.this.f28693h = false;
                 }
-                if (!g.this.f28758b) {
-                    g.this.f28764h = true;
+                if (!g.this.f28687b) {
+                    g.this.f28693h = true;
                 }
-                g.this.f28765i = false;
-                g.this.f28760d = 0.0f;
-                g.this.f28761e = 0.0f;
-                g.this.f28762f = 0;
-                if (g.this.f28757a != null) {
-                    g.this.f28757a.a(view, g.this.f28764h);
+                g.this.f28694i = false;
+                g.this.f28689d = 0.0f;
+                g.this.f28690e = 0.0f;
+                g.this.f28691f = 0;
+                if (g.this.f28686a != null) {
+                    g.this.f28686a.a(view, g.this.f28693h);
                 }
                 g.this.k = false;
             } else if (action != 2) {
                 if (action == 3) {
                     g.this.k = false;
                 }
-            } else if (g.this.f28758b && !g.this.k) {
-                float abs = Math.abs(x - g.this.f28760d);
-                float abs2 = Math.abs(y - g.this.f28761e);
-                if (!g.this.f28765i) {
+            } else if (g.this.f28687b && !g.this.k) {
+                float abs = Math.abs(x - g.this.f28689d);
+                float abs2 = Math.abs(y - g.this.f28690e);
+                if (!g.this.f28694i) {
                     if (abs <= 20.0f && abs2 <= 20.0f) {
                         return true;
                     }
-                    g.this.f28765i = true;
+                    g.this.f28694i = true;
                 }
-                if (g.this.f28757a != null) {
-                    g.this.f28757a.l();
+                if (g.this.f28686a != null) {
+                    g.this.f28686a.l();
                 }
-                g.this.f28760d = x;
-                g.this.f28761e = y;
+                g.this.f28689d = x;
+                g.this.f28690e = y;
             }
-            return g.this.f28758b || !g.this.f28759c;
+            return g.this.f28687b || !g.this.f28688c;
         }
     };
 
@@ -104,7 +104,7 @@ public class g {
     }
 
     public g(a aVar) {
-        this.f28757a = aVar;
+        this.f28686a = aVar;
     }
 
     public void a(View view) {
@@ -114,7 +114,7 @@ public class g {
     }
 
     public void a(boolean z) {
-        this.f28759c = z;
+        this.f28688c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -9,33 +9,33 @@ import java.util.Map;
 public class MemberUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f5441a = 7;
+    public static final int f5341a = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final Class<?>[] f5442b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
+    public static final Class<?>[] f5342b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
 
     /* renamed from: c  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f5443c = new HashMap();
+    public static final Map<Class<?>, Class<?>> f5343c = new HashMap();
 
     /* renamed from: d  reason: collision with root package name */
-    public static final Map<Class<?>, Class<?>> f5444d = new HashMap();
+    public static final Map<Class<?>, Class<?>> f5344d = new HashMap();
 
     static {
-        f5443c.put(Boolean.TYPE, Boolean.class);
-        f5443c.put(Byte.TYPE, Byte.class);
-        f5443c.put(Character.TYPE, Character.class);
-        f5443c.put(Short.TYPE, Short.class);
-        f5443c.put(Integer.TYPE, Integer.class);
-        f5443c.put(Long.TYPE, Long.class);
-        f5443c.put(Double.TYPE, Double.class);
-        f5443c.put(Float.TYPE, Float.class);
-        Map<Class<?>, Class<?>> map = f5443c;
+        f5343c.put(Boolean.TYPE, Boolean.class);
+        f5343c.put(Byte.TYPE, Byte.class);
+        f5343c.put(Character.TYPE, Character.class);
+        f5343c.put(Short.TYPE, Short.class);
+        f5343c.put(Integer.TYPE, Integer.class);
+        f5343c.put(Long.TYPE, Long.class);
+        f5343c.put(Double.TYPE, Double.class);
+        f5343c.put(Float.TYPE, Float.class);
+        Map<Class<?>, Class<?>> map = f5343c;
         Class<?> cls = Void.TYPE;
         map.put(cls, cls);
-        for (Class<?> cls2 : f5443c.keySet()) {
-            Class<?> cls3 = f5443c.get(cls2);
+        for (Class<?> cls2 : f5343c.keySet()) {
+            Class<?> cls3 = f5343c.get(cls2);
             if (!cls2.equals(cls3)) {
-                f5444d.put(cls3, cls2);
+                f5344d.put(cls3, cls2);
             }
         }
     }
@@ -49,7 +49,7 @@ public class MemberUtils {
     }
 
     public static Class<?> b(Class<?> cls) {
-        return f5444d.get(cls);
+        return f5344d.get(cls);
     }
 
     public static float c(Class<?> cls, Class<?> cls2) {
@@ -62,7 +62,7 @@ public class MemberUtils {
         }
         int i2 = 0;
         while (cls != cls2) {
-            Class<?>[] clsArr = f5442b;
+            Class<?>[] clsArr = f5342b;
             if (i2 >= clsArr.length) {
                 break;
             }
@@ -118,10 +118,10 @@ public class MemberUtils {
     public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2, boolean z) {
         if (Utils.a(clsArr, clsArr2)) {
             if (clsArr == null) {
-                clsArr = Utils.f5447b;
+                clsArr = Utils.f5347b;
             }
             if (clsArr2 == null) {
-                clsArr2 = Utils.f5447b;
+                clsArr2 = Utils.f5347b;
             }
             for (int i2 = 0; i2 < clsArr.length; i2++) {
                 if (!a(clsArr[i2], clsArr2[i2], z)) {
@@ -180,7 +180,7 @@ public class MemberUtils {
     }
 
     public static Class<?> a(Class<?> cls) {
-        return (cls == null || !cls.isPrimitive()) ? cls : f5443c.get(cls);
+        return (cls == null || !cls.isPrimitive()) ? cls : f5343c.get(cls);
     }
 
     public static int a(Class<?>[] clsArr, Class<?>[] clsArr2, Class<?>[] clsArr3) {

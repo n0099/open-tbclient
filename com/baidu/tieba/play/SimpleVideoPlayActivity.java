@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.a.k0.j2.q.e;
+import d.a.n0.k2.q.e;
 /* loaded from: classes5.dex */
 public class SimpleVideoPlayActivity extends BaseActivity {
     public NavigationBar navigationBar;

@@ -13,52 +13,52 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public h f32476a = null;
+    public h f32405a = null;
 
     @Override // com.kwad.sdk.core.network.a
     public void a(R r, c cVar) {
         if (cVar == null) {
             com.kwad.sdk.core.d.a.e("Networking", "request responseBase is null");
-            h hVar = this.f32476a;
+            h hVar = this.f32405a;
             if (hVar != null) {
-                f fVar = f.f32467a;
+                f fVar = f.f32396a;
                 hVar.a(r, fVar.k, fVar.l);
             }
-        } else if (TextUtils.isEmpty(cVar.f32464b) || cVar.f32463a != 200) {
-            h hVar2 = this.f32476a;
+        } else if (TextUtils.isEmpty(cVar.f32393b) || cVar.f32392a != 200) {
+            h hVar2 = this.f32405a;
             if (hVar2 != null) {
-                hVar2.a(r, cVar.f32463a, "网络错误");
+                hVar2.a(r, cVar.f32392a, "网络错误");
             }
         } else {
             try {
-                T b2 = b(cVar.f32464b);
+                T b2 = b(cVar.f32393b);
                 if (b2 == null) {
-                    h hVar3 = this.f32476a;
+                    h hVar3 = this.f32405a;
                     if (hVar3 != null) {
-                        f fVar2 = f.f32468b;
+                        f fVar2 = f.f32397b;
                         hVar3.a(r, fVar2.k, fVar2.l);
                     }
                 } else if (!b2.isResultOk()) {
-                    h hVar4 = this.f32476a;
+                    h hVar4 = this.f32405a;
                     if (hVar4 != null) {
                         hVar4.a(r, b2.result, b2.errorMsg);
                     }
                 } else if (!b2.isDataEmpty()) {
-                    h hVar5 = this.f32476a;
+                    h hVar5 = this.f32405a;
                     if (hVar5 != null) {
                         hVar5.a(r, b2);
                     }
                 } else {
-                    h hVar6 = this.f32476a;
+                    h hVar6 = this.f32405a;
                     if (hVar6 != null) {
-                        f fVar3 = f.f32469c;
+                        f fVar3 = f.f32398c;
                         hVar6.a(r, fVar3.k, fVar3.l);
                     }
                 }
             } catch (Exception e2) {
-                h hVar7 = this.f32476a;
+                h hVar7 = this.f32405a;
                 if (hVar7 != null) {
-                    f fVar4 = f.f32468b;
+                    f fVar4 = f.f32397b;
                     hVar7.a(r, fVar4.k, fVar4.l);
                 }
                 com.kwad.sdk.core.d.a.a(e2);
@@ -67,7 +67,7 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     }
 
     public void a(@NonNull h hVar) {
-        this.f32476a = hVar;
+        this.f32405a = hVar;
         c();
     }
 
@@ -79,14 +79,14 @@ public abstract class i<R extends g, T extends BaseResultData> extends a<R> {
     @WorkerThread
     public void d() {
         R b2 = b();
-        h hVar = this.f32476a;
+        h hVar = this.f32405a;
         if (hVar != null) {
             hVar.a(b2);
         }
         if (!com.ksad.download.d.b.a(KsAdSDKImpl.get().getContext())) {
-            h hVar2 = this.f32476a;
+            h hVar2 = this.f32405a;
             if (hVar2 != null) {
-                f fVar = f.f32467a;
+                f fVar = f.f32396a;
                 hVar2.a(b2, fVar.k, fVar.l);
                 return;
             }

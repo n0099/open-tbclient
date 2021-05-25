@@ -36,32 +36,32 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f66998a;
+    public static int f67041a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static NotificationChannel f66999b;
+    public static NotificationChannel f67042b;
 
     /* loaded from: classes7.dex */
     public static class a implements k {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ Context f67000a;
+        public final /* synthetic */ Context f67043a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ int f67001b;
+        public final /* synthetic */ int f67044b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ boolean f67002c;
+        public final /* synthetic */ boolean f67045c;
 
         public a(Context context, int i2, boolean z) {
-            this.f67000a = context;
-            this.f67001b = i2;
-            this.f67002c = z;
+            this.f67043a = context;
+            this.f67044b = i2;
+            this.f67045c = z;
         }
 
         @Override // d.o.a.e.a.d.k
         public void a() {
-            int unused = d.f66998a = d.P(this.f67000a, this.f67001b, this.f67002c);
+            int unused = d.f67041a = d.P(this.f67043a, this.f67044b, this.f67045c);
         }
     }
 
@@ -69,31 +69,31 @@ public class d {
     public static class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ Context f67003e;
+        public final /* synthetic */ Context f67046e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f67004f;
+        public final /* synthetic */ int f67047f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ boolean f67005g;
+        public final /* synthetic */ boolean f67048g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ DownloadInfo f67006h;
+        public final /* synthetic */ DownloadInfo f67049h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ File f67007i;
+        public final /* synthetic */ File f67050i;
 
         public b(Context context, int i2, boolean z, DownloadInfo downloadInfo, File file) {
-            this.f67003e = context;
-            this.f67004f = i2;
-            this.f67005g = z;
-            this.f67006h = downloadInfo;
-            this.f67007i = file;
+            this.f67046e = context;
+            this.f67047f = i2;
+            this.f67048g = z;
+            this.f67049h = downloadInfo;
+            this.f67050i = file;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.I(this.f67006h, this.f67005g, d.e(this.f67003e, this.f67004f, this.f67005g, this.f67006h, this.f67007i));
+            d.I(this.f67049h, this.f67048g, d.e(this.f67046e, this.f67047f, this.f67048g, this.f67049h, this.f67050i));
         }
     }
 
@@ -116,7 +116,7 @@ public class d {
 
     /* renamed from: d.o.a.e.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public abstract class AbstractC1878d implements n {
+    public abstract class AbstractC1882d implements n {
         @Override // d.o.a.e.a.d.n
         public n a(boolean z) {
             return null;
@@ -298,12 +298,12 @@ public class d {
     @TargetApi(26)
     public static String H(@NonNull Context context) {
         try {
-            if (f66999b == null) {
+            if (f67042b == null) {
                 NotificationChannel notificationChannel = new NotificationChannel("111111", "channel_appdownloader", 3);
-                f66999b = notificationChannel;
+                f67042b = notificationChannel;
                 notificationChannel.setSound(null, null);
-                f66999b.setShowBadge(false);
-                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f66999b);
+                f67042b.setShowBadge(false);
+                ((NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION)).createNotificationChannel(f67042b);
             }
         } catch (Throwable th) {
             th.printStackTrace();
@@ -418,9 +418,9 @@ public class d {
             return P(context, i2, z);
         }
         DownloadInfo f2 = d.o.a.e.b.g.a.l(context).f(i2);
-        f66998a = 1;
+        f67041a = 1;
         C.a(f2, new a(context, i2, z));
-        return f66998a;
+        return f67041a;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */

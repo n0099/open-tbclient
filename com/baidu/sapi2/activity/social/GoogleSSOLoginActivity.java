@@ -25,7 +25,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
             int statusCode = e2.getStatusCode();
             String message = e2.getMessage();
             Log.d(n, "handleSignInResult exception code=" + statusCode + " msg=" + message);
-            a(((BaseSSOLoginActivity) this).f9828g, statusCode, message);
+            a(((BaseSSOLoginActivity) this).f9728g, statusCode, message);
         }
     }
 
@@ -35,7 +35,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
         HashMap hashMap = new HashMap();
         hashMap.put("supportGuestAccount", "1");
         hashMap.put("id_token", str);
-        a(ParamsUtil.addExtras(urlBind, hashMap), getString(d.a.y.a.j.a.sapi_sdk_google_loging));
+        a(ParamsUtil.addExtras(urlBind, hashMap), getString(d.a.a0.a.j.a.sapi_sdk_google_loging));
     }
 
     private void d() {
@@ -69,7 +69,7 @@ public class GoogleSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(d.a.y.a.j.a.sapi_sdk_title_login_google);
+        setTitleText(d.a.a0.a.j.a.sapi_sdk_title_login_google);
         d();
     }
 }

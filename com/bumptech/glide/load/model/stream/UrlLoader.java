@@ -8,11 +8,11 @@ import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import java.io.InputStream;
 import java.net.URL;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class UrlLoader implements ModelLoader<URL, InputStream> {
     public final ModelLoader<GlideUrl, InputStream> glideUrlLoader;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class StreamFactory implements ModelLoaderFactory<URL, InputStream> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull

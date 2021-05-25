@@ -14,7 +14,7 @@ import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 public class ap implements ar {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f37377a;
+    public static boolean f37306a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f116a;
@@ -32,7 +32,7 @@ public class ap implements ar {
     public volatile boolean f120b = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile String f37378b = null;
+    public volatile String f37307b = null;
 
     /* renamed from: a  reason: collision with other field name */
     public final Object f118a = new Object();
@@ -183,7 +183,7 @@ public class ap implements ar {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo("com.huawei.hwid", 128);
             z = (packageInfo.applicationInfo.flags & 1) != 0;
-            f37377a = packageInfo.versionCode >= 20602000;
+            f37306a = packageInfo.versionCode >= 20602000;
         } catch (Exception unused) {
         }
         return z;
@@ -207,7 +207,7 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public boolean a() {
-        return f37377a;
+        return f37306a;
     }
 
     @Override // com.xiaomi.push.ar
@@ -224,13 +224,13 @@ public class ap implements ar {
 
     @Override // com.xiaomi.push.ar
     public String d() {
-        if (this.f37378b == null) {
+        if (this.f37307b == null) {
             synchronized (this) {
-                if (this.f37378b == null) {
-                    this.f37378b = a(this.f116a);
+                if (this.f37307b == null) {
+                    this.f37307b = a(this.f116a);
                 }
             }
         }
-        return this.f37378b;
+        return this.f37307b;
     }
 }

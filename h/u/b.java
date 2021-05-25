@@ -9,10 +9,10 @@ import java.util.Set;
 public final class b implements k {
 
     /* renamed from: e  reason: collision with root package name */
-    public Set<k> f68716e;
+    public Set<k> f68759e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f68717f;
+    public volatile boolean f68760f;
 
     public static void c(Collection<k> collection) {
         if (collection == null) {
@@ -36,13 +36,13 @@ public final class b implements k {
         if (kVar.isUnsubscribed()) {
             return;
         }
-        if (!this.f68717f) {
+        if (!this.f68760f) {
             synchronized (this) {
-                if (!this.f68717f) {
-                    if (this.f68716e == null) {
-                        this.f68716e = new HashSet(4);
+                if (!this.f68760f) {
+                    if (this.f68759e == null) {
+                        this.f68759e = new HashSet(4);
                     }
-                    this.f68716e.add(kVar);
+                    this.f68759e.add(kVar);
                     return;
                 }
             }
@@ -51,12 +51,12 @@ public final class b implements k {
     }
 
     public void b(k kVar) {
-        if (this.f68717f) {
+        if (this.f68760f) {
             return;
         }
         synchronized (this) {
-            if (!this.f68717f && this.f68716e != null) {
-                boolean remove = this.f68716e.remove(kVar);
+            if (!this.f68760f && this.f68759e != null) {
+                boolean remove = this.f68759e.remove(kVar);
                 if (remove) {
                     kVar.unsubscribe();
                 }
@@ -66,21 +66,21 @@ public final class b implements k {
 
     @Override // h.k
     public boolean isUnsubscribed() {
-        return this.f68717f;
+        return this.f68760f;
     }
 
     @Override // h.k
     public void unsubscribe() {
-        if (this.f68717f) {
+        if (this.f68760f) {
             return;
         }
         synchronized (this) {
-            if (this.f68717f) {
+            if (this.f68760f) {
                 return;
             }
-            this.f68717f = true;
-            Set<k> set = this.f68716e;
-            this.f68716e = null;
+            this.f68760f = true;
+            Set<k> set = this.f68759e;
+            this.f68759e = null;
             c(set);
         }
     }

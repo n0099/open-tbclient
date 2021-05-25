@@ -174,13 +174,14 @@ import com.baidu.tieba.write.view.TitleTipView;
 import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
 import com.google.gson.Gson;
 import com.kwad.sdk.core.imageloader.utils.StorageUtils;
-import d.a.j0.r.f0.p.a;
-import d.a.j0.r.s.a;
-import d.a.j0.z0.q;
-import d.a.k0.d3.g0.a;
-import d.a.k0.d3.y;
-import d.a.k0.v3.h;
-import d.a.k0.v3.u.d;
+import d.a.m0.r.f0.p.a;
+import d.a.m0.r.s.a;
+import d.a.m0.z0.q;
+import d.a.n0.e3.g0.a;
+import d.a.n0.e3.y;
+import d.a.n0.w3.h;
+import d.a.n0.w3.r.b;
+import d.a.n0.w3.u.d;
 import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -214,24 +215,24 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public static final int TITLE_MAX_COUNT = 20;
     public static final String UPDATE_PHOTO_LIVE_DRAFT_KEY = "updatephotolive";
     public static final String WRITE_TITLE_PREFIX_TIP_KEY = "write_title_prefix_tip_key";
-    public d.a.k0.u3.b dialog;
+    public d.a.n0.v3.b dialog;
     public View feedback_divider;
     public WriteImageGridView imageGridView;
     public boolean isEvaluate;
     public boolean isFromItemDetail;
     public boolean isPrivacy;
     public boolean isToDynamic;
-    public d.a.k0.v3.u.d mAdapter;
+    public d.a.n0.w3.u.d mAdapter;
     public RelativeLayout mAdditionContainer;
     public TextView mAdditionCreateTime;
     public AdditionData mAdditionData;
     public TextView mAdditionLastContent;
     public TextView mAdditionLastTime;
-    public d.a.k0.q0.c0 mCategoryDefault;
-    public List<d.a.k0.q0.c0> mCategoryList;
+    public d.a.n0.r0.c0 mCategoryDefault;
+    public List<d.a.n0.r0.c0> mCategoryList;
     public String mCategoryName;
     public PostCategoryView mCategoryView;
-    public d.a.k0.v3.u.b mCommodityTipController;
+    public d.a.n0.w3.u.b mCommodityTipController;
     public HotTopicBussinessData mCurrHotData;
     public int mCurrPrefixPos;
     public EBusinessProtocolView mEBusinessProtocolView;
@@ -242,33 +243,33 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public View mForumTabSelectedViewDivider;
     public FrsTabInfoData mFrsTabList;
     public GestureDetector mGestureDetector;
-    public List<d.a.k0.w0.a> mGoodsDatas;
+    public List<d.a.n0.x0.a> mGoodsDatas;
     public TextView mHotTopicEdt;
     public SerializableItemInfo mIntentItemInfo;
     public int mIntentStarCount;
     public boolean mItemIsSchool;
     public ImageView mIvDeleteVoice;
     public LinearLayout mLayoutVoicePlay;
-    public d.a.j0.w.t.a mLinkTool;
+    public d.a.m0.w.t.a mLinkTool;
     public List<HotTopicBussinessData> mList;
     public ListView mListView;
     public LocationModel mLocationModel;
     public String mMoreForumImg;
     public String mMoreForumTitle;
     public String mMoreForumUrl;
-    public d.a.k0.b0.e mPiefixTipController;
+    public d.a.n0.d0.e mPiefixTipController;
     public TextView mPostContentCounter;
     public TitleTipView mPostTitleTip;
     public PostTopicData mPostTopicData;
     public TextView mPrefix;
     public PostPrefixData mPrefixData;
     public ImageView mPrefixIcon;
-    public d.a.k0.v3.h mPrefixWindow;
+    public d.a.n0.w3.h mPrefixWindow;
     public LinearLayout mProtocol;
     public TextView mProtocolInfo;
     public ImageView mProtocolTag;
-    public d.a.j0.t.j mSelectForumData;
-    public d.a.k0.v3.u.g mTipController;
+    public d.a.m0.t.j mSelectForumData;
+    public d.a.n0.w3.u.g mTipController;
     public LinearLayout mTitleView;
     public View mTitleViewDivider;
     public Toast mTooManyEmotionToast;
@@ -277,20 +278,20 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public VoiceData$VoiceModel mVoiceModel;
     public PlayVoiceBntNew mVoicePlayButton;
     public RelativeLayout mVoteLayoutRoot;
-    public d.a.k0.v3.u.p.a mVoteViewController;
+    public d.a.n0.w3.u.p.a mVoteViewController;
     public WriteEvaluationHeaderView mWriteEvaluationeHeaderView;
-    public d.a.k0.v3.u.i mWriteImageController;
-    public d.a.k0.d3.q0.a mWriteModel;
-    public d.a.k0.v3.m.b mWriteTool;
+    public d.a.n0.w3.u.i mWriteImageController;
+    public d.a.n0.e3.q0.a mWriteModel;
+    public d.a.n0.w3.m.b mWriteTool;
     public String photoName;
     public View post_prefix_layout;
     public View prefix_divider;
     public int privateThread;
-    public d.a.j0.r.s.j saveDraftDialog;
+    public d.a.m0.r.s.j saveDraftDialog;
     public SaveDraftDialogView saveDraftDialogView;
     public Serializable voteDataSerializable;
     public String writeImagesInfoString;
-    public d.a.k0.v3.u.o.a writeVideoController;
+    public d.a.n0.w3.u.o.a writeVideoController;
     public String fromWhereToHotSelect = "";
     public boolean needAddHotTopicSign = false;
     public WriteData mData = null;
@@ -328,7 +329,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public WriteImagesInfo liveCoverImageInfo = new WriteImagesInfo();
     public View mRootView = null;
     public GridView mPhotoLiveGridView = null;
-    public d.a.k0.v3.t.b.a mPhotoLiveGridViewAdapter = null;
+    public d.a.n0.w3.t.b.a mPhotoLiveGridViewAdapter = null;
     public ScrollView write_scrollview = null;
     public EditText live_post_content = null;
     public View live_container = null;
@@ -341,7 +342,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public TextWatcher mOldContentTextWatcher = null;
     public boolean isLivePhotoType = false;
     public boolean isPhotoliveTitleHasFocus = false;
-    public d.a.j0.r.f0.a mLoadingDialog = null;
+    public d.a.m0.r.f0.a mLoadingDialog = null;
     public String mFrom = AlbumActivityConfig.FROM_WRITE;
     public File latestPic = null;
     public TbImageView mRecImgView = null;
@@ -358,7 +359,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public SpannableStringBuilder mContentBuilder = new SpannableStringBuilder();
     public boolean mIsWillShowBubble = false;
     public boolean isKeyboardVisibility = false;
-    public final d.a.k0.v3.u.c mHighLightController = new d.a.k0.v3.u.c();
+    public final d.a.n0.w3.u.c mHighLightController = new d.a.n0.w3.u.c();
     public boolean isSaveDraft = true;
     public boolean fromErrorDialog = false;
     public String goodsListStr = null;
@@ -369,10 +370,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public CustomMessageListener openMoreToolListener = new g0(2921494);
     public final CustomMessageListener mSelectForumListener = new r0(2921505);
     public TbFaceManager.a mBigEmotionSpanHanlder = new c1();
-    public final AntiHelper.k mAntiInjectListener = new g1();
-    public WriteTipBubbleController.b mOnNewLinkBubbleClickListener = new h1();
-    public final NewWriteModel.g mOnPostWriteCallback = new i1();
-    public final LocationModel.e mOnLocationCallBack = new j1();
+    public final AntiHelper.k mAntiInjectListener = new h1();
+    public WriteTipBubbleController.b mOnNewLinkBubbleClickListener = new i1();
+    public final NewWriteModel.g mOnPostWriteCallback = new j1();
+    public final LocationModel.e mOnLocationCallBack = new k1();
     public final CustomMessageListener mOnSelectLocationListener = new a(2001226);
     public CustomMessageListener mUegValidateListener = new b(2016554);
     public CustomMessageListener mBackgroundListener = new c(2001011);
@@ -380,13 +381,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public final View.OnClickListener mEditOnClicked = new e();
     public boolean isDisalbeButtons = true;
     public final View.OnFocusChangeListener mFocusChangeListener = new h();
-    public d.a.j0.f0.i mSwanappReturnProductDateListener = new i();
+    public d.a.m0.f0.i mSwanappReturnProductDateListener = new i();
     public boolean isProcessedSaveDraft = false;
     public TextWatcher mWriteTitleTextWatcher = new s();
     public TextWatcher mWriteContentTextWatcher = new t();
     public int originalMargin = 0;
-    public final a.f mBubbleTipRefreshCallback = new t0();
-    public final Runnable handleLastError = new v0();
+    public final a.f mBubbleTipRefreshCallback = new u0();
+    public final Runnable handleLastError = new w0();
 
     /* loaded from: classes5.dex */
     public class a extends CustomMessageListener {
@@ -427,16 +428,26 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class a1 implements View.OnClickListener {
+    public class a1 extends q.a {
         public a1() {
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            if (WriteActivity.this.latestPic != null) {
-                WriteActivity writeActivity = WriteActivity.this;
-                writeActivity.chooseRecommendPic(writeActivity.latestPic.getAbsolutePath());
+        @Override // d.a.m0.z0.q.a
+        public void onError(int i2, String str) {
+        }
+
+        @Override // d.a.m0.z0.q.a
+        public void onSuccess(String str) {
+            if (!new File(str).exists() || WriteActivity.this.writeImagesInfo == null) {
+                return;
             }
+            WriteActivity.this.writeImagesInfo.clear();
+            ImageFileInfo imageFileInfo = new ImageFileInfo();
+            imageFileInfo.setFilePath(str);
+            imageFileInfo.isFromMoreForum = true;
+            WriteActivity.this.writeImagesInfo.addChooseFile(imageFileInfo);
+            WriteActivity.this.writeImagesInfo.setMaxImagesAllowed(1);
+            WriteActivity.this.refreshMutiImage(true);
         }
     }
 
@@ -468,15 +479,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class b1 implements DialogInterface.OnDismissListener {
+    public class b1 implements View.OnClickListener {
         public b1() {
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            if (WriteActivity.this.isAttach) {
-                d.a.c.e.p.l.x(WriteActivity.this.getPageContext().getPageActivity(), WriteActivity.this.getCurrentFocus());
-                WriteActivity.this.recTimeStamp = System.currentTimeMillis();
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            if (WriteActivity.this.latestPic != null) {
+                WriteActivity writeActivity = WriteActivity.this;
+                writeActivity.chooseRecommendPic(writeActivity.latestPic.getAbsolutePath());
             }
         }
     }
@@ -533,7 +544,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 bitmapDrawable.setBounds(0, 0, r, r);
             }
             bitmapDrawable.setGravity(119);
-            return new d.a.j0.r.f0.e(bitmapDrawable, 0);
+            return new d.a.m0.r.f0.e(bitmapDrawable, 0);
         }
     }
 
@@ -561,9 +572,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             public a(d0 d0Var) {
             }
 
-            @Override // d.a.j0.r.s.a.e
-            public void onClick(d.a.j0.r.s.a aVar) {
-                d.a.j0.r.d0.b j = d.a.j0.r.d0.b.j();
+            @Override // d.a.m0.r.s.a.e
+            public void onClick(d.a.m0.r.s.a aVar) {
+                d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
                 j.t(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", true);
                 aVar.dismiss();
             }
@@ -574,9 +585,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             public b(d0 d0Var) {
             }
 
-            @Override // d.a.j0.r.s.a.e
-            public void onClick(d.a.j0.r.s.a aVar) {
-                d.a.j0.r.d0.b j = d.a.j0.r.d0.b.j();
+            @Override // d.a.m0.r.s.a.e
+            public void onClick(d.a.m0.r.s.a aVar) {
+                d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
                 j.t(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false);
                 aVar.dismiss();
             }
@@ -594,11 +605,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 WriteActivity.this.isAgreedProtocol = true;
                 WriteActivity.this.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_mask_use_check16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             }
-            d.a.j0.r.d0.b j = d.a.j0.r.d0.b.j();
+            d.a.m0.r.d0.b j = d.a.m0.r.d0.b.j();
             if (j.g(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false) || !WriteActivity.this.isAgreedProtocol) {
                 return;
             }
-            d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(WriteActivity.this);
+            d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(WriteActivity.this);
             aVar.setNegativeTextColor(R.color.CAM_X0105);
             aVar.setTitle("");
             aVar.setMessage(WriteActivity.this.getResources().getString(R.string.protocol_tip));
@@ -610,27 +621,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class d1 implements Runnable {
+    public class d1 implements DialogInterface.OnDismissListener {
         public d1() {
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12836e == null) {
-                return;
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            if (WriteActivity.this.isAttach) {
+                d.a.c.e.p.l.x(WriteActivity.this.getPageContext().getPageActivity(), WriteActivity.this.getCurrentFocus());
+                WriteActivity.this.recTimeStamp = System.currentTimeMillis();
             }
-            String clipBoardContent = UtilHelper.getClipBoardContent();
-            if (d.a.c.e.p.k.isEmpty(clipBoardContent) || !UrlManager.getInstance().isUrlValid(clipBoardContent)) {
-                WriteActivity.this.mWriteTool.o();
-                return;
-            }
-            if (WriteActivity.this.mFindNewLinkBubbleController == null) {
-                WriteActivity writeActivity = WriteActivity.this;
-                writeActivity.mFindNewLinkBubbleController = new WriteTipBubbleController(writeActivity.getPageContext(), WriteActivity.this.mOnNewLinkBubbleClickListener);
-            }
-            View s = WriteActivity.this.mEditor.f12836e.s(31);
-            WriteTipBubbleController writeTipBubbleController = WriteActivity.this.mFindNewLinkBubbleController;
-            writeTipBubbleController.d(s, WriteActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + clipBoardContent, clipBoardContent, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
         }
     }
 
@@ -641,7 +641,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            WriteActivity.this.mEditor.A(new d.a.j0.w.a(5, -1, null));
+            WriteActivity.this.mEditor.A(new d.a.m0.w.a(5, -1, null));
             int emotionCheck = WriteActivity.this.emotionCheck();
             if (emotionCheck < 0 || emotionCheck >= WriteActivity.this.mPostContent.getText().length()) {
                 return;
@@ -671,29 +671,27 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class e1 implements View.OnClickListener {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ d.a.j0.r.s.a f22117e;
-
-        public e1(d.a.j0.r.s.a aVar) {
-            this.f22117e = aVar;
+    public class e1 implements Runnable {
+        public e1() {
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            d.a.j0.r.s.a aVar = this.f22117e;
-            if (aVar != null) {
-                aVar.dismiss();
-                d.a.j0.r.d0.b.j().t("commodity_goods_show_first_dialog", true);
-                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_CLICK).param("obj_locate", 2);
-                WriteData writeData = WriteActivity.this.mData;
-                StatisticItem param2 = param.param("fid", writeData != null ? writeData.getForumId() : "");
-                WriteData writeData2 = WriteActivity.this.mData;
-                TiebaStatic.log(param2.param("fname", writeData2 != null ? writeData2.getForumName() : ""));
-                String uk = TbadkCoreApplication.getCurrentAccountInfo().getUk();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swan/NazEnRDQ6crg3NRNiNtrB4uWEi6EFy4U/pages/shop-manage/index?subentry=3_2_1&uk=" + uk + "&max=" + WriteActivity.this.getStillCommodityNum()));
+        @Override // java.lang.Runnable
+        public void run() {
+            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12744e == null) {
+                return;
             }
+            String clipBoardContent = UtilHelper.getClipBoardContent();
+            if (d.a.c.e.p.k.isEmpty(clipBoardContent) || !UrlManager.getInstance().isUrlValid(clipBoardContent)) {
+                WriteActivity.this.mWriteTool.o();
+                return;
+            }
+            if (WriteActivity.this.mFindNewLinkBubbleController == null) {
+                WriteActivity writeActivity = WriteActivity.this;
+                writeActivity.mFindNewLinkBubbleController = new WriteTipBubbleController(writeActivity.getPageContext(), WriteActivity.this.mOnNewLinkBubbleClickListener);
+            }
+            View s = WriteActivity.this.mEditor.f12744e.s(31);
+            WriteTipBubbleController writeTipBubbleController = WriteActivity.this.mFindNewLinkBubbleController;
+            writeTipBubbleController.d(s, WriteActivity.this.getPageContext().getString(R.string.find_new_link) + "\n" + clipBoardContent, clipBoardContent, WriteTipBubbleController.ANCHOR_VIEW_FROM.FROM_EDITOR_TOOL);
         }
     }
 
@@ -702,8 +700,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public f() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             WriteActivity.this.sendLocaionAction(0, true, null);
             aVar.dismiss();
         }
@@ -721,20 +719,29 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class f1 implements CustomMessageTask.CustomRunnable<Boolean> {
-        public f1() {
+    public class f1 implements View.OnClickListener {
+
+        /* renamed from: e  reason: collision with root package name */
+        public final /* synthetic */ d.a.m0.r.s.a f22048e;
+
+        public f1(d.a.m0.r.s.a aVar) {
+            this.f22048e = aVar;
         }
 
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
-            if (customMessage == null || customMessage.getData() == null || !customMessage.getData().booleanValue()) {
-                return null;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            d.a.m0.r.s.a aVar = this.f22048e;
+            if (aVar != null) {
+                aVar.dismiss();
+                d.a.m0.r.d0.b.j().t("commodity_goods_show_first_dialog", true);
+                StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_CLICK).param("obj_locate", 2);
+                WriteData writeData = WriteActivity.this.mData;
+                StatisticItem param2 = param.param("fid", writeData != null ? writeData.getForumId() : "");
+                WriteData writeData2 = WriteActivity.this.mData;
+                TiebaStatic.log(param2.param("fname", writeData2 != null ? writeData2.getForumName() : ""));
+                String uk = TbadkCoreApplication.getCurrentAccountInfo().getUk();
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, "tiebaclient://swan/NazEnRDQ6crg3NRNiNtrB4uWEi6EFy4U/pages/shop-manage/index?subentry=3_2_1&uk=" + uk + "&max=" + WriteActivity.this.getStillCommodityNum()));
             }
-            BdTopToast bdTopToast = new BdTopToast(WriteActivity.this);
-            bdTopToast.i(false);
-            bdTopToast.h(WriteActivity.this.getResources().getString(R.string.user_collection_emotion_unclickable_hint));
-            bdTopToast.j((ViewGroup) WriteActivity.this.mRootView);
-            return null;
         }
     }
 
@@ -743,8 +750,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         public g() {
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
             if (d.a.c.e.p.j.z()) {
                 WriteActivity.this.sendLocaionAction(1, true, null);
                 WriteActivity.this.mLocationModel.F();
@@ -773,18 +780,20 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class g1 implements AntiHelper.k {
+    public class g1 implements CustomMessageTask.CustomRunnable<Boolean> {
         public g1() {
         }
 
-        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(d.a.j0.r.s.a aVar) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(d.a.j0.r.s.a aVar) {
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<?> run(CustomMessage<Boolean> customMessage) {
+            if (customMessage == null || customMessage.getData() == null || !customMessage.getData().booleanValue()) {
+                return null;
+            }
+            BdTopToast bdTopToast = new BdTopToast(WriteActivity.this);
+            bdTopToast.i(false);
+            bdTopToast.h(WriteActivity.this.getResources().getString(R.string.user_collection_emotion_unclickable_hint));
+            bdTopToast.j((ViewGroup) WriteActivity.this.mRootView);
+            return null;
         }
     }
 
@@ -825,41 +834,40 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         }
 
         @Override // com.baidu.tieba.frs.TabMenuPopView.c
-        public void a(View view, d.a.k0.q0.e1 e1Var) {
+        public void a(View view, d.a.n0.r0.e1 e1Var) {
             if (e1Var == null) {
                 return;
             }
-            WriteActivity.this.mCategoryView.setText(e1Var.f58307a);
-            WriteActivity.this.mData.setCategoryTo(e1Var.f58308b);
-            WriteActivity.this.mCategoryToID = e1Var.f58308b;
+            WriteActivity.this.mCategoryView.setText(e1Var.f58448a);
+            WriteActivity.this.mData.setCategoryTo(e1Var.f58449b);
+            WriteActivity.this.mCategoryToID = e1Var.f58449b;
             WriteActivity.this.mCategoryView.c();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class h1 implements WriteTipBubbleController.b {
+    public class h1 implements AntiHelper.k {
         public h1() {
         }
 
-        @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
-        public void a(View view, String str) {
-            if (WriteActivity.this.mFindNewLinkBubbleController == null) {
-                return;
-            }
-            TiebaStatic.log("c13802");
-            WriteActivity.this.mFindNewLinkBubbleController.c();
-            UtilHelper.clearClipBoard();
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(WriteActivity.this.getActivity(), 25049, str, false, null)));
+        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
+        public void onNavigationButtonClick(d.a.m0.r.s.a aVar) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
+        public void onPositiveButtonClick(d.a.m0.r.s.a aVar) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class i extends d.a.j0.f0.i<GoodsEvent> {
+    public class i extends d.a.m0.f0.i<GoodsEvent> {
         public i() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.j0.f0.b
+        @Override // d.a.m0.f0.b
         /* renamed from: a */
         public boolean onEvent(GoodsEvent goodsEvent) {
             if (goodsEvent == null) {
@@ -887,15 +895,54 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class i1 implements NewWriteModel.g {
+    public class i1 implements WriteTipBubbleController.b {
+        public i1() {
+        }
+
+        @Override // com.baidu.tbadk.core.dialog.WriteTipBubbleController.b
+        public void a(View view, String str) {
+            if (WriteActivity.this.mFindNewLinkBubbleController == null) {
+                return;
+            }
+            TiebaStatic.log("c13802");
+            WriteActivity.this.mFindNewLinkBubbleController.c();
+            UtilHelper.clearClipBoard();
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddLinkActivityConfig(WriteActivity.this.getActivity(), 25049, str, false, null)));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j implements View.OnClickListener {
+        public j() {
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view) {
+            WriteActivity writeActivity = WriteActivity.this;
+            writeActivity.showToast(writeActivity.mDisableAudioMessage);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j0 implements TimePickerDialog.OnTimeSetListener {
+        public j0() {
+        }
+
+        @Override // android.app.TimePickerDialog.OnTimeSetListener
+        public void onTimeSet(TimePicker timePicker, int i2, int i3) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class j1 implements NewWriteModel.g {
 
         /* loaded from: classes5.dex */
         public class a implements a.e {
-            public a(i1 i1Var) {
+            public a(j1 j1Var) {
             }
 
-            @Override // d.a.j0.r.s.a.e
-            public void onClick(d.a.j0.r.s.a aVar) {
+            @Override // d.a.m0.r.s.a.e
+            public void onClick(d.a.m0.r.s.a aVar) {
                 aVar.dismiss();
             }
         }
@@ -905,19 +952,19 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             public b() {
             }
 
-            @Override // d.a.j0.r.s.a.e
-            public void onClick(d.a.j0.r.s.a aVar) {
+            @Override // d.a.m0.r.s.a.e
+            public void onClick(d.a.m0.r.s.a aVar) {
                 aVar.dismiss();
                 WriteActivity.this.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(WriteActivity.this.getActivity(), 0, 26, 1)));
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 1));
             }
         }
 
-        public i1() {
+        public j1() {
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.g
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, d.a.j0.s.c.h0 h0Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, d.a.m0.s.c.i0 i0Var, WriteData writeData, AntiData antiData) {
             WriteActivity.this.stopVoice();
             WriteActivity.this.closeLoadingDialog();
             WriteActivity.this.isProcessedSaveDraft = true;
@@ -932,7 +979,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     if (WriteActivity.this.canShowSuccessTip(writeData) || WriteActivityConfig.FROM_FORUM_SHARE.equals(WriteActivity.this.mFrom)) {
                         WriteActivity.this.showTipDialog(true, postWriteCallBackData);
                     }
-                    d.a.k0.v3.r.b.e(WriteActivity.this.mData);
+                    d.a.n0.w3.r.b.e(WriteActivity.this.mData);
                     WriteActivity.this.clearDraft();
                     WriteActivity.this.deleteTempVideoFile();
                     if ((WriteActivity.this.mData.getType() == 0 || WriteActivity.this.mData.getType() == 9 || WriteActivity.this.mData.getType() == 11) && !ListUtils.isEmpty(WriteActivity.this.mList) && !StringUtils.isNull(WriteActivity.this.mTopicId)) {
@@ -965,7 +1012,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                         DefaultNavigationBarCoverTip.s(WriteActivity.this.getActivity(), postWriteCallBackData.getErrorString(), null).u();
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                    d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(WriteActivity.this.getActivity());
+                    d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(WriteActivity.this.getActivity());
                     if (d.a.c.e.p.k.isEmpty(postWriteCallBackData.getErrorString())) {
                         aVar.setMessage(WriteActivity.this.getActivity().getString(R.string.open_member_and_add_more_links));
                     } else {
@@ -975,18 +1022,18 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     aVar.setPositiveButton(R.string.open_now, new b());
                     aVar.create(WriteActivity.this.getPageContext()).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
-                } else if ((h0Var == null || writeData == null || h0Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001 && !d.a.k0.n3.a.c(postWriteCallBackData.getErrorCode())) {
+                } else if ((i0Var == null || writeData == null || i0Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData != null && postWriteCallBackData.getErrorCode() != 227001 && !d.a.n0.o3.a.c(postWriteCallBackData.getErrorCode())) {
                     WriteActivity.this.showTipDialog(false, postWriteCallBackData);
-                } else if (h0Var != null && writeData != null && h0Var.c() != null) {
+                } else if (i0Var != null && writeData != null && i0Var.c() != null) {
                     if (writeData.isCanNoForum()) {
                         writeData.setForumName("");
                         writeData.setForumId("0");
                     }
-                    writeData.setVcodeMD5(h0Var.b());
-                    writeData.setVcodeUrl(h0Var.c());
-                    writeData.setVcodeExtra(h0Var.a());
-                    if (d.a.j0.a1.a.b(h0Var.d())) {
-                        NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(WriteActivity.this.getPageContext().getPageActivity(), 12006, writeData, false, h0Var.d());
+                    writeData.setVcodeMD5(i0Var.b());
+                    writeData.setVcodeUrl(i0Var.c());
+                    writeData.setVcodeExtra(i0Var.a());
+                    if (d.a.m0.a1.a.b(i0Var.d())) {
+                        NewVcodeActivityConfig newVcodeActivityConfig = new NewVcodeActivityConfig(WriteActivity.this.getPageContext().getPageActivity(), 12006, writeData, false, i0Var.d());
                         if (WriteActivity.this.isVcodeFeedBack) {
                             newVcodeActivityConfig.setHideFeedBackButton();
                         }
@@ -1003,69 +1050,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class j implements View.OnClickListener {
-        public j() {
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view) {
-            WriteActivity writeActivity = WriteActivity.this;
-            writeActivity.showToast(writeActivity.mDisableAudioMessage);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j0 implements TimePickerDialog.OnTimeSetListener {
-        public j0() {
-        }
-
-        @Override // android.app.TimePickerDialog.OnTimeSetListener
-        public void onTimeSet(TimePicker timePicker, int i2, int i3) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class j1 implements LocationModel.e {
-        public j1() {
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void a(String str) {
-            WriteActivity writeActivity = WriteActivity.this;
-            if (StringUtils.isNull(str)) {
-                str = WriteActivity.this.getPageContext().getString(R.string.location_fail);
-            }
-            writeActivity.showToast(str);
-            WriteActivity.this.sendLocaionAction(0, true, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void b() {
-            WriteActivity.this.showToast(R.string.no_network_guide);
-            WriteActivity.this.sendLocaionAction(0, true, null);
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
-        public void c(LocationData locationData) {
-            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
-                WriteActivity.this.sendLocaionAction(2, true, locationData.getFormatted_address());
-            } else {
-                a(null);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
     public class k implements d.b {
         public k() {
         }
 
-        @Override // d.a.k0.v3.u.d.b
-        public void a(List<d.a.j0.r.q.v> list) {
+        @Override // d.a.n0.w3.u.d.b
+        public void a(List<d.a.m0.r.q.v> list) {
             WriteActivity.this.setProtocolVisibility(list);
         }
 
-        @Override // d.a.k0.v3.u.d.b
+        @Override // d.a.n0.w3.u.d.b
         public void b(int i2) {
             if (WriteActivity.this.mPostContent == null) {
                 return;
@@ -1095,18 +1089,33 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class k1 extends GestureDetector.SimpleOnGestureListener {
+    public class k1 implements LocationModel.e {
         public k1() {
         }
 
-        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
-        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-            d.a.c.e.p.l.x(WriteActivity.this.getActivity(), WriteActivity.this.getCurrentFocus());
-            return super.onFling(motionEvent, motionEvent2, f2, f3);
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void a(String str) {
+            WriteActivity writeActivity = WriteActivity.this;
+            if (StringUtils.isNull(str)) {
+                str = WriteActivity.this.getPageContext().getString(R.string.location_fail);
+            }
+            writeActivity.showToast(str);
+            WriteActivity.this.sendLocaionAction(0, true, null);
         }
 
-        public /* synthetic */ k1(WriteActivity writeActivity, k kVar) {
-            this();
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void b() {
+            WriteActivity.this.showToast(R.string.no_network_guide);
+            WriteActivity.this.sendLocaionAction(0, true, null);
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.location.LocationModel.e
+        public void c(LocationData locationData) {
+            if (locationData != null && !StringUtils.isNull(locationData.getFormatted_address())) {
+                WriteActivity.this.sendLocaionAction(2, true, locationData.getFormatted_address());
+            } else {
+                a(null);
+            }
         }
     }
 
@@ -1144,6 +1153,22 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             writeActivity.HidenSoftKeyPad(writeActivity.mInputManager, WriteActivity.this.getRealTitleInstance());
             WriteActivity writeActivity2 = WriteActivity.this;
             writeActivity2.HidenSoftKeyPad(writeActivity2.mInputManager, WriteActivity.this.getRealContentEdittextInstance());
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class l1 extends GestureDetector.SimpleOnGestureListener {
+        public l1() {
+        }
+
+        @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
+        public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
+            d.a.c.e.p.l.x(WriteActivity.this.getActivity(), WriteActivity.this.getCurrentFocus());
+            return super.onFling(motionEvent, motionEvent2, f2, f3);
+        }
+
+        public /* synthetic */ l1(WriteActivity writeActivity, k kVar) {
+            this();
         }
     }
 
@@ -1223,7 +1248,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                         if (!d.a.c.e.p.j.z()) {
                             WriteActivity.this.showToast(R.string.neterror);
                         }
-                        if (d.a.k0.v3.r.a.b()) {
+                        if (d.a.n0.w3.r.a.b()) {
                             return;
                         }
                         if (WriteActivity.this.mHighLightController.c(WriteActivity.this.mPostTitle, WriteActivity.this.mPostContent)) {
@@ -1272,77 +1297,40 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // java.lang.Runnable
         public void run() {
-            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12836e == null) {
+            if (WriteActivity.this.mEditor == null || WriteActivity.this.mEditor.f12744e == null) {
                 return;
             }
             if (WriteActivity.this.mCommodityTipController == null) {
                 WriteActivity writeActivity = WriteActivity.this;
-                writeActivity.mCommodityTipController = new d.a.k0.v3.u.b(writeActivity.getPageContext());
+                writeActivity.mCommodityTipController = new d.a.n0.w3.u.b(writeActivity.getPageContext());
             }
-            WriteActivity.this.mCommodityTipController.b(WriteActivity.this.mEditor.f12836e.s(2));
+            WriteActivity.this.mCommodityTipController.b(WriteActivity.this.mEditor.f12744e.s(2));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class o0 implements TextWatcher {
-
-        /* renamed from: e  reason: collision with root package name */
-        public int f22145e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public EditText f22146f = null;
-
-        /* renamed from: g  reason: collision with root package name */
-        public TextView f22147g = null;
-
+    public class o0 implements b.InterfaceC1718b {
         public o0() {
         }
 
-        @Override // android.text.TextWatcher
-        public void afterTextChanged(Editable editable) {
-            WriteActivity.this.refreshPostButton();
-            if (WriteActivity.this.isLivePhotoType) {
-                int selectionStart = this.f22146f.getSelectionStart();
-                this.f22145e = selectionStart;
-                this.f22146f.setSelection(selectionStart);
-                WriteActivity.this.setLeftCount(this.f22147g, this.f22146f);
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            if (!WriteActivity.this.isLivePhotoType || !WriteActivity.this.isPhotoliveTitleHasFocus) {
-                if (WriteActivity.this.isLivePhotoType) {
-                    if (this.f22146f == WriteActivity.this.live_post_content && this.f22147g == WriteActivity.this.mContentOverPlusNumber) {
-                        return;
-                    }
-                    this.f22146f = WriteActivity.this.live_post_content;
-                    this.f22147g = WriteActivity.this.mContentOverPlusNumber;
-                }
-            } else if (this.f22146f == WriteActivity.this.live_post_title && this.f22147g == WriteActivity.this.mTitleOverPlusNumber) {
-            } else {
-                this.f22146f = WriteActivity.this.live_post_title;
-                this.f22147g = WriteActivity.this.mTitleOverPlusNumber;
-            }
-        }
-
-        @Override // android.text.TextWatcher
-        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+        @Override // d.a.n0.w3.r.b.InterfaceC1718b
+        public void a() {
+            d.a.c.e.p.l.M(TbadkCoreApplication.getInst(), String.format(WriteActivity.this.getString(R.string.write_post_title_max_length), 31));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class p implements d.a.j0.w.b {
+    public class p implements d.a.m0.w.b {
         public p() {
         }
 
-        @Override // d.a.j0.w.b
-        public void onAction(d.a.j0.w.a aVar) {
+        @Override // d.a.m0.w.b
+        public void onAction(d.a.m0.w.a aVar) {
             VideoInfo videoInfo;
             if (aVar == null) {
                 return;
             }
-            int i2 = aVar.f50768a;
+            int i2 = aVar.f50841a;
             if (i2 == 16) {
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 9));
                 if (WriteActivity.this.isTextFull()) {
@@ -1354,12 +1342,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 1));
                 WriteActivity.this.openImageActivity(aVar);
             } else if (i2 == 24) {
-                Object obj = aVar.f50770c;
-                if (obj == null || !(obj instanceof d.a.j0.s.c.v)) {
+                Object obj = aVar.f50843c;
+                if (obj == null || !(obj instanceof d.a.m0.s.c.v)) {
                     return;
                 }
-                d.a.j0.s.c.v vVar = (d.a.j0.s.c.v) obj;
-                if (vVar.e() == EmotionGroupType.BIG_EMOTION || vVar.e() == EmotionGroupType.USER_COLLECT) {
+                d.a.m0.s.c.v vVar = (d.a.m0.s.c.v) obj;
+                if (vVar.f() == EmotionGroupType.BIG_EMOTION || vVar.f() == EmotionGroupType.USER_COLLECT) {
                     if (WriteActivity.this.mCurrentPermissionJudgePolicy == null) {
                         WriteActivity.this.mCurrentPermissionJudgePolicy = new PermissionJudgePolicy();
                     }
@@ -1374,9 +1362,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     }
                     ImageFileInfo imageFileInfo = new ImageFileInfo();
                     imageFileInfo.setImageType(1);
-                    imageFileInfo.setFilePath(vVar.b());
-                    imageFileInfo.width = vVar.g();
-                    imageFileInfo.height = vVar.a();
+                    imageFileInfo.setFilePath(vVar.c());
+                    imageFileInfo.width = vVar.h();
+                    imageFileInfo.height = vVar.b();
                     WriteActivity.this.writeImagesInfo.addChooseFile(imageFileInfo);
                     WriteActivity.this.writeImagesInfo.updateQuality();
                     WriteActivity.this.refreshMutiImage(true);
@@ -1389,7 +1377,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             } else if (i2 == 3) {
                 WriteActivity.this.deleteChar();
             } else if (i2 == 10) {
-                Object obj2 = aVar.f50770c;
+                Object obj2 = aVar.f50843c;
                 if (obj2 instanceof VoiceData$VoiceModel) {
                     WriteActivity.this.addVoice((VoiceData$VoiceModel) obj2);
                 }
@@ -1399,13 +1387,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 WriteActivity.this.refreshImageLauncher();
                 WriteActivity.this.refreshPostButton();
             } else if (i2 == 15 || i2 == 47) {
-                Object obj3 = aVar.f50770c;
+                Object obj3 = aVar.f50843c;
                 if (obj3 == null || !(obj3 instanceof Integer)) {
                     return;
                 }
                 WriteActivity.this.jumpToEditImageActivity(((Integer) obj3).intValue());
             } else if (i2 == 18) {
-                if (aVar.f50770c == null || WriteActivity.this.mAdditionData != null) {
+                if (aVar.f50843c == null || WriteActivity.this.mAdditionData != null) {
                     int i3 = WriteActivity.this.mLocationState;
                     if (i3 != 0) {
                         if (i3 != 2) {
@@ -1431,7 +1419,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             } else {
                 WriteVoteData writeVoteData = null;
                 if (i2 == 25) {
-                    Object obj4 = aVar.f50770c;
+                    Object obj4 = aVar.f50843c;
                     if (obj4 == null || !(obj4 instanceof String)) {
                         WriteActivity.this.mBubbleUrl = null;
                     } else {
@@ -1439,19 +1427,19 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     }
                     WriteActivity.this.refreshBubble(false);
                 } else if (i2 == 27) {
-                    d.a.j0.r.d0.b.j().t("xiaoying_has_click", true);
+                    d.a.m0.r.d0.b.j().t("xiaoying_has_click", true);
                     StatisticItem statisticItem = new StatisticItem("c10645");
                     WriteData writeData = WriteActivity.this.mData;
                     statisticItem.param("fid", writeData != null ? writeData.getForumId() : "");
                     TiebaStatic.log(statisticItem);
                     WriteData writeData2 = WriteActivity.this.mData;
                     if (writeData2 == null || (videoInfo = writeData2.getVideoInfo()) == null || !videoInfo.isAvaliable()) {
-                        WriteActivity.this.mEditor.A(new d.a.j0.w.a(2, 19, null));
+                        WriteActivity.this.mEditor.A(new d.a.m0.w.a(2, 19, null));
                         if (XiaoyingUtil.isXiaoyingInstalled()) {
                             if (!XiaoyingUtil.isXiaoyingForbidden()) {
                                 if (WriteActivity.this.mEditor.u()) {
                                     WriteActivity.this.mEditor.q();
-                                    WriteActivity.this.mEditor.A(new d.a.j0.w.a(5, -1, null));
+                                    WriteActivity.this.mEditor.A(new d.a.m0.w.a(5, -1, null));
                                 }
                                 XiaoyingUtil.startXiaoying(WriteActivity.this.getActivity());
                                 return;
@@ -1462,24 +1450,24 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                         XiaoyingUtil.showGoPluginDetailDialog(WriteActivity.this.getPageContext(), WriteActivity.this.getResources().getString(R.string.plugin_video_install_tips), WriteActivity.this.getResources().getString(R.string.plugin_go_install));
                         return;
                     }
-                    WriteActivity.this.mEditor.A(new d.a.j0.w.a(2, 19, " "));
-                    WriteActivity.this.mEditor.A(new d.a.j0.w.a(28, 20, videoInfo));
+                    WriteActivity.this.mEditor.A(new d.a.m0.w.a(2, 19, " "));
+                    WriteActivity.this.mEditor.A(new d.a.m0.w.a(28, 20, videoInfo));
                 } else if (i2 == 29) {
-                    WriteActivity.this.mEditor.A(new d.a.j0.w.a(2, 19, null));
-                    WriteActivity.this.mEditor.A(new d.a.j0.w.a(1, 2, null));
+                    WriteActivity.this.mEditor.A(new d.a.m0.w.a(2, 19, null));
+                    WriteActivity.this.mEditor.A(new d.a.m0.w.a(1, 2, null));
                     WriteActivity.this.mData.setVideoInfo(null);
                     WriteActivity.this.refreshPostButton();
                     if (WriteActivity.this.mPostContent != null) {
                         WriteActivity.this.mPostContent.requestFocus();
                     }
                     WriteActivity.this.mEditor.q();
-                    WriteActivity.this.mEditor.A(new d.a.j0.w.a(5, -1, null));
+                    WriteActivity.this.mEditor.A(new d.a.m0.w.a(5, -1, null));
                     WriteActivity writeActivity = WriteActivity.this;
                     writeActivity.ShowSoftKeyPad(writeActivity.mInputManager, WriteActivity.this.mPostContent);
                 } else if (i2 == 43) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 4));
-                    d.a.j0.r.d0.b.j().t("hot_topic_has_click", true);
-                    WriteActivity.this.mEditor.A(new d.a.j0.w.a(2, 26, null));
+                    d.a.m0.r.d0.b.j().t("hot_topic_has_click", true);
+                    WriteActivity.this.mEditor.A(new d.a.m0.w.a(2, 26, null));
                     WriteActivity.this.needAddHotTopicSign = true;
                     WriteActivity.this.performHotTopicClick(true);
                     if (!WriteActivity.this.getRealTitleInstance().isFocused() || WriteActivity.this.mTitleView.getVisibility() != 0) {
@@ -1515,13 +1503,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     }
                     WriteActivity.this.refreshPostButton();
                 } else if (i2 == 55) {
-                    Object obj5 = aVar.f50770c;
+                    Object obj5 = aVar.f50843c;
                     if (obj5 == null || !(obj5 instanceof Boolean)) {
                         return;
                     }
                     WriteActivity.this.isPrivacy = ((Boolean) obj5).booleanValue();
                 } else if (i2 == 58) {
-                    Object obj6 = aVar.f50770c;
+                    Object obj6 = aVar.f50843c;
                     if (obj6 == null || !(obj6 instanceof Boolean)) {
                         return;
                     }
@@ -1550,13 +1538,50 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class p0 implements a.InterfaceC1127a {
+    public class p0 implements TextWatcher {
+
+        /* renamed from: e  reason: collision with root package name */
+        public int f22076e;
+
+        /* renamed from: f  reason: collision with root package name */
+        public EditText f22077f = null;
+
+        /* renamed from: g  reason: collision with root package name */
+        public TextView f22078g = null;
+
         public p0() {
         }
 
-        @Override // d.a.j0.r.f0.p.a.InterfaceC1127a
-        public void a(int i2, boolean z) {
-            WriteActivity.this.refreshListView();
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            WriteActivity.this.refreshPostButton();
+            if (WriteActivity.this.isLivePhotoType) {
+                int selectionStart = this.f22077f.getSelectionStart();
+                this.f22076e = selectionStart;
+                this.f22077f.setSelection(selectionStart);
+                WriteActivity.this.setLeftCount(this.f22078g, this.f22077f);
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
+            if (!WriteActivity.this.isLivePhotoType || !WriteActivity.this.isPhotoliveTitleHasFocus) {
+                if (WriteActivity.this.isLivePhotoType) {
+                    if (this.f22077f == WriteActivity.this.live_post_content && this.f22078g == WriteActivity.this.mContentOverPlusNumber) {
+                        return;
+                    }
+                    this.f22077f = WriteActivity.this.live_post_content;
+                    this.f22078g = WriteActivity.this.mContentOverPlusNumber;
+                }
+            } else if (this.f22077f == WriteActivity.this.live_post_title && this.f22078g == WriteActivity.this.mTitleOverPlusNumber) {
+            } else {
+                this.f22077f = WriteActivity.this.live_post_title;
+                this.f22078g = WriteActivity.this.mTitleOverPlusNumber;
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
         }
     }
 
@@ -1564,33 +1589,27 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class q implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ WriteVoteData f22151e;
+        public final /* synthetic */ WriteVoteData f22080e;
 
         public q(WriteVoteData writeVoteData) {
-            this.f22151e = writeVoteData;
+            this.f22080e = writeVoteData;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            WriteActivity.this.jumpToVoteView(this.f22151e);
+            WriteActivity.this.jumpToVoteView(this.f22080e);
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_WRITE_VOTE_VIEW_SHOW).param("obj_source", 3));
         }
     }
 
     /* loaded from: classes5.dex */
-    public class q0 implements View.OnTouchListener {
+    public class q0 implements a.InterfaceC1136a {
         public q0() {
         }
 
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (motionEvent.getAction() == 1) {
-                view.requestFocus();
-                WriteActivity.this.mEditor.A(new d.a.j0.w.a(5, -1, null));
-                WriteActivity.this.mPostContent.requestFocus();
-                return false;
-            }
-            return false;
+        @Override // d.a.m0.r.f0.p.a.InterfaceC1136a
+        public void a(int i2, boolean z) {
+            WriteActivity.this.refreshListView();
         }
     }
 
@@ -1628,8 +1647,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.a.j0.t.j jVar;
-            if (WriteActivity.this.mForumSelectedView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.j0.t.j) || (jVar = (d.a.j0.t.j) customResponsedMessage.getData()) == null || StringUtils.isNull(jVar.f50712a) || StringUtils.isNull(jVar.f50714c)) {
+            d.a.m0.t.j jVar;
+            if (WriteActivity.this.mForumSelectedView == null || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof d.a.m0.t.j) || (jVar = (d.a.m0.t.j) customResponsedMessage.getData()) == null || StringUtils.isNull(jVar.f50785a) || StringUtils.isNull(jVar.f50787c)) {
                 return;
             }
             WriteActivity.this.initSelectForumData(jVar);
@@ -1640,10 +1659,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class s implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22156e = "";
+        public String f22085e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22157f;
+        public String f22086f;
 
         public s() {
         }
@@ -1656,10 +1675,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (editable == null || realTitleInstance == null || realTitleInstance.getText() == null) {
                 return;
             }
-            String str = this.f22156e;
+            String str = this.f22085e;
             if (str == null || !str.equals(editable.toString())) {
                 if (WriteActivity.this.mHighLightController != null) {
-                    this.f22156e = realTitleInstance.getText().toString();
+                    this.f22085e = realTitleInstance.getText().toString();
                     WriteActivity.this.mHighLightController.j(realTitleInstance, true);
                     return;
                 }
@@ -1670,12 +1689,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            this.f22157f = charSequence != null ? charSequence.toString() : "";
+            this.f22086f = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            String str = this.f22157f;
+            String str = this.f22086f;
             if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.length() : 0)) {
                 WriteActivity.this.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_title");
             }
@@ -1683,35 +1702,19 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class s0 extends d.a.c.e.l.c<d.a.c.j.d.a> {
-
-        /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ boolean f22159a;
-
-        public s0(boolean z) {
-            this.f22159a = z;
+    public class s0 implements View.OnTouchListener {
+        public s0() {
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.c.e.l.c
-        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
-            super.onLoaded((s0) aVar, str, i2);
-            if (aVar == null || aVar.p() == null || aVar.o() == null) {
-                return;
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view, MotionEvent motionEvent) {
+            if (motionEvent.getAction() == 1) {
+                view.requestFocus();
+                WriteActivity.this.mEditor.A(new d.a.m0.w.a(5, -1, null));
+                WriteActivity.this.mPostContent.requestFocus();
+                return false;
             }
-            if (WriteActivity.this.writeVideoController != null && WriteActivity.this.writeVideoController.n()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.FALSE));
-                return;
-            }
-            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.getInst().getResources(), aVar.p(), aVar.p().getNinePatchChunk(), aVar.o(), null);
-            if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
-                ninePatchDrawable.getPaint().setAlpha(TbConfig.ALPHA_80);
-            }
-            WriteActivity.this.getRealContentEdittextInstance().setBackgroundDrawable(ninePatchDrawable);
-            if (this.f22159a) {
-                d.a.k0.d3.g0.a.c(WriteActivity.this.getPageContext(), WriteActivity.this.getRealContentEdittextInstance(), true, WriteActivity.this.mBubbleTipRefreshCallback);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.TRUE));
+            return false;
         }
     }
 
@@ -1719,10 +1722,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public class t implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public String f22161e = "";
+        public String f22089e = "";
 
         /* renamed from: f  reason: collision with root package name */
-        public String f22162f;
+        public String f22090f;
 
         public t() {
         }
@@ -1734,10 +1737,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (editable == null || realContentEdittextInstance == null || realContentEdittextInstance.getText() == null) {
                 return;
             }
-            String str = this.f22161e;
+            String str = this.f22089e;
             if (str == null || !str.equals(editable.toString())) {
                 if (WriteActivity.this.mHighLightController != null) {
-                    this.f22161e = realContentEdittextInstance.getText().toString();
+                    this.f22089e = realContentEdittextInstance.getText().toString();
                     WriteActivity.this.mHighLightController.j(realContentEdittextInstance, false);
                 }
                 if (WriteActivity.this.isEvaluate) {
@@ -1751,12 +1754,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // android.text.TextWatcher
         public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            this.f22162f = charSequence != null ? charSequence.toString() : "";
+            this.f22090f = charSequence != null ? charSequence.toString() : "";
         }
 
         @Override // android.text.TextWatcher
         public void onTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
-            String str = this.f22162f;
+            String str = this.f22090f;
             if ((charSequence != null ? charSequence.toString().length() : 0) > (str != null ? str.length() : 0)) {
                 WriteActivity.this.gotoHotTopicSelectActivity(charSequence, i2, i4, "from_content");
             }
@@ -1764,15 +1767,35 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class t0 implements a.f {
-        public t0() {
+    public class t0 extends d.a.c.e.l.c<d.a.c.j.d.a> {
+
+        /* renamed from: a  reason: collision with root package name */
+        public final /* synthetic */ boolean f22092a;
+
+        public t0(boolean z) {
+            this.f22092a = z;
         }
 
-        @Override // d.a.k0.d3.g0.a.f
-        public void onRefresh() {
-            WriteActivity.this.mBubbleUrl = null;
-            WriteActivity.this.refreshBubble(false);
-            WriteActivity.this.mEditor.A(new d.a.j0.w.a(2, 12, null));
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // d.a.c.e.l.c
+        public void onLoaded(d.a.c.j.d.a aVar, String str, int i2) {
+            super.onLoaded((t0) aVar, str, i2);
+            if (aVar == null || aVar.p() == null || aVar.o() == null) {
+                return;
+            }
+            if (WriteActivity.this.writeVideoController != null && WriteActivity.this.writeVideoController.n()) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.FALSE));
+                return;
+            }
+            NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.getInst().getResources(), aVar.p(), aVar.p().getNinePatchChunk(), aVar.o(), null);
+            if (TbadkCoreApplication.getInst().getSkinType() == 1 || TbadkCoreApplication.getInst().getSkinType() == 4) {
+                ninePatchDrawable.getPaint().setAlpha(TbConfig.ALPHA_80);
+            }
+            WriteActivity.this.getRealContentEdittextInstance().setBackgroundDrawable(ninePatchDrawable);
+            if (this.f22092a) {
+                d.a.n0.e3.g0.a.c(WriteActivity.this.getPageContext(), WriteActivity.this.getRealContentEdittextInstance(), true, WriteActivity.this.mBubbleTipRefreshCallback);
+            }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.TRUE));
         }
     }
 
@@ -1798,17 +1821,56 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class u0 implements AdapterView.OnItemClickListener {
+    public class u0 implements a.f {
         public u0() {
+        }
+
+        @Override // d.a.n0.e3.g0.a.f
+        public void onRefresh() {
+            WriteActivity.this.mBubbleUrl = null;
+            WriteActivity.this.refreshBubble(false);
+            WriteActivity.this.mEditor.A(new d.a.m0.w.a(2, 12, null));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class v extends HttpMessageListener {
+        public v(int i2) {
+            super(i2);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            if (httpResponsedMessage.getError() != 0) {
+                return;
+            }
+            String str = (String) MessageManager.getInstance().runTask(2001284, String.class, httpResponsedMessage).getData();
+            if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(WriteActivity.this.mBubbleUrl)) {
+                WriteActivity.this.mBubbleUrl = str;
+                TbadkCoreApplication.getInst().setDefaultBubble(str);
+                WriteActivity.this.refreshBubble(true);
+            } else if (TextUtils.isEmpty(str) || str.equals(WriteActivity.this.mBubbleUrl)) {
+            } else {
+                WriteActivity.this.mBubbleUrl = str;
+                TbadkCoreApplication.getInst().setDefaultBubble(WriteActivity.this.mBubbleUrl);
+                WriteActivity.this.refreshBubble(true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class v0 implements AdapterView.OnItemClickListener {
+        public v0() {
         }
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i2, long j) {
-            if (WriteActivity.this.mAdapter == null || !(WriteActivity.this.mAdapter.getItem(i2) instanceof d.a.j0.r.q.v)) {
+            if (WriteActivity.this.mAdapter == null || !(WriteActivity.this.mAdapter.getItem(i2) instanceof d.a.m0.r.q.v)) {
                 return;
             }
-            d.a.j0.r.q.v vVar = (d.a.j0.r.q.v) WriteActivity.this.mAdapter.getItem(i2);
-            int i3 = vVar.f50093f;
+            d.a.m0.r.q.v vVar = (d.a.m0.r.q.v) WriteActivity.this.mAdapter.getItem(i2);
+            int i3 = vVar.f50137f;
             if (i3 == 1) {
                 if (vVar.s == 1) {
                     UrlManager.getInstance().dealOneLink(WriteActivity.this.getPageContext(), new String[]{vVar.k});
@@ -1844,45 +1906,6 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class v extends HttpMessageListener {
-        public v(int i2) {
-            super(i2);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage.getError() != 0) {
-                return;
-            }
-            String str = (String) MessageManager.getInstance().runTask(2001284, String.class, httpResponsedMessage).getData();
-            if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(WriteActivity.this.mBubbleUrl)) {
-                WriteActivity.this.mBubbleUrl = str;
-                TbadkCoreApplication.getInst().setDefaultBubble(str);
-                WriteActivity.this.refreshBubble(true);
-            } else if (TextUtils.isEmpty(str) || str.equals(WriteActivity.this.mBubbleUrl)) {
-            } else {
-                WriteActivity.this.mBubbleUrl = str;
-                TbadkCoreApplication.getInst().setDefaultBubble(WriteActivity.this.mBubbleUrl);
-                WriteActivity.this.refreshBubble(true);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class v0 implements Runnable {
-        public v0() {
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            if (WriteActivity.this.fromErrorDialog) {
-                WriteActivity.this.mOnPostWriteCallback.callback(false, d.a.k0.d3.q0.c.f54000c, d.a.k0.d3.q0.c.f54001d, d.a.k0.d3.q0.c.f54002e, d.a.k0.d3.q0.c.f54003f);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
     public class w implements View.OnClickListener {
         public w() {
         }
@@ -1890,7 +1913,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             view.requestFocus();
-            WriteActivity.this.mEditor.A(new d.a.j0.w.a(5, -1, null));
+            WriteActivity.this.mEditor.A(new d.a.m0.w.a(5, -1, null));
             WriteActivity.this.mPostContent.requestFocus();
         }
     }
@@ -1902,7 +1925,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // java.lang.Runnable
         public void run() {
-            d.a.c.e.p.l.x(WriteActivity.this.getActivity(), WriteActivity.this.getCurrentFocus());
+            if (WriteActivity.this.fromErrorDialog) {
+                WriteActivity.this.mOnPostWriteCallback.callback(false, d.a.n0.e3.q0.c.f54213c, d.a.n0.e3.q0.c.f54214d, d.a.n0.e3.q0.c.f54215e, d.a.n0.e3.q0.c.f54216f);
+            }
         }
     }
 
@@ -1924,8 +1949,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
         @Override // java.lang.Runnable
         public void run() {
-            WriteActivity.this.mPhotoLiveGridViewAdapter.notifyDataSetChanged();
-            WriteActivity.this.mPhotoLiveGridView.invalidateViews();
+            d.a.c.e.p.l.x(WriteActivity.this.getActivity(), WriteActivity.this.getCurrentFocus());
         }
     }
 
@@ -1942,15 +1966,14 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class y0 extends BdAsyncTask<Void, Integer, Void> {
+    public class y0 implements Runnable {
         public y0() {
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            FileHelper.deleteFile(new File(Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + WriteActivity.this.photoName));
-            return null;
+        @Override // java.lang.Runnable
+        public void run() {
+            WriteActivity.this.mPhotoLiveGridViewAdapter.notifyDataSetChanged();
+            WriteActivity.this.mPhotoLiveGridView.invalidateViews();
         }
     }
 
@@ -1966,26 +1989,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* loaded from: classes5.dex */
-    public class z0 extends q.a {
+    public class z0 extends BdAsyncTask<Void, Integer, Void> {
         public z0() {
         }
 
-        @Override // d.a.j0.z0.q.a
-        public void onError(int i2, String str) {
-        }
-
-        @Override // d.a.j0.z0.q.a
-        public void onSuccess(String str) {
-            if (!new File(str).exists() || WriteActivity.this.writeImagesInfo == null) {
-                return;
-            }
-            WriteActivity.this.writeImagesInfo.clear();
-            ImageFileInfo imageFileInfo = new ImageFileInfo();
-            imageFileInfo.setFilePath(str);
-            imageFileInfo.isFromMoreForum = true;
-            WriteActivity.this.writeImagesInfo.addChooseFile(imageFileInfo);
-            WriteActivity.this.writeImagesInfo.setMaxImagesAllowed(1);
-            WriteActivity.this.refreshMutiImage(true);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            FileHelper.deleteFile(new File(Environment.getExternalStorageDirectory() + "/" + TbConfig.getTempDirName() + "/" + WriteActivity.this.photoName));
+            return null;
         }
     }
 
@@ -2067,7 +2079,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (this.mCurrentPermissionJudgePolicy.startRequestPermission(this)) {
                 return;
             }
-            d.a.j0.z0.q qVar = new d.a.j0.z0.q(this, this.mMoreForumImg, new z0());
+            d.a.m0.z0.q qVar = new d.a.m0.z0.q(this, this.mMoreForumImg, new a1());
             qVar.p(1);
             qVar.execute(new String[0]);
         }
@@ -2083,7 +2095,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (hotTopicBussinessData == null || (hotTopicBussinessData2 = (HotTopicBussinessData) ListUtils.getItem(this.mList, 0)) == null || TextUtils.isEmpty(hotTopicBussinessData2.mTopicName)) {
             return;
         }
-        SpannableString j2 = d.a.j0.p0.b.j(d.a.j0.p0.b.a(hotTopicBussinessData.mTopicName));
+        SpannableString j2 = d.a.m0.p0.b.j(d.a.m0.p0.b.a(hotTopicBussinessData.mTopicName));
         if (j2 != null) {
             this.mPostTitle.setText(j2);
         }
@@ -2092,9 +2104,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     /* JADX INFO: Access modifiers changed from: private */
     public void changeToolButtonStatus() {
-        d.a.j0.w.t.a aVar;
+        d.a.m0.w.t.a aVar;
         if (this.mEditor != null) {
-            d.a.k0.v3.u.o.a aVar2 = this.writeVideoController;
+            d.a.n0.w3.u.o.a aVar2 = this.writeVideoController;
             if (aVar2 != null && aVar2.n()) {
                 this.mEditor.setBarLauncherEnabled(!this.isDisalbeButtons);
                 this.mEditor.setDeskLauncherEnabled(!this.isDisalbeButtons);
@@ -2104,7 +2116,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.mEditor.setToolEnabled(false, 6);
                 this.mEditor.setToolEnabled(false, 18);
                 this.mEditor.n(5).e(false);
-                d.a.k0.v3.m.b bVar = this.mWriteTool;
+                d.a.n0.w3.m.b bVar = this.mWriteTool;
                 if (bVar != null) {
                     bVar.n(true);
                 }
@@ -2115,7 +2127,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.mEditor.setToolEnabled(true, 2);
                 this.mEditor.setToolEnabled(true, 30);
                 this.mEditor.n(5).e(true);
-                d.a.k0.v3.m.b bVar2 = this.mWriteTool;
+                d.a.n0.w3.m.b bVar2 = this.mWriteTool;
                 if (bVar2 != null) {
                     bVar2.n(true);
                 }
@@ -2140,7 +2152,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (editorTools == null) {
             return;
         }
-        editorTools.post(new d1());
+        editorTools.post(new e1());
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -2158,7 +2170,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     /* JADX INFO: Access modifiers changed from: private */
     public int checkTabConsistent() {
-        d.a.k0.v3.u.d dVar = this.mAdapter;
+        d.a.n0.w3.u.d dVar = this.mAdapter;
         boolean z2 = dVar == null || dVar.e();
         ForumTabSelectedView forumTabSelectedView = this.mForumTabSelectedView;
         boolean z3 = (forumTabSelectedView == null || forumTabSelectedView.getSelectedTabItemData() == null || this.mForumTabSelectedView.getSelectedTabItemData().tabType != 3) ? false : true;
@@ -2181,15 +2193,15 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void clearDraft() {
         if (this.mData.getType() != 0 && this.mData.getType() != 9 && this.mData.getType() != 11) {
             if (this.mData.getType() == 1) {
-                d.a.k0.d3.y.p(this.mData.getThreadId(), null);
+                d.a.n0.e3.y.p(this.mData.getThreadId(), null);
             }
         } else if (this.isSaveDraft) {
             if (this.mData.isEvaluate()) {
-                d.a.k0.d3.y.m(this.mData.getItem_id(), null);
+                d.a.n0.e3.y.m(this.mData.getItem_id(), null);
             } else if (TextUtils.isEmpty(this.mData.getTopicId())) {
-                d.a.k0.d3.y.o(this.mData.getForumId(), this.mData, true);
+                d.a.n0.e3.y.o(this.mData.getForumId(), this.mData, true);
             } else {
-                d.a.k0.d3.y.r(this.mData.getTopicId(), null);
+                d.a.n0.e3.y.r(this.mData.getTopicId(), null);
             }
         }
         this.isProcessedSaveDraft = true;
@@ -2247,35 +2259,35 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private void deleteTempCameraFile() {
-        new y0().execute(new Void[0]);
+        new z0().execute(new Void[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteTempVideoFile() {
-        FileHelper.deleteFileOrDir(new File(d.a.k0.q3.c.f59854c));
+        FileHelper.deleteFileOrDir(new File(d.a.n0.r3.c.f59995c));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void deleteVoice() {
-        d.a.j0.w.n nVar;
+        d.a.m0.w.n nVar;
         VoiceData$VoiceModel voiceData$VoiceModel = this.mVoiceModel;
         if (voiceData$VoiceModel != null) {
-            d.a.j0.r.g0.a.a(d.a.j0.r.g0.a.b(voiceData$VoiceModel.voiceId));
+            d.a.m0.r.g0.a.a(d.a.m0.r.g0.a.b(voiceData$VoiceModel.voiceId));
         }
         this.mVoiceModel = null;
         this.mData.setVoiceModel(null);
         this.mLayoutVoicePlay.setVisibility(8);
         this.mVoicePlayButton.m();
         this.mVoicePlayButton.setVoiceModel(null);
-        d.a.j0.w.m n2 = this.mEditor.n(6);
+        d.a.m0.w.m n2 = this.mEditor.n(6);
         if (n2 != null && (nVar = n2.k) != null) {
-            nVar.onAction(new d.a.j0.w.a(52, 0, null));
+            nVar.onAction(new d.a.m0.w.a(52, 0, null));
         }
         refreshPostButton();
     }
 
     private void displayLauncherById(int i2, boolean z2) {
-        d.a.j0.w.h m2;
+        d.a.m0.w.h m2;
         EditorTools editorTools = this.mEditor;
         if (editorTools == null || (m2 = editorTools.m(i2)) == null) {
             return;
@@ -2335,20 +2347,28 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (StringUtils.isNull(str)) {
                 a2 = this.mData.getTitle();
             } else {
-                a2 = d.a.j0.p0.b.a(str);
+                a2 = d.a.m0.p0.b.a(str);
             }
-            SpannableString j2 = d.a.j0.p0.b.j(a2);
+            SpannableString j2 = d.a.m0.p0.b.j(a2);
             if (j2 != null) {
                 getRealTitleInstance().setText(j2);
-                getRealTitleInstance().setSelection(j2.length() > a2.length() ? a2.length() : j2.length());
+                int length = j2.length() > a2.length() ? a2.length() : j2.length();
+                if (length > getRealTitleInstance().getText().length()) {
+                    length = getRealTitleInstance().getText().length();
+                }
+                getRealTitleInstance().setSelection(length);
                 return;
             }
             return;
         }
-        SpannableString j3 = d.a.j0.p0.b.j(this.mData.getTitle());
+        SpannableString j3 = d.a.m0.p0.b.j(this.mData.getTitle());
         if (j3 != null) {
             getRealTitleInstance().setText(j3);
-            getRealTitleInstance().setSelection(this.mData.getTitle().length() > j3.length() ? j3.length() : this.mData.getTitle().length());
+            int length2 = this.mData.getTitle().length() > j3.length() ? j3.length() : this.mData.getTitle().length();
+            if (length2 > getRealTitleInstance().getText().length()) {
+                length2 = getRealTitleInstance().getText().length();
+            }
+            getRealTitleInstance().setSelection(length2);
         }
     }
 
@@ -2432,7 +2452,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private long getInputCount(EditText editText) {
-        return d.a.k0.v3.r.a.a(editText.getText().toString().trim());
+        return d.a.n0.w3.r.a.a(editText.getText().toString().trim());
     }
 
     private File getLatestPic() {
@@ -2567,21 +2587,21 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private TextWatcher getTextWatcher() {
-        o0 o0Var = new o0();
+        p0 p0Var = new p0();
         if (this.isLivePhotoType && this.isPhotoliveTitleHasFocus) {
             TextWatcher textWatcher = this.mOldTitleTextWatcher;
             if (textWatcher != null) {
                 this.live_post_title.removeTextChangedListener(textWatcher);
             }
-            this.mOldTitleTextWatcher = o0Var;
+            this.mOldTitleTextWatcher = p0Var;
         } else if (this.isLivePhotoType) {
             TextWatcher textWatcher2 = this.mOldContentTextWatcher;
             if (textWatcher2 != null) {
                 this.live_post_content.removeTextChangedListener(textWatcher2);
             }
-            this.mOldContentTextWatcher = o0Var;
+            this.mOldContentTextWatcher = p0Var;
         }
-        return o0Var;
+        return p0Var;
     }
 
     private String getThreadTitle() {
@@ -2630,7 +2650,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         } else if ("from_title".equals(str)) {
             this.fromWhereToHotSelect = "from_title";
         }
-        if (d.a.j0.p0.b.f(String.valueOf(charSequence.charAt(i2)))) {
+        if (d.a.m0.p0.b.f(String.valueOf(charSequence.charAt(i2)))) {
             performHotTopicClick(false);
         }
     }
@@ -2639,7 +2659,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (spannable != null) {
             ImageSpan[] imageSpanArr = (ImageSpan[]) spannable.getSpans(0, spannable.length(), ImageSpan.class);
             if (imageSpanArr == null || imageSpanArr.length <= 0) {
-                d.a.k0.v3.u.c cVar = this.mHighLightController;
+                d.a.n0.w3.u.c cVar = this.mHighLightController;
                 if (cVar == null || !cVar.g(spannable)) {
                     return UrlManager.getInstance().isFindUrlEndWithBlank(spannable);
                 }
@@ -2651,7 +2671,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private boolean hasWriteVote() {
-        d.a.k0.v3.u.p.a aVar = this.mVoteViewController;
+        d.a.n0.w3.u.p.a aVar = this.mVoteViewController;
         return (aVar == null || this.mVoteLayoutRoot == null || aVar.c() == null || this.mVoteLayoutRoot.getVisibility() != 0) ? false : true;
     }
 
@@ -2665,14 +2685,14 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private void hideCommodityTip() {
-        d.a.k0.v3.u.b bVar = this.mCommodityTipController;
+        d.a.n0.w3.u.b bVar = this.mCommodityTipController;
         if (bVar != null) {
             bVar.a();
         }
     }
 
     private void hideEditorTopicTip() {
-        d.a.k0.v3.u.g gVar = this.mTipController;
+        d.a.n0.w3.u.g gVar = this.mTipController;
         if (gVar != null) {
             gVar.b();
         }
@@ -2721,34 +2741,34 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private void initCategoryData() {
-        d.a.k0.q0.e0 b2 = d.a.k0.q0.d0.a().b(1);
+        d.a.n0.r0.e0 b2 = d.a.n0.r0.d0.a().b(1);
         if (b2 == null) {
             return;
         }
-        List<d.a.k0.q0.c0> list = b2.f58306b;
+        List<d.a.n0.r0.c0> list = b2.f58447b;
         this.mCategoryList = list;
         if (list == null || list.isEmpty() || this.mCategoryFromID < 0) {
             return;
         }
-        d.a.k0.q0.c0 c0Var = new d.a.k0.q0.c0();
+        d.a.n0.r0.c0 c0Var = new d.a.n0.r0.c0();
         this.mCategoryDefault = c0Var;
-        c0Var.f58265b = 0;
-        c0Var.f58264a = getPageContext().getResources().getString(R.string.category_auto);
-        d.a.k0.q0.c0 c0Var2 = this.mCategoryDefault;
-        this.mCategoryToID = c0Var2.f58265b;
-        this.mCategoryName = c0Var2.f58264a;
-        for (d.a.k0.q0.c0 c0Var3 : this.mCategoryList) {
-            int i2 = c0Var3.f58265b;
+        c0Var.f58406b = 0;
+        c0Var.f58405a = getPageContext().getResources().getString(R.string.category_auto);
+        d.a.n0.r0.c0 c0Var2 = this.mCategoryDefault;
+        this.mCategoryToID = c0Var2.f58406b;
+        this.mCategoryName = c0Var2.f58405a;
+        for (d.a.n0.r0.c0 c0Var3 : this.mCategoryList) {
+            int i2 = c0Var3.f58406b;
             if (i2 == this.mCategoryFromID) {
                 this.mCategoryToID = i2;
-                this.mCategoryName = c0Var3.f58264a;
+                this.mCategoryName = c0Var3.f58405a;
                 return;
             }
         }
     }
 
     private void initCategoryUI() {
-        List<d.a.k0.q0.c0> list = this.mCategoryList;
+        List<d.a.n0.r0.c0> list = this.mCategoryList;
         if (list == null || list.isEmpty()) {
             return;
         }
@@ -2764,37 +2784,37 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private void initCommonEditorTools() {
-        d.a.j0.w.m mVar;
-        d.a.j0.w.m mVar2;
-        d.a.j0.w.m mVar3;
+        d.a.m0.w.m mVar;
+        d.a.m0.w.m mVar2;
+        d.a.m0.w.m mVar3;
         CustomResponsedMessage runTask;
-        d.a.j0.w.m mVar4;
+        d.a.m0.w.m mVar4;
         ArrayList arrayList = new ArrayList();
         arrayList.add(5);
-        d.a.j0.w.r.d dVar = new d.a.j0.w.r.d(getActivity(), 1);
+        d.a.m0.w.r.d dVar = new d.a.m0.w.r.d(getActivity(), 1);
         if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
             this.mEditor.d(dVar);
         }
         Boolean isEnableAudio = isEnableAudio();
-        if (!this.isFeedBack && isEnableAudio != null && isEnableAudio.booleanValue() && d.a.k0.d3.p0.c.a() && d.a.k0.d3.u.a(this.mData.getForumName(), Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, getActivity()), d.a.j0.w.m.class)) != null && (mVar4 = (d.a.j0.w.m) runTask.getData()) != null) {
+        if (!this.isFeedBack && isEnableAudio != null && isEnableAudio.booleanValue() && d.a.n0.e3.p0.c.a() && d.a.n0.e3.u.a(this.mData.getForumName(), Boolean.TRUE) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, getActivity()), d.a.m0.w.m.class)) != null && (mVar4 = (d.a.m0.w.m) runTask.getData()) != null) {
             mVar4.j = 2;
             if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
                 this.mEditor.d(mVar4);
             }
         }
-        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001343, getActivity()), d.a.j0.w.m.class);
-        if (runTask2 != null && (mVar3 = (d.a.j0.w.m) runTask2.getData()) != null) {
+        CustomResponsedMessage runTask2 = MessageManager.getInstance().runTask(new CustomMessage<>(2001343, getActivity()), d.a.m0.w.m.class);
+        if (runTask2 != null && (mVar3 = (d.a.m0.w.m) runTask2.getData()) != null) {
             mVar3.j = 5;
             if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
                 this.mEditor.d(mVar3);
             }
         }
-        if (!d.a.k0.v3.r.b.c() && !this.isEvaluate) {
-            this.mEditor.d(new d.a.j0.w.l(getActivity(), 6));
+        if (!d.a.n0.w3.r.b.c() && !this.isEvaluate) {
+            this.mEditor.d(new d.a.m0.w.l(getActivity(), 6));
         }
-        this.mEditor.d(new d.a.j0.w.o.a(getActivity(), 7));
+        this.mEditor.d(new d.a.m0.w.o.a(getActivity(), 7));
         if (StringHelper.equals(this.mCallFrom, "2")) {
-            d.a.j0.w.t.a aVar = new d.a.j0.w.t.a(getActivity(), 3);
+            d.a.m0.w.t.a aVar = new d.a.m0.w.t.a(getActivity(), 3);
             this.mLinkTool = aVar;
             if (this.isEvaluate) {
                 aVar.g(false);
@@ -2802,30 +2822,30 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             }
             this.mEditor.d(this.mLinkTool);
             if (!this.isEvaluate) {
-                this.mEditor.d(new d.a.j0.w.z.a(getActivity(), 8));
+                this.mEditor.d(new d.a.m0.w.z.a(getActivity(), 8));
             }
         }
-        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, getActivity()), d.a.j0.w.m.class);
-        if (runTask3 != null && (mVar2 = (d.a.j0.w.m) runTask3.getData()) != null) {
+        CustomResponsedMessage runTask3 = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, getActivity()), d.a.m0.w.m.class);
+        if (runTask3 != null && (mVar2 = (d.a.m0.w.m) runTask3.getData()) != null) {
             mVar2.m = true;
             mVar2.j = 9;
-            mVar2.f50777d = 0;
+            mVar2.f50850d = 0;
             if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
                 this.mEditor.d(mVar2);
             }
         }
-        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, getActivity()), d.a.j0.w.m.class);
-        if (runTask4 != null && (mVar = (d.a.j0.w.m) runTask4.getData()) != null) {
+        CustomResponsedMessage runTask4 = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, getActivity()), d.a.m0.w.m.class);
+        if (runTask4 != null && (mVar = (d.a.m0.w.m) runTask4.getData()) != null) {
             mVar.m = true;
             mVar.j = 10;
-            mVar.f50777d = 0;
+            mVar.f50850d = 0;
             if (!WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
                 this.mEditor.d(mVar);
             }
         }
         if (this.mAdditionData == null) {
             if (this.mWriteTool == null) {
-                d.a.k0.v3.m.b bVar = new d.a.k0.v3.m.b(getActivity(), this.mCallFrom);
+                d.a.n0.w3.m.b bVar = new d.a.n0.w3.m.b(getActivity(), this.mCallFrom);
                 this.mWriteTool = bVar;
                 bVar.k(0);
                 this.mWriteTool.l(SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1);
@@ -2841,10 +2861,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mEditor.d(this.mWriteTool);
         }
         if (!this.isEvaluate && !"main_tab".equals(this.mFrom)) {
-            this.mEditor.d(new d.a.j0.w.d(getActivity(), 10));
+            this.mEditor.d(new d.a.m0.w.d(getActivity(), 10));
         }
         this.mEditor.h(arrayList);
-        d.a.j0.w.m n2 = this.mEditor.n(5);
+        d.a.m0.w.m n2 = this.mEditor.n(5);
         if (n2 != null) {
             n2.j = 4;
         }
@@ -2852,7 +2872,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     private void initData(Bundle bundle) {
         WriteData writeData;
-        d.a.k0.d3.q0.a f2 = d.a.k0.d3.q0.a.f();
+        d.a.n0.e3.q0.a f2 = d.a.n0.e3.q0.a.f();
         this.mWriteModel = f2;
         f2.k(this);
         WriteData writeData2 = new WriteData();
@@ -2960,7 +2980,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.voteDataSerializable = intent.getSerializableExtra(IntentConfig.WRITE_VOTE_DATA);
             this.isVoiceEnable = intent.getBooleanExtra(WriteActivityConfig.ENABLE_AUDIO, true);
             this.mDisableAudioMessage = intent.getStringExtra(WriteActivityConfig.DISABLE_AUDIO_MESSAGE);
-            if (this.fromErrorDialog && (writeData = d.a.k0.d3.q0.c.f54002e) != null) {
+            if (this.fromErrorDialog && (writeData = d.a.n0.e3.q0.c.f54215e) != null) {
                 this.mData = writeData;
                 writeData.setType(9);
                 WriteData writeData3 = this.mData;
@@ -3001,22 +3021,22 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (this.mData.getType() != 0 && this.mData.getType() != 9 && this.mData.getType() != 11) {
             if (this.mData.getType() == 7) {
                 if (this.isSaveDraft) {
-                    d.a.k0.d3.y.h(BOTTLE_FORUM_ID, this);
+                    d.a.n0.e3.y.h(BOTTLE_FORUM_ID, this);
                 }
             } else if (this.mData.getType() == 1) {
-                d.a.k0.d3.y.i(this.mData.getThreadId(), this);
+                d.a.n0.e3.y.i(this.mData.getThreadId(), this);
             } else if (this.mData.getType() == 4) {
-                d.a.k0.d3.y.h(this.mData.getForumId() + PHOTO_LIVE_DRAFT_KEY, this);
+                d.a.n0.e3.y.h(this.mData.getForumId() + PHOTO_LIVE_DRAFT_KEY, this);
             } else if (this.mData.getType() == 5) {
-                d.a.k0.d3.y.i(this.mData.getThreadId() + UPDATE_PHOTO_LIVE_DRAFT_KEY, this);
+                d.a.n0.e3.y.i(this.mData.getThreadId() + UPDATE_PHOTO_LIVE_DRAFT_KEY, this);
             }
         } else if (this.isSaveDraft) {
             if (this.mData.isEvaluate()) {
-                d.a.k0.d3.y.g(this.mData.getItem_id(), this);
+                d.a.n0.e3.y.g(this.mData.getItem_id(), this);
             } else if (TextUtils.isEmpty(this.mData.getTopicId())) {
-                d.a.k0.d3.y.h(this.mData.getForumId(), this);
+                d.a.n0.e3.y.h(this.mData.getForumId(), this);
             } else {
-                d.a.k0.d3.y.k(this.mData.getTopicId(), this);
+                d.a.n0.e3.y.k(this.mData.getTopicId(), this);
             }
         }
         WriteData writeData4 = this.mData;
@@ -3053,21 +3073,21 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         }
         initEditorListener();
         this.mEditor.j();
-        d.a.j0.w.h m2 = this.mEditor.m(6);
+        d.a.m0.w.h m2 = this.mEditor.m(6);
         if (m2 != null && !TextUtils.isEmpty(this.mDisableAudioMessage)) {
             ((View) m2).setOnClickListener(new j());
         }
         if (!this.isLivePhotoType) {
-            this.mEditor.A(new d.a.j0.w.a(34, 5, 1));
+            this.mEditor.A(new d.a.m0.w.a(34, 5, 1));
         }
         this.mEditor.q();
-        if (XiaoyingUtil.showXiaoyingTool() && !d.a.j0.r.d0.b.j().g("xiaoying_has_click", false)) {
-            this.mEditor.A(new d.a.j0.w.a(2, 19, "N"));
+        if (XiaoyingUtil.showXiaoyingTool() && !d.a.m0.r.d0.b.j().g("xiaoying_has_click", false)) {
+            this.mEditor.A(new d.a.m0.w.a(2, 19, "N"));
         }
-        if (!d.a.j0.r.d0.b.j().g("hot_topic_has_click", false)) {
-            this.mEditor.A(new d.a.j0.w.a(2, 26, " "));
+        if (!d.a.m0.r.d0.b.j().g("hot_topic_has_click", false)) {
+            this.mEditor.A(new d.a.m0.w.a(2, 26, " "));
         }
-        if (d.a.j0.r.d0.b.j().k("commodity_tip_show_controller", 0) == 0 && this.canGoods) {
+        if (d.a.m0.r.d0.b.j().k("commodity_tip_show_controller", 0) == 0 && this.canGoods) {
             showCommodityTip();
             return;
         }
@@ -3148,7 +3168,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.live_post_title.addTextChangedListener(getTextWatcher());
         this.live_post_title.setOnClickListener(this.mEditOnClicked);
         this.live_post_content.setOnClickListener(this.mEditOnClicked);
-        d.a.k0.v3.t.b.a aVar = new d.a.k0.v3.t.b.a(this, this.writeImagesInfo, this.mPhotoLiveGridView);
+        d.a.n0.w3.t.b.a aVar = new d.a.n0.w3.t.b.a(this, this.writeImagesInfo, this.mPhotoLiveGridView);
         this.mPhotoLiveGridViewAdapter = aVar;
         aVar.n(6);
         this.mPhotoLiveGridView.setAdapter((ListAdapter) this.mPhotoLiveGridViewAdapter);
@@ -3164,11 +3184,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     private void initListView() {
         this.mListView = (ListView) this.mRootView.findViewById(R.id.commodity_list);
-        d.a.k0.v3.u.d dVar = new d.a.k0.v3.u.d(getPageContext());
+        d.a.n0.w3.u.d dVar = new d.a.n0.w3.u.d(getPageContext());
         this.mAdapter = dVar;
         dVar.j(this.mOnItemDeleteListener);
         this.mListView.setAdapter((ListAdapter) this.mAdapter);
-        this.mListView.setOnItemClickListener(new u0());
+        this.mListView.setOnItemClickListener(new v0());
     }
 
     private void initListener() {
@@ -3186,12 +3206,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         arrayList.add(10);
         arrayList.add(5);
         this.mEditor.h(arrayList);
-        d.a.j0.w.m n2 = this.mEditor.n(5);
+        d.a.m0.w.m n2 = this.mEditor.n(5);
         if (n2 != null) {
             n2.j = 2;
         }
-        this.mEditor.d(new d.a.j0.w.o.a(getActivity(), 3));
-        this.mEditor.d(new d.a.j0.w.r.b(getActivity(), 6));
+        this.mEditor.d(new d.a.m0.w.o.a(getActivity(), 3));
+        this.mEditor.d(new d.a.m0.w.r.b(getActivity(), 6));
     }
 
     private void initPostTopic() {
@@ -3211,7 +3231,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     private void initPrefix() {
         this.post_prefix_layout = findViewById(R.id.post_prefix_layout);
         if (this.mPiefixTipController == null) {
-            d.a.k0.b0.e eVar = new d.a.k0.b0.e(getPageContext(), this.post_prefix_layout);
+            d.a.n0.d0.e eVar = new d.a.n0.d0.e(getPageContext(), this.post_prefix_layout);
             this.mPiefixTipController = eVar;
             eVar.g0(R.drawable.bg_tip_blue_up_left);
             this.mPiefixTipController.O(16);
@@ -3236,7 +3256,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mCurrPrefixPos = 0;
             this.post_prefix_layout.setOnClickListener(new k0());
             this.mPrefix.setOnClickListener(new l0());
-            d.a.k0.v3.h hVar = new d.a.k0.v3.h(getPageContext().getPageActivity());
+            d.a.n0.w3.h hVar = new d.a.n0.w3.h(getPageContext().getPageActivity());
             this.mPrefixWindow = hVar;
             hVar.e(this);
             this.mPrefixWindow.d(d.a.c.e.p.l.g(getActivity(), R.dimen.ds510));
@@ -3247,9 +3267,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             int color = SkinManager.getColor(R.color.CAM_X0105);
             SkinManager.getColor(R.color.CAM_X0108);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mPrefixIcon, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null);
-            d.a.j0.r.u.c d2 = d.a.j0.r.u.c.d(this.mPrefix);
-            d2.q(R.color.CAM_X0105);
-            d2.v(R.string.F_X02);
+            d.a.m0.r.u.c d2 = d.a.m0.r.u.c.d(this.mPrefix);
+            d2.s(R.color.CAM_X0105);
+            d2.x(R.string.F_X02);
             d2.f(R.color.CAM_X0201);
             this.mPrefixItems.clear();
             for (int i2 = 0; i2 < size; i2++) {
@@ -3298,7 +3318,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mProtocolInfo.setText(spannableString);
         this.mProtocolInfo.setMovementMethod(LinkMovementMethod.getInstance());
         this.mProtocolTag.setOnClickListener(new d0());
-        d.a.j0.r.d0.b j2 = d.a.j0.r.d0.b.j();
+        d.a.m0.r.d0.b j2 = d.a.m0.r.d0.b.j();
         if (j2.g(TbadkCoreApplication.getCurrentAccount() + "is_agree_protocol", false)) {
             this.isAgreedProtocol = true;
             this.mProtocolTag.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_mask_use_check16, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
@@ -3342,13 +3362,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             getDimension(getActivity());
             View inflate = getPageContext().getPageActivity().getLayoutInflater().inflate(R.layout.rec_dialog, (ViewGroup) null);
             this.mBubbleView = inflate;
-            inflate.setOnClickListener(new a1());
+            inflate.setOnClickListener(new b1());
             this.mRecImgView = (TbImageView) this.mBubbleView.findViewById(R.id.rec_img_view);
             this.mBubbleLayout = (LinearLayout) this.mBubbleView.findViewById(R.id.rec_bubble_layout);
-            if (d.a.j0.r.d0.b.j().p("write_rec_pic_path", "").equalsIgnoreCase(this.latestPic.getAbsolutePath())) {
+            if (d.a.m0.r.d0.b.j().p("write_rec_pic_path", "").equalsIgnoreCase(this.latestPic.getAbsolutePath())) {
                 return;
             }
-            d.a.j0.r.d0.b.j().x("write_rec_pic_path", this.latestPic.getAbsolutePath());
+            d.a.m0.r.d0.b.j().x("write_rec_pic_path", this.latestPic.getAbsolutePath());
             Bitmap previewImg = getPreviewImg(this.latestPic.getAbsolutePath(), getResources().getDimensionPixelSize(R.dimen.ds160));
             if (previewImg != null) {
                 this.mRecImgView.setImageBitmap(previewImg);
@@ -3358,7 +3378,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 Dialog dialog = new Dialog(getActivity(), R.style.bubble_dialog);
                 this.mRecDialog = dialog;
                 dialog.setCanceledOnTouchOutside(true);
-                this.mRecDialog.setOnDismissListener(new b1());
+                this.mRecDialog.setOnDismissListener(new d1());
                 this.mRecDialog.setContentView(this.mBubbleView);
                 this.mRecDialog.show();
                 Window window = this.mRecDialog.getWindow();
@@ -3374,24 +3394,24 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void initSelectForumData(d.a.j0.t.j jVar) {
+    public void initSelectForumData(d.a.m0.t.j jVar) {
         if (jVar == null) {
             return;
         }
         this.mSelectForumData = jVar;
         WriteData writeData = this.mData;
         if (writeData != null) {
-            writeData.setForumId(jVar.f50712a);
-            this.mData.setForumName(this.mSelectForumData.f50714c);
+            writeData.setForumId(jVar.f50785a);
+            this.mData.setForumName(this.mSelectForumData.f50787c);
         }
-        this.mForumSelectedView.setSelectedForum(this.mSelectForumData.f50714c);
+        this.mForumSelectedView.setSelectedForum(this.mSelectForumData.f50787c);
         this.mFrsTabList = null;
-        if (!ListUtils.isEmpty(this.mSelectForumData.f50719h)) {
+        if (!ListUtils.isEmpty(this.mSelectForumData.f50792h)) {
             FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
             this.mFrsTabList = frsTabInfoData;
             frsTabInfoData.selectedTabId = -1;
-            d.a.j0.t.j jVar2 = this.mSelectForumData;
-            List<FrsTabItemData> list = jVar2.f50719h;
+            d.a.m0.t.j jVar2 = this.mSelectForumData;
+            List<FrsTabItemData> list = jVar2.f50792h;
             frsTabInfoData.tabList = list;
             if (jVar2.j && list != null) {
                 FrsTabItemData frsTabItemData = new FrsTabItemData();
@@ -3410,9 +3430,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mForumTabSelectedViewDivider.setVisibility(0);
         }
         this.mPrefixData = null;
-        PostPrefixData postPrefixData = this.mSelectForumData.f50720i;
+        PostPrefixData postPrefixData = this.mSelectForumData.f50793i;
         if (postPrefixData != null && !ListUtils.isEmpty(postPrefixData.getPrefixs())) {
-            PostPrefixData postPrefixData2 = this.mSelectForumData.f50720i;
+            PostPrefixData postPrefixData2 = this.mSelectForumData.f50793i;
             this.mPrefixData = postPrefixData2;
             postPrefixData2.getPrefixs().add(getPageContext().getString(R.string.write_no_prefix));
         }
@@ -3433,13 +3453,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (hotTopicBussinessData == null || TextUtils.isEmpty(hotTopicBussinessData.mTopicName)) {
             return;
         }
-        this.mPostTitle.setText(d.a.j0.p0.b.j(d.a.j0.p0.b.a(hotTopicBussinessData.mTopicName)));
-        this.mPostTitle.setMovementMethod(d.a.k0.u3.c.a());
+        this.mPostTitle.setText(d.a.m0.p0.b.j(d.a.m0.p0.b.a(hotTopicBussinessData.mTopicName)));
+        this.mPostTitle.setMovementMethod(d.a.n0.v3.c.a());
     }
 
     private void initUI() {
         View view;
-        this.mLoadingDialog = new d.a.j0.r.f0.a(getPageContext());
+        this.mLoadingDialog = new d.a.m0.r.f0.a(getPageContext());
         this.isLivePhotoType = this.mData.getType() == 4 || 5 == this.mData.getType();
         View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.write_activity, (ViewGroup) null);
         this.mRootView = inflate;
@@ -3479,13 +3499,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.writeImagesInfo.setMaxImagesAllowed(6);
             initGridView();
         } else {
-            this.mWriteImageController = new d.a.k0.v3.u.i(getPageContext(), this.mRootView);
+            this.mWriteImageController = new d.a.n0.w3.u.i(getPageContext(), this.mRootView);
             if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom)) {
                 this.mWriteImageController.g(false);
             } else {
                 this.mWriteImageController.g(this.mData.getType() == 0 || this.mData.getType() == 9 || this.mData.getType() == 11);
             }
-            this.writeVideoController = new d.a.k0.v3.u.o.a(getPageContext(), this.mRootView);
+            this.writeVideoController = new d.a.n0.w3.u.o.a(getPageContext(), this.mRootView);
             if (this.mData.getVideoInfo() != null && this.mData.getVideoInfo().isEditVideoDataLegal()) {
                 showPicOrVideo(false, false);
                 this.writeVideoController.v();
@@ -3547,7 +3567,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     private void initVoteView() {
         this.mVoteLayoutRoot = (RelativeLayout) this.mRootView.findViewById(R.id.vote_layout_root);
-        this.mVoteViewController = new d.a.k0.v3.u.p.a(getPageContext(), this.mVoteLayoutRoot);
+        this.mVoteViewController = new d.a.n0.w3.u.p.a(getPageContext(), this.mVoteLayoutRoot);
         showVoteView();
     }
 
@@ -3678,7 +3698,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 String string = jSONArray.getString(i2);
                 JSONObject jSONObject = jSONArray.getJSONObject(i2);
                 arrayList.add(string);
-                this.mGoodsDatas.add(d.a.k0.w0.a.g(jSONObject));
+                this.mGoodsDatas.add(d.a.n0.x0.a.g(jSONObject));
             }
             if (this.mGoodsDatas.size() > 0) {
                 this.isProductTie = true;
@@ -3694,7 +3714,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     /* JADX INFO: Access modifiers changed from: private */
     public void performHotTopicClick(boolean z2) {
-        if (d.a.j0.p0.b.b(getPageContext())) {
+        if (d.a.m0.p0.b.b(getPageContext())) {
             return;
         }
         HotSelectActivityConfig hotSelectActivityConfig = new HotSelectActivityConfig(getPageContext().getPageActivity(), 25004, HotSelectActivityConfig.FROM_POST_THREAD);
@@ -3708,7 +3728,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     /* JADX INFO: Access modifiers changed from: private */
     public void popupSaveDraftDialog() {
         WriteData writeData;
-        d.a.k0.v3.u.o.a aVar;
+        d.a.n0.w3.u.o.a aVar;
         TextView textView = this.mPost;
         if (textView != null && ((textView.isEnabled() || this.isEvaluate) && ((!this.isEvaluate || !TextUtils.isEmpty(this.mPostContent.getText()) || ((this.writeImagesInfo.getChosedFiles() != null && this.writeImagesInfo.size() != 0) || ((aVar = this.writeVideoController) != null && aVar.n()))) && this.isSaveDraft))) {
             if (this.saveDraftDialogView == null) {
@@ -3716,11 +3736,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.saveDraftDialogView.setOnClickListener(new r());
             }
             if (this.saveDraftDialog == null) {
-                d.a.j0.r.s.j jVar = new d.a.j0.r.s.j(getPageContext());
+                d.a.m0.r.s.j jVar = new d.a.m0.r.s.j(getPageContext());
                 this.saveDraftDialog = jVar;
                 jVar.setContentView(this.saveDraftDialogView);
             }
-            d.a.k0.v3.u.o.a aVar2 = this.writeVideoController;
+            d.a.n0.w3.u.o.a aVar2 = this.writeVideoController;
             boolean z2 = (aVar2 == null || !aVar2.n() || (writeData = this.mData) == null || writeData.getVideoInfo() == null || this.mData.getVideoInfo().isVideoMixFinished()) ? false : true;
             this.saveDraftDialogView.setText(getString(z2 ? R.string.write_save_draft_dialog_video_fail_title : R.string.write_save_draft_dialog_normal_title), z2 ? getString(R.string.write_save_draft_dialog_video_fail_sub_title) : null, getString(z2 ? R.string.write_save_draft_dialog_video_fail_save_text : R.string.save));
             this.saveDraftDialog.l();
@@ -3775,7 +3795,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mData.setCategoryTo(i3);
         }
         this.mData.setWriteImagesInfo(this.writeImagesInfo);
-        d.a.k0.v3.u.p.a aVar = this.mVoteViewController;
+        d.a.n0.w3.u.p.a aVar = this.mVoteViewController;
         if (aVar != null) {
             this.mData.setWriteVoteData(aVar.c());
         }
@@ -3876,23 +3896,23 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (type == 0 || type == 9 || type == 11) {
                 if (this.isSaveDraft) {
                     if (this.mData.isEvaluate()) {
-                        d.a.k0.d3.y.m(this.mData.getItem_id(), this.mData);
+                        d.a.n0.e3.y.m(this.mData.getItem_id(), this.mData);
                     } else if (TextUtils.isEmpty(this.mData.getTopicId())) {
-                        d.a.k0.d3.y.n(this.mData.getForumId(), this.mData);
+                        d.a.n0.e3.y.n(this.mData.getForumId(), this.mData);
                     } else {
-                        d.a.k0.d3.y.r(this.mData.getTopicId(), this.mData);
+                        d.a.n0.e3.y.r(this.mData.getTopicId(), this.mData);
                     }
                 }
             } else if (type == 7) {
                 if (this.isSaveDraft) {
-                    d.a.k0.d3.y.n(BOTTLE_FORUM_ID, this.mData);
+                    d.a.n0.e3.y.n(BOTTLE_FORUM_ID, this.mData);
                 }
             } else if (type == 1) {
-                d.a.k0.d3.y.p(this.mData.getThreadId(), this.mData);
+                d.a.n0.e3.y.p(this.mData.getThreadId(), this.mData);
             } else if (type == 4) {
-                d.a.k0.d3.y.n(this.mData.getForumId() + PHOTO_LIVE_DRAFT_KEY, this.mData);
+                d.a.n0.e3.y.n(this.mData.getForumId() + PHOTO_LIVE_DRAFT_KEY, this.mData);
             } else if (type == 5) {
-                d.a.k0.d3.y.p(this.mData.getThreadId() + UPDATE_PHOTO_LIVE_DRAFT_KEY, this.mData);
+                d.a.n0.e3.y.p(this.mData.getThreadId() + UPDATE_PHOTO_LIVE_DRAFT_KEY, this.mData);
             }
             this.isProcessedSaveDraft = true;
         }
@@ -3944,7 +3964,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             bitmapDrawable.setBounds(0, 0, width, p2.getHeight());
         }
         bitmapDrawable.setGravity(119);
-        spannableStringBuilder.setSpan(new d.a.j0.r.f0.e(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+        spannableStringBuilder.setSpan(new d.a.m0.r.f0.e(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
         if (EmotionGroupType.BIG_EMOTION == emotionGroupType || EmotionGroupType.USER_COLLECT == emotionGroupType) {
             int selectionStart = getRealContentEdittextInstance().getSelectionStart() - 1;
             if (getRealContentEdittextInstance().getText().length() > 1 && selectionStart >= 0 && getRealContentEdittextInstance().getText().charAt(selectionStart) != '\n') {
@@ -3985,9 +4005,9 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (TextUtils.isEmpty(this.mBubbleUrl) || this.mAdditionData != null) {
             return;
         }
-        d.a.k0.v3.u.o.a aVar = this.writeVideoController;
+        d.a.n0.w3.u.o.a aVar = this.writeVideoController;
         if (aVar == null || !aVar.n()) {
-            d.a.c.e.l.d.h().m(this.mBubbleUrl, 19, new s0(z2), getUniqueId());
+            d.a.c.e.l.d.h().m(this.mBubbleUrl, 19, new t0(z2), getUniqueId());
         }
     }
 
@@ -3995,7 +4015,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void refreshMutiImage(boolean z2) {
         WriteData writeData = this.mData;
         String forumId = writeData == null ? "" : writeData.getForumId();
-        d.a.k0.v3.u.i iVar = this.mWriteImageController;
+        d.a.n0.w3.u.i iVar = this.mWriteImageController;
         if (iVar != null) {
             iVar.h(this.writeImagesInfo, this.mFrom, forumId);
         }
@@ -4010,7 +4030,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     private void registerVideoPostClickUserCollectionToastTask() {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2921500, new f1());
+        CustomMessageTask customMessageTask = new CustomMessageTask(2921500, new g1());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);
     }
@@ -4028,7 +4048,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void requestLocationIfValid() {
         if (this.mLocationModel.v()) {
             if (this.mLocationModel.z()) {
-                sendLocaionAction(2, true, d.a.k0.d3.m0.b.a().b().getFormatted_address());
+                sendLocaionAction(2, true, d.a.n0.e3.m0.b.a().b().getFormatted_address());
                 return;
             }
             sendLocaionAction(1, true, null);
@@ -4041,14 +4061,14 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     private void requestPrivacyStateAction() {
         EditorTools editorTools = this.mEditor;
         if (editorTools != null) {
-            editorTools.A(new d.a.j0.w.a(54, 15, null));
+            editorTools.A(new d.a.m0.w.a(54, 15, null));
         }
     }
 
     private void requestToDynamicStateAction() {
         EditorTools editorTools = this.mEditor;
         if (editorTools != null) {
-            editorTools.A(new d.a.j0.w.a(57, 15, null));
+            editorTools.A(new d.a.m0.w.a(57, 15, null));
         }
     }
 
@@ -4066,7 +4086,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void sendFinishSendAction(boolean z2) {
         EditorTools editorTools = this.mEditor;
         if (editorTools != null) {
-            editorTools.A(new d.a.j0.w.a(9, -1, Boolean.valueOf(z2)));
+            editorTools.A(new d.a.m0.w.a(9, -1, Boolean.valueOf(z2)));
         }
     }
 
@@ -4075,7 +4095,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mLocationState = i2;
         EditorTools editorTools = this.mEditor;
         if (editorTools != null) {
-            editorTools.A(new d.a.j0.w.a(19, 15, new d.a.j0.w.u.a(i2, z2, str)));
+            editorTools.A(new d.a.m0.w.a(19, 15, new d.a.m0.w.u.a(i2, z2, str)));
         }
     }
 
@@ -4085,12 +4105,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         }
         EditorTools editorTools = this.mEditor;
         if (editorTools != null) {
-            editorTools.A(new d.a.j0.w.a(12, -1, new d.a.j0.w.r.a(this.writeImagesInfo, true)));
-            this.mEditor.A(new d.a.j0.w.a(12, 11, new d.a.j0.w.r.a(this.writeImagesInfo, true)));
+            editorTools.A(new d.a.m0.w.a(12, -1, new d.a.m0.w.r.a(this.writeImagesInfo, true)));
+            this.mEditor.A(new d.a.m0.w.a(12, 11, new d.a.m0.w.r.a(this.writeImagesInfo, true)));
         }
         WriteData writeData = this.mData;
         String forumId = writeData == null ? "" : writeData.getForumId();
-        d.a.k0.v3.u.i iVar = this.mWriteImageController;
+        d.a.n0.w3.u.i iVar = this.mWriteImageController;
         if (iVar != null) {
             iVar.h(this.writeImagesInfo, this.mFrom, forumId);
         }
@@ -4152,17 +4172,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void setProtocolVisibility(List<d.a.j0.r.q.v> list) {
+    public void setProtocolVisibility(List<d.a.m0.r.q.v> list) {
         LinearLayout linearLayout;
         if (list == null) {
             return;
         }
         boolean z2 = false;
-        Iterator<d.a.j0.r.q.v> it = list.iterator();
+        Iterator<d.a.m0.r.q.v> it = list.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
-            } else if (it.next().f50093f == 2) {
+            } else if (it.next().f50137f == 2) {
                 z2 = true;
                 break;
             }
@@ -4223,13 +4243,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     private void showEditorTopicTip() {
         if (this.mTipController == null) {
-            this.mTipController = new d.a.k0.v3.u.g(getPageContext());
+            this.mTipController = new d.a.n0.w3.u.g(getPageContext());
         }
         this.mTipController.c(this.mEditor);
     }
 
     private void showLocPermissionDialog() {
-        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
         aVar.setMessageId(R.string.location_app_permission_prompt).setPositiveButton(R.string.isopen, new g()).setNegativeButton(R.string.cancel, new f()).create(getPageContext());
         aVar.show();
     }
@@ -4253,7 +4273,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 showToast(errorString2);
             } else if (this.mData.getType() != 7) {
                 if (this.mAdditionData == null) {
-                    d.a.k0.d3.q0.g.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+                    d.a.n0.e3.q0.g.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
                     return;
                 }
                 showAdditionTip(z2, errorString);
@@ -4296,7 +4316,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     private void startAsyncPostWrite() {
         this.mWriteModel.v();
-        d.a.k0.v3.r.b.e(this.mData);
+        d.a.n0.w3.r.b.e(this.mData);
         stopVoice();
         processSaveDraft();
         setResult(100);
@@ -4404,7 +4424,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void updateGridView() {
         this.mPhotoLiveGridViewAdapter.notifyDataSetChanged();
         this.mPhotoLiveGridView.invalidate();
-        this.mHandler.postDelayed(new x0(), 550L);
+        this.mHandler.postDelayed(new y0(), 550L);
     }
 
     private void updateGroup() {
@@ -4443,7 +4463,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeLoadingDialog() {
-        d.a.j0.r.f0.a aVar = this.mLoadingDialog;
+        d.a.m0.r.f0.a aVar = this.mLoadingDialog;
         if (aVar != null) {
             aVar.h(false);
         }
@@ -4452,7 +4472,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void deleteChar() {
         if (getRealContentEdittextInstance().getSelectionStart() > 0) {
             String substring = getRealContentEdittextInstance().getText().toString().substring(0, getRealContentEdittextInstance().getSelectionStart());
-            Matcher matcher = d.a.k0.k0.a.f56964b.matcher(substring);
+            Matcher matcher = d.a.n0.l0.a.f57154b.matcher(substring);
             if (matcher.find()) {
                 getRealContentEdittextInstance().getText().delete(getRealContentEdittextInstance().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), getRealContentEdittextInstance().getSelectionStart());
                 return;
@@ -4473,7 +4493,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         return this.mCallFrom;
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, d.a.j0.k0.a
+    @Override // com.baidu.tbadk.BaseActivity, d.a.m0.k0.a
     public String getCurrentPageKey() {
         WriteData writeData = this.mData;
         if (writeData != null) {
@@ -4528,7 +4548,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.imageGridView.setLayoutParams(layoutParams);
             }
             this.mTitleViewDivider.setVisibility(8);
-        } else if (d.a.k0.v3.r.b.c()) {
+        } else if (d.a.n0.w3.r.b.c()) {
             this.mPostTitle.setHint(R.string.title_hint_for_hot);
             this.mTitleView.setVisibility(0);
             WriteImageGridView writeImageGridView2 = this.imageGridView;
@@ -4538,7 +4558,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 this.imageGridView.setLayoutParams(layoutParams2);
             }
             this.mTitleViewDivider.setVisibility(0);
-            d.a.k0.v3.r.b.g(this.mPostTitleTip);
+            d.a.n0.w3.r.b.g(this.mPostTitleTip);
             this.mTitleView.requestFocus();
         } else {
             this.mPostTitleTip.setVisibility(8);
@@ -4571,10 +4591,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mPostContent = spanGroupEditText;
         spanGroupEditText.setDrawingCacheEnabled(false);
         this.mPostContent.setOnClickListener(this.mEditOnClicked);
-        this.mPostContent.setOnSpanGroupChangedListener(new p0());
+        this.mPostContent.setOnSpanGroupChangedListener(new q0());
         this.mPostContent.setType(SpanGroupEditText.EDIT_TEXT_TYPE.TYPE_COMMODITY);
         this.mPostContent.setForumId(d.a.c.e.m.b.f(this.mData.getForumId(), 0L));
-        d.a.k0.d3.q0.a aVar = this.mWriteModel;
+        d.a.n0.e3.q0.a aVar = this.mWriteModel;
         if (aVar != null) {
             aVar.t(this.mPostContent.getSpanGroupManager());
         }
@@ -4603,7 +4623,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             }
         }
         this.mPostContent.setOnFocusChangeListener(this.mFocusChangeListener);
-        this.mPostContent.setOnTouchListener(new q0());
+        this.mPostContent.setOnTouchListener(new s0());
         this.mPostContent.addTextChangedListener(this.mWriteContentTextWatcher);
         if (this.mData.getType() == 0) {
             this.mIsWillShowBubble = true;
@@ -4615,7 +4635,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             SpannableString spannableString = new SpannableString(" " + ((Object) getResources().getText(R.string.write_evalute_hint)));
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_post_redact16, SkinManager.getColor(R.color.CAM_X0111), WebPManager.ResourceStateType.NORMAL);
             pureDrawable.setBounds(0, 0, pureDrawable.getIntrinsicWidth(), pureDrawable.getIntrinsicHeight());
-            spannableString.setSpan(new d.a.k0.k0.d.a(pureDrawable, 1, d.a.c.e.p.l.g(this, R.dimen.tbds4)), 0, 1, 17);
+            spannableString.setSpan(new d.a.n0.l0.d.a(pureDrawable, 1, d.a.c.e.p.l.g(this, R.dimen.tbds4)), 0, 1, 17);
             this.mPostContent.setHint(spannableString);
         } else if (this.mData.isUserFeedback()) {
             this.mPostContent.setHint(R.string.write_input_content);
@@ -4654,7 +4674,8 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mPostTitle.setText(getResources().getString(R.string.vcode_feed_back_title));
         }
         this.mPostTitle.addTextChangedListener(this.mWriteTitleTextWatcher);
-        d.a.j0.r.u.c.d(this.mPostTitle).v(R.string.F_X02);
+        this.mPostTitle.setFilters(new InputFilter[]{new b.a(31, new o0())});
+        d.a.m0.r.u.c.d(this.mPostTitle).x(R.string.F_X02);
         if (!this.mData.getHaveDraft()) {
             initPostTopic();
             this.hasSetTitleUseHotTopic = true;
@@ -4662,7 +4683,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         this.mPostTitleTip = (TitleTipView) findViewById(R.id.post_title_tip);
     }
 
-    public void insertFaceIconToEditText(d.a.j0.s.c.v vVar) {
+    public void insertFaceIconToEditText(d.a.m0.s.c.v vVar) {
         if (((ImageSpan[]) getRealContentEdittextInstance().getText().getSpans(0, getRealContentEdittextInstance().getText().length(), ImageSpan.class)).length >= 10) {
             if (this.mTooManyEmotionToast == null) {
                 this.mTooManyEmotionToast = Toast.makeText(getPageContext().getPageActivity(), R.string.too_many_face, 0);
@@ -4670,7 +4691,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mTooManyEmotionToast.show();
             return;
         }
-        d.a.k0.k0.b.b(this, vVar, getRealContentEdittextInstance());
+        d.a.n0.l0.b.b(this, vVar, getRealContentEdittextInstance());
     }
 
     public void intializePostButton() {
@@ -4815,7 +4836,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                     dealLiveCoverFromImage(intent);
                 } else {
                     dealAlbumFromImages(intent);
-                    d.a.c.e.m.e.a().post(new w0());
+                    d.a.c.e.m.e.a().post(new x0());
                 }
                 showPicOrVideo(ListUtils.getCount(this.writeImagesInfo.getChosedFiles()) > 0, false);
                 if (this.mIsWillShowBubble) {
@@ -4834,10 +4855,10 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 videoInfo.parseFromIntent(intent);
                 if (videoInfo.isAvaliable()) {
                     this.mData.setVideoInfo(videoInfo);
-                    this.mEditor.A(new d.a.j0.w.a(2, 19, " "));
-                    this.mEditor.A(new d.a.j0.w.a(28, 20, videoInfo));
+                    this.mEditor.A(new d.a.m0.w.a(2, 19, " "));
+                    this.mEditor.A(new d.a.m0.w.a(28, 20, videoInfo));
                 } else {
-                    this.mEditor.A(new d.a.j0.w.a(5, -1, null));
+                    this.mEditor.A(new d.a.m0.w.a(5, -1, null));
                 }
                 refreshPostButton();
             } else if (i2 == 23004) {
@@ -4852,7 +4873,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 }
                 StringBuilder sb2 = new StringBuilder();
                 if (this.needAddHotTopicSign) {
-                    sb2.append(d.a.j0.p0.b.f49582a);
+                    sb2.append(d.a.m0.p0.b.f49626a);
                     this.needAddHotTopicSign = false;
                 }
                 sb2.append(stringExtra);
@@ -4916,16 +4937,16 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (postCategoryView != null) {
             postCategoryView.b();
         }
-        d.a.k0.v3.u.d dVar = this.mAdapter;
+        d.a.n0.w3.u.d dVar = this.mAdapter;
         if (dVar != null) {
             dVar.notifyDataSetChanged();
         }
         SkinManager.setViewTextColor(this.mName, R.color.CAM_X0105);
-        this.mWriteImageController.f62931d.notifyDataSetChanged();
+        this.mWriteImageController.f63040d.notifyDataSetChanged();
         updateHintTextColor();
         updateTitleStyle();
         refreshBubble(false);
-        d.a.k0.v3.u.c cVar = this.mHighLightController;
+        d.a.n0.w3.u.c cVar = this.mHighLightController;
         if (cVar != null) {
             cVar.m(getRealTitleInstance(), getRealContentEdittextInstance());
         }
@@ -4941,11 +4962,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (forumTabSelectedView != null) {
             forumTabSelectedView.k(i2);
         }
-        d.a.k0.v3.u.o.a aVar = this.writeVideoController;
+        d.a.n0.w3.u.o.a aVar = this.writeVideoController;
         if (aVar != null) {
             aVar.k();
         }
-        d.a.k0.v3.u.p.a aVar2 = this.mVoteViewController;
+        d.a.n0.w3.u.p.a aVar2 = this.mVoteViewController;
         if (aVar2 != null) {
             aVar2.d(i2);
         }
@@ -4972,12 +4993,12 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             if (this.mData != null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_COMMODITY_ENTRANCE_CLICK).param("obj_locate", 2).param("fid", this.mData.getForumId()).param("fname", this.mData.getForumName()));
             }
-            if (!d.a.j0.r.d0.b.j().g("commodity_goods_show_first_dialog", false)) {
-                d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(getPageContext().getPageActivity());
+            if (!d.a.m0.r.d0.b.j().g("commodity_goods_show_first_dialog", false)) {
+                d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(getPageContext().getPageActivity());
                 aVar.setContentViewSize(2);
                 aVar.setCanceledOnTouchOutside(false);
                 FrsPublishFineGoodsDialogView frsPublishFineGoodsDialogView = new FrsPublishFineGoodsDialogView(getPageContext().getPageActivity());
-                frsPublishFineGoodsDialogView.setConfirmButtonListener(new e1(aVar));
+                frsPublishFineGoodsDialogView.setConfirmButtonListener(new f1(aVar));
                 aVar.setContentView(frsPublishFineGoodsDialogView);
                 StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_WRITE_GOODS_NEW_DIALOG_SHOW).param("obj_locate", 2);
                 WriteData writeData = this.mData;
@@ -4996,7 +5017,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setSwipeBackEnabled(false);
-        this.mGestureDetector = new GestureDetector(getPageContext().getPageActivity(), new k1(this, null));
+        this.mGestureDetector = new GestureDetector(getPageContext().getPageActivity(), new l1(this, null));
         this.mInputManager = (InputMethodManager) getSystemService("input_method");
         initListener();
         initData(bundle);
@@ -5031,7 +5052,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     @Override // android.app.Activity
     public Dialog onCreateDialog(int i2) {
-        d.a.k0.u3.b bVar = new d.a.k0.u3.b(getPageContext().getPageActivity(), new j0(), new Date().getHours(), new Date().getMinutes(), false);
+        d.a.n0.v3.b bVar = new d.a.n0.v3.b(getPageContext().getPageActivity(), new j0(), new Date().getHours(), new Date().getMinutes(), false);
         this.dialog = bVar;
         bVar.setTitle(R.string.no_disturb_start_time);
         this.dialog.setButton(-1, getPageContext().getString(R.string.alert_yes_button), this.dialog);
@@ -5042,7 +5063,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         this.mNavigationBar.removeCallbacks(this.handleLastError);
-        d.a.k0.d3.q0.a aVar = this.mWriteModel;
+        d.a.n0.e3.q0.a aVar = this.mWriteModel;
         if (aVar != null) {
             aVar.m();
         }
@@ -5057,11 +5078,11 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         super.onDestroy();
         getVoiceManager().onDestory(getPageContext());
         this.mHandler.removeCallbacksAndMessages(null);
-        d.a.k0.v3.u.i iVar = this.mWriteImageController;
+        d.a.n0.w3.u.i iVar = this.mWriteImageController;
         if (iVar != null) {
             iVar.e();
         }
-        d.a.k0.b0.e eVar = this.mPiefixTipController;
+        d.a.n0.d0.e eVar = this.mPiefixTipController;
         if (eVar != null) {
             eVar.I();
         }
@@ -5075,7 +5096,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         ShowSoftKeyPadDelay(this.mPostContent);
     }
 
-    @Override // d.a.k0.d3.y.d
+    @Override // d.a.n0.e3.y.d
     public void onDraftLoaded(WriteData writeData) {
         if (WriteActivityConfig.FROM_FORUM_SHARE.equals(this.mFrom) || this.isProductTie || this.fromErrorDialog) {
             return;
@@ -5122,17 +5143,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
                 refreshPostButton();
                 int categoryTo = writeData.getCategoryTo();
                 if (categoryTo >= 0 && this.mCategoryList != null) {
-                    d.a.k0.q0.c0 c0Var = this.mCategoryDefault;
-                    this.mCategoryToID = c0Var.f58265b;
-                    this.mCategoryName = c0Var.f58264a;
+                    d.a.n0.r0.c0 c0Var = this.mCategoryDefault;
+                    this.mCategoryToID = c0Var.f58406b;
+                    this.mCategoryName = c0Var.f58405a;
                     while (true) {
                         if (i2 == this.mCategoryList.size()) {
                             break;
                         }
-                        d.a.k0.q0.c0 c0Var2 = this.mCategoryList.get(i2);
-                        if (categoryTo == c0Var2.f58265b) {
+                        d.a.n0.r0.c0 c0Var2 = this.mCategoryList.get(i2);
+                        if (categoryTo == c0Var2.f58406b) {
                             this.mCategoryToID = categoryTo;
-                            this.mCategoryName = c0Var2.f58264a;
+                            this.mCategoryName = c0Var2.f58405a;
                             this.mData.setCategoryTo(categoryTo);
                             break;
                         }
@@ -5158,7 +5179,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         Editable text;
         int selectionStart;
         if (i2 == 4) {
-            d.a.k0.v3.h hVar = this.mPrefixWindow;
+            d.a.n0.w3.h hVar = this.mPrefixWindow;
             if (hVar != null && hVar.isShowing()) {
                 d.a.c.e.m.g.d(this.mPrefixWindow, getPageContext().getPageActivity());
                 return true;
@@ -5189,7 +5210,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             d.a.c.e.p.l.x(getPageContext().getPageActivity(), getCurrentFocus());
             this.isAttach = false;
         }
-        d.a.k0.v3.m.b bVar = this.mWriteTool;
+        d.a.n0.w3.m.b bVar = this.mWriteTool;
         if (bVar != null && !z2) {
             bVar.h();
         }
@@ -5240,7 +5261,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mData.setVideoInfo(null);
         }
         if (this.writeVideoController == null) {
-            this.writeVideoController = new d.a.k0.v3.u.o.a(getPageContext(), this.mRootView);
+            this.writeVideoController = new d.a.n0.w3.u.o.a(getPageContext(), this.mRootView);
         }
         if (this.mData.getVideoInfo() != null && this.mData.getVideoInfo().isEditVideoDataLegal()) {
             showPicOrVideo(false, false);
@@ -5256,7 +5277,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         HidenSoftKeyPad(this.mInputManager, getRealContentEdittextInstance());
         super.onPause();
         getVoiceManager().onPause(getPageContext());
-        d.a.k0.v3.u.o.a aVar = this.writeVideoController;
+        d.a.n0.w3.u.o.a aVar = this.writeVideoController;
         if (aVar != null) {
             aVar.p();
         }
@@ -5265,7 +5286,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         }
     }
 
-    @Override // d.a.k0.v3.h.a
+    @Override // d.a.n0.w3.h.a
     public void onPrefixItemClick(int i2) {
         if (i2 == ListUtils.getCount(this.mPrefixData.getPrefixs()) - 1) {
             TiebaStatic.log(new StatisticItem("c13014").param("obj_type", 1));
@@ -5341,7 +5362,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
             this.mPostTitle.requestFocus();
             ShowSoftKeyPadDelay(this.mPostTitle);
         }
-        d.a.k0.v3.u.o.a aVar = this.writeVideoController;
+        d.a.n0.w3.u.o.a aVar = this.writeVideoController;
         if (aVar != null) {
             aVar.q();
         }
@@ -5393,7 +5414,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     public void onStart() {
         super.onStart();
         getVoiceManager().onStart(getPageContext());
-        d.a.k0.v3.u.o.a aVar = this.writeVideoController;
+        d.a.n0.w3.u.o.a aVar = this.writeVideoController;
         if (aVar != null) {
             aVar.r();
         }
@@ -5404,13 +5425,13 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         super.onStop();
         getVoiceManager().onStop(getPageContext());
         getWindow().setSoftInputMode(18);
-        d.a.k0.v3.u.o.a aVar = this.writeVideoController;
+        d.a.n0.w3.u.o.a aVar = this.writeVideoController;
         if (aVar != null) {
             aVar.s();
         }
     }
 
-    public void openImageActivity(d.a.j0.w.a aVar) {
+    public void openImageActivity(d.a.m0.w.a aVar) {
         if (this.isLivePhotoType) {
             removeLastFunctionPhoto();
         }
@@ -5435,17 +5456,17 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
 
     public void refreshListView() {
         SpanGroupEditText spanGroupEditText;
-        d.a.k0.v3.u.d dVar = this.mAdapter;
+        d.a.n0.w3.u.d dVar = this.mAdapter;
         if (dVar != null && dVar.f() == null && (spanGroupEditText = this.mPostContent) != null && spanGroupEditText.getSpanGroupManager() != null) {
             this.mAdapter.i(this.mPostContent.getSpanGroupManager().s());
             this.mAdapter.h();
         } else {
-            d.a.k0.v3.u.d dVar2 = this.mAdapter;
+            d.a.n0.w3.u.d dVar2 = this.mAdapter;
             if (dVar2 != null && dVar2.f() != null) {
                 this.mAdapter.h();
             }
         }
-        d.a.k0.v3.u.d dVar3 = this.mAdapter;
+        d.a.n0.w3.u.d dVar3 = this.mAdapter;
         if (dVar3 != null) {
             setProtocolVisibility(dVar3.d());
         }
@@ -5552,7 +5573,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (!UtilHelper.isSystemLocationProviderEnabled(getPageContext().getPageActivity())) {
             showToast(R.string.location_system_permission_prompt);
             sendLocaionAction(0, true, null);
-            d.a.k0.v3.m.b bVar = this.mWriteTool;
+            d.a.n0.w3.m.b bVar = this.mWriteTool;
             if (bVar != null) {
                 bVar.g();
             }
@@ -5570,7 +5591,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
     }
 
     public void stopTask(boolean z2) {
-        d.a.k0.d3.q0.a aVar;
+        d.a.n0.e3.q0.a aVar;
         if (!z2 && (aVar = this.mWriteModel) != null) {
             aVar.a();
         }
@@ -5582,7 +5603,7 @@ public class WriteActivity extends BaseActivity<WriteActivity> implements VoiceM
         if (locationModel != null) {
             locationModel.cancelLoadData();
         }
-        d.a.k0.v3.u.o.a aVar2 = this.writeVideoController;
+        d.a.n0.w3.u.o.a aVar2 = this.writeVideoController;
         if (aVar2 != null) {
             aVar2.o();
         }

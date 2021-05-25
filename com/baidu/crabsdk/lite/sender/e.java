@@ -13,18 +13,18 @@ import org.json.JSONObject;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ScheduledThreadPoolExecutor f4759a = new ScheduledThreadPoolExecutor(1);
+    public static ScheduledThreadPoolExecutor f4682a = new ScheduledThreadPoolExecutor(1);
 
     public static String a(String str) {
         return str.substring(str.lastIndexOf("/") + 1);
     }
 
     public static void b(String str) {
-        f4759a.execute(new d.a.m.c.b.b(str));
+        f4682a.execute(new d.a.m.a.b.b(str));
     }
 
     public static void c(String str, Context context) {
-        f4759a.execute(new d.a.m.c.b.a(str, context));
+        f4682a.execute(new d.a.m.a.b.a(str, context));
     }
 
     public static synchronized void d(String str, Context context) {
@@ -36,7 +36,7 @@ public final class e {
             }
             String b2 = m.b();
             if (!"NONE".equals(b2) && !RomUtils.UNKNOWN.equals(b2)) {
-                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4716a.get(str);
+                HashMap<String, Object> hashMap = com.baidu.crabsdk.lite.a.f4639a.get(str);
                 boolean z = false;
                 if ((hashMap == null || (obj2 = hashMap.get("sdk_upload_immediate")) == null) ? false : ((Boolean) obj2).booleanValue()) {
                     com.baidu.crabsdk.lite.b.a.c(str, "upload java immediately!");
@@ -47,7 +47,7 @@ public final class e {
                     e(str, context);
                     return;
                 } else {
-                    HashMap<String, Object> hashMap2 = com.baidu.crabsdk.lite.a.f4716a.get(str);
+                    HashMap<String, Object> hashMap2 = com.baidu.crabsdk.lite.a.f4639a.get(str);
                     if (hashMap2 != null && (obj = hashMap2.get("sdk_wifi")) != null) {
                         z = ((Boolean) obj).booleanValue();
                     }
@@ -129,7 +129,7 @@ public final class e {
                                         c.s(str5);
                                         com.baidu.crabsdk.lite.b.a.d(str, "handle crash result json error, exception is " + e2);
                                     }
-                                    a.f4752g = true;
+                                    a.f4675g = true;
                                 }
                                 com.baidu.crabsdk.lite.b.a.f(str, "###--> errno = " + intValue);
                                 if (intValue != -1) {
@@ -164,7 +164,7 @@ public final class e {
                                         c.o(str, "key_" + a(str5));
                                         c.t(str5);
                                     }
-                                    a.f4752g = true;
+                                    a.f4675g = true;
                                 } else {
                                     d.f(str5);
                                     c.m(str, a(str5));
@@ -172,19 +172,19 @@ public final class e {
                                     c.t(str5);
                                 }
                                 c.q(str);
-                                a.f4752g = true;
+                                a.f4675g = true;
                             } else {
                                 str4 = "not connected to server!";
                             }
                             com.baidu.crabsdk.lite.b.a.g(str, str4);
-                            a.f4752g = true;
+                            a.f4675g = true;
                         }
                         com.baidu.crabsdk.lite.b.a.f(str, str3);
                         com.baidu.crabsdk.lite.b.a.f(str, "HttpSender.doUpload.result: " + str2);
                         if (!TextUtils.isEmpty(str2)) {
                         }
                         com.baidu.crabsdk.lite.b.a.g(str, str4);
-                        a.f4752g = true;
+                        a.f4675g = true;
                     } else {
                         d.f(str5);
                         c.t(str5);

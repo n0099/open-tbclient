@@ -7,10 +7,10 @@ import android.widget.RelativeLayout;
 public class KeyboardEventLayout extends RelativeLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f19604e;
+    public int f19526e;
 
     /* renamed from: f  reason: collision with root package name */
-    public a f19605f;
+    public a f19527f;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -19,17 +19,17 @@ public class KeyboardEventLayout extends RelativeLayout {
 
     public KeyboardEventLayout(Context context) {
         super(context);
-        this.f19604e = 0;
-        this.f19605f = null;
+        this.f19526e = 0;
+        this.f19527f = null;
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         a aVar;
         super.onSizeChanged(i2, i3, i4, i5);
-        int max = Math.max(Math.max(i5, i3), this.f19604e);
-        this.f19604e = max;
-        if (i5 == 0 || (aVar = this.f19605f) == null) {
+        int max = Math.max(Math.max(i5, i3), this.f19526e);
+        this.f19526e = max;
+        if (i5 == 0 || (aVar = this.f19527f) == null) {
             return;
         }
         if (i5 > i3) {
@@ -41,18 +41,18 @@ public class KeyboardEventLayout extends RelativeLayout {
     }
 
     public void setOnKeyStateChangedListener(a aVar) {
-        this.f19605f = aVar;
+        this.f19527f = aVar;
     }
 
     public KeyboardEventLayout(Context context, AttributeSet attributeSet) {
         super(context);
-        this.f19604e = 0;
-        this.f19605f = null;
+        this.f19526e = 0;
+        this.f19527f = null;
     }
 
     public KeyboardEventLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f19604e = 0;
-        this.f19605f = null;
+        this.f19526e = 0;
+        this.f19527f = null;
     }
 }

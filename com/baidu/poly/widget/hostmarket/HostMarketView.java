@@ -13,37 +13,37 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.baidu.poly.widget.SwitchButton;
 import com.baidu.poly.widget.o;
-import d.a.a0.f;
-import d.a.a0.g;
-import d.a.a0.h;
-import d.a.a0.k.j.a;
+import d.a.c0.f;
+import d.a.c0.g;
+import d.a.c0.h;
+import d.a.c0.k.j.a;
 import java.text.DecimalFormat;
 /* loaded from: classes2.dex */
 public class HostMarketView extends FrameLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f9439e;
+    public ImageView f9339e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f9440f;
+    public TextView f9340f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f9441g;
+    public TextView f9341g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f9442h;
+    public TextView f9342h;
 
     /* renamed from: i  reason: collision with root package name */
-    public SwitchButton f9443i;
+    public SwitchButton f9343i;
     public o j;
     public a k;
     public boolean l;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void a(boolean z, o oVar, d.a.a0.k.j.a aVar);
+        void a(boolean z, o oVar, d.a.c0.k.j.a aVar);
 
-        void b(a.C0485a c0485a);
+        void b(a.C0511a c0511a);
     }
 
     /* loaded from: classes2.dex */
@@ -58,27 +58,27 @@ public class HostMarketView extends FrameLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements d.a.a0.k.j.a {
+    public class c implements d.a.c0.k.j.a {
         public c() {
         }
 
-        @Override // d.a.a0.k.j.a
-        public void a(a.C0485a c0485a) {
-            HostMarketView.this.k.b(c0485a);
-            if (c0485a == null) {
+        @Override // d.a.c0.k.j.a
+        public void a(a.C0511a c0511a) {
+            HostMarketView.this.k.b(c0511a);
+            if (c0511a == null) {
                 return;
             }
-            if (c0485a.f38462a == 0) {
-                if (HostMarketView.this.f9443i.isChecked()) {
-                    HostMarketView.this.f9442h.setVisibility(0);
+            if (c0511a.f39482a == 0) {
+                if (HostMarketView.this.f9343i.isChecked()) {
+                    HostMarketView.this.f9342h.setVisibility(0);
                 } else {
-                    HostMarketView.this.f9442h.setVisibility(4);
+                    HostMarketView.this.f9342h.setVisibility(4);
                 }
             } else {
-                HostMarketView.this.f9443i.j();
+                HostMarketView.this.f9343i.j();
                 Toast.makeText(HostMarketView.this.getContext(), HostMarketView.this.getResources().getString(h.host_market_calculate_error), 0).show();
             }
-            HostMarketView.this.j.i(HostMarketView.this.f9443i.isChecked() ? 1 : 0);
+            HostMarketView.this.j.i(HostMarketView.this.f9343i.isChecked() ? 1 : 0);
         }
     }
 
@@ -100,12 +100,12 @@ public class HostMarketView extends FrameLayout {
 
     public final void g(Context context) {
         LayoutInflater.from(context).inflate(g.hostmarket_item, (ViewGroup) this, true);
-        this.f9439e = (ImageView) findViewById(f.icon);
-        this.f9440f = (TextView) findViewById(f.title);
-        this.f9441g = (TextView) findViewById(f.subtitle);
-        this.f9442h = (TextView) findViewById(f.cut_text);
+        this.f9339e = (ImageView) findViewById(f.icon);
+        this.f9340f = (TextView) findViewById(f.title);
+        this.f9341g = (TextView) findViewById(f.subtitle);
+        this.f9342h = (TextView) findViewById(f.cut_text);
         SwitchButton switchButton = (SwitchButton) findViewById(f.switch_button);
-        this.f9443i = switchButton;
+        this.f9343i = switchButton;
         switchButton.setOnCheckedChangeListener(new b());
     }
 
@@ -113,7 +113,7 @@ public class HostMarketView extends FrameLayout {
         if (this.k == null) {
             return;
         }
-        this.j.i(this.f9443i.isChecked() ? 1 : 0);
+        this.j.i(this.f9343i.isChecked() ? 1 : 0);
         this.k.a(z, this.j, new c());
     }
 
@@ -123,28 +123,28 @@ public class HostMarketView extends FrameLayout {
             return;
         }
         setVisibility(0);
-        d.a.a0.k.d.b.c().b(this.f9439e, this.j.getIcon());
-        this.f9440f.setText(this.j.getDisplayName());
-        this.f9441g.setText(this.j.S());
+        d.a.c0.k.d.b.c().b(this.f9339e, this.j.getIcon());
+        this.f9340f.setText(this.j.getDisplayName());
+        this.f9341g.setText(this.j.S());
         if (!TextUtils.isEmpty(this.j.M())) {
             try {
-                this.f9441g.setTextColor(Color.parseColor(this.j.M()));
+                this.f9341g.setTextColor(Color.parseColor(this.j.M()));
             } catch (Exception unused) {
             }
         }
         if (this.l) {
-            this.f9443i.setVisibility(4);
-            this.f9442h.setVisibility(0);
-            TextView textView = this.f9442h;
+            this.f9343i.setVisibility(4);
+            this.f9342h.setVisibility(0);
+            TextView textView = this.f9342h;
             textView.setText("-" + b(this.j.L()) + "元");
             return;
         }
-        this.f9443i.setVisibility(0);
-        this.f9442h.setVisibility(4);
+        this.f9343i.setVisibility(0);
+        this.f9342h.setVisibility(4);
         if (this.j.P() == 1) {
-            this.f9443i.setChecked(true);
+            this.f9343i.setChecked(true);
         } else {
-            this.f9443i.setChecked(false);
+            this.f9343i.setChecked(false);
         }
     }
 

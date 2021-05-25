@@ -100,13 +100,13 @@ public final class ImmutableDoubleArray implements Serializable {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public double[] f31443a;
+        public double[] f31372a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f31444b = 0;
+        public int f31373b = 0;
 
         public b(int i2) {
-            this.f31443a = new double[i2];
+            this.f31372a = new double[i2];
         }
 
         public static int f(int i2, int i3) {
@@ -125,10 +125,10 @@ public final class ImmutableDoubleArray implements Serializable {
 
         public b a(double d2) {
             e(1);
-            double[] dArr = this.f31443a;
-            int i2 = this.f31444b;
+            double[] dArr = this.f31372a;
+            int i2 = this.f31373b;
             dArr[i2] = d2;
-            this.f31444b = i2 + 1;
+            this.f31373b = i2 + 1;
             return this;
         }
 
@@ -146,25 +146,25 @@ public final class ImmutableDoubleArray implements Serializable {
         public b c(Collection<Double> collection) {
             e(collection.size());
             for (Double d2 : collection) {
-                double[] dArr = this.f31443a;
-                int i2 = this.f31444b;
-                this.f31444b = i2 + 1;
+                double[] dArr = this.f31372a;
+                int i2 = this.f31373b;
+                this.f31373b = i2 + 1;
                 dArr[i2] = d2.doubleValue();
             }
             return this;
         }
 
         public ImmutableDoubleArray d() {
-            return this.f31444b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f31443a, 0, this.f31444b);
+            return this.f31373b == 0 ? ImmutableDoubleArray.EMPTY : new ImmutableDoubleArray(this.f31372a, 0, this.f31373b);
         }
 
         public final void e(int i2) {
-            int i3 = this.f31444b + i2;
-            double[] dArr = this.f31443a;
+            int i3 = this.f31373b + i2;
+            double[] dArr = this.f31372a;
             if (i3 > dArr.length) {
                 double[] dArr2 = new double[f(dArr.length, i3)];
-                System.arraycopy(this.f31443a, 0, dArr2, 0, this.f31444b);
-                this.f31443a = dArr2;
+                System.arraycopy(this.f31372a, 0, dArr2, 0, this.f31373b);
+                this.f31372a = dArr2;
             }
         }
     }

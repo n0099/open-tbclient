@@ -19,7 +19,7 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
         public final SingleObserver<? super Boolean> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68942d;
+        public Disposable f68985d;
 
         public IsEmptyMaybeObserver(SingleObserver<? super Boolean> singleObserver) {
             this.actual = singleObserver;
@@ -27,38 +27,38 @@ public final class MaybeIsEmptySingle<T> extends Single<Boolean> implements HasU
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            this.f68942d.dispose();
-            this.f68942d = DisposableHelper.DISPOSED;
+            this.f68985d.dispose();
+            this.f68985d = DisposableHelper.DISPOSED;
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68942d.isDisposed();
+            return this.f68985d.isDisposed();
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onComplete() {
-            this.f68942d = DisposableHelper.DISPOSED;
+            this.f68985d = DisposableHelper.DISPOSED;
             this.actual.onSuccess(Boolean.TRUE);
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onError(Throwable th) {
-            this.f68942d = DisposableHelper.DISPOSED;
+            this.f68985d = DisposableHelper.DISPOSED;
             this.actual.onError(th);
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68942d, disposable)) {
-                this.f68942d = disposable;
+            if (DisposableHelper.validate(this.f68985d, disposable)) {
+                this.f68985d = disposable;
                 this.actual.onSubscribe(this);
             }
         }
 
         @Override // io.reactivex.MaybeObserver
         public void onSuccess(T t) {
-            this.f68942d = DisposableHelper.DISPOSED;
+            this.f68985d = DisposableHelper.DISPOSED;
             this.actual.onSuccess(Boolean.FALSE);
         }
     }

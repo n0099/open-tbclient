@@ -11,51 +11,51 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final HashMap<Class<?>, Class<?>> f39517a;
+    public static final HashMap<Class<?>, Class<?>> f39181a;
 
     /* loaded from: classes.dex */
     public static class a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Class<? extends T> f39518a;
+        public final Class<? extends T> f39182a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final T f39519b;
+        public final T f39183b;
     }
 
     static {
         HashMap<Class<?>, Class<?>> hashMap = new HashMap<>();
-        f39517a = hashMap;
+        f39181a = hashMap;
         hashMap.put(Boolean.class, Boolean.TYPE);
-        f39517a.put(Byte.class, Byte.TYPE);
-        f39517a.put(Character.class, Character.TYPE);
-        f39517a.put(Short.class, Short.TYPE);
-        f39517a.put(Integer.class, Integer.TYPE);
-        f39517a.put(Float.class, Float.TYPE);
-        f39517a.put(Long.class, Long.TYPE);
-        f39517a.put(Double.class, Double.TYPE);
-        HashMap<Class<?>, Class<?>> hashMap2 = f39517a;
+        f39181a.put(Byte.class, Byte.TYPE);
+        f39181a.put(Character.class, Character.TYPE);
+        f39181a.put(Short.class, Short.TYPE);
+        f39181a.put(Integer.class, Integer.TYPE);
+        f39181a.put(Float.class, Float.TYPE);
+        f39181a.put(Long.class, Long.TYPE);
+        f39181a.put(Double.class, Double.TYPE);
+        HashMap<Class<?>, Class<?>> hashMap2 = f39181a;
         Class<?> cls = Boolean.TYPE;
         hashMap2.put(cls, cls);
-        HashMap<Class<?>, Class<?>> hashMap3 = f39517a;
+        HashMap<Class<?>, Class<?>> hashMap3 = f39181a;
         Class<?> cls2 = Byte.TYPE;
         hashMap3.put(cls2, cls2);
-        HashMap<Class<?>, Class<?>> hashMap4 = f39517a;
+        HashMap<Class<?>, Class<?>> hashMap4 = f39181a;
         Class<?> cls3 = Character.TYPE;
         hashMap4.put(cls3, cls3);
-        HashMap<Class<?>, Class<?>> hashMap5 = f39517a;
+        HashMap<Class<?>, Class<?>> hashMap5 = f39181a;
         Class<?> cls4 = Short.TYPE;
         hashMap5.put(cls4, cls4);
-        HashMap<Class<?>, Class<?>> hashMap6 = f39517a;
+        HashMap<Class<?>, Class<?>> hashMap6 = f39181a;
         Class<?> cls5 = Integer.TYPE;
         hashMap6.put(cls5, cls5);
-        HashMap<Class<?>, Class<?>> hashMap7 = f39517a;
+        HashMap<Class<?>, Class<?>> hashMap7 = f39181a;
         Class<?> cls6 = Float.TYPE;
         hashMap7.put(cls6, cls6);
-        HashMap<Class<?>, Class<?>> hashMap8 = f39517a;
+        HashMap<Class<?>, Class<?>> hashMap8 = f39181a;
         Class<?> cls7 = Long.TYPE;
         hashMap8.put(cls7, cls7);
-        HashMap<Class<?>, Class<?>> hashMap9 = f39517a;
+        HashMap<Class<?>, Class<?>> hashMap9 = f39181a;
         Class<?> cls8 = Double.TYPE;
         hashMap9.put(cls8, cls8);
     }
@@ -111,7 +111,7 @@ public class d {
             return false;
         } else {
             for (int i2 = length - 1; i2 >= 0; i2--) {
-                if (clsArr[i2].isAssignableFrom(clsArr2[i2]) || (f39517a.containsKey(clsArr[i2]) && f39517a.get(clsArr[i2]).equals(f39517a.get(clsArr2[i2])))) {
+                if (clsArr[i2].isAssignableFrom(clsArr2[i2]) || (f39181a.containsKey(clsArr[i2]) && f39181a.get(clsArr[i2]).equals(f39181a.get(clsArr2[i2])))) {
                     return true;
                 }
             }
@@ -163,7 +163,7 @@ public class d {
         for (int i2 = 0; i2 < objArr.length; i2++) {
             Object obj = objArr[i2];
             if (obj != null && (obj instanceof a)) {
-                clsArr[i2] = ((a) obj).f39518a;
+                clsArr[i2] = ((a) obj).f39182a;
             } else {
                 clsArr[i2] = obj == null ? null : obj.getClass();
             }
@@ -179,7 +179,7 @@ public class d {
         for (int i2 = 0; i2 < objArr.length; i2++) {
             Object obj = objArr[i2];
             if (obj != null && (obj instanceof a)) {
-                objArr2[i2] = ((a) obj).f39519b;
+                objArr2[i2] = ((a) obj).f39183b;
             } else {
                 objArr2[i2] = obj;
             }

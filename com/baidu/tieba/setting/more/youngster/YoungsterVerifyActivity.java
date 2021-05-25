@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.atomData.YoungsterVerifyActivityConfig;
 import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.core.hybrid.BridgeWebView;
 import com.baidu.tieba.setting.more.youngster.model.YoungsterVerifyModel;
-import d.a.j0.l.e;
+import d.a.m0.l.e;
 /* loaded from: classes5.dex */
 public class YoungsterVerifyActivity extends TbWebViewActivity {
     public int from;

@@ -2,7 +2,7 @@ package com.baidu.searchbox.aperf.param;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import d.a.k0.y2.b;
+import d.a.n0.z2.b;
 @Autowired
 /* loaded from: classes2.dex */
 public class AperfOverlayRuntime {

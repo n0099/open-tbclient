@@ -24,25 +24,25 @@ public class LibsInfoDef {
     public static final int LIB_ID_THIRD_PARTY_RTC = 2048;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Map<Integer, d> f8085a;
+    public static final Map<Integer, d> f7985a;
 
     static {
         ConcurrentHashMap concurrentHashMap = new ConcurrentHashMap();
-        f8085a = concurrentHashMap;
+        f7985a = concurrentHashMap;
         concurrentHashMap.put(4, new d(4, "cyber-ffmpeg", "4.1.2.39"));
-        f8085a.put(16, new d(16, "cyber-player", SDKVersion.VERSION));
-        f8085a.put(8, new d(8, "cyber-sdl", SDKVersion.VERSION));
-        f8085a.put(32, new d(32, "cyber-ffmpeg-extend", "4.1.2.13"));
-        f8085a.put(64, new d(64, "cyber-pcdn", "2.0.1.1327"));
-        f8085a.put(128, new d(128, "paddle-mobile-cl", "0.5.0.3"));
-        f8085a.put(256, new d(256, "opencv_java3", "0.3.2.0"));
-        f8085a.put(512, new d(512, "mml_framework", "0.5.0.3"));
-        f8085a.put(1, new d(1, "crashpad_client", "1.0.0.3"));
-        f8085a.put(2, new d(2, "crashpad_handler", "1.0.0.3"));
-        f8085a.put(2048, new d(2048, "cybermedia-ext-rtc", "5.4.13.0", d.a.LIB_TYPE_JAR));
+        f7985a.put(16, new d(16, "cyber-player", SDKVersion.VERSION));
+        f7985a.put(8, new d(8, "cyber-sdl", SDKVersion.VERSION));
+        f7985a.put(32, new d(32, "cyber-ffmpeg-extend", "4.1.2.13"));
+        f7985a.put(64, new d(64, "cyber-pcdn", "2.0.1.1327"));
+        f7985a.put(128, new d(128, "paddle-mobile-cl", "0.5.0.3"));
+        f7985a.put(256, new d(256, "opencv_java3", "0.3.2.0"));
+        f7985a.put(512, new d(512, "mml_framework", "0.5.0.3"));
+        f7985a.put(1, new d(1, "crashpad_client", "1.0.0.3"));
+        f7985a.put(2, new d(2, "crashpad_handler", "1.0.0.3"));
+        f7985a.put(2048, new d(2048, "cybermedia-ext-rtc", "5.4.13.0", d.a.LIB_TYPE_JAR));
     }
 
     public static final Map<Integer, d> getAllGroupMap() {
-        return f8085a;
+        return f7985a;
     }
 }

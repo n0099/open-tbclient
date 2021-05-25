@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.faceshop.emotioncenter.view.EmotionHorizontalView;
 import d.a.c.j.e.a;
-import d.a.k0.l0.y.c.b;
+import d.a.n0.m0.y.c.b;
 /* loaded from: classes4.dex */
 public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     public TbPageContext m;
@@ -17,19 +17,19 @@ public class EmotionHorizontalAdapter extends a<b, EmotionGridViewHolder> {
     public static class EmotionGridViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public EmotionHorizontalView f14909a;
+        public EmotionHorizontalView f14812a;
 
         public EmotionGridViewHolder(View view) {
             super(view);
-            this.f14909a = (EmotionHorizontalView) view;
+            this.f14812a = (EmotionHorizontalView) view;
         }
 
         public void b(b bVar) {
-            EmotionHorizontalView emotionHorizontalView = this.f14909a;
+            EmotionHorizontalView emotionHorizontalView = this.f14812a;
             if (emotionHorizontalView == null || bVar == null) {
                 return;
             }
-            emotionHorizontalView.setData(bVar.f57224e);
+            emotionHorizontalView.setData(bVar.f57414e);
         }
     }
 

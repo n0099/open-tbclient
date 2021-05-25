@@ -7,11 +7,11 @@ import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import java.lang.reflect.Method;
 import java.util.Locale;
 import java.util.TimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static double f66449a = -1.0d;
+    public static double f66492a = -1.0d;
 
     public static String a() {
         String str;
@@ -103,7 +103,7 @@ public class c {
 
     public static String g(Context context) {
         int i2;
-        double d2 = f66449a;
+        double d2 = f66492a;
         double d3 = 0.0d;
         if (d2 >= 0.0d) {
             i2 = (int) d2;
@@ -116,7 +116,7 @@ public class c {
                 d3 = ((Double) declaredMethod.invoke(newInstance, "battery.capacity")).doubleValue();
             } catch (Throwable unused) {
             }
-            f66449a = d3;
+            f66492a = d3;
             i2 = (int) d3;
         }
         return Integer.toString(i2);

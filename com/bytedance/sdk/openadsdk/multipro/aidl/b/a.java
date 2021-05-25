@@ -10,13 +10,13 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class a extends ICommonDialogListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f29664a = new Handler(Looper.getMainLooper());
+    public Handler f29593a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    public g.a f29665b;
+    public g.a f29594b;
 
     public a(g.a aVar) {
-        this.f29665b = aVar;
+        this.f29594b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -25,8 +25,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f29665b != null) {
-                    a.this.f29665b.b();
+                if (a.this.f29594b != null) {
+                    a.this.f29594b.b();
                 }
             }
         });
@@ -38,8 +38,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f29665b != null) {
-                    a.this.f29665b.a();
+                if (a.this.f29594b != null) {
+                    a.this.f29594b.a();
                 }
             }
         });
@@ -51,14 +51,14 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f29665b != null) {
-                    a.this.f29665b.c();
+                if (a.this.f29594b != null) {
+                    a.this.f29594b.c();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        this.f29664a.post(runnable);
+        this.f29593a.post(runnable);
     }
 }

@@ -47,16 +47,16 @@ import org.json.JSONObject;
 public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<Context> f29045a;
+    public WeakReference<Context> f28974a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.core.d.b f29046b;
+    public final com.bytedance.sdk.openadsdk.core.d.b f28975b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final l f29047c;
+    public final l f28976c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f29048d;
+    public String f28977d;
     public IListenerManager j;
     public int k;
     public d.o.a.a.a.c.b l;
@@ -70,13 +70,13 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     public int y;
 
     /* renamed from: e  reason: collision with root package name */
-    public final AtomicInteger f29049e = new AtomicInteger(1);
+    public final AtomicInteger f28978e = new AtomicInteger(1);
 
     /* renamed from: f  reason: collision with root package name */
-    public final AtomicBoolean f29050f = new AtomicBoolean(false);
+    public final AtomicBoolean f28979f = new AtomicBoolean(false);
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f29051g = false;
+    public boolean f28980g = false;
     public final AtomicLong p = new AtomicLong();
     public final AtomicBoolean q = new AtomicBoolean(false);
     public boolean s = false;
@@ -84,14 +84,14 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     public boolean w = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f29052h = false;
+    public boolean f28981h = false;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f29053i = true;
+    public boolean f28982i = true;
     public final d.o.a.a.a.c.e z = new d.o.a.a.a.c.e() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.1
         @Override // d.o.a.a.a.c.e
         public void a() {
-            d.this.f29049e.set(1);
+            d.this.f28978e.set(1);
             d.c("onIdle");
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 if (d.this.u != null) {
@@ -105,40 +105,40 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
         @Override // d.o.a.a.a.c.e
         public void b(d.o.a.a.a.d.e eVar, int i2) {
-            d.this.f29049e.set(4);
-            d.this.f29050f.set(false);
-            d.this.a(eVar.f66548a);
-            d.c("onDownloadPaused: " + eVar.f66550c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66551d);
+            d.this.f28978e.set(4);
+            d.this.f28979f.set(false);
+            d.this.a(eVar.f66591a);
+            d.c("onDownloadPaused: " + eVar.f66593c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66594d);
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 if (d.this.u != null) {
-                    d.this.u.onDownloadPaused(eVar.f66550c, eVar.f66551d, eVar.f66552e, d.this.f29046b.c());
+                    d.this.u.onDownloadPaused(eVar.f66593c, eVar.f66594d, eVar.f66595e, d.this.f28975b.c());
                     return;
                 }
                 return;
             }
             d dVar = d.this;
-            dVar.a("onDownloadPaused", eVar.f66550c, eVar.f66551d, eVar.f66552e, dVar.f29046b.c());
+            dVar.a("onDownloadPaused", eVar.f66593c, eVar.f66594d, eVar.f66595e, dVar.f28975b.c());
         }
 
         @Override // d.o.a.a.a.c.e
         public void c(d.o.a.a.a.d.e eVar) {
-            d.this.f29049e.set(6);
-            d.this.a(eVar.f66548a);
-            d.c("onDownloadFinished: " + eVar.f66550c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66551d);
+            d.this.f28978e.set(6);
+            d.this.a(eVar.f66591a);
+            d.c("onDownloadFinished: " + eVar.f66593c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66594d);
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 if (d.this.u != null) {
-                    d.this.u.onDownloadFinished(eVar.f66550c, eVar.f66552e, d.this.f29046b.c());
+                    d.this.u.onDownloadFinished(eVar.f66593c, eVar.f66595e, d.this.f28975b.c());
                     return;
                 }
                 return;
             }
             d dVar = d.this;
-            dVar.a("onDownloadFinished", eVar.f66550c, eVar.f66551d, eVar.f66552e, dVar.f29046b.c());
+            dVar.a("onDownloadFinished", eVar.f66593c, eVar.f66594d, eVar.f66595e, dVar.f28975b.c());
         }
 
         @Override // d.o.a.a.a.c.e
         public void a(@NonNull d.o.a.a.a.c.d dVar, @Nullable d.o.a.a.a.c.b bVar) {
-            d.this.f29049e.set(2);
+            d.this.f28978e.set(2);
             d.c("onDownloadStart: " + dVar.d());
             d.this.a(dVar.d());
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
@@ -153,52 +153,52 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
         @Override // d.o.a.a.a.c.e
         public void b(d.o.a.a.a.d.e eVar) {
-            d.this.f29049e.set(7);
-            d.this.f29050f.set(true);
-            d.this.a(eVar.f66548a);
-            d.c("onInstalled: " + eVar.f66550c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66551d);
+            d.this.f28978e.set(7);
+            d.this.f28979f.set(true);
+            d.this.a(eVar.f66591a);
+            d.c("onInstalled: " + eVar.f66593c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66594d);
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 if (d.this.u != null) {
-                    d.this.u.onInstalled(eVar.f66552e, d.this.f29046b.c());
+                    d.this.u.onInstalled(eVar.f66595e, d.this.f28975b.c());
                     return;
                 }
                 return;
             }
             d dVar = d.this;
-            dVar.a("onInstalled", eVar.f66550c, eVar.f66551d, eVar.f66552e, dVar.f29046b.c());
+            dVar.a("onInstalled", eVar.f66593c, eVar.f66594d, eVar.f66595e, dVar.f28975b.c());
         }
 
         @Override // d.o.a.a.a.c.e
         public void a(d.o.a.a.a.d.e eVar, int i2) {
-            d.this.f29049e.set(3);
-            d.this.f29050f.set(false);
-            d.this.a(eVar.f66548a);
-            d.c("onDownloadActive: " + eVar.f66550c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66551d);
+            d.this.f28978e.set(3);
+            d.this.f28979f.set(false);
+            d.this.a(eVar.f66591a);
+            d.c("onDownloadActive: " + eVar.f66593c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66594d);
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 if (d.this.u != null) {
-                    d.this.u.onDownloadActive(eVar.f66550c, eVar.f66551d, eVar.f66552e, d.this.f29046b.c());
+                    d.this.u.onDownloadActive(eVar.f66593c, eVar.f66594d, eVar.f66595e, d.this.f28975b.c());
                     return;
                 }
                 return;
             }
             d dVar = d.this;
-            dVar.a("onDownloadActive", eVar.f66550c, eVar.f66551d, eVar.f66552e, dVar.f29046b.c());
+            dVar.a("onDownloadActive", eVar.f66593c, eVar.f66594d, eVar.f66595e, dVar.f28975b.c());
         }
 
         @Override // d.o.a.a.a.c.e
         public void a(d.o.a.a.a.d.e eVar) {
-            d.this.f29049e.set(5);
-            d.this.a(eVar.f66548a);
-            d.c("onDownloadFailed: " + eVar.f66550c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66551d);
+            d.this.f28978e.set(5);
+            d.this.a(eVar.f66591a);
+            d.c("onDownloadFailed: " + eVar.f66593c + StringUtil.ARRAY_ELEMENT_SEPARATOR + eVar.f66594d);
             if (!com.bytedance.sdk.openadsdk.multipro.b.b()) {
                 if (d.this.u != null) {
-                    d.this.u.onDownloadFailed(eVar.f66550c, eVar.f66551d, eVar.f66552e, d.this.f29046b.c());
+                    d.this.u.onDownloadFailed(eVar.f66593c, eVar.f66594d, eVar.f66595e, d.this.f28975b.c());
                     return;
                 }
                 return;
             }
             d dVar = d.this;
-            dVar.a("onDownloadFailed", eVar.f66550c, eVar.f66551d, eVar.f66552e, dVar.f29046b.c());
+            dVar.a("onDownloadFailed", eVar.f66593c, eVar.f66594d, eVar.f66595e, dVar.f28975b.c());
         }
     };
     public a A = new a();
@@ -210,60 +210,60 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     public class a extends com.bytedance.sdk.openadsdk.l.g {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f29064a;
+        public String f28993a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f29065b;
+        public long f28994b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f29066c;
+        public long f28995c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f29067d;
+        public String f28996d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f29068e;
+        public String f28997e;
 
         public a() {
             super("DownloadCallbackRunnable");
         }
 
         public void a(String str) {
-            this.f29064a = str;
+            this.f28993a = str;
         }
 
         public void b(long j) {
-            this.f29066c = j;
+            this.f28995c = j;
         }
 
         public void c(String str) {
-            this.f29068e = str;
+            this.f28997e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                d.this.l().executeAppDownloadCallback(d.this.x, this.f29064a, this.f29065b, this.f29066c, this.f29067d, this.f29068e);
+                d.this.l().executeAppDownloadCallback(d.this.x, this.f28993a, this.f28994b, this.f28995c, this.f28996d, this.f28997e);
             } catch (Throwable th) {
                 u.c("DMLibManager", "executeRewardVideoCallback execute throw Exception : ", th);
             }
         }
 
         public void a(long j) {
-            this.f29065b = j;
+            this.f28994b = j;
         }
 
         public void b(String str) {
-            this.f29067d = str;
+            this.f28996d = str;
         }
 
         public a(String str, long j, long j2, String str2, String str3) {
             super("DownloadCallbackRunnable");
-            this.f29064a = str;
-            this.f29065b = j;
-            this.f29066c = j2;
-            this.f29067d = str2;
-            this.f29068e = str3;
+            this.f28993a = str;
+            this.f28994b = j;
+            this.f28995c = j2;
+            this.f28996d = str2;
+            this.f28997e = str3;
         }
     }
 
@@ -274,14 +274,14 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     public d(Context context, l lVar, String str) {
         this.k = -1;
-        this.f29045a = new WeakReference<>(context);
-        this.f29047c = lVar;
-        this.f29046b = lVar.an();
-        this.f29048d = str;
+        this.f28974a = new WeakReference<>(context);
+        this.f28976c = lVar;
+        this.f28975b = lVar.an();
+        this.f28977d = str;
         this.k = ak.c(lVar.ap());
-        this.x = j.a(this.f29047c.hashCode() + this.f29047c.aL().toString());
+        this.x = j.a(this.f28976c.hashCode() + this.f28976c.aL().toString());
         c("====tag===" + str);
-        if (this.f29046b == null) {
+        if (this.f28975b == null) {
             u.f("DMLibManager", "download create error: not a App type Ad!");
             return;
         }
@@ -289,9 +289,9 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
             p.a(context);
         }
         this.u = new com.bytedance.sdk.openadsdk.downloadnew.core.c();
-        this.n = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f29048d, this.f29047c, null).p();
-        this.l = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f29047c).e();
-        this.m = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f29047c, this.f29048d).d();
+        this.n = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f28977d, this.f28976c, null).p();
+        this.l = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f28976c).e();
+        this.m = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(this.f28976c, this.f28977d).d();
         a();
     }
 
@@ -300,12 +300,12 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     private void p() {
         c("tryReleaseResource==");
-        WeakReference<Context> weakReference = this.f29045a;
+        WeakReference<Context> weakReference = this.f28974a;
         if (weakReference == null) {
             c("tryReleaseResource==  mContext is null");
             return;
         }
-        Activity activity = weakReference.get() instanceof Activity ? (Activity) this.f29045a.get() : null;
+        Activity activity = weakReference.get() instanceof Activity ? (Activity) this.f28974a.get() : null;
         if (activity == null) {
             c("tryReleaseResource==  activity is null");
         } else if (i.d().a(activity)) {
@@ -317,7 +317,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     private synchronized void q() {
         c("unbindDownload==" + this.q.get());
-        if (this.f29046b == null) {
+        if (this.f28975b == null) {
             return;
         }
         if (this.q.get()) {
@@ -329,7 +329,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     private synchronized void r() {
         c("bindDownload==" + this.q.get());
-        if (this.f29046b == null) {
+        if (this.f28975b == null) {
             return;
         }
         this.q.get();
@@ -338,13 +338,13 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     private void s() {
-        if (m() == null || this.f29046b == null) {
+        if (m() == null || this.f28975b == null) {
             return;
         }
         TTCustomController e2 = i.d().e();
         if (e2 != null && !e2.isCanUseWriteExternal()) {
             try {
-                String str = g.f29079a;
+                String str = g.f29008a;
                 String absolutePath = Environment.getDataDirectory().getAbsolutePath();
                 if (str != null) {
                     if (!str.startsWith(absolutePath)) {
@@ -354,61 +354,61 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
             } catch (Throwable unused) {
             }
         }
-        if (!this.f29047c.E() && g.a(m(), this.f29046b.b())) {
+        if (!this.f28976c.E() && g.a(m(), this.f28975b.b())) {
             c("changeDownloadStatus, not support pause/continue function");
             try {
                 Toast.makeText(m(), "应用正在下载...", 0).show();
             } catch (Exception unused2) {
             }
         } else if (t()) {
-            if (a(this.f29047c)) {
-                a(this.f29047c, new b() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.2
+            if (a(this.f28976c)) {
+                a(this.f28976c, new b() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.2
                     @Override // com.bytedance.sdk.openadsdk.downloadnew.a.d.b
                     public void a() {
-                        g.d().g(d.this.f29046b.b(), d.this.n.d(), 2, d.this.m, d.this.l);
+                        g.d().g(d.this.f28975b.b(), d.this.n.d(), 2, d.this.m, d.this.l);
                     }
                 });
             } else {
-                g.d().g(this.f29046b.b(), this.n.d(), 2, this.m, this.l);
+                g.d().g(this.f28975b.b(), this.n.d(), 2, this.m, this.l);
             }
         } else {
-            c("changeDownloadStatus, the current status is1: " + this.f29049e);
-            g.d().h(this.f29046b.b(), this.n.d(), 2, this.m, this.l, null, new n() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.3
+            c("changeDownloadStatus, the current status is1: " + this.f28978e);
+            g.d().h(this.f28975b.b(), this.n.d(), 2, this.m, this.l, null, new n() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.3
                 @Override // d.o.a.a.a.a.n
                 public void a(boolean z) {
                     if (z) {
                         d dVar = d.this;
-                        if (dVar.a(dVar.f29047c)) {
+                        if (dVar.a(dVar.f28976c)) {
                             d dVar2 = d.this;
-                            dVar2.a(dVar2.f29047c, new b() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.3.1
+                            dVar2.a(dVar2.f28976c, new b() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.3.1
                                 @Override // com.bytedance.sdk.openadsdk.downloadnew.a.d.b
                                 public void a() {
-                                    g.d().g(d.this.f29046b.b(), d.this.n.d(), 2, d.this.m, d.this.l);
+                                    g.d().g(d.this.f28975b.b(), d.this.n.d(), 2, d.this.m, d.this.l);
                                 }
                             });
                             return;
                         }
                     }
-                    g.d().g(d.this.f29046b.b(), d.this.n.d(), 2, d.this.m, d.this.l);
+                    g.d().g(d.this.f28975b.b(), d.this.n.d(), 2, d.this.m, d.this.l);
                 }
             });
-            c("changeDownloadStatus, the current status is2: " + this.f29049e);
+            c("changeDownloadStatus, the current status is2: " + this.f28978e);
         }
     }
 
     private boolean t() {
-        l lVar = this.f29047c;
+        l lVar = this.f28976c;
         if (lVar == null) {
             return false;
         }
-        return lVar.Z() == 4 && !TextUtils.isEmpty(this.f29047c.aA());
+        return lVar.Z() == 4 && !TextUtils.isEmpty(this.f28976c.aA());
     }
 
     private boolean u() {
-        if (this.f29046b == null || !h()) {
+        if (this.f28975b == null || !h()) {
             return false;
         }
-        boolean a2 = a(m(), this.f29046b.a(), this.f29047c, this.f29048d, this.f29052h);
+        boolean a2 = a(m(), this.f28975b.a(), this.f28976c, this.f28977d, this.f28981h);
         if (a2) {
             Message obtain = Message.obtain();
             obtain.what = 9;
@@ -432,7 +432,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     private void w() {
         x();
-        this.f29050f.set(true);
+        this.f28979f.set(true);
     }
 
     private void x() {
@@ -464,7 +464,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     private void z() {
-        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f29046b;
+        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f28975b;
         if (bVar == null || bVar.b() == null) {
             return;
         }
@@ -478,13 +478,13 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
     public boolean h() {
-        l lVar = this.f29047c;
-        return (lVar == null || lVar.U() == null || this.f29046b == null || this.f29047c.U().b() != 3 || this.f29046b.a() == null) ? false : true;
+        l lVar = this.f28976c;
+        return (lVar == null || lVar.U() == null || this.f28975b == null || this.f28976c.U().b() != 3 || this.f28975b.a() == null) ? false : true;
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
     public boolean i() {
-        if (this.f29049e.get() == 1) {
+        if (this.f28978e.get() == 1) {
             if (x.c(m()) == 0) {
                 try {
                     Toast.makeText(m(), ad.b(m(), "tt_no_network"), 0).show();
@@ -503,19 +503,19 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
             n();
         }
         e();
-        if (this.f29049e.get() != 3 && this.f29049e.get() != 4) {
-            if (this.f29049e.get() == 6) {
-                this.f29050f.set(true);
+        if (this.f28978e.get() != 3 && this.f28978e.get() != 4) {
+            if (this.f28978e.get() == 6) {
+                this.f28979f.set(true);
             }
         } else {
-            this.f29050f.set(false);
+            this.f28979f.set(false);
         }
         return false;
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
     public boolean j() {
-        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f29046b;
+        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f28975b;
         boolean z = false;
         if (bVar == null) {
             return false;
@@ -523,26 +523,26 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         String d2 = bVar.d();
         if (!TextUtils.isEmpty(d2) && a(m(), d2)) {
             z = true;
-            this.f29050f.set(true);
-            if (!a(this.f29048d, "click_open", this.f29047c)) {
-                com.bytedance.sdk.openadsdk.c.d.j(m(), this.f29047c, this.f29048d, ak.h(this.f29047c), null);
+            this.f28979f.set(true);
+            if (!a(this.f28977d, "click_open", this.f28976c)) {
+                com.bytedance.sdk.openadsdk.c.d.j(m(), this.f28976c, this.f28977d, ak.h(this.f28976c), null);
             }
         }
         return z;
     }
 
     public boolean k() {
-        if (this.f29047c.ao() != null) {
-            String a2 = this.f29047c.ao().a();
-            u.b("DMLibManager", "含有deeplink链接 " + this.f29052h);
-            u.b("deepLink", "DMLibManager 含有deeplink链接尝试deeplink调起 " + this.f29052h);
+        if (this.f28976c.ao() != null) {
+            String a2 = this.f28976c.ao().a();
+            u.b("DMLibManager", "含有deeplink链接 " + this.f28981h);
+            u.b("deepLink", "DMLibManager 含有deeplink链接尝试deeplink调起 " + this.f28981h);
             if (!TextUtils.isEmpty(a2)) {
                 Uri parse = Uri.parse(a2);
                 Intent intent = new Intent("android.intent.action.VIEW");
                 intent.setData(parse);
-                if (this.f29052h) {
+                if (this.f28981h) {
                     u.b("DMLibManager", "含有deeplink链接，开始上报 lp_open_dpl schema " + a(a2));
-                    com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29047c, this.f29048d, "lp_open_dpl", a(a2));
+                    com.bytedance.sdk.openadsdk.c.d.a(m(), this.f28976c, this.f28977d, "lp_open_dpl", a(a2));
                 }
                 if (ak.a(m(), intent)) {
                     u.b("DMLibManager", "含有deeplink链接， 该app已安装 ");
@@ -551,44 +551,44 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                     }
                     try {
                         n();
-                        if (!a(this.f29048d, "open_url_app", this.f29047c)) {
-                            com.bytedance.sdk.openadsdk.c.d.i(m(), this.f29047c, this.f29048d, "open_url_app", null);
+                        if (!a(this.f28977d, "open_url_app", this.f28976c)) {
+                            com.bytedance.sdk.openadsdk.c.d.i(m(), this.f28976c, this.f28977d, "open_url_app", null);
                         }
                         m().startActivity(intent);
-                        k.a().a(this.f29047c, this.f29048d, this.f29052h);
-                        if (this.f29052h) {
+                        k.a().a(this.f28976c, this.f28977d, this.f28981h);
+                        if (this.f28981h) {
                             u.b("DMLibManager", "含有deeplink链接， 该app已安装，进行开始调起上报 lp_openurl ");
-                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29047c, this.f29048d, "lp_openurl");
-                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29047c, this.f29048d, "lp_deeplink_success_realtime");
+                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f28976c, this.f28977d, "lp_openurl");
+                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f28976c, this.f28977d, "lp_deeplink_success_realtime");
                         } else {
-                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29047c, this.f29048d, "deeplink_success_realtime");
+                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f28976c, this.f28977d, "deeplink_success_realtime");
                         }
                         return true;
                     } catch (Throwable unused) {
-                        if (!TextUtils.isEmpty(this.f29047c.ac())) {
-                            z.a(m(), this.f29047c.ac(), this.f29047c, ak.a(this.f29048d), this.f29048d, true, null);
+                        if (!TextUtils.isEmpty(this.f28976c.ac())) {
+                            z.a(m(), this.f28976c.ac(), this.f28976c, ak.a(this.f28977d), this.f28977d, true, null);
                         }
-                        if (this.f29052h) {
+                        if (this.f28981h) {
                             u.b("DMLibManager", "含有deeplink链接， 该app已安装，调起失败 上报lp_openurl_failed ");
-                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29047c, this.f29048d, "lp_openurl_failed");
-                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29047c, this.f29048d, "lp_deeplink_fail_realtime");
+                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f28976c, this.f28977d, "lp_openurl_failed");
+                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f28976c, this.f28977d, "lp_deeplink_fail_realtime");
                         } else {
-                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29047c, this.f29048d, "deeplink_fail_realtime");
+                            com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f28976c, this.f28977d, "deeplink_fail_realtime");
                         }
                         return false;
                     }
-                } else if (this.f29052h) {
+                } else if (this.f28981h) {
                     u.b("DMLibManager", "含有deeplink链接， 该app未安装，上报lp_openurl_failed ");
-                    com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29047c, this.f29048d, "lp_openurl_failed");
-                    com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29047c, this.f29048d, "lp_deeplink_fail_realtime");
+                    com.bytedance.sdk.openadsdk.c.d.b(m(), this.f28976c, this.f28977d, "lp_openurl_failed");
+                    com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f28976c, this.f28977d, "lp_deeplink_fail_realtime");
                 } else {
-                    com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f29047c, this.f29048d, "deeplink_fail_realtime");
+                    com.bytedance.sdk.openadsdk.c.d.b(p.a(), this.f28976c, this.f28977d, "deeplink_fail_realtime");
                 }
             }
-            if (this.f29049e.get() != 4 && this.f29049e.get() != 3 && (!this.f29051g || this.f29050f.get())) {
-                this.f29051g = true;
-                if (!a(this.f29048d, "open_fallback_url", this.f29047c)) {
-                    com.bytedance.sdk.openadsdk.c.d.i(m(), this.f29047c, this.f29048d, "open_fallback_url", null);
+            if (this.f28978e.get() != 4 && this.f28978e.get() != 3 && (!this.f28980g || this.f28979f.get())) {
+                this.f28980g = true;
+                if (!a(this.f28977d, "open_fallback_url", this.f28976c)) {
+                    com.bytedance.sdk.openadsdk.c.d.i(m(), this.f28976c, this.f28977d, "open_fallback_url", null);
                 }
             }
         }
@@ -603,16 +603,16 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     public Context m() {
-        WeakReference<Context> weakReference = this.f29045a;
-        return (weakReference == null || weakReference.get() == null) ? p.a() : this.f29045a.get();
+        WeakReference<Context> weakReference = this.f28974a;
+        return (weakReference == null || weakReference.get() == null) ? p.a() : this.f28974a.get();
     }
 
     public void n() {
-        l lVar = this.f29047c;
-        if (lVar == null || !lVar.aC() || this.f29052h || TTMiddlePageActivity.a(this.f29047c)) {
+        l lVar = this.f28976c;
+        if (lVar == null || !lVar.aC() || this.f28981h || TTMiddlePageActivity.a(this.f28976c)) {
             return;
         }
-        ak.a(this.f29047c, this.f29048d);
+        ak.a(this.f28976c, this.f28977d);
     }
 
     public static void c(String str) {
@@ -634,10 +634,10 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                 it.remove();
             }
         }
-        WeakReference<Context> weakReference = this.f29045a;
+        WeakReference<Context> weakReference = this.f28974a;
         if (weakReference != null) {
             weakReference.clear();
-            this.f29045a = null;
+            this.f28974a = null;
         }
     }
 
@@ -653,20 +653,20 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
     public void g() {
-        if (m() == null || this.f29046b == null) {
+        if (m() == null || this.f28975b == null) {
             return;
         }
-        if (!"feed_video_middle_page".equals(this.f29048d)) {
-            TTMiddlePageActivity.b(m(), this.f29047c);
+        if (!"feed_video_middle_page".equals(this.f28977d)) {
+            TTMiddlePageActivity.b(m(), this.f28976c);
         }
         if (k()) {
-            this.f29050f.set(true);
+            this.f28979f.set(true);
         } else if (j()) {
         } else {
             if (u()) {
-                this.f29050f.set(true);
+                this.f28979f.set(true);
             } else if (b(this.w)) {
-                this.f29050f.set(true);
+                this.f28979f.set(true);
             } else {
                 z();
             }
@@ -675,9 +675,9 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
 
     private void h(boolean z) {
         if (z) {
-            com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29047c, this.f29048d, "quickapp_success");
+            com.bytedance.sdk.openadsdk.c.d.a(m(), this.f28976c, this.f28977d, "quickapp_success");
         } else {
-            com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29047c, this.f29048d, "quickapp_fail");
+            com.bytedance.sdk.openadsdk.c.d.a(m(), this.f28976c, this.f28977d, "quickapp_fail");
         }
     }
 
@@ -700,7 +700,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     public void f(boolean z) {
-        this.f29052h = z;
+        this.f28981h = z;
     }
 
     public void c(boolean z) {
@@ -723,7 +723,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     public void b(long j) {
-        if (this.f29046b == null) {
+        if (this.f28975b == null) {
             return;
         }
         this.q.set(false);
@@ -762,7 +762,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     public void g(boolean z) {
-        this.f29053i = z;
+        this.f28982i = z;
     }
 
     public void d(boolean z) {
@@ -775,7 +775,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         if (activity == null) {
             return;
         }
-        this.f29045a = new WeakReference<>(activity);
+        this.f28974a = new WeakReference<>(activity);
         r();
     }
 
@@ -826,9 +826,9 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                             return false;
                         }
                         int i3 = 104857600;
-                        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f29046b;
+                        com.bytedance.sdk.openadsdk.core.d.b bVar = this.f28975b;
                         if (bVar != null && bVar.g() > 0) {
-                            i3 = this.f29046b.g();
+                            i3 = this.f28975b.g();
                         }
                         if (i3 <= p.h().f()) {
                             return false;
@@ -849,7 +849,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         if (lVar == null) {
             return true;
         }
-        if (this.f29053i) {
+        if (this.f28982i) {
             int c2 = x.c(m());
             if (c2 == 0) {
                 try {
@@ -863,7 +863,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
             boolean z3 = lVar.K() == 2;
             boolean z4 = lVar.L() == 0;
             if (t()) {
-                if (this.f29052h || z3) {
+                if (this.f28981h || z3) {
                     return false;
                 }
                 this.y = 2;
@@ -871,7 +871,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                     return a2;
                 }
                 return true;
-            } else if (this.f29052h) {
+            } else if (this.f28981h) {
                 if (z4) {
                     return false;
                 }
@@ -901,7 +901,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
         com.bytedance.sdk.openadsdk.core.d.k aa = lVar.aa();
         String a3 = aa != null ? aa.a() : "";
         boolean z = lVar.Z() == 4;
-        com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, this.f29048d, "pop_up", v());
+        com.bytedance.sdk.openadsdk.c.d.b(p.a(), lVar, this.f28977d, "pop_up", v());
         com.bytedance.sdk.openadsdk.utils.g.a(m(), lVar.am(), W, new g.a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.d.4
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
             public void a() {
@@ -912,7 +912,7 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                 Context a4 = p.a();
                 l lVar2 = lVar;
                 d dVar = d.this;
-                com.bytedance.sdk.openadsdk.c.d.b(a4, lVar2, dVar.f29048d, "pop_up_download", dVar.v());
+                com.bytedance.sdk.openadsdk.c.d.b(a4, lVar2, dVar.f28977d, "pop_up_download", dVar.v());
             }
 
             @Override // com.bytedance.sdk.openadsdk.utils.g.a
@@ -924,17 +924,17 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                 Context a4 = p.a();
                 l lVar2 = lVar;
                 d dVar = d.this;
-                com.bytedance.sdk.openadsdk.c.d.b(a4, lVar2, dVar.f29048d, "pop_up_cancel", dVar.v());
+                com.bytedance.sdk.openadsdk.c.d.b(a4, lVar2, dVar.f28977d, "pop_up_cancel", dVar.v());
             }
         }, a2, a3, z);
     }
 
     public boolean a(Context context, String str) {
         if (context != null && !TextUtils.isEmpty(str)) {
-            u.b("DMLibManager", "使用包名调起 " + this.f29052h);
-            if (this.f29052h) {
+            u.b("DMLibManager", "使用包名调起 " + this.f28981h);
+            if (this.f28981h) {
                 u.b("DMLibManager", "使用包名调起， 开始上报 lp_open_dpl packageName " + str);
-                com.bytedance.sdk.openadsdk.c.d.a(m(), this.f29047c, this.f29048d, "lp_open_dpl", str);
+                com.bytedance.sdk.openadsdk.c.d.a(m(), this.f28976c, this.f28977d, "lp_open_dpl", str);
             }
             try {
                 if (ak.c(context, str)) {
@@ -946,27 +946,27 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
                         n();
                         b2.putExtra("START_ONLY_FOR_ANDROID", true);
                         context.startActivity(b2);
-                        if (this.f29052h) {
+                        if (this.f28981h) {
                             u.b("DMLibManager", "使用包名调起，开始调起，上报 lp_openurl ");
-                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29047c, this.f29048d, "lp_openurl");
+                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f28976c, this.f28977d, "lp_openurl");
                         }
-                        if (this.f29052h) {
-                            k.a().a(this.f29047c, this.f29048d, true);
+                        if (this.f28981h) {
+                            k.a().a(this.f28976c, this.f28977d, true);
                         }
                         return true;
                     } catch (Exception unused) {
-                        if (this.f29047c.ac() != null) {
-                            z.a(m(), this.f29047c.ac(), this.f29047c, ak.a(this.f29048d), this.f29048d, true, null);
+                        if (this.f28976c.ac() != null) {
+                            z.a(m(), this.f28976c.ac(), this.f28976c, ak.a(this.f28977d), this.f28977d, true, null);
                         }
-                        if (this.f29052h) {
+                        if (this.f28981h) {
                             u.b("DMLibManager", "使用包名调起，开始调起，调起异常，上报 lp_openurl_failed ");
-                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29047c, this.f29048d, "lp_openurl_failed");
+                            com.bytedance.sdk.openadsdk.c.d.b(m(), this.f28976c, this.f28977d, "lp_openurl_failed");
                         }
                         return true;
                     }
-                } else if (this.f29052h) {
+                } else if (this.f28981h) {
                     u.b("DMLibManager", "使用包名调起，该app未安装 ，上报 lp_openurl_failed ");
-                    com.bytedance.sdk.openadsdk.c.d.b(m(), this.f29047c, this.f29048d, "lp_openurl_failed");
+                    com.bytedance.sdk.openadsdk.c.d.b(m(), this.f28976c, this.f28977d, "lp_openurl_failed");
                 }
             } catch (Throwable unused2) {
             }
@@ -999,12 +999,12 @@ public class d implements com.bytedance.sdk.openadsdk.downloadnew.core.a, am.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
-    public void a(int i2, a.InterfaceC0302a interfaceC0302a) {
+    public void a(int i2, a.InterfaceC0303a interfaceC0303a) {
         if (this.t == null) {
             this.t = new HashSet<>();
         }
         this.t.add(Integer.valueOf(i2));
-        g.a(i2, interfaceC0302a);
+        g.a(i2, interfaceC0303a);
     }
 
     @Override // com.bytedance.sdk.openadsdk.utils.am.a

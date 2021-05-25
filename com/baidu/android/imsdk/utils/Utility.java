@@ -16,6 +16,7 @@ import com.baidu.android.imsdk.ChatObjectCache;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.chatmessage.BindStateManager;
+import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.sync.SyncAllMessage;
 import com.baidu.android.imsdk.chatmessage.sync.SyncGroupMessageService;
@@ -29,7 +30,7 @@ import com.baidu.android.imsdk.upload.action.IMTrack;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.down.utils.Utils;
 import com.baidu.webkit.sdk.VideoCloudSetting;
-import d.a.r.a;
+import d.a.s.a;
 import java.io.File;
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -164,18 +165,6 @@ public final class Utility {
         return cipher.doFinal(bArr);
     }
 
-    public static void delChatRecord(Context context, long j, long j2) {
-        Intent creatMethodIntent = creatMethodIntent(context, 57);
-        creatMethodIntent.putExtra("contacter", j2);
-        creatMethodIntent.putExtra("category", j);
-        try {
-            a.e(context).d(context, creatMethodIntent);
-        } catch (Exception e2) {
-            LogUtils.e("Utility", "Exception ", e2);
-            new IMTrack.CrashBuilder(context).exception(Log.getStackTraceString(e2)).build();
-        }
-    }
-
     public static void deleteFolderFile(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             return;
@@ -277,7 +266,12 @@ public final class Utility {
             if (i2 == 19 || i2 == 29) {
                 return 10;
             }
-            return i2 == 25 ? 20 : 3;
+            if (i2 == 25) {
+                return 20;
+            }
+            if (i2 == 0) {
+                return 1;
+            }
         }
         return 3;
     }
@@ -315,7 +309,7 @@ public final class Utility {
             creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, str);
         }
         try {
-            a.e(context).d(context, creatMethodIntent);
+            a.g(context).f(context, creatMethodIntent);
         } catch (Exception e2) {
             ListenerManager.getInstance().removeListener(str);
             LogUtils.e("Utility", "Exception ", e2);
@@ -403,6 +397,17 @@ public final class Utility {
 
     public static int getLoginRole(Context context) {
         return readIntData(context, Constants.KEY_LOGIN_ROLE, 0);
+    }
+
+    public static long getLongByString(String str, long j) {
+        try {
+            if (!TextUtils.isEmpty(str)) {
+                return Long.parseLong(str);
+            }
+        } catch (NumberFormatException unused) {
+            LogUtils.e("Utility", "getLongByString exception");
+        }
+        return j;
     }
 
     public static String getMd5(String str) throws NoSuchAlgorithmException {
@@ -797,7 +802,7 @@ public final class Utility {
     public static void startIMService(Context context) {
         LogUtils.i("Utility", "--- Start IM Service ---");
         try {
-            a.e(context).d(context, new Intent(context, a.class));
+            a.g(context).f(context, new Intent(context, a.class));
         } catch (Exception e2) {
             LogUtils.e("Utility", "Exception ", e2);
         }
@@ -890,6 +895,44 @@ public final class Utility {
         } catch (Exception unused) {
             LogUtils.e("Utility", "transBDUK AES java exception");
             return "";
+        }
+    }
+
+    public static void transformGroupMediaNotify(Context context, int i2, long j, int i3, long j2) {
+        LogUtils.d("Utility", "transformGroupMediaNotify category = " + i2 + ", groupId = " + j + ", type = " + i3 + ", msgid = " + j2);
+        if (AccountManager.getMediaRole(context) && i2 == 1) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("type", i3);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("contacter_type", 2);
+                jSONObject2.put("contacter_bduid", j);
+                jSONObject2.put("msgid", j2);
+                jSONObject.put("content", jSONObject2);
+                ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
+            } catch (JSONException unused) {
+                LogUtils.e("Utility", "transformGroupMediaNotify exception");
+            }
+        }
+    }
+
+    public static void transformMediaNotify(Context context, int i2, long j, long j2, String str, int i3, long j3) {
+        LogUtils.d("Utility", "transformMediaNotify businessType = " + i2 + ", bduid = " + j + ", paid = " + j2 + ", thirdId = " + str + ", type = " + i3 + ", msgid = " + j3);
+        if (AccountManager.getMediaRole(context)) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("type", i3);
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("contacter_type", i2);
+                jSONObject2.put("contacter_bduid", j);
+                jSONObject2.put("contacter_pauid", j2);
+                jSONObject2.put("contacter_third_id", str);
+                jSONObject2.put("msgid", j3);
+                jSONObject.put("content", jSONObject2);
+                ChatMsgManagerImpl.getInstance(context).handleMediaNotifyMessage(jSONObject);
+            } catch (JSONException unused) {
+                LogUtils.e("Utility", "transformMediaNotify exception");
+            }
         }
     }
 

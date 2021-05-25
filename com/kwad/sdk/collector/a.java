@@ -12,18 +12,18 @@ import java.util.Set;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public AppRunningInfo f31922a;
+    public AppRunningInfo f31851a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Set<String> f31923b;
+    public Set<String> f31852b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppStatusRules.Strategy f31924c;
+    public AppStatusRules.Strategy f31853c;
 
     public a(AppRunningInfo appRunningInfo, Set<String> set, AppStatusRules.Strategy strategy) {
-        this.f31922a = appRunningInfo;
-        this.f31923b = set;
-        this.f31924c = strategy;
+        this.f31851a = appRunningInfo;
+        this.f31852b = set;
+        this.f31853c = strategy;
     }
 
     public static List<a> a(@NonNull AppStatusRules.Strategy strategy, @NonNull Map<String, InstalledAppInfoManager.AppPackageInfo> map) {
@@ -41,15 +41,15 @@ public class a {
     }
 
     public AppRunningInfo a() {
-        return this.f31922a;
+        return this.f31851a;
     }
 
     public Set<String> b() {
-        return this.f31923b;
+        return this.f31852b;
     }
 
     public String c() {
-        AppRunningInfo appRunningInfo = this.f31922a;
+        AppRunningInfo appRunningInfo = this.f31851a;
         if (appRunningInfo == null) {
             return null;
         }

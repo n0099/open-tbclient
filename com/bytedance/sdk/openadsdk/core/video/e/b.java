@@ -10,27 +10,27 @@ public class b {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.video.e.b$b  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0296b {
+    public interface InterfaceC0297b {
         void a(Bitmap bitmap);
     }
 
-    public static void a(long j, String str, InterfaceC0296b interfaceC0296b) {
-        new a(interfaceC0296b, j).execute(str);
+    public static void a(long j, String str, InterfaceC0297b interfaceC0297b) {
+        new a(interfaceC0297b, j).execute(str);
     }
 
     /* loaded from: classes6.dex */
     public static class a extends AsyncTask<String, Integer, Bitmap> {
 
         /* renamed from: a  reason: collision with root package name */
-        public InterfaceC0296b f28510a;
+        public InterfaceC0297b f28439a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f28511b;
+        public long f28440b;
 
-        public a(InterfaceC0296b interfaceC0296b, long j) {
-            this.f28511b = 0L;
-            this.f28510a = interfaceC0296b;
-            this.f28511b = j;
+        public a(InterfaceC0297b interfaceC0297b, long j) {
+            this.f28440b = 0L;
+            this.f28439a = interfaceC0297b;
+            this.f28440b = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -46,7 +46,7 @@ public class b {
                 } else {
                     mediaMetadataRetriever.setDataSource(str);
                 }
-                bitmap = mediaMetadataRetriever.getFrameAtTime(this.f28511b * 1000, 3);
+                bitmap = mediaMetadataRetriever.getFrameAtTime(this.f28440b * 1000, 3);
                 mediaMetadataRetriever.release();
                 return bitmap;
             } catch (Throwable th) {
@@ -60,9 +60,9 @@ public class b {
         /* renamed from: a */
         public void onPostExecute(Bitmap bitmap) {
             super.onPostExecute(bitmap);
-            InterfaceC0296b interfaceC0296b = this.f28510a;
-            if (interfaceC0296b != null) {
-                interfaceC0296b.a(bitmap);
+            InterfaceC0297b interfaceC0297b = this.f28439a;
+            if (interfaceC0297b != null) {
+                interfaceC0297b.a(bitmap);
             }
         }
     }

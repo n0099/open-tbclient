@@ -44,19 +44,19 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
             hashMap.put("supportGuestAccount", "1");
             String addExtras = ParamsUtil.addExtras(urlBind, hashMap);
             FacebookSSOLoginActivity facebookSSOLoginActivity = FacebookSSOLoginActivity.this;
-            facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(d.a.y.a.j.a.sapi_sdk_facebook_logging));
+            facebookSSOLoginActivity.a(addExtras, facebookSSOLoginActivity.getString(d.a.a0.a.j.a.sapi_sdk_facebook_logging));
         }
 
         public void onCancel() {
             Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login cancel");
             FacebookSSOLoginActivity facebookSSOLoginActivity = FacebookSSOLoginActivity.this;
-            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9828g);
+            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9728g);
         }
 
         public void onError(FacebookException facebookException) {
             Log.d(FacebookSSOLoginActivity.p, "facebook LoginManager login error");
             FacebookSSOLoginActivity facebookSSOLoginActivity = FacebookSSOLoginActivity.this;
-            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9828g);
+            facebookSSOLoginActivity.a(((BaseSSOLoginActivity) facebookSSOLoginActivity).f9728g);
         }
     }
 
@@ -87,7 +87,7 @@ public class FacebookSSOLoginActivity extends BaseSSOLoginActivity {
     @Override // com.baidu.sapi2.activity.social.BaseSSOLoginActivity, com.baidu.sapi2.activity.BaseActivity, com.baidu.sapi2.activity.TitleActivity
     public void setupViews() {
         super.setupViews();
-        setTitleText(d.a.y.a.j.a.sapi_sdk_title_login_facebook);
+        setTitleText(d.a.a0.a.j.a.sapi_sdk_title_login_facebook);
         RelativeLayout relativeLayout = this.rootView;
         if (relativeLayout != null) {
             relativeLayout.setVisibility(4);

@@ -10,11 +10,11 @@ public class UAFilterUtil {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static UAFilterUtil f23998a = new UAFilterUtil();
+        public static UAFilterUtil f23927a = new UAFilterUtil();
     }
 
     public static UAFilterUtil getInstance() {
-        return a.f23998a;
+        return a.f23927a;
     }
 
     public synchronized String getTrueUA(Context context) {

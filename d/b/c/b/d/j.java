@@ -13,29 +13,29 @@ import java.util.concurrent.BlockingQueue;
 public class j extends Thread {
 
     /* renamed from: e  reason: collision with root package name */
-    public final BlockingQueue<Request<?>> f65744e;
+    public final BlockingQueue<Request<?>> f65787e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final d.b.c.b.f.c f65745f;
+    public final d.b.c.b.f.c f65788f;
 
     /* renamed from: g  reason: collision with root package name */
-    public final d.b.c.b.f.b f65746g;
+    public final d.b.c.b.f.b f65789g;
 
     /* renamed from: h  reason: collision with root package name */
-    public final d.b.c.b.f.d f65747h;
+    public final d.b.c.b.f.d f65790h;
 
     /* renamed from: i  reason: collision with root package name */
-    public volatile boolean f65748i = false;
+    public volatile boolean f65791i = false;
 
     public j(BlockingQueue<Request<?>> blockingQueue, d.b.c.b.f.c cVar, d.b.c.b.f.b bVar, d.b.c.b.f.d dVar) {
-        this.f65744e = blockingQueue;
-        this.f65745f = cVar;
-        this.f65746g = bVar;
-        this.f65747h = dVar;
+        this.f65787e = blockingQueue;
+        this.f65788f = cVar;
+        this.f65789g = bVar;
+        this.f65790h = dVar;
     }
 
     public void a() {
-        this.f65748i = true;
+        this.f65791i = true;
         interrupt();
     }
 
@@ -58,13 +58,13 @@ public class j extends Thread {
             q.b(e3, "Unhandled exception %s", e3.toString());
             VAdError vAdError = new VAdError(e3, (int) VAdError.NETWORK_DISPATCH_FAIL_CODE);
             vAdError.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-            this.f65747h.c(request, vAdError);
+            this.f65790h.c(request, vAdError);
             request.e();
         } catch (Throwable th) {
             q.b(th, "NetworkDispatcher Unhandled throwable %s", th.toString());
             VAdError vAdError2 = new VAdError(th, (int) VAdError.NETWORK_DISPATCH_FAIL_CODE);
             vAdError2.setNetworkTimeMs(SystemClock.elapsedRealtime() - elapsedRealtime);
-            this.f65747h.c(request, vAdError2);
+            this.f65790h.c(request, vAdError2);
             request.e();
         }
         if (request.isCanceled()) {
@@ -73,32 +73,32 @@ public class j extends Thread {
             return;
         }
         e(request);
-        k a2 = this.f65745f.a(request);
-        request.setNetDuration(a2.f65754f);
+        k a2 = this.f65788f.a(request);
+        request.setNetDuration(a2.f65797f);
         request.addMarker("network-http-complete");
-        if (a2.f65753e && request.hasHadResponseDelivered()) {
+        if (a2.f65796e && request.hasHadResponseDelivered()) {
             request.a("not-modified");
             request.e();
             return;
         }
         o<?> a3 = request.a(a2);
-        request.setNetDuration(a2.f65754f);
+        request.setNetDuration(a2.f65797f);
         request.addMarker("network-parse-complete");
-        if (request.shouldCache() && a3.f65767b != null) {
-            this.f65746g.a(request.getCacheKey(), a3.f65767b);
+        if (request.shouldCache() && a3.f65810b != null) {
+            this.f65789g.a(request.getCacheKey(), a3.f65810b);
             request.addMarker("network-cache-written");
         }
         request.markDelivered();
-        this.f65747h.b(request, a3);
+        this.f65790h.b(request, a3);
         request.b(a3);
     }
 
     public final void c(Request<?> request, VAdError vAdError) {
-        this.f65747h.c(request, request.a(vAdError));
+        this.f65790h.c(request, request.a(vAdError));
     }
 
     public final void d() throws InterruptedException {
-        b(this.f65744e.take());
+        b(this.f65787e.take());
     }
 
     @TargetApi(14)
@@ -115,7 +115,7 @@ public class j extends Thread {
             try {
                 d();
             } catch (InterruptedException unused) {
-                if (this.f65748i) {
+                if (this.f65791i) {
                     Thread.currentThread().interrupt();
                     return;
                 }

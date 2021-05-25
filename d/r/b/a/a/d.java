@@ -11,7 +11,7 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, IRevenue> f67641a = new HashMap();
+    public static Map<String, IRevenue> f67684a = new HashMap();
 
     public static void a(IRLogDelegate iRLogDelegate) {
         d.r.b.a.a.f.d.d.a(iRLogDelegate);
@@ -22,12 +22,12 @@ public class d {
         synchronized (d.class) {
             String e2 = e(i2, i3);
             d.r.b.a.a.f.d.d.f("RevenueSdk", "initRevenue: appId =" + i2 + " userchanel=" + i3 + " mapKey=" + e2);
-            if (f67641a.get(Integer.valueOf(i2)) == null) {
+            if (f67684a.get(Integer.valueOf(i2)) == null) {
                 try {
                     a aVar = new a(i2);
                     aVar.b(bVar);
                     RevenueDataParser.INSTANCE.registerDataReceivers(aVar);
-                    f67641a.put(e2, aVar);
+                    f67684a.put(e2, aVar);
                 } catch (Exception e3) {
                     d.r.b.a.a.f.d.d.d("RevenueSdk", "initRevenue error.", e3);
                     return null;
@@ -35,7 +35,7 @@ public class d {
             } else {
                 c.a(i2, bVar);
             }
-            iRevenue = f67641a.get(e2);
+            iRevenue = f67684a.get(e2);
         }
         return iRevenue;
     }
@@ -44,8 +44,8 @@ public class d {
         ArrayList arrayList;
         synchronized (d.class) {
             arrayList = new ArrayList();
-            for (int i2 = 0; i2 < f67641a.size(); i2++) {
-                arrayList.add(f67641a.get(Integer.valueOf(i2)));
+            for (int i2 = 0; i2 < f67684a.size(); i2++) {
+                arrayList.add(f67684a.get(Integer.valueOf(i2)));
             }
         }
         return arrayList;
@@ -55,7 +55,7 @@ public class d {
         IRevenue iRevenue;
         synchronized (d.class) {
             String e2 = e(i2, i3);
-            iRevenue = f67641a.get(e2);
+            iRevenue = f67684a.get(e2);
             if (iRevenue == null) {
                 d.r.b.a.a.f.d.d.e("RevenueSdk", "getRevenue == null,mapKey = %d", e2);
             }
@@ -71,10 +71,10 @@ public class d {
         synchronized (d.class) {
             String e2 = e(i2, i3);
             d.r.b.a.a.f.d.d.f("RevenueSdk", "removeRevenueConfig: appId =" + i2 + " userchanel=" + i3 + " mapKey=" + e2);
-            if (f67641a.get(Integer.valueOf(i2)) == null) {
+            if (f67684a.get(Integer.valueOf(i2)) == null) {
                 return;
             }
-            f67641a.remove(Integer.valueOf(i2));
+            f67684a.remove(Integer.valueOf(i2));
             c.c(i2);
         }
     }

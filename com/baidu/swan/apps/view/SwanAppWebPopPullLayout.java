@@ -12,26 +12,26 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.ViewCompat;
 import androidx.customview.widget.ViewDragHelper;
-import d.a.i0.a.k;
+import d.a.l0.a.k;
 /* loaded from: classes3.dex */
 public class SwanAppWebPopPullLayout extends FrameLayout {
-    public static final boolean j = k.f43025a;
+    public static final boolean j = k.f43199a;
 
     /* renamed from: e  reason: collision with root package name */
-    public final ViewDragHelper f11459e;
+    public final ViewDragHelper f11360e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f11460f;
+    public final int f11361f;
     @Nullable
 
     /* renamed from: g  reason: collision with root package name */
-    public c f11461g;
+    public c f11362g;
 
     /* renamed from: h  reason: collision with root package name */
-    public b f11462h;
+    public b f11363h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View f11463i;
+    public View f11364i;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -66,29 +66,29 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewCaptured(View view, int i2) {
-            if (SwanAppWebPopPullLayout.this.f11461g != null) {
-                SwanAppWebPopPullLayout.this.f11461g.c();
+            if (SwanAppWebPopPullLayout.this.f11362g != null) {
+                SwanAppWebPopPullLayout.this.f11362g.c();
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewPositionChanged(View view, int i2, int i3, int i4, int i5) {
-            if (SwanAppWebPopPullLayout.this.f11461g != null) {
-                SwanAppWebPopPullLayout.this.f11461g.d(i3 / SwanAppWebPopPullLayout.this.getHeight());
+            if (SwanAppWebPopPullLayout.this.f11362g != null) {
+                SwanAppWebPopPullLayout.this.f11362g.d(i3 / SwanAppWebPopPullLayout.this.getHeight());
             }
         }
 
         @Override // androidx.customview.widget.ViewDragHelper.Callback
         public void onViewReleased(View view, float f2, float f3) {
-            if (SwanAppWebPopPullLayout.this.f11461g == null) {
+            if (SwanAppWebPopPullLayout.this.f11362g == null) {
                 return;
             }
-            if (view.getTop() > ((f3 > ((float) SwanAppWebPopPullLayout.this.f11460f) ? 1 : (f3 == ((float) SwanAppWebPopPullLayout.this.f11460f) ? 0 : -1)) > 0 ? SwanAppWebPopPullLayout.this.getHeight() / 6 : SwanAppWebPopPullLayout.this.getHeight() / 3)) {
-                SwanAppWebPopPullLayout.this.f11461g.b();
+            if (view.getTop() > ((f3 > ((float) SwanAppWebPopPullLayout.this.f11361f) ? 1 : (f3 == ((float) SwanAppWebPopPullLayout.this.f11361f) ? 0 : -1)) > 0 ? SwanAppWebPopPullLayout.this.getHeight() / 6 : SwanAppWebPopPullLayout.this.getHeight() / 3)) {
+                SwanAppWebPopPullLayout.this.f11362g.b();
                 return;
             }
-            SwanAppWebPopPullLayout.this.f11461g.a();
-            SwanAppWebPopPullLayout.this.f11459e.settleCapturedViewAt(0, 0);
+            SwanAppWebPopPullLayout.this.f11362g.a();
+            SwanAppWebPopPullLayout.this.f11360e.settleCapturedViewAt(0, 0);
             SwanAppWebPopPullLayout.this.invalidate();
         }
 
@@ -104,19 +104,19 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.f11459e.continueSettling(true)) {
+        if (this.f11360e.continueSettling(true)) {
             ViewCompat.postInvalidateOnAnimation(this);
         }
     }
 
     public boolean d() {
-        return this.f11463i.getTop() > 0;
+        return this.f11364i.getTop() > 0;
     }
 
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f11463i = getChildAt(0);
+        this.f11364i = getChildAt(0);
     }
 
     @Override // android.view.ViewGroup
@@ -124,14 +124,14 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
         if (j) {
             Log.d("SwanAppWebPopPullLayout", "onInterceptTouchEvent");
         }
-        boolean shouldInterceptTouchEvent = this.f11459e.shouldInterceptTouchEvent(motionEvent);
-        b bVar = this.f11462h;
+        boolean shouldInterceptTouchEvent = this.f11360e.shouldInterceptTouchEvent(motionEvent);
+        b bVar = this.f11363h;
         if (bVar != null) {
             shouldInterceptTouchEvent = bVar.a(motionEvent);
         }
         if (motionEvent.getAction() == 0 || motionEvent.getAction() == 5) {
             try {
-                this.f11459e.processTouchEvent(motionEvent);
+                this.f11360e.processTouchEvent(motionEvent);
             } catch (Exception e2) {
                 if (j) {
                     e2.printStackTrace();
@@ -146,7 +146,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         try {
-            this.f11459e.processTouchEvent(motionEvent);
+            this.f11360e.processTouchEvent(motionEvent);
             return true;
         } catch (Exception e2) {
             if (j) {
@@ -158,11 +158,11 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
     }
 
     public void setCallback(@Nullable c cVar) {
-        this.f11461g = cVar;
+        this.f11362g = cVar;
     }
 
     public void setInterceptCallback(b bVar) {
-        this.f11462h = bVar;
+        this.f11363h = bVar;
     }
 
     public SwanAppWebPopPullLayout(Context context, AttributeSet attributeSet) {
@@ -171,7 +171,7 @@ public class SwanAppWebPopPullLayout extends FrameLayout {
 
     public SwanAppWebPopPullLayout(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f11459e = ViewDragHelper.create(this, 1.0f, new d());
-        this.f11460f = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
+        this.f11360e = ViewDragHelper.create(this, 1.0f, new d());
+        this.f11361f = ViewConfiguration.get(context).getScaledMinimumFlingVelocity();
     }
 }

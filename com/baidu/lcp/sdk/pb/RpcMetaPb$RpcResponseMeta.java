@@ -20,18 +20,18 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public static final int ERROR_TEXT_FIELD_NUMBER = 5;
     public static final int LOG_ID_FIELD_NUMBER = 3;
     public static final int METHOD_ID_FIELD_NUMBER = 2;
-    public static final Parser<RpcMetaPb$RpcResponseMeta> PARSER = new a();
+    public static Parser<RpcMetaPb$RpcResponseMeta> PARSER = new a();
     public static final int SERVICE_ID_FIELD_NUMBER = 1;
     public static final RpcMetaPb$RpcResponseMeta defaultInstance;
     public static final long serialVersionUID = 0;
-    public int bitField0;
-    public int errorCode;
-    public Object errorText;
-    public long logId;
+    public int bitField0_;
+    public int errorCode_;
+    public Object errorText_;
+    public long logId_;
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
-    public long methodId;
-    public long serviceId;
+    public long methodId_;
+    public long serviceId_;
 
     /* loaded from: classes2.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcResponseMeta> {
@@ -47,19 +47,19 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcResponseMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6466e;
+        public int f6366e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6467f;
+        public long f6367f;
 
         /* renamed from: g  reason: collision with root package name */
-        public long f6468g;
+        public long f6368g;
 
         /* renamed from: h  reason: collision with root package name */
-        public long f6469h;
+        public long f6369h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f6470i;
+        public int f6370i;
         public Object j = "";
 
         public b() {
@@ -106,45 +106,45 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         /* renamed from: n */
         public RpcMetaPb$RpcResponseMeta buildPartial() {
             RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = new RpcMetaPb$RpcResponseMeta(this);
-            int i2 = this.f6466e;
+            int i2 = this.f6366e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcResponseMeta.serviceId = this.f6467f;
+            rpcMetaPb$RpcResponseMeta.serviceId_ = this.f6367f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            rpcMetaPb$RpcResponseMeta.methodId = this.f6468g;
+            rpcMetaPb$RpcResponseMeta.methodId_ = this.f6368g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            rpcMetaPb$RpcResponseMeta.logId = this.f6469h;
+            rpcMetaPb$RpcResponseMeta.logId_ = this.f6369h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            rpcMetaPb$RpcResponseMeta.errorCode = this.f6470i;
+            rpcMetaPb$RpcResponseMeta.errorCode_ = this.f6370i;
             if ((i2 & 16) == 16) {
                 i3 |= 16;
             }
-            rpcMetaPb$RpcResponseMeta.errorText = this.j;
-            rpcMetaPb$RpcResponseMeta.bitField0 = i3;
+            rpcMetaPb$RpcResponseMeta.errorText_ = this.j;
+            rpcMetaPb$RpcResponseMeta.bitField0_ = i3;
             return rpcMetaPb$RpcResponseMeta;
         }
 
         public b o() {
             super.clear();
-            this.f6467f = 0L;
-            int i2 = this.f6466e & (-2);
-            this.f6466e = i2;
-            this.f6468g = 0L;
+            this.f6367f = 0L;
+            int i2 = this.f6366e & (-2);
+            this.f6366e = i2;
+            this.f6368g = 0L;
             int i3 = i2 & (-3);
-            this.f6466e = i3;
-            this.f6469h = 0L;
+            this.f6366e = i3;
+            this.f6369h = 0L;
             int i4 = i3 & (-5);
-            this.f6466e = i4;
-            this.f6470i = 0;
+            this.f6366e = i4;
+            this.f6370i = 0;
             int i5 = i4 & (-9);
-            this.f6466e = i5;
+            this.f6366e = i5;
             this.j = "";
-            this.f6466e = i5 & (-17);
+            this.f6366e = i5 & (-17);
             return this;
         }
 
@@ -181,8 +181,8 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                 u(rpcMetaPb$RpcResponseMeta.getErrorCode());
             }
             if (rpcMetaPb$RpcResponseMeta.hasErrorText()) {
-                this.f6466e |= 16;
-                this.j = rpcMetaPb$RpcResponseMeta.errorText;
+                this.f6366e |= 16;
+                this.j = rpcMetaPb$RpcResponseMeta.errorText_;
             }
             return this;
         }
@@ -222,26 +222,26 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         }
 
         public b u(int i2) {
-            this.f6466e |= 8;
-            this.f6470i = i2;
+            this.f6366e |= 8;
+            this.f6370i = i2;
             return this;
         }
 
         public b v(long j) {
-            this.f6466e |= 4;
-            this.f6469h = j;
+            this.f6366e |= 4;
+            this.f6369h = j;
             return this;
         }
 
         public b w(long j) {
-            this.f6466e |= 2;
-            this.f6468g = j;
+            this.f6366e |= 2;
+            this.f6368g = j;
             return this;
         }
 
         public b x(long j) {
-            this.f6466e |= 1;
-            this.f6467f = j;
+            this.f6366e |= 1;
+            this.f6367f = j;
             return this;
         }
 
@@ -277,11 +277,11 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     }
 
     private void initFields() {
-        this.serviceId = 0L;
-        this.methodId = 0L;
-        this.logId = 0L;
-        this.errorCode = 0;
-        this.errorText = "";
+        this.serviceId_ = 0L;
+        this.methodId_ = 0L;
+        this.logId_ = 0L;
+        this.errorCode_ = 0;
+        this.errorText_ = "";
     }
 
     public static b newBuilder() {
@@ -297,38 +297,38 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     }
 
     public int getErrorCode() {
-        return this.errorCode;
+        return this.errorCode_;
     }
 
     public String getErrorText() {
-        Object obj = this.errorText;
+        Object obj = this.errorText_;
         if (obj instanceof String) {
             return (String) obj;
         }
         ByteString byteString = (ByteString) obj;
         String stringUtf8 = byteString.toStringUtf8();
         if (byteString.isValidUtf8()) {
-            this.errorText = stringUtf8;
+            this.errorText_ = stringUtf8;
         }
         return stringUtf8;
     }
 
     public ByteString getErrorTextBytes() {
-        Object obj = this.errorText;
+        Object obj = this.errorText_;
         if (obj instanceof String) {
             ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-            this.errorText = copyFromUtf8;
+            this.errorText_ = copyFromUtf8;
             return copyFromUtf8;
         }
         return (ByteString) obj;
     }
 
     public long getLogId() {
-        return this.logId;
+        return this.logId_;
     }
 
     public long getMethodId() {
-        return this.methodId;
+        return this.methodId_;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -342,17 +342,17 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
         if (i2 != -1) {
             return i2;
         }
-        int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.serviceId) : 0;
-        if ((this.bitField0 & 2) == 2) {
-            computeInt64Size += CodedOutputStream.computeInt64Size(2, this.methodId);
+        int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.serviceId_) : 0;
+        if ((this.bitField0_ & 2) == 2) {
+            computeInt64Size += CodedOutputStream.computeInt64Size(2, this.methodId_);
         }
-        if ((this.bitField0 & 4) == 4) {
-            computeInt64Size += CodedOutputStream.computeInt64Size(3, this.logId);
+        if ((this.bitField0_ & 4) == 4) {
+            computeInt64Size += CodedOutputStream.computeInt64Size(3, this.logId_);
         }
-        if ((this.bitField0 & 8) == 8) {
-            computeInt64Size += CodedOutputStream.computeInt32Size(4, this.errorCode);
+        if ((this.bitField0_ & 8) == 8) {
+            computeInt64Size += CodedOutputStream.computeInt32Size(4, this.errorCode_);
         }
-        if ((this.bitField0 & 16) == 16) {
+        if ((this.bitField0_ & 16) == 16) {
             computeInt64Size += CodedOutputStream.computeBytesSize(5, getErrorTextBytes());
         }
         this.memoizedSerializedSize = computeInt64Size;
@@ -360,27 +360,27 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     }
 
     public long getServiceId() {
-        return this.serviceId;
+        return this.serviceId_;
     }
 
     public boolean hasErrorCode() {
-        return (this.bitField0 & 8) == 8;
+        return (this.bitField0_ & 8) == 8;
     }
 
     public boolean hasErrorText() {
-        return (this.bitField0 & 16) == 16;
+        return (this.bitField0_ & 16) == 16;
     }
 
     public boolean hasLogId() {
-        return (this.bitField0 & 4) == 4;
+        return (this.bitField0_ & 4) == 4;
     }
 
     public boolean hasMethodId() {
-        return (this.bitField0 & 2) == 2;
+        return (this.bitField0_ & 2) == 2;
     }
 
     public boolean hasServiceId() {
-        return (this.bitField0 & 1) == 1;
+        return (this.bitField0_ & 1) == 1;
     }
 
     @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -401,19 +401,19 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
     @Override // com.google.protobuf.MessageLite
     public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
         getSerializedSize();
-        if ((this.bitField0 & 1) == 1) {
-            codedOutputStream.writeInt64(1, this.serviceId);
+        if ((this.bitField0_ & 1) == 1) {
+            codedOutputStream.writeInt64(1, this.serviceId_);
         }
-        if ((this.bitField0 & 2) == 2) {
-            codedOutputStream.writeInt64(2, this.methodId);
+        if ((this.bitField0_ & 2) == 2) {
+            codedOutputStream.writeInt64(2, this.methodId_);
         }
-        if ((this.bitField0 & 4) == 4) {
-            codedOutputStream.writeInt64(3, this.logId);
+        if ((this.bitField0_ & 4) == 4) {
+            codedOutputStream.writeInt64(3, this.logId_);
         }
-        if ((this.bitField0 & 8) == 8) {
-            codedOutputStream.writeInt32(4, this.errorCode);
+        if ((this.bitField0_ & 8) == 8) {
+            codedOutputStream.writeInt32(4, this.errorCode_);
         }
-        if ((this.bitField0 & 16) == 16) {
+        if ((this.bitField0_ & 16) == 16) {
             codedOutputStream.writeBytes(5, getErrorTextBytes());
         }
     }
@@ -497,23 +497,23 @@ public final class RpcMetaPb$RpcResponseMeta extends GeneratedMessageLite implem
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 8) {
-                                this.bitField0 |= 1;
-                                this.serviceId = codedInputStream.readInt64();
+                                this.bitField0_ |= 1;
+                                this.serviceId_ = codedInputStream.readInt64();
                             } else if (readTag == 16) {
-                                this.bitField0 |= 2;
-                                this.methodId = codedInputStream.readInt64();
+                                this.bitField0_ |= 2;
+                                this.methodId_ = codedInputStream.readInt64();
                             } else if (readTag == 24) {
-                                this.bitField0 |= 4;
-                                this.logId = codedInputStream.readInt64();
+                                this.bitField0_ |= 4;
+                                this.logId_ = codedInputStream.readInt64();
                             } else if (readTag == 32) {
-                                this.bitField0 |= 8;
-                                this.errorCode = codedInputStream.readInt32();
+                                this.bitField0_ |= 8;
+                                this.errorCode_ = codedInputStream.readInt32();
                             } else if (readTag != 42) {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 16;
-                                this.errorText = codedInputStream.readBytes();
+                                this.bitField0_ |= 16;
+                                this.errorText_ = codedInputStream.readBytes();
                             }
                         }
                         z = true;

@@ -6,33 +6,33 @@ import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f22525a = Environment.getExternalStorageDirectory().getPath();
+    public static final String f22454a = Environment.getExternalStorageDirectory().getPath();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f22526b = f22525a + "/baidu/ab/crash/";
+    public static final String f22455b = f22454a + "/baidu/ab/crash/";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f22527c = f22525a + "/baidu/ab/sdklog/";
+    public static final String f22456c = f22454a + "/baidu/ab/sdklog/";
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f22528d = EnumC0221a.aV;
+    public static int f22457d = EnumC0222a.aV;
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.ubs.analytics.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static final class EnumC0221a {
+    public static final class EnumC0222a {
         public static final int aV = 1;
         public static final int aW = 2;
         public static final /* synthetic */ int[] aX = {1, 2};
     }
 
     static {
-        r0 = f22525a + "/baidu/ab/sdkupdata/" + b() + "/";
+        r0 = f22454a + "/baidu/ab/sdkupdata/" + b() + "/";
     }
 
     public static boolean a() {
-        return f22528d == EnumC0221a.aV;
+        return f22457d == EnumC0222a.aV;
     }
 
     public static int b() {

@@ -29,13 +29,13 @@ import org.json.JSONObject;
 public final class SensorsDataUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f68190a;
+    public static String f68233a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SimpleDateFormat f68191b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
+    public static final SimpleDateFormat f68234b = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.CHINA);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final List<String> f68192c;
+    public static final List<String> f68235c;
 
     static {
         new HashMap<String, String>() { // from class: dxm.sasdk.util.SensorsDataUtils.1
@@ -52,7 +52,7 @@ public final class SensorsDataUtils {
                 put("46011", "中国电信");
             }
         };
-        f68192c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
+        f68235c = new ArrayList<String>() { // from class: dxm.sasdk.util.SensorsDataUtils.2
             {
                 add("9774d56d682e549c");
                 add("0123456789abcdef");
@@ -84,15 +84,15 @@ public final class SensorsDataUtils {
     }
 
     public static String c(Context context) {
-        if (!TextUtils.isEmpty(f68190a)) {
-            return f68190a;
+        if (!TextUtils.isEmpty(f68233a)) {
+            return f68233a;
         }
         try {
-            f68190a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
+            f68233a = Settings.Secure.getString(context.getContentResolver(), IAdRequestParam.ANDROID_ID);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
-        return f68190a;
+        return f68233a;
     }
 
     public static SharedPreferences d(Context context) {
@@ -156,7 +156,7 @@ public final class SensorsDataUtils {
     }
 
     public static boolean g(String str) {
-        return (TextUtils.isEmpty(str) || f68192c.contains(str.toLowerCase())) ? false : true;
+        return (TextUtils.isEmpty(str) || f68235c.contains(str.toLowerCase())) ? false : true;
     }
 
     public static void h(JSONObject jSONObject, JSONObject jSONObject2) throws JSONException {
@@ -165,8 +165,8 @@ public final class SensorsDataUtils {
             String next = keys.next();
             Object obj = jSONObject.get(next);
             if (obj instanceof Date) {
-                synchronized (f68191b) {
-                    jSONObject2.put(next, f68191b.format((Date) obj));
+                synchronized (f68234b) {
+                    jSONObject2.put(next, f68234b.format((Date) obj));
                 }
             } else {
                 jSONObject2.put(next, obj);
@@ -195,7 +195,7 @@ public final class SensorsDataUtils {
                     case 12:
                     case 14:
                     case 15:
-                        return g.f3963b;
+                        return g.f3966b;
                     case 13:
                         return "4G";
                     default:

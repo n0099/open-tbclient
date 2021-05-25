@@ -17,15 +17,15 @@ import java.util.Iterator;
 public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.bytedance.sdk.openadsdk.core.d.l f28332a;
+    public com.bytedance.sdk.openadsdk.core.d.l f28261a;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f28333h;
+    public boolean f28262h;
 
     public f(Context context, x xVar, com.bytedance.sdk.openadsdk.core.d.l lVar, com.bytedance.sdk.openadsdk.c.j jVar, boolean z) {
         super(context, xVar, lVar.am(), jVar);
-        this.f28332a = lVar;
-        this.f28333h = z;
+        this.f28261a = lVar;
+        this.f28262h = z;
     }
 
     private WebResourceResponse a(WebView webView, String str) {
@@ -35,7 +35,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
         if (a2 != e.a.IMAGE) {
-            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f28332a.af().iterator();
+            Iterator<com.bytedance.sdk.openadsdk.core.d.k> it = this.f28261a.af().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
@@ -61,13 +61,13 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
     public void onPageFinished(WebView webView, String str) {
-        this.f28838f = false;
+        this.f28767f = false;
         super.onPageFinished(webView, str);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.widget.webview.c, android.webkit.WebViewClient
     public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-        this.f28839g = false;
+        this.f28768g = false;
         super.onPageStarted(webView, str, bitmap);
     }
 
@@ -102,7 +102,7 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
             return null;
         }
         try {
-            File a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(com.bytedance.sdk.openadsdk.i.a.a.a().a(str, 0, 0, null), this.f28333h);
+            File a2 = com.bytedance.sdk.openadsdk.i.a.a.a().a(com.bytedance.sdk.openadsdk.i.a.a.a().a(str, 0, 0, null), this.f28262h);
             if (a2 == null || !a2.exists() || a2.length() <= 0) {
                 return null;
             }
@@ -114,15 +114,15 @@ public class f extends com.bytedance.sdk.openadsdk.core.widget.webview.c {
     }
 
     private void a(long j, long j2, String str, int i2) {
-        com.bytedance.sdk.openadsdk.c.j jVar = this.f28837e;
+        com.bytedance.sdk.openadsdk.c.j jVar = this.f28766e;
         if (jVar == null || jVar.a() == null) {
             return;
         }
         e.a a2 = com.bytedance.sdk.openadsdk.core.widget.webview.a.e.a(str);
         if (a2 == e.a.HTML) {
-            this.f28837e.a().a(str, j, j2, i2);
+            this.f28766e.a().a(str, j, j2, i2);
         } else if (a2 == e.a.JS) {
-            this.f28837e.a().b(str, j, j2, i2);
+            this.f28766e.a().b(str, j, j2, i2);
         }
     }
 }

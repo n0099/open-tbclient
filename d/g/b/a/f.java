@@ -15,31 +15,31 @@ import com.google.ar.core.exceptions.FatalException;
 public final class f extends ArCoreApk {
 
     /* renamed from: h */
-    public static final f f66143h = new f();
+    public static final f f66186h = new f();
 
     /* renamed from: a */
-    public Exception f66144a;
+    public Exception f66187a;
 
     /* renamed from: b */
-    public ArCoreApk.Availability f66145b;
+    public ArCoreApk.Availability f66188b;
 
     /* renamed from: c */
-    public boolean f66146c;
+    public boolean f66189c;
 
     /* renamed from: d */
-    public l f66147d;
+    public l f66190d;
 
     /* renamed from: e */
-    public boolean f66148e;
+    public boolean f66191e;
 
     /* renamed from: f */
-    public boolean f66149f;
+    public boolean f66192f;
 
     /* renamed from: g */
-    public int f66150g;
+    public int f66193g;
 
     public static f d() {
-        return f66143h;
+        return f66186h;
     }
 
     public static boolean i() {
@@ -74,8 +74,8 @@ public final class f extends ArCoreApk {
                 return e.c(context);
             }
             synchronized (this) {
-                if ((this.f66145b == null || this.f66145b.isUnknown()) && !this.f66146c) {
-                    this.f66146c = true;
+                if ((this.f66188b == null || this.f66188b.isUnknown()) && !this.f66189c) {
+                    this.f66189c = true;
                     e eVar = new e(this);
                     if (h(context)) {
                         eVar.a(ArCoreApk.Availability.SUPPORTED_INSTALLED);
@@ -87,9 +87,9 @@ public final class f extends ArCoreApk {
                         e(context).e(context, eVar);
                     }
                 }
-                if (this.f66145b != null) {
-                    return this.f66145b;
-                } else if (this.f66146c) {
+                if (this.f66188b != null) {
+                    return this.f66188b;
+                } else if (this.f66189c) {
                     return ArCoreApk.Availability.UNKNOWN_CHECKING;
                 } else {
                     Log.e("ARCore-ArCoreApk", "request not running but result is null?");
@@ -103,34 +103,34 @@ public final class f extends ArCoreApk {
     }
 
     public final synchronized l e(Context context) {
-        if (this.f66147d == null) {
+        if (this.f66190d == null) {
             l lVar = new l((byte) 0);
             lVar.d(context.getApplicationContext());
-            this.f66147d = lVar;
+            this.f66190d = lVar;
         }
-        return this.f66147d;
+        return this.f66190d;
     }
 
     public final synchronized void g() {
-        Exception exc = this.f66144a;
-        if (this.f66147d != null) {
-            this.f66147d.a();
-            this.f66147d = null;
+        Exception exc = this.f66187a;
+        if (this.f66190d != null) {
+            this.f66190d.a();
+            this.f66190d = null;
         }
     }
 
     public final boolean h(Context context) {
         l(context);
-        return k(context) == 0 || k(context) >= this.f66150g;
+        return k(context) == 0 || k(context) >= this.f66193g;
     }
 
     public final boolean j(Context context) {
         l(context);
-        return this.f66149f;
+        return this.f66192f;
     }
 
     public final synchronized void l(Context context) {
-        if (this.f66148e) {
+        if (this.f66191e) {
             return;
         }
         PackageManager packageManager = context.getPackageManager();
@@ -138,9 +138,9 @@ public final class f extends ArCoreApk {
         try {
             Bundle bundle = packageManager.getApplicationInfo(packageName, 128).metaData;
             if (bundle.containsKey(XRSessionAnchor.apkinfo)) {
-                this.f66149f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
+                this.f66192f = bundle.getString(XRSessionAnchor.apkinfo).equals("required");
                 if (bundle.containsKey("com.google.ar.core.min_apk_version")) {
-                    this.f66150g = bundle.getInt("com.google.ar.core.min_apk_version");
+                    this.f66193g = bundle.getInt("com.google.ar.core.min_apk_version");
                     try {
                         ActivityInfo[] activityInfoArr = packageManager.getPackageInfo(packageName, 1).activities;
                         String canonicalName = InstallActivity.class.getCanonicalName();
@@ -161,7 +161,7 @@ public final class f extends ArCoreApk {
                             String valueOf = String.valueOf(canonicalName);
                             throw new FatalException(valueOf.length() != 0 ? "Application manifest must contain activity ".concat(valueOf) : new String("Application manifest must contain activity "));
                         } else {
-                            this.f66148e = true;
+                            this.f66191e = true;
                             return;
                         }
                     } catch (PackageManager.NameNotFoundException e2) {

@@ -12,13 +12,13 @@ import com.baidu.tieba.R;
 public class ReplyMeModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public TbPageContext f17677e;
+    public TbPageContext f17587e;
 
     /* renamed from: f  reason: collision with root package name */
-    public b f17678f;
+    public b f17588f;
 
     /* renamed from: g  reason: collision with root package name */
-    public d.a.c.c.g.a f17679g;
+    public d.a.c.c.g.a f17589g;
 
     /* loaded from: classes4.dex */
     public class a extends d.a.c.c.g.a {
@@ -45,12 +45,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                ReplyMeModel.this.f17677e.showToast(R.string.neterror);
+                ReplyMeModel.this.f17587e.showToast(R.string.neterror);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                    ReplyMeModel.this.f17677e.showToast(responsedMessage.getErrorString());
+                    ReplyMeModel.this.f17587e.showToast(responsedMessage.getErrorString());
                 } else {
-                    ReplyMeModel.this.f17677e.showToast(R.string.neterror);
+                    ReplyMeModel.this.f17587e.showToast(R.string.neterror);
                 }
             } else {
                 if (z) {
@@ -75,16 +75,16 @@ public class ReplyMeModel extends BdBaseModel {
                         long j4 = repostId;
                         String str = forumName;
                         if (postState != 1) {
-                            if (ReplyMeModel.this.f17678f != null) {
-                                ReplyMeModel.this.f17678f.a(j2, j3, j4, str, j);
+                            if (ReplyMeModel.this.f17588f != null) {
+                                ReplyMeModel.this.f17588f.a(j2, j3, j4, str, j);
                                 return;
                             }
                             return;
                         } else if (postState == 0) {
-                            ReplyMeModel.this.f17677e.showToast(R.string.thread_delete_tip);
+                            ReplyMeModel.this.f17587e.showToast(R.string.thread_delete_tip);
                             return;
                         } else if (postState == -1) {
-                            ReplyMeModel.this.f17677e.showToast(R.string.thread_shield_tip);
+                            ReplyMeModel.this.f17587e.showToast(R.string.thread_shield_tip);
                             return;
                         } else {
                             return;
@@ -109,13 +109,13 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     static {
-        d.a.k0.d3.d0.a.f(303010, CheckPostResponseMessage.class, false);
-        d.a.k0.d3.d0.a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        d.a.n0.e3.d0.a.f(303010, CheckPostResponseMessage.class, false);
+        d.a.n0.e3.d0.a.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     public ReplyMeModel(TbPageContext tbPageContext) {
         super(tbPageContext);
-        this.f17677e = tbPageContext;
+        this.f17587e = tbPageContext;
         u();
     }
 
@@ -130,18 +130,18 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void onDestroy() {
-        if (this.f17679g != null) {
-            MessageManager.getInstance().unRegisterListener(this.f17679g);
+        if (this.f17589g != null) {
+            MessageManager.getInstance().unRegisterListener(this.f17589g);
         }
     }
 
     public void u() {
         a aVar = new a(CmdConfigHttp.CMD_CHECK_POST, 303010);
-        this.f17679g = aVar;
-        aVar.setTag(this.f17677e.getUniqueId());
-        this.f17679g.getHttpMessageListener().setSelfListener(true);
-        this.f17679g.getSocketMessageListener().setSelfListener(true);
-        this.f17677e.registerListener(this.f17679g);
+        this.f17589g = aVar;
+        aVar.setTag(this.f17587e.getUniqueId());
+        this.f17589g.getHttpMessageListener().setSelfListener(true);
+        this.f17589g.getSocketMessageListener().setSelfListener(true);
+        this.f17587e.registerListener(this.f17589g);
     }
 
     public void v(long j, int i2, String str, String str2, BaijiahaoData baijiahaoData) {
@@ -150,7 +150,7 @@ public class ReplyMeModel extends BdBaseModel {
         checkPostRequestMessage.setPostType(i2);
         checkPostRequestMessage.setForumName(str);
         checkPostRequestMessage.setTid(d.a.c.e.m.b.f(str2, 0L));
-        checkPostRequestMessage.setTag(this.f17677e.getUniqueId());
+        checkPostRequestMessage.setTag(this.f17587e.getUniqueId());
         if (baijiahaoData != null) {
             checkPostRequestMessage.ori_ugc_type = baijiahaoData.oriUgcType;
             checkPostRequestMessage.ori_ugc_tid = baijiahaoData.oriUgcTid;
@@ -161,6 +161,6 @@ public class ReplyMeModel extends BdBaseModel {
     }
 
     public void w(b bVar) {
-        this.f17678f = bVar;
+        this.f17588f = bVar;
     }
 }

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.k0.s2.c0.e;
+import d.a.n0.t2.c0.e;
 /* loaded from: classes3.dex */
 public class DownloadReceiver extends BroadcastReceiver {
     public static final String ACTION_CANCEL_DOWNLOAD = "action_cancel_download";

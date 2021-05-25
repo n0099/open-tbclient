@@ -12,54 +12,54 @@ public class MyLocationData {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        public double f7058a;
+        public double f6958a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f7059b;
+        public double f6959b;
 
         /* renamed from: c  reason: collision with root package name */
-        public float f7060c;
+        public float f6960c;
 
         /* renamed from: d  reason: collision with root package name */
-        public float f7061d;
+        public float f6961d;
 
         /* renamed from: e  reason: collision with root package name */
-        public float f7062e;
+        public float f6962e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f7063f;
+        public int f6963f;
 
         public Builder accuracy(float f2) {
-            this.f7062e = f2;
+            this.f6962e = f2;
             return this;
         }
 
         public MyLocationData build() {
-            return new MyLocationData(this.f7058a, this.f7059b, this.f7060c, this.f7061d, this.f7062e, this.f7063f);
+            return new MyLocationData(this.f6958a, this.f6959b, this.f6960c, this.f6961d, this.f6962e, this.f6963f);
         }
 
         public Builder direction(float f2) {
-            this.f7061d = f2;
+            this.f6961d = f2;
             return this;
         }
 
         public Builder latitude(double d2) {
-            this.f7058a = d2;
+            this.f6958a = d2;
             return this;
         }
 
         public Builder longitude(double d2) {
-            this.f7059b = d2;
+            this.f6959b = d2;
             return this;
         }
 
         public Builder satellitesNum(int i2) {
-            this.f7063f = i2;
+            this.f6963f = i2;
             return this;
         }
 
         public Builder speed(float f2) {
-            this.f7060c = f2;
+            this.f6960c = f2;
             return this;
         }
     }

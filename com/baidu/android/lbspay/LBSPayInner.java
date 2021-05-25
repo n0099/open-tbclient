@@ -60,7 +60,7 @@ public class LBSPayInner {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static LBSPayInner f2591a = new LBSPayInner();
+        public static LBSPayInner f2594a = new LBSPayInner();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -74,7 +74,7 @@ public class LBSPayInner {
     }
 
     public static LBSPayInner getInstance() {
-        return a.f2591a;
+        return a.f2594a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */

@@ -24,21 +24,21 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    public HashMap<String, List<String>> f34253a;
+    public HashMap<String, List<String>> f34182a;
 
     public b() {
     }
 
     public b(Parcel parcel) {
-        this.f34253a = parcel.readHashMap(String.class.getClassLoader());
+        this.f34182a = parcel.readHashMap(String.class.getClassLoader());
     }
 
     public HashMap<String, List<String>> a() {
-        return this.f34253a;
+        return this.f34182a;
     }
 
     public void a(String str) {
-        HashMap<String, List<String>> hashMap = this.f34253a;
+        HashMap<String, List<String>> hashMap = this.f34182a;
         if (hashMap == null) {
             return;
         }
@@ -55,13 +55,13 @@ public class b implements Parcelable {
         if (str2 == null) {
             throw new NullPointerException("value == null");
         }
-        if (this.f34253a == null) {
-            this.f34253a = new HashMap<>();
+        if (this.f34182a == null) {
+            this.f34182a = new HashMap<>();
         }
-        List<String> list = this.f34253a.get(str);
+        List<String> list = this.f34182a.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.f34253a.put(str, list);
+            this.f34182a.put(str, list);
         }
         if (list.contains(str2)) {
             return;
@@ -75,11 +75,11 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return this.f34253a.toString();
+        return this.f34182a.toString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeMap(this.f34253a);
+        parcel.writeMap(this.f34182a);
     }
 }

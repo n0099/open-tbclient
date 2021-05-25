@@ -9,34 +9,34 @@ import android.view.SurfaceView;
 public class b extends SurfaceView implements SurfaceHolder.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    public a f9171a;
+    public a f9071a;
 
     /* renamed from: b  reason: collision with root package name */
-    public SurfaceHolder f9172b;
+    public SurfaceHolder f9072b;
 
     public b(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         SurfaceHolder holder = getHolder();
-        this.f9172b = holder;
+        this.f9072b = holder;
         holder.setFormat(-2);
-        this.f9172b.setType(3);
-        this.f9172b.addCallback(this);
+        this.f9072b.setType(3);
+        this.f9072b.addCallback(this);
     }
 
     public void a() {
         if (getContext() instanceof Activity) {
-            this.f9171a.a((Activity) getContext(), this.f9172b);
+            this.f9071a.a((Activity) getContext(), this.f9072b);
         }
     }
 
     public void setCameraInterface(a aVar) {
-        this.f9171a = aVar;
+        this.f9071a = aVar;
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
         if (getContext() instanceof Activity) {
-            this.f9171a.a((Activity) getContext(), this.f9172b);
+            this.f9071a.a((Activity) getContext(), this.f9072b);
         }
     }
 
@@ -46,6 +46,6 @@ public class b extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        this.f9171a.a();
+        this.f9071a.a();
     }
 }

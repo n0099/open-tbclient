@@ -2,7 +2,7 @@ package com.baidu.tieba.pushdialog.data;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.message.NetMessage;
-import d.a.j0.z0.w;
+import d.a.m0.z0.w;
 import tbclient.GetLockWindowTid.DataReq;
 import tbclient.GetLockWindowTid.GetLockWindowTidReqIdl;
 /* loaded from: classes5.dex */

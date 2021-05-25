@@ -42,11 +42,14 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
     public String mIconUrl;
     public int mIsClicked;
     public String mLastMsg;
+    public String mLastMsgName;
     public long mLastMsgTime;
+    public long mLastMsgUid;
     public long mLastOpenTime;
     public int mMarkTop;
     public long mMarkTopTime;
     public String mName;
+    public int mNewFansAtMsgSum;
     public long mNewMsgSum;
     public String mNickName;
     public long mPaid;
@@ -91,6 +94,9 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShieldTime = 0L;
         this.mSessionFrom = 0;
         this.mBusinessType = -1;
+        this.mLastMsgUid = 0L;
+        this.mLastMsgName = "";
+        this.mNewFansAtMsgSum = 0;
         this.mContacter = j;
         this.mName = str;
         this.mCategory = i2;
@@ -195,8 +201,16 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         return this.mLastMsg;
     }
 
+    public String getLastMsgName() {
+        return this.mLastMsgName;
+    }
+
     public long getLastMsgTime() {
         return this.mLastMsgTime;
+    }
+
+    public long getLastMsgUid() {
+        return this.mLastMsgUid;
     }
 
     public long getLastOpenTime() {
@@ -213,6 +227,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
 
     public String getName() {
         return this.mName;
+    }
+
+    public int getNewFansAtMsgSum() {
+        return this.mNewFansAtMsgSum;
     }
 
     public long getNewMsgSum() {
@@ -323,8 +341,16 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mLastMsg = str;
     }
 
+    public void setLastMsgName(String str) {
+        this.mLastMsgName = str;
+    }
+
     public void setLastMsgTime(long j) {
         this.mLastMsgTime = j;
+    }
+
+    public void setLastMsgUid(long j) {
+        this.mLastMsgUid = j;
     }
 
     public void setLastOpenTime(long j) {
@@ -341,6 +367,10 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
 
     public void setName(String str) {
         this.mName = str;
+    }
+
+    public void setNewFansAtMsgSum(int i2) {
+        this.mNewFansAtMsgSum = i2;
     }
 
     public void setNewMsgSum(long j) {
@@ -457,6 +487,15 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         sb.append(" mNickName=");
         sb.append(this.mNickName);
         sb.append(" ,");
+        sb.append(" mLastMsgUid=");
+        sb.append(this.mLastMsgUid);
+        sb.append(" ,");
+        sb.append(" mLastMsgName=");
+        sb.append(this.mLastMsgName);
+        sb.append(" ,");
+        sb.append(" mNewFansAtMsgSum=");
+        sb.append(this.mNewFansAtMsgSum);
+        sb.append(" ,");
         sb.append(" mSessionFrom=");
         sb.append(this.mSessionFrom);
         sb.append("]");
@@ -496,6 +535,9 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         parcel.writeInt(this.mShield);
         parcel.writeLong(this.mShieldTime);
         parcel.writeInt(this.mSessionFrom);
+        parcel.writeLong(this.mLastMsgUid);
+        parcel.writeString(this.mLastMsgName);
+        parcel.writeInt(this.mNewFansAtMsgSum);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -536,6 +578,9 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShieldTime = 0L;
         this.mSessionFrom = 0;
         this.mBusinessType = -1;
+        this.mLastMsgUid = 0L;
+        this.mLastMsgName = "";
+        this.mNewFansAtMsgSum = 0;
     }
 
     public ChatSession(Parcel parcel) {
@@ -570,6 +615,9 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShieldTime = 0L;
         this.mSessionFrom = 0;
         this.mBusinessType = -1;
+        this.mLastMsgUid = 0L;
+        this.mLastMsgName = "";
+        this.mNewFansAtMsgSum = 0;
         this.mCategory = parcel.readInt();
         this.mContacter = parcel.readLong();
         this.mContacterId = parcel.readLong();
@@ -601,5 +649,8 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
         this.mShield = parcel.readInt();
         this.mShieldTime = parcel.readLong();
         this.mSessionFrom = parcel.readInt();
+        this.mLastMsgUid = parcel.readLong();
+        this.mLastMsgName = parcel.readString();
+        this.mNewFansAtMsgSum = parcel.readInt();
     }
 }

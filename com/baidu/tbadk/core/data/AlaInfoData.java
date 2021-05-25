@@ -8,7 +8,7 @@ import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.webkit.internal.ETAG;
 import d.a.c.e.p.k;
-import d.a.j0.r.q.f;
+import d.a.m0.r.q.f;
 import java.io.Serializable;
 import org.json.JSONArray;
 import org.json.JSONObject;

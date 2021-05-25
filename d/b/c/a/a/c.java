@@ -8,26 +8,26 @@ import java.nio.ByteBuffer;
 import java.nio.channels.ByteChannel;
 import java.nio.charset.Charset;
 import kotlin.text.Typography;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class c implements d, e, Cloneable, ByteChannel {
 
     /* renamed from: g  reason: collision with root package name */
-    public static final byte[] f65117g = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
+    public static final byte[] f65160g = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
 
     /* renamed from: e  reason: collision with root package name */
-    public n f65118e;
+    public n f65161e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f65119f;
+    public long f65162f;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends InputStream {
         public a() {
         }
 
         @Override // java.io.InputStream
         public int available() {
-            return (int) Math.min(c.this.f65119f, 2147483647L);
+            return (int) Math.min(c.this.f65162f, 2147483647L);
         }
 
         @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -37,7 +37,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
         @Override // java.io.InputStream
         public int read() {
             c cVar = c.this;
-            if (cVar.f65119f > 0) {
+            if (cVar.f65162f > 0) {
                 return cVar.h() & 255;
             }
             return -1;
@@ -59,8 +59,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public c B(int i2) {
         n D = D(4);
-        byte[] bArr = D.f65145a;
-        int i3 = D.f65147c;
+        byte[] bArr = D.f65188a;
+        int i3 = D.f65190c;
         int i4 = i3 + 1;
         bArr[i3] = (byte) ((i2 >>> 24) & 255);
         int i5 = i4 + 1;
@@ -68,27 +68,27 @@ public final class c implements d, e, Cloneable, ByteChannel {
         int i6 = i5 + 1;
         bArr[i5] = (byte) ((i2 >>> 8) & 255);
         bArr[i6] = (byte) (i2 & 255);
-        D.f65147c = i6 + 1;
-        this.f65119f += 4;
+        D.f65190c = i6 + 1;
+        this.f65162f += 4;
         return this;
     }
 
     public String C(long j) throws EOFException {
-        return s(j, s.f65158a);
+        return s(j, s.f65201a);
     }
 
     public n D(int i2) {
         if (i2 >= 1 && i2 <= 8192) {
-            n nVar = this.f65118e;
+            n nVar = this.f65161e;
             if (nVar == null) {
                 n a2 = o.a();
-                this.f65118e = a2;
-                a2.f65151g = a2;
-                a2.f65150f = a2;
+                this.f65161e = a2;
+                a2.f65194g = a2;
+                a2.f65193f = a2;
                 return a2;
             }
-            n nVar2 = nVar.f65151g;
-            if (nVar2.f65147c + i2 > 8192 || !nVar2.f65149e) {
+            n nVar2 = nVar.f65194g;
+            if (nVar2.f65190c + i2 > 8192 || !nVar2.f65192e) {
                 n a3 = o.a();
                 nVar2.c(a3);
                 return a3;
@@ -100,7 +100,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public final com.bytedance.sdk.a.a.f E(int i2) {
         if (i2 == 0) {
-            return com.bytedance.sdk.a.a.f.f26914b;
+            return com.bytedance.sdk.a.a.f.f26843b;
         }
         return new com.bytedance.sdk.a.a.q(this, i2);
     }
@@ -120,13 +120,13 @@ public final class c implements d, e, Cloneable, ByteChannel {
     }
 
     public final long G() {
-        long j = this.f65119f;
+        long j = this.f65162f;
         if (j == 0) {
             return 0L;
         }
-        n nVar = this.f65118e.f65151g;
-        int i2 = nVar.f65147c;
-        return (i2 >= 8192 || !nVar.f65149e) ? j : j - (i2 - nVar.f65146b);
+        n nVar = this.f65161e.f65194g;
+        int i2 = nVar.f65190c;
+        return (i2 >= 8192 || !nVar.f65192e) ? j : j - (i2 - nVar.f65189b);
     }
 
     public c H(long j) {
@@ -136,14 +136,14 @@ public final class c implements d, e, Cloneable, ByteChannel {
         }
         int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j)) / 4) + 1;
         n D = D(numberOfTrailingZeros);
-        byte[] bArr = D.f65145a;
-        int i2 = D.f65147c;
+        byte[] bArr = D.f65188a;
+        int i2 = D.f65190c;
         for (int i3 = (i2 + numberOfTrailingZeros) - 1; i3 >= i2; i3--) {
-            bArr[i3] = f65117g[(int) (15 & j)];
+            bArr[i3] = f65160g[(int) (15 & j)];
             j >>>= 4;
         }
-        D.f65147c += numberOfTrailingZeros;
-        this.f65119f += numberOfTrailingZeros;
+        D.f65190c += numberOfTrailingZeros;
+        this.f65162f += numberOfTrailingZeros;
         return this;
     }
 
@@ -153,7 +153,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public String J() {
         try {
-            return s(this.f65119f, s.f65158a);
+            return s(this.f65162f, s.f65201a);
         } catch (EOFException e2) {
             throw new AssertionError(e2);
         }
@@ -161,7 +161,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public byte[] K() {
         try {
-            return f(this.f65119f);
+            return f(this.f65162f);
         } catch (EOFException e2) {
             throw new AssertionError(e2);
         }
@@ -169,7 +169,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public final void L() {
         try {
-            g(this.f65119f);
+            g(this.f65162f);
         } catch (EOFException e2) {
             throw new AssertionError(e2);
         }
@@ -179,36 +179,36 @@ public final class c implements d, e, Cloneable, ByteChannel {
     /* renamed from: M */
     public c clone() {
         c cVar = new c();
-        if (this.f65119f == 0) {
+        if (this.f65162f == 0) {
             return cVar;
         }
-        n a2 = this.f65118e.a();
-        cVar.f65118e = a2;
-        a2.f65151g = a2;
-        a2.f65150f = a2;
-        n nVar = this.f65118e;
+        n a2 = this.f65161e.a();
+        cVar.f65161e = a2;
+        a2.f65194g = a2;
+        a2.f65193f = a2;
+        n nVar = this.f65161e;
         while (true) {
-            nVar = nVar.f65150f;
-            if (nVar != this.f65118e) {
-                cVar.f65118e.f65151g.c(nVar.a());
+            nVar = nVar.f65193f;
+            if (nVar != this.f65161e) {
+                cVar.f65161e.f65194g.c(nVar.a());
             } else {
-                cVar.f65119f = this.f65119f;
+                cVar.f65162f = this.f65162f;
                 return cVar;
             }
         }
     }
 
     public final com.bytedance.sdk.a.a.f N() {
-        long j = this.f65119f;
+        long j = this.f65162f;
         if (j <= 2147483647L) {
             return E((int) j);
         }
-        throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.f65119f);
+        throw new IllegalArgumentException("size > Integer.MAX_VALUE: " + this.f65162f);
     }
 
     @Override // d.b.c.a.a.e
     public void a(long j) throws EOFException {
-        if (this.f65119f < j) {
+        if (this.f65162f < j) {
             throw new EOFException();
         }
     }
@@ -236,17 +236,17 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public int d(byte[] bArr, int i2, int i3) {
         s.c(bArr.length, i2, i3);
-        n nVar = this.f65118e;
+        n nVar = this.f65161e;
         if (nVar == null) {
             return -1;
         }
-        int min = Math.min(i3, nVar.f65147c - nVar.f65146b);
-        System.arraycopy(nVar.f65145a, nVar.f65146b, bArr, i2, min);
-        int i4 = nVar.f65146b + min;
-        nVar.f65146b = i4;
-        this.f65119f -= min;
-        if (i4 == nVar.f65147c) {
-            this.f65118e = nVar.e();
+        int min = Math.min(i3, nVar.f65190c - nVar.f65189b);
+        System.arraycopy(nVar.f65188a, nVar.f65189b, bArr, i2, min);
+        int i4 = nVar.f65189b + min;
+        nVar.f65189b = i4;
+        this.f65162f -= min;
+        if (i4 == nVar.f65190c) {
+            this.f65161e = nVar.e();
             o.b(nVar);
         }
         return min;
@@ -254,7 +254,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // d.b.c.a.a.e
     public boolean e() {
-        return this.f65119f == 0;
+        return this.f65162f == 0;
     }
 
     public boolean equals(Object obj) {
@@ -263,38 +263,38 @@ public final class c implements d, e, Cloneable, ByteChannel {
         }
         if (obj instanceof c) {
             c cVar = (c) obj;
-            long j = this.f65119f;
-            if (j != cVar.f65119f) {
+            long j = this.f65162f;
+            if (j != cVar.f65162f) {
                 return false;
             }
             long j2 = 0;
             if (j == 0) {
                 return true;
             }
-            n nVar = this.f65118e;
-            n nVar2 = cVar.f65118e;
-            int i2 = nVar.f65146b;
-            int i3 = nVar2.f65146b;
-            while (j2 < this.f65119f) {
-                long min = Math.min(nVar.f65147c - i2, nVar2.f65147c - i3);
+            n nVar = this.f65161e;
+            n nVar2 = cVar.f65161e;
+            int i2 = nVar.f65189b;
+            int i3 = nVar2.f65189b;
+            while (j2 < this.f65162f) {
+                long min = Math.min(nVar.f65190c - i2, nVar2.f65190c - i3);
                 int i4 = 0;
                 while (i4 < min) {
                     int i5 = i2 + 1;
                     int i6 = i3 + 1;
-                    if (nVar.f65145a[i2] != nVar2.f65145a[i3]) {
+                    if (nVar.f65188a[i2] != nVar2.f65188a[i3]) {
                         return false;
                     }
                     i4++;
                     i2 = i5;
                     i3 = i6;
                 }
-                if (i2 == nVar.f65147c) {
-                    nVar = nVar.f65150f;
-                    i2 = nVar.f65146b;
+                if (i2 == nVar.f65190c) {
+                    nVar = nVar.f65193f;
+                    i2 = nVar.f65189b;
                 }
-                if (i3 == nVar2.f65147c) {
-                    nVar2 = nVar2.f65150f;
-                    i3 = nVar2.f65146b;
+                if (i3 == nVar2.f65190c) {
+                    nVar2 = nVar2.f65193f;
+                    i3 = nVar2.f65189b;
                 }
                 j2 += min;
             }
@@ -325,18 +325,18 @@ public final class c implements d, e, Cloneable, ByteChannel {
     }
 
     public int hashCode() {
-        n nVar = this.f65118e;
+        n nVar = this.f65161e;
         if (nVar == null) {
             return 0;
         }
         int i2 = 1;
         do {
-            int i3 = nVar.f65147c;
-            for (int i4 = nVar.f65146b; i4 < i3; i4++) {
-                i2 = (i2 * 31) + nVar.f65145a[i4];
+            int i3 = nVar.f65190c;
+            for (int i4 = nVar.f65189b; i4 < i3; i4++) {
+                i2 = (i2 * 31) + nVar.f65188a[i4];
             }
-            nVar = nVar.f65150f;
-        } while (nVar != this.f65118e);
+            nVar = nVar.f65193f;
+        } while (nVar != this.f65161e);
         return i2;
     }
 
@@ -353,15 +353,15 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // d.b.c.a.a.e
     public int j() {
-        long j = this.f65119f;
+        long j = this.f65162f;
         if (j >= 4) {
-            n nVar = this.f65118e;
-            int i2 = nVar.f65146b;
-            int i3 = nVar.f65147c;
+            n nVar = this.f65161e;
+            int i2 = nVar.f65189b;
+            int i3 = nVar.f65190c;
             if (i3 - i2 < 4) {
                 return ((h() & 255) << 24) | ((h() & 255) << 16) | ((h() & 255) << 8) | (h() & 255);
             }
-            byte[] bArr = nVar.f65145a;
+            byte[] bArr = nVar.f65188a;
             int i4 = i2 + 1;
             int i5 = i4 + 1;
             int i6 = ((bArr[i2] & 255) << 24) | ((bArr[i4] & 255) << 16);
@@ -369,16 +369,16 @@ public final class c implements d, e, Cloneable, ByteChannel {
             int i8 = i6 | ((bArr[i5] & 255) << 8);
             int i9 = i7 + 1;
             int i10 = i8 | (bArr[i7] & 255);
-            this.f65119f = j - 4;
+            this.f65162f = j - 4;
             if (i9 == i3) {
-                this.f65118e = nVar.e();
+                this.f65161e = nVar.e();
                 o.b(nVar);
             } else {
-                nVar.f65146b = i9;
+                nVar.f65189b = i9;
             }
             return i10;
         }
-        throw new IllegalStateException("size < 4: " + this.f65119f);
+        throw new IllegalStateException("size < 4: " + this.f65162f);
     }
 
     @Override // d.b.c.a.a.e
@@ -402,15 +402,15 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public long m() {
         int i2;
         int i3;
-        if (this.f65119f != 0) {
+        if (this.f65162f != 0) {
             int i4 = 0;
             long j = 0;
             boolean z = false;
             do {
-                n nVar = this.f65118e;
-                byte[] bArr = nVar.f65145a;
-                int i5 = nVar.f65146b;
-                int i6 = nVar.f65147c;
+                n nVar = this.f65161e;
+                byte[] bArr = nVar.f65188a;
+                int i5 = nVar.f65189b;
+                int i6 = nVar.f65190c;
                 while (i5 < i6) {
                     byte b2 = bArr[i5];
                     if (b2 < 48 || b2 > 57) {
@@ -423,10 +423,10 @@ public final class c implements d, e, Cloneable, ByteChannel {
                         } else {
                             z = true;
                             if (i5 != i6) {
-                                this.f65118e = nVar.e();
+                                this.f65161e = nVar.e();
                                 o.b(nVar);
                             } else {
-                                nVar.f65146b = i5;
+                                nVar.f65189b = i5;
                             }
                             if (!z) {
                                 break;
@@ -450,8 +450,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 }
                 if (!z) {
                 }
-            } while (this.f65118e != null);
-            this.f65119f -= i4;
+            } while (this.f65161e != null);
+            this.f65162f -= i4;
             return j;
         }
         throw new IllegalStateException("size == 0");
@@ -459,36 +459,36 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public final c n(c cVar, long j, long j2) {
         if (cVar != null) {
-            s.c(this.f65119f, j, j2);
+            s.c(this.f65162f, j, j2);
             if (j2 == 0) {
                 return this;
             }
-            cVar.f65119f += j2;
-            n nVar = this.f65118e;
+            cVar.f65162f += j2;
+            n nVar = this.f65161e;
             while (true) {
-                int i2 = nVar.f65147c;
-                int i3 = nVar.f65146b;
+                int i2 = nVar.f65190c;
+                int i3 = nVar.f65189b;
                 if (j < i2 - i3) {
                     break;
                 }
                 j -= i2 - i3;
-                nVar = nVar.f65150f;
+                nVar = nVar.f65193f;
             }
             while (j2 > 0) {
                 n a2 = nVar.a();
-                int i4 = (int) (a2.f65146b + j);
-                a2.f65146b = i4;
-                a2.f65147c = Math.min(i4 + ((int) j2), a2.f65147c);
-                n nVar2 = cVar.f65118e;
+                int i4 = (int) (a2.f65189b + j);
+                a2.f65189b = i4;
+                a2.f65190c = Math.min(i4 + ((int) j2), a2.f65190c);
+                n nVar2 = cVar.f65161e;
                 if (nVar2 == null) {
-                    a2.f65151g = a2;
-                    a2.f65150f = a2;
-                    cVar.f65118e = a2;
+                    a2.f65194g = a2;
+                    a2.f65193f = a2;
+                    cVar.f65161e = a2;
                 } else {
-                    nVar2.f65151g.c(a2);
+                    nVar2.f65194g.c(a2);
                 }
-                j2 -= a2.f65147c - a2.f65146b;
-                nVar = nVar.f65150f;
+                j2 -= a2.f65190c - a2.f65189b;
+                nVar = nVar.f65193f;
                 j = 0;
             }
             return this;
@@ -521,8 +521,8 @@ public final class c implements d, e, Cloneable, ByteChannel {
                     char charAt = str.charAt(i2);
                     if (charAt < 128) {
                         n D = D(1);
-                        byte[] bArr = D.f65145a;
-                        int i4 = D.f65147c - i2;
+                        byte[] bArr = D.f65188a;
+                        int i4 = D.f65190c - i2;
                         int min = Math.min(i3, 8192 - i4);
                         int i5 = i2 + 1;
                         bArr[i2 + i4] = (byte) charAt;
@@ -534,10 +534,10 @@ public final class c implements d, e, Cloneable, ByteChannel {
                             bArr[i5 + i4] = (byte) charAt2;
                             i5++;
                         }
-                        int i6 = D.f65147c;
+                        int i6 = D.f65190c;
                         int i7 = (i4 + i5) - i6;
-                        D.f65147c = i6 + i7;
-                        this.f65119f += i7;
+                        D.f65190c = i6 + i7;
+                        this.f65162f += i7;
                         i2 = i5;
                     } else {
                         if (charAt < 2048) {
@@ -581,7 +581,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
                 if (i3 > str.length()) {
                     throw new IllegalArgumentException("endIndex > string.length: " + i3 + " > " + str.length());
                 } else if (charset != null) {
-                    if (charset.equals(s.f65158a)) {
+                    if (charset.equals(s.f65201a)) {
                         q(str, i2, i3);
                         return this;
                     }
@@ -600,40 +600,40 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // java.nio.channels.ReadableByteChannel
     public int read(ByteBuffer byteBuffer) throws IOException {
-        n nVar = this.f65118e;
+        n nVar = this.f65161e;
         if (nVar == null) {
             return -1;
         }
-        int min = Math.min(byteBuffer.remaining(), nVar.f65147c - nVar.f65146b);
-        byteBuffer.put(nVar.f65145a, nVar.f65146b, min);
-        int i2 = nVar.f65146b + min;
-        nVar.f65146b = i2;
-        this.f65119f -= min;
-        if (i2 == nVar.f65147c) {
-            this.f65118e = nVar.e();
+        int min = Math.min(byteBuffer.remaining(), nVar.f65190c - nVar.f65189b);
+        byteBuffer.put(nVar.f65188a, nVar.f65189b, min);
+        int i2 = nVar.f65189b + min;
+        nVar.f65189b = i2;
+        this.f65162f -= min;
+        if (i2 == nVar.f65190c) {
+            this.f65161e = nVar.e();
             o.b(nVar);
         }
         return min;
     }
 
     public String s(long j, Charset charset) throws EOFException {
-        s.c(this.f65119f, 0L, j);
+        s.c(this.f65162f, 0L, j);
         if (charset != null) {
             if (j > 2147483647L) {
                 throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j);
             } else if (j == 0) {
                 return "";
             } else {
-                n nVar = this.f65118e;
-                if (nVar.f65146b + j > nVar.f65147c) {
+                n nVar = this.f65161e;
+                if (nVar.f65189b + j > nVar.f65190c) {
                     return new String(f(j), charset);
                 }
-                String str = new String(nVar.f65145a, nVar.f65146b, (int) j, charset);
-                int i2 = (int) (nVar.f65146b + j);
-                nVar.f65146b = i2;
-                this.f65119f -= j;
-                if (i2 == nVar.f65147c) {
-                    this.f65118e = nVar.e();
+                String str = new String(nVar.f65188a, nVar.f65189b, (int) j, charset);
+                int i2 = (int) (nVar.f65189b + j);
+                nVar.f65189b = i2;
+                this.f65162f -= j;
+                if (i2 == nVar.f65190c) {
+                    this.f65161e = nVar.e();
                     o.b(nVar);
                 }
                 return str;
@@ -643,7 +643,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
     }
 
     public boolean t(long j, com.bytedance.sdk.a.a.f fVar, int i2, int i3) {
-        if (j < 0 || i2 < 0 || i3 < 0 || this.f65119f - j < i3 || fVar.g() - i2 < i3) {
+        if (j < 0 || i2 < 0 || i3 < 0 || this.f65162f - j < i3 || fVar.g() - i2 < i3) {
             return false;
         }
         for (int i4 = 0; i4 < i3; i4++) {
@@ -665,16 +665,16 @@ public final class c implements d, e, Cloneable, ByteChannel {
     }
 
     public final long v() {
-        return this.f65119f;
+        return this.f65162f;
     }
 
     public c w(int i2) {
         n D = D(1);
-        byte[] bArr = D.f65145a;
-        int i3 = D.f65147c;
-        D.f65147c = i3 + 1;
+        byte[] bArr = D.f65188a;
+        int i3 = D.f65190c;
+        D.f65190c = i3 + 1;
         bArr[i3] = (byte) i2;
-        this.f65119f++;
+        this.f65162f++;
         return this;
     }
 
@@ -685,12 +685,12 @@ public final class c implements d, e, Cloneable, ByteChannel {
             int i2 = remaining;
             while (i2 > 0) {
                 n D = D(1);
-                int min = Math.min(i2, 8192 - D.f65147c);
-                byteBuffer.get(D.f65145a, D.f65147c, min);
+                int min = Math.min(i2, 8192 - D.f65190c);
+                byteBuffer.get(D.f65188a, D.f65190c, min);
                 i2 -= min;
-                D.f65147c += min;
+                D.f65190c += min;
             }
-            this.f65119f += remaining;
+            this.f65162f += remaining;
             return remaining;
         }
         throw new IllegalArgumentException("source == null");
@@ -711,12 +711,12 @@ public final class c implements d, e, Cloneable, ByteChannel {
             int i4 = i3 + i2;
             while (i2 < i4) {
                 n D = D(1);
-                int min = Math.min(i4 - i2, 8192 - D.f65147c);
-                System.arraycopy(bArr, i2, D.f65145a, D.f65147c, min);
+                int min = Math.min(i4 - i2, 8192 - D.f65190c);
+                System.arraycopy(bArr, i2, D.f65188a, D.f65190c, min);
                 i2 += min;
-                D.f65147c += min;
+                D.f65190c += min;
             }
-            this.f65119f += j;
+            this.f65162f += j;
             return this;
         }
         throw new IllegalArgumentException("source == null");
@@ -724,13 +724,13 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public c z(int i2) {
         n D = D(2);
-        byte[] bArr = D.f65145a;
-        int i3 = D.f65147c;
+        byte[] bArr = D.f65188a;
+        int i3 = D.f65190c;
         int i4 = i3 + 1;
         bArr[i3] = (byte) ((i2 >>> 8) & 255);
         bArr[i4] = (byte) (i2 & 255);
-        D.f65147c = i4 + 1;
-        this.f65119f += 2;
+        D.f65190c = i4 + 1;
+        this.f65162f += 2;
         return this;
     }
 
@@ -752,36 +752,36 @@ public final class c implements d, e, Cloneable, ByteChannel {
             throw new IllegalArgumentException("source == null");
         }
         if (cVar != this) {
-            s.c(cVar.f65119f, 0L, j);
+            s.c(cVar.f65162f, 0L, j);
             while (j > 0) {
-                n nVar = cVar.f65118e;
-                if (j < nVar.f65147c - nVar.f65146b) {
-                    n nVar2 = this.f65118e;
-                    n nVar3 = nVar2 != null ? nVar2.f65151g : null;
-                    if (nVar3 != null && nVar3.f65149e) {
-                        if ((nVar3.f65147c + j) - (nVar3.f65148d ? 0 : nVar3.f65146b) <= 8192) {
-                            cVar.f65118e.d(nVar3, (int) j);
-                            cVar.f65119f -= j;
-                            this.f65119f += j;
+                n nVar = cVar.f65161e;
+                if (j < nVar.f65190c - nVar.f65189b) {
+                    n nVar2 = this.f65161e;
+                    n nVar3 = nVar2 != null ? nVar2.f65194g : null;
+                    if (nVar3 != null && nVar3.f65192e) {
+                        if ((nVar3.f65190c + j) - (nVar3.f65191d ? 0 : nVar3.f65189b) <= 8192) {
+                            cVar.f65161e.d(nVar3, (int) j);
+                            cVar.f65162f -= j;
+                            this.f65162f += j;
                             return;
                         }
                     }
-                    cVar.f65118e = cVar.f65118e.b((int) j);
+                    cVar.f65161e = cVar.f65161e.b((int) j);
                 }
-                n nVar4 = cVar.f65118e;
-                long j2 = nVar4.f65147c - nVar4.f65146b;
-                cVar.f65118e = nVar4.e();
-                n nVar5 = this.f65118e;
+                n nVar4 = cVar.f65161e;
+                long j2 = nVar4.f65190c - nVar4.f65189b;
+                cVar.f65161e = nVar4.e();
+                n nVar5 = this.f65161e;
                 if (nVar5 == null) {
-                    this.f65118e = nVar4;
-                    nVar4.f65151g = nVar4;
-                    nVar4.f65150f = nVar4;
+                    this.f65161e = nVar4;
+                    nVar4.f65194g = nVar4;
+                    nVar4.f65193f = nVar4;
                 } else {
-                    nVar5.f65151g.c(nVar4);
+                    nVar5.f65194g.c(nVar4);
                     nVar4.f();
                 }
-                cVar.f65119f -= j2;
-                this.f65119f += j2;
+                cVar.f65162f -= j2;
+                this.f65162f += j2;
                 j -= j2;
             }
             return;
@@ -815,7 +815,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // d.b.c.a.a.e
     public byte[] f(long j) throws EOFException {
-        s.c(this.f65119f, 0L, j);
+        s.c(this.f65162f, 0L, j);
         if (j <= 2147483647L) {
             byte[] bArr = new byte[(int) j];
             a(bArr);
@@ -828,16 +828,16 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public void g(long j) throws EOFException {
         n nVar;
         while (j > 0) {
-            if (this.f65118e != null) {
-                int min = (int) Math.min(j, nVar.f65147c - nVar.f65146b);
+            if (this.f65161e != null) {
+                int min = (int) Math.min(j, nVar.f65190c - nVar.f65189b);
                 long j2 = min;
-                this.f65119f -= j2;
+                this.f65162f -= j2;
                 j -= j2;
-                n nVar2 = this.f65118e;
-                int i2 = nVar2.f65146b + min;
-                nVar2.f65146b = i2;
-                if (i2 == nVar2.f65147c) {
-                    this.f65118e = nVar2.e();
+                n nVar2 = this.f65161e;
+                int i2 = nVar2.f65189b + min;
+                nVar2.f65189b = i2;
+                if (i2 == nVar2.f65190c) {
+                    this.f65161e = nVar2.e();
                     o.b(nVar2);
                 }
             } else {
@@ -854,28 +854,28 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // d.b.c.a.a.e
     public short i() {
-        long j = this.f65119f;
+        long j = this.f65162f;
         if (j >= 2) {
-            n nVar = this.f65118e;
-            int i2 = nVar.f65146b;
-            int i3 = nVar.f65147c;
+            n nVar = this.f65161e;
+            int i2 = nVar.f65189b;
+            int i3 = nVar.f65190c;
             if (i3 - i2 < 2) {
                 return (short) (((h() & 255) << 8) | (h() & 255));
             }
-            byte[] bArr = nVar.f65145a;
+            byte[] bArr = nVar.f65188a;
             int i4 = i2 + 1;
             int i5 = i4 + 1;
             int i6 = ((bArr[i2] & 255) << 8) | (bArr[i4] & 255);
-            this.f65119f = j - 2;
+            this.f65162f = j - 2;
             if (i5 == i3) {
-                this.f65118e = nVar.e();
+                this.f65161e = nVar.e();
                 o.b(nVar);
             } else {
-                nVar.f65146b = i5;
+                nVar.f65189b = i5;
             }
             return (short) i6;
         }
-        throw new IllegalStateException("size < 2: " + this.f65119f);
+        throw new IllegalStateException("size < 2: " + this.f65162f);
     }
 
     @Override // d.b.c.a.a.e
@@ -904,30 +904,30 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     public final byte u(long j) {
         int i2;
-        s.c(this.f65119f, j, 1L);
-        long j2 = this.f65119f;
+        s.c(this.f65162f, j, 1L);
+        long j2 = this.f65162f;
         if (j2 - j > j) {
-            n nVar = this.f65118e;
+            n nVar = this.f65161e;
             while (true) {
-                int i3 = nVar.f65147c;
-                int i4 = nVar.f65146b;
+                int i3 = nVar.f65190c;
+                int i4 = nVar.f65189b;
                 long j3 = i3 - i4;
                 if (j < j3) {
-                    return nVar.f65145a[i4 + ((int) j)];
+                    return nVar.f65188a[i4 + ((int) j)];
                 }
                 j -= j3;
-                nVar = nVar.f65150f;
+                nVar = nVar.f65193f;
             }
         } else {
             long j4 = j - j2;
-            n nVar2 = this.f65118e;
+            n nVar2 = this.f65161e;
             do {
-                nVar2 = nVar2.f65151g;
-                int i5 = nVar2.f65147c;
-                i2 = nVar2.f65146b;
+                nVar2 = nVar2.f65194g;
+                int i5 = nVar2.f65190c;
+                i2 = nVar2.f65189b;
                 j4 += i5 - i2;
             } while (j4 < 0);
-            return nVar2.f65145a[i2 + ((int) j4)];
+            return nVar2.f65188a[i2 + ((int) j4)];
         }
     }
 
@@ -938,19 +938,19 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // d.b.c.a.a.e
     public byte h() {
-        long j = this.f65119f;
+        long j = this.f65162f;
         if (j != 0) {
-            n nVar = this.f65118e;
-            int i2 = nVar.f65146b;
-            int i3 = nVar.f65147c;
+            n nVar = this.f65161e;
+            int i2 = nVar.f65189b;
+            int i3 = nVar.f65190c;
             int i4 = i2 + 1;
-            byte b2 = nVar.f65145a[i2];
-            this.f65119f = j - 1;
+            byte b2 = nVar.f65188a[i2];
+            this.f65162f = j - 1;
             if (i4 == i3) {
-                this.f65118e = nVar.e();
+                this.f65161e = nVar.e();
                 o.b(nVar);
             } else {
-                nVar.f65146b = i4;
+                nVar.f65189b = i4;
             }
             return b2;
         }
@@ -961,7 +961,7 @@ public final class c implements d, e, Cloneable, ByteChannel {
     public long a(c cVar, long j) {
         if (cVar != null) {
             if (j >= 0) {
-                long j2 = this.f65119f;
+                long j2 = this.f65162f;
                 if (j2 == 0) {
                     return -1L;
                 }
@@ -978,59 +978,59 @@ public final class c implements d, e, Cloneable, ByteChannel {
 
     @Override // d.b.c.a.a.p
     public r a() {
-        return r.f65154d;
+        return r.f65197d;
     }
 
     public long e(byte b2, long j, long j2) {
         n nVar;
         long j3 = 0;
         if (j >= 0 && j2 >= j) {
-            long j4 = this.f65119f;
+            long j4 = this.f65162f;
             if (j2 <= j4) {
                 j4 = j2;
             }
-            if (j == j4 || (nVar = this.f65118e) == null) {
+            if (j == j4 || (nVar = this.f65161e) == null) {
                 return -1L;
             }
-            long j5 = this.f65119f;
+            long j5 = this.f65162f;
             if (j5 - j < j) {
                 while (j5 > j) {
-                    nVar = nVar.f65151g;
-                    j5 -= nVar.f65147c - nVar.f65146b;
+                    nVar = nVar.f65194g;
+                    j5 -= nVar.f65190c - nVar.f65189b;
                 }
             } else {
                 while (true) {
-                    long j6 = (nVar.f65147c - nVar.f65146b) + j3;
+                    long j6 = (nVar.f65190c - nVar.f65189b) + j3;
                     if (j6 >= j) {
                         break;
                     }
-                    nVar = nVar.f65150f;
+                    nVar = nVar.f65193f;
                     j3 = j6;
                 }
                 j5 = j3;
             }
             long j7 = j;
             while (j5 < j4) {
-                byte[] bArr = nVar.f65145a;
-                int min = (int) Math.min(nVar.f65147c, (nVar.f65146b + j4) - j5);
-                for (int i2 = (int) ((nVar.f65146b + j7) - j5); i2 < min; i2++) {
+                byte[] bArr = nVar.f65188a;
+                int min = (int) Math.min(nVar.f65190c, (nVar.f65189b + j4) - j5);
+                for (int i2 = (int) ((nVar.f65189b + j7) - j5); i2 < min; i2++) {
                     if (bArr[i2] == b2) {
-                        return (i2 - nVar.f65146b) + j5;
+                        return (i2 - nVar.f65189b) + j5;
                     }
                 }
-                j5 += nVar.f65147c - nVar.f65146b;
-                nVar = nVar.f65150f;
+                j5 += nVar.f65190c - nVar.f65189b;
+                nVar = nVar.f65193f;
                 j7 = j5;
             }
             return -1L;
         }
-        throw new IllegalArgumentException(String.format("size=%s fromIndex=%s toIndex=%s", Long.valueOf(this.f65119f), Long.valueOf(j), Long.valueOf(j2)));
+        throw new IllegalArgumentException(String.format("size=%s fromIndex=%s toIndex=%s", Long.valueOf(this.f65162f), Long.valueOf(j), Long.valueOf(j2)));
     }
 
     @Override // d.b.c.a.a.e
     public String i(Charset charset) {
         try {
-            return s(this.f65119f, charset);
+            return s(this.f65162f, charset);
         } catch (EOFException e2) {
             throw new AssertionError(e2);
         }

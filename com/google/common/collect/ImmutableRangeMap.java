@@ -49,22 +49,22 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
     public static final class a<K extends Comparable<?>, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<Map.Entry<Range<K>, V>> f31121a = Lists.i();
+        public final List<Map.Entry<Range<K>, V>> f31050a = Lists.i();
 
         public ImmutableRangeMap<K, V> a() {
-            Collections.sort(this.f31121a, Range.rangeLexOrdering().onKeys());
-            ImmutableList.a aVar = new ImmutableList.a(this.f31121a.size());
-            ImmutableList.a aVar2 = new ImmutableList.a(this.f31121a.size());
-            for (int i2 = 0; i2 < this.f31121a.size(); i2++) {
-                Range<K> key = this.f31121a.get(i2).getKey();
+            Collections.sort(this.f31050a, Range.rangeLexOrdering().onKeys());
+            ImmutableList.a aVar = new ImmutableList.a(this.f31050a.size());
+            ImmutableList.a aVar2 = new ImmutableList.a(this.f31050a.size());
+            for (int i2 = 0; i2 < this.f31050a.size(); i2++) {
+                Range<K> key = this.f31050a.get(i2).getKey();
                 if (i2 > 0) {
-                    Range<K> key2 = this.f31121a.get(i2 - 1).getKey();
+                    Range<K> key2 = this.f31050a.get(i2 - 1).getKey();
                     if (key.isConnected(key2) && !key.intersection(key2).isEmpty()) {
                         throw new IllegalArgumentException("Overlapping ranges: range " + key2 + " overlaps with entry " + key);
                     }
                 }
                 aVar.h(key);
-                aVar2.h(this.f31121a.get(i2).getValue());
+                aVar2.h(this.f31050a.get(i2).getValue());
             }
             return new ImmutableRangeMap<>(aVar.j(), aVar2.j());
         }
@@ -73,7 +73,7 @@ public class ImmutableRangeMap<K extends Comparable<?>, V> implements o0<K, V>, 
             n.p(range);
             n.p(v);
             n.k(!range.isEmpty(), "Range must not be empty, but was %s", range);
-            this.f31121a.add(Maps.j(range, v));
+            this.f31050a.add(Maps.j(range, v));
             return this;
         }
     }

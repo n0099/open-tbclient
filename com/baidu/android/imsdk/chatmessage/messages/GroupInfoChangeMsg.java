@@ -24,6 +24,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
         }
     };
     public String groupname;
+    public long mInfoVersion;
     public String member;
     public String noticeDetail;
 
@@ -37,6 +38,10 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
 
     public String getGroupname() {
         return this.groupname;
+    }
+
+    public long getInfoVersion() {
+        return this.mInfoVersion;
     }
 
     public String getNoticeDetail() {
@@ -55,6 +60,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
             this.member = String.valueOf(jSONObject.optLong("operator"));
             this.groupname = jSONObject.optString("group_name");
             this.noticeDetail = jSONObject.optString("notice_detail");
+            this.mInfoVersion = jSONObject.optLong("group_version");
             return true;
         } catch (JSONException e2) {
             LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
@@ -68,6 +74,7 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
         parcel.writeString(this.member);
         parcel.writeString(this.groupname);
         parcel.writeString(this.noticeDetail);
+        parcel.writeLong(this.mInfoVersion);
     }
 
     public GroupInfoChangeMsg(Parcel parcel) {
@@ -75,5 +82,6 @@ public class GroupInfoChangeMsg extends NotifyMsg implements Parcelable, NoProGu
         this.member = parcel.readString();
         this.groupname = parcel.readString();
         this.noticeDetail = parcel.readString();
+        this.mInfoVersion = parcel.readLong();
     }
 }

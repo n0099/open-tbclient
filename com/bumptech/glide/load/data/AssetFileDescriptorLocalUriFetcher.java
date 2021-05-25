@@ -29,7 +29,7 @@ public final class AssetFileDescriptorLocalUriFetcher extends LocalUriFetcher<As
     /* JADX WARN: Can't rename method to resolve collision */
     @Override // com.bumptech.glide.load.data.LocalUriFetcher
     public AssetFileDescriptor loadResource(Uri uri, ContentResolver contentResolver) throws FileNotFoundException {
-        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7772a);
+        AssetFileDescriptor openAssetFileDescriptor = contentResolver.openAssetFileDescriptor(uri, r.f7672a);
         if (openAssetFileDescriptor != null) {
             return openAssetFileDescriptor;
         }

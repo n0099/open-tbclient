@@ -16,7 +16,7 @@ import com.baidu.tbadk.mvc.model.NetModel;
 import com.baidu.tieba.tbadkCore.FRSPageSocketResponsedMessage;
 import com.baidu.tieba.tbadkCore.FrsPageHttpResponseMessage;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
-import d.a.k0.d3.m;
+import d.a.n0.e3.m;
 /* loaded from: classes4.dex */
 public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implements NetModel.k<FrsRequestData, m> {
     public boolean r;
@@ -69,7 +69,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     }
 
     public FrsRequestData Y() {
-        return (FrsRequestData) this.f12974g;
+        return (FrsRequestData) this.f12882g;
     }
 
     public boolean Z() {
@@ -77,7 +77,7 @@ public class FrsNetModel<T> extends NetAutoModel<FrsRequestData, m, T> implement
     }
 
     public void a0(FrsRequestData frsRequestData) {
-        this.f12974g = frsRequestData;
+        this.f12882g = frsRequestData;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel

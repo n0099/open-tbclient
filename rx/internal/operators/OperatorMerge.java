@@ -19,10 +19,10 @@ import rx.internal.util.atomic.SpscExactAtomicArrayQueue;
 public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
 
     /* renamed from: e  reason: collision with root package name */
-    public final boolean f69066e;
+    public final boolean f69109e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f69067f;
+    public final int f69110f;
 
     /* loaded from: classes7.dex */
     public static final class MergeProducer<T> extends AtomicLong implements f {
@@ -56,48 +56,48 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final OperatorMerge<Object> f69068a = new OperatorMerge<>(true, Integer.MAX_VALUE);
+        public static final OperatorMerge<Object> f69111a = new OperatorMerge<>(true, Integer.MAX_VALUE);
     }
 
     /* loaded from: classes7.dex */
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final OperatorMerge<Object> f69069a = new OperatorMerge<>(false, Integer.MAX_VALUE);
+        public static final OperatorMerge<Object> f69112a = new OperatorMerge<>(false, Integer.MAX_VALUE);
     }
 
     /* loaded from: classes7.dex */
     public static final class c<T> extends j<T> {
-        public static final int j = h.o.d.f.f68630g / 4;
+        public static final int j = h.o.d.f.f68673g / 4;
 
         /* renamed from: e  reason: collision with root package name */
-        public final d<T> f69070e;
+        public final d<T> f69113e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final long f69071f;
+        public final long f69114f;
 
         /* renamed from: g  reason: collision with root package name */
-        public volatile boolean f69072g;
+        public volatile boolean f69115g;
 
         /* renamed from: h  reason: collision with root package name */
-        public volatile h.o.d.f f69073h;
+        public volatile h.o.d.f f69116h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f69074i;
+        public int f69117i;
 
         public c(d<T> dVar, long j2) {
-            this.f69070e = dVar;
-            this.f69071f = j2;
+            this.f69113e = dVar;
+            this.f69114f = j2;
         }
 
         public void b(long j2) {
-            int i2 = this.f69074i - ((int) j2);
+            int i2 = this.f69117i - ((int) j2);
             if (i2 > j) {
-                this.f69074i = i2;
+                this.f69117i = i2;
                 return;
             }
-            int i3 = h.o.d.f.f68630g;
-            this.f69074i = i3;
+            int i3 = h.o.d.f.f68673g;
+            this.f69117i = i3;
             int i4 = i3 - i2;
             if (i4 > 0) {
                 request(i4);
@@ -106,26 +106,26 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
 
         @Override // h.e
         public void onCompleted() {
-            this.f69072g = true;
-            this.f69070e.d();
+            this.f69115g = true;
+            this.f69113e.d();
         }
 
         @Override // h.e
         public void onError(Throwable th) {
-            this.f69072g = true;
-            this.f69070e.j().offer(th);
-            this.f69070e.d();
+            this.f69115g = true;
+            this.f69113e.j().offer(th);
+            this.f69113e.d();
         }
 
         @Override // h.e
         public void onNext(T t) {
-            this.f69070e.r(this, t);
+            this.f69113e.r(this, t);
         }
 
         @Override // h.j
         public void onStart() {
-            int i2 = h.o.d.f.f68630g;
-            this.f69074i = i2;
+            int i2 = h.o.d.f.f68673g;
+            this.f69117i = i2;
             request(i2);
         }
     }
@@ -135,19 +135,19 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public static final c<?>[] v = new c[0];
 
         /* renamed from: e  reason: collision with root package name */
-        public final j<? super T> f69075e;
+        public final j<? super T> f69118e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final boolean f69076f;
+        public final boolean f69119f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final int f69077g;
+        public final int f69120g;
 
         /* renamed from: h  reason: collision with root package name */
-        public MergeProducer<T> f69078h;
+        public MergeProducer<T> f69121h;
 
         /* renamed from: i  reason: collision with root package name */
-        public volatile Queue<Object> f69079i;
+        public volatile Queue<Object> f69122i;
         public volatile h.u.b j;
         public volatile ConcurrentLinkedQueue<Throwable> k;
         public volatile boolean l;
@@ -162,9 +162,9 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public int u;
 
         public d(j<? super T> jVar, boolean z, int i2) {
-            this.f69075e = jVar;
-            this.f69076f = z;
-            this.f69077g = i2;
+            this.f69118e = jVar;
+            this.f69119f = z;
+            this.f69120g = i2;
             if (i2 == Integer.MAX_VALUE) {
                 this.t = Integer.MAX_VALUE;
                 request(Long.MAX_VALUE);
@@ -189,11 +189,11 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         }
 
         public boolean c() {
-            if (this.f69075e.isUnsubscribed()) {
+            if (this.f69118e.isUnsubscribed()) {
                 return true;
             }
             ConcurrentLinkedQueue<Throwable> concurrentLinkedQueue = this.k;
-            if (this.f69076f || concurrentLinkedQueue == null || concurrentLinkedQueue.isEmpty()) {
+            if (this.f69119f || concurrentLinkedQueue == null || concurrentLinkedQueue.isEmpty()) {
                 return false;
             }
             try {
@@ -232,10 +232,10 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
             boolean z2;
             int i3;
             try {
-                j<? super T> jVar = this.f69075e;
+                j<? super T> jVar = this.f69118e;
                 while (!c()) {
-                    Queue<Object> queue = this.f69079i;
-                    long j2 = this.f69078h.get();
+                    Queue<Object> queue = this.f69122i;
+                    long j2 = this.f69121h.get();
                     boolean z3 = j2 == Long.MAX_VALUE;
                     if (queue != null) {
                         int i4 = 0;
@@ -263,7 +263,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                                 obj = poll;
                             }
                             if (i5 > 0) {
-                                j = z3 ? Long.MAX_VALUE : this.f69078h.produced(i5);
+                                j = z3 ? Long.MAX_VALUE : this.f69121h.produced(i5);
                             }
                             if (j == 0 || obj == null) {
                                 break;
@@ -276,7 +276,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                         i2 = 0;
                     }
                     boolean z4 = this.l;
-                    Queue<Object> queue2 = this.f69079i;
+                    Queue<Object> queue2 = this.f69122i;
                     c<?>[] cVarArr = this.p;
                     int length = cVarArr.length;
                     if (z4 && ((queue2 == null || queue2.isEmpty()) && length == 0)) {
@@ -291,18 +291,18 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     if (length > 0) {
                         long j3 = this.r;
                         int i6 = this.s;
-                        if (length <= i6 || cVarArr[i6].f69071f != j3) {
+                        if (length <= i6 || cVarArr[i6].f69114f != j3) {
                             if (length <= i6) {
                                 i6 = 0;
                             }
-                            for (int i7 = 0; i7 < length && cVarArr[i6].f69071f != j3; i7++) {
+                            for (int i7 = 0; i7 < length && cVarArr[i6].f69114f != j3; i7++) {
                                 i6++;
                                 if (i6 == length) {
                                     i6 = 0;
                                 }
                             }
                             this.s = i6;
-                            this.r = cVarArr[i6].f69071f;
+                            this.r = cVarArr[i6].f69114f;
                         }
                         z2 = false;
                         for (int i8 = 0; i8 < length; i8++) {
@@ -317,7 +317,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                                     if (c()) {
                                         return;
                                     }
-                                    h.o.d.f fVar = cVar.f69073h;
+                                    h.o.d.f fVar = cVar.f69116h;
                                     if (fVar == null || (obj2 = fVar.i()) == null) {
                                         break;
                                     }
@@ -328,7 +328,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                                     }
                                 }
                                 if (i9 > 0) {
-                                    j = !z3 ? this.f69078h.produced(i9) : Long.MAX_VALUE;
+                                    j = !z3 ? this.f69121h.produced(i9) : Long.MAX_VALUE;
                                     cVar.b(i9);
                                 }
                                 i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
@@ -336,8 +336,8 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                                     break;
                                 }
                             } while (obj2 != null);
-                            boolean z5 = cVar.f69072g;
-                            h.o.d.f fVar2 = cVar.f69073h;
+                            boolean z5 = cVar.f69115g;
+                            h.o.d.f fVar2 = cVar.f69116h;
                             if (z5 && (fVar2 == null || fVar2.e())) {
                                 n(cVar);
                                 if (c()) {
@@ -355,7 +355,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                             }
                         }
                         this.s = i6;
-                        this.r = cVarArr[i6].f69071f;
+                        this.r = cVarArr[i6].f69114f;
                     } else {
                         z2 = false;
                     }
@@ -410,9 +410,9 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
 
         public void g(T t, long j) {
             try {
-                this.f69075e.onNext(t);
+                this.f69118e.onNext(t);
                 if (j != Long.MAX_VALUE) {
-                    this.f69078h.produced(1);
+                    this.f69121h.produced(1);
                 }
                 int i2 = this.u + 1;
                 if (i2 == this.t) {
@@ -436,9 +436,9 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
 
         public void h(c<T> cVar, T t, long j) {
             try {
-                this.f69075e.onNext(t);
+                this.f69118e.onNext(t);
                 if (j != Long.MAX_VALUE) {
-                    this.f69078h.produced(1);
+                    this.f69121h.produced(1);
                 }
                 cVar.b(1L);
                 synchronized (this) {
@@ -515,11 +515,11 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
 
         public void l(T t) {
             Queue<Object> spscExactAtomicArrayQueue;
-            Queue<Object> queue = this.f69079i;
+            Queue<Object> queue = this.f69122i;
             if (queue == null) {
-                int i2 = this.f69077g;
+                int i2 = this.f69120g;
                 if (i2 == Integer.MAX_VALUE) {
-                    queue = new h.o.d.i.f<>(h.o.d.f.f68630g);
+                    queue = new h.o.d.i.f<>(h.o.d.f.f68673g);
                 } else {
                     if (i.a(i2)) {
                         if (f0.b()) {
@@ -532,7 +532,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                     }
                     queue = spscExactAtomicArrayQueue;
                 }
-                this.f69079i = queue;
+                this.f69122i = queue;
             }
             if (queue.offer(NotificationLite.h(t))) {
                 return;
@@ -542,11 +542,11 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         }
 
         public void m(c<T> cVar, T t) {
-            h.o.d.f fVar = cVar.f69073h;
+            h.o.d.f fVar = cVar.f69116h;
             if (fVar == null) {
                 fVar = h.o.d.f.b();
                 cVar.add(fVar);
-                cVar.f69073h = fVar;
+                cVar.f69116h = fVar;
             }
             try {
                 fVar.g(NotificationLite.h(t));
@@ -563,7 +563,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         }
 
         public void n(c<T> cVar) {
-            h.o.d.f fVar = cVar.f69073h;
+            h.o.d.f fVar = cVar.f69116h;
             if (fVar != null) {
                 fVar.j();
             }
@@ -600,9 +600,9 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         public final void o() {
             ArrayList arrayList = new ArrayList(this.k);
             if (arrayList.size() == 1) {
-                this.f69075e.onError((Throwable) arrayList.get(0));
+                this.f69118e.onError((Throwable) arrayList.get(0));
             } else {
-                this.f69075e.onError(new CompositeException(arrayList));
+                this.f69118e.onError(new CompositeException(arrayList));
             }
         }
 
@@ -624,11 +624,11 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         }
 
         public void q(T t) {
-            long j = this.f69078h.get();
+            long j = this.f69121h.get();
             boolean z = false;
             if (j != 0) {
                 synchronized (this) {
-                    j = this.f69078h.get();
+                    j = this.f69121h.get();
                     if (!this.m && j != 0) {
                         this.m = true;
                         z = true;
@@ -636,7 +636,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                 }
             }
             if (z) {
-                Queue<Object> queue = this.f69079i;
+                Queue<Object> queue = this.f69122i;
                 if (queue != null && !queue.isEmpty()) {
                     l(t);
                     f();
@@ -650,11 +650,11 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
         }
 
         public void r(c<T> cVar, T t) {
-            long j = this.f69078h.get();
+            long j = this.f69121h.get();
             boolean z = false;
             if (j != 0) {
                 synchronized (this) {
-                    j = this.f69078h.get();
+                    j = this.f69121h.get();
                     if (!this.m && j != 0) {
                         this.m = true;
                         z = true;
@@ -662,7 +662,7 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
                 }
             }
             if (z) {
-                h.o.d.f fVar = cVar.f69073h;
+                h.o.d.f fVar = cVar.f69116h;
                 if (fVar != null && !fVar.e()) {
                     m(cVar, t);
                     f();
@@ -677,24 +677,24 @@ public final class OperatorMerge<T> implements d.b<T, h.d<? extends T>> {
     }
 
     public OperatorMerge(boolean z, int i2) {
-        this.f69066e = z;
-        this.f69067f = i2;
+        this.f69109e = z;
+        this.f69110f = i2;
     }
 
     public static <T> OperatorMerge<T> b(boolean z) {
         if (z) {
-            return (OperatorMerge<T>) a.f69068a;
+            return (OperatorMerge<T>) a.f69111a;
         }
-        return (OperatorMerge<T>) b.f69069a;
+        return (OperatorMerge<T>) b.f69112a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // h.n.f
     /* renamed from: a */
     public j<h.d<? extends T>> call(j<? super T> jVar) {
-        d dVar = new d(jVar, this.f69066e, this.f69067f);
+        d dVar = new d(jVar, this.f69109e, this.f69110f);
         MergeProducer<T> mergeProducer = new MergeProducer<>(dVar);
-        dVar.f69078h = mergeProducer;
+        dVar.f69121h = mergeProducer;
         jVar.add(dVar);
         jVar.setProducer(mergeProducer);
         return dVar;

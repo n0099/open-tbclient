@@ -22,9 +22,9 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import d.a.c.e.p.l;
-import d.a.k0.d3.n0.c;
-import d.a.k0.e1.f.e;
-import d.a.k0.e1.f.k.a;
+import d.a.n0.e3.n0.c;
+import d.a.n0.f1.f.e;
+import d.a.n0.f1.f.k.a;
 import java.net.URLDecoder;
 /* loaded from: classes4.dex */
 public class MsgPhotoLiveCardVew extends e {
@@ -148,24 +148,24 @@ public class MsgPhotoLiveCardVew extends e {
         if (chatMessage == null) {
             return;
         }
-        a.C1292a a2 = d.a.k0.e1.f.k.a.a(chatMessage.getContent());
+        a.C1310a a2 = d.a.n0.f1.f.k.a.a(chatMessage.getContent());
         if (a2 == null) {
             this.t = 0L;
             return;
         }
-        this.t = a2.f54257f;
-        long j = a2.f54259h;
-        this.v = a2.f54260i;
+        this.t = a2.f54447f;
+        long j = a2.f54449h;
+        this.v = a2.f54450i;
         int i3 = a2.j;
         ViewGroup.LayoutParams layoutParams = this.D.getLayoutParams();
         int i4 = this.v;
         int i5 = -1;
         if (i4 == 1 || i4 == 6) {
             if (this.v == 1) {
-                decode = a2.f54258g;
+                decode = a2.f54448g;
                 i2 = R.string.look_live_thread;
             } else {
-                decode = URLDecoder.decode(a2.f54258g);
+                decode = URLDecoder.decode(a2.f54448g);
                 i2 = R.string.look_god_thread;
                 i5 = 0;
             }
@@ -174,27 +174,27 @@ public class MsgPhotoLiveCardVew extends e {
             this.D.setPadding(this.F, 0, 0, 0);
             this.x.setVisibility(0);
             this.x.setOnClickListener(new b());
-            this.x.setTag(a2.f54253b);
+            this.x.setTag(a2.f54443b);
             this.x.setGodIconMargin(i5);
             this.C.setVisibility(8);
             this.y.setVisibility(0);
-            this.y.setText(a2.f54254c);
-            this.A.setText(a2.f54256e);
+            this.y.setText(a2.f54444c);
+            this.A.setText(a2.f54446e);
             this.y.setTextSize(0, l.g(TbadkCoreApplication.getInst(), R.dimen.fontsize28));
             this.E.setText(i2);
         } else if (i4 == 3) {
-            this.B.setText(a2.f54258g);
+            this.B.setText(a2.f54448g);
             layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.ds80);
             this.D.setPadding(0, 0, 0, 0);
             this.x.setVisibility(8);
             this.C.setVisibility(0);
             this.y.setVisibility(8);
             this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.fans_urge_tips));
-            String str = a2.f54256e;
+            String str = a2.f54446e;
             if (str != null && str.indexOf(String.valueOf(i3)) != -1) {
-                this.A.setText(J(a2.f54256e, i3));
+                this.A.setText(J(a2.f54446e, i3));
             } else {
-                this.A.setText(a2.f54256e);
+                this.A.setText(a2.f54446e);
             }
         } else {
             layoutParams.height = l.g(TbadkCoreApplication.getInst(), R.dimen.ds80);
@@ -202,22 +202,22 @@ public class MsgPhotoLiveCardVew extends e {
             this.x.setVisibility(8);
             this.C.setVisibility(0);
             this.y.setVisibility(8);
-            this.A.setText(a2.f54256e);
+            this.A.setText(a2.f54446e);
             int i6 = this.v;
             if (i6 == 4) {
-                this.B.setText(a2.f54258g);
+                this.B.setText(a2.f54448g);
                 this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.upgrade_to_photo_live_tips));
             } else if (i6 == 5) {
-                this.B.setText(a2.f54258g);
+                this.B.setText(a2.f54448g);
                 this.E.setText(R.string.look_normal_thread);
                 this.C.setText(TbadkCoreApplication.getInst().getResources().getString(R.string.change_to_old_thread_msg_tips));
             }
         }
-        if (!TextUtils.isEmpty(a2.f54252a)) {
-            this.x.V(a2.f54252a, 12, false);
+        if (!TextUtils.isEmpty(a2.f54442a)) {
+            this.x.V(a2.f54442a, 12, false);
         } else {
             this.x.V(null, 12, false);
         }
-        this.z.setText(StringHelper.getFormatTime(a2.f54255d));
+        this.z.setText(StringHelper.getFormatTime(a2.f54445d));
     }
 }

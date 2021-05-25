@@ -29,16 +29,16 @@ public class NetworkStatusReceiver extends BroadcastReceiver {
     public static BlockingQueue<Runnable> f967a = new LinkedBlockingQueue();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f38234a = 1;
+    public static int f38163a = 1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f38235b = 1;
+    public static int f38164b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static int f38236c = 2;
+    public static int f38165c = 2;
 
     /* renamed from: a  reason: collision with other field name */
-    public static ThreadPoolExecutor f968a = new ThreadPoolExecutor(f38234a, f38235b, f38236c, TimeUnit.SECONDS, f967a);
+    public static ThreadPoolExecutor f968a = new ThreadPoolExecutor(f38163a, f38164b, f38165c, TimeUnit.SECONDS, f967a);
 
     /* renamed from: a  reason: collision with other field name */
     public static boolean f969a = false;

@@ -7,10 +7,10 @@ import android.view.View;
 public class a implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ float f9315a;
+    public final /* synthetic */ float f9215a;
 
     public a(float f2) {
-        this.f9315a = f2;
+        this.f9215a = f2;
     }
 
     @Override // android.view.View.OnTouchListener
@@ -23,7 +23,7 @@ public class a implements View.OnTouchListener {
             }
             return false;
         } else if (Build.VERSION.SDK_INT >= 11) {
-            view.setAlpha(this.f9315a);
+            view.setAlpha(this.f9215a);
             return false;
         } else {
             return false;

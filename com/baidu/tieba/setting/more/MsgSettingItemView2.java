@@ -12,7 +12,7 @@ import com.baidu.tieba.R;
 public class MsgSettingItemView2 extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public CheckBox f20533e;
+    public CheckBox f20453e;
 
     public MsgSettingItemView2(Context context) {
         super(context);
@@ -22,11 +22,11 @@ public class MsgSettingItemView2 extends LinearLayout {
     public void a(Context context) {
         setOrientation(1);
         LayoutInflater.from(context).inflate(R.layout.msg_setting_item_view2, (ViewGroup) this, true);
-        this.f20533e = (CheckBox) findViewById(R.id.setting_check_view);
+        this.f20453e = (CheckBox) findViewById(R.id.setting_check_view);
     }
 
     public CheckBox getSwitchView() {
-        return this.f20533e;
+        return this.f20453e;
     }
 
     @Deprecated
@@ -37,7 +37,7 @@ public class MsgSettingItemView2 extends LinearLayout {
         if (StringUtils.isNULL(str)) {
             str = "";
         }
-        this.f20533e.setText(str);
+        this.f20453e.setText(str);
     }
 
     public MsgSettingItemView2(Context context, AttributeSet attributeSet) {
@@ -47,7 +47,7 @@ public class MsgSettingItemView2 extends LinearLayout {
 
     public void setText(int i2) {
         if (i2 != 0) {
-            this.f20533e.setText(i2);
+            this.f20453e.setText(i2);
         }
     }
 }

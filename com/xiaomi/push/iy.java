@@ -3,7 +3,7 @@ package com.xiaomi.push;
 public class iy {
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte f38040a;
+    public final byte f37969a;
 
     /* renamed from: a  reason: collision with other field name */
     public final String f806a;
@@ -17,11 +17,11 @@ public class iy {
 
     public iy(String str, byte b2, short s) {
         this.f806a = str;
-        this.f38040a = b2;
+        this.f37969a = b2;
         this.f807a = s;
     }
 
     public String toString() {
-        return "<TField name:'" + this.f806a + "' type:" + ((int) this.f38040a) + " field-id:" + ((int) this.f807a) + ">";
+        return "<TField name:'" + this.f806a + "' type:" + ((int) this.f37969a) + " field-id:" + ((int) this.f807a) + ">";
     }
 }

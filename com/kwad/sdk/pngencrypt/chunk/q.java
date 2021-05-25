@@ -6,10 +6,10 @@ import java.io.ByteArrayInputStream;
 public class q extends aa {
 
     /* renamed from: h  reason: collision with root package name */
-    public int f33495h;
+    public int f33424h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f33496i;
+    public int f33425i;
     public int j;
     public int k;
     public int l;
@@ -25,12 +25,12 @@ public class q extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f33467a != 13) {
-            throw new PngjException("Bad IDHR len " + dVar.f33467a);
+        if (dVar.f33396a != 13) {
+            throw new PngjException("Bad IDHR len " + dVar.f33396a);
         }
         ByteArrayInputStream b2 = dVar.b();
-        this.f33495h = com.kwad.sdk.pngencrypt.n.b(b2);
-        this.f33496i = com.kwad.sdk.pngencrypt.n.b(b2);
+        this.f33424h = com.kwad.sdk.pngencrypt.n.b(b2);
+        this.f33425i = com.kwad.sdk.pngencrypt.n.b(b2);
         this.j = com.kwad.sdk.pngencrypt.n.a(b2);
         this.k = com.kwad.sdk.pngencrypt.n.a(b2);
         this.l = com.kwad.sdk.pngencrypt.n.a(b2);
@@ -39,14 +39,14 @@ public class q extends aa {
     }
 
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
-        b(this.f33448e.f33527a);
-        c(this.f33448e.f33528b);
-        d(this.f33448e.f33529c);
-        int i2 = this.f33448e.f33531e ? 4 : 0;
-        if (this.f33448e.f33533g) {
+        b(this.f33377e.f33456a);
+        c(this.f33377e.f33457b);
+        d(this.f33377e.f33458c);
+        int i2 = this.f33377e.f33460e ? 4 : 0;
+        if (this.f33377e.f33462g) {
             i2++;
         }
-        if (!this.f33448e.f33532f) {
+        if (!this.f33377e.f33461f) {
             i2 += 2;
         }
         e(i2);
@@ -56,19 +56,19 @@ public class q extends aa {
     }
 
     public void b(int i2) {
-        this.f33495h = i2;
+        this.f33424h = i2;
     }
 
     public int c() {
-        return this.f33495h;
+        return this.f33424h;
     }
 
     public void c(int i2) {
-        this.f33496i = i2;
+        this.f33425i = i2;
     }
 
     public int d() {
-        return this.f33496i;
+        return this.f33425i;
     }
 
     public void d(int i2) {
@@ -113,7 +113,7 @@ public class q extends aa {
     }
 
     public void j() {
-        if (this.f33495h < 1 || this.f33496i < 1 || this.l != 0 || this.m != 0) {
+        if (this.f33424h < 1 || this.f33425i < 1 || this.l != 0 || this.m != 0) {
             throw new PngjException("bad IHDR: col/row/compmethod/filmethod invalid");
         }
         int i2 = this.j;

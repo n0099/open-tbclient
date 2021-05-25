@@ -10,36 +10,36 @@ import java.io.IOException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f5658a = ApollonConstants.VIDEO_DEBUG;
+    public static boolean f5558a = ApollonConstants.VIDEO_DEBUG;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5659b = "SapiBioFileUtils";
+    public static final String f5559b = "SapiBioFileUtils";
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f5660c = "liveness_video.mp4";
+    public static final String f5560c = "liveness_video.mp4";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f5661d = "liveness_action_video.mp4";
+    public static final String f5561d = "liveness_action_video.mp4";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f5662e = "BI0_VIDEO";
+    public static final String f5562e = "BI0_VIDEO";
 
     public static String a(Context context) {
-        return context.getDir(f5662e, 0).getAbsolutePath();
+        return context.getDir(f5562e, 0).getAbsolutePath();
     }
 
     public static String b(Context context) {
-        String a2 = f5658a ? a() : a(context);
-        return a2 + File.separator + f5660c;
+        String a2 = f5558a ? a() : a(context);
+        return a2 + File.separator + f5560c;
     }
 
     public static String c(Context context) {
-        String a2 = f5658a ? a() : a(context);
-        return a2 + File.separator + f5661d;
+        String a2 = f5558a ? a() : a(context);
+        return a2 + File.separator + f5561d;
     }
 
     public static String d(Context context) {
-        return context.getDir(f5662e, 0).getAbsolutePath();
+        return context.getDir(f5562e, 0).getAbsolutePath();
     }
 
     public static String a() {

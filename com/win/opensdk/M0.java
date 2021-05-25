@@ -22,10 +22,10 @@ import java.util.Map;
 public class M0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap f36951a = new HashMap();
+    public static HashMap f36880a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f36952b = false;
+    public static boolean f36881b = false;
 
     public static String a(Map map) {
         StringBuilder sb = new StringBuilder();
@@ -103,25 +103,25 @@ public class M0 {
         NetworkInfo activeNetworkInfo;
         String deviceId;
         String str8;
-        if (f36952b) {
-            hashMap = f36951a;
+        if (f36881b) {
+            hashMap = f36880a;
         } else {
-            f36951a.put("app", z.b(context));
-            f36951a.put("sdkna", "norm-1.2.2");
-            f36951a.put("plat", "a");
-            f36951a.put("model", Build.MODEL);
-            f36951a.put("manu", Build.MANUFACTURER);
-            f36951a.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
-            f36951a.put("h", String.valueOf(context.getResources().getDisplayMetrics().heightPixels));
-            f36951a.put("w", String.valueOf(context.getResources().getDisplayMetrics().widthPixels));
-            HashMap hashMap2 = f36951a;
+            f36880a.put("app", z.b(context));
+            f36880a.put("sdkna", "norm-1.2.2");
+            f36880a.put("plat", "a");
+            f36880a.put("model", Build.MODEL);
+            f36880a.put("manu", Build.MANUFACTURER);
+            f36880a.put("sysv", String.valueOf(Build.VERSION.SDK_INT));
+            f36880a.put("h", String.valueOf(context.getResources().getDisplayMetrics().heightPixels));
+            f36880a.put("w", String.valueOf(context.getResources().getDisplayMetrics().widthPixels));
+            HashMap hashMap2 = f36880a;
             try {
                 i2 = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
             } catch (Exception unused) {
                 i2 = -1;
             }
             hashMap2.put("appv", String.valueOf(i2));
-            HashMap hashMap3 = f36951a;
+            HashMap hashMap3 = f36880a;
             try {
                 str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
                 if (str != null) {
@@ -130,8 +130,8 @@ public class M0 {
             }
             str = "";
             hashMap3.put("appvn", str);
-            f36951a.put("rt", r1.a() ? "1" : "0");
-            f36951a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
+            f36880a.put("rt", r1.a() ? "1" : "0");
+            f36880a.put("dpi", String.valueOf(context.getResources().getDisplayMetrics().densityDpi));
             try {
                 str2 = Build.SERIAL;
             } catch (Exception e2) {
@@ -150,7 +150,7 @@ public class M0 {
                 str3 = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
             }
             if (!TextUtils.isEmpty(str2)) {
-                HashMap hashMap4 = f36951a;
+                HashMap hashMap4 = f36880a;
                 try {
                     str2 = z.a(str2);
                 } catch (Exception unused3) {
@@ -253,7 +253,7 @@ public class M0 {
                     case 12:
                     case 14:
                     case 15:
-                        str6 = com.baidu.apollon.statistics.g.f3963b;
+                        str6 = com.baidu.apollon.statistics.g.f3966b;
                         break;
                     case 13:
                         str6 = "4G";
@@ -265,7 +265,7 @@ public class M0 {
                                 break;
                             }
                         }
-                        str6 = com.baidu.apollon.statistics.g.f3963b;
+                        str6 = com.baidu.apollon.statistics.g.f3966b;
                         break;
                 }
             }
@@ -301,7 +301,7 @@ public class M0 {
                                     str7 = stringBuffer.toString().toUpperCase();
                                     if (!TextUtils.isEmpty(str7)) {
                                     }
-                                    d2 = m1.f37156c.f37157a;
+                                    d2 = m1.f37085c.f37086a;
                                     if (d2 > 0.0d) {
                                     }
                                     b2 = q1.a(context).b();
@@ -341,7 +341,7 @@ public class M0 {
                     }
                     hashMap5.put("wm", str7);
                 }
-                d2 = m1.f37156c.f37157a;
+                d2 = m1.f37085c.f37086a;
                 if (d2 > 0.0d) {
                     String valueOf = String.valueOf(d2);
                     try {
@@ -349,7 +349,7 @@ public class M0 {
                     } catch (Exception unused12) {
                     }
                     hashMap5.put("lau", valueOf);
-                    String valueOf2 = String.valueOf(m1.f37156c.f37158b);
+                    String valueOf2 = String.valueOf(m1.f37085c.f37087b);
                     try {
                         valueOf2 = z.a(valueOf2);
                     } catch (Exception unused13) {
@@ -389,7 +389,7 @@ public class M0 {
             str7 = stringBuffer22.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f37156c.f37157a;
+            d2 = m1.f37085c.f37086a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -420,7 +420,7 @@ public class M0 {
             str7 = stringBuffer222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f37156c.f37157a;
+            d2 = m1.f37085c.f37086a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -441,7 +441,7 @@ public class M0 {
         str7 = stringBuffer2222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = m1.f37156c.f37157a;
+        d2 = m1.f37085c.f37086a;
         if (d2 > 0.0d) {
         }
         b2 = q1.a(context).b();
@@ -456,15 +456,15 @@ public class M0 {
         return hashMap5;
         str3 = "";
         if (!TextUtils.isEmpty(str3)) {
-            HashMap hashMap6 = f36951a;
+            HashMap hashMap6 = f36880a;
             try {
                 str3 = z.a(str3);
             } catch (Exception unused17) {
             }
             hashMap6.put("imsi", str3);
         }
-        f36952b = true;
-        hashMap = f36951a;
+        f36881b = true;
+        hashMap = f36880a;
         HashMap hashMap52 = new HashMap();
         if (hashMap != null) {
         }
@@ -504,7 +504,7 @@ public class M0 {
                 str7 = stringBuffer22222.toString().toUpperCase();
                 if (!TextUtils.isEmpty(str7)) {
                 }
-                d2 = m1.f37156c.f37157a;
+                d2 = m1.f37085c.f37086a;
                 if (d2 > 0.0d) {
                 }
                 b2 = q1.a(context).b();
@@ -525,7 +525,7 @@ public class M0 {
             str7 = stringBuffer222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f37156c.f37157a;
+            d2 = m1.f37085c.f37086a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -556,7 +556,7 @@ public class M0 {
             str7 = stringBuffer2222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f37156c.f37157a;
+            d2 = m1.f37085c.f37086a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -577,7 +577,7 @@ public class M0 {
         str7 = stringBuffer22222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = m1.f37156c.f37157a;
+        d2 = m1.f37085c.f37086a;
         if (d2 > 0.0d) {
         }
         b2 = q1.a(context).b();
@@ -591,8 +591,8 @@ public class M0 {
         }
         return hashMap52;
         hashMap6.put("imsi", str3);
-        f36952b = true;
-        hashMap = f36951a;
+        f36881b = true;
+        hashMap = f36880a;
         HashMap hashMap522 = new HashMap();
         if (hashMap != null) {
         }
@@ -632,7 +632,7 @@ public class M0 {
             str7 = stringBuffer222222222.toString().toUpperCase();
             if (!TextUtils.isEmpty(str7)) {
             }
-            d2 = m1.f37156c.f37157a;
+            d2 = m1.f37085c.f37086a;
             if (d2 > 0.0d) {
             }
             b2 = q1.a(context).b();
@@ -653,7 +653,7 @@ public class M0 {
         str7 = stringBuffer2222222222.toString().toUpperCase();
         if (!TextUtils.isEmpty(str7)) {
         }
-        d2 = m1.f37156c.f37157a;
+        d2 = m1.f37085c.f37086a;
         if (d2 > 0.0d) {
         }
         b2 = q1.a(context).b();

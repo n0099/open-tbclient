@@ -16,7 +16,7 @@ import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import d.a.c.e.m.b;
-import d.a.j0.r.q.a2;
+import d.a.m0.r.q.a2;
 import java.io.Serializable;
 import java.util.Map;
 import org.json.JSONObject;
@@ -159,7 +159,7 @@ public class VideoItemData implements Serializable, Parcelable {
 
     public VideoItemData buildWithOriginThreadData(OriginalThreadInfo originalThreadInfo) {
         if (originalThreadInfo != null) {
-            this.thread_id = originalThreadInfo.f12137f;
+            this.thread_id = originalThreadInfo.f12038f;
             this.post_id = originalThreadInfo.n;
             VideoInfo videoInfo = originalThreadInfo.r;
             if (videoInfo != null) {
@@ -176,14 +176,14 @@ public class VideoItemData implements Serializable, Parcelable {
             this.comment_num = String.valueOf(originalThreadInfo.x);
             this.agree_num = String.valueOf(originalThreadInfo.w.agree_num);
             this.share_num = String.valueOf(originalThreadInfo.y);
-            String str = originalThreadInfo.f12138g;
+            String str = originalThreadInfo.f12039g;
             this.title = str;
             if (TextUtils.isEmpty(str)) {
-                this.title = originalThreadInfo.f12133b;
+                this.title = originalThreadInfo.f12034b;
             }
-            this.forum_id = String.valueOf(originalThreadInfo.f12136e);
+            this.forum_id = String.valueOf(originalThreadInfo.f12037e);
             this.baijiahaoData = originalThreadInfo.p;
-            this.forum_name = originalThreadInfo.f12135d;
+            this.forum_name = originalThreadInfo.f12036d;
             this.is_agreed = String.valueOf(originalThreadInfo.w.has_agree);
             if (originalThreadInfo.v != null) {
                 UserItemData userItemData = new UserItemData();
@@ -207,23 +207,23 @@ public class VideoItemData implements Serializable, Parcelable {
 
     public VideoItemData buildWithThreadData(a2 a2Var) {
         if (a2Var != null) {
-            this.thread_id = a2Var.x1();
-            this.nid = a2Var.L0();
+            this.thread_id = a2Var.y1();
+            this.nid = a2Var.M0();
             this.post_id = a2Var.g0();
-            if (a2Var.v1() != null) {
-                this.thumbnail_url = a2Var.v1().thumbnail_url;
-                this.video_url = a2Var.v1().video_url;
-                this.video_height = String.valueOf(a2Var.v1().video_height);
-                this.video_width = String.valueOf(a2Var.v1().video_width);
-                this.mMd5 = a2Var.v1().video_md5;
-                this.video_duration = a2Var.v1().video_duration.intValue();
-                this.play_count = a2Var.v1().play_count.intValue();
-                this.isVerticalVideo = a2Var.v1().is_vertical.intValue();
+            if (a2Var.w1() != null) {
+                this.thumbnail_url = a2Var.w1().thumbnail_url;
+                this.video_url = a2Var.w1().video_url;
+                this.video_height = String.valueOf(a2Var.w1().video_height);
+                this.video_width = String.valueOf(a2Var.w1().video_width);
+                this.mMd5 = a2Var.w1().video_md5;
+                this.video_duration = a2Var.w1().video_duration.intValue();
+                this.play_count = a2Var.w1().play_count.intValue();
+                this.isVerticalVideo = a2Var.w1().is_vertical.intValue();
             }
-            this.comment_num = String.valueOf(a2Var.Z0());
+            this.comment_num = String.valueOf(a2Var.a1());
             this.agree_num = String.valueOf(a2Var.M());
-            this.share_num = String.valueOf(a2Var.g1());
-            this.title = a2Var.y1();
+            this.share_num = String.valueOf(a2Var.h1());
+            this.title = a2Var.z1();
             this.forum_id = String.valueOf(a2Var.c0());
             this.baijiahaoData = a2Var.V();
             this.forum_name = a2Var.i0();
@@ -241,14 +241,14 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.author_info = userItemData;
             }
             this.act_info = a2Var.I();
-            this.mRecomAbTag = a2Var.T0;
-            this.mRecomSource = a2Var.R0;
-            this.mRecomWeight = a2Var.S0;
-            this.mRecomExtra = a2Var.U0;
-            this.isBjhVideo = a2Var.A2();
-            this.forbidComment = a2Var.d2;
-            this.noCommetStr = a2Var.e2;
-            this.mWorksInfoData = a2Var.E2;
+            this.mRecomAbTag = a2Var.U0;
+            this.mRecomSource = a2Var.S0;
+            this.mRecomWeight = a2Var.T0;
+            this.mRecomExtra = a2Var.V0;
+            this.isBjhVideo = a2Var.B2();
+            this.forbidComment = a2Var.e2;
+            this.noCommetStr = a2Var.f2;
+            this.mWorksInfoData = a2Var.F2;
         }
         return this;
     }

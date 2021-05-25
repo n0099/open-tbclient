@@ -15,8 +15,8 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
 import d.a.c.e.p.l;
-import d.a.j0.r.s.a;
-import d.a.k0.s2.x;
+import d.a.m0.r.s.a;
+import d.a.n0.t2.x;
 /* loaded from: classes4.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
     public RelativeLayout r;
@@ -29,16 +29,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class a implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18001e;
+        public final /* synthetic */ ButtonCard f17911e;
 
         public a(ButtonCard buttonCard) {
-            this.f18001e = buttonCard;
+            this.f17911e = buttonCard;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ButtonCardView.this.setDialog(this.f18001e);
-            x.p().m().c(this.f18001e.getsExtras(), ButtonCardView.this.f17996e);
+            ButtonCardView.this.setDialog(this.f17911e);
+            x.p().m().c(this.f17911e.getsExtras(), ButtonCardView.this.f17906e);
         }
     }
 
@@ -46,16 +46,16 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class b implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18003e;
+        public final /* synthetic */ ButtonCard f17913e;
 
         public b(ButtonCard buttonCard) {
-            this.f18003e = buttonCard;
+            this.f17913e = buttonCard;
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
-            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f18003e.getBtnScheme()});
-            x.p().m().e(ButtonCardView.this.f17996e, "yes", this.f18003e.getsExtras());
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            UrlManager.getInstance().dealOneLink(ButtonCardView.this.m, new String[]{this.f17913e.getBtnScheme()});
+            x.p().m().e(ButtonCardView.this.f17906e, "yes", this.f17913e.getsExtras());
             aVar.dismiss();
         }
     }
@@ -64,15 +64,15 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public class c implements a.e {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ ButtonCard f18005e;
+        public final /* synthetic */ ButtonCard f17915e;
 
         public c(ButtonCard buttonCard) {
-            this.f18005e = buttonCard;
+            this.f17915e = buttonCard;
         }
 
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
-            x.p().m().e(ButtonCardView.this.f17996e, "no", this.f18005e.getsExtras());
+        @Override // d.a.m0.r.s.a.e
+        public void onClick(d.a.m0.r.s.a aVar) {
+            x.p().m().e(ButtonCardView.this.f17906e, "no", this.f17915e.getsExtras());
             aVar.dismiss();
         }
     }
@@ -85,7 +85,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setDialog(ButtonCard buttonCard) {
-        d.a.j0.r.s.a aVar = new d.a.j0.r.s.a(this.m.getPageActivity());
+        d.a.m0.r.s.a aVar = new d.a.m0.r.s.a(this.m.getPageActivity());
         aVar.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
         aVar.setPositiveButton(R.string.call, new b(buttonCard));
         aVar.setNegativeButton(R.string.cancel, new c(buttonCard));
@@ -115,7 +115,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.s.setDefaultBgResource(R.color.transparent);
         if (!TextUtils.isEmpty(buttonCard.getPicUrl())) {
             this.s.V(buttonCard.getPicUrl(), 17, false);
-        } else if (!d.a.k0.j1.o.k.b.a(bgColor)) {
+        } else if (!d.a.n0.k1.o.k.b.a(bgColor)) {
             this.s.setBackgroundColor(bgColor);
         } else {
             this.s.setDefaultBgResource(R.color.transparent);
@@ -127,7 +127,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         this.t.setText(buttonCard.getText());
         this.t.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.fontsize28));
         int textColor = buttonCard.getTextColor();
-        if (!d.a.k0.j1.o.k.b.a(textColor)) {
+        if (!d.a.n0.k1.o.k.b.a(textColor)) {
             this.t.setTextColor(textColor);
         }
         this.t.setOnClickListener(new a(buttonCard));
@@ -137,14 +137,14 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         if (i2 == 1) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setShape(0);
-            if (!d.a.k0.j1.o.k.b.a(buttonColor)) {
+            if (!d.a.n0.k1.o.k.b.a(buttonColor)) {
                 gradientDrawable.setStroke(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds3), buttonColor);
             }
             gradientDrawable.setColor(0);
             this.t.setBackgroundDrawable(gradientDrawable);
         } else if (i2 != 2) {
             this.t.setBackgroundColor(0);
-        } else if (!d.a.k0.j1.o.k.b.a(buttonColor)) {
+        } else if (!d.a.n0.k1.o.k.b.a(buttonColor)) {
             this.t.setBackgroundColor(buttonColor);
         } else {
             this.t.setBackgroundColor(0);
@@ -153,7 +153,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             return;
         }
         LegoListFragment.V.add(buttonCard.toString());
-        x.p().m().d(buttonCard.getShowExtra(), this.f17996e);
+        x.p().m().d(buttonCard.getShowExtra(), this.f17906e);
     }
 
     public void L() {

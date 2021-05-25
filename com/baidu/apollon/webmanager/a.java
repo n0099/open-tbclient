@@ -23,31 +23,31 @@ import java.io.File;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f4148a = "AbstractWebViewPage";
+    public static final String f4151a = "AbstractWebViewPage";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final boolean f4149b = ApollonConstants.DEBUG & false;
+    public static final boolean f4152b = ApollonConstants.DEBUG & false;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final String f4150c = "appcache";
+    public static final String f4153c = "appcache";
 
     /* renamed from: d  reason: collision with root package name */
-    public static final String f4151d = "databases";
+    public static final String f4154d = "databases";
 
     /* renamed from: e  reason: collision with root package name */
-    public static final String f4152e = "geolocation";
+    public static final String f4155e = "geolocation";
 
     /* renamed from: f  reason: collision with root package name */
-    public static final String f4153f = "page load success";
+    public static final String f4156f = "page load success";
 
     /* renamed from: g  reason: collision with root package name */
-    public static final String f4154g = "page load failure";
+    public static final String f4157g = "page load failure";
 
     /* renamed from: h  reason: collision with root package name */
-    public final View f4155h;
+    public final View f4158h;
 
     /* renamed from: i  reason: collision with root package name */
-    public final View f4156i;
+    public final View f4159i;
     public ViewGroup j;
     public SafeWebView k;
     public boolean l;
@@ -64,11 +64,11 @@ public class a {
         this.o = null;
         this.o = apollonBaseActivity;
         this.j = viewGroup;
-        this.f4155h = view;
-        this.f4156i = view2;
+        this.f4158h = view;
+        this.f4159i = view2;
         this.l = false;
         this.m = i2;
-        String[] strArr = {f4153f, f4154g};
+        String[] strArr = {f4156f, f4157g};
         EventBus eventBus = EventBus.getInstance();
         this.q = eventBus;
         eventBus.register(this, strArr, 0, EventBus.ThreadMode.MainThread);
@@ -77,16 +77,16 @@ public class a {
 
     private void j() {
         ViewGroup viewGroup;
-        View view = this.f4155h;
+        View view = this.f4158h;
         if (view == null || (viewGroup = (ViewGroup) view.getParent()) == null) {
             return;
         }
-        viewGroup.removeView(this.f4155h);
+        viewGroup.removeView(this.f4158h);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k() {
-        View view = this.f4156i;
+        View view = this.f4159i;
         if (view != null) {
             view.setVisibility(8);
         }
@@ -95,16 +95,16 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public void l() {
         j();
-        View view = this.f4156i;
+        View view = this.f4159i;
         if (view != null) {
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             if (viewGroup != null) {
-                viewGroup.removeView(this.f4156i);
+                viewGroup.removeView(this.f4159i);
             }
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
-            this.j.addView(this.f4156i, layoutParams);
-            this.f4156i.setVisibility(0);
+            this.j.addView(this.f4159i, layoutParams);
+            this.f4159i.setVisibility(0);
         }
     }
 
@@ -112,7 +112,7 @@ public class a {
     public void m() {
         EventBus eventBus = this.q;
         eventBus.getClass();
-        eventBus.post(new EventBus.Event(f4153f, null));
+        eventBus.post(new EventBus.Event(f4156f, null));
     }
 
     private void n() {
@@ -140,21 +140,21 @@ public class a {
             @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
             public void onLoadResource(WebView webView, String str) {
                 super.onLoadResource(webView, str);
-                if (a.f4149b) {
-                    Log.d(a.f4148a, "onLoadResource is called, url is " + str);
+                if (a.f4152b) {
+                    Log.d(a.f4151a, "onLoadResource is called, url is " + str);
                 }
             }
 
             @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
             public void onPageFinished(WebView webView, String str) {
-                if (a.f4149b) {
-                    Log.d(a.f4148a, "onPageFinished, url is " + str + " original url is " + webView.getOriginalUrl());
+                if (a.f4152b) {
+                    Log.d(a.f4151a, "onPageFinished, url is " + str + " original url is " + webView.getOriginalUrl());
                 }
                 super.onPageFinished(webView, str);
                 Object tag = webView.getTag(a.this.m);
                 int intValue = tag == null ? 0 : ((Integer) tag).intValue();
-                if (a.f4149b) {
-                    Log.d(a.f4148a, "onPageFinished errorTagCode is " + intValue);
+                if (a.f4152b) {
+                    Log.d(a.f4151a, "onPageFinished errorTagCode is " + intValue);
                 }
                 if (TextUtils.equals(str, a.this.n) || TextUtils.equals(webView.getOriginalUrl(), a.this.n) || (str != null && str.contains(a.this.n))) {
                     if (intValue == 0) {
@@ -170,8 +170,8 @@ public class a {
             @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
             public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
-                if (a.f4149b) {
-                    Log.d(a.f4148a, "onPageStarted is called, url is " + str);
+                if (a.f4152b) {
+                    Log.d(a.f4151a, "onPageStarted is called, url is " + str);
                 }
                 if (a.this.p) {
                     a.this.k.getSettings().setBlockNetworkImage(true);
@@ -182,7 +182,7 @@ public class a {
                 a.this.p = false;
                 a.this.n = str;
                 WebBackForwardList copyBackForwardList = webView.copyBackForwardList();
-                if (a.this.f4155h == null || a.this.f4155h.getVisibility() != 0) {
+                if (a.this.f4158h == null || a.this.f4158h.getVisibility() != 0) {
                     if (copyBackForwardList == null || copyBackForwardList.getCurrentIndex() == copyBackForwardList.getSize() - 1) {
                         a.this.l();
                     }
@@ -191,16 +191,16 @@ public class a {
 
             @Override // android.webkit.WebViewClient
             public void onReceivedError(WebView webView, int i2, String str, String str2) {
-                if (a.f4149b) {
-                    Log.d(a.f4148a, "onReceivedError is called, errorCode is  " + i2 + " failingUrl is " + str2);
+                if (a.f4152b) {
+                    Log.d(a.f4151a, "onReceivedError is called, errorCode is  " + i2 + " failingUrl is " + str2);
                 }
                 webView.setTag(a.this.m, Integer.valueOf(i2));
             }
 
             @Override // android.webkit.WebViewClient
             public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-                if (a.f4149b) {
-                    Log.d(a.f4148a, "shouldOverrideUrlLoading, url is " + str);
+                if (a.f4152b) {
+                    Log.d(a.f4151a, "shouldOverrideUrlLoading, url is " + str);
                 }
                 a.this.p = true;
                 a.this.n = str;
@@ -259,8 +259,8 @@ public class a {
 
     public void h() {
         String str = Uri.parse(this.n).getScheme() + "://" + Uri.parse(this.n).getHost();
-        if (f4149b) {
-            Log.d(f4148a, "delOrigin is " + str);
+        if (f4152b) {
+            Log.d(f4151a, "delOrigin is " + str);
         }
         if (TextUtils.isEmpty(str)) {
             return;
@@ -272,8 +272,8 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return;
         }
-        if (f4149b) {
-            Log.d(f4148a, "delOrigin is " + str);
+        if (f4152b) {
+            Log.d(f4151a, "delOrigin is " + str);
         }
         WebStorage.getInstance().deleteOrigin(str);
     }
@@ -293,15 +293,15 @@ public class a {
     public void b(int i2) {
         EventBus eventBus = this.q;
         eventBus.getClass();
-        eventBus.post(new EventBus.Event(f4154g, Integer.valueOf(i2)));
+        eventBus.post(new EventBus.Event(f4157g, Integer.valueOf(i2)));
     }
 
     public void a(EventBus.Event event) {
-        if (event.mEventKey.equals(f4153f)) {
+        if (event.mEventKey.equals(f4156f)) {
             j();
             k();
             this.k.setVisibility(0);
-        } else if (event.mEventKey.equals(f4154g)) {
+        } else if (event.mEventKey.equals(f4157g)) {
             a(((Integer) event.mEventObj).intValue());
             this.k.setVisibility(8);
         }
@@ -314,8 +314,8 @@ public class a {
         this.o = null;
         this.o = apollonBaseActivity;
         this.j = viewGroup;
-        this.f4155h = view;
-        this.f4156i = view2;
+        this.f4158h = view;
+        this.f4159i = view2;
         this.l = z;
         this.m = i2;
         n();
@@ -327,14 +327,14 @@ public class a {
             return;
         }
         k();
-        View view = this.f4155h;
+        View view = this.f4158h;
         if (view != null) {
             ViewGroup viewGroup = (ViewGroup) view.getParent();
             if (viewGroup != null) {
-                viewGroup.removeView(this.f4155h);
+                viewGroup.removeView(this.f4158h);
             }
-            this.j.addView(this.f4155h, this.j.getLayoutParams());
-            this.f4155h.setVisibility(0);
+            this.j.addView(this.f4158h, this.j.getLayoutParams());
+            this.f4158h.setVisibility(0);
         }
     }
 

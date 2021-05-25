@@ -19,7 +19,7 @@ import java.lang.reflect.Method;
 public class SVGImageView extends ImageView {
 
     /* renamed from: e  reason: collision with root package name */
-    public static Method f30450e;
+    public static Method f30379e;
 
     /* loaded from: classes6.dex */
     public class b extends AsyncTask<String, Integer, Picture> {
@@ -132,7 +132,7 @@ public class SVGImageView extends ImageView {
     public SVGImageView(Context context) {
         super(context);
         try {
-            f30450e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f30379e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
     }
@@ -173,11 +173,11 @@ public class SVGImageView extends ImageView {
     }
 
     public final void d() {
-        if (f30450e == null) {
+        if (f30379e == null) {
             return;
         }
         try {
-            f30450e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
+            f30379e.invoke(this, Integer.valueOf(View.class.getField("LAYER_TYPE_SOFTWARE").getInt(new View(getContext()))), null);
         } catch (Exception e2) {
             Log.w("SVGImageView", "Unexpected failure calling setLayerType", e2);
         }
@@ -209,7 +209,7 @@ public class SVGImageView extends ImageView {
     public SVGImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet, 0);
         try {
-            f30450e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f30379e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, 0);
@@ -218,7 +218,7 @@ public class SVGImageView extends ImageView {
     public SVGImageView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
         try {
-            f30450e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
+            f30379e = View.class.getMethod("setLayerType", Integer.TYPE, Paint.class);
         } catch (NoSuchMethodException unused) {
         }
         b(attributeSet, i2);

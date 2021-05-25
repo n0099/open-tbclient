@@ -14,31 +14,31 @@ import android.util.Log;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import androidx.annotation.Nullable;
-import d.a.i0.a.k;
-import d.a.i0.a.v2.n0;
-import d.a.i0.a.v2.q;
+import d.a.l0.a.k;
+import d.a.l0.a.v2.n0;
+import d.a.l0.a.v2.q;
 /* loaded from: classes3.dex */
 public class NeutralRefreshAnimView extends View {
     public static final int A;
-    public static final boolean w = k.f43025a;
+    public static final boolean w = k.f43199a;
     public static final int x = n0.g(3.5f);
     public static final int y = Color.parseColor("#000000");
     public static final int z;
 
     /* renamed from: e  reason: collision with root package name */
-    public float f11258e;
+    public float f11159e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f11259f;
+    public int f11160f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f11260g;
+    public int f11161g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Bitmap f11261h;
+    public Bitmap f11162h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Canvas f11262i;
+    public Canvas f11163i;
     public Paint j;
     public Paint k;
     public PointF l;
@@ -57,20 +57,20 @@ public class NeutralRefreshAnimView extends View {
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f11263e;
+        public final /* synthetic */ int f11164e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ int f11264f;
+        public final /* synthetic */ int f11165f;
 
         public a(int i2, int i3) {
-            this.f11263e = i2;
-            this.f11264f = i3;
+            this.f11164e = i2;
+            this.f11165f = i3;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            NeutralRefreshAnimView.this.f11261h = Bitmap.createBitmap(this.f11263e, this.f11264f, Bitmap.Config.ARGB_8888);
-            NeutralRefreshAnimView.this.f11262i = new Canvas(NeutralRefreshAnimView.this.f11261h);
+            NeutralRefreshAnimView.this.f11162h = Bitmap.createBitmap(this.f11164e, this.f11165f, Bitmap.Config.ARGB_8888);
+            NeutralRefreshAnimView.this.f11163i = new Canvas(NeutralRefreshAnimView.this.f11162h);
         }
     }
 
@@ -218,10 +218,10 @@ public class NeutralRefreshAnimView extends View {
     @Override // android.view.View
     public void onMeasure(int i2, int i3) {
         super.onMeasure(i2, i3);
-        this.f11259f = getMeasuredWidth();
+        this.f11160f = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        this.f11260g = measuredHeight;
-        this.l.set(this.f11259f >> 1, measuredHeight >> 1);
+        this.f11161g = measuredHeight;
+        this.l.set(this.f11160f >> 1, measuredHeight >> 1);
     }
 
     @Override // android.view.View
@@ -259,20 +259,20 @@ public class NeutralRefreshAnimView extends View {
     }
 
     public final void s(Canvas canvas) {
-        Bitmap bitmap = this.f11261h;
-        if (bitmap == null || this.f11262i == null) {
+        Bitmap bitmap = this.f11162h;
+        if (bitmap == null || this.f11163i == null) {
             return;
         }
         bitmap.eraseColor(0);
         this.k.setAlpha(77);
-        Canvas canvas2 = this.f11262i;
+        Canvas canvas2 = this.f11163i;
         PointF pointF = this.l;
         canvas2.drawCircle(pointF.x + this.q, pointF.y, x, this.k);
         this.j.setAlpha(26);
-        Canvas canvas3 = this.f11262i;
+        Canvas canvas3 = this.f11163i;
         PointF pointF2 = this.l;
         canvas3.drawCircle(pointF2.x + this.r, pointF2.y, x, this.j);
-        canvas.drawBitmap(this.f11261h, 0.0f, 0.0f, (Paint) null);
+        canvas.drawBitmap(this.f11162h, 0.0f, 0.0f, (Paint) null);
         if (w) {
             Log.e("NeutralRefreshAnimView", "performOnRefreshingAnim");
         }
@@ -285,7 +285,7 @@ public class NeutralRefreshAnimView extends View {
         if (f2 > 1.0f) {
             f2 = 1.0f;
         }
-        this.f11258e = f2;
+        this.f11159e = f2;
         n(1);
         postInvalidate();
         if (w) {
@@ -297,25 +297,25 @@ public class NeutralRefreshAnimView extends View {
         if (w) {
             Log.e("NeutralRefreshAnimView", "performPullToRefreshAnim");
         }
-        Bitmap bitmap = this.f11261h;
-        if (bitmap == null || this.f11262i == null) {
+        Bitmap bitmap = this.f11162h;
+        if (bitmap == null || this.f11163i == null) {
             return;
         }
         bitmap.eraseColor(0);
-        float f2 = this.f11258e;
+        float f2 = this.f11159e;
         if (f2 == 0.0f) {
             this.k.setAlpha(0);
-            Canvas canvas2 = this.f11262i;
+            Canvas canvas2 = this.f11163i;
             PointF pointF = this.l;
             canvas2.drawCircle(pointF.x, pointF.y, x, this.k);
-            canvas.drawBitmap(this.f11261h, 0.0f, 0.0f, (Paint) null);
+            canvas.drawBitmap(this.f11162h, 0.0f, 0.0f, (Paint) null);
         } else if (f2 <= 0.5f) {
             int i2 = (int) (f2 * 77.0f);
             this.k.setAlpha(i2);
-            Canvas canvas3 = this.f11262i;
+            Canvas canvas3 = this.f11163i;
             PointF pointF2 = this.l;
             canvas3.drawCircle(pointF2.x, pointF2.y, x, this.k);
-            canvas.drawBitmap(this.f11261h, 0.0f, 0.0f, (Paint) null);
+            canvas.drawBitmap(this.f11162h, 0.0f, 0.0f, (Paint) null);
             if (w) {
                 Log.e("NeutralRefreshAnimView", "first level,alpha=" + i2);
             }
@@ -323,32 +323,32 @@ public class NeutralRefreshAnimView extends View {
             if (f2 == 1.0f) {
                 this.j.setAlpha(26);
                 this.k.setAlpha(77);
-                Canvas canvas4 = this.f11262i;
+                Canvas canvas4 = this.f11163i;
                 PointF pointF3 = this.l;
                 canvas4.drawCircle(pointF3.x + A, pointF3.y, x, this.k);
-                Canvas canvas5 = this.f11262i;
+                Canvas canvas5 = this.f11163i;
                 PointF pointF4 = this.l;
                 canvas5.drawCircle(pointF4.x - A, pointF4.y, x, this.j);
-                canvas.drawBitmap(this.f11261h, 0.0f, 0.0f, (Paint) null);
+                canvas.drawBitmap(this.f11162h, 0.0f, 0.0f, (Paint) null);
                 if (w) {
-                    Log.e("NeutralRefreshAnimView", "third level,mAnimPercent=" + this.f11258e);
+                    Log.e("NeutralRefreshAnimView", "third level,mAnimPercent=" + this.f11159e);
                 }
             }
         } else {
             int o = o((int) (f2 * 77.0f));
             this.k.setAlpha(o);
-            float f3 = (this.f11258e - 0.5f) * 2.0f;
+            float f3 = (this.f11159e - 0.5f) * 2.0f;
             int o2 = o((int) (26.0f * f3));
             this.j.setAlpha(o2);
-            Canvas canvas6 = this.f11262i;
+            Canvas canvas6 = this.f11163i;
             PointF pointF5 = this.l;
             canvas6.drawCircle(pointF5.x + (A * f3), pointF5.y, x, this.k);
-            Canvas canvas7 = this.f11262i;
+            Canvas canvas7 = this.f11163i;
             PointF pointF6 = this.l;
             canvas7.drawCircle(pointF6.x - (A * f3), pointF6.y, x, this.j);
-            canvas.drawBitmap(this.f11261h, 0.0f, 0.0f, (Paint) null);
+            canvas.drawBitmap(this.f11162h, 0.0f, 0.0f, (Paint) null);
             if (w) {
-                Log.e("NeutralRefreshAnimView", "second level,mAnimPercent=" + this.f11258e);
+                Log.e("NeutralRefreshAnimView", "second level,mAnimPercent=" + this.f11159e);
                 Log.e("NeutralRefreshAnimView", "second level,rightBallAlpha=" + o);
                 Log.e("NeutralRefreshAnimView", "second level,leftBallAlpha=" + o2);
                 Log.e("NeutralRefreshAnimView", "second level,fraction=" + f3);
@@ -379,8 +379,8 @@ public class NeutralRefreshAnimView extends View {
         if (w) {
             Log.e("NeutralRefreshAnimView", "performRefreshCompleteAnim");
         }
-        Bitmap bitmap = this.f11261h;
-        if (bitmap == null || this.f11262i == null) {
+        Bitmap bitmap = this.f11162h;
+        if (bitmap == null || this.f11163i == null) {
             return;
         }
         bitmap.eraseColor(0);
@@ -389,14 +389,14 @@ public class NeutralRefreshAnimView extends View {
         this.v = o;
         this.k.setAlpha(o);
         this.j.setAlpha(this.u);
-        Canvas canvas2 = this.f11262i;
+        Canvas canvas2 = this.f11163i;
         PointF pointF = this.l;
         canvas2.drawCircle(pointF.x + this.q, pointF.y, x, this.k);
         this.j.setAlpha(this.u);
-        Canvas canvas3 = this.f11262i;
+        Canvas canvas3 = this.f11163i;
         PointF pointF2 = this.l;
         canvas3.drawCircle(pointF2.x + this.r, pointF2.y, x, this.j);
-        canvas.drawBitmap(this.f11261h, 0.0f, 0.0f, (Paint) null);
+        canvas.drawBitmap(this.f11162h, 0.0f, 0.0f, (Paint) null);
         if (w) {
             Log.e("NeutralRefreshAnimView", "Complete:mAlpha=" + this.u);
             Log.e("NeutralRefreshAnimView", "Complete:mRightBallXPosi=" + this.q);

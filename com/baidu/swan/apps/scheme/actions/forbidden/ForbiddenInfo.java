@@ -2,7 +2,7 @@ package com.baidu.swan.apps.scheme.actions.forbidden;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import d.a.i0.a.f1.e.b;
+import d.a.l0.a.f1.e.b;
 /* loaded from: classes3.dex */
 public class ForbiddenInfo implements Parcelable {
     public static final Parcelable.Creator<ForbiddenInfo> CREATOR = new a();

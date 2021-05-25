@@ -23,7 +23,7 @@ public final class l {
             } catch (EOFException e3) {
                 e = e3;
                 if (z) {
-                    return com.bytedance.sdk.openadsdk.preload.a.n.f29988a;
+                    return com.bytedance.sdk.openadsdk.preload.a.n.f29917a;
                 }
                 throw new t(e);
             }
@@ -40,36 +40,36 @@ public final class l {
     public static final class a extends Writer {
 
         /* renamed from: a  reason: collision with root package name */
-        public final Appendable f29918a;
+        public final Appendable f29847a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final C0316a f29919b = new C0316a();
+        public final C0317a f29848b = new C0317a();
 
         /* renamed from: com.bytedance.sdk.openadsdk.preload.a.b.l$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static class C0316a implements CharSequence {
+        public static class C0317a implements CharSequence {
 
             /* renamed from: a  reason: collision with root package name */
-            public char[] f29920a;
+            public char[] f29849a;
 
             @Override // java.lang.CharSequence
             public char charAt(int i2) {
-                return this.f29920a[i2];
+                return this.f29849a[i2];
             }
 
             @Override // java.lang.CharSequence
             public int length() {
-                return this.f29920a.length;
+                return this.f29849a.length;
             }
 
             @Override // java.lang.CharSequence
             public CharSequence subSequence(int i2, int i3) {
-                return new String(this.f29920a, i2, i3 - i2);
+                return new String(this.f29849a, i2, i3 - i2);
             }
         }
 
         public a(Appendable appendable) {
-            this.f29918a = appendable;
+            this.f29847a = appendable;
         }
 
         @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
@@ -82,14 +82,14 @@ public final class l {
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i2, int i3) throws IOException {
-            C0316a c0316a = this.f29919b;
-            c0316a.f29920a = cArr;
-            this.f29918a.append(c0316a, i2, i3 + i2);
+            C0317a c0317a = this.f29848b;
+            c0317a.f29849a = cArr;
+            this.f29847a.append(c0317a, i2, i3 + i2);
         }
 
         @Override // java.io.Writer
         public void write(int i2) throws IOException {
-            this.f29918a.append((char) i2);
+            this.f29847a.append((char) i2);
         }
     }
 

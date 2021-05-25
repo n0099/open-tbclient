@@ -8,7 +8,7 @@ public class b implements Parcelable {
     public static final Parcelable.Creator<b> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f6267a;
+    public IBinder f6167a;
 
     /* loaded from: classes2.dex */
     public static class a implements Parcelable.Creator<b> {
@@ -28,15 +28,15 @@ public class b implements Parcelable {
     }
 
     public b(IBinder iBinder) {
-        this.f6267a = iBinder;
+        this.f6167a = iBinder;
     }
 
     public b(Parcel parcel) {
-        this.f6267a = parcel.readStrongBinder();
+        this.f6167a = parcel.readStrongBinder();
     }
 
     public IBinder a() {
-        return this.f6267a;
+        return this.f6167a;
     }
 
     @Override // android.os.Parcelable
@@ -46,6 +46,6 @@ public class b implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeStrongBinder(this.f6267a);
+        parcel.writeStrongBinder(this.f6167a);
     }
 }

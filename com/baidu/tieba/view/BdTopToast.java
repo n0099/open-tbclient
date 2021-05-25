@@ -20,19 +20,19 @@ import d.a.c.e.m.e;
 public class BdTopToast extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public View f21610e;
+    public View f21538e;
 
     /* renamed from: f  reason: collision with root package name */
-    public BottomShadowLinearLayout f21611f;
+    public BottomShadowLinearLayout f21539f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ImageView f21612g;
+    public ImageView f21540g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21613h;
+    public TextView f21541h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Animation f21614i;
+    public Animation f21542i;
     public Animation j;
     public Runnable k;
     public int l;
@@ -84,18 +84,18 @@ public class BdTopToast extends LinearLayout {
     public final void d() {
         setOrientation(1);
         if (UtilHelper.canUseStyleImmersiveSticky()) {
-            this.f21610e = new View(getContext());
-            addView(this.f21610e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
+            this.f21538e = new View(getContext());
+            addView(this.f21538e, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.f21611f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
-        this.f21612g = (ImageView) findViewById(R.id.bd_top_toast_icon);
-        this.f21613h = (TextView) findViewById(R.id.bd_top_toast_content);
+        this.f21539f = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.f21540g = (ImageView) findViewById(R.id.bd_top_toast_icon);
+        this.f21541h = (TextView) findViewById(R.id.bd_top_toast_content);
         e();
     }
 
     public final void e() {
-        this.f21614i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        this.f21542i = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
         Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.out_to_top);
         this.j = loadAnimation;
         loadAnimation.setAnimationListener(new a());
@@ -103,15 +103,15 @@ public class BdTopToast extends LinearLayout {
     }
 
     public void f() {
-        SkinManager.setBackgroundColor(this.f21610e, R.color.CAM_X0207);
+        SkinManager.setBackgroundColor(this.f21538e, R.color.CAM_X0207);
         if (this.m) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21612g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
-            SkinManager.setViewTextColor(this.f21613h, R.color.CAM_X0302);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21540g, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, null);
+            SkinManager.setViewTextColor(this.f21541h, R.color.CAM_X0302);
         } else {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21612g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
-            SkinManager.setViewTextColor(this.f21613h, R.color.CAM_X0301);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f21540g, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, null);
+            SkinManager.setViewTextColor(this.f21541h, R.color.CAM_X0301);
         }
-        this.f21611f.b();
+        this.f21539f.b();
     }
 
     public final void g() {
@@ -120,7 +120,7 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast h(String str) {
-        this.f21613h.setText(str);
+        this.f21541h.setText(str);
         return this;
     }
 
@@ -139,7 +139,7 @@ public class BdTopToast extends LinearLayout {
         g();
         viewGroup.addView(this, -1, -2);
         f();
-        startAnimation(this.f21614i);
+        startAnimation(this.f21542i);
         if (this.l >= 0) {
             e.a().postDelayed(this.k, this.l);
         } else {

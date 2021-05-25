@@ -127,6 +127,34 @@ public class StringHelper extends k {
         return i4 == 0 ? 0 : -1;
     }
 
+    public static String cutChineseAndEnglishWithEmoji(String str, int i2, String str2) {
+        if (str == null || i2 <= 0) {
+            return "";
+        }
+        int length = str.length();
+        int i3 = 0;
+        int i4 = 0;
+        while (i3 < length) {
+            i4 = k.isChinese(str.charAt(i3)) ? i4 + 2 : i4 + 1;
+            if (i4 >= i2) {
+                break;
+            }
+            i3++;
+        }
+        int i5 = i3 + 1;
+        if (i5 < length) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            String substring = str.substring(0, str.offsetByCodePoints(0, str.codePointCount(0, i5)));
+            if (str.equals(substring)) {
+                return substring;
+            }
+            return substring + str2;
+        }
+        return str;
+    }
+
     public static String cutChineseAndEnglishWithSuffix(String str, int i2, String str2) {
         if (str == null || i2 <= 0) {
             return "";

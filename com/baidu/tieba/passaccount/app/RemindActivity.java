@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.FaceFeedbackEnableSwitch;
 import com.baidu.tieba.R;
-import d.a.k0.b2.d.c;
+import d.a.n0.c2.d.c;
 /* loaded from: classes4.dex */
 public class RemindActivity extends BaseActivity<RemindActivity> {
 
@@ -20,30 +20,30 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class C0196a implements c.e {
-            public C0196a() {
+        public class C0197a implements c.e {
+            public C0197a() {
             }
 
-            @Override // d.a.k0.b2.d.c.e
+            @Override // d.a.n0.c2.d.c.e
             public void a(boolean z, String str) {
-                d.a.k0.b2.d.b.f().d(z, str);
+                d.a.n0.c2.d.b.f().d(z, str);
                 RemindActivity.this.finishActivity(true);
             }
 
-            @Override // d.a.k0.b2.d.c.e
+            @Override // d.a.n0.c2.d.c.e
             public void b(boolean z, boolean z2, String str) {
-                d.a.k0.b2.d.b.f().d(z2, str);
+                d.a.n0.c2.d.b.f().d(z2, str);
                 RemindActivity.this.finishActivity(true);
             }
 
-            @Override // d.a.k0.b2.d.c.e
+            @Override // d.a.n0.c2.d.c.e
             public void c() {
-                d.a.k0.b2.d.b.f().d(false, null);
+                d.a.n0.c2.d.b.f().d(false, null);
             }
 
-            @Override // d.a.k0.b2.d.c.e
+            @Override // d.a.n0.c2.d.c.e
             public void onFail() {
-                d.a.k0.b2.d.b.f().d(false, null);
+                d.a.n0.c2.d.b.f().d(false, null);
             }
         }
 
@@ -52,7 +52,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.i().g(RemindActivity.this, new C0196a());
+            c.i().g(RemindActivity.this, new C0197a());
         }
     }
 
@@ -77,7 +77,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         if (z) {
             return;
         }
-        d.a.k0.b2.d.b.f().a(null);
+        d.a.n0.c2.d.b.f().a(null);
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

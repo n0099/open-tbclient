@@ -7,9 +7,13 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 import androidx.fragment.app.FragmentManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.ActivityPendingTransitionFactory;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -18,14 +22,15 @@ import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
 import d.a.c.e.m.b;
 import d.a.c.e.p.k;
-import d.a.j0.k0.d;
-import d.a.k0.p3.c;
+import d.a.m0.k0.d;
+import d.a.n0.q3.c;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public VideoMiddlePageFragment mFragment;
     public String mFrom;
     public String mId;
+    public boolean mIsFromSchema = false;
     public String mNid;
 
     private void doEnterStatistic() {
@@ -64,7 +69,24 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         this.mFragment = videoMiddlePageFragment;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.j0.k0.a
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void enterExitAnimation() {
+        if (this.mIsFromSchema) {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
+        } else {
+            ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 1);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
+    public void finish() {
+        if (this.mIsFromSchema) {
+            sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
+        }
+        super.finish();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, d.a.m0.k0.a
     public String getCurrentPageKey() {
         return "a023";
     }
@@ -125,6 +147,12 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
+        if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !d.a.c.a.b.f().h("MainTabActivity")) {
+            this.mIsFromSchema = true;
+        }
+        if (this.mIsFromSchema) {
+            setIsAddSwipeBackLayout(false);
+        }
         super.onCreate(bundle);
         setContentView(R.layout.activity_video_middle_page_layout);
         init();
@@ -155,7 +183,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        d.a.j0.a.c.y().E();
+        d.a.m0.a.c.y().E();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -164,7 +192,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         if (k.isEmpty(this.mId)) {
             return;
         }
-        d.a.j0.a.c.y().P(d.a.j0.a.b.Z, b.f(this.mId, 0L));
+        d.a.m0.a.c.y().P(d.a.m0.a.b.Z, b.f(this.mId, 0L));
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity

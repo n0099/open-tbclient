@@ -48,9 +48,9 @@ public class UpdateInfoService extends BdBaseService {
             if (i2 == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                d.a.k0.s2.g0.a.e().j(String.valueOf(longitude));
-                d.a.k0.s2.g0.a.e().i(String.valueOf(latitude));
-                d.a.k0.s2.g0.a.e().k(System.currentTimeMillis());
+                d.a.n0.t2.g0.a.e().j(String.valueOf(longitude));
+                d.a.n0.t2.g0.a.e().i(String.valueOf(latitude));
+                d.a.n0.t2.g0.a.e().k(System.currentTimeMillis());
                 if (UpdateInfoService.this.mModel.t() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     UpdateInfoService.this.mModel.v(1, longitude, latitude);
                     UpdateInfoService.this.mModel.w();

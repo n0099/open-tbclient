@@ -9,46 +9,46 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f66021a;
+    public String f66064a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f66022b;
+    public long f66065b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f66023c;
+    public String f66066c;
 
     /* renamed from: d  reason: collision with root package name */
-    public String f66024d;
+    public String f66067d;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f66025e;
+    public String f66068e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f66026f;
+    public long f66069f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f66027g;
+    public String f66070g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Map<String, Object> f66028h;
+    public Map<String, Object> f66071h;
 
     public static j a(String str, long j, String str2, long j2, String str3, Collection<String> collection, Map<String, Object> map, String str4) {
         j jVar = new j();
-        jVar.f66021a = str;
-        jVar.f66022b = j;
-        jVar.f66024d = str2;
-        jVar.f66026f = j2;
-        jVar.f66025e = str3;
-        jVar.f66027g = str4;
+        jVar.f66064a = str;
+        jVar.f66065b = j;
+        jVar.f66067d = str2;
+        jVar.f66069f = j2;
+        jVar.f66068e = str3;
+        jVar.f66070g = str4;
         if (collection != null) {
             JSONArray jSONArray = new JSONArray();
             for (String str5 : collection) {
                 jSONArray.put(str5);
             }
-            jVar.f66023c = jSONArray.toString();
+            jVar.f66066c = jSONArray.toString();
         }
         if (map != null && !map.isEmpty()) {
-            jVar.f66028h = map;
+            jVar.f66071h = map;
         }
         return jVar;
     }
@@ -56,21 +56,21 @@ public class j {
     public JSONObject b() throws NullPointerException {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("en", this.f66021a);
-            jSONObject.put("et", this.f66022b);
-            jSONObject.put("nu", this.f66026f);
-            if (!TextUtils.isEmpty(this.f66024d)) {
-                jSONObject.put("eg", this.f66024d);
+            jSONObject.put("en", this.f66064a);
+            jSONObject.put("et", this.f66065b);
+            jSONObject.put("nu", this.f66069f);
+            if (!TextUtils.isEmpty(this.f66067d)) {
+                jSONObject.put("eg", this.f66067d);
             }
-            jSONObject.putOpt("lk", this.f66025e);
-            if (this.f66023c != null) {
-                jSONObject.put("ev", this.f66023c);
+            jSONObject.putOpt("lk", this.f66068e);
+            if (this.f66066c != null) {
+                jSONObject.put("ev", this.f66066c);
             }
-            if (!TextUtils.isEmpty(this.f66027g)) {
-                jSONObject.put("at", this.f66027g);
+            if (!TextUtils.isEmpty(this.f66070g)) {
+                jSONObject.put("at", this.f66070g);
             }
-            if (this.f66028h != null && !this.f66028h.isEmpty()) {
-                for (Map.Entry<String, Object> entry : this.f66028h.entrySet()) {
+            if (this.f66071h != null && !this.f66071h.isEmpty()) {
+                for (Map.Entry<String, Object> entry : this.f66071h.entrySet()) {
                     if (entry.getValue() instanceof Integer) {
                         jSONObject.put(entry.getKey(), ((Integer) entry.getValue()).intValue());
                     } else if (entry.getValue() instanceof Long) {

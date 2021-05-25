@@ -71,10 +71,10 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.b.a {
     private void inflateJsBridgeContext() {
         com.kwad.sdk.core.webview.a aVar = new com.kwad.sdk.core.webview.a();
         this.mJsBridgeContext = aVar;
-        aVar.f32867b = this.mAdTemplate;
-        aVar.f32866a = 0;
-        aVar.f32871f = this.mAdWebView;
-        aVar.f32870e = this.mWebContainer;
+        aVar.f32796b = this.mAdTemplate;
+        aVar.f32795a = 0;
+        aVar.f32800f = this.mAdWebView;
+        aVar.f32799e = this.mWebContainer;
     }
 
     private void initTipBarView() {
@@ -244,7 +244,7 @@ public class AdLandPageActivityProxy extends com.kwad.sdk.b.a {
         gVar.a(new d());
         gVar.a(new com.kwad.sdk.core.webview.jshandler.a(this.mJsBridgeContext, bVar, new a.b() { // from class: com.kwad.sdk.core.page.AdLandPageActivityProxy.1
             @Override // com.kwad.sdk.core.webview.jshandler.a.b
-            public void a(a.C0373a c0373a) {
+            public void a(a.C0374a c0374a) {
             }
         }));
         gVar.a(new e(this.mJsBridgeContext));

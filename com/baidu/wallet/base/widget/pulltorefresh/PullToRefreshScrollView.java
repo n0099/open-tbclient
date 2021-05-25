@@ -7,7 +7,7 @@ import android.widget.ScrollView;
 public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
 
     /* renamed from: a  reason: collision with root package name */
-    public ScrollView f23821a;
+    public ScrollView f23750a;
 
     public PullToRefreshScrollView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -15,7 +15,7 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public boolean isReadyForPullDown() {
-        return this.f23821a.getScrollY() == 0;
+        return this.f23750a.getScrollY() == 0;
     }
 
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
@@ -27,9 +27,9 @@ public class PullToRefreshScrollView extends PullToRefreshBase<ScrollView> {
     @Override // com.baidu.wallet.base.widget.pulltorefresh.PullToRefreshBase
     public ScrollView createRefreshableView(Context context, AttributeSet attributeSet) {
         ScrollView scrollView = new ScrollView(context, attributeSet);
-        this.f23821a = scrollView;
+        this.f23750a = scrollView;
         scrollView.setOverScrollMode(2);
-        this.f23821a.setVerticalScrollBarEnabled(false);
-        return this.f23821a;
+        this.f23750a.setVerticalScrollBarEnabled(false);
+        return this.f23750a;
     }
 }

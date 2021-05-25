@@ -82,7 +82,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (aVar.x() != null) {
                     bdUniqueId = aVar.x();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar = new h(aVar.f39564e, bdUniqueId, aVar.f39568i);
+                        h hVar = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
                         hVar.g0(aVar);
                         this.K.c(hVar);
                         this.M.put(bdUniqueId, hVar);
@@ -91,7 +91,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (aVar.v() != null) {
                     bdUniqueId = aVar.v();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar2 = new h(aVar.f39564e, bdUniqueId, aVar.f39568i);
+                        h hVar2 = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
                         hVar2.g0(aVar);
                         this.K.c(hVar2);
                         this.M.put(bdUniqueId, hVar2);
@@ -100,7 +100,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (aVar.w() != null) {
                     bdUniqueId = aVar.w();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar3 = new h(aVar.f39564e, bdUniqueId, aVar.f39568i);
+                        h hVar3 = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
                         hVar3.g0(aVar);
                         this.K.c(hVar3);
                         this.M.put(bdUniqueId, hVar3);
@@ -109,7 +109,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (aVar.u() != null) {
                     bdUniqueId = aVar.u();
                     if (!this.M.containsKey(bdUniqueId)) {
-                        h hVar4 = new h(aVar.f39564e, bdUniqueId, aVar.f39568i);
+                        h hVar4 = new h(aVar.f39228e, bdUniqueId, aVar.f39232i);
                         hVar4.g0(aVar);
                         this.K.c(hVar4);
                         this.M.put(bdUniqueId, hVar4);
@@ -118,7 +118,7 @@ public class BdTypeListView extends BdListView implements s<BdTypeListView> {
                 if (bdUniqueId == null) {
                     this.K.c(aVar);
                 } else {
-                    this.L.put(aVar.f39567h, aVar);
+                    this.L.put(aVar.f39231h, aVar);
                 }
             }
         }

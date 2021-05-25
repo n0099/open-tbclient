@@ -5,18 +5,18 @@ import android.view.View;
 public class k implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ PBSplash f37146a;
+    public final /* synthetic */ PBSplash f37075a;
 
     public k(PBSplash pBSplash) {
-        this.f37146a = pBSplash;
+        this.f37075a = pBSplash;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        PBSplash pBSplash = this.f37146a;
-        if (pBSplash.f36978e != null) {
-            pBSplash.f36979f = true;
-            this.f37146a.f36978e.onSkip();
+        PBSplash pBSplash = this.f37075a;
+        if (pBSplash.f36907e != null) {
+            pBSplash.f36908f = true;
+            this.f37075a.f36907e.onSkip();
         }
     }
 }

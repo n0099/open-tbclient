@@ -10,7 +10,7 @@ public class ak implements com.kwad.sdk.core.c<p.a> {
         if (jSONObject == null) {
             return;
         }
-        aVar.f33001a = jSONObject.optInt("itemClickType");
+        aVar.f32930a = jSONObject.optInt("itemClickType");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,7 +19,7 @@ public class ak implements com.kwad.sdk.core.c<p.a> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "itemClickType", aVar.f33001a);
+        com.kwad.sdk.utils.o.a(jSONObject, "itemClickType", aVar.f32930a);
         return jSONObject;
     }
 }

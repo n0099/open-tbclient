@@ -16,11 +16,11 @@ public final class ChecksumHashFunction extends d.g.c.d.b implements Serializabl
     public final class b extends d.g.c.d.a {
 
         /* renamed from: b  reason: collision with root package name */
-        public final Checksum f31412b;
+        public final Checksum f31341b;
 
         @Override // d.g.c.d.f
         public HashCode e() {
-            long value = this.f31412b.getValue();
+            long value = this.f31341b.getValue();
             if (ChecksumHashFunction.this.bits == 32) {
                 return HashCode.fromInt((int) value);
             }
@@ -29,17 +29,17 @@ public final class ChecksumHashFunction extends d.g.c.d.b implements Serializabl
 
         @Override // d.g.c.d.a
         public void m(byte b2) {
-            this.f31412b.update(b2);
+            this.f31341b.update(b2);
         }
 
         @Override // d.g.c.d.a
         public void p(byte[] bArr, int i2, int i3) {
-            this.f31412b.update(bArr, i2, i3);
+            this.f31341b.update(bArr, i2, i3);
         }
 
         public b(Checksum checksum) {
             n.p(checksum);
-            this.f31412b = checksum;
+            this.f31341b = checksum;
         }
     }
 

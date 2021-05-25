@@ -37,9 +37,9 @@ import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.tieba.im.model.OfficialBarMsglistModel;
 import com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow;
-import d.a.j0.z0.f0;
-import d.a.j0.z0.h0;
-import d.a.j0.z0.n;
+import d.a.m0.z0.f0;
+import d.a.m0.z0.h0;
+import d.a.m0.z0.n;
 import java.util.List;
 /* loaded from: classes4.dex */
 public class OfficialBarChatActivity extends CommonPersonalChatActivity<OfficialBarChatActivity> implements OfficialSecondMenuPopupWindow.c {
@@ -72,17 +72,17 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     public class b extends f0<Void> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserData f17128a;
+        public final /* synthetic */ UserData f17038a;
 
         public b(UserData userData) {
-            this.f17128a = userData;
+            this.f17038a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.j0.z0.f0
+        @Override // d.a.m0.z0.f0
         /* renamed from: a */
         public Void doInBackground() {
-            d.a.k0.e1.t.d.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.f17128a);
+            d.a.n0.f1.t.d.j().m(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), this.f17038a);
             return null;
         }
     }
@@ -91,17 +91,17 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     public class c extends f0<Boolean> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ UserData f17130a;
+        public final /* synthetic */ UserData f17040a;
 
         public c(UserData userData) {
-            this.f17130a = userData;
+            this.f17040a = userData;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // d.a.j0.z0.f0
+        @Override // d.a.m0.z0.f0
         public Boolean doInBackground() {
-            return Boolean.valueOf(d.a.k0.e1.t.d.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17130a.getUserId())));
+            return Boolean.valueOf(d.a.n0.f1.t.d.j().c(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.f17040a.getUserId())));
         }
     }
 
@@ -111,7 +111,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // d.a.j0.z0.n
+        @Override // d.a.m0.z0.n
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             if (bool == null) {
@@ -146,14 +146,14 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                 } else {
                     OfficialBarChatActivity.this.showToast(R.string.neterror);
                 }
-                d.a.k0.e1.g.c officialBarMenuDatas = OfficialBarChatActivity.this.mCurrentMsgListModel.getOfficialBarMenuDatas();
+                d.a.n0.f1.g.c officialBarMenuDatas = OfficialBarChatActivity.this.mCurrentMsgListModel.getOfficialBarMenuDatas();
                 if (officialBarMenuDatas == null || officialBarMenuDatas.a() == null || officialBarMenuDatas.a().size() == 0) {
                     OfficialBarChatActivity.this.mCurrentMsgListView.q(true, true);
                     return;
                 }
                 return;
             }
-            d.a.k0.e1.g.c officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
+            d.a.n0.f1.g.c officialBarMenuDatas2 = responseOfficialBarMenuMessage.getOfficialBarMenuDatas();
             if (officialBarMenuDatas2 != null) {
                 if (officialBarMenuDatas2.c()) {
                     OfficialBarChatActivity.this.mCurrentMsgListView.q(false, false);
@@ -204,7 +204,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage instanceof ResponseOfficialBarMenuLocalMessage)) {
-                d.a.k0.e1.g.c officialBarMenuDatas = ((ResponseOfficialBarMenuLocalMessage) customResponsedMessage).getOfficialBarMenuDatas();
+                d.a.n0.f1.g.c officialBarMenuDatas = ((ResponseOfficialBarMenuLocalMessage) customResponsedMessage).getOfficialBarMenuDatas();
                 if (officialBarMenuDatas != null) {
                     OfficialBarChatActivity.this.mCurrentMsgListView.q(false, false);
                     OfficialBarChatActivity.this.mCurrentMsgListModel.setOfficialBarMenuDatas(officialBarMenuDatas);
@@ -226,7 +226,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         return new Rect(iArr[0], iArr[1], iArr[0] + view.getWidth(), iArr[1] + view.getHeight());
     }
 
-    private void handleMenuAction(d.a.k0.e1.g.b bVar) {
+    private void handleMenuAction(d.a.n0.f1.g.b bVar) {
         if (bVar.a() == 2) {
             this.mCurrentMsgListView.s(true);
             this.mCurrentMsgListModel.sendClickMenuMessage(bVar.c(), TbadkCoreApplication.getCurrentAccount(), this.mCurrentMsgListModel.getForumId());
@@ -259,9 +259,9 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             if (n.isShown() && !getViewRangerInWindow(n).contains(rawX, rawY)) {
                 for (int i2 = 0; i2 < 3; i2++) {
                     OfficialBarMsglistView.d dVar = this.mCurrentMsgListView.m()[i2];
-                    if (dVar.f17176a) {
+                    if (dVar.f17086a) {
                         this.mCurrentMsgListView.n().g();
-                        dVar.f17176a = false;
+                        dVar.f17086a = false;
                         this.mCurrentMsgListView.u(i2, false);
                     }
                 }
@@ -272,7 +272,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity
-    public boolean first(d.a.k0.e1.f.c cVar) {
+    public boolean first(d.a.n0.f1.f.c cVar) {
         this.mListModel.loadFirst(cVar);
         return true;
     }
@@ -320,7 +320,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             this.mCurrentMsgListView.o();
         }
         this.mListView.setInputMethodManager((InputMethodManager) getSystemService("input_method"));
-        long longValue = d.a.k0.e1.s.a.f54506i.longValue();
+        long longValue = d.a.n0.f1.s.a.f54696i.longValue();
         MsglistModel msglistModel = this.mListModel;
         if ((msglistModel instanceof OfficialBarMsglistModel) && (user = ((OfficialBarMsglistModel) msglistModel).getUser()) != null) {
             String userName = !TextUtils.isEmpty(user.getUserName()) ? user.getUserName() : "";
@@ -337,8 +337,8 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        List<d.a.k0.e1.g.b> a2;
-        d.a.k0.e1.g.b bVar;
+        List<d.a.n0.f1.g.b> a2;
+        d.a.n0.f1.g.b bVar;
         UserData user;
         super.onClick(view);
         if (view == this.mListView.getBtnGroupInfo()) {
@@ -350,32 +350,32 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new ForumDetailActivityConfig(getPageContext().getPageActivity(), user.getUserIdLong() + "", ForumDetailActivityConfig.FromType.BAR)));
             }
-        } else if (view == this.mCurrentMsgListView.m()[0].f17177b || view == this.mCurrentMsgListView.m()[1].f17177b || view == this.mCurrentMsgListView.m()[2].f17177b) {
+        } else if (view == this.mCurrentMsgListView.m()[0].f17087b || view == this.mCurrentMsgListView.m()[1].f17087b || view == this.mCurrentMsgListView.m()[2].f17087b) {
             TiebaStatic.log("service_bt_ck");
             int l = this.mCurrentMsgListView.l(view);
             for (int i2 = 0; i2 < 3; i2++) {
                 OfficialBarMsglistView.d dVar = this.mCurrentMsgListView.m()[i2];
-                if (dVar.f17176a && i2 != l) {
+                if (dVar.f17086a && i2 != l) {
                     this.mCurrentMsgListView.n().h();
-                    dVar.f17176a = false;
+                    dVar.f17086a = false;
                     this.mCurrentMsgListView.u(i2, false);
                 }
             }
-            d.a.k0.e1.g.c officialBarMenuDatas = this.mCurrentMsgListModel.getOfficialBarMenuDatas();
+            d.a.n0.f1.g.c officialBarMenuDatas = this.mCurrentMsgListModel.getOfficialBarMenuDatas();
             if (officialBarMenuDatas == null || (a2 = officialBarMenuDatas.a()) == null || l >= a2.size() || (bVar = a2.get(l)) == null) {
                 return;
             }
             if (bVar.a() == 0) {
                 OfficialBarMsglistView.d dVar2 = this.mCurrentMsgListView.m()[l];
                 OfficialSecondMenuPopupWindow n = this.mCurrentMsgListView.n();
-                if (dVar2.f17176a) {
+                if (dVar2.f17086a) {
                     n.g();
                 } else {
                     n.setData(3, l, bVar.e());
                     n.i(view);
                 }
-                boolean z = !dVar2.f17176a;
-                dVar2.f17176a = z;
+                boolean z = !dVar2.f17086a;
+                dVar2.f17086a = z;
                 this.mCurrentMsgListView.u(l, z);
                 return;
             }
@@ -391,15 +391,15 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
             OfficialBarMsglistModel officialBarMsglistModel = this.mCurrentMsgListModel;
             officialBarMsglistModel.sendGetMenuLocalMessage(officialBarMsglistModel.getForumId());
         }
-        d.a.k0.e1.u.a.c().b();
+        d.a.n0.f1.u.a.c().b();
     }
 
     @Override // com.baidu.tieba.im.chat.MsglistActivity, com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
         ChatStatusManager.getInst().setCurId(1, "");
-        d.a.k0.e1.u.a.c().f();
-        d.a.k0.e1.u.a.c().b();
+        d.a.n0.f1.u.a.c().f();
+        d.a.n0.f1.u.a.c().b();
     }
 
     @Override // com.baidu.tieba.im.chat.CommonPersonalChatActivity
@@ -409,13 +409,13 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
     }
 
     @Override // com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow.c
-    public void onItemClick(int i2, d.a.k0.e1.g.b bVar) {
+    public void onItemClick(int i2, d.a.n0.f1.g.b bVar) {
         if (bVar == null) {
             return;
         }
         handleMenuAction(bVar);
         this.mCurrentMsgListView.n().g();
-        this.mCurrentMsgListView.m()[i2].f17176a = false;
+        this.mCurrentMsgListView.m()[i2].f17086a = false;
         this.mCurrentMsgListView.u(i2, false);
     }
 
@@ -426,7 +426,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         String f2;
         super.onItemViewClick(view, i2, i3, j);
         if (i2 != 2) {
-            if (i2 == 4 && isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && d.a.k0.e1.w.c.s(msg2) && (f2 = d.a.k0.e1.w.c.f(msg2.getContent(), true)) != null) {
+            if (i2 == 4 && isExStorageOk() && (msg2 = this.mListModel.getMsg(i3)) != null && d.a.n0.f1.w.c.s(msg2) && (f2 = d.a.n0.f1.w.c.f(msg2.getContent(), true)) != null) {
                 MsglistModel msglistModel = this.mListModel;
                 if (!(msglistModel instanceof CommonPersonalMsglistModel) || ((CommonPersonalMsglistModel) msglistModel).getUser() == null) {
                     return;
@@ -442,7 +442,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         }
     }
 
-    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.j0.b1.m.h
+    @Override // com.baidu.tieba.im.chat.TalkableActivity, d.a.m0.b1.m.h
     public void onLinkButtonClicked(Context context, String str) {
     }
 
@@ -460,7 +460,7 @@ public class OfficialBarChatActivity extends CommonPersonalChatActivity<Official
         if (TextUtils.isEmpty(curId)) {
             return;
         }
-        d.a.j0.s.d.b.g0().r(19);
+        d.a.m0.s.d.b.g0().r(19);
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryClearUnreadCountMessage(new MemoryClearUnreadCountMessage.a(curId, 4)));
     }
 

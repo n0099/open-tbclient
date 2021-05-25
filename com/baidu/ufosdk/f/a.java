@@ -16,17 +16,17 @@ import java.util.concurrent.Executors;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f22579a;
+    public static a f22508a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap f22580b;
+    public static HashMap f22509b;
 
     /* renamed from: c  reason: collision with root package name */
-    public static ExecutorService f22581c;
+    public static ExecutorService f22510c;
 
     public a() {
-        if (f22580b == null) {
-            f22580b = new HashMap();
+        if (f22509b == null) {
+            f22509b = new HashMap();
         }
     }
 
@@ -115,13 +115,13 @@ public final class a {
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f22579a == null) {
-                f22579a = new a();
-                if (f22581c == null) {
-                    f22581c = Executors.newFixedThreadPool(1);
+            if (f22508a == null) {
+                f22508a = new a();
+                if (f22510c == null) {
+                    f22510c = Executors.newFixedThreadPool(1);
                 }
             }
-            aVar = f22579a;
+            aVar = f22508a;
         }
         return aVar;
     }
@@ -130,7 +130,7 @@ public final class a {
         Bitmap bitmap;
         Bitmap bitmap2;
         String c2 = k.c(str);
-        if (!f22580b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f22580b.get(c2)).get()) == null) {
+        if (!f22509b.containsKey(c2) || (bitmap2 = (Bitmap) ((SoftReference) f22509b.get(c2)).get()) == null) {
             try {
                 bitmap = f.a(c2);
             } catch (OutOfMemoryError unused) {
@@ -138,10 +138,10 @@ public final class a {
                 bitmap = null;
             }
             if (bitmap != null) {
-                f22580b.put(c2, new SoftReference(bitmap));
+                f22509b.put(c2, new SoftReference(bitmap));
                 return bitmap;
             }
-            f22581c.execute(new b(this, str, c2, nVar));
+            f22510c.execute(new b(this, str, c2, nVar));
             return null;
         }
         return bitmap2;

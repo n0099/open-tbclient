@@ -7,41 +7,41 @@ import tbclient.PayMemberInfo;
 public class PayMemberInfoData extends OrmObject {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12809e;
+    public int f12717e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f12810f;
+    public int f12718f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f12811g;
+    public String f12719g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f12812h;
+    public String f12720h;
 
     public String getUrl() {
-        return this.f12811g;
+        return this.f12719g;
     }
 
     public void parseJson(JSONObject jSONObject) {
         if (jSONObject == null) {
             return;
         }
-        this.f12809e = jSONObject.optInt("props_id");
-        this.f12810f = jSONObject.optInt("end_time", 0);
-        this.f12811g = jSONObject.optString(this.f12811g, "");
-        this.f12812h = jSONObject.optString("expire_remind");
+        this.f12717e = jSONObject.optInt("props_id");
+        this.f12718f = jSONObject.optInt("end_time", 0);
+        this.f12719g = jSONObject.optString(this.f12719g, "");
+        this.f12720h = jSONObject.optString("expire_remind");
     }
 
     public int s() {
-        return this.f12810f;
+        return this.f12718f;
     }
 
     public String t() {
-        return this.f12812h;
+        return this.f12720h;
     }
 
     public int u() {
-        return this.f12809e;
+        return this.f12717e;
     }
 
     public void v(PayMemberInfo payMemberInfo) {
@@ -50,17 +50,17 @@ public class PayMemberInfoData extends OrmObject {
         }
         Integer num = payMemberInfo.props_id;
         if (num != null) {
-            this.f12809e = num.intValue();
+            this.f12717e = num.intValue();
         }
         Integer num2 = payMemberInfo.end_time;
         if (num2 != null) {
-            this.f12810f = num2.intValue();
+            this.f12718f = num2.intValue();
         }
-        this.f12811g = payMemberInfo.url;
-        this.f12812h = payMemberInfo.expire_remind;
+        this.f12719g = payMemberInfo.url;
+        this.f12720h = payMemberInfo.expire_remind;
     }
 
     public void w(String str) {
-        this.f12812h = str;
+        this.f12720h = str;
     }
 }

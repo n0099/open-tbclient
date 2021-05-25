@@ -18,11 +18,11 @@ public class RevenueManager implements i.a.a.b.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final RevenueManager f69548a = new RevenueManager();
+        public static final RevenueManager f69591a = new RevenueManager();
     }
 
     public static RevenueManager instance() {
-        return b.f69548a;
+        return b.f69591a;
     }
 
     @Override // i.a.a.b.a

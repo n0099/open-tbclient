@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.a0.c;
+import d.a.m0.a0.c;
 import java.util.HashSet;
 /* loaded from: classes3.dex */
 public class TbConfig {
@@ -502,6 +502,7 @@ public class TbConfig {
     public static final String URL_FRS_LIVE_HORSERACE_LIST = "c/f/forum/getHorseRaceLampList";
     public static final String URL_FRS_MOVE_AREA = "c/c/bawu/moveTabThread";
     public static final String URL_FRS_RECOMMEND = "c/c/bawu/pushRecomToPersonalized";
+    public static final String URL_FUN_AD_RECORD = "c/s/adLog";
     public static final String URL_GAME_VIDEO = "c/f/excellent/recomVertical";
     public static final String URL_GETPAYINFO = "c/e/mema/getpayinfo";
     public static final String URL_GET_CONSENTLIST = "c/u/feed/getConsentList";
@@ -648,6 +649,10 @@ public class TbConfig {
     public static final int VALUE_COMMON_FONT_SIZE_BIG = getDimens(R.dimen.T_X05);
     public static final int VALUE_COMMON_FONT_SIZE_MID = getDimens(R.dimen.T_X06);
     public static final int VALUE_COMMON_FONT_SIZE_SMALL = getDimens(R.dimen.T_X07);
+    public static final int VALUE_COMMON_EMOTION_SIZE_XLAGER = getDimens(R.dimen.tbds62);
+    public static final int VALUE_COMMON_EMOTION_SIZE_BIG = getDimens(R.dimen.tbds54);
+    public static final int VALUE_COMMON_EMOTION_SIZE_MID = getDimens(R.dimen.tbds52);
+    public static final int VALUE_COMMON_EMOTION_SIZE_SMALL = getDimens(R.dimen.tbds49);
     public static final int VALUE_COMMON_FONT_LINE_SPACE_XLAGRE = getDimens(R.dimen.tbds25);
     public static final int VALUE_COMMON_FONT_LINE_SPACE_BIG = getDimens(R.dimen.tbds25);
     public static final int VALUE_COMMON_FONT_LINE_SPACE_MID = getDimens(R.dimen.tbds25);
@@ -660,6 +665,10 @@ public class TbConfig {
     public static final int VALUE_SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X07);
     public static final int VALUE_SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X07);
     public static final int VALUE_SUBPB_FONT_SIZE_SMALL = getDimens(R.dimen.T_X08);
+    public static final int VALUE_SUBPB_EMOTION_SIZE_XLAGER = getDimens(R.dimen.tbds54);
+    public static final int VALUE_SUBPB_EMOTION_SIZE_BIG = getDimens(R.dimen.tbds49);
+    public static final int VALUE_SUBPB_EMOTION_SIZE_MID = getDimens(R.dimen.tbds49);
+    public static final int VALUE_SUBPB_EMOTION_SIZE_SMALL = getDimens(R.dimen.tbds44);
     public static final int SUBPB_FONT_SIZE_XLAGER = getDimens(R.dimen.T_X04);
     public static final int SUBPB_FONT_SIZE_BIG = getDimens(R.dimen.T_X06);
     public static final int SUBPB_FONT_SIZE_MID = getDimens(R.dimen.T_X06);
@@ -858,6 +867,40 @@ public class TbConfig {
 
     public static final int getDimens(int i2) {
         return l.g(TbadkCoreApplication.getInst().getContext(), i2);
+    }
+
+    public static int getEmotionContentSize() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return VALUE_COMMON_EMOTION_SIZE_SMALL;
+                    }
+                    return VALUE_COMMON_EMOTION_SIZE_SMALL;
+                }
+                return VALUE_COMMON_EMOTION_SIZE_MID;
+            }
+            return VALUE_COMMON_EMOTION_SIZE_BIG;
+        }
+        return VALUE_COMMON_EMOTION_SIZE_XLAGER;
+    }
+
+    public static int getEmotionContentSizeOfLzl() {
+        int fontSize = TbadkCoreApplication.getInst().getFontSize();
+        if (fontSize != 0) {
+            if (fontSize != 1) {
+                if (fontSize != 2) {
+                    if (fontSize != 3) {
+                        return VALUE_SUBPB_EMOTION_SIZE_SMALL;
+                    }
+                    return VALUE_SUBPB_EMOTION_SIZE_SMALL;
+                }
+                return VALUE_SUBPB_EMOTION_SIZE_MID;
+            }
+            return VALUE_SUBPB_EMOTION_SIZE_BIG;
+        }
+        return VALUE_SUBPB_EMOTION_SIZE_XLAGER;
     }
 
     public static String getFriendPhotoAddress() {

@@ -31,22 +31,22 @@ import java.util.UUID;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile boolean f28259a = false;
+    public static volatile boolean f28188a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile TTCustomController f28260b = null;
+    public static volatile TTCustomController f28189b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile boolean f28261c = false;
+    public static volatile boolean f28190c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public static int f28262d = -1;
+    public static int f28191d = -1;
 
     /* renamed from: e  reason: collision with root package name */
-    public static HandlerThread f28263e;
+    public static HandlerThread f28192e;
 
     /* renamed from: f  reason: collision with root package name */
-    public static Handler f28264f;
+    public static Handler f28193f;
 
     public static void a() {
         Context a2;
@@ -83,13 +83,13 @@ public class m {
 
     public static Handler b() {
         HandlerThread handlerThread;
-        if (f28264f == null || ((handlerThread = f28263e) != null && !handlerThread.isAlive())) {
+        if (f28193f == null || ((handlerThread = f28192e) != null && !handlerThread.isAlive())) {
             HandlerThread handlerThread2 = new HandlerThread("tt_pangle_thread_init", 10);
-            f28263e = handlerThread2;
+            f28192e = handlerThread2;
             handlerThread2.start();
-            f28264f = new Handler(f28263e.getLooper());
+            f28193f = new Handler(f28192e.getLooper());
         }
-        return f28264f;
+        return f28193f;
     }
 
     public static void a(Context context) {

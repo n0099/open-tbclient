@@ -5,22 +5,22 @@ import java.util.concurrent.atomic.AtomicLong;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final long f3960a = 999;
+    public static final long f3963a = 999;
 
     /* renamed from: b  reason: collision with root package name */
-    public static AtomicLong f3961b = new AtomicLong(999);
+    public static AtomicLong f3964b = new AtomicLong(999);
 
     public static void a(long j) {
         if (0 == j) {
             j = 999;
         }
-        f3961b.set(j);
+        f3964b.set(j);
     }
 
     public static long a() {
-        if (0 == f3961b.incrementAndGet()) {
-            f3961b.set(999L);
+        if (0 == f3964b.incrementAndGet()) {
+            f3964b.set(999L);
         }
-        return f3961b.get();
+        return f3964b.get();
     }
 }

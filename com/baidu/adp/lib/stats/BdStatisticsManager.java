@@ -387,7 +387,7 @@ public class BdStatisticsManager {
         d.a.c.e.n.l.b.m().n(cVar, str4, str5);
         g.h().k(cVar);
         if (cVar != null) {
-            this.mAppVersion = cVar.f39073c;
+            this.mAppVersion = cVar.f38737c;
         }
         if (TextUtils.isEmpty(this.mProcessNameMd5)) {
             String processNameMd5 = getProcessNameMd5();

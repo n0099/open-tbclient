@@ -41,31 +41,31 @@ public class ia implements iq<ia, Object>, Serializable, Cloneable {
     public static final jg f615a = new jg("XmPushActionCommandResult");
 
     /* renamed from: a  reason: collision with root package name */
-    public static final iy f37913a = new iy("", StandardMessageCodec.LIST, 2);
+    public static final iy f37842a = new iy("", StandardMessageCodec.LIST, 2);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final iy f37914b = new iy("", (byte) 11, 3);
+    public static final iy f37843b = new iy("", (byte) 11, 3);
 
     /* renamed from: c  reason: collision with root package name */
-    public static final iy f37915c = new iy("", (byte) 11, 4);
+    public static final iy f37844c = new iy("", (byte) 11, 4);
 
     /* renamed from: d  reason: collision with root package name */
-    public static final iy f37916d = new iy("", (byte) 11, 5);
+    public static final iy f37845d = new iy("", (byte) 11, 5);
 
     /* renamed from: e  reason: collision with root package name */
-    public static final iy f37917e = new iy("", (byte) 10, 7);
+    public static final iy f37846e = new iy("", (byte) 10, 7);
 
     /* renamed from: f  reason: collision with root package name */
-    public static final iy f37918f = new iy("", (byte) 11, 8);
+    public static final iy f37847f = new iy("", (byte) 11, 8);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final iy f37919g = new iy("", (byte) 11, 9);
+    public static final iy f37848g = new iy("", (byte) 11, 9);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final iy f37920h = new iy("", (byte) 15, 10);
+    public static final iy f37849h = new iy("", (byte) 15, 10);
 
     /* renamed from: i  reason: collision with root package name */
-    public static final iy f37921i = new iy("", (byte) 11, 12);
+    public static final iy f37850i = new iy("", (byte) 11, 12);
     public static final iy j = new iy("", (byte) 2, 13);
 
     /* renamed from: a  reason: collision with other field name */
@@ -190,7 +190,7 @@ public class ia implements iq<ia, Object>, Serializable, Cloneable {
         jbVar.m511a();
         while (true) {
             iy m507a = jbVar.m507a();
-            byte b2 = m507a.f38040a;
+            byte b2 = m507a.f37969a;
             if (b2 == 0) {
                 jbVar.f();
                 if (e()) {
@@ -356,40 +356,40 @@ public class ia implements iq<ia, Object>, Serializable, Cloneable {
         m432a();
         jbVar.a(f615a);
         if (this.f617a != null && m433a()) {
-            jbVar.a(f37913a);
+            jbVar.a(f37842a);
             this.f617a.b(jbVar);
             jbVar.b();
         }
         if (this.f618a != null) {
-            jbVar.a(f37914b);
+            jbVar.a(f37843b);
             jbVar.a(this.f618a);
             jbVar.b();
         }
         if (this.f622b != null) {
-            jbVar.a(f37915c);
+            jbVar.a(f37844c);
             jbVar.a(this.f622b);
             jbVar.b();
         }
         if (this.f623c != null) {
-            jbVar.a(f37916d);
+            jbVar.a(f37845d);
             jbVar.a(this.f623c);
             jbVar.b();
         }
-        jbVar.a(f37917e);
+        jbVar.a(f37846e);
         jbVar.a(this.f616a);
         jbVar.b();
         if (this.f624d != null && f()) {
-            jbVar.a(f37918f);
+            jbVar.a(f37847f);
             jbVar.a(this.f624d);
             jbVar.b();
         }
         if (this.f625e != null && g()) {
-            jbVar.a(f37919g);
+            jbVar.a(f37848g);
             jbVar.a(this.f625e);
             jbVar.b();
         }
         if (this.f620a != null && h()) {
-            jbVar.a(f37920h);
+            jbVar.a(f37849h);
             jbVar.a(new iz((byte) 11, this.f620a.size()));
             for (String str : this.f620a) {
                 jbVar.a(str);
@@ -398,7 +398,7 @@ public class ia implements iq<ia, Object>, Serializable, Cloneable {
             jbVar.b();
         }
         if (this.f626f != null && i()) {
-            jbVar.a(f37921i);
+            jbVar.a(f37850i);
             jbVar.a(this.f626f);
             jbVar.b();
         }

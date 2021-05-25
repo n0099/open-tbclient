@@ -13,22 +13,22 @@ import okhttp3.CertificatePinner;
 public final class k {
 
     /* renamed from: c  reason: collision with root package name */
-    public static final k f65511c = new a().a();
+    public static final k f65554c = new a().a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final Set<b> f65512a;
+    public final Set<b> f65555a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final d.b.c.a.b.a.k.c f65513b;
+    public final d.b.c.a.b.a.k.c f65556b;
 
     /* loaded from: classes6.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final List<b> f65514a = new ArrayList();
+        public final List<b> f65557a = new ArrayList();
 
         public k a() {
-            return new k(new LinkedHashSet(this.f65514a), null);
+            return new k(new LinkedHashSet(this.f65557a), null);
         }
     }
 
@@ -36,35 +36,35 @@ public final class k {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f65515a;
+        public final String f65558a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f65516b;
+        public final String f65559b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final String f65517c;
+        public final String f65560c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final com.bytedance.sdk.a.a.f f65518d;
+        public final com.bytedance.sdk.a.a.f f65561d;
 
         public boolean a(String str) {
-            if (this.f65515a.startsWith(CertificatePinner.Pin.WILDCARD)) {
+            if (this.f65558a.startsWith(CertificatePinner.Pin.WILDCARD)) {
                 int indexOf = str.indexOf(46);
-                if ((str.length() - indexOf) - 1 == this.f65516b.length()) {
-                    String str2 = this.f65516b;
+                if ((str.length() - indexOf) - 1 == this.f65559b.length()) {
+                    String str2 = this.f65559b;
                     if (str.regionMatches(false, indexOf + 1, str2, 0, str2.length())) {
                         return true;
                     }
                 }
                 return false;
             }
-            return str.equals(this.f65516b);
+            return str.equals(this.f65559b);
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
                 b bVar = (b) obj;
-                if (this.f65515a.equals(bVar.f65515a) && this.f65517c.equals(bVar.f65517c) && this.f65518d.equals(bVar.f65518d)) {
+                if (this.f65558a.equals(bVar.f65558a) && this.f65560c.equals(bVar.f65560c) && this.f65561d.equals(bVar.f65561d)) {
                     return true;
                 }
             }
@@ -72,17 +72,17 @@ public final class k {
         }
 
         public int hashCode() {
-            return ((((527 + this.f65515a.hashCode()) * 31) + this.f65517c.hashCode()) * 31) + this.f65518d.hashCode();
+            return ((((527 + this.f65558a.hashCode()) * 31) + this.f65560c.hashCode()) * 31) + this.f65561d.hashCode();
         }
 
         public String toString() {
-            return this.f65517c + this.f65518d.b();
+            return this.f65560c + this.f65561d.b();
         }
     }
 
     public k(Set<b> set, d.b.c.a.b.a.k.c cVar) {
-        this.f65512a = set;
-        this.f65513b = cVar;
+        this.f65555a = set;
+        this.f65556b = cVar;
     }
 
     public static com.bytedance.sdk.a.a.f a(X509Certificate x509Certificate) {
@@ -101,12 +101,12 @@ public final class k {
     }
 
     public k b(d.b.c.a.b.a.k.c cVar) {
-        return d.b.c.a.b.a.e.u(this.f65513b, cVar) ? this : new k(this.f65512a, cVar);
+        return d.b.c.a.b.a.e.u(this.f65556b, cVar) ? this : new k(this.f65555a, cVar);
     }
 
     public List<b> d(String str) {
         List<b> emptyList = Collections.emptyList();
-        for (b bVar : this.f65512a) {
+        for (b bVar : this.f65555a) {
             if (bVar.a(str)) {
                 if (emptyList.isEmpty()) {
                     emptyList = new ArrayList<>();
@@ -122,7 +122,7 @@ public final class k {
         if (d2.isEmpty()) {
             return;
         }
-        d.b.c.a.b.a.k.c cVar = this.f65513b;
+        d.b.c.a.b.a.k.c cVar = this.f65556b;
         if (cVar != null) {
             list = cVar.b(list, str);
         }
@@ -134,22 +134,22 @@ public final class k {
             com.bytedance.sdk.a.a.f fVar2 = null;
             for (int i3 = 0; i3 < size2; i3++) {
                 b bVar = d2.get(i3);
-                if (bVar.f65517c.equals("sha256/")) {
+                if (bVar.f65560c.equals("sha256/")) {
                     if (fVar == null) {
                         fVar = f(x509Certificate);
                     }
-                    if (bVar.f65518d.equals(fVar)) {
+                    if (bVar.f65561d.equals(fVar)) {
                         return;
                     }
-                } else if (bVar.f65517c.equals("sha1/")) {
+                } else if (bVar.f65560c.equals("sha1/")) {
                     if (fVar2 == null) {
                         fVar2 = a(x509Certificate);
                     }
-                    if (bVar.f65518d.equals(fVar2)) {
+                    if (bVar.f65561d.equals(fVar2)) {
                         return;
                     }
                 } else {
-                    throw new AssertionError("unsupported hashAlgorithm: " + bVar.f65517c);
+                    throw new AssertionError("unsupported hashAlgorithm: " + bVar.f65560c);
                 }
             }
         }
@@ -181,7 +181,7 @@ public final class k {
         }
         if (obj instanceof k) {
             k kVar = (k) obj;
-            if (d.b.c.a.b.a.e.u(this.f65513b, kVar.f65513b) && this.f65512a.equals(kVar.f65512a)) {
+            if (d.b.c.a.b.a.e.u(this.f65556b, kVar.f65556b) && this.f65555a.equals(kVar.f65555a)) {
                 return true;
             }
         }
@@ -189,7 +189,7 @@ public final class k {
     }
 
     public int hashCode() {
-        d.b.c.a.b.a.k.c cVar = this.f65513b;
-        return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.f65512a.hashCode();
+        d.b.c.a.b.a.k.c cVar = this.f65556b;
+        return ((cVar != null ? cVar.hashCode() : 0) * 31) + this.f65555a.hashCode();
     }
 }

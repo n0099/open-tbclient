@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.google.gson.Gson;
-import d.a.i0.a.k;
-import d.a.i0.f.f;
+import d.a.l0.a.k;
+import d.a.l0.f.f;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,25 +24,25 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GameCloseGuidePopView extends RelativeLayout {
-    public static final boolean m = k.f43025a;
+    public static final boolean m = k.f43199a;
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f11827e;
+    public Context f11728e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f11828f;
+    public View f11729f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f11829g;
+    public View f11730g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f11830h;
+    public View f11731h;
 
     /* renamed from: i  reason: collision with root package name */
-    public RecyclerView f11831i;
+    public RecyclerView f11732i;
     public e j;
     public RecommendItemModel k;
-    public d.a.i0.h.o0.g.b.c l;
+    public d.a.l0.h.o0.g.b.c l;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -69,7 +69,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                 if (GameCloseGuidePopView.this.k == null || TextUtils.isEmpty(GameCloseGuidePopView.this.k.getScheme()) || TextUtils.isEmpty(GameCloseGuidePopView.this.k.getAppKey())) {
                     return;
                 }
-                SchemeRouter.invokeSchemeForInner(GameCloseGuidePopView.this.f11827e, Uri.parse(GameCloseGuidePopView.this.k.getScheme()));
+                SchemeRouter.invokeSchemeForInner(GameCloseGuidePopView.this.f11728e, Uri.parse(GameCloseGuidePopView.this.k.getScheme()));
                 GameCloseGuidePopView.this.l.b(3, "popview", GameCloseGuidePopView.this.k.getAppKey(), "");
             }
         }
@@ -95,20 +95,20 @@ public class GameCloseGuidePopView extends RelativeLayout {
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ List f11836e;
+            public final /* synthetic */ List f11737e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ d.a.i0.h.o0.g.e.a f11837f;
+            public final /* synthetic */ d.a.l0.h.o0.g.e.a f11738f;
 
-            public a(List list, d.a.i0.h.o0.g.e.a aVar) {
-                this.f11836e = list;
-                this.f11837f = aVar;
+            public a(List list, d.a.l0.h.o0.g.e.a aVar) {
+                this.f11737e = list;
+                this.f11738f = aVar;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                GameCloseGuidePopView.this.f11831i.setAdapter(new GameGuideAdapter(GameCloseGuidePopView.this.f11827e, this.f11836e));
-                GameCloseGuidePopView.this.l.c(3, this.f11837f);
+                GameCloseGuidePopView.this.f11732i.setAdapter(new GameGuideAdapter(GameCloseGuidePopView.this.f11728e, this.f11737e));
+                GameCloseGuidePopView.this.l.c(3, this.f11738f);
             }
         }
 
@@ -149,7 +149,7 @@ public class GameCloseGuidePopView extends RelativeLayout {
                         arrayList.add((RecommendItemModel) gson.fromJson(optJSONArray.opt(i2).toString(), (Class<Object>) RecommendItemModel.class));
                     }
                 }
-                GameCloseGuidePopView.this.post(new a(arrayList, new d.a.i0.h.o0.g.e.a(GameCloseGuidePopView.this.k, arrayList)));
+                GameCloseGuidePopView.this.post(new a(arrayList, new d.a.l0.h.o0.g.e.a(GameCloseGuidePopView.this.k, arrayList)));
             } catch (JSONException e2) {
                 if (GameCloseGuidePopView.m) {
                     e2.printStackTrace();
@@ -169,28 +169,28 @@ public class GameCloseGuidePopView extends RelativeLayout {
 
     public GameCloseGuidePopView(Context context) {
         super(context);
-        this.f11827e = context;
+        this.f11728e = context;
         i();
         h();
     }
 
     public final void h() {
-        this.l = new d.a.i0.h.o0.g.b.c();
-        d.a.i0.h.o0.g.f.a.a(new d());
+        this.l = new d.a.l0.h.o0.g.b.c();
+        d.a.l0.h.o0.g.f.a.a(new d());
     }
 
     public final void i() {
-        LayoutInflater.from(this.f11827e).inflate(f.swangame_game_close_guide_view, this);
-        this.f11828f = findViewById(d.a.i0.f.e.tv_exit_game);
-        this.f11829g = findViewById(d.a.i0.f.e.tv_more_game);
-        this.f11830h = findViewById(d.a.i0.f.e.rl_guide_game_bg);
-        this.f11831i = (RecyclerView) findViewById(d.a.i0.f.e.rv_guide_game);
-        this.f11828f.setOnClickListener(new a());
-        this.f11829g.setOnClickListener(new b());
-        this.f11830h.setOnClickListener(new c());
-        d.a.i0.h.o0.g.f.e.a(this.f11828f);
-        d.a.i0.h.o0.g.f.e.a(this.f11829g);
-        this.f11831i.setLayoutManager(new GridLayoutManager(this.f11827e, 3));
+        LayoutInflater.from(this.f11728e).inflate(f.swangame_game_close_guide_view, this);
+        this.f11729f = findViewById(d.a.l0.f.e.tv_exit_game);
+        this.f11730g = findViewById(d.a.l0.f.e.tv_more_game);
+        this.f11731h = findViewById(d.a.l0.f.e.rl_guide_game_bg);
+        this.f11732i = (RecyclerView) findViewById(d.a.l0.f.e.rv_guide_game);
+        this.f11729f.setOnClickListener(new a());
+        this.f11730g.setOnClickListener(new b());
+        this.f11731h.setOnClickListener(new c());
+        d.a.l0.h.o0.g.f.e.a(this.f11729f);
+        d.a.l0.h.o0.g.f.e.a(this.f11730g);
+        this.f11732i.setLayoutManager(new GridLayoutManager(this.f11728e, 3));
     }
 
     public void setOnClickListener(e eVar) {

@@ -6,38 +6,38 @@ import com.xiaomi.push.hm;
 public /* synthetic */ class as {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final /* synthetic */ int[] f38129a;
+    public static final /* synthetic */ int[] f38058a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final /* synthetic */ int[] f38130b;
+    public static final /* synthetic */ int[] f38059b;
 
     static {
         int[] iArr = new int[hm.values().length];
-        f38130b = iArr;
+        f38059b = iArr;
         try {
             iArr[hm.INT.ordinal()] = 1;
         } catch (NoSuchFieldError unused) {
         }
         try {
-            f38130b[hm.LONG.ordinal()] = 2;
+            f38059b[hm.LONG.ordinal()] = 2;
         } catch (NoSuchFieldError unused2) {
         }
         try {
-            f38130b[hm.STRING.ordinal()] = 3;
+            f38059b[hm.STRING.ordinal()] = 3;
         } catch (NoSuchFieldError unused3) {
         }
         try {
-            f38130b[hm.BOOLEAN.ordinal()] = 4;
+            f38059b[hm.BOOLEAN.ordinal()] = 4;
         } catch (NoSuchFieldError unused4) {
         }
         int[] iArr2 = new int[hl.values().length];
-        f38129a = iArr2;
+        f38058a = iArr2;
         try {
             iArr2[hl.MISC_CONFIG.ordinal()] = 1;
         } catch (NoSuchFieldError unused5) {
         }
         try {
-            f38129a[hl.PLUGIN_CONFIG.ordinal()] = 2;
+            f38058a[hl.PLUGIN_CONFIG.ordinal()] = 2;
         } catch (NoSuchFieldError unused6) {
         }
     }

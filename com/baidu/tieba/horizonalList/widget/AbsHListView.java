@@ -42,7 +42,7 @@ import androidx.core.widget.EdgeEffectCompat;
 import com.baidu.tieba.R;
 import com.baidu.tieba.R$styleable;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
-import d.a.k0.b1.a.b;
+import d.a.n0.c1.a.b;
 import java.util.ArrayList;
 import java.util.List;
 @TargetApi(11)
@@ -162,19 +162,19 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public static class LayoutParams extends ViewGroup.LayoutParams {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f16735a;
+        public int f16645a;
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f16736b;
+        public boolean f16646b;
 
         /* renamed from: c  reason: collision with root package name */
-        public boolean f16737c;
+        public boolean f16647c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f16738d;
+        public int f16648d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f16739e;
+        public long f16649e;
 
         public LayoutParams(Context context, AttributeSet attributeSet) {
             super(context, attributeSet);
@@ -186,7 +186,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
         public LayoutParams(int i2, int i3, int i4) {
             super(i2, i3);
-            this.f16735a = i4;
+            this.f16645a = i4;
         }
 
         public LayoutParams(ViewGroup.LayoutParams layoutParams) {
@@ -199,19 +199,19 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         public static final Parcelable.Creator<SavedState> CREATOR = new a();
 
         /* renamed from: e  reason: collision with root package name */
-        public long f16740e;
+        public long f16650e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f16741f;
+        public long f16651f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f16742g;
+        public int f16652g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f16743h;
+        public int f16653h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f16744i;
+        public int f16654i;
         public String j;
         public boolean k;
         public int l;
@@ -301,17 +301,17 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
 
         public String toString() {
-            return "AbsListView.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " selectedId=" + this.f16740e + " firstId=" + this.f16741f + " viewLeft=" + this.f16742g + " position=" + this.f16743h + " width=" + this.f16744i + " filter=" + this.j + " checkState=" + this.m + "}";
+            return "AbsListView.SavedState{" + Integer.toHexString(System.identityHashCode(this)) + " selectedId=" + this.f16650e + " firstId=" + this.f16651f + " viewLeft=" + this.f16652g + " position=" + this.f16653h + " width=" + this.f16654i + " filter=" + this.j + " checkState=" + this.m + "}";
         }
 
         @Override // android.view.View.BaseSavedState, android.view.AbsSavedState, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, i2);
-            parcel.writeLong(this.f16740e);
-            parcel.writeLong(this.f16741f);
-            parcel.writeInt(this.f16742g);
-            parcel.writeInt(this.f16743h);
-            parcel.writeInt(this.f16744i);
+            parcel.writeLong(this.f16650e);
+            parcel.writeLong(this.f16651f);
+            parcel.writeInt(this.f16652g);
+            parcel.writeInt(this.f16653h);
+            parcel.writeInt(this.f16654i);
             parcel.writeString(this.j);
             parcel.writeByte(this.k ? (byte) 1 : (byte) 0);
             parcel.writeInt(this.l);
@@ -325,11 +325,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
         public SavedState(Parcel parcel) {
             super(parcel);
-            this.f16740e = parcel.readLong();
-            this.f16741f = parcel.readLong();
-            this.f16742g = parcel.readInt();
-            this.f16743h = parcel.readInt();
-            this.f16744i = parcel.readInt();
+            this.f16650e = parcel.readLong();
+            this.f16651f = parcel.readLong();
+            this.f16652g = parcel.readInt();
+            this.f16653h = parcel.readInt();
+            this.f16654i = parcel.readInt();
             this.j = parcel.readString();
             this.k = parcel.readByte() != 0;
             this.l = parcel.readInt();
@@ -342,25 +342,25 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ View f16745e;
+        public final /* synthetic */ View f16655e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ j f16746f;
+        public final /* synthetic */ j f16656f;
 
         public a(View view, j jVar) {
-            this.f16745e = view;
-            this.f16746f = jVar;
+            this.f16655e = view;
+            this.f16656f = jVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             AbsHListView.this.mTouchMode = -1;
-            this.f16745e.setPressed(false);
+            this.f16655e.setPressed(false);
             AbsHListView.this.setPressed(false);
             if (AbsHListView.this.mDataChanged) {
                 return;
             }
-            this.f16746f.run();
+            this.f16656f.run();
         }
     }
 
@@ -548,13 +548,13 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final d.a.k0.b1.b.e f16753e;
+        public final d.a.n0.c1.b.e f16663e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f16754f;
+        public int f16664f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final Runnable f16755g = new a();
+        public final Runnable f16665g = new a();
 
         /* loaded from: classes4.dex */
         public class a implements Runnable {
@@ -565,7 +565,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             public void run() {
                 int i2 = AbsHListView.this.mActivePointerId;
                 VelocityTracker velocityTracker = AbsHListView.this.mVelocityTracker;
-                d.a.k0.b1.b.e eVar = g.this.f16753e;
+                d.a.n0.c1.b.e eVar = g.this.f16663e;
                 if (velocityTracker == null || i2 == -1) {
                     return;
                 }
@@ -583,11 +583,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
 
         public g() {
-            this.f16753e = new d.a.k0.b1.b.e(AbsHListView.this.getContext());
+            this.f16663e = new d.a.n0.c1.b.e(AbsHListView.this.getContext());
         }
 
         public void b(int i2) {
-            this.f16753e.i(AbsHListView.this.getScrollX(), 0, AbsHListView.this.mOverflingDistance);
+            this.f16663e.i(AbsHListView.this.getScrollX(), 0, AbsHListView.this.mOverflingDistance);
             int overScrollMode = AbsHListView.this.getOverScrollMode();
             if (overScrollMode != 0 && (overScrollMode != 1 || AbsHListView.this.contentFits())) {
                 AbsHListView absHListView = AbsHListView.this;
@@ -598,7 +598,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
             } else {
                 AbsHListView.this.mTouchMode = 6;
-                int e2 = (int) this.f16753e.e();
+                int e2 = (int) this.f16663e.e();
                 if (i2 > 0) {
                     AbsHListView.this.mEdgeGlowTop.onAbsorb(e2);
                 } else {
@@ -613,30 +613,30 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             AbsHListView absHListView = AbsHListView.this;
             absHListView.mTouchMode = -1;
             absHListView.removeCallbacks(this);
-            AbsHListView.this.removeCallbacks(this.f16755g);
+            AbsHListView.this.removeCallbacks(this.f16665g);
             AbsHListView.this.reportScrollStateChange(0);
             AbsHListView.this.clearScrollingCache();
-            this.f16753e.a();
+            this.f16663e.a();
             AbsHListView.this.overScrollBy(0, 0, 0, 0, 0, 0, 0, 0, false);
         }
 
         public void d() {
-            AbsHListView.this.postDelayed(this.f16755g, 40L);
+            AbsHListView.this.postDelayed(this.f16665g, 40L);
         }
 
         public void e(int i2) {
             int i3 = i2 < 0 ? Integer.MAX_VALUE : 0;
-            this.f16754f = i3;
-            this.f16753e.k(null);
-            this.f16753e.c(i3, 0, i2, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
+            this.f16664f = i3;
+            this.f16663e.k(null);
+            this.f16663e.c(i3, 0, i2, 0, 0, Integer.MAX_VALUE, 0, Integer.MAX_VALUE);
             AbsHListView absHListView = AbsHListView.this;
             absHListView.mTouchMode = 4;
             absHListView.mViewHelper.b(this);
         }
 
         public void f(int i2) {
-            this.f16753e.k(null);
-            this.f16753e.d(AbsHListView.this.getScrollX(), 0, i2, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0, AbsHListView.this.getWidth(), 0);
+            this.f16663e.k(null);
+            this.f16663e.d(AbsHListView.this.getScrollX(), 0, i2, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0, AbsHListView.this.getWidth(), 0);
             AbsHListView absHListView = AbsHListView.this;
             absHListView.mTouchMode = 6;
             absHListView.invalidate();
@@ -645,16 +645,16 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
         public void g(int i2, int i3, boolean z) {
             int i4 = i2 < 0 ? Integer.MAX_VALUE : 0;
-            this.f16754f = i4;
-            this.f16753e.k(z ? AbsHListView.sLinearInterpolator : null);
-            this.f16753e.m(i4, 0, i2, 0, i3);
+            this.f16664f = i4;
+            this.f16663e.k(z ? AbsHListView.sLinearInterpolator : null);
+            this.f16663e.m(i4, 0, i2, 0, i3);
             AbsHListView absHListView = AbsHListView.this;
             absHListView.mTouchMode = 4;
             absHListView.mViewHelper.b(this);
         }
 
         public void h() {
-            if (this.f16753e.l(AbsHListView.this.getScrollX(), 0, 0, 0, 0, 0)) {
+            if (this.f16663e.l(AbsHListView.this.getScrollX(), 0, 0, 0, 0, 0)) {
                 AbsHListView absHListView = AbsHListView.this;
                 absHListView.mTouchMode = 6;
                 absHListView.invalidate();
@@ -677,7 +677,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                         c();
                         return;
                     }
-                    d.a.k0.b1.b.e eVar = this.f16753e;
+                    d.a.n0.c1.b.e eVar = this.f16663e;
                     if (eVar.b()) {
                         int scrollX = AbsHListView.this.getScrollX();
                         int f2 = eVar.f();
@@ -706,7 +706,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     c();
                     return;
                 }
-            } else if (this.f16753e.g()) {
+            } else if (this.f16663e.g()) {
                 return;
             }
             AbsHListView absHListView2 = AbsHListView.this;
@@ -715,10 +715,10 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
             AbsHListView absHListView3 = AbsHListView.this;
             if (absHListView3.mItemCount != 0 && absHListView3.getChildCount() != 0) {
-                d.a.k0.b1.b.e eVar2 = this.f16753e;
+                d.a.n0.c1.b.e eVar2 = this.f16663e;
                 boolean b2 = eVar2.b();
                 int f3 = eVar2.f();
-                int i3 = this.f16754f - f3;
+                int i3 = this.f16664f - f3;
                 if (i3 > 0) {
                     AbsHListView absHListView4 = AbsHListView.this;
                     absHListView4.mMotionPosition = absHListView4.mFirstPosition;
@@ -752,7 +752,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     if (trackMotionScroll) {
                         AbsHListView.this.invalidate();
                     }
-                    this.f16754f = f3;
+                    this.f16664f = f3;
                     AbsHListView.this.mViewHelper.b(this);
                     return;
                 } else {
@@ -840,7 +840,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public class j extends o implements Runnable {
 
         /* renamed from: g  reason: collision with root package name */
-        public int f16759g;
+        public int f16669g;
 
         public j() {
             super(AbsHListView.this, null);
@@ -853,7 +853,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 return;
             }
             ListAdapter listAdapter = absHListView.mAdapter;
-            int i2 = this.f16759g;
+            int i2 = this.f16669g;
             if (listAdapter == null || absHListView.mItemCount <= 0 || i2 == -1 || i2 >= listAdapter.getCount() || !b()) {
                 return;
             }
@@ -873,19 +873,19 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public class k implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16761e;
+        public int f16671e;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f16762f;
+        public int f16672f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f16763g;
+        public int f16673g;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f16764h;
+        public int f16674h;
 
         /* renamed from: i  reason: collision with root package name */
-        public int f16765i;
+        public int f16675i;
         public final int j;
         public int k;
 
@@ -893,19 +893,19 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         public class a implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f16766e;
+            public final /* synthetic */ int f16676e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f16767f;
+            public final /* synthetic */ int f16677f;
 
             public a(int i2, int i3) {
-                this.f16766e = i2;
-                this.f16767f = i3;
+                this.f16676e = i2;
+                this.f16677f = i3;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                k.this.c(this.f16766e, this.f16767f);
+                k.this.c(this.f16676e, this.f16677f);
             }
         }
 
@@ -913,23 +913,23 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         public class b implements Runnable {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f16769e;
+            public final /* synthetic */ int f16679e;
 
             /* renamed from: f  reason: collision with root package name */
-            public final /* synthetic */ int f16770f;
+            public final /* synthetic */ int f16680f;
 
             /* renamed from: g  reason: collision with root package name */
-            public final /* synthetic */ int f16771g;
+            public final /* synthetic */ int f16681g;
 
             public b(int i2, int i3, int i4) {
-                this.f16769e = i2;
-                this.f16770f = i3;
-                this.f16771g = i4;
+                this.f16679e = i2;
+                this.f16680f = i3;
+                this.f16681g = i4;
             }
 
             @Override // java.lang.Runnable
             public void run() {
-                k.this.e(this.f16769e, this.f16770f, this.f16771g);
+                k.this.e(this.f16679e, this.f16680f, this.f16681g);
             }
         }
 
@@ -975,17 +975,17 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             int i3 = AbsHListView.this.mFirstPosition;
             int i4 = (childCount + i3) - 1;
             if (i2 < i3) {
-                this.f16761e = 2;
+                this.f16671e = 2;
             } else if (i2 > i4) {
-                this.f16761e = 1;
+                this.f16671e = 1;
             } else {
                 a(i2, -1, 200);
                 return;
             }
-            this.f16765i = 200;
-            this.f16762f = i2;
-            this.f16763g = -1;
-            this.f16764h = -1;
+            this.f16675i = 200;
+            this.f16672f = i2;
+            this.f16673g = -1;
+            this.f16674h = -1;
             AbsHListView.this.mViewHelper.b(this);
         }
 
@@ -1023,24 +1023,24 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 i5 = (i6 - max) + 1;
                 i4 = i8 - 1;
                 if (i4 < i5) {
-                    this.f16761e = 4;
+                    this.f16671e = 4;
                     i5 = i4;
                     if (i5 <= 0) {
-                        this.f16765i = 200 / i5;
+                        this.f16675i = 200 / i5;
                     } else {
-                        this.f16765i = 200;
+                        this.f16675i = 200;
                     }
-                    this.f16762f = max;
-                    this.f16763g = i3;
-                    this.f16764h = -1;
+                    this.f16672f = max;
+                    this.f16673g = i3;
+                    this.f16674h = -1;
                     AbsHListView.this.mViewHelper.b(this);
                 }
-                this.f16761e = 2;
+                this.f16671e = 2;
                 if (i5 <= 0) {
                 }
-                this.f16762f = max;
-                this.f16763g = i3;
-                this.f16764h = -1;
+                this.f16672f = max;
+                this.f16673g = i3;
+                this.f16674h = -1;
                 AbsHListView.this.mViewHelper.b(this);
             } else if (max <= i7) {
                 a(max, i3, 200);
@@ -1052,21 +1052,21 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 i4 = (max - i7) + 1;
                 i5 = i9 - 1;
                 if (i5 < i4) {
-                    this.f16761e = 3;
+                    this.f16671e = 3;
                     if (i5 <= 0) {
                     }
-                    this.f16762f = max;
-                    this.f16763g = i3;
-                    this.f16764h = -1;
+                    this.f16672f = max;
+                    this.f16673g = i3;
+                    this.f16674h = -1;
                     AbsHListView.this.mViewHelper.b(this);
                 }
-                this.f16761e = 1;
+                this.f16671e = 1;
                 i5 = i4;
                 if (i5 <= 0) {
                 }
-                this.f16762f = max;
-                this.f16763g = i3;
-                this.f16764h = -1;
+                this.f16672f = max;
+                this.f16673g = i3;
+                this.f16674h = -1;
                 AbsHListView.this.mViewHelper.b(this);
             }
         }
@@ -1089,11 +1089,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
             int paddingLeft = i3 + AbsHListView.this.getPaddingLeft();
             int max = Math.max(0, Math.min(AbsHListView.this.getCount() - 1, i2));
-            this.f16762f = max;
+            this.f16672f = max;
             this.k = paddingLeft;
-            this.f16763g = -1;
-            this.f16764h = -1;
-            this.f16761e = 5;
+            this.f16673g = -1;
+            this.f16674h = -1;
+            this.f16671e = 5;
             AbsHListView absHListView2 = AbsHListView.this;
             int i6 = absHListView2.mFirstPosition;
             int i7 = (i6 + childCount) - 1;
@@ -1109,8 +1109,8 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             if (f2 >= 1.0f) {
                 i4 = (int) (i4 / f2);
             }
-            this.f16765i = i4;
-            this.f16764h = -1;
+            this.f16675i = i4;
+            this.f16674h = -1;
             AbsHListView.this.mViewHelper.b(this);
         }
 
@@ -1123,7 +1123,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             int width = AbsHListView.this.getWidth();
             AbsHListView absHListView = AbsHListView.this;
             int i2 = absHListView.mFirstPosition;
-            int i3 = this.f16761e;
+            int i3 = this.f16671e;
             if (i3 == 1) {
                 int childCount = absHListView.getChildCount() - 1;
                 if (childCount < 0) {
@@ -1139,9 +1139,9 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 if (i4 < i5) {
                     i6 = Math.max(i6, this.j);
                 }
-                AbsHListView.this.smoothScrollBy((width2 - left) + i6, this.f16765i, true);
-                this.f16764h = i4;
-                if (i4 < this.f16762f) {
+                AbsHListView.this.smoothScrollBy((width2 - left) + i6, this.f16675i, true);
+                this.f16674h = i4;
+                if (i4 < this.f16672f) {
                     AbsHListView.this.mViewHelper.b(this);
                     return;
                 }
@@ -1149,7 +1149,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             }
             int i7 = 0;
             if (i3 == 2) {
-                if (i2 == this.f16764h) {
+                if (i2 == this.f16674h) {
                     absHListView.mViewHelper.b(this);
                     return;
                 }
@@ -1157,14 +1157,14 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 if (childAt2 == null) {
                     return;
                 }
-                AbsHListView.this.smoothScrollBy(childAt2.getLeft() - (i2 > 0 ? Math.max(this.j, AbsHListView.this.mListPadding.left) : AbsHListView.this.mListPadding.left), this.f16765i, true);
-                this.f16764h = i2;
-                if (i2 > this.f16762f) {
+                AbsHListView.this.smoothScrollBy(childAt2.getLeft() - (i2 > 0 ? Math.max(this.j, AbsHListView.this.mListPadding.left) : AbsHListView.this.mListPadding.left), this.f16675i, true);
+                this.f16674h = i2;
+                if (i2 > this.f16672f) {
                     AbsHListView.this.mViewHelper.b(this);
                 }
             } else if (i3 == 3) {
                 int childCount2 = absHListView.getChildCount();
-                if (i2 == this.f16763g || childCount2 <= 1) {
+                if (i2 == this.f16673g || childCount2 <= 1) {
                     return;
                 }
                 int i8 = childCount2 + i2;
@@ -1173,7 +1173,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     return;
                 }
                 int i9 = i2 + 1;
-                if (i9 == this.f16764h) {
+                if (i9 == this.f16674h) {
                     absHListView3.mViewHelper.b(this);
                     return;
                 }
@@ -1181,12 +1181,12 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 int width3 = childAt3.getWidth();
                 int left2 = childAt3.getLeft();
                 int max = Math.max(AbsHListView.this.mListPadding.right, this.j);
-                if (i9 < this.f16763g) {
-                    AbsHListView.this.smoothScrollBy(Math.max(0, (width3 + left2) - max), this.f16765i, true);
-                    this.f16764h = i9;
+                if (i9 < this.f16673g) {
+                    AbsHListView.this.smoothScrollBy(Math.max(0, (width3 + left2) - max), this.f16675i, true);
+                    this.f16674h = i9;
                     AbsHListView.this.mViewHelper.b(this);
                 } else if (left2 > max) {
-                    AbsHListView.this.smoothScrollBy(left2 - max, this.f16765i, true);
+                    AbsHListView.this.smoothScrollBy(left2 - max, this.f16675i, true);
                 }
             } else if (i3 == 4) {
                 int childCount3 = absHListView.getChildCount() - 2;
@@ -1194,7 +1194,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     return;
                 }
                 int i10 = i2 + childCount3;
-                if (i10 == this.f16764h) {
+                if (i10 == this.f16674h) {
                     AbsHListView.this.mViewHelper.b(this);
                     return;
                 }
@@ -1203,26 +1203,26 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 int left3 = childAt4.getLeft();
                 int i11 = width - left3;
                 int max2 = Math.max(AbsHListView.this.mListPadding.left, this.j);
-                this.f16764h = i10;
-                if (i10 > this.f16763g) {
-                    AbsHListView.this.smoothScrollBy(-(i11 - max2), this.f16765i, true);
+                this.f16674h = i10;
+                if (i10 > this.f16673g) {
+                    AbsHListView.this.smoothScrollBy(-(i11 - max2), this.f16675i, true);
                     AbsHListView.this.mViewHelper.b(this);
                     return;
                 }
                 int i12 = width - max2;
                 int i13 = left3 + width4;
                 if (i12 > i13) {
-                    AbsHListView.this.smoothScrollBy(-(i12 - i13), this.f16765i, true);
+                    AbsHListView.this.smoothScrollBy(-(i12 - i13), this.f16675i, true);
                 }
             } else if (i3 != 5) {
             } else {
-                if (this.f16764h == i2) {
+                if (this.f16674h == i2) {
                     absHListView.mViewHelper.b(this);
                     return;
                 }
-                this.f16764h = i2;
+                this.f16674h = i2;
                 int childCount4 = absHListView.getChildCount();
-                int i14 = this.f16762f;
+                int i14 = this.f16672f;
                 int i15 = (i2 + childCount4) - 1;
                 if (i14 < i2) {
                     i7 = (i2 - i14) + 1;
@@ -1231,14 +1231,14 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
                 float min = Math.min(Math.abs(i7 / childCount4), 1.0f);
                 if (i14 < i2) {
-                    AbsHListView.this.smoothScrollBy((int) ((-AbsHListView.this.getWidth()) * min), (int) (this.f16765i * min), true);
+                    AbsHListView.this.smoothScrollBy((int) ((-AbsHListView.this.getWidth()) * min), (int) (this.f16675i * min), true);
                     AbsHListView.this.mViewHelper.b(this);
                 } else if (i14 > i15) {
-                    AbsHListView.this.smoothScrollBy((int) (AbsHListView.this.getWidth() * min), (int) (this.f16765i * min), true);
+                    AbsHListView.this.smoothScrollBy((int) (AbsHListView.this.getWidth() * min), (int) (this.f16675i * min), true);
                     AbsHListView.this.mViewHelper.b(this);
                 } else {
                     int left4 = AbsHListView.this.getChildAt(i14 - i2).getLeft() - this.k;
-                    AbsHListView.this.smoothScrollBy(left4, (int) (this.f16765i * (Math.abs(left4) / AbsHListView.this.getWidth())), true);
+                    AbsHListView.this.smoothScrollBy(left4, (int) (this.f16675i * (Math.abs(left4) / AbsHListView.this.getWidth())), true);
                 }
             }
         }
@@ -1248,28 +1248,28 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public class l {
 
         /* renamed from: a  reason: collision with root package name */
-        public m f16773a;
+        public m f16683a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f16774b;
+        public int f16684b;
 
         /* renamed from: c  reason: collision with root package name */
-        public View[] f16775c = new View[0];
+        public View[] f16685c = new View[0];
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<View>[] f16776d;
+        public ArrayList<View>[] f16686d;
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16777e;
+        public int f16687e;
 
         /* renamed from: f  reason: collision with root package name */
-        public ArrayList<View> f16778f;
+        public ArrayList<View> f16688f;
 
         /* renamed from: g  reason: collision with root package name */
-        public ArrayList<View> f16779g;
+        public ArrayList<View> f16689g;
 
         /* renamed from: h  reason: collision with root package name */
-        public SparseArrayCompat<View> f16780h;
+        public SparseArrayCompat<View> f16690h;
 
         public l() {
         }
@@ -1280,81 +1280,81 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             if (layoutParams == null) {
                 return;
             }
-            layoutParams.f16738d = i2;
-            int i3 = layoutParams.f16735a;
+            layoutParams.f16648d = i2;
+            int i3 = layoutParams.f16645a;
             if (!q(i3)) {
                 if (i3 == -2) {
                     return;
                 }
-                if (this.f16779g == null) {
-                    this.f16779g = new ArrayList<>();
+                if (this.f16689g == null) {
+                    this.f16689g = new ArrayList<>();
                 }
-                this.f16779g.add(view);
+                this.f16689g.add(view);
                 return;
             }
             view.onStartTemporaryDetach();
-            if (this.f16777e == 1) {
-                this.f16778f.add(view);
+            if (this.f16687e == 1) {
+                this.f16688f.add(view);
             } else {
-                this.f16776d[i3].add(view);
+                this.f16686d[i3].add(view);
             }
             if (Build.VERSION.SDK_INT >= 14) {
                 view.setAccessibilityDelegate(null);
             }
-            m mVar = this.f16773a;
+            m mVar = this.f16683a;
             if (mVar != null) {
                 mVar.onMovedToScrapHeap(view);
             }
         }
 
         public void d() {
-            int i2 = this.f16777e;
+            int i2 = this.f16687e;
             if (i2 == 1) {
-                ArrayList<View> arrayList = this.f16778f;
+                ArrayList<View> arrayList = this.f16688f;
                 int size = arrayList.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     AbsHListView.this.removeDetachedView(arrayList.remove((size - 1) - i3), false);
                 }
             } else {
                 for (int i4 = 0; i4 < i2; i4++) {
-                    ArrayList<View> arrayList2 = this.f16776d[i4];
+                    ArrayList<View> arrayList2 = this.f16686d[i4];
                     int size2 = arrayList2.size();
                     for (int i5 = 0; i5 < size2; i5++) {
                         AbsHListView.this.removeDetachedView(arrayList2.remove((size2 - 1) - i5), false);
                     }
                 }
             }
-            SparseArrayCompat<View> sparseArrayCompat = this.f16780h;
+            SparseArrayCompat<View> sparseArrayCompat = this.f16690h;
             if (sparseArrayCompat != null) {
                 sparseArrayCompat.clear();
             }
         }
 
         public void e() {
-            SparseArrayCompat<View> sparseArrayCompat = this.f16780h;
+            SparseArrayCompat<View> sparseArrayCompat = this.f16690h;
             if (sparseArrayCompat != null) {
                 sparseArrayCompat.clear();
             }
         }
 
         public void f(int i2, int i3) {
-            if (this.f16775c.length < i2) {
-                this.f16775c = new View[i2];
+            if (this.f16685c.length < i2) {
+                this.f16685c = new View[i2];
             }
-            this.f16774b = i3;
-            View[] viewArr = this.f16775c;
+            this.f16684b = i3;
+            View[] viewArr = this.f16685c;
             for (int i4 = 0; i4 < i2; i4++) {
                 View childAt = AbsHListView.this.getChildAt(i4);
                 LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-                if (layoutParams != null && layoutParams.f16735a != -2) {
+                if (layoutParams != null && layoutParams.f16645a != -2) {
                     viewArr[i4] = childAt;
                 }
             }
         }
 
         public View g(int i2) {
-            int i3 = i2 - this.f16774b;
-            View[] viewArr = this.f16775c;
+            int i3 = i2 - this.f16684b;
+            View[] viewArr = this.f16685c;
             if (i3 < 0 || i3 >= viewArr.length) {
                 return null;
             }
@@ -1364,12 +1364,12 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
 
         public View h(int i2) {
-            if (this.f16777e == 1) {
-                return AbsHListView.retrieveFromScrap(this.f16778f, i2);
+            if (this.f16687e == 1) {
+                return AbsHListView.retrieveFromScrap(this.f16688f, i2);
             }
             int itemViewType = AbsHListView.this.mAdapter.getItemViewType(i2);
             if (itemViewType >= 0) {
-                ArrayList<View>[] arrayListArr = this.f16776d;
+                ArrayList<View>[] arrayListArr = this.f16686d;
                 if (itemViewType < arrayListArr.length) {
                     return AbsHListView.retrieveFromScrap(arrayListArr[itemViewType], i2);
                 }
@@ -1380,46 +1380,46 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
         public View i(int i2) {
             int indexOfKey;
-            SparseArrayCompat<View> sparseArrayCompat = this.f16780h;
+            SparseArrayCompat<View> sparseArrayCompat = this.f16690h;
             if (sparseArrayCompat != null && (indexOfKey = sparseArrayCompat.indexOfKey(i2)) >= 0) {
-                View valueAt = this.f16780h.valueAt(indexOfKey);
-                this.f16780h.removeAt(indexOfKey);
+                View valueAt = this.f16690h.valueAt(indexOfKey);
+                this.f16690h.removeAt(indexOfKey);
                 return valueAt;
             }
             return null;
         }
 
         public void j() {
-            int i2 = this.f16777e;
+            int i2 = this.f16687e;
             if (i2 == 1) {
-                ArrayList<View> arrayList = this.f16778f;
+                ArrayList<View> arrayList = this.f16688f;
                 int size = arrayList.size();
                 for (int i3 = 0; i3 < size; i3++) {
                     arrayList.get(i3).forceLayout();
                 }
             } else {
                 for (int i4 = 0; i4 < i2; i4++) {
-                    ArrayList<View> arrayList2 = this.f16776d[i4];
+                    ArrayList<View> arrayList2 = this.f16686d[i4];
                     int size2 = arrayList2.size();
                     for (int i5 = 0; i5 < size2; i5++) {
                         arrayList2.get(i5).forceLayout();
                     }
                 }
             }
-            SparseArrayCompat<View> sparseArrayCompat = this.f16780h;
+            SparseArrayCompat<View> sparseArrayCompat = this.f16690h;
             if (sparseArrayCompat != null) {
                 int size3 = sparseArrayCompat.size();
                 for (int i6 = 0; i6 < size3; i6++) {
-                    this.f16780h.valueAt(i6).forceLayout();
+                    this.f16690h.valueAt(i6).forceLayout();
                 }
             }
         }
 
         @SuppressLint({"NewApi"})
         public final void k() {
-            int length = this.f16775c.length;
-            int i2 = this.f16777e;
-            ArrayList<View>[] arrayListArr = this.f16776d;
+            int length = this.f16685c.length;
+            int i2 = this.f16687e;
+            ArrayList<View>[] arrayListArr = this.f16686d;
             for (int i3 = 0; i3 < i2; i3++) {
                 ArrayList<View> arrayList = arrayListArr[i3];
                 int size = arrayList.size();
@@ -1432,61 +1432,61 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     i5--;
                 }
             }
-            if (this.f16780h != null) {
-                for (int i7 = 0; i7 < this.f16780h.size(); i7++) {
-                    this.f16780h.valueAt(i7);
+            if (this.f16690h != null) {
+                for (int i7 = 0; i7 < this.f16690h.size(); i7++) {
+                    this.f16690h.valueAt(i7);
                 }
             }
         }
 
         public void l(List<View> list) {
-            int i2 = this.f16777e;
+            int i2 = this.f16687e;
             if (i2 == 1) {
-                list.addAll(this.f16778f);
+                list.addAll(this.f16688f);
                 return;
             }
-            ArrayList<View>[] arrayListArr = this.f16776d;
+            ArrayList<View>[] arrayListArr = this.f16686d;
             for (int i3 = 0; i3 < i2; i3++) {
                 list.addAll(arrayListArr[i3]);
             }
         }
 
         public void m() {
-            ArrayList<View> arrayList = this.f16779g;
+            ArrayList<View> arrayList = this.f16689g;
             if (arrayList == null) {
                 return;
             }
             int size = arrayList.size();
             for (int i2 = 0; i2 < size; i2++) {
-                AbsHListView.this.removeDetachedView(this.f16779g.get(i2), false);
+                AbsHListView.this.removeDetachedView(this.f16689g.get(i2), false);
             }
-            this.f16779g.clear();
+            this.f16689g.clear();
         }
 
         @SuppressLint({"NewApi"})
         public void n() {
-            View[] viewArr = this.f16775c;
-            boolean z = this.f16773a != null;
-            boolean z2 = this.f16777e > 1;
-            ArrayList<View> arrayList = this.f16778f;
+            View[] viewArr = this.f16685c;
+            boolean z = this.f16683a != null;
+            boolean z2 = this.f16687e > 1;
+            ArrayList<View> arrayList = this.f16688f;
             for (int length = viewArr.length - 1; length >= 0; length--) {
                 View view = viewArr[length];
                 if (view != null) {
                     LayoutParams layoutParams = (LayoutParams) view.getLayoutParams();
-                    int i2 = layoutParams.f16735a;
+                    int i2 = layoutParams.f16645a;
                     viewArr[length] = null;
                     if (q(i2)) {
                         if (z2) {
-                            arrayList = this.f16776d[i2];
+                            arrayList = this.f16686d[i2];
                         }
                         view.onStartTemporaryDetach();
-                        layoutParams.f16738d = this.f16774b + length;
+                        layoutParams.f16648d = this.f16684b + length;
                         arrayList.add(view);
                         if (Build.VERSION.SDK_INT >= 14) {
                             view.setAccessibilityDelegate(null);
                         }
                         if (z) {
-                            this.f16773a.onMovedToScrapHeap(view);
+                            this.f16683a.onMovedToScrapHeap(view);
                         }
                     } else if (i2 != -2) {
                         AbsHListView.this.removeDetachedView(view, false);
@@ -1498,23 +1498,23 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
 
         public void o(int i2) {
             View[] viewArr;
-            int i3 = this.f16777e;
+            int i3 = this.f16687e;
             if (i3 == 1) {
-                ArrayList<View> arrayList = this.f16778f;
+                ArrayList<View> arrayList = this.f16688f;
                 int size = arrayList.size();
                 for (int i4 = 0; i4 < size; i4++) {
                     arrayList.get(i4).setDrawingCacheBackgroundColor(i2);
                 }
             } else {
                 for (int i5 = 0; i5 < i3; i5++) {
-                    ArrayList<View> arrayList2 = this.f16776d[i5];
+                    ArrayList<View> arrayList2 = this.f16686d[i5];
                     int size2 = arrayList2.size();
                     for (int i6 = 0; i6 < size2; i6++) {
                         arrayList2.get(i6).setDrawingCacheBackgroundColor(i2);
                     }
                 }
             }
-            for (View view : this.f16775c) {
+            for (View view : this.f16685c) {
                 if (view != null) {
                     view.setDrawingCacheBackgroundColor(i2);
                 }
@@ -1527,9 +1527,9 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 for (int i3 = 0; i3 < i2; i3++) {
                     arrayListArr[i3] = new ArrayList<>();
                 }
-                this.f16777e = i2;
-                this.f16778f = arrayListArr[0];
-                this.f16776d = arrayListArr;
+                this.f16687e = i2;
+                this.f16688f = arrayListArr[0];
+                this.f16686d = arrayListArr;
                 return;
             }
             throw new IllegalArgumentException("Can't have a viewTypeCount < 1");
@@ -1554,17 +1554,17 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public class o {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f16782e;
+        public int f16692e;
 
         public o() {
         }
 
         public void a() {
-            this.f16782e = AbsHListView.this.getWindowAttachCount();
+            this.f16692e = AbsHListView.this.getWindowAttachCount();
         }
 
         public boolean b() {
-            return AbsHListView.this.hasWindowFocus() && AbsHListView.this.getWindowAttachCount() == this.f16782e;
+            return AbsHListView.this.hasWindowFocus() && AbsHListView.this.getWindowAttachCount() == this.f16692e;
         }
 
         public /* synthetic */ o(AbsHListView absHListView, a aVar) {
@@ -1708,7 +1708,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         this.mMaximumVelocity = viewConfiguration.getScaledMaximumFlingVelocity();
         this.mOverscrollDistance = viewConfiguration.getScaledOverscrollDistance();
         this.mOverflingDistance = viewConfiguration.getScaledOverflingDistance();
-        this.mViewHelper = d.a.k0.b1.a.b.a(this);
+        this.mViewHelper = d.a.n0.c1.a.b.a(this);
     }
 
     private void initOrResetVelocityTracker() {
@@ -1750,7 +1750,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         if (size > 0) {
             for (int i3 = 0; i3 < size; i3++) {
                 View view = arrayList.get(i3);
-                if (((LayoutParams) view.getLayoutParams()).f16738d == i2) {
+                if (((LayoutParams) view.getLayoutParams()).f16648d == i2) {
                     arrayList.remove(i3);
                     return view;
                 }
@@ -2062,7 +2062,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                     i2--;
                     this.mCheckedItemCount--;
                     if (Build.VERSION.SDK_INT > 11 && (obj2 = this.mChoiceActionMode) != null && (obj3 = this.mMultiChoiceModeCallback) != null) {
-                        ((d.a.k0.b1.a.c.b) obj3).a((ActionMode) obj2, intValue, keyAt, false);
+                        ((d.a.n0.c1.a.c.b) obj3).a((ActionMode) obj2, intValue, keyAt, false);
                     }
                     z2 = true;
                 }
@@ -2551,7 +2551,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
             } else {
                 layoutParams = (LayoutParams) layoutParams2;
             }
-            layoutParams.f16739e = this.mAdapter.getItemId(i2);
+            layoutParams.f16649e = this.mAdapter.getItemId(i2);
             view.setLayoutParams(layoutParams);
         }
         if (this.mAccessibilityManager.isEnabled() && this.mAccessibilityDelegate == null) {
@@ -2843,24 +2843,24 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         SavedState savedState = (SavedState) parcelable;
         super.onRestoreInstanceState(savedState.getSuperState());
         this.mDataChanged = true;
-        this.mSyncWidth = savedState.f16744i;
-        long j2 = savedState.f16740e;
+        this.mSyncWidth = savedState.f16654i;
+        long j2 = savedState.f16650e;
         if (j2 >= 0) {
             this.mNeedSync = true;
             this.mPendingSync = savedState;
             this.mSyncColId = j2;
-            this.mSyncPosition = savedState.f16743h;
-            this.mSpecificLeft = savedState.f16742g;
+            this.mSyncPosition = savedState.f16653h;
+            this.mSpecificLeft = savedState.f16652g;
             this.mSyncMode = 0;
-        } else if (savedState.f16741f >= 0) {
+        } else if (savedState.f16651f >= 0) {
             setSelectedPositionInt(-1);
             setNextSelectedPositionInt(-1);
             this.mSelectorPosition = -1;
             this.mNeedSync = true;
             this.mPendingSync = savedState;
-            this.mSyncColId = savedState.f16741f;
-            this.mSyncPosition = savedState.f16743h;
-            this.mSpecificLeft = savedState.f16742g;
+            this.mSyncColId = savedState.f16651f;
+            this.mSyncPosition = savedState.f16653h;
+            this.mSpecificLeft = savedState.f16652g;
             this.mSyncMode = 1;
         }
         SparseArrayCompat<Boolean> sparseArrayCompat = savedState.m;
@@ -2873,7 +2873,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
         this.mCheckedItemCount = savedState.l;
         if (Build.VERSION.SDK_INT >= 11 && savedState.k && this.mChoiceMode == 3 && (obj = this.mMultiChoiceModeCallback) != null) {
-            this.mChoiceActionMode = startActionMode((d.a.k0.b1.a.c.b) obj);
+            this.mChoiceActionMode = startActionMode((d.a.n0.c1.a.c.b) obj);
         }
         requestLayout();
     }
@@ -2883,11 +2883,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         SavedState savedState = new SavedState(super.onSaveInstanceState());
         SavedState savedState2 = this.mPendingSync;
         if (savedState2 != null) {
-            savedState.f16740e = savedState2.f16740e;
-            savedState.f16741f = savedState2.f16741f;
-            savedState.f16742g = savedState2.f16742g;
-            savedState.f16743h = savedState2.f16743h;
-            savedState.f16744i = savedState2.f16744i;
+            savedState.f16650e = savedState2.f16650e;
+            savedState.f16651f = savedState2.f16651f;
+            savedState.f16652g = savedState2.f16652g;
+            savedState.f16653h = savedState2.f16653h;
+            savedState.f16654i = savedState2.f16654i;
             savedState.j = savedState2.j;
             savedState.k = savedState2.k;
             savedState.l = savedState2.l;
@@ -2898,25 +2898,25 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         boolean z = true;
         boolean z2 = getChildCount() > 0 && this.mItemCount > 0;
         long selectedItemId = getSelectedItemId();
-        savedState.f16740e = selectedItemId;
-        savedState.f16744i = getWidth();
+        savedState.f16650e = selectedItemId;
+        savedState.f16654i = getWidth();
         if (selectedItemId >= 0) {
-            savedState.f16742g = this.mSelectedLeft;
-            savedState.f16743h = getSelectedItemPosition();
-            savedState.f16741f = -1L;
+            savedState.f16652g = this.mSelectedLeft;
+            savedState.f16653h = getSelectedItemPosition();
+            savedState.f16651f = -1L;
         } else if (z2 && this.mFirstPosition > 0) {
-            savedState.f16742g = getChildAt(0).getLeft();
+            savedState.f16652g = getChildAt(0).getLeft();
             int i2 = this.mFirstPosition;
             int i3 = this.mItemCount;
             if (i2 >= i3) {
                 i2 = i3 - 1;
             }
-            savedState.f16743h = i2;
-            savedState.f16741f = this.mAdapter.getItemId(i2);
+            savedState.f16653h = i2;
+            savedState.f16651f = this.mAdapter.getItemId(i2);
         } else {
-            savedState.f16742g = 0;
-            savedState.f16741f = -1L;
-            savedState.f16743h = 0;
+            savedState.f16652g = 0;
+            savedState.f16651f = -1L;
+            savedState.f16653h = 0;
         }
         savedState.j = null;
         savedState.k = (Build.VERSION.SDK_INT < 11 || this.mChoiceMode != 3 || this.mChoiceActionMode == null) ? false : false;
@@ -3027,7 +3027,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                             this.mPerformClick = new j(this, null);
                         }
                         j jVar = this.mPerformClick;
-                        jVar.f16759g = i5;
+                        jVar.f16669g = i5;
                         jVar.a();
                         this.mResurrectToPosition = i5;
                         int i6 = this.mTouchMode;
@@ -3328,7 +3328,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
                 Object obj = this.mChoiceActionMode;
                 if (obj != null) {
-                    ((d.a.k0.b1.a.c.b) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
+                    ((d.a.n0.c1.a.c.b) this.mMultiChoiceModeCallback).a((ActionMode) obj, i2, j2, z4);
                 } else {
                     z2 = true;
                 }
@@ -3346,7 +3346,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     public boolean performLongPress(View view, int i2, long j2) {
         if (Build.VERSION.SDK_INT >= 11 && this.mChoiceMode == 3) {
             if (this.mChoiceActionMode == null) {
-                ActionMode startActionMode = startActionMode((d.a.k0.b1.a.c.b) this.mMultiChoiceModeCallback);
+                ActionMode startActionMode = startActionMode((d.a.n0.c1.a.c.b) this.mMultiChoiceModeCallback);
                 this.mChoiceActionMode = startActionMode;
                 if (startActionMode != null) {
                     setItemChecked(i2, true);
@@ -3415,11 +3415,11 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     @SuppressLint({"NewApi"})
     public void reclaimViews(List<View> list) {
         int childCount = getChildCount();
-        m mVar = this.mRecycler.f16773a;
+        m mVar = this.mRecycler.f16683a;
         for (int i2 = 0; i2 < childCount; i2++) {
             View childAt = getChildAt(i2);
             LayoutParams layoutParams = (LayoutParams) childAt.getLayoutParams();
-            if (layoutParams != null && this.mRecycler.q(layoutParams.f16735a)) {
+            if (layoutParams != null && this.mRecycler.q(layoutParams.f16645a)) {
                 list.add(childAt);
                 if (Build.VERSION.SDK_INT >= 14) {
                     childAt.setAccessibilityDelegate(null);
@@ -3684,7 +3684,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         if (this.mFlingRunnable == null) {
             this.mFlingRunnable = new g();
         }
-        this.mFlingRunnable.f16753e.j(f2);
+        this.mFlingRunnable.f16663e.j(f2);
     }
 
     public void setItemChecked(int i2, boolean z) {
@@ -3694,8 +3694,8 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
         }
         if (Build.VERSION.SDK_INT >= 11 && z && i3 == 3 && this.mChoiceActionMode == null) {
             Object obj = this.mMultiChoiceModeCallback;
-            if (obj != null && ((d.a.k0.b1.a.c.b) obj).b()) {
-                this.mChoiceActionMode = startActionMode((d.a.k0.b1.a.c.b) this.mMultiChoiceModeCallback);
+            if (obj != null && ((d.a.n0.c1.a.c.b) obj).b()) {
+                this.mChoiceActionMode = startActionMode((d.a.n0.c1.a.c.b) this.mMultiChoiceModeCallback);
             } else {
                 throw new IllegalStateException("AbsListView: attempted to start selection mode for CHOICE_MODE_MULTIPLE_MODAL but no choice mode callback was supplied. Call setMultiChoiceModeListener to set a callback.");
             }
@@ -3736,7 +3736,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
                 }
             }
             if (this.mChoiceActionMode != null) {
-                ((d.a.k0.b1.a.c.b) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
+                ((d.a.n0.c1.a.c.b) this.mMultiChoiceModeCallback).a((ActionMode) this.mChoiceActionMode, i2, this.mAdapter.getItemId(i2), z);
             }
         }
         if (this.mInLayout || this.mBlockLayoutRequests) {
@@ -3748,12 +3748,12 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     }
 
     @TargetApi(11)
-    public void setMultiChoiceModeListener(d.a.k0.b1.a.c.a aVar) {
+    public void setMultiChoiceModeListener(d.a.n0.c1.a.c.a aVar) {
         if (Build.VERSION.SDK_INT >= 11) {
             if (this.mMultiChoiceModeCallback == null) {
-                this.mMultiChoiceModeCallback = new d.a.k0.b1.a.c.b(this);
+                this.mMultiChoiceModeCallback = new d.a.n0.c1.a.c.b(this);
             }
-            ((d.a.k0.b1.a.c.b) this.mMultiChoiceModeCallback).c(aVar);
+            ((d.a.n0.c1.a.c.b) this.mMultiChoiceModeCallback).c(aVar);
         }
     }
 
@@ -3783,7 +3783,7 @@ public abstract class AbsHListView extends AdapterView<ListAdapter> implements V
     }
 
     public void setRecyclerListener(m mVar) {
-        this.mRecycler.f16773a = mVar;
+        this.mRecycler.f16683a = mVar;
     }
 
     public void setScrollIndicators(View view, View view2) {

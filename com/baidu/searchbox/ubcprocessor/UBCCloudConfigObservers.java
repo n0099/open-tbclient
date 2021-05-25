@@ -1,8 +1,8 @@
 package com.baidu.searchbox.ubcprocessor;
 
 import com.baidu.pyramid.annotation.Inject;
-import d.a.c0.a.b.b;
-import d.a.c0.a.b.d;
+import d.a.e0.a.b.b;
+import d.a.e0.a.b.d;
 /* loaded from: classes2.dex */
 public class UBCCloudConfigObservers {
     @Inject(force = false)

@@ -21,10 +21,10 @@ import tv.athena.revenue.payui.webview.UrlPageParams;
 public class YYPayWebCommonView extends LinearLayout implements i.a.a.e.m.a, b.c {
 
     /* renamed from: e  reason: collision with root package name */
-    public a f69592e;
+    public a f69635e;
 
     /* renamed from: f  reason: collision with root package name */
-    public WebView f69593f;
+    public WebView f69636f;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -48,7 +48,7 @@ public class YYPayWebCommonView extends LinearLayout implements i.a.a.e.m.a, b.c
             return;
         }
         d.g("YYPayWalletView", "onUpdateTopUi pageParams: %s", urlPageParams);
-        a aVar = this.f69592e;
+        a aVar = this.f69635e;
         if (aVar != null) {
             aVar.onUpdateTopUi(new e(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
         }
@@ -61,15 +61,15 @@ public class YYPayWebCommonView extends LinearLayout implements i.a.a.e.m.a, b.c
             return;
         }
         d.g("YYPayWalletView", "onOpenUrl pageParams: %s", urlPageParams);
-        if (this.f69592e != null) {
-            this.f69592e.onOpenNewUrl(new f(IYYPayCallback.Code.OPEN_URL_FROM_WALLET, urlPageParams.url, urlPageParams.pageType), new e(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
+        if (this.f69635e != null) {
+            this.f69635e.onOpenNewUrl(new f(IYYPayCallback.Code.OPEN_URL_FROM_WALLET, urlPageParams.url, urlPageParams.pageType), new e(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl));
         }
     }
 
     public final void c(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(i.a.a.e.d.yy_layout_pay_wallet_view, (ViewGroup) this, true);
         WebView webView = (WebView) findViewById(c.webview);
-        this.f69593f = webView;
+        this.f69636f = webView;
         WebSettings settings = webView.getSettings();
         if (settings != null) {
             settings.setJavaScriptEnabled(true);
@@ -81,12 +81,12 @@ public class YYPayWebCommonView extends LinearLayout implements i.a.a.e.m.a, b.c
                 settings.setMixedContentMode(0);
             }
         }
-        this.f69593f.addJavascriptInterface(new b(this), "YYPaySdkJsInterface");
-        i.a.a.e.n.a.a(this.f69593f);
+        this.f69636f.addJavascriptInterface(new b(this), "YYPaySdkJsInterface");
+        i.a.a.e.n.a.a(this.f69636f);
     }
 
     public void d(String str) {
-        this.f69593f.loadUrl(str);
+        this.f69636f.loadUrl(str);
     }
 
     @Override // i.a.a.e.m.a
@@ -96,7 +96,7 @@ public class YYPayWebCommonView extends LinearLayout implements i.a.a.e.m.a, b.c
 
     @Override // i.a.a.e.n.b.c
     public String getToken() {
-        a aVar = this.f69592e;
+        a aVar = this.f69635e;
         if (aVar != null) {
             return aVar.getToken();
         }
@@ -111,14 +111,14 @@ public class YYPayWebCommonView extends LinearLayout implements i.a.a.e.m.a, b.c
             return;
         }
         d.g("YYPayWalletView", "onNativeOperation params: %s", aVar);
-        a aVar2 = this.f69592e;
+        a aVar2 = this.f69635e;
         if (aVar2 != null) {
             aVar2.onNativeOperation(aVar);
         }
     }
 
     public void setCallback(a aVar) {
-        this.f69592e = aVar;
+        this.f69635e = aVar;
     }
 
     public YYPayWebCommonView(Context context, @Nullable AttributeSet attributeSet) {

@@ -233,6 +233,21 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return this.mFromUser;
     }
 
+    public int getGroupType() {
+        if (TextUtils.isEmpty(this.mExtJson)) {
+            return 1;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject(this.mExtJson);
+            if (jSONObject.has("group_type")) {
+                return jSONObject.getInt("group_type");
+            }
+            return (jSONObject.has("sub_app_identity") && jSONObject.getInt("sub_app_identity") == 57) ? 3 : 1;
+        } catch (JSONException unused) {
+            return 1;
+        }
+    }
+
     public String getJsonContent() {
         return this.mjsonContent;
     }
@@ -461,7 +476,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public boolean isNotifyMessage() {
         int i2 = this.mType;
-        return (i2 >= 1001 && i2 <= 1012) || this.mType == 2010;
+        return (i2 >= 1001 && i2 <= 1014) || this.mType == 2010;
     }
 
     public boolean isReSend() {

@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.view.NavigationBarCoverTip;
-import d.a.j0.m.g;
+import d.a.m0.m.g;
 /* loaded from: classes5.dex */
 public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
     public Activity l;
@@ -46,7 +46,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         public b() {
         }
 
-        @Override // d.a.j0.m.g, android.app.Application.ActivityLifecycleCallbacks
+        @Override // d.a.m0.m.g, android.app.Application.ActivityLifecycleCallbacks
         public void onActivityDestroyed(Activity activity) {
             if (activity == DefaultNavigationBarCoverTip.this.l) {
                 DefaultNavigationBarCoverTip.this.setCoverTipListener(null);
@@ -100,7 +100,7 @@ public class DefaultNavigationBarCoverTip extends NavigationBarCoverTip {
         TextView textView = (TextView) inflate.findViewById(R.id.write_thread_success_tips);
         TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.m.findViewById(R.id.share_icon);
         tBSpecificationBtn.setTextSize(R.dimen.tbds34);
-        d.a.j0.r.f0.m.c cVar = new d.a.j0.r.f0.m.c();
+        d.a.m0.r.f0.m.c cVar = new d.a.m0.r.f0.m.c();
         cVar.r();
         tBSpecificationBtn.setConfig(cVar);
         textView.setSingleLine();

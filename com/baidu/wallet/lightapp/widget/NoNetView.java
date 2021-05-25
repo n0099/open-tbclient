@@ -14,19 +14,19 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
     public static int ERROR_SSL_GENERAL = 5000;
 
     /* renamed from: a  reason: collision with root package name */
-    public Animation f25011a;
+    public Animation f24940a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Animation f25012b;
+    public Animation f24941b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f25013c;
+    public String f24942c;
 
     /* renamed from: d  reason: collision with root package name */
-    public a f25014d;
+    public a f24943d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f25015e;
+    public TextView f24944e;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -35,15 +35,15 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
 
     public NoNetView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f25013c = "";
+        this.f24942c = "";
         a();
         b();
     }
 
     private void a() {
-        this.f25011a = ResUtils.getAnimation(getContext(), "wallet_base_slide_from_right");
-        this.f25012b = ResUtils.getAnimation(getContext(), "wallet_base_slide_to_right");
-        this.f25011a.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.wallet.lightapp.widget.NoNetView.1
+        this.f24940a = ResUtils.getAnimation(getContext(), "wallet_base_slide_from_right");
+        this.f24941b = ResUtils.getAnimation(getContext(), "wallet_base_slide_to_right");
+        this.f24940a.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.wallet.lightapp.widget.NoNetView.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 NoNetView.this.setVisibility(0);
@@ -57,7 +57,7 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
             public void onAnimationStart(Animation animation) {
             }
         });
-        this.f25012b.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.wallet.lightapp.widget.NoNetView.2
+        this.f24941b.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.wallet.lightapp.widget.NoNetView.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
                 NoNetView.this.setVisibility(8);
@@ -76,11 +76,11 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
     private void b() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_base_no_net_error_layout"), this);
         findViewById(ResUtils.id(getContext(), "reload_btn")).setOnClickListener(this);
-        this.f25015e = (TextView) findViewById(ResUtils.id(getContext(), "failure_cause_errcode"));
+        this.f24944e = (TextView) findViewById(ResUtils.id(getContext(), "failure_cause_errcode"));
     }
 
     public void hide() {
-        this.f25013c = "";
+        this.f24942c = "";
         setVisibility(8);
     }
 
@@ -97,21 +97,21 @@ public class NoNetView extends RelativeLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         a aVar;
-        if (CheckUtils.isFastDoubleClick() || view.getId() != ResUtils.id(getContext(), "reload_btn") || (aVar = this.f25014d) == null) {
+        if (CheckUtils.isFastDoubleClick() || view.getId() != ResUtils.id(getContext(), "reload_btn") || (aVar = this.f24943d) == null) {
             return;
         }
-        aVar.onReloadClick(this.f25013c);
+        aVar.onReloadClick(this.f24942c);
     }
 
     public void setFailureCause(int i2) {
-        if (this.f25015e != null) {
-            this.f25015e.setText(String.format(ResUtils.getString(getContext(), "wallet_base_no_network_error_code"), Integer.valueOf(i2)));
+        if (this.f24944e != null) {
+            this.f24944e.setText(String.format(ResUtils.getString(getContext(), "wallet_base_no_network_error_code"), Integer.valueOf(i2)));
         }
     }
 
     public void show(String str, a aVar) {
-        this.f25013c = str;
-        this.f25014d = aVar;
+        this.f24942c = str;
+        this.f24943d = aVar;
         setVisibility(0);
     }
 }

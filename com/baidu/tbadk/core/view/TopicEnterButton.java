@@ -14,86 +14,86 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import d.a.c.e.p.k;
 import d.a.c.e.p.l;
-import d.a.j0.r.u.c;
+import d.a.m0.r.u.c;
 /* loaded from: classes3.dex */
 public class TopicEnterButton extends AppCompatTextView implements View.OnClickListener {
 
     /* renamed from: f  reason: collision with root package name */
-    public static final int f12511f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+    public static final int f12419f = l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
 
     /* renamed from: g  reason: collision with root package name */
-    public static final int f12512g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+    public static final int f12420g = l.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
 
     /* renamed from: h  reason: collision with root package name */
-    public static final int f12513h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f12511f) - f12512g;
+    public static final int f12421h = (((((l.k(TbadkCoreApplication.getInst()) / 2) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (l.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - l.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - f12419f) - f12420g;
 
     /* renamed from: e  reason: collision with root package name */
-    public RecommendTopicData.RecommendTopicListData f12514e;
+    public RecommendTopicData.RecommendTopicListData f12422e;
 
     public TopicEnterButton(Context context) {
         super(context);
-        g();
+        e();
     }
 
-    public void a() {
-        c d2 = c.d(this);
-        d2.v(R.string.F_X01);
-        d2.u(R.dimen.T_X09);
-        d2.q(R.color.CAM_X0304);
-        d2.e(R.string.A_X07);
-        d2.k(R.string.J_X01);
-        d2.i(R.dimen.L_X02);
-        d2.h(R.color.CAM_X0304);
-        Drawable maskDrawable = WebPManager.getMaskDrawable(R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
-        setCompoundDrawablePadding(f12511f);
-        if (maskDrawable != null) {
-            int i2 = f12512g;
-            maskDrawable.setBounds(0, 0, i2, i2);
-        }
-        setCompoundDrawables(maskDrawable, null, null, null);
-    }
-
-    public void f(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
-        this.f12514e = recommendTopicListData;
+    public void d(RecommendTopicData.RecommendTopicListData recommendTopicListData) {
+        this.f12422e = recommendTopicListData;
         if (recommendTopicListData != null) {
             String topicName = recommendTopicListData.getTopicName();
             if (k.isEmpty(topicName)) {
                 setVisibility(8);
                 return;
             }
-            setText(TextUtils.ellipsize(topicName, getPaint(), f12513h, TextUtils.TruncateAt.END));
+            setText(TextUtils.ellipsize(topicName, getPaint(), f12421h, TextUtils.TruncateAt.END));
             setVisibility(0);
-            a();
+            f();
             return;
         }
         setVisibility(8);
     }
 
-    public void g() {
+    public void e() {
         setHeight((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.tbds62));
         setMaxLines(1);
         setGravity(17);
         setPadding((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0, (int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.M_W_X004), 0);
         setOnClickListener(this);
-        a();
+        f();
+    }
+
+    public void f() {
+        c d2 = c.d(this);
+        d2.x(R.string.F_X01);
+        d2.w(R.dimen.T_X09);
+        d2.s(R.color.CAM_X0304);
+        d2.e(R.string.A_X07);
+        d2.m(R.string.J_X01);
+        d2.k(R.dimen.L_X02);
+        d2.j(R.color.CAM_X0304);
+        Drawable maskDrawable = WebPManager.getMaskDrawable(R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
+        setCompoundDrawablePadding(f12419f);
+        if (maskDrawable != null) {
+            int i2 = f12420g;
+            maskDrawable.setBounds(0, 0, i2, i2);
+        }
+        setCompoundDrawables(maskDrawable, null, null, null);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        RecommendTopicData.RecommendTopicListData recommendTopicListData = this.f12514e;
+        RecommendTopicData.RecommendTopicListData recommendTopicListData = this.f12422e;
         if (recommendTopicListData == null || k.isEmpty(recommendTopicListData.getTopicName())) {
             return;
         }
-        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f12514e.getTopicName(), "2").start();
+        new HotTopicActivityConfig(view.getContext()).createNormalConfig(null, this.f12422e.getTopicName(), "2").start();
     }
 
     public TopicEnterButton(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        g();
+        e();
     }
 
     public TopicEnterButton(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        g();
+        e();
     }
 }

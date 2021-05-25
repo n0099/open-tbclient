@@ -5,17 +5,17 @@ import rx.exceptions.MissingBackpressureException;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final d f68362a;
+    public static final d f68405a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final d f68363b;
+    public static final d f68406b;
 
     /* renamed from: h.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static final class C1913a implements d {
+    public static final class C1917a implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final C1913a f68364a = new C1913a();
+        public static final C1917a f68407a = new C1917a();
 
         @Override // h.a.d
         public boolean a() {
@@ -27,7 +27,7 @@ public final class a {
     public static final class b implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final b f68365a = new b();
+        public static final b f68408a = new b();
 
         @Override // h.a.d
         public boolean a() {
@@ -39,7 +39,7 @@ public final class a {
     public static final class c implements d {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final c f68366a = new c();
+        public static final c f68409a = new c();
 
         @Override // h.a.d
         public boolean a() throws MissingBackpressureException {
@@ -53,10 +53,10 @@ public final class a {
     }
 
     static {
-        c cVar = c.f68366a;
-        f68362a = cVar;
-        f68363b = cVar;
-        b bVar = b.f68365a;
-        C1913a c1913a = C1913a.f68364a;
+        c cVar = c.f68409a;
+        f68405a = cVar;
+        f68406b = cVar;
+        b bVar = b.f68408a;
+        C1917a c1917a = C1917a.f68407a;
     }
 }

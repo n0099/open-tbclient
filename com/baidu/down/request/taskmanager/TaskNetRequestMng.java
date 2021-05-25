@@ -2,6 +2,7 @@ package com.baidu.down.request.taskmanager;
 
 import android.content.Context;
 import android.text.TextUtils;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.down.common.BasicNameValuePair;
 import com.baidu.down.loopj.android.urlconnection.HttpURLExecutorRunnable;
 import com.baidu.down.statistic.ConfigSpeedStat;
@@ -59,8 +60,8 @@ public final class TaskNetRequestMng {
                                 TaskNetRequestMng.restoreDefaultConfig(context);
                             } else {
                                 long parseLong = Long.parseLong(optJSONObject.optString("frequency"));
-                                if (parseLong > 604800) {
-                                    DownPrefUtils.setLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, 604800L);
+                                if (parseLong > IMConstants.FANS_GROUP_INFO_EXPIRED_TIME) {
+                                    DownPrefUtils.setLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, IMConstants.FANS_GROUP_INFO_EXPIRED_TIME);
                                 } else {
                                     DownPrefUtils.setLong(context, DownPrefUtils.PREF_CONFIG_REQUEST_INTERVAL, parseLong);
                                 }

@@ -7,10 +7,10 @@ import java.lang.ref.WeakReference;
 public class a implements d.o.a.a.a.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final WeakReference<Context> f29006a;
+    public final WeakReference<Context> f28935a;
 
     public a(Context context) {
-        this.f29006a = new WeakReference<>(context);
+        this.f28935a = new WeakReference<>(context);
     }
 
     @Override // d.o.a.a.a.a.b

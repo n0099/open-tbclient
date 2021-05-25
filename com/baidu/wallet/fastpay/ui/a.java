@@ -19,31 +19,31 @@ import java.util.regex.Pattern;
 public class a extends BasePromotionAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    public PromotionInfoResponse f24136a;
+    public PromotionInfoResponse f24065a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Context f24137b;
+    public Context f24066b;
 
     public a(Context context, PromotionInfoResponse promotionInfoResponse) {
-        this.f24136a = promotionInfoResponse;
-        this.f24137b = context;
+        this.f24065a = promotionInfoResponse;
+        this.f24066b = context;
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
     public CommonPromotionView createAdapterView(Context context) {
-        PromotionInfoResponse promotionInfoResponse = this.f24136a;
+        PromotionInfoResponse promotionInfoResponse = this.f24065a;
         if (promotionInfoResponse == null) {
             return null;
         }
         int i2 = promotionInfoResponse.promotion_type;
         if (i2 == 1) {
             CommonPromotionView commonPromotionView = new CommonPromotionView(context);
-            commonPromotionView.setCenText(getCenText()).setCenTextColor(ResUtils.getColor(this.f24137b, "wallet_fp_promtion_text"));
+            commonPromotionView.setCenText(getCenText()).setCenTextColor(ResUtils.getColor(this.f24066b, "wallet_fp_promtion_text"));
             return commonPromotionView;
         } else if (i2 == 2) {
             CommonPromotionView commonPromotionView2 = new CommonPromotionView(context);
             commonPromotionView2.setCenText(getCenText()).setTextClickListener(getClickListener()).setDefLeftDrawable(getDefLeftDraw(), getLeftUrl());
-            PromotionInfoResponse promotionInfoResponse2 = this.f24136a;
+            PromotionInfoResponse promotionInfoResponse2 = this.f24065a;
             if (promotionInfoResponse2.link_type == 0 || TextUtils.isEmpty(promotionInfoResponse2.promotion_detail_url)) {
                 return commonPromotionView2;
             }
@@ -53,7 +53,7 @@ public class a extends BasePromotionAdapter {
             CommonPromotionView commonPromotionView3 = new CommonPromotionView(context);
             a();
             commonPromotionView3.setCenText(getCenText()).setTextClickListener(getClickListener()).setDefLeftDrawable(getDefLeftDraw(), getLeftUrl());
-            PromotionInfoResponse promotionInfoResponse3 = this.f24136a;
+            PromotionInfoResponse promotionInfoResponse3 = this.f24065a;
             if (promotionInfoResponse3.link_type == 0 || TextUtils.isEmpty(promotionInfoResponse3.promotion_detail_url)) {
                 return commonPromotionView3;
             }
@@ -64,7 +64,7 @@ public class a extends BasePromotionAdapter {
         } else {
             FastPayPromotionView fastPayPromotionView = new FastPayPromotionView(context);
             fastPayPromotionView.setCenText(getCenText()).setDefLeftDrawable(getDefLeftDraw(), getLeftUrl()).setClickRightImgToClose();
-            PromotionInfoResponse promotionInfoResponse4 = this.f24136a;
+            PromotionInfoResponse promotionInfoResponse4 = this.f24065a;
             if (promotionInfoResponse4.link_type == 0 || TextUtils.isEmpty(promotionInfoResponse4.promotion_detail_url)) {
                 return fastPayPromotionView;
             }
@@ -80,7 +80,7 @@ public class a extends BasePromotionAdapter {
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
     public CharSequence getCenText() {
-        return this.f24136a.promotion_txt;
+        return this.f24065a.promotion_txt;
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
@@ -88,17 +88,17 @@ public class a extends BasePromotionAdapter {
         return new View.OnClickListener() { // from class: com.baidu.wallet.fastpay.ui.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (TextUtils.isEmpty(a.this.f24136a.promotion_detail_url)) {
+                if (TextUtils.isEmpty(a.this.f24065a.promotion_detail_url)) {
                     return;
                 }
-                DXMSdkSAUtils.onEventWithValues(com.baidu.wallet.fastpay.a.a.f24040g, Arrays.asList(a.this.f24136a.promotion_detail_url));
-                PayStatisticsUtil.onEventWithValue(com.baidu.wallet.fastpay.a.a.f24040g, a.this.f24136a.promotion_detail_url);
-                int i2 = a.this.f24136a.link_type;
+                DXMSdkSAUtils.onEventWithValues(com.baidu.wallet.fastpay.a.a.f23969g, Arrays.asList(a.this.f24065a.promotion_detail_url));
+                PayStatisticsUtil.onEventWithValue(com.baidu.wallet.fastpay.a.a.f23969g, a.this.f24065a.promotion_detail_url);
+                int i2 = a.this.f24065a.link_type;
                 if (i2 == 1) {
-                    BaiduWalletDelegate.getInstance().openH5Module(a.this.f24137b, a.this.f24136a.promotion_detail_url, true);
+                    BaiduWalletDelegate.getInstance().openH5Module(a.this.f24066b, a.this.f24065a.promotion_detail_url, true);
                 } else if (i2 != 3) {
                 } else {
-                    BaiduWalletDelegate.getInstance().gotoWalletService(a.this.f24137b, a.this.f24136a.promotion_detail_url, "");
+                    BaiduWalletDelegate.getInstance().gotoWalletService(a.this.f24066b, a.this.f24065a.promotion_detail_url, "");
                 }
             }
         };
@@ -106,30 +106,30 @@ public class a extends BasePromotionAdapter {
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
     public Drawable getDefLeftDraw() {
-        int i2 = this.f24136a.promotion_type;
+        int i2 = this.f24065a.promotion_type;
         if (i2 != 2) {
             if (i2 != 3) {
                 if (i2 != 4) {
                     return null;
                 }
-                return ResUtils.getDrawable(this.f24137b, "wallet_fp_promotion_gift");
+                return ResUtils.getDrawable(this.f24066b, "wallet_fp_promotion_gift");
             }
-            return ResUtils.getDrawable(this.f24137b, "wallet_fp_promotion_youhui");
+            return ResUtils.getDrawable(this.f24066b, "wallet_fp_promotion_youhui");
         }
-        return ResUtils.getDrawable(this.f24137b, "wallet_fp_promoiton_left");
+        return ResUtils.getDrawable(this.f24066b, "wallet_fp_promoiton_left");
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
     public Drawable getDefRightDraw() {
-        if (this.f24136a.promotion_type != 4) {
-            return ResUtils.getDrawable(this.f24137b, "wallet_fp_promotion_right");
+        if (this.f24065a.promotion_type != 4) {
+            return ResUtils.getDrawable(this.f24066b, "wallet_fp_promotion_right");
         }
-        return ResUtils.getDrawable(this.f24137b, "wallet_fp_promotion_close");
+        return ResUtils.getDrawable(this.f24066b, "wallet_fp_promotion_close");
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
     public String getLeftUrl() {
-        return this.f24136a.promotion_img_url;
+        return this.f24065a.promotion_img_url;
     }
 
     @Override // com.baidu.wallet.base.widget.compromtion.BasePromotionAdapter
@@ -138,21 +138,21 @@ public class a extends BasePromotionAdapter {
     }
 
     private void a() {
-        if (TextUtils.isEmpty(this.f24136a.promotion_txt)) {
+        if (TextUtils.isEmpty(this.f24065a.promotion_txt)) {
             return;
         }
-        Matcher matcher = Pattern.compile("[-+]?([0-9]*\\.[0-9]+|[0-9]+)").matcher(this.f24136a.promotion_txt);
+        Matcher matcher = Pattern.compile("[-+]?([0-9]*\\.[0-9]+|[0-9]+)").matcher(this.f24065a.promotion_txt);
         StringBuffer stringBuffer = new StringBuffer();
         while (matcher.find()) {
             String group = matcher.group();
-            String str = this.f24136a.promotion_txt;
+            String str = this.f24065a.promotion_txt;
             stringBuffer.append(str.substring(0, str.indexOf(group)));
             stringBuffer.append(String.format("<font color='#E85352'>%s</font>", group));
-            PromotionInfoResponse promotionInfoResponse = this.f24136a;
+            PromotionInfoResponse promotionInfoResponse = this.f24065a;
             String str2 = promotionInfoResponse.promotion_txt;
             promotionInfoResponse.promotion_txt = str2.substring(str2.indexOf(group) + group.length());
         }
-        PromotionInfoResponse promotionInfoResponse2 = this.f24136a;
+        PromotionInfoResponse promotionInfoResponse2 = this.f24065a;
         stringBuffer.append(promotionInfoResponse2.promotion_txt);
         promotionInfoResponse2.promotion_txt = stringBuffer.toString();
     }

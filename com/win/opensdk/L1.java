@@ -7,28 +7,28 @@ import com.win.opensdk.views.CloseParentView;
 public class L1 extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CloseParentView f36946a;
+    public final /* synthetic */ CloseParentView f36875a;
 
     public L1(CloseParentView closeParentView) {
-        this.f36946a = closeParentView;
+        this.f36875a = closeParentView;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 10) {
-            CloseParentView closeParentView = this.f36946a;
-            closeParentView.f37216a.setText(String.valueOf(closeParentView.f37223h));
-            CloseParentView closeParentView2 = this.f36946a;
-            if (closeParentView2.f37223h <= 0) {
-                closeParentView2.f37216a.setVisibility(8);
-                this.f36946a.f37216a.setClickable(false);
-                this.f36946a.f37224i.removeMessages(10);
+            CloseParentView closeParentView = this.f36875a;
+            closeParentView.f37145a.setText(String.valueOf(closeParentView.f37152h));
+            CloseParentView closeParentView2 = this.f36875a;
+            if (closeParentView2.f37152h <= 0) {
+                closeParentView2.f37145a.setVisibility(8);
+                this.f36875a.f37145a.setClickable(false);
+                this.f36875a.f37153i.removeMessages(10);
             } else {
-                closeParentView2.f37216a.setVisibility(0);
-                this.f36946a.f37216a.setClickable(true);
+                closeParentView2.f37145a.setVisibility(0);
+                this.f36875a.f37145a.setClickable(true);
             }
-            this.f36946a.f37224i.sendEmptyMessageDelayed(10, 1000L);
-            this.f36946a.f37223h--;
+            this.f36875a.f37153i.sendEmptyMessageDelayed(10, 1000L);
+            this.f36875a.f37152h--;
         }
     }
 }

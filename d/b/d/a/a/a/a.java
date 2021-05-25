@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
 import com.bytedance.embedapplog.util.TTEncryptUtils;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -19,14 +18,14 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static InterfaceC1834a f65799a = null;
+    public static InterfaceC1838a f65842a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f65800b = false;
+    public static boolean f65843b = false;
 
     /* renamed from: d.b.d.a.a.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC1834a {
+    public interface InterfaceC1838a {
         boolean a();
 
         boolean b();
@@ -58,7 +57,7 @@ public class a {
             sb.append(str4);
         }
         if (str5 != null) {
-            sb.append(SwanTaskDeadEvent.SEPARATOR);
+            sb.append('#');
             sb.append(str5);
         }
         return Uri.parse(sb.toString());
@@ -76,7 +75,7 @@ public class a {
     }
 
     public static String c(String str, List<Pair<String, String>> list) {
-        if (TextUtils.isEmpty(str) || f65799a == null || f65800b) {
+        if (TextUtils.isEmpty(str) || f65842a == null || f65843b) {
             return str;
         }
         LinkedHashMap linkedHashMap = new LinkedHashMap();
@@ -100,12 +99,12 @@ public class a {
             }
             String encodeToString = Base64.encodeToString(a2, 2);
             LinkedList linkedList2 = new LinkedList();
-            if (f65799a.a()) {
+            if (f65842a.a()) {
                 LinkedList linkedList3 = new LinkedList();
                 linkedList3.add(encodeToString);
                 linkedList2.add(new Pair("ss_queries", linkedList3));
             }
-            if (f65799a.b() && list != null) {
+            if (f65842a.b() && list != null) {
                 list.add(new Pair<>("X-SS-QUERIES", b(encodeToString, "UTF-8")));
             }
             if (!linkedHashMap.isEmpty()) {
@@ -190,7 +189,7 @@ public class a {
             return false;
         }
         list.add(new Pair<>(str, map.get(str)));
-        if (f65799a.c()) {
+        if (f65842a.c()) {
             return true;
         }
         map.remove(str);

@@ -15,8 +15,8 @@ import java.util.List;
 public class CompositionTimeToSample extends AbstractFullBox {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static final String TYPE = "ctts";
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_1 = null;
     public List<Entry> entries;
 
     /* loaded from: classes6.dex */

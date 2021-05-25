@@ -17,7 +17,7 @@ public final class SingleToObservable<T> extends Observable<T> {
         public static final long serialVersionUID = 3786543492451018833L;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68983d;
+        public Disposable f69026d;
 
         public SingleToObservableObserver(Observer<? super T> observer) {
             super(observer);
@@ -26,7 +26,7 @@ public final class SingleToObservable<T> extends Observable<T> {
         @Override // io.reactivex.internal.observers.DeferredScalarDisposable, io.reactivex.disposables.Disposable
         public void dispose() {
             super.dispose();
-            this.f68983d.dispose();
+            this.f69026d.dispose();
         }
 
         @Override // io.reactivex.SingleObserver
@@ -36,8 +36,8 @@ public final class SingleToObservable<T> extends Observable<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68983d, disposable)) {
-                this.f68983d = disposable;
+            if (DisposableHelper.validate(this.f69026d, disposable)) {
+                this.f69026d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

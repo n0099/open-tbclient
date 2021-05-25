@@ -8,10 +8,10 @@ public class c implements Parcelable, Comparable {
     public static final Parcelable.Creator<c> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f36169a;
+    public final String f36098a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f36170b;
+    public final String f36099b;
 
     /* loaded from: classes7.dex */
     public static class a implements Parcelable.Creator<c> {
@@ -31,26 +31,26 @@ public class c implements Parcelable, Comparable {
     }
 
     public c(String str, String str2) {
-        this.f36169a = str;
-        this.f36170b = str2;
+        this.f36098a = str;
+        this.f36099b = str2;
     }
 
     public String a() {
-        return this.f36169a;
+        return this.f36098a;
     }
 
     public String b() {
-        return this.f36170b;
+        return this.f36099b;
     }
 
     @Override // java.lang.Comparable
     public int compareTo(Object obj) {
         if (obj instanceof c) {
             c cVar = (c) obj;
-            if (TextUtils.equals(this.f36169a, cVar.a())) {
+            if (TextUtils.equals(this.f36098a, cVar.a())) {
                 return 0;
             }
-            String str = this.f36169a;
+            String str = this.f36098a;
             if (str == null) {
                 return -1;
             }
@@ -76,24 +76,24 @@ public class c implements Parcelable, Comparable {
             return false;
         }
         c cVar = (c) obj;
-        return TextUtils.equals(this.f36169a, cVar.f36169a) && TextUtils.equals(this.f36170b, cVar.f36170b);
+        return TextUtils.equals(this.f36098a, cVar.f36098a) && TextUtils.equals(this.f36099b, cVar.f36099b);
     }
 
     public int hashCode() {
-        String str = this.f36169a;
+        String str = this.f36098a;
         int hashCode = (str == null ? 0 : str.hashCode()) * 31;
-        String str2 = this.f36170b;
+        String str2 = this.f36099b;
         return hashCode + (str2 != null ? str2.hashCode() : 0);
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f36169a);
-        parcel.writeString(this.f36170b);
+        parcel.writeString(this.f36098a);
+        parcel.writeString(this.f36099b);
     }
 
     public c(Parcel parcel) {
-        this.f36169a = parcel.readString();
-        this.f36170b = parcel.readString();
+        this.f36098a = parcel.readString();
+        this.f36099b = parcel.readString();
     }
 }

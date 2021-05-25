@@ -8,33 +8,33 @@ import org.json.JSONObject;
 public class LivenessABTestUtil {
 
     /* renamed from: a  reason: collision with root package name */
-    public static LivenessABTestUtil f6038a;
+    public static LivenessABTestUtil f5938a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ABTestUtils f6039b;
+    public ABTestUtils f5939b;
 
     public LivenessABTestUtil() {
     }
 
     public static synchronized void cleanInstance() {
         synchronized (LivenessABTestUtil.class) {
-            f6038a = null;
+            f5938a = null;
         }
     }
 
     public static synchronized LivenessABTestUtil getInstance(Context context) {
         LivenessABTestUtil livenessABTestUtil;
         synchronized (LivenessABTestUtil.class) {
-            if (f6038a == null) {
-                f6038a = new LivenessABTestUtil(context);
+            if (f5938a == null) {
+                f5938a = new LivenessABTestUtil(context);
             }
-            livenessABTestUtil = f6038a;
+            livenessABTestUtil = f5938a;
         }
         return livenessABTestUtil;
     }
 
     public JSONObject getLivenessBgStyleABTestContent() {
-        ABTestUtils aBTestUtils = this.f6039b;
+        ABTestUtils aBTestUtils = this.f5939b;
         if (aBTestUtils != null) {
             return aBTestUtils.getABTestStatistics("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0");
         }
@@ -42,7 +42,7 @@ public class LivenessABTestUtil {
     }
 
     public boolean isWhiteBgEnable() {
-        ABTestUtils aBTestUtils = this.f6039b;
+        ABTestUtils aBTestUtils = this.f5939b;
         if (aBTestUtils != null) {
             return "1".equals(aBTestUtils.getABTestValueString("1", ABTestConstant.LIVENESS_BG_STYLE_EXP_KEY_LIVENESS_BG_STYLE, "0"));
         }
@@ -50,6 +50,6 @@ public class LivenessABTestUtil {
     }
 
     public LivenessABTestUtil(Context context) {
-        this.f6039b = new ABTestUtils(context);
+        this.f5939b = new ABTestUtils(context);
     }
 }

@@ -23,10 +23,10 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.baidu.mobads.cid.cesium.c.d.d f8224a;
+    public com.baidu.mobads.cid.cesium.c.d.d f8124a;
 
     /* renamed from: b  reason: collision with root package name */
-    public List<b> f8225b;
+    public List<b> f8125b;
 
     public c() {
         a();
@@ -55,7 +55,7 @@ public class c {
     }
 
     private void a() {
-        this.f8224a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
+        this.f8124a = new com.baidu.mobads.cid.cesium.c.d.e(d.a(), d.b());
     }
 
     private boolean a(String[] strArr, String[] strArr2) {
@@ -104,10 +104,10 @@ public class c {
                                 byte[] a2 = com.baidu.mobads.cid.cesium.d.a.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
-                                bVar.f8158b = jSONObject.getInt("priority");
-                                bVar.f8157a = resolveInfo.activityInfo.applicationInfo;
+                                bVar.f8058b = jSONObject.getInt("priority");
+                                bVar.f8057a = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                    bVar.f8160d = true;
+                                    bVar.f8060d = true;
                                 }
                                 if (z) {
                                     String string2 = bundle.getString("galaxy_sf");
@@ -120,9 +120,9 @@ public class c {
                                             strArr[i2] = jSONArray.getString(i2);
                                         }
                                         if (a(strArr, a(packageInfo.signatures))) {
-                                            byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f8224a);
+                                            byte[] a3 = a(com.baidu.mobads.cid.cesium.d.a.a(string2.getBytes()), this.f8124a);
                                             if (a3 != null && Arrays.equals(a3, com.baidu.mobads.cid.cesium.d.c.a(a2))) {
-                                                bVar.f8159c = true;
+                                                bVar.f8059c = true;
                                             }
                                         }
                                     }
@@ -140,15 +140,15 @@ public class c {
             @Override // java.util.Comparator
             /* renamed from: a */
             public int compare(b bVar2, b bVar3) {
-                int i3 = bVar3.f8158b - bVar2.f8158b;
+                int i3 = bVar3.f8058b - bVar2.f8058b;
                 if (i3 == 0) {
-                    if (bVar2.f8160d && bVar3.f8160d) {
+                    if (bVar2.f8060d && bVar3.f8060d) {
                         return 0;
                     }
-                    if (bVar2.f8160d) {
+                    if (bVar2.f8060d) {
                         return -1;
                     }
-                    if (bVar3.f8160d) {
+                    if (bVar3.f8060d) {
                         return 1;
                     }
                 }
@@ -166,7 +166,7 @@ public class c {
             }
             return false;
         }
-        boolean z = a2.get(0).f8159c;
+        boolean z = a2.get(0).f8059c;
         if (!z) {
             for (int i3 = 0; i3 < 3; i3++) {
                 Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
@@ -176,13 +176,13 @@ public class c {
     }
 
     public List<b> b(Context context) {
-        List<b> list = this.f8225b;
+        List<b> list = this.f8125b;
         if (list != null) {
             return list;
         }
         a(context);
         List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-        this.f8225b = a2;
+        this.f8125b = a2;
         return a2;
     }
 }

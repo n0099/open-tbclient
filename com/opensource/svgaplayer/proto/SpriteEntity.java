@@ -10,7 +10,7 @@ import d.n.a.h.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     public static final ProtoAdapter<SpriteEntity> ADAPTER = new ProtoAdapter_SpriteEntity();
     public static final String DEFAULT_IMAGEKEY = "";
@@ -20,7 +20,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String imageKey;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<SpriteEntity, Builder> {
         public List<FrameEntity> frames = a.i();
         public String imageKey;
@@ -44,7 +44,7 @@ public final class SpriteEntity extends Message<SpriteEntity, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_SpriteEntity extends ProtoAdapter<SpriteEntity> {
         public ProtoAdapter_SpriteEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, SpriteEntity.class);

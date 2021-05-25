@@ -240,18 +240,18 @@ public final class AssistActivity extends Activity {
     public class f extends View {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f38320e;
+        public int f38249e;
 
         /* renamed from: f  reason: collision with root package name */
-        public Paint f38321f;
+        public Paint f38250f;
 
         public f(Context context) {
             super(context);
             Paint paint = new Paint();
-            this.f38321f = paint;
+            this.f38250f = paint;
             paint.setColor(-731575);
-            this.f38321f.setAntiAlias(true);
-            this.f38321f.setStyle(Paint.Style.FILL);
+            this.f38250f.setAntiAlias(true);
+            this.f38250f.setStyle(Paint.Style.FILL);
         }
 
         public void a(int i2) {
@@ -260,14 +260,14 @@ public final class AssistActivity extends Activity {
             } else if (i2 < 0) {
                 i2 = 0;
             }
-            this.f38320e = i2;
+            this.f38249e = i2;
             invalidate();
         }
 
         @Override // android.view.View
         public void onDraw(Canvas canvas) {
             canvas.drawColor(-5657689);
-            canvas.drawRect(0.0f, 0.0f, (this.f38320e / 100.0f) * getWidth(), getHeight(), this.f38321f);
+            canvas.drawRect(0.0f, 0.0f, (this.f38249e / 100.0f) * getWidth(), getHeight(), this.f38250f);
             super.onDraw(canvas);
         }
 

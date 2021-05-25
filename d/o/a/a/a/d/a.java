@@ -4,25 +4,25 @@ public class a {
 
     /* renamed from: d.o.a.a.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C1855a {
+    public static class C1859a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f66505a;
+        public String f66548a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f66506b;
+        public String f66549b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f66507c;
+        public String f66550c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f66508d;
+        public String f66551d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f66509e;
+        public String f66552e;
 
-        public C1855a a(String str) {
-            this.f66505a = str;
+        public C1859a a(String str) {
+            this.f66548a = str;
             return this;
         }
 
@@ -30,27 +30,27 @@ public class a {
             return new a(this);
         }
 
-        public C1855a d(String str) {
-            this.f66506b = str;
+        public C1859a d(String str) {
+            this.f66549b = str;
             return this;
         }
 
-        public C1855a f(String str) {
-            this.f66508d = str;
+        public C1859a f(String str) {
+            this.f66551d = str;
             return this;
         }
 
-        public C1855a h(String str) {
-            this.f66509e = str;
+        public C1859a h(String str) {
+            this.f66552e = str;
             return this;
         }
     }
 
-    public a(C1855a c1855a) {
-        String unused = c1855a.f66505a;
-        String unused2 = c1855a.f66506b;
-        String unused3 = c1855a.f66507c;
-        String unused4 = c1855a.f66508d;
-        String unused5 = c1855a.f66509e;
+    public a(C1859a c1859a) {
+        String unused = c1859a.f66548a;
+        String unused2 = c1859a.f66549b;
+        String unused3 = c1859a.f66550c;
+        String unused4 = c1859a.f66551d;
+        String unused5 = c1859a.f66552e;
     }
 }

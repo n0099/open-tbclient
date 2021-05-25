@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import d.a.c.e.p.l;
-import d.a.j0.r.q.a2;
-import d.a.j0.r.q.e;
-import d.a.j0.r.u.c;
+import d.a.m0.r.q.a2;
+import d.a.m0.r.q.e;
+import d.a.m0.r.u.c;
 /* loaded from: classes3.dex */
 public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseInfoLayout {
     public View.OnClickListener k0;
@@ -51,10 +51,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void L(a2 a2Var) {
         super.L(a2Var);
-        if (a2Var == null || this.k == null || !a2Var.C2()) {
+        if (a2Var == null || this.k == null || !a2Var.D2()) {
             return;
         }
-        if (a2Var.Z0() == 0) {
+        if (a2Var.a1() == 0) {
             this.k.setVisibility(0);
         } else {
             this.k.setVisibility(8);
@@ -163,14 +163,14 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     public void Q(String str) {
-        if (this.E == null || TextUtils.isEmpty(str) || !str.equals(this.E.x1())) {
+        if (this.E == null || TextUtils.isEmpty(str) || !str.equals(this.E.y1())) {
             return;
         }
         e eVar = new e();
-        eVar.f49950b = 4;
-        eVar.f49952d = 2;
-        this.f12442h.setStatisticData(eVar);
-        this.f12442h.s();
+        eVar.f49994b = 4;
+        eVar.f49996d = 2;
+        this.f12350h.setStatisticData(eVar);
+        this.f12350h.s();
     }
 
     public void R() {
@@ -189,13 +189,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public boolean S() {
         a2 a2Var = this.E;
-        return (a2Var == null || !a2Var.B2() || this.E.v1() == null) ? false : true;
+        return (a2Var == null || !a2Var.C2() || this.E.w1() == null) ? false : true;
     }
 
     public boolean T() {
         a2 a2Var;
         WorksInfoData worksInfoData;
-        return S() && (a2Var = this.E) != null && (worksInfoData = a2Var.E2) != null && worksInfoData.isWorks;
+        return S() && (a2Var = this.E) != null && (worksInfoData = a2Var.F2) != null && worksInfoData.isWorks;
     }
 
     public boolean V(a2 a2Var, AntiData antiData) {
@@ -216,8 +216,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         EMTextView eMTextView = this.k;
         if (eMTextView != null) {
             c d2 = c.d(eMTextView);
-            d2.v(R.string.F_X02);
-            d2.q(R.color.CAM_X0107);
+            d2.x(R.string.F_X02);
+            d2.s(R.color.CAM_X0107);
             EMTextView eMTextView2 = this.k;
             int g2 = l.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18);
             int i2 = R.color.CAM_X0207;
@@ -232,21 +232,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(a2 a2Var) {
         if (a2Var != null) {
-            this.f12442h.setDisagreeShow(a2Var.A2());
+            this.f12350h.setDisagreeShow(a2Var.B2());
         }
-        if (a2Var != null && a2Var.C2()) {
-            this.f12442h.setDisagreeShow(true);
+        if (a2Var != null && a2Var.D2()) {
+            this.f12350h.setDisagreeShow(true);
         }
         if (a2Var != null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12442h.getLayoutParams();
-            if (a2Var.C2()) {
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f12350h.getLayoutParams();
+            if (a2Var.D2()) {
                 layoutParams.weight = 0.2f;
-            } else if (a2Var.A2()) {
+            } else if (a2Var.B2()) {
                 layoutParams.weight = 0.25f;
             } else {
                 layoutParams.weight = 0.5f;
             }
-            this.f12442h.setLayoutParams(layoutParams);
+            this.f12350h.setLayoutParams(layoutParams);
         }
     }
 

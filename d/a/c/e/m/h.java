@@ -6,29 +6,29 @@ import java.util.concurrent.ThreadPoolExecutor;
 public class h {
 
     /* renamed from: b  reason: collision with root package name */
-    public static h f39065b = new h();
+    public static h f38729b = new h();
 
     /* renamed from: a  reason: collision with root package name */
-    public final ThreadPoolExecutor f39066a = new ScheduledThreadPoolExecutor(1);
+    public final ThreadPoolExecutor f38730a = new ScheduledThreadPoolExecutor(1);
 
     public static h a() {
-        return f39065b;
+        return f38729b;
     }
 
     public void b(Runnable runnable) {
-        if (this.f39066a.getTaskCount() >= 1) {
+        if (this.f38730a.getTaskCount() >= 1) {
             new Thread(runnable).start();
             return;
         }
         try {
-            this.f39066a.submit(runnable);
+            this.f38730a.submit(runnable);
         } catch (Throwable unused) {
         }
     }
 
     public void c(Runnable runnable) {
         try {
-            this.f39066a.submit(runnable);
+            this.f38730a.submit(runnable);
         } catch (Throwable unused) {
         }
     }

@@ -18,7 +18,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<a.c> f3140a = new CopyOnWriteArrayList();
+    public static final List<a.c> f3143a = new CopyOnWriteArrayList();
 
     private a.c a(long j, long j2, String str, long j3, long j4, String str2, long j5) {
         return a.c.s().a(a.e.CONNECTION).a(a.j.q().a(j).b(j2).a(str).c(j3).d(j4).b(str2).e(j5).build()).build();
@@ -33,7 +33,7 @@ public final class a {
     }
 
     private a.c a(String str, String str2, long j, String str3, long j2) {
-        return a.c.s().a(a.e.ACK).a(a.C0035a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build();
+        return a.c.s().a(a.e.ACK).a(a.C0036a.m().a(str).b(str2).a(j).c(str3).b(j2).build()).build();
     }
 
     private a.c a(String str, String str2, String str3, String str4, long j, long j2, long j3, String str5, long j4) {
@@ -41,12 +41,12 @@ public final class a {
     }
 
     private void a(a.c cVar) {
-        f3140a.add(cVar);
+        f3143a.add(cVar);
     }
 
     private a.h c(Context context) {
         a.p build = a.p.e().a(DeviceId.getCUID(context)).build();
-        a.f.C0041a a2 = a.f.i().a(context.getPackageName());
+        a.f.C0042a a2 = a.f.i().a(context.getPackageName());
         return a.h.t().a(build).a(-1L).b(System.currentTimeMillis()).a(d(context)).a(e(context)).a(a2.b("" + m.a(context)).c("").build()).build();
     }
 
@@ -89,36 +89,36 @@ public final class a {
 
     private void f(Context context) {
         for (com.baidu.android.pushservice.c.a.c cVar : e.a(context).a()) {
-            a(a(cVar.f2808b, cVar.f2807a, cVar.f2809c, cVar.f2810d));
+            a(a(cVar.f2811b, cVar.f2810a, cVar.f2812c, cVar.f2813d));
         }
     }
 
     private void g(Context context) {
         for (d dVar : e.a(context).b()) {
-            a(a(dVar.f2820a, dVar.f2821b, dVar.f2822c, dVar.f2823d, dVar.f2824e, dVar.f2825f, dVar.f2826g, dVar.f2827h, dVar.f2828i));
+            a(a(dVar.f2823a, dVar.f2824b, dVar.f2825c, dVar.f2826d, dVar.f2827e, dVar.f2828f, dVar.f2829g, dVar.f2830h, dVar.f2831i));
         }
     }
 
     private void h(Context context) {
         for (com.baidu.android.pushservice.c.a.b bVar : e.a(context).c()) {
-            a(a(bVar.f2791a, bVar.f2792b, bVar.f2793c, bVar.f2794d, bVar.f2795e, bVar.f2796f, bVar.f2797g));
+            a(a(bVar.f2794a, bVar.f2795b, bVar.f2796c, bVar.f2797d, bVar.f2798e, bVar.f2799f, bVar.f2800g));
         }
     }
 
     private void i(Context context) {
         for (com.baidu.android.pushservice.c.a.e eVar : e.a(context).d()) {
-            a(a(eVar.f2829a, eVar.f2830b, eVar.f2831c, eVar.f2832d, eVar.f2833e, eVar.f2834f, eVar.f2835g));
+            a(a(eVar.f2832a, eVar.f2833b, eVar.f2834c, eVar.f2835d, eVar.f2836e, eVar.f2837f, eVar.f2838g));
         }
     }
 
     private void j(Context context) {
         for (com.baidu.android.pushservice.c.a.a aVar : e.a(context).e()) {
-            a(a(aVar.f2778a, aVar.f2779b, aVar.f2780c, aVar.f2781d, aVar.f2782e));
+            a(a(aVar.f2781a, aVar.f2782b, aVar.f2783c, aVar.f2784d, aVar.f2785e));
         }
     }
 
     public void a() {
-        f3140a.clear();
+        f3143a.clear();
     }
 
     public byte[] a(Context context) {
@@ -129,10 +129,10 @@ public final class a {
             h(context);
             i(context);
             j(context);
-            if (f3140a.size() <= 0) {
+            if (f3143a.size() <= 0) {
                 return null;
             }
-            return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f3140a).build().toByteArray();
+            return a.y.k().a(c(context)).a("push").a(com.baidu.android.pushservice.a.a()).a(f3143a).build().toByteArray();
         } catch (Exception unused) {
             return null;
         }

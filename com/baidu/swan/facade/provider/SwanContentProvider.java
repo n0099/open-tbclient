@@ -11,16 +11,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
-import d.a.i0.a.k;
-import d.a.i0.e.n.a.a;
-import d.a.i0.e.n.b.c;
+import d.a.l0.a.k;
+import d.a.l0.e.n.a.a;
+import d.a.l0.e.n.b.c;
 import java.util.HashSet;
 import java.util.Set;
 /* loaded from: classes3.dex */
 public class SwanContentProvider extends ContentProvider {
     public static final int PER_USER_RANGE = 100000;
     public static final String TAG = "SwanContentProvider";
-    public static final boolean DEBUG = k.f43025a;
+    public static final boolean DEBUG = k.f43199a;
     public static final String AUTHORITY = AppRuntime.getAppContext().getPackageName() + ".provider";
     public static UriMatcher sUriMatcher = new UriMatcher(-1);
     public static HashSet<String> sAccreditedSet = new HashSet<>();
@@ -44,7 +44,7 @@ public class SwanContentProvider extends ContentProvider {
             return true;
         }
         String a2 = c.a(callingPackage);
-        Set<String> a3 = d.a.i0.d.g.c.e().a();
+        Set<String> a3 = d.a.l0.d.g.c.e().a();
         z = (a3 == null || !a3.contains(a2)) ? false : false;
         if (z) {
             sAccreditedSet.add(callingPackage);

@@ -21,7 +21,7 @@ public class TableDefine {
     public static final String DB_TABLE_STUDIO_USE_PA_MESSAGE = "studio_use_pa_message";
     public static final String DB_TABLE_USERINFO = "userinfo";
     public static final String DB_TABLE_ZHIDAINFO = "zhida_info";
-    public static final int DB_VERSION = 49;
+    public static final int DB_VERSION = 50;
     public static final String SQL_COPY_TABLE_USERINFO = "INSERT INTO userinfo (uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist) SELECT uid, buid, username, sex, phone, user_detail, tiny_url, head_url, account_type, ip_exsit, ip, ip_isp, ip_country, ip_province, ip_city, ip_county, disturb, blacklist FROM userinfo_temp";
     public static final String SQL_CREATE_DUPLICATE_MESSAGE = "CREATE TABLE duplicate_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category LONG, contacter LONG, msg_key TEXT, from_user LONG, input_time LONG, type LONG);";
     public static final String SQL_CREATE_MESSAGE_INDEX = "CREATE INDEX msg_index ON message (expires_time, category, contacter, is_read);";
@@ -29,7 +29,7 @@ public class TableDefine {
     public static final String SQL_CREATE_MESSAGE_QUERY_MSGKEY_ISEXIST_INDEX = "CREATE INDEX msgkey_query ON message (msg_key, contacter);";
     public static final String SQL_CREATE_RELIABLE_MESSAGE = "CREATE TABLE liveroom_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category LONG,content TEXT, contacter LONG, mcast_id LONG, msg_key TEXT, from_user LONG, create_time LONG, type LONG, priority LONG,is_read LONG);";
     public static final String SQL_CREATE_STUDIO_USE_PA_MESSAGE = "CREATE TABLE studio_use_pa_message (_id INTEGER PRIMARY KEY AUTOINCREMENT , msgid LONG, category INTEGER, contacter LONG, msg_key TEXT, from_user LONG, input_time LONG, type INTEGER, content TEXT, is_read INTEGER);";
-    public static final String SQL_CREATE_TABLE_CHAT_SESSION = "CREATE TABLE chatrecord (_id LONG PRIMARY KEY,category INTEGER, contacter LONG, name TEXT, last_msg TEXT, last_msg_time LONG, last_open_time LONG, new_msg_sum INTEGER, weight INTEGER, show INTEGER,collection_type INTEGER,chat_type INTEGER,icon_url TEXT,msg_state INTEGER,paid LONG,isclicked INTEGER, classtype INTEGER DEFAULT 0, classtitle TEXT, classshow INTEGER DEFAULT 0, marktop INTEGER DEFAULT 0, marktoptime LONG, classavatar TEXT, nickname TEXT, game_vs_history TEXT, extra TEXT, v_portrait TEXT, certification TEXT, vip_id TEXT, shield INTEGER, shield_time LONG);";
+    public static final String SQL_CREATE_TABLE_CHAT_SESSION = "CREATE TABLE chatrecord (_id LONG PRIMARY KEY,category INTEGER, contacter LONG, name TEXT, last_msg TEXT, last_msg_time LONG, last_open_time LONG, new_msg_sum INTEGER, weight INTEGER, show INTEGER,collection_type INTEGER,chat_type INTEGER,icon_url TEXT,msg_state INTEGER,paid LONG,isclicked INTEGER, classtype INTEGER DEFAULT 0, classtitle TEXT, classshow INTEGER DEFAULT 0, marktop INTEGER DEFAULT 0, marktoptime LONG, classavatar TEXT, nickname TEXT, game_vs_history TEXT, extra TEXT, v_portrait TEXT, certification TEXT, vip_id TEXT, shield INTEGER, last_msg_bduid LONG DEFAULT 0, last_msg_name TEXT, shield_time LONG);";
     public static final String SQL_CREATE_TABLE_DAILOG_RECORD = "CREATE TABLE dialog_record ( category INTEGER ,contacter LONG, localmsgid LONG, dialogueMsgid INTEGER, state INTEGER,update_time LONG,jump INTEGER,  PRIMARY KEY (category,contacter));";
     public static final String SQL_CREATE_TABLE_FRIEND_GROUP = "CREATE TABLE friendgroup (_id INTEGER PRIMARY KEY AUTOINCREMENT , friend_group_id LONG, friend_group_name TEXT);";
     public static final String SQL_CREATE_TABLE_FRIEND_REALTION = "CREATE TABLE friendrelation (_id LONG PRIMARY KEY, friend_group_id LONG, uid LONG, friend_status INTEGER, friend_status_reverse INTEGER );";
@@ -198,6 +198,8 @@ public class TableDefine {
         public static final String COLUMN_ICON_URL = "icon_url";
         public static final String COLUMN_IS_CLICKED = "isclicked";
         public static final String COLUMN_LAST_MSG = "last_msg";
+        public static final String COLUMN_LAST_MSG_BDUID = "last_msg_bduid";
+        public static final String COLUMN_LAST_MSG_NICKNAME = "last_msg_name";
         public static final String COLUMN_LAST_MSG_TIME = "last_msg_time";
         public static final String COLUMN_LAST_OPEN_TIME = "last_open_time";
         public static final String COLUMN_NAME = "name";

@@ -11,31 +11,31 @@ import org.json.JSONObject;
 public class k implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public b f32959a;
+    public b f32888a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Handler f32960b = new Handler(Looper.getMainLooper());
+    public Handler f32889b = new Handler(Looper.getMainLooper());
 
     /* renamed from: c  reason: collision with root package name */
-    public com.kwad.sdk.core.webview.a.c f32961c;
+    public com.kwad.sdk.core.webview.a.c f32890c;
 
     /* loaded from: classes6.dex */
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f32964a;
+        public int f32893a;
 
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject == null) {
                 return;
             }
-            this.f32964a = jSONObject.optInt("status");
+            this.f32893a = jSONObject.optInt("status");
         }
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "status", this.f32964a);
+            com.kwad.sdk.utils.o.a(jSONObject, "status", this.f32893a);
             return jSONObject;
         }
     }
@@ -47,12 +47,12 @@ public class k implements com.kwad.sdk.core.webview.a.a {
     }
 
     public k(b bVar) {
-        this.f32959a = bVar;
+        this.f32888a = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i2) {
-        b bVar = this.f32959a;
+        b bVar = this.f32888a;
         if (bVar != null) {
             bVar.a(i2);
         }
@@ -66,16 +66,16 @@ public class k implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        this.f32961c = cVar;
+        this.f32890c = cVar;
         try {
             final a aVar = new a();
             aVar.a(new JSONObject(str));
-            this.f32960b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.k.1
+            this.f32889b.post(new Runnable() { // from class: com.kwad.sdk.core.webview.jshandler.k.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    k.this.a(aVar.f32964a);
-                    if (k.this.f32961c != null) {
-                        k.this.f32961c.a(null);
+                    k.this.a(aVar.f32893a);
+                    if (k.this.f32890c != null) {
+                        k.this.f32890c.a(null);
                     }
                 }
             });
@@ -87,8 +87,8 @@ public class k implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
-        this.f32959a = null;
-        this.f32961c = null;
-        this.f32960b.removeCallbacksAndMessages(null);
+        this.f32888a = null;
+        this.f32890c = null;
+        this.f32889b.removeCallbacksAndMessages(null);
     }
 }

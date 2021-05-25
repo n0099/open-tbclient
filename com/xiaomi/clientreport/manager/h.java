@@ -5,13 +5,13 @@ import com.xiaomi.push.bn;
 public class h implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ a f37276a;
+    public final /* synthetic */ a f37205a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ bn f37a;
 
     public h(a aVar, bn bnVar) {
-        this.f37276a = aVar;
+        this.f37205a = aVar;
         this.f37a = bnVar;
     }
 

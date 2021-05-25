@@ -6,42 +6,42 @@ public interface a {
 
     /* renamed from: d.a.c.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0496a implements a {
+    public static class C0480a implements a {
 
         /* renamed from: c  reason: collision with root package name */
-        public static a f38750c;
+        public static a f38414c;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f38751a;
+        public int f38415a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final d f38752b = new d();
+        public final d f38416b = new d();
 
-        public C0496a() {
-            this.f38751a = 0;
-            if (NSGif.f2134f) {
-                this.f38751a = 0;
+        public C0480a() {
+            this.f38415a = 0;
+            if (NSGif.f2139f) {
+                this.f38415a = 0;
             } else {
-                this.f38751a = 1;
+                this.f38415a = 1;
             }
         }
 
         public static synchronized a b() {
             a aVar;
-            synchronized (C0496a.class) {
-                if (f38750c == null) {
-                    f38750c = new C0496a();
+            synchronized (C0480a.class) {
+                if (f38414c == null) {
+                    f38414c = new C0480a();
                 }
-                aVar = f38750c;
+                aVar = f38414c;
             }
             return aVar;
         }
 
         @Override // d.a.c.d.a
         public d.a.c.j.d.a a(byte[] bArr, int i2, int i3) {
-            if (this.f38751a == 0) {
+            if (this.f38415a == 0) {
                 try {
-                    return this.f38752b.a(bArr, i2, i3);
+                    return this.f38416b.a(bArr, i2, i3);
                 } catch (Exception unused) {
                 }
             }
@@ -50,9 +50,9 @@ public interface a {
 
         @Override // d.a.c.d.a
         public d.a.c.j.d.a get(String str) {
-            if (this.f38751a == 0) {
+            if (this.f38415a == 0) {
                 try {
-                    return this.f38752b.get(str);
+                    return this.f38416b.get(str);
                 } catch (Exception unused) {
                 }
             }

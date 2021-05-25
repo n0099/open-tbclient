@@ -8,15 +8,15 @@ import com.baidu.cyberplayer.sdk.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f5071a;
+    public static a f4971a;
 
     public static synchronized a a() {
         a aVar;
         synchronized (a.class) {
-            if (f5071a == null) {
-                f5071a = new a();
+            if (f4971a == null) {
+                f4971a = new a();
             }
-            aVar = f5071a;
+            aVar = f4971a;
         }
         return aVar;
     }

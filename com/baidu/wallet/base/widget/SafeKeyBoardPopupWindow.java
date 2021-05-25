@@ -26,32 +26,32 @@ import java.util.Random;
 public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f23601a;
+    public Button f23530a;
 
     /* renamed from: b  reason: collision with root package name */
-    public Button f23602b;
+    public Button f23531b;
 
     /* renamed from: c  reason: collision with root package name */
-    public Button f23603c;
+    public Button f23532c;
     public View contentView;
 
     /* renamed from: d  reason: collision with root package name */
-    public Button f23604d;
+    public Button f23533d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Button f23605e;
+    public Button f23534e;
 
     /* renamed from: f  reason: collision with root package name */
-    public Button f23606f;
+    public Button f23535f;
 
     /* renamed from: g  reason: collision with root package name */
-    public Button f23607g;
+    public Button f23536g;
 
     /* renamed from: h  reason: collision with root package name */
-    public Button f23608h;
+    public Button f23537h;
 
     /* renamed from: i  reason: collision with root package name */
-    public Button f23609i;
+    public Button f23538i;
     public Button j;
     public ImageButton k;
     public a l;
@@ -65,16 +65,16 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
     public static class a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        public WeakReference<SafeKeyBoardPopupWindow> f23615a;
+        public WeakReference<SafeKeyBoardPopupWindow> f23544a;
 
         public a(SafeKeyBoardPopupWindow safeKeyBoardPopupWindow) {
-            this.f23615a = new WeakReference<>(safeKeyBoardPopupWindow);
+            this.f23544a = new WeakReference<>(safeKeyBoardPopupWindow);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             super.handleMessage(message);
-            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f23615a.get();
+            SafeKeyBoardPopupWindow safeKeyBoardPopupWindow = this.f23544a.get();
             if (safeKeyBoardPopupWindow == null) {
                 return;
             }
@@ -127,33 +127,33 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         Button button = this.j;
         button.setText("" + a2[0]);
         this.j.setTag(Integer.valueOf(a2[0]));
-        Button button2 = this.f23601a;
+        Button button2 = this.f23530a;
         button2.setText("" + a2[1]);
-        this.f23601a.setTag(Integer.valueOf(a2[1]));
-        Button button3 = this.f23602b;
+        this.f23530a.setTag(Integer.valueOf(a2[1]));
+        Button button3 = this.f23531b;
         button3.setText("" + a2[2]);
-        this.f23602b.setTag(Integer.valueOf(a2[2]));
-        Button button4 = this.f23603c;
+        this.f23531b.setTag(Integer.valueOf(a2[2]));
+        Button button4 = this.f23532c;
         button4.setText("" + a2[3]);
-        this.f23603c.setTag(Integer.valueOf(a2[3]));
-        Button button5 = this.f23604d;
+        this.f23532c.setTag(Integer.valueOf(a2[3]));
+        Button button5 = this.f23533d;
         button5.setText("" + a2[4]);
-        this.f23604d.setTag(Integer.valueOf(a2[4]));
-        Button button6 = this.f23605e;
+        this.f23533d.setTag(Integer.valueOf(a2[4]));
+        Button button6 = this.f23534e;
         button6.setText("" + a2[5]);
-        this.f23605e.setTag(Integer.valueOf(a2[5]));
-        Button button7 = this.f23606f;
+        this.f23534e.setTag(Integer.valueOf(a2[5]));
+        Button button7 = this.f23535f;
         button7.setText("" + a2[6]);
-        this.f23606f.setTag(Integer.valueOf(a2[6]));
-        Button button8 = this.f23607g;
+        this.f23535f.setTag(Integer.valueOf(a2[6]));
+        Button button8 = this.f23536g;
         button8.setText("" + a2[7]);
-        this.f23607g.setTag(Integer.valueOf(a2[7]));
-        Button button9 = this.f23608h;
+        this.f23536g.setTag(Integer.valueOf(a2[7]));
+        Button button9 = this.f23537h;
         button9.setText("" + a2[8]);
-        this.f23608h.setTag(Integer.valueOf(a2[8]));
-        Button button10 = this.f23609i;
+        this.f23537h.setTag(Integer.valueOf(a2[8]));
+        Button button10 = this.f23538i;
         button10.setText("" + a2[9]);
-        this.f23609i.setTag(Integer.valueOf(a2[9]));
+        this.f23538i.setTag(Integer.valueOf(a2[9]));
         if (this.mySafeEditText.getUseKeyX()) {
             this.mButtonX.setEnabled(true);
             this.mButtonX.setBackgroundResource(ResUtils.drawable(this.mContext, "wallet_base_safekeyboard_numkey_selector"));
@@ -257,29 +257,29 @@ public class SafeKeyBoardPopupWindow extends PopupWindow implements View.OnClick
         setBackgroundDrawable(new BitmapDrawable());
         setAnimationStyle(ResUtils.style(this.mContext, "bd_wallet_safekeyboard_popwindown_anim"));
         this.j = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn0"));
-        this.f23601a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
-        this.f23602b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
-        this.f23603c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
-        this.f23604d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
-        this.f23605e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
-        this.f23606f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
-        this.f23607g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn7"));
-        this.f23608h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn8"));
-        this.f23609i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn9"));
+        this.f23530a = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn1"));
+        this.f23531b = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn2"));
+        this.f23532c = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn3"));
+        this.f23533d = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn4"));
+        this.f23534e = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn5"));
+        this.f23535f = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn6"));
+        this.f23536g = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn7"));
+        this.f23537h = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn8"));
+        this.f23538i = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn9"));
         this.mButtonX = (Button) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_x"));
         ImageButton imageButton = (ImageButton) this.contentView.findViewById(ResUtils.id(this.mContext, "btn_del"));
         this.k = imageButton;
         AccessibilityUtils.setContentDescription(imageButton, ResUtils.getString(this.mContext, "wallet_base_delete"));
         this.j.setOnClickListener(this);
-        this.f23601a.setOnClickListener(this);
-        this.f23602b.setOnClickListener(this);
-        this.f23603c.setOnClickListener(this);
-        this.f23604d.setOnClickListener(this);
-        this.f23605e.setOnClickListener(this);
-        this.f23606f.setOnClickListener(this);
-        this.f23607g.setOnClickListener(this);
-        this.f23608h.setOnClickListener(this);
-        this.f23609i.setOnClickListener(this);
+        this.f23530a.setOnClickListener(this);
+        this.f23531b.setOnClickListener(this);
+        this.f23532c.setOnClickListener(this);
+        this.f23533d.setOnClickListener(this);
+        this.f23534e.setOnClickListener(this);
+        this.f23535f.setOnClickListener(this);
+        this.f23536g.setOnClickListener(this);
+        this.f23537h.setOnClickListener(this);
+        this.f23538i.setOnClickListener(this);
         this.mButtonX.setOnClickListener(this);
         this.k.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.wallet.base.widget.SafeKeyBoardPopupWindow.1
             @Override // android.view.View.OnFocusChangeListener

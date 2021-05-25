@@ -23,11 +23,11 @@ import com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabYanzhiModel;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
 import d.a.c.j.e.n;
-import d.a.j0.r.f0.f;
-import d.a.j0.r.f0.g;
-import d.a.k0.q0.s0;
-import d.a.k0.q0.t;
-import d.a.k0.q0.u;
+import d.a.m0.r.f0.f;
+import d.a.m0.r.f0.g;
+import d.a.n0.r0.s0;
+import d.a.n0.r0.t;
+import d.a.n0.r0.u;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
@@ -35,7 +35,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public View n;
     public BdSwipeRefreshLayout o;
     public BdTypeRecyclerView p;
-    public d.a.k0.t.d.c.a q;
+    public d.a.n0.v.d.c.a q;
     public g r;
     public PbListView s;
     public AlaLiveTabYanzhiModel t;
@@ -74,7 +74,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         public b() {
         }
 
-        @Override // d.a.j0.r.f0.f.g
+        @Override // d.a.m0.r.f0.f.g
         public void onListPullRefresh(boolean z) {
             if (j.z()) {
                 LiveTabYanzhiSubFragment.this.t.E();
@@ -110,7 +110,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             Log.e("D444", "dy" + i3 + ", dx" + i2);
             if (i3 >= 4) {
                 LiveTabYanzhiSubFragment liveTabYanzhiSubFragment = LiveTabYanzhiSubFragment.this;
-                if (liveTabYanzhiSubFragment.f13799i) {
+                if (liveTabYanzhiSubFragment.f13702i) {
                     return;
                 }
                 liveTabYanzhiSubFragment.E0();
@@ -128,7 +128,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
     public void G0() {
-        d.a.k0.t.d.c.a aVar = this.q;
+        d.a.n0.v.d.c.a aVar = this.q;
         if (aVar != null) {
             aVar.b();
         }
@@ -145,21 +145,21 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
 
     public final void Q0() {
         this.o = (BdSwipeRefreshLayout) this.n.findViewById(R.id.live_tab_refresh_layout);
-        this.f13796f = (LinearLayout) this.n.findViewById(R.id.top_container);
+        this.f13699f = (LinearLayout) this.n.findViewById(R.id.top_container);
         g gVar = new g(getPageContext());
         this.r = gVar;
         this.o.setProgressView(gVar);
         BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) this.n.findViewById(R.id.live_tab_list_view);
         this.p = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f13795e));
+        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(this.f13698e));
         this.p.setFadingEdgeLength(0);
         this.p.setOverScrollMode(2);
-        this.q = new d.a.k0.t.d.c.a(getPageContext(), this.p, 102);
-        PbListView pbListView = new PbListView(this.f13795e);
+        this.q = new d.a.n0.v.d.c.a(getPageContext(), this.p, 102);
+        PbListView pbListView = new PbListView(this.f13698e);
         this.s = pbListView;
         pbListView.a();
         this.s.o(R.color.transparent);
-        this.s.r(l.g(this.f13795e, R.dimen.tbds182));
+        this.s.r(l.g(this.f13698e, R.dimen.tbds182));
         this.s.v();
         this.s.E(R.dimen.tbfontsize33);
         this.s.C(SkinManager.getColor(R.color.CAM_X0107));
@@ -206,8 +206,8 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             if (pbListView.b().getParent() == null) {
                 this.p.setNextPage(this.s);
             }
-            this.s.r(l.g(this.f13795e, R.dimen.tbds182));
-            this.s.A(this.f13795e.getResources().getString(R.string.loading));
+            this.s.r(l.g(this.f13698e, R.dimen.tbds182));
+            this.s.A(this.f13698e.getResources().getString(R.string.loading));
             this.s.O();
         }
     }
@@ -218,8 +218,8 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             if (pbListView.b().getParent() == null) {
                 this.p.setNextPage(this.s);
             }
-            this.s.r(l.g(this.f13795e, R.dimen.tbds182));
-            this.s.A(this.f13795e.getResources().getString(R.string.list_no_more));
+            this.s.r(l.g(this.f13698e, R.dimen.tbds182));
+            this.s.A(this.f13698e.getResources().getString(R.string.list_no_more));
             this.s.f();
         }
     }
@@ -227,8 +227,8 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public final void X0() {
         if (F0()) {
             u uVar = new u();
-            uVar.f59520a = 1120;
-            uVar.f59521b = true;
+            uVar.f59661a = 1120;
+            uVar.f59662b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
             return;
         }
@@ -238,15 +238,15 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     public final void Y0() {
         if (F0()) {
             u uVar = new u();
-            uVar.f59520a = 1120;
-            uVar.f59521b = false;
+            uVar.f59661a = 1120;
+            uVar.f59662b = false;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, uVar));
             return;
         }
         this.o.setRefreshing(false);
     }
 
-    @Override // d.a.k0.q0.s0
+    @Override // d.a.n0.r0.s0
     public void k() {
     }
 
@@ -258,7 +258,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
         }
     }
 
-    @Override // d.a.k0.q0.s0
+    @Override // d.a.n0.r0.s0
     public void m() {
         if (j.z()) {
             AlaLiveTabYanzhiModel alaLiveTabYanzhiModel = this.t;
@@ -287,7 +287,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             pbListView.C(SkinManager.getColor(R.color.CAM_X0109));
             this.s.d(i2);
         }
-        d.a.k0.t.d.c.a aVar = this.q;
+        d.a.n0.v.d.c.a aVar = this.q;
         if (aVar != null) {
             aVar.b();
         }
@@ -296,10 +296,10 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f13795e = getPageContext().getPageActivity();
+        this.f13698e = getPageContext().getPageActivity();
         Bundle arguments = getArguments();
         if (arguments != null) {
-            this.f13798h = arguments.getBoolean("arg_after_lazy_loaded", false);
+            this.f13701h = arguments.getBoolean("arg_after_lazy_loaded", false);
         }
         if (this.t == null) {
             this.t = new AlaLiveTabYanzhiModel(getPageContext(), this.u);
@@ -315,7 +315,7 @@ public class LiveTabYanzhiSubFragment extends LiveTabBaseSubFragment implements 
             this.n = layoutInflater.inflate(R.layout.live_tab_sub_tab_layout, (ViewGroup) null);
             Q0();
         }
-        if (this.f13798h) {
+        if (this.f13701h) {
             loadData();
         }
         return this.n;

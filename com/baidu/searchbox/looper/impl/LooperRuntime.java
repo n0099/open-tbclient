@@ -12,9 +12,9 @@ import com.baidu.searchbox.looper.ioc.ILooperRegister_LooperRuntime_ListProvider
 import com.baidu.searchbox.looper.ioc.ILooperUIContext;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import d.a.c0.a.b.b;
-import d.a.c0.a.b.c;
-import d.a.c0.a.b.d;
+import d.a.e0.a.b.b;
+import d.a.e0.a.b.c;
+import d.a.e0.a.b.d;
 import d.f.b.a.j.a;
 /* loaded from: classes2.dex */
 public class LooperRuntime {
@@ -107,7 +107,7 @@ public class LooperRuntime {
     }
 
     public void initmLooperNeedContext() {
-        d.a.c0.a.b.a b2 = d.a.c0.a.b.a.b();
+        d.a.e0.a.b.a b2 = d.a.e0.a.b.a.b();
         this.mLooperNeedContext = b2;
         b2.a(new ILooperNeedContext_LooperRuntime_Provider());
     }

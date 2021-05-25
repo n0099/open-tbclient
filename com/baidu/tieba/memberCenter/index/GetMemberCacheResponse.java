@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import d.a.k0.r1.c.b.m;
+import d.a.n0.s1.c.b.m;
 /* loaded from: classes3.dex */
 public class GetMemberCacheResponse extends CustomResponsedMessage<Object> {
     public m mMembercenter;

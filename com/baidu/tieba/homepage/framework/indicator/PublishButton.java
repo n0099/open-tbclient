@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.j0.r.f0.m.b;
+import d.a.m0.r.f0.m.b;
 /* loaded from: classes4.dex */
 public class PublishButton extends TBSpecificationBtn {
     public float s;

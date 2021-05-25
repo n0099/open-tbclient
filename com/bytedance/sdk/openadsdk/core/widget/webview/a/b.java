@@ -20,25 +20,25 @@ import java.util.concurrent.atomic.AtomicLong;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static File f28801a;
+    public static File f28730a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile b f28802b;
+    public static volatile b f28731b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f28803c = new AtomicBoolean(true);
+    public AtomicBoolean f28732c = new AtomicBoolean(true);
 
     /* renamed from: d  reason: collision with root package name */
-    public AtomicBoolean f28804d = new AtomicBoolean(false);
+    public AtomicBoolean f28733d = new AtomicBoolean(false);
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f28805e = false;
+    public boolean f28734e = false;
 
     /* renamed from: f  reason: collision with root package name */
-    public AtomicInteger f28806f = new AtomicInteger(0);
+    public AtomicInteger f28735f = new AtomicInteger(0);
 
     /* renamed from: g  reason: collision with root package name */
-    public AtomicLong f28807g = new AtomicLong();
+    public AtomicLong f28736g = new AtomicLong();
 
     public b() {
         f();
@@ -46,7 +46,7 @@ public class b {
 
     public static File e() {
         File externalCacheDir;
-        if (f28801a == null) {
+        if (f28730a == null) {
             try {
                 if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
                     externalCacheDir = p.a().getExternalCacheDir();
@@ -55,12 +55,12 @@ public class b {
                 }
                 File file = new File(new File(externalCacheDir, "tt_tmpl_pkg"), "template");
                 file.mkdirs();
-                f28801a = file;
+                f28730a = file;
             } catch (Throwable th) {
                 u.c("TemplateManager", "getTemplateDir error", th);
             }
         }
-        return f28801a;
+        return f28730a;
     }
 
     private void f() {
@@ -68,7 +68,7 @@ public class b {
             @Override // java.lang.Runnable
             public void run() {
                 f.a();
-                b.this.f28803c.set(false);
+                b.this.f28732c.set(false);
                 b.this.g();
                 b.this.d();
             }
@@ -101,14 +101,14 @@ public class b {
                 f.d();
             }
             u.b("TemplateManager", "check template usable4: " + z);
-            this.f28805e = z;
+            this.f28734e = z;
             return;
         }
         u.b("TemplateManager", "check template usable2");
     }
 
     private void h() {
-        if (this.f28806f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f28807g.get() <= 600000) {
+        if (this.f28735f.getAndSet(0) <= 0 || System.currentTimeMillis() - this.f28736g.get() <= 600000) {
             return;
         }
         d();
@@ -123,18 +123,18 @@ public class b {
     }
 
     public static b a() {
-        if (f28802b == null) {
+        if (f28731b == null) {
             synchronized (b.class) {
-                if (f28802b == null) {
-                    f28802b = new b();
+                if (f28731b == null) {
+                    f28731b = new b();
                 }
             }
         }
-        return f28802b;
+        return f28731b;
     }
 
     public boolean b() {
-        return this.f28805e;
+        return this.f28734e;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:100:0x0194 A[SYNTHETIC] */
@@ -145,25 +145,25 @@ public class b {
     public void a(boolean z) {
         Iterator<s.a> it;
         o oVar;
-        if (this.f28803c.get()) {
+        if (this.f28732c.get()) {
             u.b("TemplateManager", "loadTemplate error1");
             return;
         }
         try {
-            if (this.f28804d.get()) {
+            if (this.f28733d.get()) {
                 if (z) {
-                    this.f28806f.getAndIncrement();
+                    this.f28735f.getAndIncrement();
                 }
                 u.b("TemplateManager", "loadTemplate error2: " + z);
                 return;
             }
-            this.f28804d.set(true);
+            this.f28733d.set(true);
             s a2 = p.f().a();
             s b2 = f.b();
             if (a2 != null && a2.f()) {
                 if (!f.b(a2.b())) {
-                    this.f28804d.set(false);
-                    this.f28807g.set(System.currentTimeMillis());
+                    this.f28733d.set(false);
+                    this.f28736g.set(System.currentTimeMillis());
                     u.b("TemplateManager", "loadTemplate error4");
                     return;
                 }
@@ -240,13 +240,13 @@ public class b {
                             f.c();
                             u.b("TemplateManager", "loadTemplate update success: " + a2.b());
                             g();
-                            this.f28804d.set(false);
-                            this.f28807g.set(System.currentTimeMillis());
+                            this.f28733d.set(false);
+                            this.f28736g.set(System.currentTimeMillis());
                             h();
                             return;
                         }
                     } while (oVar.f());
-                    this.f28804d.set(false);
+                    this.f28733d.set(false);
                     a(arrayList2);
                     u.b("TemplateManager", "loadTemplate error5");
                     return;
@@ -258,12 +258,12 @@ public class b {
                     if (!it.hasNext()) {
                     }
                 } while (oVar.f());
-                this.f28804d.set(false);
+                this.f28733d.set(false);
                 a(arrayList2);
                 u.b("TemplateManager", "loadTemplate error5");
                 return;
             }
-            this.f28804d.set(false);
+            this.f28733d.set(false);
             a(109);
             u.b("TemplateManager", "loadTemplate error3");
         } catch (Throwable th) {

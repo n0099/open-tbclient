@@ -31,7 +31,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
         public final RepeatWhenObserver<T>.InnerRepeatObserver inner = new InnerRepeatObserver();
 
         /* renamed from: d  reason: collision with root package name */
-        public final AtomicReference<Disposable> f68968d = new AtomicReference<>();
+        public final AtomicReference<Disposable> f69011d = new AtomicReference<>();
 
         /* loaded from: classes7.dex */
         public final class InnerRepeatObserver extends AtomicReference<Disposable> implements Observer<Object> {
@@ -69,17 +69,17 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            DisposableHelper.dispose(this.f68968d);
+            DisposableHelper.dispose(this.f69011d);
             DisposableHelper.dispose(this.inner);
         }
 
         public void innerComplete() {
-            DisposableHelper.dispose(this.f68968d);
+            DisposableHelper.dispose(this.f69011d);
             HalfSerializer.onComplete(this.actual, this, this.error);
         }
 
         public void innerError(Throwable th) {
-            DisposableHelper.dispose(this.f68968d);
+            DisposableHelper.dispose(this.f69011d);
             HalfSerializer.onError(this.actual, th, this, this.error);
         }
 
@@ -89,7 +89,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return DisposableHelper.isDisposed(this.f68968d.get());
+            return DisposableHelper.isDisposed(this.f69011d.get());
         }
 
         @Override // io.reactivex.Observer
@@ -111,7 +111,7 @@ public final class ObservableRepeatWhen<T> extends AbstractObservableWithUpstrea
 
         @Override // io.reactivex.Observer
         public void onSubscribe(Disposable disposable) {
-            DisposableHelper.replace(this.f68968d, disposable);
+            DisposableHelper.replace(this.f69011d, disposable);
         }
 
         public void subscribeNext() {

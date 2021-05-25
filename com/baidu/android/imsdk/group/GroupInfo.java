@@ -28,9 +28,15 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
     public long mCreateTime;
     public String mDescription;
     public int mDisturb;
+    public int mGroupCapacity;
     public String mGroupId;
     public String mGroupName;
+    public String mGroupNotice;
+    public int mGroupVerify;
     public String mHeadUrl;
+    public long mInfoVersion;
+    public long mLocalInfoVersion;
+    public long mLocalMembersVersion;
     public int mMarkTop;
     public long mMarkTopTime;
     public long mMembersVersion;
@@ -76,6 +82,10 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         return this.mDisturb;
     }
 
+    public int getGroupCapacity() {
+        return this.mGroupCapacity;
+    }
+
     public String getGroupId() {
         return this.mGroupId;
     }
@@ -84,8 +94,28 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         return this.mGroupName;
     }
 
+    public String getGroupNotice() {
+        return this.mGroupNotice;
+    }
+
+    public int getGroupVerify() {
+        return this.mGroupVerify;
+    }
+
     public String getHeadUrl() {
         return this.mHeadUrl;
+    }
+
+    public long getInfoVersion() {
+        return this.mInfoVersion;
+    }
+
+    public long getLocalInfoVersion() {
+        return this.mLocalInfoVersion;
+    }
+
+    public long getLocalMembersVersion() {
+        return this.mLocalMembersVersion;
     }
 
     public int getMarkTop() {
@@ -148,12 +178,36 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.mDisturb = i2;
     }
 
+    public void setGroupCapacity(int i2) {
+        this.mGroupCapacity = i2;
+    }
+
     public void setGroupName(String str) {
         this.mGroupName = str;
     }
 
+    public void setGroupNotice(String str) {
+        this.mGroupNotice = str;
+    }
+
+    public void setGroupVerify(int i2) {
+        this.mGroupVerify = i2;
+    }
+
     public void setHeadUrl(String str) {
         this.mHeadUrl = str;
+    }
+
+    public void setInfoVersion(long j) {
+        this.mInfoVersion = j;
+    }
+
+    public void setLocalInfoVersion(long j) {
+        this.mLocalInfoVersion = j;
+    }
+
+    public void setLocalMembersVersion(long j) {
+        this.mLocalMembersVersion = j;
     }
 
     public void setMarkTop(int i2) {
@@ -205,6 +259,12 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         parcel.writeInt(this.brief);
         parcel.writeInt(this.mMarkTop);
         parcel.writeLong(this.mMarkTopTime);
+        parcel.writeString(this.mGroupNotice);
+        parcel.writeInt(this.mGroupCapacity);
+        parcel.writeInt(this.mGroupVerify);
+        parcel.writeLong(this.mLocalMembersVersion);
+        parcel.writeLong(this.mLocalInfoVersion);
+        parcel.writeLong(this.mInfoVersion);
     }
 
     public GroupInfo(Parcel parcel) {
@@ -226,5 +286,11 @@ public class GroupInfo implements Parcelable, NoProGuard, PinYinUtils.PinYinObje
         this.brief = parcel.readInt();
         this.mMarkTop = parcel.readInt();
         this.mMarkTopTime = parcel.readLong();
+        this.mGroupNotice = parcel.readString();
+        this.mGroupCapacity = parcel.readInt();
+        this.mGroupVerify = parcel.readInt();
+        this.mLocalMembersVersion = parcel.readLong();
+        this.mLocalInfoVersion = parcel.readLong();
+        this.mInfoVersion = parcel.readLong();
     }
 }

@@ -6,13 +6,13 @@ import android.os.Process;
 /* loaded from: classes7.dex */
 public final class a {
     public static int level = 6;
-    public static InterfaceC0462a n;
-    public static InterfaceC0462a o;
+    public static InterfaceC0463a n;
+    public static InterfaceC0463a o;
     public static final String p;
 
     /* renamed from: com.tencent.mm.sdk.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0462a {
+    public interface InterfaceC0463a {
         int b();
 
         void d(String str, String str2);
@@ -49,8 +49,8 @@ public final class a {
     }
 
     public static void a(String str, String str2, Object... objArr) {
-        InterfaceC0462a interfaceC0462a = o;
-        if (interfaceC0462a == null || interfaceC0462a.b() > 4) {
+        InterfaceC0463a interfaceC0463a = o;
+        if (interfaceC0463a == null || interfaceC0463a.b() > 4) {
             return;
         }
         if (objArr != null) {
@@ -59,40 +59,40 @@ public final class a {
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0462a interfaceC0462a2 = o;
+        InterfaceC0463a interfaceC0463a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0462a2.f(str, str2);
+        interfaceC0463a2.f(str, str2);
     }
 
     public static void b(String str, String str2) {
-        InterfaceC0462a interfaceC0462a = o;
-        if (interfaceC0462a == null || interfaceC0462a.b() > 2) {
+        InterfaceC0463a interfaceC0463a = o;
+        if (interfaceC0463a == null || interfaceC0463a.b() > 2) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0462a interfaceC0462a2 = o;
+        InterfaceC0463a interfaceC0463a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0462a2.d(str, str2);
+        interfaceC0463a2.d(str, str2);
     }
 
     public static void c(String str, String str2) {
-        InterfaceC0462a interfaceC0462a = o;
-        if (interfaceC0462a == null || interfaceC0462a.b() > 1) {
+        InterfaceC0463a interfaceC0463a = o;
+        if (interfaceC0463a == null || interfaceC0463a.b() > 1) {
             return;
         }
         if (str2 == null) {
             str2 = "";
         }
-        InterfaceC0462a interfaceC0462a2 = o;
+        InterfaceC0463a interfaceC0463a2 = o;
         Process.myPid();
         Thread.currentThread().getId();
         Looper.getMainLooper().getThread().getId();
-        interfaceC0462a2.e(str, str2);
+        interfaceC0463a2.e(str, str2);
     }
 }

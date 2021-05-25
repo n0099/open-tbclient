@@ -11,27 +11,27 @@ import java.util.concurrent.ScheduledExecutorService;
 public class f {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile f f67723c;
+    public static volatile f f67766c;
 
     /* renamed from: a  reason: collision with root package name */
-    public c f67724a;
+    public c f67767a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ScheduledExecutorService f67725b;
+    public ScheduledExecutorService f67768b;
 
     /* loaded from: classes7.dex */
     public static class b implements c {
 
         /* renamed from: e  reason: collision with root package name */
-        public Handler f67726e;
+        public Handler f67769e;
 
         public b() {
-            this.f67726e = new Handler(Looper.getMainLooper());
+            this.f67769e = new Handler(Looper.getMainLooper());
         }
 
         @Override // java.util.concurrent.Executor
         public void execute(@NonNull Runnable runnable) {
-            this.f67726e.post(runnable);
+            this.f67769e.post(runnable);
         }
     }
 
@@ -44,26 +44,26 @@ public class f {
     }
 
     public static f a() {
-        if (f67723c == null) {
+        if (f67766c == null) {
             synchronized (f.class) {
-                if (f67723c == null) {
-                    f67723c = new f();
+                if (f67766c == null) {
+                    f67766c = new f();
                 }
             }
         }
-        return f67723c;
+        return f67766c;
     }
 
     public c b() {
-        return this.f67724a;
+        return this.f67767a;
     }
 
     public ScheduledExecutorService c() {
-        return this.f67725b;
+        return this.f67768b;
     }
 
     public f(ExecutorService executorService, ScheduledExecutorService scheduledExecutorService, c cVar) {
-        this.f67725b = scheduledExecutorService;
-        this.f67724a = cVar;
+        this.f67768b = scheduledExecutorService;
+        this.f67767a = cVar;
     }
 }

@@ -20,22 +20,22 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         public static final Parcelable.Creator<BikingStep> CREATOR = new b();
 
         /* renamed from: d  reason: collision with root package name */
-        public int f7351d;
+        public int f7251d;
 
         /* renamed from: e  reason: collision with root package name */
-        public RouteNode f7352e;
+        public RouteNode f7252e;
 
         /* renamed from: f  reason: collision with root package name */
-        public RouteNode f7353f;
+        public RouteNode f7253f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f7354g;
+        public String f7254g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f7355h;
+        public String f7255h;
 
         /* renamed from: i  reason: collision with root package name */
-        public String f7356i;
+        public String f7256i;
         public String j;
         public String k;
 
@@ -44,12 +44,12 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
 
         public BikingStep(Parcel parcel) {
             super(parcel);
-            this.f7351d = parcel.readInt();
-            this.f7352e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7353f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
-            this.f7354g = parcel.readString();
-            this.f7355h = parcel.readString();
-            this.f7356i = parcel.readString();
+            this.f7251d = parcel.readInt();
+            this.f7252e = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7253f = (RouteNode) parcel.readParcelable(RouteNode.class.getClassLoader());
+            this.f7254g = parcel.readString();
+            this.f7255h = parcel.readString();
+            this.f7256i = parcel.readString();
             this.j = parcel.readString();
             this.k = parcel.readString();
         }
@@ -81,23 +81,23 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         }
 
         public int getDirection() {
-            return this.f7351d;
+            return this.f7251d;
         }
 
         public RouteNode getEntrance() {
-            return this.f7352e;
+            return this.f7252e;
         }
 
         public String getEntranceInstructions() {
-            return this.f7355h;
+            return this.f7255h;
         }
 
         public RouteNode getExit() {
-            return this.f7353f;
+            return this.f7253f;
         }
 
         public String getExitInstructions() {
-            return this.f7356i;
+            return this.f7256i;
         }
 
         public String getInstructions() {
@@ -111,29 +111,29 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         @Override // com.baidu.mapapi.search.core.RouteStep
         public List<LatLng> getWayPoints() {
             if (this.mWayPoints == null) {
-                this.mWayPoints = a(this.f7354g);
+                this.mWayPoints = a(this.f7254g);
             }
             return this.mWayPoints;
         }
 
         public void setDirection(int i2) {
-            this.f7351d = i2;
+            this.f7251d = i2;
         }
 
         public void setEntrance(RouteNode routeNode) {
-            this.f7352e = routeNode;
+            this.f7252e = routeNode;
         }
 
         public void setEntranceInstructions(String str) {
-            this.f7355h = str;
+            this.f7255h = str;
         }
 
         public void setExit(RouteNode routeNode) {
-            this.f7353f = routeNode;
+            this.f7253f = routeNode;
         }
 
         public void setExitInstructions(String str) {
-            this.f7356i = str;
+            this.f7256i = str;
         }
 
         public void setInstructions(String str) {
@@ -141,7 +141,7 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         }
 
         public void setPathString(String str) {
-            this.f7354g = str;
+            this.f7254g = str;
         }
 
         public void setTurnType(String str) {
@@ -151,12 +151,12 @@ public class BikingRouteLine extends RouteLine<BikingStep> implements Parcelable
         @Override // com.baidu.mapapi.search.core.RouteStep, android.os.Parcelable
         public void writeToParcel(Parcel parcel, int i2) {
             super.writeToParcel(parcel, 1);
-            parcel.writeInt(this.f7351d);
-            parcel.writeParcelable(this.f7352e, 1);
-            parcel.writeParcelable(this.f7353f, 1);
-            parcel.writeString(this.f7354g);
-            parcel.writeString(this.f7355h);
-            parcel.writeString(this.f7356i);
+            parcel.writeInt(this.f7251d);
+            parcel.writeParcelable(this.f7252e, 1);
+            parcel.writeParcelable(this.f7253f, 1);
+            parcel.writeString(this.f7254g);
+            parcel.writeString(this.f7255h);
+            parcel.writeString(this.f7256i);
             parcel.writeString(this.j);
             parcel.writeString(this.k);
         }

@@ -6,7 +6,7 @@ import d.r.b.a.a.f.d.d;
 public final class b implements d.r.b.a.a.i.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f68901a = new b();
+    public static final b f68944a = new b();
 
     @Override // d.r.b.a.a.i.b
     public void a(CurrencyChargeMessage currencyChargeMessage) {
@@ -15,11 +15,11 @@ public final class b implements d.r.b.a.a.i.b {
 
     @Override // d.r.b.a.a.i.b
     public void b(d.r.b.a.a.i.c.c cVar) {
-        d.b("GiftEventCallbackImpl", "onConsumeConfirmMessage appId == " + cVar.f67760b);
+        d.b("GiftEventCallbackImpl", "onConsumeConfirmMessage appId == " + cVar.f67803b);
     }
 
     @Override // d.r.b.a.a.i.b
     public void c(d.r.b.a.a.i.c.a aVar) {
-        d.b("GiftEventCallbackImpl", "onAccountDelayMessage appId == " + aVar.f67743a);
+        d.b("GiftEventCallbackImpl", "onAccountDelayMessage appId == " + aVar.f67786a);
     }
 }

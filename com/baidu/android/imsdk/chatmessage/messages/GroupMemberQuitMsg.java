@@ -24,6 +24,7 @@ public class GroupMemberQuitMsg extends NotifyMsg implements Parcelable, NoProGu
         }
     };
     public int groupnum;
+    public long mMemberVersion;
     public String mNewMaster;
     public String mQuitMember;
 
@@ -33,6 +34,10 @@ public class GroupMemberQuitMsg extends NotifyMsg implements Parcelable, NoProGu
 
     public int getGroupnum() {
         return this.groupnum;
+    }
+
+    public long getMemberVersion() {
+        return this.mMemberVersion;
     }
 
     public String getNewMaster() {
@@ -56,6 +61,7 @@ public class GroupMemberQuitMsg extends NotifyMsg implements Parcelable, NoProGu
             long optLong = jSONObject.optLong("new_owner");
             this.mQuitMember = String.valueOf(jSONObject.optLong("operator"));
             this.mNewMaster = String.valueOf(optLong);
+            this.mMemberVersion = jSONObject.optLong("member_version");
             return true;
         } catch (JSONException e2) {
             LogUtils.e(LogUtils.TAG, "parseJsonString", e2);
@@ -69,6 +75,7 @@ public class GroupMemberQuitMsg extends NotifyMsg implements Parcelable, NoProGu
         parcel.writeString(this.mQuitMember);
         parcel.writeString(this.mNewMaster);
         parcel.writeLong(this.groupnum);
+        parcel.writeLong(this.mMemberVersion);
     }
 
     public GroupMemberQuitMsg(Parcel parcel) {
@@ -76,5 +83,6 @@ public class GroupMemberQuitMsg extends NotifyMsg implements Parcelable, NoProGu
         this.mQuitMember = parcel.readString();
         this.mNewMaster = parcel.readString();
         this.groupnum = parcel.readInt();
+        this.mMemberVersion = parcel.readLong();
     }
 }

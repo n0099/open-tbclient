@@ -24,28 +24,28 @@ import com.baidu.webkit.sdk.PermissionRequest;
 public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity implements Camera.PreviewCallback, SurfaceHolder.Callback {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f5715b = 1;
+    public static final int f5615b = 1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f5716c = 2;
+    public static final int f5616c = 2;
     public com.baidu.fsg.face.liveness.camera.a cameraControl;
 
     /* renamed from: e  reason: collision with root package name */
-    public LivenessCameraSurfaceView f5719e;
+    public LivenessCameraSurfaceView f5619e;
 
     /* renamed from: f  reason: collision with root package name */
-    public SurfaceHolder f5720f;
+    public SurfaceHolder f5620f;
     public com.baidu.fsg.face.base.d.b faceRectGroup;
 
     /* renamed from: g  reason: collision with root package name */
-    public MediaPlayer f5721g;
+    public MediaPlayer f5621g;
     public boolean permissionFlag;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f5718d = 1;
+    public int f5618d = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f5717a = false;
+    public boolean f5617a = false;
 
     /* loaded from: classes2.dex */
     public static class b implements MediaPlayer.OnErrorListener {
@@ -60,10 +60,10 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     }
 
     private boolean e() {
-        this.f5719e.setVisibility(4);
+        this.f5619e.setVisibility(4);
         boolean a2 = this.cameraControl.a(getActivity(), true);
-        this.f5719e.bindSurfaceView(this, this.cameraControl.f());
-        this.f5719e.setVisibility(0);
+        this.f5619e.bindSurfaceView(this, this.cameraControl.f());
+        this.f5619e.setVisibility(0);
         return a2;
     }
 
@@ -93,13 +93,13 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         getWindow().addFlags(128);
         ViewGroup.LayoutParams layoutParams = new ViewGroup.LayoutParams(-1, -1);
         LivenessCameraSurfaceView livenessCameraSurfaceView = new LivenessCameraSurfaceView(getActivity(), null);
-        this.f5719e = livenessCameraSurfaceView;
+        this.f5619e = livenessCameraSurfaceView;
         SurfaceHolder holder = livenessCameraSurfaceView.getHolder();
-        this.f5720f = holder;
+        this.f5620f = holder;
         holder.setFormat(-2);
-        this.f5720f.setType(3);
-        this.f5720f.addCallback(this);
-        addContentView(this.f5719e, layoutParams);
+        this.f5620f.setType(3);
+        this.f5620f.addCallback(this);
+        addContentView(this.f5619e, layoutParams);
         addContentView(a(), layoutParams);
         this.cameraControl = new com.baidu.fsg.face.liveness.camera.a();
         this.faceRectGroup = new com.baidu.fsg.face.base.d.b();
@@ -111,9 +111,9 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     public void onDestroy() {
         super.onDestroy();
         try {
-            if (this.f5721g != null) {
-                this.f5721g.stop();
-                this.f5721g.release();
+            if (this.f5621g != null) {
+                this.f5621g.stop();
+                this.f5621g.release();
             }
         } catch (Exception e2) {
             d.a(e2);
@@ -149,21 +149,21 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     }
 
     public void playSound(int i2) {
-        MediaPlayer mediaPlayer = this.f5721g;
+        MediaPlayer mediaPlayer = this.f5621g;
         if (mediaPlayer == null || !mediaPlayer.isPlaying()) {
             MediaPlayer create = MediaPlayer.create(this, i2);
-            this.f5721g = create;
+            this.f5621g = create;
             if (create == null) {
                 return;
             }
             create.setOnErrorListener(new b());
             setVolumeControlStream(3);
-            this.f5721g.start();
+            this.f5621g.start();
         }
     }
 
     public void startRecod() {
-        this.f5719e.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.3
+        this.f5619e.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.3
             @Override // java.lang.Runnable
             public void run() {
                 new a().execute(new Void[0]);
@@ -172,7 +172,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
     }
 
     public void startVideoOrCamera() {
-        if (this.f5718d == 0) {
+        if (this.f5618d == 0) {
             String[] strArr = {PermissionRequest.RESOURCE_VIDEO_CAPTURE};
             if (!DangerousPermissionManagerProxy.getInstance().isPermissionGroupGranted(getActivity(), strArr)) {
                 DangerousPermissionManagerProxy.getInstance().requestPermissionsDialog(getActivity(), strArr, new RequestPermissionDialogCallBack() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.1
@@ -223,7 +223,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         if (Build.VERSION.SDK_INT >= 23 && checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
             this.permissionFlag = true;
             requestPermissions(new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1);
-        } else if (this.f5718d == 0) {
+        } else if (this.f5618d == 0) {
             if (e()) {
                 c();
             } else {
@@ -235,7 +235,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
                 requestPermissions(new String[]{PermissionRequest.RESOURCE_AUDIO_CAPTURE}, 2);
                 return;
             }
-            this.f5719e.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.4
+            this.f5619e.post(new Runnable() { // from class: com.baidu.fsg.face.liveness.activity.LivenessCameraBaseActivity.4
                 @Override // java.lang.Runnable
                 public void run() {
                     new a().execute(new Void[0]);
@@ -248,7 +248,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
 
     public void stopVideoOrCamera() {
         com.baidu.fsg.face.liveness.camera.a aVar;
-        int i2 = this.f5718d;
+        int i2 = this.f5618d;
         if (i2 == 0) {
             com.baidu.fsg.face.liveness.camera.a aVar2 = this.cameraControl;
             if (aVar2 != null) {
@@ -263,10 +263,10 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceChanged(SurfaceHolder surfaceHolder, int i2, int i3, int i4) {
-        this.faceRectGroup.f5645b = new Rect(this.f5719e.getLeft(), this.f5719e.getTop(), this.f5719e.getRight(), this.f5719e.getBottom());
+        this.faceRectGroup.f5545b = new Rect(this.f5619e.getLeft(), this.f5619e.getTop(), this.f5619e.getRight(), this.f5619e.getBottom());
         b();
         this.cameraControl.a((Camera.PreviewCallback) this);
-        this.cameraControl.a(getActivity(), this.f5720f);
+        this.cameraControl.a(getActivity(), this.f5620f);
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -287,7 +287,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         /* renamed from: a */
         public String doInBackground(Void... voidArr) {
             LivenessCameraBaseActivity livenessCameraBaseActivity = LivenessCameraBaseActivity.this;
-            livenessCameraBaseActivity.f5717a = livenessCameraBaseActivity.cameraControl.a((Context) livenessCameraBaseActivity.getActivity());
+            livenessCameraBaseActivity.f5617a = livenessCameraBaseActivity.cameraControl.a((Context) livenessCameraBaseActivity.getActivity());
             LivenessCameraBaseActivity livenessCameraBaseActivity2 = LivenessCameraBaseActivity.this;
             livenessCameraBaseActivity2.cameraControl.a((Camera.PreviewCallback) livenessCameraBaseActivity2);
             return null;
@@ -299,7 +299,7 @@ public abstract class LivenessCameraBaseActivity extends LivenessBaseActivity im
         public void onPostExecute(String str) {
             super.onPostExecute(str);
             LivenessCameraBaseActivity livenessCameraBaseActivity = LivenessCameraBaseActivity.this;
-            if (livenessCameraBaseActivity.f5717a) {
+            if (livenessCameraBaseActivity.f5617a) {
                 livenessCameraBaseActivity.d();
             } else {
                 livenessCameraBaseActivity.a(true, false, false);

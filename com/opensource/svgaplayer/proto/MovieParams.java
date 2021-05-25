@@ -9,7 +9,7 @@ import d.n.a.d;
 import d.n.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class MovieParams extends Message<MovieParams, Builder> {
     public static final ProtoAdapter<MovieParams> ADAPTER = new ProtoAdapter_MovieParams();
     public static final Integer DEFAULT_FPS;
@@ -26,7 +26,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
     @WireField(adapter = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
     public final Float viewBoxWidth;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<MovieParams, Builder> {
         public Integer fps;
         public Integer frames;
@@ -61,7 +61,7 @@ public final class MovieParams extends Message<MovieParams, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_MovieParams extends ProtoAdapter<MovieParams> {
         public ProtoAdapter_MovieParams() {
             super(FieldEncoding.LENGTH_DELIMITED, MovieParams.class);

@@ -31,18 +31,18 @@ public interface ICommonPermissionListener extends IInterface {
         public static class a implements ICommonPermissionListener {
 
             /* renamed from: a  reason: collision with root package name */
-            public static ICommonPermissionListener f27026a;
+            public static ICommonPermissionListener f26955a;
 
             /* renamed from: b  reason: collision with root package name */
-            public IBinder f27027b;
+            public IBinder f26956b;
 
             public a(IBinder iBinder) {
-                this.f27027b = iBinder;
+                this.f26956b = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f27027b;
+                return this.f26956b;
             }
 
             @Override // com.bytedance.sdk.openadsdk.ICommonPermissionListener
@@ -52,7 +52,7 @@ public interface ICommonPermissionListener extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
                     obtain.writeString(str);
-                    if (!this.f27027b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f26956b.transact(2, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onDenied(str);
                     } else {
                         obtain2.readException();
@@ -69,7 +69,7 @@ public interface ICommonPermissionListener extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.bytedance.sdk.openadsdk.ICommonPermissionListener");
-                    if (!this.f27027b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
+                    if (!this.f26956b.transact(1, obtain, obtain2, 0) && Stub.getDefaultImpl() != null) {
                         Stub.getDefaultImpl().onGranted();
                     } else {
                         obtain2.readException();
@@ -97,14 +97,14 @@ public interface ICommonPermissionListener extends IInterface {
         }
 
         public static ICommonPermissionListener getDefaultImpl() {
-            return a.f27026a;
+            return a.f26955a;
         }
 
         public static boolean setDefaultImpl(ICommonPermissionListener iCommonPermissionListener) {
-            if (a.f27026a != null || iCommonPermissionListener == null) {
+            if (a.f26955a != null || iCommonPermissionListener == null) {
                 return false;
             }
-            a.f27026a = iCommonPermissionListener;
+            a.f26955a = iCommonPermissionListener;
             return true;
         }
 

@@ -30,6 +30,15 @@ public class BasicAdRequestInfo implements IAdRequestParam {
         return AppUtils.supportDl(this.mCxt) ? "NA,LP,DL,APO" : "NA,LP,APO";
     }
 
+    private String getVersionName(Context context) {
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+        } catch (Exception e2) {
+            e2.printStackTrace();
+            return "";
+        }
+    }
+
     public HashMap<String, String> additionalParameters2HashMap() {
         HashMap<String, String> hashMap = new HashMap<>();
         HashMap<String, String> hashMap2 = this.mAdditionalParameters;
@@ -100,6 +109,7 @@ public class BasicAdRequestInfo implements IAdRequestParam {
             sb3.append("");
             sb3.append(AppConfigImp.getInstance().isSupportHttps() ? 2 : 1);
             hashMap.put(IAdRequestParam.RPT, sb3.toString());
+            hashMap.put(IAdRequestParam.APV, "" + getVersionName(this.mCxt));
             hashMap.put(IAdRequestParam.NETWORK_OPERATOR, NetworkInfoUtils.getNetworkOperator(this.mCxt));
             hashMap.put(IAdRequestParam.CHID, AppConfigImp.getInstance().getChannelId());
             hashMap.put(IAdRequestParam.IMEI2, DeviceUtils.getInstance().getIMEI2(this.mCxt));

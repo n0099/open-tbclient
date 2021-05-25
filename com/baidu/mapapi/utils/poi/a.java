@@ -6,19 +6,19 @@ import com.baidu.mapapi.http.HttpClient;
 import com.baidu.platform.comapi.pano.a;
 import com.baidu.platform.comapi.pano.c;
 /* loaded from: classes2.dex */
-public final class a implements a.InterfaceC0116a<c> {
+public final class a implements a.InterfaceC0117a<c> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f7528a;
+    public final /* synthetic */ Context f7428a;
 
     public a(Context context) {
-        this.f7528a = context;
+        this.f7428a = context;
     }
 
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0116a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0117a
     public void a(HttpClient.HttpStateError httpStateError) {
         String str;
-        int i2 = b.f7530b[httpStateError.ordinal()];
+        int i2 = b.f7430b[httpStateError.ordinal()];
         if (i2 == 1) {
             str = "current network is not available";
         } else if (i2 != 2) {
@@ -30,14 +30,14 @@ public final class a implements a.InterfaceC0116a<c> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0116a
+    @Override // com.baidu.platform.comapi.pano.a.InterfaceC0117a
     public void a(c cVar) {
         String str;
         if (cVar == null) {
             Log.d("baidumapsdk", "pano info is null");
             return;
         }
-        int i2 = b.f7529a[cVar.a().ordinal()];
+        int i2 = b.f7429a[cVar.a().ordinal()];
         if (i2 == 1) {
             str = "pano uid is error, please check param poi uid";
         } else if (i2 == 2) {
@@ -49,7 +49,7 @@ public final class a implements a.InterfaceC0116a<c> {
         } else {
             if (cVar.c() == 1) {
                 try {
-                    BaiduMapPoiSearch.b(cVar.b(), this.f7528a);
+                    BaiduMapPoiSearch.b(cVar.b(), this.f7428a);
                     return;
                 } catch (Exception e2) {
                     e2.printStackTrace();

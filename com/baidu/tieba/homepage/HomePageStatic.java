@@ -5,12 +5,12 @@ import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.j0.v0.b;
+import d.a.m0.v0.b;
 /* loaded from: classes4.dex */
 public class HomePageStatic {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f16217a = false;
+    public static boolean f16120a = false;
 
     static {
         a();

@@ -48,8 +48,8 @@ import com.baidu.tieba.post.PersonPostActivity;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 import d.a.c.e.p.l;
-import d.a.j0.z0.n0;
-import d.a.k0.m2.m;
+import d.a.m0.z0.n0;
+import d.a.n0.n2.m;
 /* loaded from: classes5.dex */
 public class PersonExtraStatic {
 
@@ -113,10 +113,10 @@ public class PersonExtraStatic {
     }
 
     /* loaded from: classes5.dex */
-    public static class e implements d.a.j0.d.e {
-        @Override // d.a.j0.d.e
+    public static class e implements d.a.m0.d.e {
+        @Override // d.a.m0.d.e
         public View a(Context context) {
-            TextView a2 = d.a.j0.d.d.a(context);
+            TextView a2 = d.a.m0.d.d.a(context);
             if (a2 != null) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
                 SkinManager.setViewTextColor(a2, R.color.CAM_X0302);
@@ -157,7 +157,7 @@ public class PersonExtraStatic {
         MessageManager.getInstance().registerTask(customMessageTask);
         UrlManager.getInstance().addListener(new b());
         k();
-        d.a.j0.v0.b bVar = new d.a.j0.v0.b(107129);
+        d.a.m0.v0.b bVar = new d.a.m0.v0.b(107129);
         bVar.setResponsedClass(ResponseGetLivableForumList.class);
         bVar.h(false);
         bVar.setParallel(TiebaIMConfig.getParallel());
@@ -178,7 +178,7 @@ public class PersonExtraStatic {
     }
 
     public static void b() {
-        d.a.j0.d.c.b().c(7, new e());
+        d.a.m0.d.c.b().c(7, new e());
     }
 
     public static void c() {
@@ -216,8 +216,8 @@ public class PersonExtraStatic {
     }
 
     public static void f() {
-        d.a.k0.d3.d0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, d.a.k0.d3.d0.a.a("c/u/feed/userpost", 303002));
+        d.a.n0.e3.d0.a.h(303002, UserPostPageSocketResponsedMessage.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.USER_POST_HTTP_CMD, d.a.n0.e3.d0.a.a("c/u/feed/userpost", 303002));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -231,7 +231,7 @@ public class PersonExtraStatic {
     }
 
     public static void h() {
-        d.a.k0.d3.d0.a.d(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647, TbConfig.PERSON_CENTER_DYNAMIC_TAB_URL, PersonCenterDynamicTabHttpResMessage.class, PersonCenterDynamicTabSocketResMessage.class);
+        d.a.n0.e3.d0.a.d(CmdConfigHttp.CMD_PERSON_CENTER_DYNAMIC_TAB, 309647, TbConfig.PERSON_CENTER_DYNAMIC_TAB_URL, PersonCenterDynamicTabHttpResMessage.class, PersonCenterDynamicTabSocketResMessage.class);
     }
 
     public static void i() {
@@ -239,26 +239,26 @@ public class PersonExtraStatic {
     }
 
     public static void j() {
-        d.a.k0.d3.d0.a.f(309684, RecommendGodSocketResponseMessage.class, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, d.a.k0.d3.d0.a.a("c/u/user/getRecommendGodList", 309684));
+        d.a.n0.e3.d0.a.f(309684, RecommendGodSocketResponseMessage.class, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_GOD_LIST, d.a.n0.e3.d0.a.a("c/u/user/getRecommendGodList", 309684));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecommendGodHttpResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
     public static void k() {
-        d.a.k0.d3.d0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-        d.a.k0.d3.d0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+        d.a.n0.e3.d0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+        d.a.n0.e3.d0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
     public static void l() {
-        d.a.k0.d3.d0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-        d.a.k0.d3.d0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+        d.a.n0.e3.d0.a.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+        d.a.n0.e3.d0.a.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
     }
 
     public static void m() {
-        d.a.k0.d3.d0.a.h(309408, PersonPolymericSocketResMsg.class, false, false);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, d.a.k0.d3.d0.a.a("c/u/user/personal", 309408));
+        d.a.n0.e3.d0.a.h(309408, PersonPolymericSocketResMsg.class, false, false);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PERSON_POLYMERIC, d.a.n0.e3.d0.a.a("c/u/user/personal", 309408));
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(false);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);

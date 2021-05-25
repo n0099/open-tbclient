@@ -44,7 +44,7 @@ public class IMSetMsgSettingSwitchRequest extends BaseHttpRequest {
         String replace;
         int readIntData = Utility.readIntData(this.mContext, Constants.KEY_ENV, 0);
         if (readIntData != 0) {
-            replace = readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? null : Constants.URL_HTTP_BOX : "http://10.232.27.22:8090/" : "http://rd-im-server.bcc-szth.baidu.com:8080/";
+            replace = readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? null : Constants.URL_HTTP_BOX : Constants.URL_HTTP_QA : "http://rd-im-server.bcc-szth.baidu.com:8080/";
         } else {
             replace = Utility.isPeakTime() ? "https://pim.baidu.com/".replace("https://", "http://") : "https://pim.baidu.com/";
         }

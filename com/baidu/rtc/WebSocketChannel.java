@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.text.TextUtils;
 import android.util.Log;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
@@ -420,7 +421,7 @@ public class WebSocketChannel {
                             this.mUserInfoList.remove(BigInteger.valueOf(optJSONObject5.optLong("leaving")));
                             this.delegate.onUserLeavingRoom(new BigInteger(optJSONObject5.optString("leaving")));
                             return;
-                        } else if (!optJSONObject5.has("users") || (optJSONArray = optJSONObject5.optJSONArray("users")) == null || optJSONArray.length() <= 0) {
+                        } else if (!optJSONObject5.has(IMConstants.AT_DATA_TYPE_USER) || (optJSONArray = optJSONObject5.optJSONArray(IMConstants.AT_DATA_TYPE_USER)) == null || optJSONArray.length() <= 0) {
                             return;
                         } else {
                             int length2 = optJSONArray.length();

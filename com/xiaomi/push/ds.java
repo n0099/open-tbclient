@@ -15,7 +15,7 @@ import java.util.List;
 public class ds extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f37518a;
+    public Context f37447a;
 
     /* renamed from: a  reason: collision with other field name */
     public SharedPreferences f239a;
@@ -24,7 +24,7 @@ public class ds extends ai.a {
     public com.xiaomi.push.service.aq f240a;
 
     public ds(Context context) {
-        this.f37518a = context;
+        this.f37447a = context;
         this.f239a = context.getSharedPreferences("mipush_extra", 0);
         this.f240a = com.xiaomi.push.service.aq.a(context);
     }
@@ -40,9 +40,9 @@ public class ds extends ai.a {
         }
         ArrayList arrayList = new ArrayList();
         byte[] bArr = new byte[4];
-        synchronized (dm.f37512a) {
+        synchronized (dm.f37441a) {
             try {
-                File file2 = new File(this.f37518a.getExternalFilesDir(null), "push_cdata.lock");
+                File file2 = new File(this.f37447a.getExternalFilesDir(null), "push_cdata.lock");
                 y.m630a(file2);
                 randomAccessFile = new RandomAccessFile(file2, "rw");
                 try {
@@ -138,13 +138,13 @@ public class ds extends ai.a {
 
     /* renamed from: a  reason: collision with other method in class */
     private boolean m237a() {
-        if (bg.e(this.f37518a)) {
+        if (bg.e(this.f37447a)) {
             return false;
         }
-        if ((bg.g(this.f37518a) || bg.f(this.f37518a)) && !c()) {
+        if ((bg.g(this.f37447a) || bg.f(this.f37447a)) && !c()) {
             return true;
         }
-        return (bg.h(this.f37518a) && !b()) || bg.i(this.f37518a);
+        return (bg.h(this.f37447a) && !b()) || bg.i(this.f37447a);
     }
 
     private boolean b() {
@@ -169,8 +169,8 @@ public class ds extends ai.a {
 
     @Override // java.lang.Runnable
     public void run() {
-        File file = new File(this.f37518a.getExternalFilesDir(null), "push_cdata.data");
-        if (!bg.d(this.f37518a)) {
+        File file = new File(this.f37447a.getExternalFilesDir(null), "push_cdata.data");
+        if (!bg.d(this.f37447a)) {
             if (file.length() > 1863680) {
                 file.delete();
             }

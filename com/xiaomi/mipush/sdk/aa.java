@@ -6,25 +6,25 @@ import java.util.concurrent.ScheduledFuture;
 public class aa implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ MiTinyDataClient.a.C0469a f37293a;
+    public final /* synthetic */ MiTinyDataClient.a.C0470a f37222a;
 
-    public aa(MiTinyDataClient.a.C0469a c0469a) {
-        this.f37293a = c0469a;
+    public aa(MiTinyDataClient.a.C0470a c0470a) {
+        this.f37222a = c0470a;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         ScheduledFuture scheduledFuture;
         ScheduledFuture scheduledFuture2;
-        if (this.f37293a.f51a.size() != 0) {
-            this.f37293a.b();
+        if (this.f37222a.f51a.size() != 0) {
+            this.f37222a.b();
             return;
         }
-        scheduledFuture = this.f37293a.f52a;
+        scheduledFuture = this.f37222a.f52a;
         if (scheduledFuture != null) {
-            scheduledFuture2 = this.f37293a.f52a;
+            scheduledFuture2 = this.f37222a.f52a;
             scheduledFuture2.cancel(false);
-            this.f37293a.f52a = null;
+            this.f37222a.f52a = null;
         }
     }
 }

@@ -17,7 +17,7 @@ import java.util.SortedSet;
 public final class Tables {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f31359a = new a();
+    public static final g<? extends Map<?, ?>, ? extends Map<?, ?>> f31288a = new a();
 
     /* loaded from: classes6.dex */
     public static final class ImmutableCell<R, C, V> extends b<R, C, V> implements Serializable {
@@ -200,6 +200,6 @@ public final class Tables {
     }
 
     public static <K, V> g<Map<K, V>, Map<K, V>> d() {
-        return (g<Map<K, V>, Map<K, V>>) f31359a;
+        return (g<Map<K, V>, Map<K, V>>) f31288a;
     }
 }

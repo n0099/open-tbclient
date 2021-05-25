@@ -14,22 +14,22 @@ import java.util.List;
 public abstract class f<P extends a> {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f34484a;
+    public String f34413a;
 
     /* renamed from: e  reason: collision with root package name */
-    public String f34488e;
+    public String f34417e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f34489f;
+    public String f34418f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f34490g;
+    public boolean f34419g;
 
     /* renamed from: h  reason: collision with root package name */
-    public P f34491h;
+    public P f34420h;
 
     /* renamed from: i  reason: collision with root package name */
-    public com.kwai.sodler.lib.ext.b f34492i;
+    public com.kwai.sodler.lib.ext.b f34421i;
     public e j;
     public Throwable k;
     public long l;
@@ -40,20 +40,20 @@ public abstract class f<P extends a> {
     public String r;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f34486c = -1;
+    public int f34415c = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f34485b = -2233;
+    public int f34414b = -2233;
     public final byte[] q = new byte[0];
 
     /* renamed from: d  reason: collision with root package name */
-    public StringBuffer f34487d = new StringBuffer(String.valueOf(-1));
+    public StringBuffer f34416d = new StringBuffer(String.valueOf(-1));
 
     public abstract a a(String str);
 
     public f a(int i2) {
         synchronized (this.q) {
-            this.f34486c = i2;
+            this.f34415c = i2;
         }
         return c(String.valueOf(i2));
     }
@@ -78,7 +78,7 @@ public abstract class f<P extends a> {
     }
 
     public void a(P p) {
-        this.f34491h = p;
+        this.f34420h = p;
     }
 
     public void a(com.kwai.sodler.lib.b.b bVar) {
@@ -90,7 +90,7 @@ public abstract class f<P extends a> {
     }
 
     public void a(com.kwai.sodler.lib.ext.b bVar) {
-        this.f34492i = bVar;
+        this.f34421i = bVar;
     }
 
     public e b() {
@@ -99,7 +99,7 @@ public abstract class f<P extends a> {
 
     public void b(int i2) {
         if (i2 > 0) {
-            this.f34485b = i2;
+            this.f34414b = i2;
         }
     }
 
@@ -114,14 +114,14 @@ public abstract class f<P extends a> {
     public int c() {
         int i2;
         synchronized (this.q) {
-            i2 = this.f34486c;
+            i2 = this.f34415c;
         }
         return i2;
     }
 
     public f c(String str) {
         if (!TextUtils.isEmpty(str)) {
-            StringBuffer stringBuffer = this.f34487d;
+            StringBuffer stringBuffer = this.f34416d;
             stringBuffer.append(" --> ");
             stringBuffer.append(str);
         }
@@ -129,11 +129,11 @@ public abstract class f<P extends a> {
     }
 
     public String d() {
-        return this.f34487d.toString();
+        return this.f34416d.toString();
     }
 
     public void d(String str) {
-        this.f34488e = str;
+        this.f34417e = str;
     }
 
     public void e() {
@@ -143,7 +143,7 @@ public abstract class f<P extends a> {
     }
 
     public void e(String str) {
-        this.f34489f = str;
+        this.f34418f = str;
     }
 
     public void f(String str) {
@@ -151,7 +151,7 @@ public abstract class f<P extends a> {
     }
 
     public boolean f() {
-        return this.f34486c == -7;
+        return this.f34415c == -7;
     }
 
     @Nullable
@@ -174,9 +174,9 @@ public abstract class f<P extends a> {
         for (String str2 : file.list()) {
             if (this.j.e().c(str, str2)) {
                 com.kwai.sodler.lib.b.a aVar = new com.kwai.sodler.lib.b.a();
-                aVar.f34494a = str;
-                aVar.f34495b = str2;
-                aVar.f34496c = true;
+                aVar.f34423a = str;
+                aVar.f34424b = str2;
+                aVar.f34425c = true;
                 arrayList.add(aVar);
             }
         }
@@ -185,8 +185,8 @@ public abstract class f<P extends a> {
     }
 
     public void h() {
-        int i2 = this.f34485b - 1;
-        this.f34485b = i2;
+        int i2 = this.f34414b - 1;
+        this.f34414b = i2;
         if (i2 < 0) {
             throw new PluginError.RetryError();
         }
@@ -194,26 +194,26 @@ public abstract class f<P extends a> {
 
     @Nullable
     public String i() {
-        return this.f34484a;
+        return this.f34413a;
     }
 
     public boolean j() {
-        return this.f34490g;
+        return this.f34419g;
     }
 
     @Nullable
     public String k() {
-        return !TextUtils.isEmpty(this.f34488e) ? this.f34488e : this.f34489f;
+        return !TextUtils.isEmpty(this.f34417e) ? this.f34417e : this.f34418f;
     }
 
     @Nullable
     public P l() {
-        return this.f34491h;
+        return this.f34420h;
     }
 
     @Nullable
     public com.kwai.sodler.lib.ext.b m() {
-        return this.f34492i;
+        return this.f34421i;
     }
 
     public boolean n() {
@@ -252,6 +252,6 @@ public abstract class f<P extends a> {
     }
 
     public String toString() {
-        return "PluginRequest{mId='" + this.f34484a + "'}";
+        return "PluginRequest{mId='" + this.f34413a + "'}";
     }
 }

@@ -9,12 +9,13 @@ import com.baidu.mobstat.Config;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TbPatternsCompat;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.tieba.recapp.report.AdUploadHttpRequest;
 import d.a.c.e.p.j;
-import d.a.k0.j1.o.k.a;
+import d.a.n0.k1.o.k.a;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -53,6 +54,7 @@ public class AdAsyncRequestData extends HttpMessage {
         addParam("net_type", String.valueOf(j.I()));
         addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
         addParam(IAdRequestParam.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
+        addParam("cmode", PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
     }
 
     public static JSONObject create(String str, String str2) {

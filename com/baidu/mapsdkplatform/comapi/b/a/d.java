@@ -8,10 +8,10 @@ import java.util.Arrays;
 public class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ c f7625a;
+    public final /* synthetic */ c f7525a;
 
     public d(c cVar) {
-        this.f7625a = cVar;
+        this.f7525a = cVar;
     }
 
     @Override // java.lang.Runnable
@@ -22,7 +22,7 @@ public class d implements Runnable {
         if (h.a().b() == null) {
             return;
         }
-        str = c.f7620a;
+        str = c.f7520a;
         File file = new File(str);
         if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
             return;
@@ -39,14 +39,14 @@ public class d implements Runnable {
             File file2 = listFiles[i2];
             if (!file2.isDirectory() && file2.exists() && file2.isFile()) {
                 String name = file2.getName();
-                str2 = c.f7621b;
+                str2 = c.f7521b;
                 if (name.contains(str2) && (file2.getName().endsWith(DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION) || (file2.getName().endsWith(".zip") && file2.exists()))) {
-                    this.f7625a.a(file2);
+                    this.f7525a.a(file2);
                 }
             }
         }
         if (listFiles.length > 10) {
-            this.f7625a.a(listFiles);
+            this.f7525a.a(listFiles);
         }
     }
 }

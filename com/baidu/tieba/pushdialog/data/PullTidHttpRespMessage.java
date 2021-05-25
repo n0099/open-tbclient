@@ -19,7 +19,7 @@ public class PullTidHttpRespMessage extends HttpResponsedMessage {
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage, com.baidu.adp.framework.message.ResponsedMessage
     public void decodeInBackGround(int i2, byte[] bArr) throws Exception {
         try {
-            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20145a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
+            this.tid = Long.toString(((GetLockWindowTidResIdl) PushDialogStatic.f20067a.parseFrom(bArr, GetLockWindowTidResIdl.class)).data.tid.longValue());
         } catch (Throwable unused) {
         }
     }

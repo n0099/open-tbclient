@@ -23,25 +23,25 @@ import com.kwad.sdk.utils.an;
 public class TailFrameBarAppLandscape extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public ImageView f33944a;
+    public ImageView f33873a;
 
     /* renamed from: b  reason: collision with root package name */
-    public TextView f33945b;
+    public TextView f33874b;
 
     /* renamed from: c  reason: collision with root package name */
-    public AppScoreView f33946c;
+    public AppScoreView f33875c;
 
     /* renamed from: d  reason: collision with root package name */
-    public TextView f33947d;
+    public TextView f33876d;
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f33948e;
+    public TextView f33877e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextProgressBar f33949f;
+    public TextProgressBar f33878f;
 
     /* renamed from: g  reason: collision with root package name */
-    public ValueAnimator f33950g;
+    public ValueAnimator f33879g;
 
     public TailFrameBarAppLandscape(Context context) {
         this(context, null);
@@ -58,44 +58,44 @@ public class TailFrameBarAppLandscape extends LinearLayout {
 
     private void b() {
         LinearLayout.inflate(getContext(), R.layout.ksad_video_tf_bar_app_landscape, this);
-        this.f33944a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f33945b = (TextView) findViewById(R.id.ksad_app_name);
-        this.f33946c = (AppScoreView) findViewById(R.id.ksad_app_score);
-        this.f33947d = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f33948e = (TextView) findViewById(R.id.ksad_app_introduce);
+        this.f33873a = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f33874b = (TextView) findViewById(R.id.ksad_app_name);
+        this.f33875c = (AppScoreView) findViewById(R.id.ksad_app_score);
+        this.f33876d = (TextView) findViewById(R.id.ksad_app_download_count);
+        this.f33877e = (TextView) findViewById(R.id.ksad_app_introduce);
         TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.ksad_download_bar);
-        this.f33949f = textProgressBar;
+        this.f33878f = textProgressBar;
         textProgressBar.setTextDimen(an.a(getContext(), 16.0f));
-        this.f33949f.setTextColor(-1);
+        this.f33878f.setTextColor(-1);
     }
 
     private void c() {
-        ValueAnimator valueAnimator = this.f33950g;
+        ValueAnimator valueAnimator = this.f33879g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 1.2f, 1.0f);
-            this.f33950g = ofFloat;
+            this.f33879g = ofFloat;
             ofFloat.setDuration(IMLikeRequest.TIME_INTERVAL);
-            this.f33950g.setRepeatCount(-1);
-            this.f33950g.setRepeatMode(1);
-            this.f33950g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.1
+            this.f33879g.setRepeatCount(-1);
+            this.f33879g.setRepeatMode(1);
+            this.f33879g.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.sdk.reward.widget.tailframe.appbar.TailFrameBarAppLandscape.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator2) {
                     float floatValue = ((Float) valueAnimator2.getAnimatedValue()).floatValue();
-                    TailFrameBarAppLandscape.this.f33949f.setScaleY(floatValue);
-                    TailFrameBarAppLandscape.this.f33949f.setScaleX(floatValue);
+                    TailFrameBarAppLandscape.this.f33878f.setScaleY(floatValue);
+                    TailFrameBarAppLandscape.this.f33878f.setScaleX(floatValue);
                 }
             });
-            this.f33950g.start();
+            this.f33879g.start();
         }
     }
 
     public void a() {
-        ValueAnimator valueAnimator = this.f33950g;
+        ValueAnimator valueAnimator = this.f33879g;
         if (valueAnimator == null || !valueAnimator.isRunning()) {
             return;
         }
-        this.f33950g.cancel();
-        this.f33950g.end();
+        this.f33879g.cancel();
+        this.f33879g.end();
     }
 
     public void a(@NonNull AdInfo adInfo) {
@@ -108,29 +108,29 @@ public class TailFrameBarAppLandscape extends LinearLayout {
     }
 
     public TextProgressBar getTextProgressBar() {
-        return this.f33949f;
+        return this.f33878f;
     }
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo g2 = c.g(adTemplate);
-        KSImageLoader.loadAppIcon(this.f33944a, a.n(g2), adTemplate, 16);
-        this.f33945b.setText(a.o(g2));
+        KSImageLoader.loadAppIcon(this.f33873a, a.n(g2), adTemplate, 16);
+        this.f33874b.setText(a.o(g2));
         float s = a.s(g2);
         if (s >= 3.0f) {
-            this.f33946c.setScore(s);
-            this.f33946c.setVisibility(0);
+            this.f33875c.setScore(s);
+            this.f33875c.setVisibility(0);
         } else {
-            this.f33946c.setVisibility(8);
+            this.f33875c.setVisibility(8);
         }
         String r = a.r(g2);
         if (TextUtils.isEmpty(r)) {
-            this.f33947d.setVisibility(8);
+            this.f33876d.setVisibility(8);
         } else {
-            this.f33947d.setText(r);
-            this.f33947d.setVisibility(0);
+            this.f33876d.setText(r);
+            this.f33876d.setVisibility(0);
         }
-        this.f33948e.setText(a.m(g2));
-        this.f33949f.a(a.u(g2), 0);
+        this.f33877e.setText(a.m(g2));
+        this.f33878f.a(a.u(g2), 0);
         a(c.g(adTemplate));
     }
 }

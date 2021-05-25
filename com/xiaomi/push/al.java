@@ -8,7 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f37372a;
+    public int f37301a;
 
     /* renamed from: a  reason: collision with other field name */
     public Handler f109a;
@@ -23,7 +23,7 @@ public class al {
     public volatile boolean f112a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f37373b;
+    public final boolean f37302b;
 
     /* loaded from: classes7.dex */
     public class a extends Thread {
@@ -54,7 +54,7 @@ public class al {
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            long j = al.this.f37372a > 0 ? al.this.f37372a : Long.MAX_VALUE;
+            long j = al.this.f37301a > 0 ? al.this.f37301a : Long.MAX_VALUE;
             while (!al.this.f112a) {
                 try {
                     b poll = this.f113a.poll(j, TimeUnit.SECONDS);
@@ -63,7 +63,7 @@ public class al {
                         a(0, poll);
                         poll.b();
                         a(1, poll);
-                    } else if (al.this.f37372a > 0) {
+                    } else if (al.this.f37301a > 0) {
                         al.this.a();
                     }
                 } catch (InterruptedException e2) {
@@ -96,10 +96,10 @@ public class al {
     public al(boolean z, int i2) {
         this.f109a = null;
         this.f112a = false;
-        this.f37372a = 0;
+        this.f37301a = 0;
         this.f109a = new am(this, Looper.getMainLooper());
-        this.f37373b = z;
-        this.f37372a = i2;
+        this.f37302b = z;
+        this.f37301a = i2;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class al {
         if (this.f110a == null) {
             a aVar = new a();
             this.f110a = aVar;
-            aVar.setDaemon(this.f37373b);
+            aVar.setDaemon(this.f37302b);
             this.f112a = false;
             this.f110a.start();
         }

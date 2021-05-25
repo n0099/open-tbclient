@@ -27,6 +27,6 @@ public final class R {
         public static final int META_ERROR_PARAMS = 0x7f0f0037;
         public static final int META_ERROR_RESPONSE = 0x7f0f0038;
         public static final int META_REQ_SUCCESS = 0x7f0f0039;
-        public static final int app_name = 0x7f0f02b8;
+        public static final int app_name = 0x7f0f02ba;
     }
 }

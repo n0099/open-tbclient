@@ -15,19 +15,19 @@ import d.a.c.e.p.k;
 public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivity> {
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f14785e;
+    public boolean f14688e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f14786f;
+    public int f14689f;
 
     /* renamed from: g  reason: collision with root package name */
-    public String f14787g;
+    public String f14690g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f14788h;
+    public String f14691h;
 
     /* renamed from: i  reason: collision with root package name */
-    public String f14789i;
+    public String f14692i;
     public String j;
     public FacePackageDetailData k;
     public b l;
@@ -40,19 +40,19 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     public class b extends BdAsyncTask<Object, String, FacePackageDetailData> {
 
         /* renamed from: a  reason: collision with root package name */
-        public NetWork f14790a;
+        public NetWork f14693a;
 
         /* renamed from: b  reason: collision with root package name */
-        public volatile boolean f14791b;
+        public volatile boolean f14694b;
 
         public b() {
-            this.f14791b = false;
+            this.f14694b = false;
         }
 
         public final void b(String str) {
-            l<String> g2 = d.a.j0.r.r.a.f().g("tb_face_package");
+            l<String> g2 = d.a.m0.r.r.a.f().g("tb_face_package");
             if (g2 != null) {
-                g2.e(TbadkCoreApplication.getCurrentAccount() + FacePackageDetailModel.this.f14788h, str, 604800000L);
+                g2.e(TbadkCoreApplication.getCurrentAccount() + FacePackageDetailModel.this.f14691h, str, 604800000L);
             }
         }
 
@@ -62,24 +62,24 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public FacePackageDetailData doInBackground(Object... objArr) {
             FacePackageDetailData facePackageDetailData = null;
             try {
-                if (FacePackageDetailModel.this.f14788h == null || FacePackageDetailModel.this.f14788h.length() <= 0 || this.f14791b) {
+                if (FacePackageDetailModel.this.f14691h == null || FacePackageDetailModel.this.f14691h.length() <= 0 || this.f14694b) {
                     return null;
                 }
-                l<String> g2 = d.a.j0.r.r.a.f().g("tb_face_package");
+                l<String> g2 = d.a.m0.r.r.a.f().g("tb_face_package");
                 if (g2 != null) {
-                    String str = g2.get(TbadkCoreApplication.getCurrentAccount() + FacePackageDetailModel.this.f14788h);
+                    String str = g2.get(TbadkCoreApplication.getCurrentAccount() + FacePackageDetailModel.this.f14691h);
                     if (!k.isEmpty(str)) {
                         publishProgress(str);
                     }
                 }
                 NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.GET_PACKAGE_DETAIL);
-                this.f14790a = netWork;
+                this.f14693a = netWork;
                 netWork.addPostData("scr_w", String.valueOf(FacePackageDetailModel.this.m));
-                this.f14790a.addPostData("scr_h", String.valueOf(FacePackageDetailModel.this.n));
-                this.f14790a.addPostData("scr_dip", String.valueOf(FacePackageDetailModel.this.o));
-                this.f14790a.addPostData("pid", FacePackageDetailModel.this.f14788h);
-                this.f14790a.addPostData("st_type", FacePackageDetailModel.this.f14787g);
-                String postNetData = this.f14790a.postNetData();
+                this.f14693a.addPostData("scr_h", String.valueOf(FacePackageDetailModel.this.n));
+                this.f14693a.addPostData("scr_dip", String.valueOf(FacePackageDetailModel.this.o));
+                this.f14693a.addPostData("pid", FacePackageDetailModel.this.f14691h);
+                this.f14693a.addPostData("st_type", FacePackageDetailModel.this.f14690g);
+                String postNetData = this.f14693a.postNetData();
                 FacePackageDetailData facePackageDetailData2 = (FacePackageDetailData) OrmObject.objectWithJsonStr(postNetData, FacePackageDetailData.class);
                 if (facePackageDetailData2 != null) {
                     try {
@@ -102,11 +102,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel(true);
-            this.f14791b = true;
-            NetWork netWork = this.f14790a;
+            this.f14694b = true;
+            NetWork netWork = this.f14693a;
             if (netWork != null) {
                 netWork.cancelNetConnect();
-                this.f14790a = null;
+                this.f14693a = null;
             }
             FacePackageDetailModel.this.l = null;
         }
@@ -135,7 +135,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
 
     public FacePackageDetailModel(FacePackageDetailActivity facePackageDetailActivity) {
         super(facePackageDetailActivity.getPageContext());
-        this.f14789i = null;
+        this.f14692i = null;
         this.m = 0;
         this.n = 0;
         this.p = null;
@@ -151,11 +151,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     }
 
     public String B() {
-        return this.f14789i;
+        return this.f14692i;
     }
 
     public boolean C() {
-        return this.f14785e;
+        return this.f14688e;
     }
 
     public String D() {
@@ -163,7 +163,7 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     }
 
     public int E() {
-        return this.f14786f;
+        return this.f14689f;
     }
 
     public void F() {
@@ -176,11 +176,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     }
 
     public void G(String str) {
-        this.f14789i = str;
+        this.f14692i = str;
     }
 
     public void H(boolean z) {
-        this.f14785e = z;
+        this.f14688e = z;
     }
 
     public void I(ProxyAdkBaseActivity.LoadDataCallBack loadDataCallBack) {
@@ -200,20 +200,20 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         int i4 = facePackageData.downloading;
         int i5 = facePackageData.downloaded;
         if (i4 == 1) {
-            this.f14786f = 5;
+            this.f14689f = 5;
         } else if (i5 == 1) {
-            this.f14786f = 1;
+            this.f14689f = 1;
         } else if (i2 == 2) {
-            this.f14786f = 6;
+            this.f14689f = 6;
         } else if (i2 == 1) {
             if (i3 == 1) {
-                this.f14786f = 2;
+                this.f14689f = 2;
             }
         } else if (i2 == 0) {
             if (i3 == 1) {
-                this.f14786f = 3;
+                this.f14689f = 3;
             } else {
-                this.f14786f = 4;
+                this.f14689f = 4;
             }
         }
     }
@@ -234,18 +234,18 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
     }
 
     public String getPid() {
-        return this.f14788h;
+        return this.f14691h;
     }
 
     public String getStType() {
-        return this.f14787g;
+        return this.f14690g;
     }
 
     public void setPid(String str) {
-        this.f14788h = str;
+        this.f14691h = str;
     }
 
     public void setStType(String str) {
-        this.f14787g = str;
+        this.f14690g = str;
     }
 }

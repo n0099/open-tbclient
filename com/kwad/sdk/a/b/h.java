@@ -11,19 +11,19 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class h extends com.kwad.sdk.a.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    public ViewGroup f31754b;
+    public ViewGroup f31683b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f31755c;
+    public TextView f31684c;
 
     /* renamed from: d  reason: collision with root package name */
-    public AdTemplate f31756d;
+    public AdTemplate f31685d;
 
     /* renamed from: e  reason: collision with root package name */
-    public AdInfo f31757e;
+    public AdInfo f31686e;
 
     /* renamed from: f  reason: collision with root package name */
-    public com.kwad.sdk.contentalliance.detail.video.d f31758f = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.h.1
+    public com.kwad.sdk.contentalliance.detail.video.d f31687f = new com.kwad.sdk.contentalliance.detail.video.e() { // from class: com.kwad.sdk.a.b.h.1
         @Override // com.kwad.sdk.contentalliance.detail.video.e, com.kwad.sdk.contentalliance.detail.video.d
         public void f() {
             h.this.e();
@@ -32,45 +32,45 @@ public class h extends com.kwad.sdk.a.a.a implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f31755c.setText(com.kwad.sdk.core.response.b.a.u(this.f31757e));
-        this.f31754b.setOnClickListener(this);
-        this.f31754b.setVisibility(0);
+        this.f31684c.setText(com.kwad.sdk.core.response.b.a.u(this.f31686e));
+        this.f31683b.setOnClickListener(this);
+        this.f31683b.setVisibility(0);
     }
 
     private void m() {
-        com.kwad.sdk.core.download.b.a.a(this.f31754b.getContext(), this.f31756d, new a.InterfaceC0363a() { // from class: com.kwad.sdk.a.b.h.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0363a
+        com.kwad.sdk.core.download.b.a.a(this.f31683b.getContext(), this.f31685d, new a.InterfaceC0364a() { // from class: com.kwad.sdk.a.b.h.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC0364a
             public void a() {
-                com.kwad.sdk.core.report.b.a(h.this.f31756d, 2, ((com.kwad.sdk.a.a.a) h.this).f31701a.f31704c.getTouchCoords());
+                com.kwad.sdk.core.report.b.a(h.this.f31685d, 2, ((com.kwad.sdk.a.a.a) h.this).f31630a.f31633c.getTouchCoords());
             }
         }, null, false);
     }
 
     private void n() {
-        ((com.kwad.sdk.a.a.a) this).f31701a.f31702a.onAdClicked(this.f31754b, null);
+        ((com.kwad.sdk.a.a.a) this).f31630a.f31631a.onAdClicked(this.f31683b, null);
     }
 
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = ((com.kwad.sdk.a.a.a) this).f31701a.f31705d;
-        this.f31756d = adTemplate;
-        this.f31757e = com.kwad.sdk.core.response.b.c.g(adTemplate);
-        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.a(this.f31758f);
-        this.f31754b.setVisibility(8);
+        AdTemplate adTemplate = ((com.kwad.sdk.a.a.a) this).f31630a.f31634d;
+        this.f31685d = adTemplate;
+        this.f31686e = com.kwad.sdk.core.response.b.c.g(adTemplate);
+        ((com.kwad.sdk.a.a.a) this).f31630a.f31636f.a(this.f31687f);
+        this.f31683b.setVisibility(8);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void b() {
         super.b();
-        this.f31754b = (ViewGroup) a(R.id.ksad_video_complete_h5_container);
-        this.f31755c = (TextView) a(R.id.ksad_h5_open);
+        this.f31683b = (ViewGroup) a(R.id.ksad_video_complete_h5_container);
+        this.f31684c = (TextView) a(R.id.ksad_h5_open);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        ((com.kwad.sdk.a.a.a) this).f31701a.f31707f.b(this.f31758f);
+        ((com.kwad.sdk.a.a.a) this).f31630a.f31636f.b(this.f31687f);
     }
 
     @Override // android.view.View.OnClickListener

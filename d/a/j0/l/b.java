@@ -1,83 +1,40 @@
 package d.a.j0.l;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
-import com.baidu.apollon.statistics.g;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tieba.imageProblem.httpNet.CDNIPDirectConnect;
-import d.a.c.e.p.j;
-import d.a.j0.r.y.l;
-import d.a.j0.r.y.n;
-import d.a.j0.r.y.o;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes3.dex */
-public class b extends n {
-    public b(l lVar) {
-        super(lVar);
-    }
+import androidx.core.app.NotificationCompat;
+/* loaded from: classes2.dex */
+public class b {
 
-    @o(isAsync = false, value = "showDeviceInfo")
-    private JSONObject showDeviceInfo() {
-        JSONObject jSONObject = new JSONObject();
-        String cuid = TbadkCoreApplication.getInst().getCuid();
-        String str = Build.VERSION.RELEASE;
-        String str2 = Build.MODEL;
-        int k = d.a.c.e.p.l.k(b());
-        int i2 = d.a.c.e.p.l.i(b());
-        String str3 = String.valueOf(k) + "," + String.valueOf(i2);
-        String versionName = TbadkCoreApplication.getInst().getVersionName();
-        try {
-            jSONObject.put("systemName", "android");
-            jSONObject.put("systemVersion", str);
-            jSONObject.put("model", str2);
-            jSONObject.put("cuid", cuid);
-            jSONObject.put("resolution", str3);
-            jSONObject.put("appVersion", versionName);
-        } catch (JSONException unused) {
-        }
-        return jSONObject;
-    }
+    /* renamed from: a  reason: collision with root package name */
+    public static long f40465a = 60000;
 
-    @o(isAsync = false, value = "showNetStatus")
-    private JSONObject showNetStatus() {
-        int i2;
-        String str;
-        JSONObject jSONObject = new JSONObject();
-        if (j.H()) {
-            i2 = 1;
-            str = CDNIPDirectConnect.CDNNetworkChangeReceiver.WIFI_STRING;
-        } else if (j.t()) {
-            i2 = 3;
-            str = "2G";
-        } else if (j.u()) {
-            i2 = 4;
-            str = g.f3963b;
-        } else if (j.v()) {
-            i2 = 5;
-            str = "4G";
-        } else {
-            i2 = 0;
-            str = "NotReachable";
-        }
-        try {
-            jSONObject.put("netStatus", i2);
-            jSONObject.put("netDesc", str);
-        } catch (JSONException unused) {
-        }
-        return jSONObject;
-    }
+    /* renamed from: b  reason: collision with root package name */
+    public static long f40466b = f40465a * 60;
 
-    @o(isAsync = false, value = "showToast")
-    private void showToast(JSONObject jSONObject) {
-        if (jSONObject == null) {
+    public static void a(Context context, long j) {
+        if (j <= 0) {
             return;
         }
-        BdToast.c(b(), jSONObject.optString("message")).q();
-    }
-
-    @Override // d.a.j0.r.y.n
-    public String g() {
-        return "TBHY_COMMON_Utils";
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent("sso_action_t_m");
+            intent.setPackage(context.getPackageName());
+            PendingIntent broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
+            alarmManager.cancel(broadcast);
+            long currentTimeMillis = System.currentTimeMillis() + j;
+            if (Build.VERSION.SDK_INT >= 23) {
+                alarmManager.setExactAndAllowWhileIdle(0, currentTimeMillis, broadcast);
+            } else if (Build.VERSION.SDK_INT >= 19) {
+                alarmManager.setExact(0, currentTimeMillis, broadcast);
+            } else {
+                alarmManager.set(0, currentTimeMillis, broadcast);
+            }
+        } catch (Throwable th) {
+            c.d(th);
+        }
     }
 }

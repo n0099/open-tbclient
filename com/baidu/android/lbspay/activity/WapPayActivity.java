@@ -67,7 +67,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
     public class a extends SafeWebView.SafeChromeClient {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2616b;
+        public boolean f2619b;
 
         @Override // android.webkit.WebChromeClient
         public boolean onJsAlert(WebView webView, String str, String str2, final JsResult jsResult) {
@@ -120,10 +120,10 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onProgressChanged(WebView webView, int i2) {
             if (i2 <= 25) {
-                this.f2616b = false;
-            } else if (!this.f2616b) {
+                this.f2619b = false;
+            } else if (!this.f2619b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
-                this.f2616b = true;
+                this.f2619b = true;
             }
             if (i2 == 100) {
                 WapPayActivity wapPayActivity = WapPayActivity.this;
@@ -136,11 +136,11 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeChromeClient, android.webkit.WebChromeClient
         public void onReceivedTitle(WebView webView, String str) {
-            if (!this.f2616b) {
+            if (!this.f2619b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             super.onReceivedTitle(webView, str);
-            this.f2616b = true;
+            this.f2619b = true;
             if (TextUtils.isEmpty(str)) {
                 return;
             }
@@ -155,15 +155,15 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
     public class b extends SafeWebView.SafeWebViewClient {
 
         /* renamed from: b  reason: collision with root package name */
-        public boolean f2630b;
+        public boolean f2633b;
 
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void doUpdateVisitedHistory(WebView webView, String str, boolean z) {
-            if (!this.f2630b) {
+            if (!this.f2633b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             super.doUpdateVisitedHistory(webView, str, z);
-            this.f2630b = true;
+            this.f2633b = true;
         }
 
         @Override // android.webkit.WebViewClient
@@ -177,12 +177,12 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
         @Override // com.baidu.apollon.webmanager.SafeWebView.SafeWebViewClient, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             LogUtil.logd("url=" + str);
-            if (!this.f2630b) {
+            if (!this.f2633b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             WalletGlobalUtils.safeDismissDialog(WapPayActivity.this, -2);
             super.onPageFinished(webView, str);
-            this.f2630b = false;
+            this.f2633b = false;
             WapPayActivity wapPayActivity = WapPayActivity.this;
             if (!wapPayActivity.finishedError && !TextUtils.isEmpty(wapPayActivity.title) && !WapPayActivity.this.title.startsWith("http") && !WapPayActivity.this.title.contains("错误") && !WapPayActivity.this.title.contains("error")) {
                 WapPayActivity wapPayActivity2 = WapPayActivity.this;
@@ -202,7 +202,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             LogUtil.logd("url=" + str);
             WapPayActivity wapPayActivity = WapPayActivity.this;
             wapPayActivity.titleBar.setTitle(wapPayActivity.mLoadingTitle);
-            if (!this.f2630b) {
+            if (!this.f2633b) {
                 WapPayActivity.this.mWebView.loadUrl(WapPayActivity.JSPARAMS);
             }
             if (str.contains(WapPayActivity.PAGE_URL)) {
@@ -242,7 +242,7 @@ public class WapPayActivity extends LBSBaseActivity implements View.OnClickListe
             } else {
                 WalletGlobalUtils.safeShowDialog(WapPayActivity.this, -2, "");
                 super.onPageStarted(webView, str, bitmap);
-                this.f2630b = true;
+                this.f2633b = true;
             }
         }
 

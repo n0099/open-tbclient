@@ -20,28 +20,28 @@ import java.util.Map;
 public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements d.a.c.c.e.c.k.a {
 
     /* renamed from: b  reason: collision with root package name */
-    public d.a f38674b;
+    public d.a f38338b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final LinkedList<e> f38675c;
+    public final LinkedList<e> f38339c;
 
     /* renamed from: d  reason: collision with root package name */
-    public final LinkedList<e> f38676d;
+    public final LinkedList<e> f38340d;
 
     /* renamed from: e  reason: collision with root package name */
-    public final LinkedList<e> f38677e;
+    public final LinkedList<e> f38341e;
 
     /* renamed from: f  reason: collision with root package name */
-    public d.a.c.c.e.c.k.a f38678f;
+    public d.a.c.c.e.c.k.a f38342f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f38679g;
+    public boolean f38343g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.c.c.e.c.b f38680h;
+    public d.a.c.c.e.c.b f38344h;
 
     /* renamed from: i  reason: collision with root package name */
-    public long f38681i;
+    public long f38345i;
     public int j;
 
     /* loaded from: classes.dex */
@@ -59,21 +59,21 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
     public static /* synthetic */ class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f38683a;
+        public static final /* synthetic */ int[] f38347a;
 
         static {
             int[] iArr = new int[SocketMessageTask.DupLicateMode.values().length];
-            f38683a = iArr;
+            f38347a = iArr;
             try {
                 iArr[SocketMessageTask.DupLicateMode.REMOVE_ALL.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f38683a[SocketMessageTask.DupLicateMode.REMOVE_WAITING.ordinal()] = 2;
+                f38347a[SocketMessageTask.DupLicateMode.REMOVE_WAITING.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                f38683a[SocketMessageTask.DupLicateMode.REMOVE_ME.ordinal()] = 3;
+                f38347a[SocketMessageTask.DupLicateMode.REMOVE_ME.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
         }
@@ -81,17 +81,17 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
 
     public g(MessageManager messageManager) {
         super(messageManager);
-        this.f38674b = null;
-        this.f38675c = new LinkedList<>();
-        this.f38676d = new LinkedList<>();
-        this.f38677e = new LinkedList<>();
-        this.f38678f = null;
-        this.f38679g = true;
-        this.f38680h = null;
-        this.f38681i = 0L;
+        this.f38338b = null;
+        this.f38339c = new LinkedList<>();
+        this.f38340d = new LinkedList<>();
+        this.f38341e = new LinkedList<>();
+        this.f38342f = null;
+        this.f38343g = true;
+        this.f38344h = null;
+        this.f38345i = 0L;
         this.j = 0;
         BdSocketLinkService.setConnStateCallBack(this);
-        this.f38674b = new a();
+        this.f38338b = new a();
     }
 
     public void A(e eVar) {
@@ -100,16 +100,16 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
         }
         if (eVar.v()) {
             eVar.h();
-            c.j(this.f38676d, this.f38675c, eVar);
+            c.j(this.f38340d, this.f38339c, eVar);
             return;
         }
-        c.n(eVar, this.f38676d);
+        c.n(eVar, this.f38340d);
     }
 
     public void B(e eVar) {
         if (eVar != null && eVar.i() && eVar.p() < eVar.l()) {
-            c.j(this.f38675c, this.f38677e, eVar);
-            d.a.c.c.e.c.b bVar = this.f38680h;
+            c.j(this.f38339c, this.f38341e, eVar);
+            d.a.c.c.e.c.b bVar = this.f38344h;
             if (bVar != null) {
                 bVar.b(true, "timeout seq = " + eVar.q());
             }
@@ -130,9 +130,9 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
             return;
         }
         eVar.w();
-        c.n(eVar, this.f38675c);
-        c.n(eVar, this.f38676d);
-        c.n(eVar, this.f38677e);
+        c.n(eVar, this.f38339c);
+        c.n(eVar, this.f38340d);
+        c.n(eVar, this.f38341e);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -156,35 +156,35 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
             eVar.a(h.p);
         } else {
             i.c("queue", socketMessage, 0, "sendMessage", 0, "socketclient: send message");
-            c.h(eVar, this.f38676d);
+            c.h(eVar, this.f38340d);
             F();
         }
     }
 
     public final void F() {
-        e f2 = c.f(this.f38676d);
+        e f2 = c.f(this.f38340d);
         if (f2 == null) {
             return;
         }
         if (BdSocketLinkService.isClose()) {
             i.c("queue", f2.m(), 0, "sendNext", h.r, "");
             BdSocketLinkService.startService(false, "send message");
-        } else if (!this.f38679g || f2.n() <= -3) {
+        } else if (!this.f38343g || f2.n() <= -3) {
             BdSocketLinkService.sendMessage(f2);
         }
     }
 
     public void G(d.a.c.c.e.c.k.a aVar) {
-        this.f38678f = aVar;
+        this.f38342f = aVar;
     }
 
     public void H(d.a.c.c.e.c.b bVar) {
-        this.f38680h = bVar;
+        this.f38344h = bVar;
     }
 
     public void I() {
-        boolean z = this.f38679g;
-        this.f38679g = false;
+        boolean z = this.f38343g;
+        this.f38343g = false;
         i.a("queue", 0, 0, "unBlockMessageQueue", h.s, "Queue block has release");
         if (z) {
             F();
@@ -193,7 +193,7 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
 
     @Override // d.a.c.c.e.c.k.a
     public void a(String str) {
-        d.a.c.c.e.c.k.a aVar = this.f38678f;
+        d.a.c.c.e.c.k.a aVar = this.f38342f;
         if (aVar != null) {
             aVar.a(str);
         }
@@ -201,27 +201,27 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
 
     @Override // d.a.c.c.e.c.k.a
     public boolean b(int i2, String str) {
-        d.a.c.c.e.c.k.a aVar = this.f38678f;
+        d.a.c.c.e.c.k.a aVar = this.f38342f;
         if (aVar != null) {
             aVar.b(i2, str);
         }
-        d.a.c.c.e.c.b bVar = this.f38680h;
+        d.a.c.c.e.c.b bVar = this.f38344h;
         if (bVar != null) {
             bVar.a();
         }
-        if (l.D() && !c.a(this.f38677e) && !c.a(this.f38676d) && !c.a(this.f38675c) && BdSocketLinkService.isAvailable()) {
-            c.b(this.f38675c);
-            c.i(this.f38676d, this.f38677e);
-            c.i(this.f38676d, this.f38675c);
+        if (l.D() && !c.a(this.f38341e) && !c.a(this.f38340d) && !c.a(this.f38339c) && BdSocketLinkService.isAvailable()) {
+            c.b(this.f38339c);
+            c.i(this.f38340d, this.f38341e);
+            c.i(this.f38340d, this.f38339c);
             while (true) {
-                e k = c.k(this.f38676d);
+                e k = c.k(this.f38340d);
                 if (k == null) {
                     break;
                 }
                 k.w();
                 w(k, h.o, null);
             }
-            if (c.q(this.f38676d) > 0) {
+            if (c.q(this.f38340d) > 0) {
                 i.a("queue", 0, 0, "onClose", h.u, "have retry message, MessageQueue:reconnect");
                 BdSocketLinkService.startService(false, "have retry message");
                 return true;
@@ -235,7 +235,7 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
     @Override // d.a.c.c.e.c.k.a
     public void c(d.a.c.e.r.c cVar) {
         F();
-        d.a.c.c.e.c.k.a aVar = this.f38678f;
+        d.a.c.c.e.c.k.a aVar = this.f38342f;
         if (aVar != null) {
             aVar.c(cVar);
         }
@@ -244,33 +244,33 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
     @Override // d.a.c.c.e.c.k.a
     public void d(k kVar) {
         byte[] bArr;
-        if (kVar == null || (bArr = kVar.f39320a) == null) {
+        if (kVar == null || (bArr = kVar.f38984a) == null) {
             return;
         }
-        this.f38681i = System.currentTimeMillis();
+        this.f38345i = System.currentTimeMillis();
         try {
             d.a.c.c.e.c.j.c c2 = d.a.c.c.e.c.j.b.f().c(bArr);
             this.j = 0;
-            int b2 = c2.f38703a.b();
-            int h2 = c2.f38703a.h();
+            int b2 = c2.f38367a.b();
+            int h2 = c2.f38367a.h();
             i.a("queue", b2, h2, "onBinaryMesssage", 0, "onBinaryMesssage succ size = " + bArr.length);
             e p = p(b2, h2);
             if (p != null) {
-                p.m = kVar.f39321b;
-                p.n = kVar.f39322c;
+                p.m = kVar.f38985b;
+                p.n = kVar.f38986c;
             }
-            if (this.f38680h != null) {
-                if (c2.f38703a.b() == this.f38680h.c() && c.i(this.f38676d, this.f38677e)) {
+            if (this.f38344h != null) {
+                if (c2.f38367a.b() == this.f38344h.c() && c.i(this.f38340d, this.f38341e)) {
                     F();
                 }
-                this.f38680h.e();
+                this.f38344h.e();
             }
             if (h2 == 0 || (p != null && p.k() == b2)) {
-                new d(c2, p, this.f38674b, h2).execute(new String[0]);
+                new d(c2, p, this.f38338b, h2).execute(new String[0]);
             } else if (p != null) {
                 w(p, h.A, null);
             }
-            d.a.c.c.e.c.k.a aVar = this.f38678f;
+            d.a.c.c.e.c.k.a aVar = this.f38342f;
             if (aVar != null) {
                 aVar.d(kVar);
             }
@@ -294,13 +294,13 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
     @Override // d.a.c.c.e.c.k.a
     public void g(Map<String, String> map) {
         f.a().c(map);
-        d.a.c.c.e.c.b bVar = this.f38680h;
+        d.a.c.c.e.c.b bVar = this.f38344h;
         if (bVar != null) {
             bVar.e();
         }
-        this.f38679g = true;
+        this.f38343g = true;
         i.a("queue", 0, 0, "onConnected", h.y, "Queue blocked");
-        d.a.c.c.e.c.k.a aVar = this.f38678f;
+        d.a.c.c.e.c.k.a aVar = this.f38342f;
         if (aVar != null) {
             aVar.g(map);
         }
@@ -308,15 +308,15 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
 
     @Override // d.a.c.c.b
     public void h(int i2, BdUniqueId bdUniqueId) {
-        c.m(this.f38675c, i2, bdUniqueId);
-        c.m(this.f38676d, i2, bdUniqueId);
-        c.m(this.f38677e, i2, bdUniqueId);
+        c.m(this.f38339c, i2, bdUniqueId);
+        c.m(this.f38340d, i2, bdUniqueId);
+        c.m(this.f38341e, i2, bdUniqueId);
     }
 
     public void j() {
-        k(this.f38675c);
-        k(this.f38676d);
-        k(this.f38677e);
+        k(this.f38339c);
+        k(this.f38340d);
+        k(this.f38341e);
     }
 
     public final void k(LinkedList<e> linkedList) {
@@ -331,25 +331,25 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
     }
 
     public final void l(SocketResponsedMessage socketResponsedMessage) {
-        this.f38652a.dispatchResponsedMessage(socketResponsedMessage);
+        this.f38316a.dispatchResponsedMessage(socketResponsedMessage);
     }
 
     public final boolean m(SocketMessage socketMessage, SocketMessageTask.DupLicateMode dupLicateMode) {
         if (socketMessage != null) {
             int cmd = socketMessage.getCmd();
-            int i2 = b.f38683a[dupLicateMode.ordinal()];
+            int i2 = b.f38347a[dupLicateMode.ordinal()];
             if (i2 == 1) {
-                c.o(this.f38676d, cmd);
-                c.o(this.f38675c, cmd);
-                c.o(this.f38677e, cmd);
+                c.o(this.f38340d, cmd);
+                c.o(this.f38339c, cmd);
+                c.o(this.f38341e, cmd);
                 return false;
             } else if (i2 == 2) {
-                c.o(this.f38676d, cmd);
+                c.o(this.f38340d, cmd);
                 return false;
             } else if (i2 != 3) {
                 return false;
             } else {
-                return c.e(this.f38676d, cmd) || c.e(this.f38675c, cmd) || c.e(this.f38677e, cmd);
+                return c.e(this.f38340d, cmd) || c.e(this.f38339c, cmd) || c.e(this.f38341e, cmd);
             }
         }
         return false;
@@ -364,13 +364,13 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
             return false;
         }
         d.a.c.c.e.c.a aVar = (d.a.c.c.e.c.a) socketMessage;
-        return c.d(this.f38676d, aVar, socketMessage.getCmd()) || c.d(this.f38675c, aVar, socketMessage.getCmd()) || c.d(this.f38677e, aVar, socketMessage.getCmd());
+        return c.d(this.f38340d, aVar, socketMessage.getCmd()) || c.d(this.f38339c, aVar, socketMessage.getCmd()) || c.d(this.f38341e, aVar, socketMessage.getCmd());
     }
 
     public final e p(int i2, int i3) {
         if (i3 != 0) {
-            e p = c.p(i3, this.f38675c);
-            if (p == null && (p = c.p(i3, this.f38677e)) == null && (p = c.p(i3, this.f38676d)) == null) {
+            e p = c.p(i3, this.f38339c);
+            if (p == null && (p = c.p(i3, this.f38341e)) == null && (p = c.p(i3, this.f38340d)) == null) {
                 i.a("queue", i2, i3, "findSenderData", h.w, "original message removed , responsedMessage not dispatchMessage");
                 return p;
             }
@@ -381,11 +381,11 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
     }
 
     public long q() {
-        return this.f38681i;
+        return this.f38345i;
     }
 
     public d.a.c.c.e.c.b r() {
-        return this.f38680h;
+        return this.f38344h;
     }
 
     public int s() {
@@ -397,11 +397,11 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
     }
 
     public boolean u(int i2, BdUniqueId bdUniqueId) {
-        return c.c(this.f38676d, i2, bdUniqueId) || c.c(this.f38675c, i2, bdUniqueId) || c.c(this.f38677e, i2, bdUniqueId);
+        return c.c(this.f38340d, i2, bdUniqueId) || c.c(this.f38339c, i2, bdUniqueId) || c.c(this.f38341e, i2, bdUniqueId);
     }
 
     public boolean v() {
-        return BdSocketLinkService.isOpen() && !this.f38679g && BdSocketLinkService.isAvailable();
+        return BdSocketLinkService.isOpen() && !this.f38343g && BdSocketLinkService.isAvailable();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:25:0x0094 A[RETURN] */
@@ -419,7 +419,7 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
         i.c("queue", eVar.m(), q, "onMessageSendFail", i2, str + " retryTime-" + eVar.p());
         SocketMessageTask t = eVar != null ? eVar.t() : null;
         if (t == null) {
-            t = (SocketMessageTask) this.f38652a.findTask(cmd);
+            t = (SocketMessageTask) this.f38316a.findTask(cmd);
         }
         if (t != null && t.getResponsedClass() != null) {
             try {
@@ -443,7 +443,7 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
             }
             socketResponsedMessage.setOrginalMessage(eVar.m());
             i.c("queue", eVar.m(), q, "onMessageSendFail", i2, "onMessageSendFail class = " + socketResponsedMessage.getClass().getName());
-            this.f38652a.dispatchResponsedMessage(socketResponsedMessage);
+            this.f38316a.dispatchResponsedMessage(socketResponsedMessage);
             return;
         }
         socketResponsedMessage = null;
@@ -455,12 +455,12 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
         if (bVar == null) {
             return;
         }
-        e eVar = bVar.f38663b;
+        e eVar = bVar.f38327b;
         if (eVar != null) {
-            w(eVar, h.f38686c, null);
+            w(eVar, h.f38350c, null);
             return;
         }
-        SocketResponsedMessage socketResponsedMessage = bVar.f38662a;
+        SocketResponsedMessage socketResponsedMessage = bVar.f38326a;
         if (socketResponsedMessage == null) {
             return;
         }
@@ -474,7 +474,7 @@ public class g extends d.a.c.c.e.a<SocketMessage, SocketMessageTask> implements 
             if (eVar.r() != null) {
                 i3 = eVar.r().getErrorCode();
             } else {
-                i3 = h.f38692i;
+                i3 = h.f38356i;
             }
         } else {
             i3 = h.n;

@@ -10,31 +10,31 @@ import org.apache.http.client.methods.HttpTrace;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final j f35692a = new j("GET", 0, "GET");
+    public static final j f35621a = new j("GET", 0, "GET");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final j f35693b = new j("POST", 1, "POST");
+    public static final j f35622b = new j("POST", 1, "POST");
 
     /* renamed from: c  reason: collision with root package name */
-    public static j f35694c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
+    public static j f35623c = new j(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
 
     /* renamed from: d  reason: collision with root package name */
-    public static j f35695d = new j("HEAD", 3, "HEAD");
+    public static j f35624d = new j("HEAD", 3, "HEAD");
 
     /* renamed from: e  reason: collision with root package name */
-    public static j f35696e = new j("MOVE", 4, "MOVE");
+    public static j f35625e = new j("MOVE", 4, "MOVE");
 
     /* renamed from: f  reason: collision with root package name */
-    public static j f35697f = new j("COPY", 5, "COPY");
+    public static j f35626f = new j("COPY", 5, "COPY");
 
     /* renamed from: g  reason: collision with root package name */
-    public static j f35698g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
+    public static j f35627g = new j(HttpDelete.METHOD_NAME, 6, HttpDelete.METHOD_NAME);
 
     /* renamed from: h  reason: collision with root package name */
-    public static j f35699h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
+    public static j f35628h = new j(HttpOptions.METHOD_NAME, 7, HttpOptions.METHOD_NAME);
 
     /* renamed from: i  reason: collision with root package name */
-    public static j f35700i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
+    public static j f35629i = new j(HttpTrace.METHOD_NAME, 8, HttpTrace.METHOD_NAME);
     public static j j = new j("CONNECT", 9, "CONNECT");
     public final String k;
 

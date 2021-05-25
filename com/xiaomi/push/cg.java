@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
 public class cg {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile cg f37453a;
+    public static volatile cg f37382a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f170a;
@@ -49,7 +49,7 @@ public class cg {
         public WeakReference<Context> f178a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f37455b;
+        public String f37384b;
 
         /* renamed from: a  reason: collision with other field name */
         public ce f175a = null;
@@ -58,7 +58,7 @@ public class cg {
         public Random f179a = new Random();
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37454a = 0;
+        public int f37383a = 0;
 
         public a(String str) {
             this.f177a = str;
@@ -94,7 +94,7 @@ public class cg {
 
         public void a(ce ceVar, Context context) {
             this.f175a = ceVar;
-            this.f37455b = ceVar.a();
+            this.f37384b = ceVar.a();
             this.f178a = new WeakReference<>(context);
         }
 
@@ -104,7 +104,7 @@ public class cg {
 
         /* renamed from: a  reason: collision with other method in class */
         public boolean m204a() {
-            return this.f175a == null || TextUtils.isEmpty(this.f37455b) || this.f178a == null;
+            return this.f175a == null || TextUtils.isEmpty(this.f37384b) || this.f178a == null;
         }
 
         public void b(Context context) {
@@ -126,7 +126,7 @@ public class cg {
     public static abstract class b<T> extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f37456a;
+        public int f37385a;
 
         /* renamed from: a  reason: collision with other field name */
         public String f180a;
@@ -138,27 +138,27 @@ public class cg {
         public String[] f182a;
 
         /* renamed from: b  reason: collision with root package name */
-        public List<T> f37457b;
+        public List<T> f37386b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f37458c;
+        public String f37387c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f37459d;
+        public String f37388d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f37460e;
+        public String f37389e;
 
         public b(String str, List<String> list, String str2, String[] strArr, String str3, String str4, String str5, int i2) {
             super(str);
-            this.f37457b = new ArrayList();
+            this.f37386b = new ArrayList();
             this.f181a = list;
             this.f180a = str2;
             this.f182a = strArr;
-            this.f37458c = str3;
-            this.f37459d = str4;
-            this.f37460e = str5;
-            this.f37456a = i2;
+            this.f37387c = str3;
+            this.f37388d = str4;
+            this.f37389e = str5;
+            this.f37385a = i2;
         }
 
         @Override // com.xiaomi.push.cg.a
@@ -171,7 +171,7 @@ public class cg {
         @Override // com.xiaomi.push.cg.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
             String[] strArr;
-            this.f37457b.clear();
+            this.f37386b.clear();
             List<String> list = this.f181a;
             if (list == null || list.size() <= 0) {
                 strArr = null;
@@ -180,18 +180,18 @@ public class cg {
                 this.f181a.toArray(strArr2);
                 strArr = strArr2;
             }
-            int i2 = this.f37456a;
-            Cursor query = sQLiteDatabase.query(super.f37455b, strArr, this.f180a, this.f182a, this.f37458c, this.f37459d, this.f37460e, i2 > 0 ? String.valueOf(i2) : null);
+            int i2 = this.f37385a;
+            Cursor query = sQLiteDatabase.query(super.f37384b, strArr, this.f180a, this.f182a, this.f37387c, this.f37388d, this.f37389e, i2 > 0 ? String.valueOf(i2) : null);
             if (query != null && query.moveToFirst()) {
                 do {
                     T a2 = a(context, query);
                     if (a2 != null) {
-                        this.f37457b.add(a2);
+                        this.f37386b.add(a2);
                     }
                 } while (query.moveToNext());
                 query.close();
             }
-            a(context, (List) this.f37457b);
+            a(context, (List) this.f37386b);
         }
 
         public abstract void a(Context context, List<T> list);
@@ -201,19 +201,19 @@ public class cg {
     public static class c extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ArrayList<a> f37461a;
+        public ArrayList<a> f37390a;
 
         public c(String str, ArrayList<a> arrayList) {
             super(str);
             ArrayList<a> arrayList2 = new ArrayList<>();
-            this.f37461a = arrayList2;
+            this.f37390a = arrayList2;
             arrayList2.addAll(arrayList);
         }
 
         @Override // com.xiaomi.push.cg.a
         public final void a(Context context) {
             super.a(context);
-            Iterator<a> it = this.f37461a.iterator();
+            Iterator<a> it = this.f37390a.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null) {
@@ -224,7 +224,7 @@ public class cg {
 
         @Override // com.xiaomi.push.cg.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            Iterator<a> it = this.f37461a.iterator();
+            Iterator<a> it = this.f37390a.iterator();
             while (it.hasNext()) {
                 a next = it.next();
                 if (next != null) {
@@ -238,20 +238,20 @@ public class cg {
     public static class d extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f37462a;
+        public String f37391a;
 
         /* renamed from: a  reason: collision with other field name */
         public String[] f183a;
 
         public d(String str, String str2, String[] strArr) {
             super(str);
-            this.f37462a = str2;
+            this.f37391a = str2;
             this.f183a = strArr;
         }
 
         @Override // com.xiaomi.push.cg.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.delete(this.f37455b, this.f37462a, this.f183a);
+            sQLiteDatabase.delete(this.f37384b, this.f37391a, this.f183a);
         }
     }
 
@@ -259,16 +259,16 @@ public class cg {
     public static class e extends a {
 
         /* renamed from: a  reason: collision with root package name */
-        public ContentValues f37463a;
+        public ContentValues f37392a;
 
         public e(String str, ContentValues contentValues) {
             super(str);
-            this.f37463a = contentValues;
+            this.f37392a = contentValues;
         }
 
         @Override // com.xiaomi.push.cg.a
         public void a(Context context, SQLiteDatabase sQLiteDatabase) {
-            sQLiteDatabase.insert(this.f37455b, null, this.f37463a);
+            sQLiteDatabase.insert(this.f37384b, null, this.f37392a);
         }
     }
 
@@ -290,14 +290,14 @@ public class cg {
     }
 
     public static cg a(Context context) {
-        if (f37453a == null) {
+        if (f37382a == null) {
             synchronized (cg.class) {
-                if (f37453a == null) {
-                    f37453a = new cg(context);
+                if (f37382a == null) {
+                    f37382a = new cg(context);
                 }
             }
         }
-        return f37453a;
+        return f37382a;
     }
 
     private void a() {

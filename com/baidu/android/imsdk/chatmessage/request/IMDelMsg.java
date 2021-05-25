@@ -21,6 +21,7 @@ import org.json.JSONObject;
 public class IMDelMsg extends Message {
     public static final String TAG = "IMDelMsg";
     public int mCategory;
+    public int mChatType;
     public long mClientMaxMsgid;
     public Context mContext;
     public boolean mIsZhida;
@@ -50,39 +51,17 @@ public class IMDelMsg extends Message {
             long[] longArrayExtra = intent.getLongArrayExtra(Constants.EXTRA_DEL_MSG_IDS);
             long longExtra2 = intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
             boolean booleanExtra = intent.getBooleanExtra(Constants.EXTRA_CONTACTER_IS_ZHIDA, false);
+            int intExtra2 = intent.getIntExtra("chat_type", 0);
             long longExtra3 = IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid() ? intent.getLongExtra(Constants.EXTRA_PA_ID, -1L) : -1L;
             if (-1 != longExtra && -1 != intExtra) {
                 IMDelMsg iMDelMsg = new IMDelMsg(context, longExtra, intExtra, longArrayExtra, longExtra2, booleanExtra);
                 iMDelMsg.setPaid(longExtra3);
+                iMDelMsg.setChatType(intExtra2);
                 Message.saveCmdMessage(context, iMDelMsg, null, iMDelMsg.getPriority());
                 return iMDelMsg;
             }
         }
         return null;
-    }
-
-    public static IMDelMsg parseBody(Context context, String str, String str2, String str3) throws Exception {
-        long[] jArr;
-        JSONObject jSONObject = new JSONObject(str2);
-        int optInt = jSONObject.optInt("category");
-        long optLong = jSONObject.optLong("to");
-        JSONArray optJSONArray = jSONObject.optJSONArray("msgid");
-        long optLong2 = jSONObject.optLong(Constants.EXTRA_CLIENT_MAX_MSGID, -1L);
-        if (optJSONArray == null || optJSONArray.length() <= 0) {
-            jArr = null;
-        } else {
-            long[] jArr2 = new long[optJSONArray.length()];
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                jArr2[i2] = optJSONArray.getLong(i2);
-            }
-            jArr = jArr2;
-        }
-        boolean z = jSONObject.optInt("tpl") == Constants.getTplZhida(context);
-        long j = IMConfigInternal.getInstance().getIMConfig(context).isNeedPaid() ? jSONObject.getInt("pa_uid") : -1L;
-        IMDelMsg iMDelMsg = new IMDelMsg(context, optLong, optInt, jArr, optLong2, z);
-        iMDelMsg.setPaid(j);
-        iMDelMsg.setUUID(str);
-        return iMDelMsg;
     }
 
     private int updateDB(Context context) {
@@ -118,6 +97,9 @@ public class IMDelMsg extends Message {
             }
             if (IMConfigInternal.getInstance().getIMConfig(this.mContext).isNeedPaid()) {
                 jSONObject.put("pa_uid", this.mPaid);
+            }
+            if (this.mChatType == 57) {
+                jSONObject.put("group_type", 3);
             }
             this.mBody = jSONObject.toString();
         } catch (JSONException e2) {
@@ -168,6 +150,10 @@ public class IMDelMsg extends Message {
     @Override // com.baidu.android.imsdk.request.Message
     public void onMsgSending(Context context) {
         setSendingState(context);
+    }
+
+    public void setChatType(int i2) {
+        this.mChatType = i2;
     }
 
     public void setPaid(long j) {

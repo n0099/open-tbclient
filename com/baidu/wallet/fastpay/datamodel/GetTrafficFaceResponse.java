@@ -28,27 +28,27 @@ public class GetTrafficFaceResponse implements IBeanResponse, Serializable {
     public class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f24049b = "";
+        public String f23978b = "";
 
         /* renamed from: c  reason: collision with root package name */
-        public String f24050c = "";
+        public String f23979c = "";
 
         /* renamed from: d  reason: collision with root package name */
-        public ArrayList<TrafficFaceModel> f24051d;
+        public ArrayList<TrafficFaceModel> f23980d;
 
         public a() {
         }
 
         public void a(String str) {
-            this.f24049b = str;
+            this.f23978b = str;
         }
 
         public void b(String str) {
-            this.f24050c = str;
+            this.f23979c = str;
         }
 
         public void a(ArrayList<TrafficFaceModel> arrayList) {
-            this.f24051d = arrayList;
+            this.f23980d = arrayList;
         }
     }
 

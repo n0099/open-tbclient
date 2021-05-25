@@ -29,13 +29,13 @@ public class e {
     public static double G = 100.0d;
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f6719a = "";
+    public static String f6619a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f6720b = "";
+    public static String f6620b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static e f6721c;
+    public static e f6621c;
     public static int p;
     public static int q;
     public static int r;
@@ -44,25 +44,25 @@ public class e {
     public int F;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f6722d;
+    public Context f6622d;
 
     /* renamed from: f  reason: collision with root package name */
-    public Location f6724f;
+    public Location f6624f;
 
     /* renamed from: i  reason: collision with root package name */
-    public GpsStatus f6727i;
+    public GpsStatus f6627i;
     public a j;
     public boolean k;
     public boolean m;
 
     /* renamed from: e  reason: collision with root package name */
-    public LocationManager f6723e = null;
+    public LocationManager f6623e = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public c f6725g = null;
+    public c f6625g = null;
 
     /* renamed from: h  reason: collision with root package name */
-    public C0091e f6726h = null;
+    public C0092e f6626h = null;
     public b l = null;
     public d n = null;
     public OnNmeaMessageListener o = null;
@@ -97,7 +97,7 @@ public class e {
 
         @Override // android.location.GnssStatus.Callback
         public void onSatelliteStatusChanged(GnssStatus gnssStatus) {
-            if (e.this.f6723e == null) {
+            if (e.this.f6623e == null) {
                 return;
             }
             e.this.I = System.currentTimeMillis();
@@ -134,8 +134,8 @@ public class e {
                     e.this.K.add(arrayList2);
                 }
             }
-            e.f6719a = e.this.l();
-            e.f6720b = e.this.m();
+            e.f6619a = e.this.l();
+            e.f6620b = e.this.m();
             int unused = e.p = i2;
             int unused2 = e.q = i3;
             int unused3 = e.r = i4;
@@ -159,10 +159,10 @@ public class e {
     public class b implements GpsStatus.Listener {
 
         /* renamed from: b  reason: collision with root package name */
-        public long f6730b;
+        public long f6630b;
 
         public b() {
-            this.f6730b = 0L;
+            this.f6630b = 0L;
         }
 
         public /* synthetic */ b(e eVar, f fVar) {
@@ -172,7 +172,7 @@ public class e {
         @Override // android.location.GpsStatus.Listener
         public void onGpsStatusChanged(int i2) {
             long currentTimeMillis;
-            if (e.this.f6723e == null) {
+            if (e.this.f6623e == null) {
                 return;
             }
             int i3 = 0;
@@ -183,10 +183,10 @@ public class e {
                 int unused2 = e.q = 0;
             } else if (i2 == 4 && e.this.v) {
                 try {
-                    if (e.this.f6727i == null) {
-                        e.this.f6727i = e.this.f6723e.getGpsStatus(null);
+                    if (e.this.f6627i == null) {
+                        e.this.f6627i = e.this.f6623e.getGpsStatus(null);
                     } else {
-                        e.this.f6723e.getGpsStatus(e.this.f6727i);
+                        e.this.f6623e.getGpsStatus(e.this.f6627i);
                     }
                     e.this.E = 0;
                     e.this.F = 0;
@@ -195,7 +195,7 @@ public class e {
                     e.this.K.clear();
                     e.this.I = System.currentTimeMillis();
                     int i4 = 0;
-                    for (GpsSatellite gpsSatellite : e.this.f6727i.getSatellites()) {
+                    for (GpsSatellite gpsSatellite : e.this.f6627i.getSatellites()) {
                         ArrayList arrayList = new ArrayList();
                         ArrayList arrayList2 = new ArrayList();
                         if (gpsSatellite.usedInFix()) {
@@ -225,20 +225,20 @@ public class e {
                             e.j(e.this);
                         }
                     }
-                    e.f6719a = e.this.l();
-                    e.f6720b = e.this.m();
+                    e.f6619a = e.this.l();
+                    e.f6620b = e.this.m();
                     if (i3 > 0) {
                         int unused3 = e.q = i3;
                         double unused4 = e.G = d2 / i3;
                     }
                     if (i4 <= 0) {
-                        if (System.currentTimeMillis() - this.f6730b > 100) {
+                        if (System.currentTimeMillis() - this.f6630b > 100) {
                             currentTimeMillis = System.currentTimeMillis();
                         }
                         long unused5 = e.s = System.currentTimeMillis();
                     }
                     currentTimeMillis = System.currentTimeMillis();
-                    this.f6730b = currentTimeMillis;
+                    this.f6630b = currentTimeMillis;
                     int unused6 = e.p = i4;
                     long unused52 = e.s = System.currentTimeMillis();
                 } catch (Exception unused7) {
@@ -326,23 +326,23 @@ public class e {
 
     /* renamed from: com.baidu.location.c.e$e  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0091e implements LocationListener {
+    public class C0092e implements LocationListener {
 
         /* renamed from: b  reason: collision with root package name */
-        public long f6734b;
+        public long f6634b;
 
-        public C0091e() {
-            this.f6734b = 0L;
+        public C0092e() {
+            this.f6634b = 0L;
         }
 
-        public /* synthetic */ C0091e(e eVar, f fVar) {
+        public /* synthetic */ C0092e(e eVar, f fVar) {
             this();
         }
 
         @Override // android.location.LocationListener
         public void onLocationChanged(Location location) {
-            if (!e.this.v && location != null && location.getProvider() == "gps" && System.currentTimeMillis() - this.f6734b >= 10000 && Math.abs(location.getLatitude()) <= 360.0d && Math.abs(location.getLongitude()) <= 360.0d && w.a(location, false)) {
-                this.f6734b = System.currentTimeMillis();
+            if (!e.this.v && location != null && location.getProvider() == "gps" && System.currentTimeMillis() - this.f6634b >= 10000 && Math.abs(location.getLatitude()) <= 360.0d && Math.abs(location.getLongitude()) <= 360.0d && w.a(location, false)) {
+                this.f6634b = System.currentTimeMillis();
                 e.this.D.sendMessage(e.this.D.obtainMessage(4, location));
             }
         }
@@ -388,10 +388,10 @@ public class e {
     public static synchronized e a() {
         e eVar;
         synchronized (e.class) {
-            if (f6721c == null) {
-                f6721c = new e();
+            if (f6621c == null) {
+                f6621c = new e();
             }
-            eVar = f6721c;
+            eVar = f6621c;
         }
         return eVar;
     }
@@ -487,7 +487,7 @@ public class e {
     public void e(Location location) {
         String str = null;
         if (location == null) {
-            this.f6724f = null;
+            this.f6624f = null;
             return;
         }
         int i2 = p;
@@ -503,32 +503,32 @@ public class e {
             }
             this.y = System.currentTimeMillis();
             System.currentTimeMillis();
-            this.f6724f = location;
-            Location location2 = new Location(this.f6724f);
+            this.f6624f = location;
+            Location location2 = new Location(this.f6624f);
             int i3 = p;
-            if (this.f6724f != null) {
+            if (this.f6624f != null) {
                 long currentTimeMillis = System.currentTimeMillis();
-                this.f6724f.setTime(currentTimeMillis);
-                float speed = (float) (this.f6724f.getSpeed() * 3.6d);
-                if (!this.f6724f.hasSpeed()) {
+                this.f6624f.setTime(currentTimeMillis);
+                float speed = (float) (this.f6624f.getSpeed() * 3.6d);
+                if (!this.f6624f.hasSpeed()) {
                     speed = -1.0f;
                 }
                 if (i3 == 0) {
                     try {
-                        i3 = this.f6724f.getExtras().getInt("satellites");
+                        i3 = this.f6624f.getExtras().getInt("satellites");
                     } catch (Exception unused2) {
                     }
                 }
-                str = String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_n=%d&ll_t=%d", Double.valueOf(this.f6724f.getLongitude()), Double.valueOf(this.f6724f.getLatitude()), Float.valueOf(speed), Float.valueOf(this.f6724f.getBearing()), Integer.valueOf(i3), Long.valueOf(currentTimeMillis));
+                str = String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_n=%d&ll_t=%d", Double.valueOf(this.f6624f.getLongitude()), Double.valueOf(this.f6624f.getLatitude()), Float.valueOf(speed), Float.valueOf(this.f6624f.getBearing()), Integer.valueOf(i3), Long.valueOf(currentTimeMillis));
             }
             this.w = str;
-            if (this.f6724f != null) {
+            if (this.f6624f != null) {
                 com.baidu.location.b.a.a().a(f());
-                if (p > 2 && w.a(this.f6724f, true)) {
+                if (p > 2 && w.a(this.f6624f, true)) {
                     boolean e2 = i.a().e();
                     t.a(new com.baidu.location.c.a(com.baidu.location.c.b.a().f()));
                     t.a(System.currentTimeMillis());
-                    t.a(new Location(this.f6724f));
+                    t.a(new Location(this.f6624f));
                     t.a(com.baidu.location.b.a.a().c());
                     if (!e2) {
                         x.a().b();
@@ -632,32 +632,32 @@ public class e {
     public synchronized void b() {
         if (com.baidu.location.f.isServing) {
             Context serviceContext = com.baidu.location.f.getServiceContext();
-            this.f6722d = serviceContext;
+            this.f6622d = serviceContext;
             try {
-                this.f6723e = (LocationManager) serviceContext.getSystemService("location");
+                this.f6623e = (LocationManager) serviceContext.getSystemService("location");
                 if (this.k) {
                     a aVar = new a(this, null);
                     this.j = aVar;
-                    this.f6723e.registerGnssStatusCallback(aVar);
+                    this.f6623e.registerGnssStatusCallback(aVar);
                 } else {
                     b bVar = new b(this, null);
                     this.l = bVar;
-                    this.f6723e.addGpsStatusListener(bVar);
+                    this.f6623e.addGpsStatusListener(bVar);
                 }
                 if (this.m) {
                     if (Build.VERSION.SDK_INT >= 24) {
                         f fVar = new f(this);
                         this.o = fVar;
-                        this.f6723e.addNmeaListener(fVar);
+                        this.f6623e.addNmeaListener(fVar);
                     } else {
                         d dVar = new d(this, null);
                         this.n = dVar;
-                        this.f6723e.addNmeaListener(dVar);
+                        this.f6623e.addNmeaListener(dVar);
                     }
                 }
-                C0091e c0091e = new C0091e(this, null);
-                this.f6726h = c0091e;
-                this.f6723e.requestLocationUpdates("passive", 9000L, 0.0f, c0091e);
+                C0092e c0092e = new C0092e(this, null);
+                this.f6626h = c0092e;
+                this.f6623e.requestLocationUpdates("passive", 9000L, 0.0f, c0092e);
             } catch (Exception unused) {
             }
             this.D = new g(this);
@@ -665,17 +665,17 @@ public class e {
     }
 
     public void c() {
-        Log.d(com.baidu.location.e.a.f6767a, "start gps...");
+        Log.d(com.baidu.location.e.a.f6667a, "start gps...");
         if (this.v) {
             return;
         }
         try {
-            this.f6725g = new c(this, null);
+            this.f6625g = new c(this, null);
             try {
-                this.f6723e.sendExtraCommand("gps", "force_xtra_injection", new Bundle());
+                this.f6623e.sendExtraCommand("gps", "force_xtra_injection", new Bundle());
             } catch (Exception unused) {
             }
-            this.f6723e.requestLocationUpdates("gps", 1000L, 0.0f, this.f6725g);
+            this.f6623e.requestLocationUpdates("gps", 1000L, 0.0f, this.f6625g);
             this.H = System.currentTimeMillis();
             this.v = true;
         } catch (Exception unused2) {
@@ -684,18 +684,18 @@ public class e {
 
     public void d() {
         if (this.v) {
-            LocationManager locationManager = this.f6723e;
+            LocationManager locationManager = this.f6623e;
             if (locationManager != null) {
                 try {
-                    if (this.f6725g != null) {
-                        locationManager.removeUpdates(this.f6725g);
+                    if (this.f6625g != null) {
+                        locationManager.removeUpdates(this.f6625g);
                     }
                 } catch (Exception unused) {
                 }
             }
-            k.f6822d = 0;
+            k.f6722d = 0;
             k.v = 0;
-            this.f6725g = null;
+            this.f6625g = null;
             this.v = false;
             b(false);
         }
@@ -703,24 +703,24 @@ public class e {
 
     public synchronized void e() {
         d();
-        if (this.f6723e == null) {
+        if (this.f6623e == null) {
             return;
         }
         try {
             if (this.l != null) {
-                this.f6723e.removeGpsStatusListener(this.l);
+                this.f6623e.removeGpsStatusListener(this.l);
             }
             if (this.k && this.j != null) {
-                this.f6723e.unregisterGnssStatusCallback(this.j);
+                this.f6623e.unregisterGnssStatusCallback(this.j);
             }
             if (this.m && this.n != null) {
-                this.f6723e.removeNmeaListener(this.n);
+                this.f6623e.removeNmeaListener(this.n);
             }
-            this.f6723e.removeUpdates(this.f6726h);
+            this.f6623e.removeUpdates(this.f6626h);
         } catch (Exception unused) {
         }
         this.l = null;
-        this.f6723e = null;
+        this.f6623e = null;
     }
 
     public String f() {
@@ -728,38 +728,38 @@ public class e {
         boolean z;
         StringBuilder sb;
         String str;
-        if (this.f6724f != null) {
+        if (this.f6624f != null) {
             String str2 = "{\"result\":{\"time\":\"" + k.a() + "\",\"error\":\"61\"},\"content\":{\"point\":{\"x\":\"%f\",\"y\":\"%f\"},\"radius\":\"%d\",\"d\":\"%f\",\"s\":\"%f\",\"n\":\"%d\"";
-            int accuracy = (int) (this.f6724f.hasAccuracy() ? this.f6724f.getAccuracy() : 10.0f);
-            float speed = (float) (this.f6724f.getSpeed() * 3.6d);
-            if (!this.f6724f.hasSpeed()) {
+            int accuracy = (int) (this.f6624f.hasAccuracy() ? this.f6624f.getAccuracy() : 10.0f);
+            float speed = (float) (this.f6624f.getSpeed() * 3.6d);
+            if (!this.f6624f.hasSpeed()) {
                 speed = -1.0f;
             }
-            if (com.baidu.location.e.d.a().a(this.f6724f.getLongitude(), this.f6724f.getLatitude())) {
-                coorEncrypt = Jni.coorEncrypt(this.f6724f.getLongitude(), this.f6724f.getLatitude(), BDLocation.BDLOCATION_WGS84_TO_GCJ02);
+            if (com.baidu.location.e.d.a().a(this.f6624f.getLongitude(), this.f6624f.getLatitude())) {
+                coorEncrypt = Jni.coorEncrypt(this.f6624f.getLongitude(), this.f6624f.getLatitude(), BDLocation.BDLOCATION_WGS84_TO_GCJ02);
                 if (coorEncrypt[0] <= 0.0d && coorEncrypt[1] <= 0.0d) {
-                    coorEncrypt[0] = this.f6724f.getLongitude();
-                    coorEncrypt[1] = this.f6724f.getLatitude();
+                    coorEncrypt[0] = this.f6624f.getLongitude();
+                    coorEncrypt[1] = this.f6624f.getLatitude();
                 }
                 z = true;
             } else {
-                this.f6724f.getLongitude();
-                this.f6724f.getLatitude();
-                coorEncrypt = Jni.coorEncrypt(this.f6724f.getLongitude(), this.f6724f.getLatitude(), BDLocation.BDLOCATION_WGS84_TO_GCJ02);
+                this.f6624f.getLongitude();
+                this.f6624f.getLatitude();
+                coorEncrypt = Jni.coorEncrypt(this.f6624f.getLongitude(), this.f6624f.getLatitude(), BDLocation.BDLOCATION_WGS84_TO_GCJ02);
                 if (coorEncrypt[0] <= 0.0d && coorEncrypt[1] <= 0.0d) {
-                    coorEncrypt[0] = this.f6724f.getLongitude();
-                    coorEncrypt[1] = this.f6724f.getLatitude();
+                    coorEncrypt[0] = this.f6624f.getLongitude();
+                    coorEncrypt[1] = this.f6624f.getLatitude();
                 }
                 z = false;
             }
-            String format = String.format(Locale.CHINA, str2, Double.valueOf(coorEncrypt[0]), Double.valueOf(coorEncrypt[1]), Integer.valueOf(accuracy), Float.valueOf(this.f6724f.getBearing()), Float.valueOf(speed), Integer.valueOf(p));
+            String format = String.format(Locale.CHINA, str2, Double.valueOf(coorEncrypt[0]), Double.valueOf(coorEncrypt[1]), Integer.valueOf(accuracy), Float.valueOf(this.f6624f.getBearing()), Float.valueOf(speed), Integer.valueOf(p));
             if (!z) {
                 format = format + ",\"in_cn\":\"0\"";
             }
-            if (this.f6724f.hasAltitude()) {
+            if (this.f6624f.hasAltitude()) {
                 sb = new StringBuilder();
                 sb.append(format);
-                str = String.format(Locale.CHINA, ",\"h\":%.2f}}", Double.valueOf(this.f6724f.getAltitude()));
+                str = String.format(Locale.CHINA, ",\"h\":%.2f}}", Double.valueOf(this.f6624f.getAltitude()));
             } else {
                 sb = new StringBuilder();
                 sb.append(format);
@@ -772,8 +772,8 @@ public class e {
     }
 
     public Location g() {
-        if (this.f6724f != null && Math.abs(System.currentTimeMillis() - this.f6724f.getTime()) <= 60000) {
-            return this.f6724f;
+        if (this.f6624f != null && Math.abs(System.currentTimeMillis() - this.f6624f.getTime()) <= 60000) {
+            return this.f6624f;
         }
         return null;
     }
@@ -784,11 +784,11 @@ public class e {
             int i2 = p;
             if (i2 == 0) {
                 try {
-                    i2 = this.f6724f.getExtras().getInt("satellites");
+                    i2 = this.f6624f.getExtras().getInt("satellites");
                 } catch (Exception unused) {
                 }
             }
-            if (this.f6724f != null && this.f6724f.getLatitude() != 0.0d && this.f6724f.getLongitude() != 0.0d) {
+            if (this.f6624f != null && this.f6624f.getLatitude() != 0.0d && this.f6624f.getLongitude() != 0.0d) {
                 if (i2 <= 2 && Math.abs(currentTimeMillis) >= 5000) {
                     if (k.m) {
                     }
@@ -797,8 +797,8 @@ public class e {
             }
             return false;
         } catch (Exception unused2) {
-            Location location = this.f6724f;
-            return (location == null || location.getLatitude() == 0.0d || this.f6724f.getLongitude() == 0.0d) ? false : true;
+            Location location = this.f6624f;
+            return (location == null || location.getLatitude() == 0.0d || this.f6624f.getLongitude() == 0.0d) ? false : true;
         }
     }
 

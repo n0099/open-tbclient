@@ -20,14 +20,14 @@ public interface IYYPayResultView extends i.a.a.e.m.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public Result f69560a;
+        public Result f69603a;
 
         /* renamed from: b  reason: collision with root package name */
-        public CurrencyChargeMessage f69561b;
+        public CurrencyChargeMessage f69604b;
 
         public b(Result result, CurrencyChargeMessage currencyChargeMessage) {
-            this.f69560a = result;
-            this.f69561b = currencyChargeMessage;
+            this.f69603a = result;
+            this.f69604b = currencyChargeMessage;
         }
     }
 
@@ -35,7 +35,7 @@ public interface IYYPayResultView extends i.a.a.e.m.a {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        public b f69562a;
+        public b f69605a;
     }
 
     void setCallback(a aVar);

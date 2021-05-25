@@ -3,20 +3,20 @@ package com.baidu.clientupdate.b;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f4575a = new byte[128];
+    public static final byte[] f4578a = new byte[128];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final char[] f4576b = new char[64];
+    public static final char[] f4579b = new char[64];
 
     static {
         int i2;
         int i3;
         int i4 = 0;
         for (int i5 = 0; i5 < 128; i5++) {
-            f4575a[i5] = -1;
+            f4578a[i5] = -1;
         }
         for (int i6 = 90; i6 >= 65; i6--) {
-            f4575a[i6] = (byte) (i6 - 65);
+            f4578a[i6] = (byte) (i6 - 65);
         }
         int i7 = 122;
         while (true) {
@@ -24,7 +24,7 @@ public final class a {
             if (i7 < 97) {
                 break;
             }
-            f4575a[i7] = (byte) ((i7 - 97) + 26);
+            f4578a[i7] = (byte) ((i7 - 97) + 26);
             i7--;
         }
         int i8 = 57;
@@ -33,27 +33,27 @@ public final class a {
             if (i8 < 48) {
                 break;
             }
-            f4575a[i8] = (byte) ((i8 - 48) + 52);
+            f4578a[i8] = (byte) ((i8 - 48) + 52);
             i8--;
         }
-        byte[] bArr = f4575a;
+        byte[] bArr = f4578a;
         bArr[43] = 62;
         bArr[47] = 63;
         for (int i9 = 0; i9 <= 25; i9++) {
-            f4576b[i9] = (char) (i9 + 65);
+            f4579b[i9] = (char) (i9 + 65);
         }
         int i10 = 0;
         while (i2 <= 51) {
-            f4576b[i2] = (char) (i10 + 97);
+            f4579b[i2] = (char) (i10 + 97);
             i2++;
             i10++;
         }
         while (i3 <= 61) {
-            f4576b[i3] = (char) (i4 + 48);
+            f4579b[i3] = (char) (i4 + 48);
             i3++;
             i4++;
         }
-        char[] cArr = f4576b;
+        char[] cArr = f4579b;
         cArr[62] = '+';
         cArr[63] = '/';
     }
@@ -107,7 +107,7 @@ public final class a {
                         int i9 = i8 + 1;
                         char c5 = charArray[i8];
                         if (c(c5)) {
-                            byte[] bArr2 = f4575a;
+                            byte[] bArr2 = f4578a;
                             byte b2 = bArr2[c2];
                             byte b3 = bArr2[c3];
                             byte b4 = bArr2[c4];
@@ -132,14 +132,14 @@ public final class a {
             int i13 = i12 + 1;
             char c7 = charArray[i12];
             if (c(c7)) {
-                byte[] bArr3 = f4575a;
+                byte[] bArr3 = f4578a;
                 byte b6 = bArr3[c6];
                 byte b7 = bArr3[c7];
                 int i14 = i13 + 1;
                 char c8 = charArray[i13];
                 char c9 = charArray[i14];
                 if (c(c8) && c(c9)) {
-                    byte[] bArr4 = f4575a;
+                    byte[] bArr4 = f4578a;
                     byte b8 = bArr4[c8];
                     byte b9 = bArr4[c9];
                     int i15 = i5 + 1;
@@ -159,7 +159,7 @@ public final class a {
                 } else if (b(c8) || !b(c9)) {
                     return null;
                 } else {
-                    byte b10 = f4575a[c8];
+                    byte b10 = f4578a[c8];
                     if ((b10 & 3) != 0) {
                         return null;
                     }
@@ -181,6 +181,6 @@ public final class a {
     }
 
     public static boolean c(char c2) {
-        return c2 < 128 && f4575a[c2] != -1;
+        return c2 < 128 && f4578a[c2] != -1;
     }
 }

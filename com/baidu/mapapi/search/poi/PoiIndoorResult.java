@@ -9,7 +9,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<PoiIndoorResult> CREATOR = new e();
 
     /* renamed from: a  reason: collision with root package name */
-    public List<PoiIndoorInfo> f7338a;
+    public List<PoiIndoorInfo> f7238a;
     public int pageNum;
     public int poiNum;
 
@@ -40,7 +40,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     }
 
     public List<PoiIndoorInfo> getmArrayPoiInfo() {
-        return this.f7338a;
+        return this.f7238a;
     }
 
     public void setPageNum(int i2) {
@@ -52,7 +52,7 @@ public class PoiIndoorResult extends SearchResult implements Parcelable {
     }
 
     public void setmArrayPoiInfo(List<PoiIndoorInfo> list) {
-        this.f7338a = list;
+        this.f7238a = list;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable

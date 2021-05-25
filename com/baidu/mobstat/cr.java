@@ -7,105 +7,105 @@ import java.util.Arrays;
 public class cr implements cp {
 
     /* renamed from: b  reason: collision with root package name */
-    public static byte[] f8886b = new byte[0];
+    public static byte[] f8786b = new byte[0];
 
     /* renamed from: a  reason: collision with root package name */
-    public ByteBuffer f8887a;
+    public ByteBuffer f8787a;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f8888c;
+    public boolean f8788c;
 
     /* renamed from: d  reason: collision with root package name */
-    public cq.a f8889d;
+    public cq.a f8789d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f8890e;
+    public boolean f8790e;
 
     public cr() {
     }
 
     @Override // com.baidu.mobstat.cp
     public void a(boolean z) {
-        this.f8888c = z;
+        this.f8788c = z;
     }
 
     @Override // com.baidu.mobstat.cp
     public void b(boolean z) {
-        this.f8890e = z;
+        this.f8790e = z;
     }
 
     @Override // com.baidu.mobstat.cq
     public ByteBuffer c() {
-        return this.f8887a;
+        return this.f8787a;
     }
 
     @Override // com.baidu.mobstat.cq
     public boolean d() {
-        return this.f8888c;
+        return this.f8788c;
     }
 
     @Override // com.baidu.mobstat.cq
     public boolean e() {
-        return this.f8890e;
+        return this.f8790e;
     }
 
     @Override // com.baidu.mobstat.cq
     public cq.a f() {
-        return this.f8889d;
+        return this.f8789d;
     }
 
     public String toString() {
-        return "Framedata{ optcode:" + f() + ", fin:" + d() + ", payloadlength:[pos:" + this.f8887a.position() + ", len:" + this.f8887a.remaining() + "], payload:" + Arrays.toString(dc.a(new String(this.f8887a.array()))) + "}";
+        return "Framedata{ optcode:" + f() + ", fin:" + d() + ", payloadlength:[pos:" + this.f8787a.position() + ", len:" + this.f8787a.remaining() + "], payload:" + Arrays.toString(dc.a(new String(this.f8787a.array()))) + "}";
     }
 
     public cr(cq.a aVar) {
-        this.f8889d = aVar;
-        this.f8887a = ByteBuffer.wrap(f8886b);
+        this.f8789d = aVar;
+        this.f8787a = ByteBuffer.wrap(f8786b);
     }
 
     @Override // com.baidu.mobstat.cp
     public void a(cq.a aVar) {
-        this.f8889d = aVar;
+        this.f8789d = aVar;
     }
 
     @Override // com.baidu.mobstat.cp
     public void a(ByteBuffer byteBuffer) throws ch {
-        this.f8887a = byteBuffer;
+        this.f8787a = byteBuffer;
     }
 
     @Override // com.baidu.mobstat.cq
     public void a(cq cqVar) throws ci {
         ByteBuffer c2 = cqVar.c();
-        if (this.f8887a == null) {
-            this.f8887a = ByteBuffer.allocate(c2.remaining());
+        if (this.f8787a == null) {
+            this.f8787a = ByteBuffer.allocate(c2.remaining());
             c2.mark();
-            this.f8887a.put(c2);
+            this.f8787a.put(c2);
             c2.reset();
         } else {
             c2.mark();
-            ByteBuffer byteBuffer = this.f8887a;
+            ByteBuffer byteBuffer = this.f8787a;
             byteBuffer.position(byteBuffer.limit());
-            ByteBuffer byteBuffer2 = this.f8887a;
+            ByteBuffer byteBuffer2 = this.f8787a;
             byteBuffer2.limit(byteBuffer2.capacity());
-            if (c2.remaining() > this.f8887a.remaining()) {
-                ByteBuffer allocate = ByteBuffer.allocate(c2.remaining() + this.f8887a.capacity());
-                this.f8887a.flip();
-                allocate.put(this.f8887a);
+            if (c2.remaining() > this.f8787a.remaining()) {
+                ByteBuffer allocate = ByteBuffer.allocate(c2.remaining() + this.f8787a.capacity());
+                this.f8787a.flip();
+                allocate.put(this.f8787a);
                 allocate.put(c2);
-                this.f8887a = allocate;
+                this.f8787a = allocate;
             } else {
-                this.f8887a.put(c2);
+                this.f8787a.put(c2);
             }
-            this.f8887a.rewind();
+            this.f8787a.rewind();
             c2.reset();
         }
-        this.f8888c = cqVar.d();
+        this.f8788c = cqVar.d();
     }
 
     public cr(cq cqVar) {
-        this.f8888c = cqVar.d();
-        this.f8889d = cqVar.f();
-        this.f8887a = cqVar.c();
-        this.f8890e = cqVar.e();
+        this.f8788c = cqVar.d();
+        this.f8789d = cqVar.f();
+        this.f8787a = cqVar.c();
+        this.f8790e = cqVar.e();
     }
 }

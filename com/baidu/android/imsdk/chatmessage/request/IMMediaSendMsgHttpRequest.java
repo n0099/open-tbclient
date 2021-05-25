@@ -2,10 +2,14 @@ package com.baidu.android.imsdk.chatmessage.request;
 
 import android.content.Context;
 import android.text.TextUtils;
+import android.util.Pair;
 import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.ubc.MessageUbc;
+import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
+import d.a.r.a.a;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
 import org.json.JSONObject;
@@ -21,6 +25,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
     public String mMsgKey;
     public int mMsgType;
     public ChatMsg mSendMsg;
+    public MessageUbc mUbc;
 
     public IMMediaSendMsgHttpRequest(Context context, long j, ChatMsg chatMsg, String str) {
         this.mContactorType = -1;
@@ -29,6 +34,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactor = j;
         this.mSendMsg = chatMsg;
         this.mListenerKey = str;
+        this.mUbc = new MessageUbc(context, chatMsg, UBCConstants.BCSEND_UBCID);
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
@@ -93,7 +99,9 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     public void onFailure(int i2, byte[] bArr, Throwable th) {
-        ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, ((Integer) transErrorCode(i2, bArr, th).first).intValue(), this.mSendMsg);
+        Pair<Integer, String> transErrorCode = transErrorCode(i2, bArr, th);
+        a.d().f(this.mUbc.generateUBCData(String.valueOf(transErrorCode.first), (String) transErrorCode.second), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+        ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, ((Integer) transErrorCode.first).intValue(), this.mSendMsg);
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
@@ -121,6 +129,7 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
             e2.printStackTrace();
             i2 = 1010;
         }
+        a.d().f(this.mUbc.generateUBCData(String.valueOf(i2), "success"), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         ChatMsgManagerImpl.getInstance(this.mContext).onMediaSendChatMsgResult(this.mListenerKey, i2, this.mSendMsg);
     }
 
@@ -139,5 +148,6 @@ public class IMMediaSendMsgHttpRequest extends IMMediaBaseHttpRequest {
         this.mContactorType = i2;
         this.mContactorPauid = j2;
         this.mContactorThirdid = str;
+        this.mUbc = new MessageUbc(context, chatMsg, UBCConstants.BCSEND_UBCID);
     }
 }

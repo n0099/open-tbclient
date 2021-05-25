@@ -10,11 +10,11 @@ import java.net.URL;
 import java.net.URLConnection;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f66445a = false;
+    public static boolean f66488a = false;
 
     public static String a(String str, byte[] bArr) {
         URL url;
@@ -29,7 +29,7 @@ public class a {
     public static String b(URL url, byte[] bArr, String str) {
         URLConnection openConnection;
         try {
-            if ("https".equals(url.getProtocol().toLowerCase()) && f66445a) {
+            if ("https".equals(url.getProtocol().toLowerCase()) && f66488a) {
                 HttpsURLConnection.setDefaultSSLSocketFactory(SSLContext.getInstance("TLS").getSocketFactory());
                 openConnection = url.openConnection(Proxy.NO_PROXY);
             } else {

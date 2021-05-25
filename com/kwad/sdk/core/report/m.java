@@ -9,23 +9,23 @@ import java.util.UUID;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f32665a = f();
+    public static String f32594a = f();
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f32666b = 0;
+    public static long f32595b = 0;
 
     /* renamed from: c  reason: collision with root package name */
-    public static Context f32667c;
+    public static Context f32596c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
         String f2 = f();
-        f32665a = f2;
+        f32594a = f2;
         return f2;
     }
 
     public static void a(Context context) {
-        f32667c = context;
+        f32596c = context;
     }
 
     @WorkerThread
@@ -48,7 +48,7 @@ public class m {
     }
 
     public static String b() {
-        return f32665a;
+        return f32594a;
     }
 
     @WorkerThread
@@ -63,8 +63,8 @@ public class m {
 
     @WorkerThread
     public static long c() {
-        long b2 = b(f32667c);
-        a(f32667c, 1 + b2);
+        long b2 = b(f32596c);
+        a(f32596c, 1 + b2);
         return b2;
     }
 
@@ -81,14 +81,14 @@ public class m {
     public static synchronized long d() {
         long c2;
         synchronized (m.class) {
-            c2 = c(f32667c);
-            b(f32667c, 1 + c2);
+            c2 = c(f32596c);
+            b(f32596c, 1 + c2);
         }
         return c2;
     }
 
     public static long e() {
-        return f32666b;
+        return f32595b;
     }
 
     public static String f() {

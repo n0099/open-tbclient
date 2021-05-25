@@ -6,10 +6,10 @@ import android.view.View;
 public final class bw implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackInputActivity f22751a;
+    public final /* synthetic */ FeedbackInputActivity f22680a;
 
     public bw(FeedbackInputActivity feedbackInputActivity) {
-        this.f22751a = feedbackInputActivity;
+        this.f22680a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnTouchListener

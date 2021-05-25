@@ -18,7 +18,7 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
         public final MaybeObserver<? super T> actual;
 
         /* renamed from: d  reason: collision with root package name */
-        public Disposable f68931d;
+        public Disposable f68974d;
         public final Predicate<? super T> predicate;
 
         public FilterMaybeObserver(MaybeObserver<? super T> maybeObserver, Predicate<? super T> predicate) {
@@ -28,14 +28,14 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
 
         @Override // io.reactivex.disposables.Disposable
         public void dispose() {
-            Disposable disposable = this.f68931d;
-            this.f68931d = DisposableHelper.DISPOSED;
+            Disposable disposable = this.f68974d;
+            this.f68974d = DisposableHelper.DISPOSED;
             disposable.dispose();
         }
 
         @Override // io.reactivex.disposables.Disposable
         public boolean isDisposed() {
-            return this.f68931d.isDisposed();
+            return this.f68974d.isDisposed();
         }
 
         @Override // io.reactivex.SingleObserver
@@ -45,8 +45,8 @@ public final class MaybeFilterSingle<T> extends Maybe<T> {
 
         @Override // io.reactivex.SingleObserver
         public void onSubscribe(Disposable disposable) {
-            if (DisposableHelper.validate(this.f68931d, disposable)) {
-                this.f68931d = disposable;
+            if (DisposableHelper.validate(this.f68974d, disposable)) {
+                this.f68974d = disposable;
                 this.actual.onSubscribe(this);
             }
         }

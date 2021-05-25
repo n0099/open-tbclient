@@ -7,17 +7,17 @@ import androidx.annotation.WorkerThread;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f33086a;
+    public static Context f33015a;
 
     @WorkerThread
     public static long a() {
-        long b2 = b(f33086a);
-        a(f33086a, 1 + b2);
+        long b2 = b(f33015a);
+        a(f33015a, 1 + b2);
         return b2;
     }
 
     public static void a(Context context) {
-        f33086a = context;
+        f33015a = context;
     }
 
     @WorkerThread

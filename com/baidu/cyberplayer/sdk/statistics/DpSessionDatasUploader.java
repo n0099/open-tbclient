@@ -19,20 +19,20 @@ public final class DpSessionDatasUploader {
     public static final String SAILOR_MONITOR = "sailor_monitor";
 
     /* renamed from: a  reason: collision with root package name */
-    public static DpSessionDatasUploader f5073a;
+    public static DpSessionDatasUploader f4973a;
 
     /* renamed from: b  reason: collision with root package name */
-    public d f5074b = new d();
+    public d f4974b = new d();
 
     /* renamed from: c  reason: collision with root package name */
-    public d f5075c = new d("live_show_session");
+    public d f4975c = new d("live_show_session");
 
     private void a() {
-        d dVar = this.f5074b;
+        d dVar = this.f4974b;
         if (dVar != null) {
             dVar.a();
         }
-        d dVar2 = this.f5075c;
+        d dVar2 = this.f4975c;
         if (dVar2 != null) {
             dVar2.a();
         }
@@ -60,12 +60,12 @@ public final class DpSessionDatasUploader {
     private void a(byte[] bArr, int i2) {
         d dVar;
         if (i2 == 24) {
-            dVar = this.f5075c;
+            dVar = this.f4975c;
             if (dVar == null) {
                 return;
             }
         } else {
-            dVar = this.f5074b;
+            dVar = this.f4974b;
             if (dVar == null) {
                 return;
             }
@@ -89,10 +89,10 @@ public final class DpSessionDatasUploader {
     public static synchronized DpSessionDatasUploader getInstance() {
         DpSessionDatasUploader dpSessionDatasUploader;
         synchronized (DpSessionDatasUploader.class) {
-            if (f5073a == null) {
-                f5073a = new DpSessionDatasUploader();
+            if (f4973a == null) {
+                f4973a = new DpSessionDatasUploader();
             }
-            dpSessionDatasUploader = f5073a;
+            dpSessionDatasUploader = f4973a;
         }
         return dpSessionDatasUploader;
     }
@@ -111,11 +111,11 @@ public final class DpSessionDatasUploader {
 
     public void a(Context context) {
         d dVar;
-        if (context == null || (dVar = this.f5074b) == null || this.f5075c == null) {
+        if (context == null || (dVar = this.f4974b) == null || this.f4975c == null) {
             return;
         }
         dVar.a(context);
-        this.f5075c.a(context);
+        this.f4975c.a(context);
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00de */

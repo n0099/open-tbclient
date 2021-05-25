@@ -18,8 +18,8 @@ import com.baidu.sapi2.utils.SapiUtils;
 import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import d.a.y.a.f;
-import d.a.y.a.g;
+import d.a.a0.a.f;
+import d.a.a0.a.g;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
@@ -103,13 +103,13 @@ public class AuthActivity extends BaseActivity {
     public void finishActivity(boolean z, String str) {
         int i2 = this.type;
         if (i2 == 0) {
-            d.a.k0.b2.d.b.f().b(z, str);
+            d.a.n0.c2.d.b.f().b(z, str);
         } else if (i2 == 1) {
-            d.a.k0.b2.d.b.f().e(z);
+            d.a.n0.c2.d.b.f().e(z);
         } else if (i2 == 2) {
-            d.a.k0.b2.d.b.f().c(z);
+            d.a.n0.c2.d.b.f().c(z);
         } else {
-            d.a.k0.b2.d.b.f().a(null);
+            d.a.n0.c2.d.b.f().a(null);
         }
         finish();
     }

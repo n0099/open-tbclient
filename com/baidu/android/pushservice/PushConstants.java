@@ -1,5 +1,6 @@
 package com.baidu.android.pushservice;
 
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.mapapi.synchronization.histroytrace.HistoryTraceConstant;
 /* loaded from: classes.dex */
 public final class PushConstants {
@@ -43,7 +44,7 @@ public final class PushConstants {
                                     return "Internal Server Error";
                                 case 30601:
                                     return "Method Not Allowed";
-                                case 30602:
+                                case IMConstants.ERROR_GROUP_DISBAND /* 30602 */:
                                     return "Request Params Not Valid";
                                 case 30603:
                                     return "Authentication Failed";

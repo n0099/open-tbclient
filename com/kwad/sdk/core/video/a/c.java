@@ -18,7 +18,7 @@ public interface c {
 
     /* renamed from: com.kwad.sdk.core.video.a.c$c  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0369c {
+    public interface InterfaceC0370c {
         boolean a(c cVar, int i2, int i3);
     }
 
@@ -59,7 +59,7 @@ public interface c {
 
     void a(b bVar);
 
-    void a(InterfaceC0369c interfaceC0369c);
+    void a(InterfaceC0370c interfaceC0370c);
 
     void a(d dVar);
 

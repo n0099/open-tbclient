@@ -16,7 +16,7 @@ public final class er {
     public static final String f331a = XMJobService.class.getCanonicalName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f37604a = 0;
+    public static int f37533a = 0;
 
     /* loaded from: classes7.dex */
     public interface a {
@@ -103,15 +103,15 @@ public final class er {
 
     public static synchronized void a(Context context, int i2) {
         synchronized (er.class) {
-            int i3 = f37604a;
+            int i3 = f37533a;
             if (!"com.xiaomi.xmsf".equals(context.getPackageName())) {
                 if (i2 == 2) {
-                    f37604a = 2;
+                    f37533a = 2;
                 } else {
-                    f37604a = 0;
+                    f37533a = 0;
                 }
             }
-            if (i3 != f37604a && f37604a == 2) {
+            if (i3 != f37533a && f37533a == 2) {
                 a();
                 f330a = new eu(context);
             }

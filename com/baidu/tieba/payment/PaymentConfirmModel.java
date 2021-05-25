@@ -16,10 +16,10 @@ import d.a.c.a.f;
 public class PaymentConfirmModel<T> extends BdBaseModel<T> {
 
     /* renamed from: e  reason: collision with root package name */
-    public f<T> f18884e;
+    public f<T> f18798e;
 
     public PaymentConfirmModel(f<T> fVar) {
-        this.f18884e = fVar;
+        this.f18798e = fVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -46,7 +46,7 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("password", payRequestData.getPassword());
         httpMessage.addParam("bindid", payRequestData.getBindId());
         httpMessage.addParam("mobile_check", payRequestData.getMobileCheck());
-        this.f18884e.sendMessage(httpMessage);
+        this.f18798e.sendMessage(httpMessage);
     }
 
     public void t() {
@@ -81,6 +81,6 @@ public class PaymentConfirmModel<T> extends BdBaseModel<T> {
         httpMessage.addParam("goods_user_level", String.valueOf(paymentConfirmRequestData.getGoods_user_level()));
         httpMessage.addParam("pay_type", String.valueOf(paymentConfirmRequestData.getPay_type()));
         httpMessage.addParam("currency", paymentConfirmRequestData.getCurrency());
-        this.f18884e.sendMessage(httpMessage);
+        this.f18798e.sendMessage(httpMessage);
     }
 }

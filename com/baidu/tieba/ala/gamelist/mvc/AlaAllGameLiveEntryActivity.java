@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
     public ArrayList<AlaSquareTabInfo> mAlaSquareTabInfos;
     public View mCustomScrollView;
-    public d.a.k0.t.h.a.a mGameEntryAdapter;
+    public d.a.n0.v.h.a.a mGameEntryAdapter;
     public NoScrollGridView mGridView;
     public int mHasSearchTab;
     public NavigationBar mNavigationBar;
@@ -103,7 +103,7 @@ public class AlaAllGameLiveEntryActivity extends BaseFragmentActivity {
         }
         this.mNoDataRootView = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.ala_all_game_no_data, (ViewGroup) null);
         this.mCustomScrollView = this.mRootView.findViewById(R.id.scroll_grid_view_root);
-        this.mGameEntryAdapter = new d.a.k0.t.h.a.a(getPageContext());
+        this.mGameEntryAdapter = new d.a.n0.v.h.a.a(getPageContext());
         NoScrollGridView noScrollGridView = (NoScrollGridView) this.mRootView.findViewById(R.id.ala_live_list);
         this.mGridView = noScrollGridView;
         noScrollGridView.setOnItemClickListener(new b());

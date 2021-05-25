@@ -27,23 +27,23 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     public static final int COMPRESS_TYPE_FIELD_NUMBER = 3;
     public static final int CORRELATION_ID_FIELD_NUMBER = 4;
     public static final int NOTIFY_FIELD_NUMBER = 8;
-    public static final Parser<RpcMetaPb$RpcMeta> PARSER = new a();
+    public static Parser<RpcMetaPb$RpcMeta> PARSER = new a();
     public static final int REQUEST_FIELD_NUMBER = 1;
     public static final int RESPONSE_FIELD_NUMBER = 2;
     public static final RpcMetaPb$RpcMeta defaultInstance;
     public static final long serialVersionUID = 0;
-    public int acceptCompressType;
-    public int attachmentSize;
-    public ByteString authenticationData;
-    public int bitField0;
-    public RpcMetaPb$ChunkInfo chunkInfo;
-    public int compressType;
-    public long correlationId;
+    public int acceptCompressType_;
+    public int attachmentSize_;
+    public ByteString authenticationData_;
+    public int bitField0_;
+    public RpcMetaPb$ChunkInfo chunkInfo_;
+    public int compressType_;
+    public long correlationId_;
     public byte memoizedIsInitialized;
     public int memoizedSerializedSize;
-    public RpcMetaPb$RpcNotifyMeta notify;
-    public RpcMetaPb$RpcRequestMeta request;
-    public RpcMetaPb$RpcResponseMeta response;
+    public RpcMetaPb$RpcNotifyMeta notify_;
+    public RpcMetaPb$RpcRequestMeta request_;
+    public RpcMetaPb$RpcResponseMeta response_;
 
     /* loaded from: classes2.dex */
     public static class a extends AbstractParser<RpcMetaPb$RpcMeta> {
@@ -59,21 +59,21 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     public static final class b extends GeneratedMessageLite.Builder<RpcMetaPb$RpcMeta, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6452e;
+        public int f6352e;
 
         /* renamed from: h  reason: collision with root package name */
-        public int f6455h;
+        public int f6355h;
 
         /* renamed from: i  reason: collision with root package name */
-        public long f6456i;
+        public long f6356i;
         public int j;
         public int n;
 
         /* renamed from: f  reason: collision with root package name */
-        public RpcMetaPb$RpcRequestMeta f6453f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
+        public RpcMetaPb$RpcRequestMeta f6353f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
 
         /* renamed from: g  reason: collision with root package name */
-        public RpcMetaPb$RpcResponseMeta f6454g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
+        public RpcMetaPb$RpcResponseMeta f6354g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
         public RpcMetaPb$ChunkInfo k = RpcMetaPb$ChunkInfo.getDefaultInstance();
         public ByteString l = ByteString.EMPTY;
         public RpcMetaPb$RpcNotifyMeta m = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
@@ -87,20 +87,20 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public b A(int i2) {
-            this.f6452e |= 256;
+            this.f6352e |= 256;
             this.n = i2;
             return this;
         }
 
         public b B(int i2) {
-            this.f6452e |= 16;
+            this.f6352e |= 16;
             this.j = i2;
             return this;
         }
 
         public b C(ByteString byteString) {
             if (byteString != null) {
-                this.f6452e |= 64;
+                this.f6352e |= 64;
                 this.l = byteString;
                 return this;
             }
@@ -108,21 +108,21 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public b D(int i2) {
-            this.f6452e |= 4;
-            this.f6455h = i2;
+            this.f6352e |= 4;
+            this.f6355h = i2;
             return this;
         }
 
         public b E(long j) {
-            this.f6452e |= 8;
-            this.f6456i = j;
+            this.f6352e |= 8;
+            this.f6356i = j;
             return this;
         }
 
         public b F(RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta) {
             if (rpcMetaPb$RpcRequestMeta != null) {
-                this.f6453f = rpcMetaPb$RpcRequestMeta;
-                this.f6452e |= 1;
+                this.f6353f = rpcMetaPb$RpcRequestMeta;
+                this.f6352e |= 1;
                 return this;
             }
             throw null;
@@ -164,70 +164,70 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         /* renamed from: n */
         public RpcMetaPb$RpcMeta buildPartial() {
             RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this);
-            int i2 = this.f6452e;
+            int i2 = this.f6352e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            rpcMetaPb$RpcMeta.request = this.f6453f;
+            rpcMetaPb$RpcMeta.request_ = this.f6353f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            rpcMetaPb$RpcMeta.response = this.f6454g;
+            rpcMetaPb$RpcMeta.response_ = this.f6354g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            rpcMetaPb$RpcMeta.compressType = this.f6455h;
+            rpcMetaPb$RpcMeta.compressType_ = this.f6355h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            rpcMetaPb$RpcMeta.correlationId = this.f6456i;
+            rpcMetaPb$RpcMeta.correlationId_ = this.f6356i;
             if ((i2 & 16) == 16) {
                 i3 |= 16;
             }
-            rpcMetaPb$RpcMeta.attachmentSize = this.j;
+            rpcMetaPb$RpcMeta.attachmentSize_ = this.j;
             if ((i2 & 32) == 32) {
                 i3 |= 32;
             }
-            rpcMetaPb$RpcMeta.chunkInfo = this.k;
+            rpcMetaPb$RpcMeta.chunkInfo_ = this.k;
             if ((i2 & 64) == 64) {
                 i3 |= 64;
             }
-            rpcMetaPb$RpcMeta.authenticationData = this.l;
+            rpcMetaPb$RpcMeta.authenticationData_ = this.l;
             if ((i2 & 128) == 128) {
                 i3 |= 128;
             }
-            rpcMetaPb$RpcMeta.notify = this.m;
+            rpcMetaPb$RpcMeta.notify_ = this.m;
             if ((i2 & 256) == 256) {
                 i3 |= 256;
             }
-            rpcMetaPb$RpcMeta.acceptCompressType = this.n;
-            rpcMetaPb$RpcMeta.bitField0 = i3;
+            rpcMetaPb$RpcMeta.acceptCompressType_ = this.n;
+            rpcMetaPb$RpcMeta.bitField0_ = i3;
             return rpcMetaPb$RpcMeta;
         }
 
         public b o() {
             super.clear();
-            this.f6453f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
-            this.f6452e &= -2;
-            this.f6454g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
-            int i2 = this.f6452e & (-3);
-            this.f6452e = i2;
-            this.f6455h = 0;
+            this.f6353f = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
+            this.f6352e &= -2;
+            this.f6354g = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
+            int i2 = this.f6352e & (-3);
+            this.f6352e = i2;
+            this.f6355h = 0;
             int i3 = i2 & (-5);
-            this.f6452e = i3;
-            this.f6456i = 0L;
+            this.f6352e = i3;
+            this.f6356i = 0L;
             int i4 = i3 & (-9);
-            this.f6452e = i4;
+            this.f6352e = i4;
             this.j = 0;
-            this.f6452e = i4 & (-17);
+            this.f6352e = i4 & (-17);
             this.k = RpcMetaPb$ChunkInfo.getDefaultInstance();
-            int i5 = this.f6452e & (-33);
-            this.f6452e = i5;
+            int i5 = this.f6352e & (-33);
+            this.f6352e = i5;
             this.l = ByteString.EMPTY;
-            this.f6452e = i5 & (-65);
+            this.f6352e = i5 & (-65);
             this.m = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
-            int i6 = this.f6452e & (-129);
-            this.f6452e = i6;
+            int i6 = this.f6352e & (-129);
+            this.f6352e = i6;
             this.n = 0;
-            this.f6452e = i6 & (-257);
+            this.f6352e = i6 & (-257);
             return this;
         }
 
@@ -252,18 +252,18 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public boolean t() {
-            return (this.f6452e & 32) == 32;
+            return (this.f6352e & 32) == 32;
         }
 
         public b u(RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo) {
-            if ((this.f6452e & 32) == 32 && this.k != RpcMetaPb$ChunkInfo.getDefaultInstance()) {
+            if ((this.f6352e & 32) == 32 && this.k != RpcMetaPb$ChunkInfo.getDefaultInstance()) {
                 RpcMetaPb$ChunkInfo.b newBuilder = RpcMetaPb$ChunkInfo.newBuilder(this.k);
                 newBuilder.u(rpcMetaPb$ChunkInfo);
                 this.k = newBuilder.buildPartial();
             } else {
                 this.k = rpcMetaPb$ChunkInfo;
             }
-            this.f6452e |= 32;
+            this.f6352e |= 32;
             return this;
         }
 
@@ -336,38 +336,38 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
 
         public b x(RpcMetaPb$RpcNotifyMeta rpcMetaPb$RpcNotifyMeta) {
-            if ((this.f6452e & 128) == 128 && this.m != RpcMetaPb$RpcNotifyMeta.getDefaultInstance()) {
+            if ((this.f6352e & 128) == 128 && this.m != RpcMetaPb$RpcNotifyMeta.getDefaultInstance()) {
                 RpcMetaPb$RpcNotifyMeta.b newBuilder = RpcMetaPb$RpcNotifyMeta.newBuilder(this.m);
                 newBuilder.s(rpcMetaPb$RpcNotifyMeta);
                 this.m = newBuilder.buildPartial();
             } else {
                 this.m = rpcMetaPb$RpcNotifyMeta;
             }
-            this.f6452e |= 128;
+            this.f6352e |= 128;
             return this;
         }
 
         public b y(RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta) {
-            if ((this.f6452e & 1) == 1 && this.f6453f != RpcMetaPb$RpcRequestMeta.getDefaultInstance()) {
-                RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder(this.f6453f);
+            if ((this.f6352e & 1) == 1 && this.f6353f != RpcMetaPb$RpcRequestMeta.getDefaultInstance()) {
+                RpcMetaPb$RpcRequestMeta.b newBuilder = RpcMetaPb$RpcRequestMeta.newBuilder(this.f6353f);
                 newBuilder.s(rpcMetaPb$RpcRequestMeta);
-                this.f6453f = newBuilder.buildPartial();
+                this.f6353f = newBuilder.buildPartial();
             } else {
-                this.f6453f = rpcMetaPb$RpcRequestMeta;
+                this.f6353f = rpcMetaPb$RpcRequestMeta;
             }
-            this.f6452e |= 1;
+            this.f6352e |= 1;
             return this;
         }
 
         public b z(RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta) {
-            if ((this.f6452e & 2) == 2 && this.f6454g != RpcMetaPb$RpcResponseMeta.getDefaultInstance()) {
-                RpcMetaPb$RpcResponseMeta.b newBuilder = RpcMetaPb$RpcResponseMeta.newBuilder(this.f6454g);
+            if ((this.f6352e & 2) == 2 && this.f6354g != RpcMetaPb$RpcResponseMeta.getDefaultInstance()) {
+                RpcMetaPb$RpcResponseMeta.b newBuilder = RpcMetaPb$RpcResponseMeta.newBuilder(this.f6354g);
                 newBuilder.s(rpcMetaPb$RpcResponseMeta);
-                this.f6454g = newBuilder.buildPartial();
+                this.f6354g = newBuilder.buildPartial();
             } else {
-                this.f6454g = rpcMetaPb$RpcResponseMeta;
+                this.f6354g = rpcMetaPb$RpcResponseMeta;
             }
-            this.f6452e |= 2;
+            this.f6352e |= 2;
             return this;
         }
 
@@ -403,15 +403,15 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     }
 
     private void initFields() {
-        this.request = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
-        this.response = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
-        this.compressType = 0;
-        this.correlationId = 0L;
-        this.attachmentSize = 0;
-        this.chunkInfo = RpcMetaPb$ChunkInfo.getDefaultInstance();
-        this.authenticationData = ByteString.EMPTY;
-        this.notify = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
-        this.acceptCompressType = 0;
+        this.request_ = RpcMetaPb$RpcRequestMeta.getDefaultInstance();
+        this.response_ = RpcMetaPb$RpcResponseMeta.getDefaultInstance();
+        this.compressType_ = 0;
+        this.correlationId_ = 0L;
+        this.attachmentSize_ = 0;
+        this.chunkInfo_ = RpcMetaPb$ChunkInfo.getDefaultInstance();
+        this.authenticationData_ = ByteString.EMPTY;
+        this.notify_ = RpcMetaPb$RpcNotifyMeta.getDefaultInstance();
+        this.acceptCompressType_ = 0;
     }
 
     public static b newBuilder() {
@@ -427,31 +427,31 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     }
 
     public int getAcceptCompressType() {
-        return this.acceptCompressType;
+        return this.acceptCompressType_;
     }
 
     public int getAttachmentSize() {
-        return this.attachmentSize;
+        return this.attachmentSize_;
     }
 
     public ByteString getAuthenticationData() {
-        return this.authenticationData;
+        return this.authenticationData_;
     }
 
     public RpcMetaPb$ChunkInfo getChunkInfo() {
-        return this.chunkInfo;
+        return this.chunkInfo_;
     }
 
     public int getCompressType() {
-        return this.compressType;
+        return this.compressType_;
     }
 
     public long getCorrelationId() {
-        return this.correlationId;
+        return this.correlationId_;
     }
 
     public RpcMetaPb$RpcNotifyMeta getNotify() {
-        return this.notify;
+        return this.notify_;
     }
 
     @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -460,11 +460,11 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     }
 
     public RpcMetaPb$RpcRequestMeta getRequest() {
-        return this.request;
+        return this.request_;
     }
 
     public RpcMetaPb$RpcResponseMeta getResponse() {
-        return this.response;
+        return this.response_;
     }
 
     @Override // com.google.protobuf.MessageLite
@@ -473,69 +473,69 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         if (i2 != -1) {
             return i2;
         }
-        int computeMessageSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.request) : 0;
-        if ((this.bitField0 & 2) == 2) {
-            computeMessageSize += CodedOutputStream.computeMessageSize(2, this.response);
+        int computeMessageSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeMessageSize(1, this.request_) : 0;
+        if ((this.bitField0_ & 2) == 2) {
+            computeMessageSize += CodedOutputStream.computeMessageSize(2, this.response_);
         }
-        if ((this.bitField0 & 4) == 4) {
-            computeMessageSize += CodedOutputStream.computeInt32Size(3, this.compressType);
+        if ((this.bitField0_ & 4) == 4) {
+            computeMessageSize += CodedOutputStream.computeInt32Size(3, this.compressType_);
         }
-        if ((this.bitField0 & 8) == 8) {
-            computeMessageSize += CodedOutputStream.computeInt64Size(4, this.correlationId);
+        if ((this.bitField0_ & 8) == 8) {
+            computeMessageSize += CodedOutputStream.computeInt64Size(4, this.correlationId_);
         }
-        if ((this.bitField0 & 16) == 16) {
-            computeMessageSize += CodedOutputStream.computeInt32Size(5, this.attachmentSize);
+        if ((this.bitField0_ & 16) == 16) {
+            computeMessageSize += CodedOutputStream.computeInt32Size(5, this.attachmentSize_);
         }
-        if ((this.bitField0 & 32) == 32) {
-            computeMessageSize += CodedOutputStream.computeMessageSize(6, this.chunkInfo);
+        if ((this.bitField0_ & 32) == 32) {
+            computeMessageSize += CodedOutputStream.computeMessageSize(6, this.chunkInfo_);
         }
-        if ((this.bitField0 & 64) == 64) {
-            computeMessageSize += CodedOutputStream.computeBytesSize(7, this.authenticationData);
+        if ((this.bitField0_ & 64) == 64) {
+            computeMessageSize += CodedOutputStream.computeBytesSize(7, this.authenticationData_);
         }
-        if ((this.bitField0 & 128) == 128) {
-            computeMessageSize += CodedOutputStream.computeMessageSize(8, this.notify);
+        if ((this.bitField0_ & 128) == 128) {
+            computeMessageSize += CodedOutputStream.computeMessageSize(8, this.notify_);
         }
-        if ((this.bitField0 & 256) == 256) {
-            computeMessageSize += CodedOutputStream.computeInt32Size(9, this.acceptCompressType);
+        if ((this.bitField0_ & 256) == 256) {
+            computeMessageSize += CodedOutputStream.computeInt32Size(9, this.acceptCompressType_);
         }
         this.memoizedSerializedSize = computeMessageSize;
         return computeMessageSize;
     }
 
     public boolean hasAcceptCompressType() {
-        return (this.bitField0 & 256) == 256;
+        return (this.bitField0_ & 256) == 256;
     }
 
     public boolean hasAttachmentSize() {
-        return (this.bitField0 & 16) == 16;
+        return (this.bitField0_ & 16) == 16;
     }
 
     public boolean hasAuthenticationData() {
-        return (this.bitField0 & 64) == 64;
+        return (this.bitField0_ & 64) == 64;
     }
 
     public boolean hasChunkInfo() {
-        return (this.bitField0 & 32) == 32;
+        return (this.bitField0_ & 32) == 32;
     }
 
     public boolean hasCompressType() {
-        return (this.bitField0 & 4) == 4;
+        return (this.bitField0_ & 4) == 4;
     }
 
     public boolean hasCorrelationId() {
-        return (this.bitField0 & 8) == 8;
+        return (this.bitField0_ & 8) == 8;
     }
 
     public boolean hasNotify() {
-        return (this.bitField0 & 128) == 128;
+        return (this.bitField0_ & 128) == 128;
     }
 
     public boolean hasRequest() {
-        return (this.bitField0 & 1) == 1;
+        return (this.bitField0_ & 1) == 1;
     }
 
     public boolean hasResponse() {
-        return (this.bitField0 & 2) == 2;
+        return (this.bitField0_ & 2) == 2;
     }
 
     @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -560,32 +560,32 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
     @Override // com.google.protobuf.MessageLite
     public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
         getSerializedSize();
-        if ((this.bitField0 & 1) == 1) {
-            codedOutputStream.writeMessage(1, this.request);
+        if ((this.bitField0_ & 1) == 1) {
+            codedOutputStream.writeMessage(1, this.request_);
         }
-        if ((this.bitField0 & 2) == 2) {
-            codedOutputStream.writeMessage(2, this.response);
+        if ((this.bitField0_ & 2) == 2) {
+            codedOutputStream.writeMessage(2, this.response_);
         }
-        if ((this.bitField0 & 4) == 4) {
-            codedOutputStream.writeInt32(3, this.compressType);
+        if ((this.bitField0_ & 4) == 4) {
+            codedOutputStream.writeInt32(3, this.compressType_);
         }
-        if ((this.bitField0 & 8) == 8) {
-            codedOutputStream.writeInt64(4, this.correlationId);
+        if ((this.bitField0_ & 8) == 8) {
+            codedOutputStream.writeInt64(4, this.correlationId_);
         }
-        if ((this.bitField0 & 16) == 16) {
-            codedOutputStream.writeInt32(5, this.attachmentSize);
+        if ((this.bitField0_ & 16) == 16) {
+            codedOutputStream.writeInt32(5, this.attachmentSize_);
         }
-        if ((this.bitField0 & 32) == 32) {
-            codedOutputStream.writeMessage(6, this.chunkInfo);
+        if ((this.bitField0_ & 32) == 32) {
+            codedOutputStream.writeMessage(6, this.chunkInfo_);
         }
-        if ((this.bitField0 & 64) == 64) {
-            codedOutputStream.writeBytes(7, this.authenticationData);
+        if ((this.bitField0_ & 64) == 64) {
+            codedOutputStream.writeBytes(7, this.authenticationData_);
         }
-        if ((this.bitField0 & 128) == 128) {
-            codedOutputStream.writeMessage(8, this.notify);
+        if ((this.bitField0_ & 128) == 128) {
+            codedOutputStream.writeMessage(8, this.notify_);
         }
-        if ((this.bitField0 & 256) == 256) {
-            codedOutputStream.writeInt32(9, this.acceptCompressType);
+        if ((this.bitField0_ & 256) == 256) {
+            codedOutputStream.writeInt32(9, this.acceptCompressType_);
         }
     }
 
@@ -667,59 +667,59 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
                     int readTag = codedInputStream.readTag();
                     if (readTag != 0) {
                         if (readTag == 10) {
-                            RpcMetaPb$RpcRequestMeta.b builder = (this.bitField0 & 1) == 1 ? this.request.toBuilder() : null;
+                            RpcMetaPb$RpcRequestMeta.b builder = (this.bitField0_ & 1) == 1 ? this.request_.toBuilder() : null;
                             RpcMetaPb$RpcRequestMeta rpcMetaPb$RpcRequestMeta = (RpcMetaPb$RpcRequestMeta) codedInputStream.readMessage(RpcMetaPb$RpcRequestMeta.PARSER, extensionRegistryLite);
-                            this.request = rpcMetaPb$RpcRequestMeta;
+                            this.request_ = rpcMetaPb$RpcRequestMeta;
                             if (builder != null) {
                                 builder.s(rpcMetaPb$RpcRequestMeta);
-                                this.request = builder.buildPartial();
+                                this.request_ = builder.buildPartial();
                             }
-                            this.bitField0 |= 1;
+                            this.bitField0_ |= 1;
                         } else if (readTag == 18) {
-                            RpcMetaPb$RpcResponseMeta.b builder2 = (this.bitField0 & 2) == 2 ? this.response.toBuilder() : null;
+                            RpcMetaPb$RpcResponseMeta.b builder2 = (this.bitField0_ & 2) == 2 ? this.response_.toBuilder() : null;
                             RpcMetaPb$RpcResponseMeta rpcMetaPb$RpcResponseMeta = (RpcMetaPb$RpcResponseMeta) codedInputStream.readMessage(RpcMetaPb$RpcResponseMeta.PARSER, extensionRegistryLite);
-                            this.response = rpcMetaPb$RpcResponseMeta;
+                            this.response_ = rpcMetaPb$RpcResponseMeta;
                             if (builder2 != null) {
                                 builder2.s(rpcMetaPb$RpcResponseMeta);
-                                this.response = builder2.buildPartial();
+                                this.response_ = builder2.buildPartial();
                             }
-                            this.bitField0 |= 2;
+                            this.bitField0_ |= 2;
                         } else if (readTag == 24) {
-                            this.bitField0 |= 4;
-                            this.compressType = codedInputStream.readInt32();
+                            this.bitField0_ |= 4;
+                            this.compressType_ = codedInputStream.readInt32();
                         } else if (readTag == 32) {
-                            this.bitField0 |= 8;
-                            this.correlationId = codedInputStream.readInt64();
+                            this.bitField0_ |= 8;
+                            this.correlationId_ = codedInputStream.readInt64();
                         } else if (readTag == 40) {
-                            this.bitField0 |= 16;
-                            this.attachmentSize = codedInputStream.readInt32();
+                            this.bitField0_ |= 16;
+                            this.attachmentSize_ = codedInputStream.readInt32();
                         } else if (readTag == 50) {
-                            RpcMetaPb$ChunkInfo.b builder3 = (this.bitField0 & 32) == 32 ? this.chunkInfo.toBuilder() : null;
+                            RpcMetaPb$ChunkInfo.b builder3 = (this.bitField0_ & 32) == 32 ? this.chunkInfo_.toBuilder() : null;
                             RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = (RpcMetaPb$ChunkInfo) codedInputStream.readMessage(RpcMetaPb$ChunkInfo.PARSER, extensionRegistryLite);
-                            this.chunkInfo = rpcMetaPb$ChunkInfo;
+                            this.chunkInfo_ = rpcMetaPb$ChunkInfo;
                             if (builder3 != null) {
                                 builder3.u(rpcMetaPb$ChunkInfo);
-                                this.chunkInfo = builder3.buildPartial();
+                                this.chunkInfo_ = builder3.buildPartial();
                             }
-                            this.bitField0 |= 32;
+                            this.bitField0_ |= 32;
                         } else if (readTag == 58) {
-                            this.bitField0 |= 64;
-                            this.authenticationData = codedInputStream.readBytes();
+                            this.bitField0_ |= 64;
+                            this.authenticationData_ = codedInputStream.readBytes();
                         } else if (readTag == 66) {
-                            RpcMetaPb$RpcNotifyMeta.b builder4 = (this.bitField0 & 128) == 128 ? this.notify.toBuilder() : null;
+                            RpcMetaPb$RpcNotifyMeta.b builder4 = (this.bitField0_ & 128) == 128 ? this.notify_.toBuilder() : null;
                             RpcMetaPb$RpcNotifyMeta rpcMetaPb$RpcNotifyMeta = (RpcMetaPb$RpcNotifyMeta) codedInputStream.readMessage(RpcMetaPb$RpcNotifyMeta.PARSER, extensionRegistryLite);
-                            this.notify = rpcMetaPb$RpcNotifyMeta;
+                            this.notify_ = rpcMetaPb$RpcNotifyMeta;
                             if (builder4 != null) {
                                 builder4.s(rpcMetaPb$RpcNotifyMeta);
-                                this.notify = builder4.buildPartial();
+                                this.notify_ = builder4.buildPartial();
                             }
-                            this.bitField0 |= 128;
+                            this.bitField0_ |= 128;
                         } else if (readTag != 72) {
                             if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                             }
                         } else {
-                            this.bitField0 |= 256;
-                            this.acceptCompressType = codedInputStream.readInt32();
+                            this.bitField0_ |= 256;
+                            this.acceptCompressType_ = codedInputStream.readInt32();
                         }
                     }
                     z = true;

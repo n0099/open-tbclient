@@ -7,29 +7,29 @@ public class VehicleInfo implements Parcelable {
     public static final Parcelable.Creator<VehicleInfo> CREATOR = new q();
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7291a;
+    public String f7191a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f7292b;
+    public int f7192b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f7293c;
+    public String f7193c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f7294d;
+    public int f7194d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7295e;
+    public int f7195e;
 
     public VehicleInfo() {
     }
 
     public VehicleInfo(Parcel parcel) {
-        this.f7291a = parcel.readString();
-        this.f7292b = parcel.readInt();
-        this.f7293c = parcel.readString();
-        this.f7294d = parcel.readInt();
-        this.f7295e = parcel.readInt();
+        this.f7191a = parcel.readString();
+        this.f7192b = parcel.readInt();
+        this.f7193c = parcel.readString();
+        this.f7194d = parcel.readInt();
+        this.f7195e = parcel.readInt();
     }
 
     @Override // android.os.Parcelable
@@ -38,51 +38,51 @@ public class VehicleInfo implements Parcelable {
     }
 
     public int getPassStationNum() {
-        return this.f7292b;
+        return this.f7192b;
     }
 
     public String getTitle() {
-        return this.f7293c;
+        return this.f7193c;
     }
 
     public int getTotalPrice() {
-        return this.f7295e;
+        return this.f7195e;
     }
 
     public String getUid() {
-        return this.f7291a;
+        return this.f7191a;
     }
 
     public int getZonePrice() {
-        return this.f7294d;
+        return this.f7194d;
     }
 
     public void setPassStationNum(int i2) {
-        this.f7292b = i2;
+        this.f7192b = i2;
     }
 
     public void setTitle(String str) {
-        this.f7293c = str;
+        this.f7193c = str;
     }
 
     public void setTotalPrice(int i2) {
-        this.f7295e = i2;
+        this.f7195e = i2;
     }
 
     public void setUid(String str) {
-        this.f7291a = str;
+        this.f7191a = str;
     }
 
     public void setZonePrice(int i2) {
-        this.f7294d = i2;
+        this.f7194d = i2;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i2) {
-        parcel.writeString(this.f7291a);
-        parcel.writeInt(this.f7292b);
-        parcel.writeString(this.f7293c);
-        parcel.writeInt(this.f7294d);
-        parcel.writeInt(this.f7295e);
+        parcel.writeString(this.f7191a);
+        parcel.writeInt(this.f7192b);
+        parcel.writeString(this.f7193c);
+        parcel.writeInt(this.f7194d);
+        parcel.writeInt(this.f7195e);
     }
 }

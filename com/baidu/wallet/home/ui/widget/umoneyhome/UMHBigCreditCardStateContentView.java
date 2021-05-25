@@ -15,22 +15,22 @@ import com.baidu.wallet.home.ui.widget.b;
 public class UMHBigCreditCardStateContentView extends BaseItemView {
 
     /* renamed from: a  reason: collision with root package name */
-    public MaskTextView f24490a;
+    public MaskTextView f24419a;
 
     /* renamed from: b  reason: collision with root package name */
-    public MaskTextView f24491b;
+    public MaskTextView f24420b;
 
     /* renamed from: c  reason: collision with root package name */
-    public TextView f24492c;
+    public TextView f24421c;
 
     /* renamed from: d  reason: collision with root package name */
-    public HomeCfgResponse.DataItem f24493d;
+    public HomeCfgResponse.DataItem f24422d;
 
     /* renamed from: e  reason: collision with root package name */
-    public b f24494e;
+    public b f24423e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f24495f;
+    public boolean f24424f;
 
     public UMHBigCreditCardStateContentView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -43,53 +43,53 @@ public class UMHBigCreditCardStateContentView extends BaseItemView {
 
     public void initView() {
         LayoutInflater.from(getContext()).inflate(ResUtils.layout(getContext(), "wallet_home_umh_big_credit_card_state_content_view_layout"), this);
-        this.f24490a = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_shengpi_tip"));
-        this.f24491b = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_shengpi_text"));
-        this.f24492c = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_shengpi_button"));
+        this.f24419a = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_shengpi_tip"));
+        this.f24420b = (MaskTextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_shengpi_text"));
+        this.f24421c = (TextView) findViewById(ResUtils.id(getContext(), "umh_big_credit_card_content_shengpi_button"));
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void onEyeMaskChanged() {
         super.onEyeMaskChanged();
-        this.f24491b.resetMaskText();
-        this.f24490a.resetMaskText();
+        this.f24420b.resetMaskText();
+        this.f24419a.resetMaskText();
     }
 
     public void refresh() {
-        this.f24490a.setMaskText(this.f24493d.value1);
-        if (!TextUtils.isEmpty(this.f24493d.value2)) {
-            this.f24491b.setVisibility(0);
-            this.f24491b.setMaskText(this.f24493d.value2);
+        this.f24419a.setMaskText(this.f24422d.value1);
+        if (!TextUtils.isEmpty(this.f24422d.value2)) {
+            this.f24420b.setVisibility(0);
+            this.f24420b.setMaskText(this.f24422d.value2);
         } else {
-            this.f24491b.setVisibility(8);
+            this.f24420b.setVisibility(8);
         }
-        HomeCfgResponse.DataButton[] dataButtonArr = this.f24493d.buttons;
+        HomeCfgResponse.DataButton[] dataButtonArr = this.f24422d.buttons;
         if (dataButtonArr != null && dataButtonArr.length > 0 && dataButtonArr[0] != null && !TextUtils.isEmpty(dataButtonArr[0].name)) {
-            this.f24492c.setText(this.f24493d.buttons[0].name);
-            this.f24492c.setVisibility(0);
-            this.f24492c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.home.ui.widget.umoneyhome.UMHBigCreditCardStateContentView.1
+            this.f24421c.setText(this.f24422d.buttons[0].name);
+            this.f24421c.setVisibility(0);
+            this.f24421c.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.wallet.home.ui.widget.umoneyhome.UMHBigCreditCardStateContentView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (UMHBigCreditCardStateContentView.this.f24494e != null) {
-                        UMHBigCreditCardStateContentView.this.f24494e.jump(UMHBigCreditCardStateContentView.this.f24493d.buttons[0].stat != null ? UMHBigCreditCardStateContentView.this.f24493d.buttons[0].stat.getName() : UMHBigCreditCardStateContentView.this.f24493d.buttons[0].name, UMHBigCreditCardStateContentView.this.f24493d.buttons[0].type, UMHBigCreditCardStateContentView.this.f24493d.buttons[0].link_addr, "1".equals(UMHBigCreditCardStateContentView.this.f24493d.buttons[0].prevlogin));
+                    if (UMHBigCreditCardStateContentView.this.f24423e != null) {
+                        UMHBigCreditCardStateContentView.this.f24423e.jump(UMHBigCreditCardStateContentView.this.f24422d.buttons[0].stat != null ? UMHBigCreditCardStateContentView.this.f24422d.buttons[0].stat.getName() : UMHBigCreditCardStateContentView.this.f24422d.buttons[0].name, UMHBigCreditCardStateContentView.this.f24422d.buttons[0].type, UMHBigCreditCardStateContentView.this.f24422d.buttons[0].link_addr, "1".equals(UMHBigCreditCardStateContentView.this.f24422d.buttons[0].prevlogin));
                     }
                 }
             });
         } else {
-            this.f24492c.setVisibility(8);
+            this.f24421c.setVisibility(8);
         }
-        if (this.f24495f) {
-            this.f24492c.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_blue_button_bg"));
+        if (this.f24424f) {
+            this.f24421c.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_blue_button_bg"));
         } else {
-            this.f24492c.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_yellow_button_bg"));
+            this.f24421c.setBackgroundDrawable(ResUtils.getDrawable(getContext(), "wallet_home_umh_big_credit_card_yellow_button_bg"));
         }
     }
 
     @Override // com.baidu.wallet.home.ui.widget.BaseItemView
     public void setData(HomeCfgResponse.DataItem dataItem, b bVar) {
         super.setData(dataItem, bVar);
-        this.f24493d = dataItem;
-        this.f24494e = bVar;
+        this.f24422d = dataItem;
+        this.f24423e = bVar;
         if (a()) {
             initView();
             refresh();
@@ -97,7 +97,7 @@ public class UMHBigCreditCardStateContentView extends BaseItemView {
     }
 
     public void setIsManYiDai(boolean z) {
-        this.f24495f = z;
+        this.f24424f = z;
     }
 
     public UMHBigCreditCardStateContentView(Context context) {
@@ -105,6 +105,6 @@ public class UMHBigCreditCardStateContentView extends BaseItemView {
     }
 
     private boolean a() {
-        return this.f24493d != null;
+        return this.f24422d != null;
     }
 }

@@ -5,25 +5,25 @@ import android.os.SystemProperties;
 import android.util.Base64;
 import android.util.Log;
 import d.b.b.g1;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k1 implements g1 {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f65014b = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
+    public static final String f65057b = a("cGVyc2lzdC5zeXMuaWRlbnRpZmllcmlkLnN1cHBvcnRlZA==");
 
     /* renamed from: c  reason: collision with root package name */
-    public static final t0<Boolean> f65015c = new a();
+    public static final t0<Boolean> f65058c = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    public d.b.a.a f65016a;
+    public d.b.a.a f65059a;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a extends t0<Boolean> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // d.b.b.t0
         /* renamed from: c */
         public Boolean a(Object... objArr) {
-            return Boolean.valueOf("1".equals(k1.e(k1.f65014b, "0")));
+            return Boolean.valueOf("1".equals(k1.e(k1.f65057b, "0")));
         }
     }
 
@@ -34,7 +34,7 @@ public final class k1 implements g1 {
         }
         try {
             d.b.a.a aVar = new d.b.a.a();
-            this.f65016a = aVar;
+            this.f65059a = aVar;
             aVar.c(context);
         } catch (Throwable th) {
             y0.e("OaidVivo", Log.getStackTraceString(th));
@@ -42,7 +42,7 @@ public final class k1 implements g1 {
     }
 
     public static boolean c() {
-        return f65015c.b(new Object[0]).booleanValue();
+        return f65058c.b(new Object[0]).booleanValue();
     }
 
     public static String e(String str, String str2) {
@@ -68,7 +68,7 @@ public final class k1 implements g1 {
 
     @Override // d.b.b.g1
     public g1.a b(Context context) {
-        d.b.a.a aVar = this.f65016a;
+        d.b.a.a aVar = this.f65059a;
         if (aVar == null) {
             return null;
         }

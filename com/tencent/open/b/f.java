@@ -19,10 +19,10 @@ import java.util.List;
 public class f extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f36463a = {"key"};
+    public static final String[] f36392a = {"key"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static f f36464b;
+    public static f f36393b;
 
     public f(Context context) {
         super(context, "sdk_report.db", (SQLiteDatabase.CursorFactory) null, 2);
@@ -31,10 +31,10 @@ public class f extends SQLiteOpenHelper {
     public static synchronized f a() {
         f fVar;
         synchronized (f.class) {
-            if (f36464b == null) {
-                f36464b = new f(com.tencent.open.utils.e.a());
+            if (f36393b == null) {
+                f36393b = new f(com.tencent.open.utils.e.a());
             }
-            fVar = f36464b;
+            fVar = f36393b;
         }
         return fVar;
     }

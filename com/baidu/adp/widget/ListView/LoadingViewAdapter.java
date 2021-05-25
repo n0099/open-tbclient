@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import d.a.c.e.p.l;
 import d.a.c.j.e.a;
 import d.a.c.j.e.t;
-import d.a.j0.d0.g;
+import d.a.m0.d0.g;
 import java.util.LinkedList;
 /* loaded from: classes.dex */
 public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
@@ -23,7 +23,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     public static class TabLoadingViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public g f2370a;
+        public g f2375a;
 
         public TabLoadingViewHolder(View view) {
             super(view);
@@ -31,7 +31,7 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     }
 
     public LoadingViewAdapter(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), t.f39659e);
+        super(tbPageContext.getPageActivity(), t.f39323e);
         this.m = new LinkedList<>();
         this.n = e0(R.dimen.tbds304);
         this.o = e0(R.dimen.tbds198);
@@ -52,13 +52,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
     @Override // d.a.c.j.e.a
     /* renamed from: f0 */
     public TabLoadingViewHolder P(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout = new RelativeLayout(this.f39564e);
+        RelativeLayout relativeLayout = new RelativeLayout(this.f39228e);
         ViewGroup.LayoutParams t = t(viewGroup);
         t.width = -1;
         t.height = -1;
         relativeLayout.setLayoutParams(t);
         relativeLayout.setGravity(1);
-        g gVar = new g(this.f39564e, 0);
+        g gVar = new g(this.f39228e, 0);
         gVar.attachView(relativeLayout);
         gVar.q(this.n);
         gVar.o(this.o);
@@ -70,13 +70,13 @@ public class LoadingViewAdapter extends a<t, TabLoadingViewHolder> {
         view.setLayoutParams(layoutParams);
         this.m.add(new Pair<>(relativeLayout, gVar));
         TabLoadingViewHolder tabLoadingViewHolder = new TabLoadingViewHolder(relativeLayout);
-        tabLoadingViewHolder.f2370a = gVar;
+        tabLoadingViewHolder.f2375a = gVar;
         return tabLoadingViewHolder;
     }
 
     public View g0(int i2, View view, ViewGroup viewGroup, t tVar, TabLoadingViewHolder tabLoadingViewHolder) {
         g gVar;
-        if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2370a) != null) {
+        if (tabLoadingViewHolder != null && (gVar = tabLoadingViewHolder.f2375a) != null) {
             gVar.l(TbadkCoreApplication.getInst().getSkinType());
         }
         return view;

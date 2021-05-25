@@ -3,13 +3,13 @@ package com.sdk.base.framework.a.c;
 public final class f<Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    public final c f35647a;
+    public final c f35576a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final Data[] f35648b;
+    public final Data[] f35577b;
 
     public f(c cVar, Data... dataArr) {
-        this.f35647a = cVar;
-        this.f35648b = dataArr;
+        this.f35576a = cVar;
+        this.f35577b = dataArr;
     }
 }

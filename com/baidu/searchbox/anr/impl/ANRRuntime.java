@@ -5,8 +5,8 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.anr.ioc.IANRRegister;
 import com.baidu.searchbox.anr.ioc.IANRRegister_ANRRuntime_ListProvider;
 import com.baidu.searchbox.config.AppConfig;
-import d.a.c0.a.b.b;
-import d.a.c0.a.b.d;
+import d.a.e0.a.b.b;
+import d.a.e0.a.b.d;
 /* loaded from: classes2.dex */
 public class ANRRuntime {
     public static ANRRuntime sInstance;

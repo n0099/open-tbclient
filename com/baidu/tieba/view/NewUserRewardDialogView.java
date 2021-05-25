@@ -21,19 +21,19 @@ import d.a.c.e.p.l;
 public class NewUserRewardDialogView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public AlphaVideo f21737e;
+    public AlphaVideo f21665e;
 
     /* renamed from: f  reason: collision with root package name */
-    public RoundRelativeLayout f21738f;
+    public RoundRelativeLayout f21666f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f21739g;
+    public TextView f21667g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f21740h;
+    public TextView f21668h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f21741i;
+    public ImageView f21669i;
     public final CustomMessageListener j;
 
     /* loaded from: classes5.dex */
@@ -45,10 +45,10 @@ public class NewUserRewardDialogView extends LinearLayout {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (!(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() || NewUserRewardDialogView.this.f21737e == null) {
+            if (!(customResponsedMessage instanceof BackgroundSwitchMessage) || ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue() || NewUserRewardDialogView.this.f21665e == null) {
                 return;
             }
-            NewUserRewardDialogView.this.f21737e.requestRender();
+            NewUserRewardDialogView.this.f21665e.requestRender();
         }
     }
 
@@ -58,49 +58,49 @@ public class NewUserRewardDialogView extends LinearLayout {
 
     public final void b(Context context) {
         LayoutInflater.from(context).inflate(R.layout.new_user_reward_dialog_layout, this);
-        this.f21737e = (AlphaVideo) findViewById(R.id.new_user_anim);
-        this.f21738f = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
-        this.f21739g = (TextView) findViewById(R.id.new_user_dialog_title);
-        this.f21740h = (TextView) findViewById(R.id.new_user_dialog_desc);
-        this.f21741i = (ImageView) findViewById(R.id.new_user_dialog_close);
-        this.f21738f.setAllCornerRound(l.g(context, R.dimen.tbds31));
-        this.f21737e.setKeepLastFrame(true);
+        this.f21665e = (AlphaVideo) findViewById(R.id.new_user_anim);
+        this.f21666f = (RoundRelativeLayout) findViewById(R.id.new_user_dialog_text_area);
+        this.f21667g = (TextView) findViewById(R.id.new_user_dialog_title);
+        this.f21668h = (TextView) findViewById(R.id.new_user_dialog_desc);
+        this.f21669i = (ImageView) findViewById(R.id.new_user_dialog_close);
+        this.f21666f.setAllCornerRound(l.g(context, R.dimen.tbds31));
+        this.f21665e.setKeepLastFrame(true);
         MessageManager.getInstance().registerListener(this.j);
     }
 
     public void c() {
-        SkinManager.setBackgroundColor(this.f21738f, R.color.CAM_X0211);
-        SkinManager.setViewTextColor(this.f21739g, R.color.CAM_X0105);
-        SkinManager.setViewTextColor(this.f21740h, R.color.CAM_X0107);
-        SkinManager.setImageResource(this.f21741i, R.drawable.icon_use_close_n);
+        SkinManager.setBackgroundColor(this.f21666f, R.color.CAM_X0211);
+        SkinManager.setViewTextColor(this.f21667g, R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.f21668h, R.color.CAM_X0107);
+        SkinManager.setImageResource(this.f21669i, R.drawable.icon_use_close_n);
     }
 
     public void d() {
-        this.f21737e.destroy();
+        this.f21665e.destroy();
         MessageManager.getInstance().unRegisterListener(this.j);
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
-        this.f21741i.setOnClickListener(onClickListener);
+        this.f21669i.setOnClickListener(onClickListener);
     }
 
     public void setData(IconStampData iconStampData) {
         if (iconStampData == null) {
             return;
         }
-        this.f21739g.setText(iconStampData.stampTitle);
-        this.f21740h.setText(iconStampData.stampText);
+        this.f21667g.setText(iconStampData.stampTitle);
+        this.f21668h.setText(iconStampData.stampText);
         int i2 = iconStampData.stampType;
         if (i2 == 1) {
-            this.f21737e.setSourceAssets("post_1_times.mp4");
+            this.f21665e.setSourceAssets("post_1_times.mp4");
         } else if (i2 == 2) {
-            this.f21737e.setSourceAssets("reply_1_times.mp4");
+            this.f21665e.setSourceAssets("reply_1_times.mp4");
         } else if (i2 == 3) {
-            this.f21737e.setSourceAssets("post_7_times.mp4");
+            this.f21665e.setSourceAssets("post_7_times.mp4");
         } else {
-            this.f21737e.setSourceAssets("reply_7_times.mp4");
+            this.f21665e.setSourceAssets("reply_7_times.mp4");
         }
-        this.f21737e.play();
+        this.f21665e.play();
     }
 
     public NewUserRewardDialogView(Context context, @Nullable AttributeSet attributeSet) {

@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.squareup.wire.Wire;
 import d.a.c.j.e.n;
-import d.a.k0.a1.j.a.c.c;
+import d.a.n0.b1.j.a.c.c;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.NewTopicThread.DataRes;

@@ -5,14 +5,14 @@ import com.xiaomi.push.al;
 public final class gp extends al.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Runnable f37756a;
+    public final /* synthetic */ Runnable f37685a;
 
     public gp(Runnable runnable) {
-        this.f37756a = runnable;
+        this.f37685a = runnable;
     }
 
     @Override // com.xiaomi.push.al.b
     public void b() {
-        this.f37756a.run();
+        this.f37685a.run();
     }
 }

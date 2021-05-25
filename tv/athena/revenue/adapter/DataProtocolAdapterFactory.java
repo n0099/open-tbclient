@@ -16,17 +16,17 @@ public enum DataProtocolAdapterFactory {
     public static /* synthetic */ class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final /* synthetic */ int[] f69549a;
+        public static final /* synthetic */ int[] f69592a;
 
         static {
             int[] iArr = new int[ProtocolType.values().length];
-            f69549a = iArr;
+            f69592a = iArr;
             try {
                 iArr[ProtocolType.HTTP.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                f69549a[ProtocolType.SERVICE.ordinal()] = 2;
+                f69592a[ProtocolType.SERVICE.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
         }
@@ -55,7 +55,7 @@ public enum DataProtocolAdapterFactory {
     }
 
     public static d.r.b.a.a.f.c.a valueOf(ProtocolType protocolType) {
-        int i2 = a.f69549a[protocolType.ordinal()];
+        int i2 = a.f69592a[protocolType.ordinal()];
         if (i2 != 1) {
             if (i2 != 2) {
                 return new b();

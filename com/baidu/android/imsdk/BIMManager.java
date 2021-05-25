@@ -64,8 +64,8 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.searchbox.elasticthread.statistic.StatisticRecorder;
-import d.a.s.a.b.a;
-import d.a.s.a.g.b;
+import d.a.t.a.b.a;
+import d.a.t.a.h.c;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -201,7 +201,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
             return false;
         }
         try {
-            b.f64634a = z;
+            c.f64637a = z;
         } catch (Throwable unused) {
             LogUtils.e(BaseManager.TAG, "LCPConstants.LOG_DEBUG not found");
         }
@@ -395,7 +395,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
 
     public static void imLogoutByLcp(Context context) {
         try {
-            d.a.r.a.c(context);
+            d.a.s.a.e(context);
             LoginManager.getInstance(context).onLogoutResultInternal(0, "lcp unconnected");
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "imLogoutByLcp exception ", e2);
@@ -417,11 +417,12 @@ public class BIMManager extends BaseManager implements NoProGuard {
         }
         Context applicationContext = context.getApplicationContext();
         sContext = applicationContext;
-        d.a.r.a.f64518e = a.d(applicationContext);
-        if (d.a.r.a.f64518e) {
+        d.a.s.a.f64463e = a.d(applicationContext);
+        if (d.a.s.a.f64463e) {
             try {
-                b.c(applicationContext, i2 != 0);
-                b.d(applicationContext, i2);
+                initLCP();
+                c.c(applicationContext, i2 != 0);
+                c.d(applicationContext, i2);
             } catch (Throwable unused) {
                 LogUtils.e(BaseManager.TAG, "LCPConstants.setLcpEnv not found");
             }
@@ -442,7 +443,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
                 }
                 try {
                     BIMManager.initIMServiceImpl(context2);
-                    d.a.r.a.f64516c.removeCallbacks(BIMManager.checkIMLoginState);
+                    d.a.s.a.f64461c.removeCallbacks(BIMManager.checkIMLoginState);
                     if (z) {
                         BIMManager.postCheckRunnable();
                     }
@@ -461,6 +462,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ConversationManagerImpl.getInstance(applicationContext);
         Utility.clearExpiredMsg(applicationContext);
         registerInternalListener(RetrieveMsgReceiver.getInstance(applicationContext));
+        d.a.r.a.a.d().e(applicationContext, str, i2, Constants.isDebugMode());
         return true;
     }
 
@@ -468,9 +470,13 @@ public class BIMManager extends BaseManager implements NoProGuard {
         TaskManager.getInstance(context).submitForNetWork(new Runnable() { // from class: com.baidu.android.imsdk.BIMManager.2
             @Override // java.lang.Runnable
             public void run() {
-                d.a.r.a.e(context);
+                d.a.s.a.g(context);
             }
         });
+    }
+
+    public static void initLCP() {
+        d.a.t.a.b.c.f().j(sContext);
     }
 
     public static boolean isIMLogined(Context context) {
@@ -478,7 +484,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static boolean isSupportMsgType(int i2) {
-        return i2 == 0 || i2 == 8 || i2 == 2 || i2 == 1 || i2 == 13 || i2 == 16 || i2 == 18 || i2 == 12 || i2 == 21 || i2 == 9 || i2 == 1002 || i2 == 1001 || i2 == 1003 || i2 == 1004 || i2 == 1005 || i2 == 1007 || i2 == 1008 || i2 == 1009 || i2 == 1010 || i2 == 1011 || i2 == 2010 || i2 == 1012 || i2 == 2001 || i2 == 80 || i2 == 31 || i2 == 32 || i2 == 33 || i2 == 20 || i2 == 22 || i2 == 25 || i2 == 26 || i2 == 24 || i2 == 2012 || i2 == 2014 || i2 == 28 || i2 == 27 || i2 == 29 || i2 == 30;
+        return i2 == 0 || i2 == 8 || i2 == 2 || i2 == 1 || i2 == 13 || i2 == 16 || i2 == 18 || i2 == 12 || i2 == 21 || i2 == 9 || i2 == 1002 || i2 == 1001 || i2 == 1003 || i2 == 1004 || i2 == 1005 || i2 == 1007 || i2 == 1008 || i2 == 1009 || i2 == 1010 || i2 == 1011 || i2 == 2010 || i2 == 1012 || i2 == 2001 || i2 == 80 || i2 == 31 || i2 == 32 || i2 == 33 || i2 == 20 || i2 == 22 || i2 == 25 || i2 == 26 || i2 == 24 || i2 == 2012 || i2 == 2014 || i2 == 28 || i2 == 27 || i2 == 29 || i2 == 30 || i2 == 35 || i2 == 36 || i2 == 38 || i2 == 1013 || i2 == 1014 || i2 == 39 || i2 == 40 || i2 == 41;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x011c  */
@@ -696,7 +702,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     public static void postCheckRunnable() {
         try {
             LogUtils.i("BIMManager", "postCheckRunnable after 30s");
-            d.a.r.a.f64516c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
+            d.a.s.a.f64461c.postDelayed(checkIMLoginState, StatisticRecorder.UPLOAD_DATA_TIME_THRESHOLD);
         } catch (Exception e2) {
             LogUtils.e(BaseManager.TAG, "postCheckRunnable exception ", e2);
         }
@@ -848,7 +854,7 @@ public class BIMManager extends BaseManager implements NoProGuard {
     }
 
     public static void tryConnection(Context context) {
-        if (d.a.r.a.f64518e) {
+        if (d.a.s.a.f64463e) {
             return;
         }
         AccountManagerImpl.getInstance(context);
@@ -936,8 +942,8 @@ public class BIMManager extends BaseManager implements NoProGuard {
         ChatMsgManager.mediaFetchChatMsgs(context, j, i2, j2, str, j3, j4, i3, iMediaFetchChatMsgsListener);
     }
 
-    public static void mediaGetChatSessions(Context context, long j, int i2, long j2, String str, long j3, int i3, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
-        ChatMsgManager.mediaGetChatSessions(context, j, i2, j2, str, j3, i3, iMediaGetChatSessionListener);
+    public static void mediaGetChatSessions(Context context, long j, int i2, long j2, String str, long j3, int i3, int i4, IMediaGetChatSessionListener iMediaGetChatSessionListener) {
+        ChatMsgManager.mediaGetChatSessions(context, j, i2, j2, str, j3, i3, i4, iMediaGetChatSessionListener);
     }
 
     public static void mediaGetContactorPauid(Context context, long j, int i2, long j2, String str, IMediaGetContactorPauidListener iMediaGetContactorPauidListener) {

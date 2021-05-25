@@ -25,11 +25,11 @@ import com.baidu.tbadk.coreExtra.message.ShareSDKResultMessage;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilityNotificationAuto;
 import com.baidu.tieba.forumMember.tbtitle.TbTitleActivityConfig;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
-import d.a.j0.r.a0.b;
-import d.a.j0.t.n;
-import d.a.k0.d3.h0.e;
-import d.a.k0.d3.w;
-import d.a.k0.t2.a;
+import d.a.m0.r.a0.b;
+import d.a.m0.t.n;
+import d.a.n0.e3.h0.e;
+import d.a.n0.e3.w;
+import d.a.n0.u2.a;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
@@ -213,7 +213,7 @@ public class NativeListeners {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             AgreeData agreeData;
-            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f53784b) == null) {
+            if (customResponsedMessage == null || !(customResponsedMessage.getData() instanceof e) || (agreeData = ((e) customResponsedMessage.getData()).f53997b) == null) {
                 return;
             }
             HashMap hashMap = new HashMap();
@@ -350,7 +350,7 @@ public class NativeListeners {
             if (customResponsedMessage == null) {
                 return;
             }
-            b.f49593c = b.f49594d;
+            b.f49637c = b.f49638d;
             NativeListeners.this.notifyFlutter("AnimateToBarEntryForumSquare", null, null);
         }
     };
@@ -368,7 +368,7 @@ public class NativeListeners {
     };
 
     private void dealBeforeAttachNotification(String str) {
-        if ("AnimateToBarEntryForumSquare".equals(str) && b.f49593c == b.f49595e) {
+        if ("AnimateToBarEntryForumSquare".equals(str) && b.f49637c == b.f49639e) {
             d.a.c.e.m.e.a().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.plugin.tiebaUtility.android.NativeListeners.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -697,9 +697,9 @@ public class NativeListeners {
             wVar.s(str2);
             wVar.v(1);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001266, wVar));
-            d.a.k0.d3.q0.e eVar = new d.a.k0.d3.q0.e();
-            eVar.f54010a = d.a.c.e.m.b.f(str2, 0L);
-            eVar.f54011b = true;
+            d.a.n0.e3.q0.e eVar = new d.a.n0.e3.q0.e();
+            eVar.f54223a = d.a.c.e.m.b.f(str2, 0L);
+            eVar.f54224b = true;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001437, eVar));
             return null;
         } else if (c2 == 1) {

@@ -199,7 +199,7 @@ public class PushManager implements b {
     }
 
     public static String getSDKVersion() {
-        return a.f31582f;
+        return a.f31511f;
     }
 
     public static boolean isSupportPush(Context context) {

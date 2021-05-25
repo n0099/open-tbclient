@@ -10,22 +10,22 @@ import java.nio.channels.FileLock;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile a f38099a;
+    public static volatile a f38028a;
 
     /* renamed from: a  reason: collision with other field name */
     public Context f864a;
 
     /* renamed from: e  reason: collision with root package name */
-    public volatile String f38103e;
+    public volatile String f38032e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile String f38104f;
+    public volatile String f38033f;
 
     /* renamed from: a  reason: collision with other field name */
     public final Object f865a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    public final Object f38100b = new Object();
+    public final Object f38029b = new Object();
 
     /* renamed from: a  reason: collision with other field name */
     public final String f866a = "mipush_region";
@@ -34,24 +34,24 @@ public class a {
     public final String f867b = "mipush_country_code";
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f38101c = "mipush_region.lock";
+    public final String f38030c = "mipush_region.lock";
 
     /* renamed from: d  reason: collision with root package name */
-    public final String f38102d = "mipush_country_code.lock";
+    public final String f38031d = "mipush_country_code.lock";
 
     public a(Context context) {
         this.f864a = context;
     }
 
     public static a a(Context context) {
-        if (f38099a == null) {
+        if (f38028a == null) {
             synchronized (a.class) {
-                if (f38099a == null) {
-                    f38099a = new a(context);
+                if (f38028a == null) {
+                    f38028a = new a(context);
                 }
             }
         }
-        return f38099a;
+        return f38028a;
     }
 
     private String a(Context context, String str, String str2, Object obj) {
@@ -194,32 +194,32 @@ public class a {
     }
 
     public String a() {
-        if (TextUtils.isEmpty(this.f38103e)) {
-            this.f38103e = a(this.f864a, "mipush_region", "mipush_region.lock", this.f865a);
+        if (TextUtils.isEmpty(this.f38032e)) {
+            this.f38032e = a(this.f864a, "mipush_region", "mipush_region.lock", this.f865a);
         }
-        return this.f38103e;
+        return this.f38032e;
     }
 
     public void a(String str) {
-        if (TextUtils.equals(str, this.f38103e)) {
+        if (TextUtils.equals(str, this.f38032e)) {
             return;
         }
-        this.f38103e = str;
-        a(this.f864a, this.f38103e, "mipush_region", "mipush_region.lock", this.f865a);
+        this.f38032e = str;
+        a(this.f864a, this.f38032e, "mipush_region", "mipush_region.lock", this.f865a);
     }
 
     public String b() {
-        if (TextUtils.isEmpty(this.f38104f)) {
-            this.f38104f = a(this.f864a, "mipush_country_code", "mipush_country_code.lock", this.f38100b);
+        if (TextUtils.isEmpty(this.f38033f)) {
+            this.f38033f = a(this.f864a, "mipush_country_code", "mipush_country_code.lock", this.f38029b);
         }
-        return this.f38104f;
+        return this.f38033f;
     }
 
     public void b(String str) {
-        if (TextUtils.equals(str, this.f38104f)) {
+        if (TextUtils.equals(str, this.f38033f)) {
             return;
         }
-        this.f38104f = str;
-        a(this.f864a, this.f38104f, "mipush_country_code", "mipush_country_code.lock", this.f38100b);
+        this.f38033f = str;
+        a(this.f864a, this.f38033f, "mipush_country_code", "mipush_country_code.lock", this.f38029b);
     }
 }

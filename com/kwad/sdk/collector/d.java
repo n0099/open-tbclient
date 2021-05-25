@@ -20,7 +20,7 @@ import java.util.Set;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, String> f31962a = new HashMap();
+    public static Map<String, String> f31891a = new HashMap();
 
     @NonNull
     public static List<AppRunningInfo> a(Context context, AppStatusRules.Strategy strategy, Map<String, InstalledAppInfoManager.AppPackageInfo> map) {

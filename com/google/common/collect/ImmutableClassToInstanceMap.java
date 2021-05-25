@@ -14,14 +14,14 @@ public final class ImmutableClassToInstanceMap<B> extends u<Class<? extends B>, 
     public static final class b<B> {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ImmutableMap.b<Class<? extends B>, B> f31082a = ImmutableMap.builder();
+        public final ImmutableMap.b<Class<? extends B>, B> f31011a = ImmutableMap.builder();
 
         public static <B, T extends B> T b(Class<T> cls, B b2) {
             return (T) d.g.c.g.a.d(cls).cast(b2);
         }
 
         public ImmutableClassToInstanceMap<B> a() {
-            ImmutableMap<Class<? extends B>, B> a2 = this.f31082a.a();
+            ImmutableMap<Class<? extends B>, B> a2 = this.f31011a.a();
             if (a2.isEmpty()) {
                 return ImmutableClassToInstanceMap.of();
             }
@@ -33,7 +33,7 @@ public final class ImmutableClassToInstanceMap<B> extends u<Class<? extends B>, 
         public <T extends B> b<B> c(Map<? extends Class<? extends T>, ? extends T> map) {
             for (Map.Entry<? extends Class<? extends T>, ? extends T> entry : map.entrySet()) {
                 Class<? extends T> key = entry.getKey();
-                this.f31082a.c(key, b(key, entry.getValue()));
+                this.f31011a.c(key, b(key, entry.getValue()));
             }
             return this;
         }

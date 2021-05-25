@@ -8,12 +8,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class LazyHeaders implements Headers {
     public volatile Map<String, String> combinedHeaders;
     public final Map<String, List<LazyHeaderFactory>> headers;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Builder {
         public static final Map<String, List<LazyHeaderFactory>> DEFAULT_HEADERS;
         public static final String DEFAULT_USER_AGENT = getSanitizedUserAgent();
@@ -112,7 +112,7 @@ public final class LazyHeaders implements Headers {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class StringHeaderFactory implements LazyHeaderFactory {
         public final String value;
 

@@ -2,8 +2,8 @@ package com.baidu.tbadk.mvc.model;
 
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.NetModel;
-import d.a.j0.g0.b.g;
-import d.a.j0.g0.b.h;
+import d.a.m0.g0.b.g;
+import d.a.m0.g0.b.h;
 /* loaded from: classes3.dex */
 public abstract class NetAutoModel<T extends g, D extends h, ActivityType> extends NetModel<T, D, ActivityType> {
     public NetAutoModel(TbPageContext<ActivityType> tbPageContext, T t) {

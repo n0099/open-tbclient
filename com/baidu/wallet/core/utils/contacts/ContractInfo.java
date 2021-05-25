@@ -3,18 +3,18 @@ package com.baidu.wallet.core.utils.contacts;
 public class ContractInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f24016a;
+    public String f23945a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f24017b;
+    public String f23946b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f24018c;
+    public int f23947c;
 
     public ContractInfo() {
-        this.f24016a = "";
-        this.f24017b = "";
-        this.f24018c = -1;
+        this.f23945a = "";
+        this.f23946b = "";
+        this.f23947c = -1;
     }
 
     public boolean equals(Object obj) {
@@ -23,20 +23,20 @@ public class ContractInfo {
         }
         if (obj != null && ContractInfo.class == obj.getClass()) {
             ContractInfo contractInfo = (ContractInfo) obj;
-            String str = this.f24017b;
+            String str = this.f23946b;
             if (str == null) {
-                if (contractInfo.f24017b != null) {
+                if (contractInfo.f23946b != null) {
                     return false;
                 }
-            } else if (!str.equals(contractInfo.f24017b)) {
+            } else if (!str.equals(contractInfo.f23946b)) {
                 return false;
             }
-            String str2 = this.f24016a;
+            String str2 = this.f23945a;
             if (str2 == null) {
-                if (contractInfo.f24016a != null) {
+                if (contractInfo.f23945a != null) {
                     return false;
                 }
-            } else if (!str2.equals(contractInfo.f24016a)) {
+            } else if (!str2.equals(contractInfo.f23945a)) {
                 return false;
             }
             return true;
@@ -45,53 +45,53 @@ public class ContractInfo {
     }
 
     public int getErrordigit() {
-        return this.f24018c;
+        return this.f23947c;
     }
 
     public String getMobile() {
-        return this.f24017b;
+        return this.f23946b;
     }
 
     public String getName() {
-        return this.f24016a;
+        return this.f23945a;
     }
 
     public int hashCode() {
-        String str = this.f24017b;
+        String str = this.f23946b;
         int hashCode = ((str == null ? 0 : str.hashCode()) + 31) * 31;
-        String str2 = this.f24016a;
+        String str2 = this.f23945a;
         return hashCode + (str2 != null ? str2.hashCode() : 0);
     }
 
     public void setErrordigit(int i2) {
-        this.f24018c = i2;
+        this.f23947c = i2;
     }
 
     public void setMobile(String str) {
-        this.f24017b = str;
+        this.f23946b = str;
     }
 
     public void setName(String str) {
-        this.f24016a = str;
+        this.f23945a = str;
     }
 
     public String toString() {
-        return "通讯录 [name=" + this.f24016a + ", mobile=" + this.f24017b + "]";
+        return "通讯录 [name=" + this.f23945a + ", mobile=" + this.f23946b + "]";
     }
 
     public ContractInfo(String str) {
-        this.f24016a = "";
-        this.f24017b = "";
-        this.f24018c = -1;
-        this.f24017b = str;
-        this.f24016a = "";
+        this.f23945a = "";
+        this.f23946b = "";
+        this.f23947c = -1;
+        this.f23946b = str;
+        this.f23945a = "";
     }
 
     public ContractInfo(String str, String str2) {
-        this.f24016a = "";
-        this.f24017b = "";
-        this.f24018c = -1;
-        this.f24017b = str;
-        this.f24016a = str2;
+        this.f23945a = "";
+        this.f23946b = "";
+        this.f23947c = -1;
+        this.f23946b = str;
+        this.f23945a = str2;
     }
 }

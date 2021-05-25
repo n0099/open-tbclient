@@ -3,5 +3,5 @@ package d.q.a.a.a.b.h;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f67541a = new a();
+    public static a f67584a = new a();
 }

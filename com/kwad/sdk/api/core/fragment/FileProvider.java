@@ -177,7 +177,7 @@ public class FileProvider extends ContentProvider {
     }
 
     public static int modeToMode(String str) {
-        if (r.f7772a.equals(str)) {
+        if (r.f7672a.equals(str)) {
             return Label.FORWARD_REFERENCE_TYPE_SHORT;
         }
         if ("w".equals(str) || "wt".equals(str)) {

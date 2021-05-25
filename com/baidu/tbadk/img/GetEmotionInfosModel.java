@@ -10,17 +10,17 @@ import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import d.a.j0.b0.c;
+import d.a.m0.b0.c;
 import java.util.List;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class GetEmotionInfosModel extends BdBaseModel {
 
     /* renamed from: e  reason: collision with root package name */
-    public b f12941e;
+    public b f12849e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final HttpMessageListener f12942f = new a(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
+    public final HttpMessageListener f12850f = new a(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
 
     /* loaded from: classes3.dex */
     public class a extends HttpMessageListener {
@@ -31,16 +31,16 @@ public class GetEmotionInfosModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003353 || !(httpResponsedMessage instanceof GetEmotionInfosResponseMessage) || GetEmotionInfosModel.this.f12941e == null) {
+            if (httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003353 || !(httpResponsedMessage instanceof GetEmotionInfosResponseMessage) || GetEmotionInfosModel.this.f12849e == null) {
                 return;
             }
             GetEmotionInfosResponseMessage getEmotionInfosResponseMessage = (GetEmotionInfosResponseMessage) httpResponsedMessage;
             if (getEmotionInfosResponseMessage.getEmotionList() != null) {
-                GetEmotionInfosModel.this.f12941e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
+                GetEmotionInfosModel.this.f12849e.onSuccess(getEmotionInfosResponseMessage.getEmotionList());
             } else {
-                GetEmotionInfosModel.this.f12941e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
+                GetEmotionInfosModel.this.f12849e.onFail(getEmotionInfosResponseMessage.getError(), getEmotionInfosResponseMessage.getErrorString());
             }
-            GetEmotionInfosModel.this.f12941e = null;
+            GetEmotionInfosModel.this.f12849e = null;
         }
     }
 
@@ -54,9 +54,9 @@ public class GetEmotionInfosModel extends BdBaseModel {
     public GetEmotionInfosModel() {
         setUniqueId(BdUniqueId.gen());
         registerTask();
-        this.f12942f.setTag(getUniqueId());
-        this.f12942f.setSelfListener(true);
-        registerListener(this.f12942f);
+        this.f12850f.setTag(getUniqueId());
+        this.f12850f.setSelfListener(true);
+        registerListener(this.f12850f);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -66,7 +66,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        MessageManager.getInstance().unRegisterListener(this.f12942f);
+        MessageManager.getInstance().unRegisterListener(this.f12850f);
         MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
         return true;
     }
@@ -78,7 +78,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
     }
 
     public void u(List<String> list, b bVar) {
-        this.f12941e = bVar;
+        this.f12849e = bVar;
         if (list == null || list.isEmpty()) {
             if (bVar != null) {
                 bVar.onFail(0, "list is empty");
@@ -94,7 +94,7 @@ public class GetEmotionInfosModel extends BdBaseModel {
             }
         }
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_EMOTION_INFOS);
-        httpMessage.addParam("pic_urls", d.a.j0.l.c.o(jSONArray.toString()));
+        httpMessage.addParam("pic_urls", d.a.m0.l.c.o(jSONArray.toString()));
         sendMessage(httpMessage);
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba.memberCenter.memberExchange;
 
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import d.a.k0.r1.d.b;
+import d.a.n0.s1.d.b;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class GetTCodeResMessage extends JsonHttpResponsedMessage {

@@ -4,24 +4,24 @@ import android.content.SharedPreferences;
 import android.text.TextUtils;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class v0 {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final AtomicBoolean f65072a = new AtomicBoolean(false);
+    public static final AtomicBoolean f65115a = new AtomicBoolean(false);
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f65073b = "";
+    public static String f65116b = "";
 
     public static String a(SharedPreferences sharedPreferences) {
-        if (f65072a.compareAndSet(false, true)) {
+        if (f65115a.compareAndSet(false, true)) {
             String string = sharedPreferences.getString("cdid", "");
-            f65073b = string;
+            f65116b = string;
             if (TextUtils.isEmpty(string)) {
-                f65073b = UUID.randomUUID().toString();
-                sharedPreferences.edit().putString("cdid", f65073b).apply();
+                f65116b = UUID.randomUUID().toString();
+                sharedPreferences.edit().putString("cdid", f65116b).apply();
             }
         }
-        return f65073b;
+        return f65116b;
     }
 }

@@ -5,7 +5,7 @@ import android.os.Bundle;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
-import d.a.k0.t.j.c.a;
+import d.a.n0.v.j.c.a;
 /* loaded from: classes4.dex */
 public class AlaPersonCenterActivity extends BaseActivity<AlaPersonCenterActivity> {
     public TbPageContext mContext;

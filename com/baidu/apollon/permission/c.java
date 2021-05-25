@@ -10,13 +10,13 @@ import java.lang.annotation.RetentionPolicy;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3790a = 0;
+    public static final int f3793a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3791b = -1;
+    public static final int f3794b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3792c = -2;
+    public static final int f3795c = -2;
 
     @Retention(RetentionPolicy.SOURCE)
     /* loaded from: classes.dex */

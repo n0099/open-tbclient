@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import com.baidu.sapi2.utils.SapiUtils;
-import d.a.y.a.b;
+import d.a.a0.a.b;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
 import java.util.TimerTask;

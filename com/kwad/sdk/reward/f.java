@@ -13,20 +13,20 @@ public class f {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f33847a;
+        public boolean f33776a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f33848b;
+        public String f33777b;
 
         public a(String str) {
             JSONObject jSONObject;
-            this.f33848b = "-";
+            this.f33777b = "-";
             try {
                 jSONObject = new JSONObject(str);
             } catch (Throwable th) {
                 th.printStackTrace();
-                this.f33847a = false;
-                this.f33848b = "数据解析失败";
+                this.f33776a = false;
+                this.f33777b = "数据解析失败";
                 jSONObject = null;
             }
             a(jSONObject);
@@ -34,13 +34,13 @@ public class f {
 
         public void a(@Nullable JSONObject jSONObject) {
             if (jSONObject != null) {
-                this.f33847a = jSONObject.optBoolean("isValid");
-                this.f33848b = jSONObject.toString();
+                this.f33776a = jSONObject.optBoolean("isValid");
+                this.f33777b = jSONObject.toString();
             }
         }
 
         public boolean a() {
-            return this.f33847a;
+            return this.f33776a;
         }
     }
 
@@ -66,15 +66,15 @@ public class f {
                     com.kwad.sdk.core.network.c doGet = KsAdSDKImpl.get().getProxyForHttp().doGet(ab, null);
                     if (doGet == null) {
                         str = "Network Error: url invalid";
-                    } else if (doGet.f32463a == 200) {
-                        a aVar = new a(doGet.f32464b);
+                    } else if (doGet.f32392a == 200) {
+                        a aVar = new a(doGet.f32393b);
                         if (aVar.a()) {
                             a();
                             return;
                         }
-                        str = aVar.f33848b;
+                        str = aVar.f33777b;
                     } else {
-                        str = "Network Error: " + doGet.f32464b;
+                        str = "Network Error: " + doGet.f32393b;
                     }
                     a(str);
                 } catch (Throwable th) {

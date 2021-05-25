@@ -8,6 +8,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.chatmessage.db.ChatMessageDBManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsgFactory;
+import com.baidu.android.imsdk.chatmessage.messages.FansGroupAtMsg;
 import com.baidu.android.imsdk.db.DBGroupTableManager;
 import com.baidu.android.imsdk.db.DBOperation;
 import com.baidu.android.imsdk.db.DBOperationFactory;
@@ -128,7 +129,7 @@ public class GroupMessageDAOImpl {
                     Iterator<ChatMsg> it = arrayList.iterator();
                     while (it.hasNext()) {
                         ChatMsg next = it.next();
-                        if (next.getMsgType() != 1012 && (constructionGroupMessageContentValues = constructionGroupMessageContentValues(next)) != null) {
+                        if (next.getMsgType() != 1012 && next.getMsgType() != 1014 && (constructionGroupMessageContentValues = constructionGroupMessageContentValues(next)) != null) {
                             arrayList3.add(constructionGroupMessageContentValues);
                         }
                     }
@@ -397,8 +398,32 @@ public class GroupMessageDAOImpl {
         return null;
     }
 
+    public static ArrayList<ChatMsg> getFansGroupAtUnread(Context context, String str, String str2) {
+        DBOperation newDb;
+        if (context == null || TextUtils.isEmpty(str) || (newDb = DBOperationFactory.getNewDb(context)) == null || ((DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY)) == null) {
+            return null;
+        }
+        sGroupChatMsgParse.setContext(context);
+        ArrayList<ChatMsg> query = newDb.query(sGroupChatMsgParse, DBTableDefine.getGroupMessageTableName(str) + " where type = 40 AND is_read = 0", null, null, null, null, null, "time ASC , _id ASC", null);
+        if (query != null && query.size() != 0) {
+            FansGroupAtMsg fansGroupAtMsg = new FansGroupAtMsg();
+            Iterator<ChatMsg> it = query.iterator();
+            while (it.hasNext()) {
+                fansGroupAtMsg.setMsgContent(it.next().getJsonContent());
+                if (!fansGroupAtMsg.isGroupAtUserById(str2)) {
+                    it.remove();
+                }
+                LogUtils.d(TAG, "msg: " + fansGroupAtMsg.toString());
+            }
+            LogUtils.d(TAG, "fansGroupAtUnread groupId: " + str + ", userId: " + str2 + ", size: " + query.size());
+            return query;
+        }
+        LogUtils.d(TAG, "fansGroupAtUnread has no data, groupId: " + str + ", userId: " + str2);
+        return null;
+    }
+
     public static long[] getGroupSystemMessageType() {
-        return new long[]{101, 1006, 1001, 1002, 1004, 1003, 1005, 1007, 1008, 1009, 1010, 1011, 2001, 2010};
+        return new long[]{101, 1006, 1001, 1002, 1004, 1003, 1005, 1007, 1008, 1009, 1010, 1011, 2001, 2010, 1013, 1014};
     }
 
     public static long getMaxMsgid(Context context, String str) {
@@ -407,7 +432,7 @@ public class GroupMessageDAOImpl {
         if (newDb != null) {
             DBGroupTableManager dBGroupTableManager = (DBGroupTableManager) newDb.getTag(DBGroupTableManager.KEY);
             if (dBGroupTableManager != null && !dBGroupTableManager.isExistGroupTable(context, str)) {
-                return -1L;
+                return 0L;
             }
             arrayList = newDb.query(new IResultParse<Long>() { // from class: com.baidu.android.imsdk.group.db.GroupMessageDAOImpl.2
                 /* JADX DEBUG: Method merged with bridge method */

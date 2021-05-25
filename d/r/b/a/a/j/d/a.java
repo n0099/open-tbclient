@@ -7,35 +7,35 @@ import com.yy.mobile.framework.revenuesdk.baseapi.RetryPolicy;
 public abstract class a implements RetryPolicy {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f67878a;
+    public Handler f67921a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67879b;
+    public int f67922b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final int f67880c;
+    public final int f67923c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile int f67881d = 0;
+    public volatile int f67924d = 0;
 
     /* renamed from: e  reason: collision with root package name */
-    public final int f67882e;
+    public final int f67925e;
 
     /* renamed from: f  reason: collision with root package name */
-    public final int f67883f;
+    public final int f67926f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67884g;
+    public int f67927g;
 
     /* renamed from: d.r.b.a.a.j.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public class RunnableC1903a implements Runnable {
-        public RunnableC1903a() {
+    public class RunnableC1907a implements Runnable {
+        public RunnableC1907a() {
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry currentRetryCount=" + a.this.f67879b);
+            d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry currentRetryCount=" + a.this.f67922b);
             a.this.j();
         }
     }
@@ -47,7 +47,7 @@ public abstract class a implements RetryPolicy {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry currentRetryCount=" + a.this.f67879b);
+            d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry currentRetryCount=" + a.this.f67922b);
             a.this.j();
         }
     }
@@ -59,7 +59,7 @@ public abstract class a implements RetryPolicy {
 
         @Override // java.lang.Runnable
         public void run() {
-            d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry currentRetryCount=" + a.this.f67879b);
+            d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry currentRetryCount=" + a.this.f67922b);
             a.this.j();
         }
     }
@@ -76,49 +76,49 @@ public abstract class a implements RetryPolicy {
     }
 
     public a(Handler handler, int i2, int i3, int i4, int i5) {
-        this.f67878a = handler;
-        this.f67884g = i2;
-        this.f67880c = i3;
-        this.f67882e = i4;
-        this.f67883f = i5;
+        this.f67921a = handler;
+        this.f67927g = i2;
+        this.f67923c = i3;
+        this.f67925e = i4;
+        this.f67926f = i5;
     }
 
     public void g() {
-        this.f67879b = 1;
-        this.f67881d = 0;
-        this.f67878a.post(new d());
+        this.f67922b = 1;
+        this.f67924d = 0;
+        this.f67921a.post(new d());
     }
 
     public void h() {
-        this.f67881d = 1;
+        this.f67924d = 1;
         d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", AuthoritySharedPreferences.KEY_CONFIG_PRIVILEGE_DONE);
     }
 
     public final boolean i() {
-        return this.f67879b < this.f67880c;
+        return this.f67922b < this.f67923c;
     }
 
     public abstract void j();
 
     public void k() {
-        d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry mTimeoutMs=" + this.f67884g + ", mMaxNumRetries=" + this.f67880c + ",mIntervalMs=" + this.f67882e);
-        if (this.f67881d != 0) {
+        d.r.b.a.a.f.d.d.f("DefaultRetryPolicy", "retry mTimeoutMs=" + this.f67927g + ", mMaxNumRetries=" + this.f67923c + ",mIntervalMs=" + this.f67925e);
+        if (this.f67924d != 0) {
             return;
         }
         if (i()) {
-            if (this.f67883f == 1) {
-                int i2 = this.f67879b + 1;
-                this.f67879b = i2;
-                if (i2 <= this.f67880c / 2) {
-                    this.f67878a.postDelayed(new RunnableC1903a(), this.f67882e);
+            if (this.f67926f == 1) {
+                int i2 = this.f67922b + 1;
+                this.f67922b = i2;
+                if (i2 <= this.f67923c / 2) {
+                    this.f67921a.postDelayed(new RunnableC1907a(), this.f67925e);
                     return;
                 } else {
-                    this.f67878a.postDelayed(new b(), 60000L);
+                    this.f67921a.postDelayed(new b(), 60000L);
                     return;
                 }
             }
-            this.f67879b++;
-            this.f67878a.postDelayed(new c(), this.f67882e);
+            this.f67922b++;
+            this.f67921a.postDelayed(new c(), this.f67925e);
             return;
         }
         d();

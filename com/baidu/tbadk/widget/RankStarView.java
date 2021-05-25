@@ -17,19 +17,19 @@ import d.a.c.e.p.l;
 public class RankStarView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f13089e;
+    public int f12997e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f13090f;
+    public float f12998f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13091g;
+    public int f12999g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f13092h;
+    public int f13000h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f13093i;
+    public int f13001i;
     public int j;
     public int k;
     public int l;
@@ -49,7 +49,7 @@ public class RankStarView extends View {
 
     public RankStarView(Context context) {
         super(context);
-        this.f13089e = 5;
+        this.f12997e = 5;
         this.j = R.drawable.icon_pure_evaluation_star24_n;
         this.k = R.color.CAM_X0112;
         this.l = R.drawable.icon_pure_evaluation_star24_n;
@@ -66,41 +66,41 @@ public class RankStarView extends View {
         int paddingLeft = getPaddingLeft();
         int i2 = 0;
         while (true) {
-            f2 = this.f13090f;
+            f2 = this.f12998f;
             if (i2 >= f2) {
                 break;
             }
             Drawable drawable = this.o;
             int paddingTop = getPaddingTop();
-            int i3 = this.f13092h;
+            int i3 = this.f13000h;
             drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i3, i3 + getPaddingTop());
             this.o.draw(canvas);
-            paddingLeft += this.f13091g + this.f13092h;
+            paddingLeft += this.f12999g + this.f13000h;
             i2++;
         }
         if (f2 - ((int) f2) <= 0.0f) {
-            for (int i4 = (int) f2; i4 < this.f13089e; i4++) {
+            for (int i4 = (int) f2; i4 < this.f12997e; i4++) {
                 Drawable drawable2 = this.n;
                 int paddingTop2 = getPaddingTop();
-                int i5 = this.f13092h;
+                int i5 = this.f13000h;
                 drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i5, i5 + getPaddingTop());
                 this.n.draw(canvas);
-                paddingLeft += this.f13091g + this.f13092h;
+                paddingLeft += this.f12999g + this.f13000h;
             }
             return;
         }
         int i6 = (int) f2;
         while (true) {
             i6++;
-            if (i6 >= this.f13089e) {
+            if (i6 >= this.f12997e) {
                 return;
             }
             Drawable drawable3 = this.n;
             int paddingTop3 = getPaddingTop();
-            int i7 = this.f13092h;
+            int i7 = this.f13000h;
             drawable3.setBounds(paddingLeft, paddingTop3, paddingLeft + i7, i7 + getPaddingTop());
             this.n.draw(canvas);
-            paddingLeft += this.f13091g + this.f13092h;
+            paddingLeft += this.f12999g + this.f13000h;
         }
     }
 
@@ -111,83 +111,83 @@ public class RankStarView extends View {
         int paddingLeft = getPaddingLeft();
         int i4 = 0;
         while (true) {
-            f2 = this.f13090f;
+            f2 = this.f12998f;
             if (i4 >= ((int) f2)) {
                 break;
             }
             Drawable drawable = this.o;
             int paddingTop = getPaddingTop();
-            int i5 = this.f13092h;
+            int i5 = this.f13000h;
             drawable.setBounds(paddingLeft, paddingTop, paddingLeft + i5, i5 + getPaddingTop());
             this.o.draw(canvas);
-            paddingLeft += this.f13091g + this.f13092h;
+            paddingLeft += this.f12999g + this.f13000h;
             i4++;
         }
         if (f2 - ((int) f2) >= 0.5d) {
             Drawable drawable2 = this.o;
             int paddingTop2 = getPaddingTop();
-            int i6 = this.f13092h;
+            int i6 = this.f13000h;
             drawable2.setBounds(paddingLeft, paddingTop2, paddingLeft + i6, i6 + getPaddingTop());
             this.o.draw(canvas);
-            i2 = this.f13091g;
-            i3 = this.f13092h;
+            i2 = this.f12999g;
+            i3 = this.f13000h;
         } else if (f2 - ((int) f2) > 0.0f) {
             Drawable drawable3 = this.o;
             int paddingTop3 = getPaddingTop();
-            int i7 = this.f13092h;
+            int i7 = this.f13000h;
             drawable3.setBounds(paddingLeft, paddingTop3, paddingLeft + i7, i7 + getPaddingTop());
             canvas.save();
             Rect rect = this.p;
             int paddingTop4 = getPaddingTop();
-            int i8 = this.f13092h;
+            int i8 = this.f13000h;
             rect.set(paddingLeft, paddingTop4, (i8 / 2) + paddingLeft, i8 + getPaddingTop());
             canvas.clipRect(this.p);
             this.o.draw(canvas);
             canvas.restore();
             Drawable drawable4 = this.n;
             int paddingTop5 = getPaddingTop();
-            int i9 = this.f13092h;
+            int i9 = this.f13000h;
             drawable4.setBounds(paddingLeft, paddingTop5, paddingLeft + i9, i9 + getPaddingTop());
             canvas.save();
             int paddingTop6 = getPaddingTop();
-            int i10 = this.f13092h;
-            this.q.set((this.f13092h / 2) + paddingLeft, paddingTop6, paddingLeft + i10, i10 + getPaddingTop());
+            int i10 = this.f13000h;
+            this.q.set((this.f13000h / 2) + paddingLeft, paddingTop6, paddingLeft + i10, i10 + getPaddingTop());
             canvas.clipRect(this.q);
             this.n.draw(canvas);
             canvas.restore();
-            i2 = this.f13091g;
-            i3 = this.f13092h;
+            i2 = this.f12999g;
+            i3 = this.f13000h;
         } else {
             Drawable drawable5 = this.n;
             int paddingTop7 = getPaddingTop();
-            int i11 = this.f13092h;
+            int i11 = this.f13000h;
             drawable5.setBounds(paddingLeft, paddingTop7, paddingLeft + i11, i11 + getPaddingTop());
             this.n.draw(canvas);
-            i2 = this.f13091g;
-            i3 = this.f13092h;
+            i2 = this.f12999g;
+            i3 = this.f13000h;
         }
         int i12 = paddingLeft + i2 + i3;
-        int i13 = (int) this.f13090f;
+        int i13 = (int) this.f12998f;
         while (true) {
             i13++;
-            if (i13 >= this.f13089e) {
+            if (i13 >= this.f12997e) {
                 return;
             }
             Drawable drawable6 = this.n;
             int paddingTop8 = getPaddingTop();
-            int i14 = this.f13092h;
+            int i14 = this.f13000h;
             drawable6.setBounds(i12, paddingTop8, i12 + i14, i14 + getPaddingTop());
             this.n.draw(canvas);
-            i12 += this.f13091g + this.f13092h;
+            i12 += this.f12999g + this.f13000h;
         }
     }
 
     public boolean c() {
-        return this.f13090f != 0.0f;
+        return this.f12998f != 0.0f;
     }
 
     public final void d(Context context) {
-        this.f13092h = l.g(context, R.dimen.tbds63);
+        this.f13000h = l.g(context, R.dimen.tbds63);
         this.p = new Rect(0, 0, 0, 0);
         this.q = new Rect(0, 0, 0, 0);
         f();
@@ -206,7 +206,7 @@ public class RankStarView extends View {
     }
 
     public int getStarCount() {
-        float f2 = this.f13090f;
+        float f2 = this.f12998f;
         if (f2 == 0.0f) {
             return 0;
         }
@@ -233,18 +233,18 @@ public class RankStarView extends View {
         int size = View.MeasureSpec.getSize(i2);
         int size2 = View.MeasureSpec.getSize(i3);
         if (mode2 == 1073741824) {
-            this.f13092h = (size2 - getPaddingBottom()) - getPaddingTop();
+            this.f13000h = (size2 - getPaddingBottom()) - getPaddingTop();
         } else {
-            size2 = this.f13092h + getPaddingBottom() + getPaddingTop();
+            size2 = this.f13000h + getPaddingBottom() + getPaddingTop();
         }
-        int i4 = this.f13092h;
-        int i5 = this.f13089e;
-        int i6 = (i4 * i5) + (this.f13091g * (i5 - 1));
-        this.f13093i = i6;
+        int i4 = this.f13000h;
+        int i5 = this.f12997e;
+        int i6 = (i4 * i5) + (this.f12999g * (i5 - 1));
+        this.f13001i = i6;
         if (mode != 1073741824) {
             size = getPaddingRight() + i6 + getPaddingLeft();
         } else if (size < i6) {
-            this.f13093i = (size - getPaddingLeft()) - getPaddingRight();
+            this.f13001i = (size - getPaddingLeft()) - getPaddingRight();
         }
         setMeasuredDimension(size, size2);
     }
@@ -254,10 +254,10 @@ public class RankStarView extends View {
         boolean onTouchEvent = super.onTouchEvent(motionEvent);
         if (motionEvent != null && onTouchEvent) {
             int x = (int) motionEvent.getX();
-            if (x < getPaddingLeft() - 10 || x > this.f13093i + getPaddingLeft() + 10) {
+            if (x < getPaddingLeft() - 10 || x > this.f13001i + getPaddingLeft() + 10) {
                 return true;
             }
-            setStarCount((((x - getPaddingLeft()) * 1.0f) / this.f13093i) * this.f13089e);
+            setStarCount((((x - getPaddingLeft()) * 1.0f) / this.f13001i) * this.f12997e);
         }
         return onTouchEvent;
     }
@@ -274,12 +274,12 @@ public class RankStarView extends View {
         if (f2 < 0.0f) {
             f2 = 0.0f;
         }
-        int i2 = this.f13089e;
+        int i2 = this.f12997e;
         if (f2 > i2) {
             f2 = i2;
         }
-        if (this.f13090f != f2) {
-            this.f13090f = f2;
+        if (this.f12998f != f2) {
+            this.f12998f = f2;
             invalidate();
         }
         a aVar = this.t;
@@ -297,12 +297,12 @@ public class RankStarView extends View {
     }
 
     public void setStarSpacing(int i2) {
-        this.f13091g = i2;
+        this.f12999g = i2;
     }
 
     public RankStarView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13089e = 5;
+        this.f12997e = 5;
         this.j = R.drawable.icon_pure_evaluation_star24_n;
         this.k = R.color.CAM_X0112;
         this.l = R.drawable.icon_pure_evaluation_star24_n;
@@ -313,7 +313,7 @@ public class RankStarView extends View {
 
     public RankStarView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13089e = 5;
+        this.f12997e = 5;
         this.j = R.drawable.icon_pure_evaluation_star24_n;
         this.k = R.color.CAM_X0112;
         this.l = R.drawable.icon_pure_evaluation_star24_n;

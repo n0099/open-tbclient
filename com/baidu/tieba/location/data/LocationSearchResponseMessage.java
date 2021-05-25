@@ -3,7 +3,7 @@ package com.baidu.tieba.location.data;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.squareup.wire.Wire;
-import d.a.k0.n1.c.a;
+import d.a.n0.o1.c.a;
 import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 /* loaded from: classes3.dex */
 public class LocationSearchResponseMessage extends SocketResponsedMessage {

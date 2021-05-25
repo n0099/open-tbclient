@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
 import d.a.c.e.p.l;
-import d.a.k0.y1.g.i;
+import d.a.n0.z1.g.i;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */

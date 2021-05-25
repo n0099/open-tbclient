@@ -20,22 +20,22 @@ public class b implements Cloneable {
     @ColorInt
 
     /* renamed from: e  reason: collision with root package name */
-    public int f68756e = 0;
+    public int f68799e = 0;
     @ColorInt
 
     /* renamed from: f  reason: collision with root package name */
-    public int f68757f = -16777216;
+    public int f68800f = -16777216;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: g  reason: collision with root package name */
-    public float f68758g = 0.0f;
+    public float f68801g = 0.0f;
     @FloatRange(from = 0.0d, to = 1.0d)
 
     /* renamed from: h  reason: collision with root package name */
-    public float f68759h = 0.0f;
+    public float f68802h = 0.0f;
 
     /* renamed from: i  reason: collision with root package name */
-    public boolean f68760i = false;
+    public boolean f68803i = false;
     public boolean j = false;
     public BarHide k = BarHide.FLAG_SHOW_BAR;
     public boolean l = false;

@@ -4,33 +4,33 @@ import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class z0 {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final Runnable f65104e;
+        public final Runnable f65147e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final String f65105f;
+        public final String f65148f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final String f65106g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
+        public final String f65149g = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
 
         public a(Runnable runnable, String str) {
-            this.f65104e = runnable;
-            this.f65105f = str;
+            this.f65147e = runnable;
+            this.f65148f = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f65104e.run();
+                this.f65147e.run();
             } catch (Exception e2) {
                 e2.printStackTrace();
-                y0.f("TrackerDr", "Thread:" + this.f65105f + " exception\n" + this.f65106g, e2);
+                y0.f("TrackerDr", "Thread:" + this.f65148f + " exception\n" + this.f65149g, e2);
             }
         }
     }

@@ -8,11 +8,11 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.i.a;
 import d.a.i.v0.a;
-import d.a.j0.r.q.a2;
+import d.a.m0.r.q.a2;
 /* loaded from: classes.dex */
 public class g0 extends h {
     public RichTextLayout l;
-    public d.a.j0.r.q.a m;
+    public d.a.m0.r.q.a m;
     public int n;
     public String o;
 
@@ -24,9 +24,9 @@ public class g0 extends h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             g0 g0Var = g0.this;
-            a.InterfaceC0547a interfaceC0547a = g0Var.f40319i;
-            if (interfaceC0547a != null) {
-                interfaceC0547a.a(g0Var.m);
+            a.InterfaceC0542a interfaceC0542a = g0Var.f40011i;
+            if (interfaceC0542a != null) {
+                interfaceC0542a.a(g0Var.m);
             }
         }
     }
@@ -37,12 +37,12 @@ public class g0 extends h {
         }
 
         @Override // d.a.i.v0.a.b
-        public boolean a(a.C0549a c0549a) {
+        public boolean a(a.C0544a c0544a) {
             if (g0.this.m != null && g0.this.m.m() != null && !g0.this.f().booleanValue()) {
                 a2 m = g0.this.m.m();
-                d.a.k0.x.m.a(m.o0());
-                d.a.k0.x.m.l(g0.this.l.f4498f, m.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
-                d.a.k0.x.m.l(g0.this.l.f4499g, m.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.n0.z.m.a(m.o0());
+                d.a.n0.z.m.l(g0.this.l.f4501f, m.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
+                d.a.n0.z.m.l(g0.this.l.f4502g, m.o0(), R.color.CAM_X0105, R.color.CAM_X0109);
             }
             return false;
         }
@@ -76,7 +76,7 @@ public class g0 extends h {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // d.a.i.p
     /* renamed from: u */
-    public void a(d.a.j0.r.q.a aVar) {
+    public void a(d.a.m0.r.q.a aVar) {
         this.m = aVar;
         this.l.setTransmit(f().booleanValue());
         this.l.a(aVar);
@@ -88,8 +88,8 @@ public class g0 extends h {
         this.o = str;
     }
 
-    public void w(a.InterfaceC0547a interfaceC0547a) {
-        this.f40319i = interfaceC0547a;
+    public void w(a.InterfaceC0542a interfaceC0542a) {
+        this.f40011i = interfaceC0542a;
     }
 
     public void x(boolean z) {

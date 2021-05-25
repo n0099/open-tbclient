@@ -9,7 +9,7 @@ import d.n.a.d;
 import d.n.a.h.a;
 import java.io.IOException;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static final String DEFAULT_AUDIOKEY = "";
     public static final long serialVersionUID = 0;
@@ -29,7 +29,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
     public static final Integer DEFAULT_STARTTIME = 0;
     public static final Integer DEFAULT_TOTALTIME = 0;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<AudioEntity, Builder> {
         public String audioKey;
         public Integer endFrame;
@@ -70,7 +70,7 @@ public final class AudioEntity extends Message<AudioEntity, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_AudioEntity extends ProtoAdapter<AudioEntity> {
         public ProtoAdapter_AudioEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, AudioEntity.class);

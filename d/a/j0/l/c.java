@@ -1,485 +1,372 @@
 package d.a.j0.l;
 
-import android.app.Activity;
+import android.app.ActivityManager;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
+import android.content.pm.Signature;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.os.PowerManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import com.alibaba.fastjson.asm.Label;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.aps.megapp_interface.BuildConfig;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumRankActivityConfig;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.R;
-import d.a.c.e.p.k;
-import d.a.j0.r.s.a;
-import d.a.j0.z0.n0;
-import d.a.k0.s2.y;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-/* loaded from: classes3.dex */
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.swan.apps.so.SoUtils;
+import com.baidu.wallet.home.datamodel.HomeCfgResponse;
+import com.tencent.connect.common.Constants;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes2.dex */
 public class c {
 
-    /* loaded from: classes3.dex */
-    public static class a extends CustomMessageListener {
-        public a(int i2) {
-            super(i2);
-        }
+    /* renamed from: a  reason: collision with root package name */
+    public static String f40467a = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
-                return;
-            }
-            d.a.j0.l.a.f(TbadkCoreApplication.getInst());
-        }
+    /* renamed from: b  reason: collision with root package name */
+    public static String f40468b = null;
+
+    /* renamed from: c  reason: collision with root package name */
+    public static String f40469c = null;
+
+    /* renamed from: d  reason: collision with root package name */
+    public static long f40470d = 60000;
+
+    /* renamed from: e  reason: collision with root package name */
+    public static long f40471e = 0;
+
+    /* renamed from: f  reason: collision with root package name */
+    public static long f40472f = 0;
+
+    /* renamed from: g  reason: collision with root package name */
+    public static long f40473g = 0;
+
+    /* renamed from: h  reason: collision with root package name */
+    public static boolean f40474h = false;
+
+    static {
+        long j = f40470d * 60;
+        f40471e = j;
+        f40472f = j * 24;
     }
 
-    /* loaded from: classes3.dex */
-    public static class b implements UrlManager.UrlWebDealListener {
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlWebDealListener
-        public void deal(TbPageContext<?> tbPageContext, String str, String str2, boolean z, UrlManager.UrlWebDialogCancelListener urlWebDialogCancelListener, boolean z2) {
-            if (z2) {
-                c.m(tbPageContext, str2, null, false, true, true, true);
-            } else {
-                c.n(tbPageContext, str2, str, z, true, true, true);
-            }
-        }
-    }
-
-    /* renamed from: d.a.j0.l.c$c  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    public static class C1117c implements UrlManager.UrlDealListener {
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            Uri parse;
-            Bundle i2;
-            String str;
-            if (tbPageContext == null || strArr == null || strArr.length == 0) {
-                return 3;
-            }
-            String str2 = strArr[0];
-            if (StringUtils.isNull(str2)) {
-                return 3;
-            }
-            str2.toLowerCase();
-            String str3 = strArr.length > 2 ? strArr[2] : null;
-            String str4 = strArr.length > 1 ? strArr[1] : null;
-            if (str2.startsWith("tel:")) {
-                UtilHelper.callPhone(tbPageContext.getPageActivity(), str2.substring(4));
-                return 0;
-            } else if (n0.h(str2) && str2.toLowerCase().endsWith(".apk")) {
-                c.l(tbPageContext.getPageActivity(), str2);
-                return 0;
-            } else {
-                String str5 = "";
-                if (str2.contains("http://tieba.baidu.com/mo/q/hotMessage?topic_id=")) {
-                    Uri parse2 = Uri.parse(str2);
-                    String queryParameter = parse2.getQueryParameter("topic_id");
-                    String queryParameter2 = parse2.getQueryParameter(IntentConfig.TOPIC_NAME);
-                    if (TextUtils.isEmpty(queryParameter) || !d.a.j0.p0.b.h(true)) {
-                        return 3;
-                    }
-                    if (strArr != null && strArr.length > 1 && !StringUtils.isNull(strArr[1])) {
-                        str5 = strArr[1];
-                    }
-                    tbPageContext.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter, queryParameter2, str5)));
-                    return 0;
-                } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_SMS)) {
-                    String substring = str2.substring(4);
-                    if (str2.contains("body=")) {
-                        str = n0.c(str2, "body=");
-                        int indexOf = substring.indexOf("?");
-                        if (indexOf >= 1 && indexOf <= substring.length()) {
-                            str5 = substring.substring(0, indexOf);
-                        }
-                    } else {
-                        str = "";
-                        str5 = substring;
-                    }
-                    UtilHelper.smsTo(tbPageContext.getPageActivity(), str5, str);
-                    return 0;
-                } else if (str2.contains(UrlSchemaHelper.SCHEMA_TYPE_JUMP_OUTER)) {
-                    d.a.j0.l.a.j(tbPageContext.getPageActivity(), str2);
-                    return 1;
-                } else if (UtilHelper.isNativeAdURL(str2)) {
-                    y.d(tbPageContext.getPageActivity(), str2, null, null);
-                    return 1;
-                } else if (!str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE) && !str2.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE_2)) {
-                    if ((str2.contains(UrlSchemaHelper.SCHEMA_TYPE_FINISH_THIS_PAGE) || str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_CLOSE_WEBVIEW)) && tbPageContext.getPageActivity() != null) {
-                        tbPageContext.getPageActivity().finish();
-                        return 1;
-                    } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.TBEAN_TOAST) && (tbPageContext instanceof Activity)) {
-                        UtilHelper.showToast(tbPageContext.getPageActivity(), R.string.buy_sucess);
-                        ((Activity) tbPageContext).finish();
-                        return 0;
-                    } else if (str2.startsWith("tieba://focusforum")) {
-                        TbadkCoreApplication.getInst().setLikeBarChanged(true);
-                        return 0;
-                    } else if (str2.startsWith("baiduxiuba://")) {
-                        Intent intent = new Intent("android.intent.action.VIEW");
-                        intent.addCategory("android.intent.category.DEFAULT");
-                        intent.setData(Uri.parse(str2));
-                        intent.setFlags(Label.FORWARD_REFERENCE_TYPE_SHORT);
-                        tbPageContext.getPageActivity().startActivity(intent);
-                        return 0;
-                    } else if (str2.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_URL) && str2.contains(UrlSchemaHelper.AUTO_PAY_MEMBER_SUCC_PARAM)) {
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2016525, Boolean.TRUE));
-                        tbPageContext.getPageActivity().finish();
-                        return 1;
-                    } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.GOTO_TDOU_PAY_BUNDING_PHONE)) {
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001359, n0.c(str2, "bindid=")));
-                        tbPageContext.getPageActivity().finish();
-                        return 1;
-                    } else if (str2.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && str2.contains(UrlSchemaHelper.CHANGE_YINJI_SUCCESS) && (i2 = n0.i(str2)) != null && UrlSchemaHelper.CHANGE_YINJI_SUCCESS.equalsIgnoreCase(i2.getString("path"))) {
-                        MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001372));
-                        return 0;
-                    } else if (str2.startsWith(UrlSchemaHelper.SCHEME_TYPE_ACCOUNT_SAFE) && tbPageContext.getPageActivity() != null) {
-                        MessageManager.getInstance().runTask(2921329, null, tbPageContext.getPageActivity());
-                        return 0;
-                    } else if (str2.contains(UrlSchemaHelper.FROM_FORUM_SQUARE) && tbPageContext.getPageActivity() != null) {
-                        ForumSquareActivityConfig forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
-                        forumSquareActivityConfig.setUri(Uri.parse(str2));
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
-                        return 0;
-                    } else if (str2.contains(UrlSchemaHelper.FROM_ENTER_FORUM) && tbPageContext.getPageActivity() != null) {
-                        MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(1);
-                        String queryParameter3 = Uri.parse(str2).getQueryParameter(d.a.j0.a.f.z);
-                        if (!k.isEmpty(queryParameter3)) {
-                            createNormalCfg.setSubTab(0, queryParameter3);
-                        }
-                        MessageManager.getInstance().sendMessage(new CustomMessage(2015002, createNormalCfg));
-                        return 0;
-                    } else {
-                        if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE)) {
-                            c.m(tbPageContext, d.a.j0.l.a.g(str2.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_OPFEATURE, ""), str3), null, false, true, true, true);
-                        } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_WEB)) {
-                            c.m(tbPageContext, d.a.j0.l.a.g(str2.replaceFirst(UrlSchemaHelper.SCHEMA_TYPE_WEB, ""), str3), null, false, true, true, true);
-                        } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_TOPIC)) {
-                            c.m(tbPageContext, str4, str2.substring(6), false, true, true, false);
-                        } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_ZB)) {
-                            c.m(tbPageContext, str2.substring(3), tbPageContext.getString(R.string.photo_live_tips), false, true, false, false);
-                        } else if (str2.startsWith(UrlSchemaHelper.SCHEMA_TYPE_LIST)) {
-                            String substring2 = str2.substring(5);
-                            if (!TextUtils.isEmpty(substring2)) {
-                                MessageManager.getInstance().sendMessage(new CustomMessage(2902028, new ForumRankActivityConfig(tbPageContext.getPageActivity(), substring2, str3)));
-                            }
-                        } else if (str2.contains(UrlSchemaHelper.SCHEMA_NAITVE_H5) && (parse = Uri.parse(str2)) != null) {
-                            c.m(tbPageContext, parse.getQueryParameter("url"), null, false, true, false, false);
-                            return 0;
-                        }
-                        return 3;
-                    }
-                } else {
-                    d.a.j0.l.a.l(tbPageContext.getPageActivity(), str2);
-                    return 1;
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d implements a.e {
-
-        /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TbPageContext f49407e;
-
-        /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ String f49408f;
-
-        /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ String f49409g;
-
-        public d(TbPageContext tbPageContext, String str, String str2) {
-            this.f49407e = tbPageContext;
-            this.f49408f = str;
-            this.f49409g = str2;
-        }
-
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
-            aVar.dismiss();
-            d.a.j0.l.a.m(this.f49407e.getPageActivity(), this.f49408f, this.f49409g);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e implements a.e {
-        @Override // d.a.j0.r.s.a.e
-        public void onClick(d.a.j0.r.s.a aVar) {
-            aVar.dismiss();
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class f implements UrlManager.UrlDealListener {
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            PbActivityConfig createNormalCfg;
-            if (strArr != null && strArr[0] != null) {
-                Uri parse = Uri.parse(strArr[0]);
-                if ("lego".equalsIgnoreCase(parse.getAuthority())) {
-                    return c.d(tbPageContext, parse, null, false) ? 0 : 3;
-                } else if ("pb".equalsIgnoreCase(parse.getAuthority())) {
-                    String queryParameter = parse.getQueryParameter("tId");
-                    String queryParameter2 = parse.getQueryParameter("view_type");
-                    if (queryParameter == null || queryParameter.length() <= 0) {
-                        return 3;
-                    }
-                    if (queryParameter2 != null && (queryParameter2.equals("2") || queryParameter2.equals("3"))) {
-                        createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createViewTypeCfg(queryParameter, Boolean.valueOf(queryParameter2.equals("2")).booleanValue(), Boolean.valueOf(!queryParameter2.equals("3")).booleanValue(), "lego");
-                        createNormalCfg.setVideo_source("frs");
-                    } else {
-                        createNormalCfg = new PbActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter, null, "lego");
-                    }
-                    tbPageContext.sendMessage(new CustomMessage(2004001, createNormalCfg));
-                    return 0;
-                } else if ("frs".equalsIgnoreCase(parse.getAuthority())) {
-                    String queryParameter3 = parse.getQueryParameter(TiebaStatic.Params.H5_FORUM_NAME);
-                    if (queryParameter3 == null || queryParameter3.length() <= 0) {
-                        return 3;
-                    }
-                    FrsActivityConfig createNormalCfg2 = new FrsActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(queryParameter3, "lego");
-                    createNormalCfg2.setCallFrom(12);
-                    tbPageContext.sendMessage(new CustomMessage(2003000, createNormalCfg2));
-                    return 0;
-                } else if ("person".equalsIgnoreCase(parse.getAuthority())) {
-                    String queryParameter4 = parse.getQueryParameter("uid");
-                    String queryParameter5 = parse.getQueryParameter("uname");
-                    if (queryParameter4 == null || queryParameter4.length() <= 0) {
-                        return 3;
-                    }
-                    tbPageContext.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(tbPageContext.getPageActivity(), queryParameter4, queryParameter5)));
-                    return 0;
-                } else if ("topic".equalsIgnoreCase(parse.getAuthority())) {
-                    String queryParameter6 = parse.getQueryParameter("topic_id");
-                    String queryParameter7 = parse.getQueryParameter(IntentConfig.TOPIC_NAME);
-                    if (queryParameter6 != null && queryParameter7 != null) {
-                        tbPageContext.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter6, queryParameter7, null)));
-                        return 1;
-                    } else if (queryParameter6 != null) {
-                        tbPageContext.sendMessage(new CustomMessage(2002001, new HotTopicActivityConfig(tbPageContext.getPageActivity()).createNormalConfig(queryParameter6, null, null)));
-                        return 1;
-                    }
-                }
-            }
-            return 3;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class g implements UrlManager.UrlDealListener {
-        @Override // com.baidu.tbadk.core.util.UrlManager.UrlDealListener
-        public int deal(TbPageContext<?> tbPageContext, String[] strArr) {
-            if (strArr != null && strArr[0] != null) {
-                String str = strArr[0];
-                String str2 = null;
-                if (!str.startsWith("http://tieba.baidu.com/mo/q/blitz/index#") && !str.startsWith("https://tieba.baidu.com/mo/q/blitz/index#")) {
-                    if (str.startsWith("http://tieba.baidu.com/tb/zt/lego/h5/#") || str.startsWith("https://tieba.baidu.com/tb/zt/lego/h5/#")) {
-                        int indexOf = str.indexOf("page/") + 5;
-                        int indexOf2 = str.indexOf("?");
-                        if (indexOf > 5 && indexOf2 > indexOf) {
-                            str2 = str.substring(indexOf, indexOf2);
-                        }
-                        if (indexOf2 > -1) {
-                            if (c.d(tbPageContext, Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_LEGO + str.substring(indexOf2 + 1)), str2, true)) {
-                                return 0;
-                            }
-                        }
-                        return 3;
-                    }
-                    return 3;
-                }
-                int indexOf3 = str.indexOf("page/") + 5;
-                int indexOf4 = str.indexOf("?");
-                if (indexOf3 > 5 && indexOf4 > indexOf3) {
-                    str2 = str.substring(indexOf3, indexOf4);
-                }
-                if (indexOf4 > -1) {
-                    if (c.d(tbPageContext, Uri.parse(UrlSchemaHelper.SCHEMA_TYPE_LEGO + str.substring(indexOf4 + 1)), str2, false)) {
-                        return 0;
-                    }
-                }
-            }
-            return 3;
-        }
-    }
-
-    public static boolean d(TbPageContext<?> tbPageContext, Uri uri, String str, boolean z) {
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        if (tbPageContext != null && uri != null) {
-            String queryParameter = (str == null || str.length() == 0) ? uri.getQueryParameter("page_id") : str;
-            String queryParameter2 = uri.getQueryParameter("page_type");
-            String queryParameter3 = uri.getQueryParameter(LegoListActivityConfig.ITEM_ID);
-            String queryParameter4 = uri.getQueryParameter("rn");
-            String queryParameter5 = uri.getQueryParameter("params");
-            String queryParameter6 = uri.getQueryParameter(LegoListActivityConfig.PRE_LOAD);
-            String queryParameter7 = uri.getQueryParameter(LegoListActivityConfig.NEXT_PAGE);
-            String queryParameter8 = uri.getQueryParameter("lego_version");
-            String queryParameter9 = uri.getQueryParameter(LegoListActivityConfig.IS_IMMERSIVE);
-            String queryParameter10 = uri.getQueryParameter(LegoListActivityConfig.HAS_ANIMATION);
-            String queryParameter11 = uri.getQueryParameter(LegoListActivityConfig.IS_LANDINGPAGE);
-            String queryParameter12 = uri.getQueryParameter("source");
-            if (TextUtils.isEmpty(queryParameter12)) {
-                queryParameter12 = "unknown";
-            }
-            String str2 = queryParameter12;
-            if ((!z || g(queryParameter8)) && queryParameter != null && queryParameter2 != null && queryParameter.length() > 0 && queryParameter2.length() > 0) {
-                try {
-                    int parseInt = Integer.parseInt(queryParameter2);
-                    long parseLong = Long.parseLong(queryParameter);
-                    try {
-                        i2 = Integer.parseInt(queryParameter4);
-                    } catch (Exception unused) {
-                        i2 = 20;
-                    }
-                    try {
-                        i3 = Integer.parseInt(queryParameter9);
-                    } catch (Exception unused2) {
-                        i3 = 0;
-                    }
-                    try {
-                        i4 = Integer.parseInt(queryParameter10);
-                    } catch (Exception unused3) {
-                        i4 = 0;
-                    }
-                    String queryParameter13 = i4 == 1 ? uri.getQueryParameter(LegoListActivityConfig.ANIMATION_INFO) : "";
-                    try {
-                        i5 = Integer.parseInt(queryParameter11);
-                    } catch (Exception unused4) {
-                        i5 = 0;
-                    }
-                    LegoListActivityConfig createNormalCfg = new LegoListActivityConfig(tbPageContext.getPageActivity()).createNormalCfg(parseLong, parseInt, queryParameter3, i3, i2, queryParameter5);
-                    createNormalCfg.addLandingPageParams(queryParameter13, queryParameter6, queryParameter7, i4, i5, str2);
-                    tbPageContext.sendMessage(new CustomMessage(2016447, createNormalCfg));
-                    return true;
-                } catch (Exception unused5) {
-                }
-            }
-        }
-        return false;
-    }
-
-    public static void e() {
-        MessageManager.getInstance().registerListener(2005016, new a(0));
-        UrlManager.getInstance().setWebListener(new b());
-        SwitchManager.getInstance().addSwitchData(new d.a.c.e.f.b("switch_mbaidu_startup", 1, null));
-        i();
-        j();
-        k();
-    }
-
-    public static boolean f(String str) {
-        if (TextUtils.isEmpty(str)) {
-            return false;
-        }
+    public static String a() {
         try {
-            return "lego".equalsIgnoreCase(Uri.parse(str).getAuthority());
-        } catch (Throwable unused) {
-            return false;
-        }
-    }
-
-    public static boolean g(String str) {
-        if (TextUtils.isEmpty(str)) {
-            str = BuildConfig.VERSION_NAME;
-        }
-        return TbConfig.getLegoLibVersion().compareTo(str) >= 0;
-    }
-
-    public static String h(String str) {
-        if (StringUtils.isNull(str)) {
+            Calendar calendar = Calendar.getInstance();
+            int i2 = calendar.get(1);
+            int i3 = calendar.get(5);
+            return i2 + "" + (calendar.get(2) + 1) + "" + i3;
+        } catch (Throwable th) {
+            d(th);
             return "";
         }
-        String checkUrl = TbadkCoreApplication.getInst().getCheckUrl();
-        if (checkUrl == null) {
-            checkUrl = "http://tieba.baidu.com/mo/q/checkurl?url=";
-        } else if (checkUrl.trim().length() == 0) {
-            return str;
-        }
-        if (str.startsWith(checkUrl)) {
-            return str;
-        }
-        return checkUrl + o(str);
     }
 
-    public static void i() {
-        UrlManager.getInstance().addListener(new C1117c());
-    }
-
-    public static void j() {
-        UrlManager.getInstance().addListener(new f());
-    }
-
-    public static void k() {
-        UrlManager.getInstance().addListener(new g());
-    }
-
-    public static boolean l(Context context, String str) {
+    public static String b(Context context) {
         try {
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-                context.startActivity(intent);
-                return true;
+            if (!TextUtils.isEmpty(f40469c)) {
+                return f40469c;
             }
-            return false;
-        } catch (Exception e2) {
-            e2.printStackTrace();
-            return false;
-        }
-    }
-
-    public static void m(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        String h2 = h(str);
-        if (z) {
-            d.a.j0.s.h.a.d(tbPageContext, new d(tbPageContext, str2, h2), new e(), h2);
-        } else {
-            d.a.j0.l.a.m(tbPageContext.getPageActivity(), str2, h2);
-        }
-    }
-
-    public static void n(TbPageContext<?> tbPageContext, String str, String str2, boolean z, boolean z2, boolean z3, boolean z4) {
-        TiebaStatic.eventStat(tbPageContext.getPageActivity(), "url_1", null);
-        m(tbPageContext, str, str2, z, z2, z3, z4);
-    }
-
-    public static String o(String str) {
-        if (TextUtils.isEmpty(str)) {
+            String o = d.a.j0.b.a.g(context).o();
+            f40469c = o;
+            if (!TextUtils.isEmpty(o)) {
+                return f40469c;
+            }
+            String str = new String(f());
+            f40469c = str;
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            d.a.j0.b.a.g(context).r(f40469c);
+            return f40469c;
+        } catch (Throwable th) {
+            d(th);
             return "";
         }
+    }
+
+    public static JSONObject c(Context context, JSONObject jSONObject, String str) {
+        if (jSONObject == null) {
+            return null;
+        }
         try {
-            String str2 = new String(str.getBytes(), StandardCharsets.UTF_8);
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject);
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("1", e(context));
+            jSONObject2.put("2", context.getPackageName());
+            jSONObject2.put("3", h(context));
+            jSONObject2.put("4", d.l(context));
+            jSONObject2.put("5", str);
+            jSONObject2.put("6", System.currentTimeMillis());
+            jSONObject2.put("7", "");
+            jSONObject2.put("8", d.a.j0.a.f40249b);
+            jSONObject2.put(HomeCfgResponse.ConfigData.GROUP_LAYOUT_TYPE9, AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+            jSONObject2.put("10", "1.0.5");
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_SHARE_TO_QZONE, "");
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_SET_AVATAR, "");
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_JOININ_GROUP, 1);
+            jSONObject2.put(Constants.VIA_REPORT_TYPE_MAKE_FRIEND, j(context));
+            jSONObject2.put(SoUtils.SO_EVENT_ID_V8_SO, d.a.j0.g.a.a(context));
+            jSONObject2.put(SoUtils.SO_EVENT_ID_DEFAULT, d.a.j0.g.a.b(context));
+            jSONObject2.put("module_section", jSONArray);
+            return jSONObject2;
+        } catch (Throwable th) {
+            d(th);
+            return null;
+        }
+    }
+
+    public static void d(Throwable th) {
+    }
+
+    public static String e(Context context) {
+        try {
+            return context.getApplicationInfo().loadLabel(context.getPackageManager()).toString();
+        } catch (Throwable th) {
+            d(th);
+            return "";
+        }
+    }
+
+    public static byte[] f() {
+        char[] cArr = new char[16];
+        try {
+            char[] charArray = f40467a.toCharArray();
+            for (int i2 = 0; i2 < 16; i2++) {
+                int nextInt = new Random().nextInt(62);
+                if (nextInt >= 0 && nextInt < charArray.length) {
+                    cArr[i2] = charArray[nextInt];
+                }
+            }
+        } catch (Throwable th) {
+            d(th);
+        }
+        return new String(cArr).getBytes();
+    }
+
+    public static String g() {
+        return Build.VERSION.RELEASE;
+    }
+
+    public static String h(Context context) {
+        Throwable th;
+        String str;
+        try {
+            str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             try {
-                return URLEncoder.encode(str2, "UTF-8");
-            } catch (Exception unused) {
-                return str2;
+                if (TextUtils.isEmpty(str)) {
+                    return "";
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                d(th);
+                return str;
             }
-        } catch (Exception unused2) {
-            return str;
+        } catch (Throwable th3) {
+            th = th3;
+            str = "";
+        }
+        return str;
+    }
+
+    public static String i(Context context) {
+        String l = l(context);
+        if (TextUtils.isEmpty(l)) {
+            String b2 = b(context);
+            return TextUtils.isEmpty(b2) ? d.a.j0.b.a.g(context).H() : b2;
+        }
+        return l;
+    }
+
+    public static int j(Context context) {
+        try {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo == null || !activeNetworkInfo.isConnected()) {
+                return -1;
+            }
+            if (activeNetworkInfo.getType() == 1) {
+                return 1;
+            }
+            return q(context);
+        } catch (Throwable th) {
+            d(th);
+            return -1;
+        }
+    }
+
+    public static int k(Context context) {
+        NetworkInfo networkInfo;
+        context.deleteDatabase("");
+        try {
+            networkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+        } catch (Throwable th) {
+            d(th);
+            networkInfo = null;
+        }
+        if (networkInfo == null) {
+            return 0;
+        }
+        if (1 == networkInfo.getType()) {
+            return 2;
+        }
+        networkInfo.getType();
+        return 1;
+    }
+
+    public static String l(Context context) {
+        try {
+            if (!TextUtils.isEmpty(f40468b)) {
+                return f40468b;
+            }
+            String j0 = d.a.j0.b.a.g(context).j0();
+            f40468b = j0;
+            if (!TextUtils.isEmpty(j0)) {
+                return f40468b;
+            }
+            Signature signature = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures[0];
+            if (signature != null) {
+                String d2 = g.d(signature.toByteArray());
+                f40468b = d2;
+                if (TextUtils.isEmpty(d2)) {
+                    return "";
+                }
+                d.a.j0.b.a.g(context).U(f40468b);
+                return f40468b;
+            }
+            return "";
+        } catch (Throwable th) {
+            d(th);
+            return "";
+        }
+    }
+
+    public static void m(Context context) {
+        try {
+            p(context);
+            d.a.j0.h.b.c(context).j();
+            d.a.j0.h.b.c(context).e();
+            long currentTimeMillis = System.currentTimeMillis();
+            long T = d.a.j0.b.a.g(context).T();
+            long x = d.a.j0.b.a.g(context).x();
+            long j = currentTimeMillis - T;
+            if (j >= x) {
+                d.a.j0.b.a.g(context).q(currentTimeMillis);
+                b.a(context, x);
+            } else {
+                b.a(context, x - j);
+            }
+        } catch (Throwable th) {
+            d(th);
+        }
+    }
+
+    public static boolean n(Context context) {
+        try {
+            if (Build.VERSION.SDK_INT < 21) {
+                return r(context);
+            }
+            if (context != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.importance == 100 && runningAppProcessInfo.importanceReasonCode == 0 && runningAppProcessInfo.pkgList != null && runningAppProcessInfo.pkgList.length != 0 && Arrays.asList(runningAppProcessInfo.pkgList).contains(context.getPackageName())) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        } catch (Throwable th) {
+            d(th);
+            return false;
+        }
+    }
+
+    public static boolean o(Context context) {
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - f40473g < 1000) {
+            return f40474h;
+        }
+        boolean z = s(context) && n(context);
+        f40474h = z;
+        f40473g = currentTimeMillis;
+        return z;
+    }
+
+    public static void p(Context context) {
+        try {
+            String V = d.a.j0.b.a.g(context).V();
+            String a2 = a();
+            if (TextUtils.isEmpty(a2) || !TextUtils.equals(V, a2)) {
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("0", context.getPackageName());
+                jSONObject.put("1", h(context));
+                jSONObject.put("2", "1.0.5");
+                jSONObject.put("3", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
+                jSONObject.put("4", System.currentTimeMillis());
+                jSONArray.put(jSONObject);
+                d.a.j0.h.b.c(context).f(jSONArray.toString(), "1077103", 2);
+                d.a.j0.b.a.g(context).F(a2);
+            }
+        } catch (Throwable th) {
+            d(th);
+        }
+    }
+
+    public static int q(Context context) {
+        try {
+            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                    return 2;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                    return 3;
+                case 13:
+                    return 4;
+                default:
+                    return 5;
+            }
+        } catch (Throwable th) {
+            d(th);
+            return -1;
+        }
+    }
+
+    public static boolean r(Context context) {
+        ActivityManager.RunningTaskInfo runningTaskInfo;
+        try {
+            if (h.a(context, "android.permission.GET_TASKS")) {
+                ActivityManager activityManager = (ActivityManager) context.getSystemService("activity");
+                if (activityManager.getRunningTasks(1) == null || (runningTaskInfo = activityManager.getRunningTasks(1).get(0)) == null) {
+                    return false;
+                }
+                return context.getPackageName().equals(runningTaskInfo.topActivity.getPackageName());
+            }
+            return true;
+        } catch (Throwable th) {
+            d(th);
+            return false;
+        }
+    }
+
+    public static boolean s(Context context) {
+        try {
+            return ((PowerManager) context.getSystemService("power")).isScreenOn();
+        } catch (Throwable th) {
+            d(th);
+            return false;
         }
     }
 }

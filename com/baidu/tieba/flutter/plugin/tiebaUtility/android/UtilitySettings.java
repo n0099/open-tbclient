@@ -2,7 +2,7 @@ package com.baidu.tieba.flutter.plugin.tiebaUtility.android;
 
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilitySettingsAuto;
-import d.a.j0.r.l.f;
+import d.a.m0.r.l.f;
 /* loaded from: classes4.dex */
 public class UtilitySettings implements TiebaUtilitySettingsAuto.HostUtilitySettings {
     @Override // com.baidu.tieba.flutter.plugin.tiebaUtility.TiebaUtilitySettingsAuto.HostUtilitySettings

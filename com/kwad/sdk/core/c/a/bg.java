@@ -9,8 +9,8 @@ public class bg implements com.kwad.sdk.core.c<com.kwad.sdk.collector.a.f> {
         if (jSONObject == null) {
             return;
         }
-        fVar.f31948a = jSONObject.optInt("phoneCount");
-        fVar.f31949b = jSONObject.optInt("activePhoneCount");
+        fVar.f31877a = jSONObject.optInt("phoneCount");
+        fVar.f31878b = jSONObject.optInt("activePhoneCount");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -19,8 +19,8 @@ public class bg implements com.kwad.sdk.core.c<com.kwad.sdk.collector.a.f> {
         if (jSONObject == null) {
             jSONObject = new JSONObject();
         }
-        com.kwad.sdk.utils.o.a(jSONObject, "phoneCount", fVar.f31948a);
-        com.kwad.sdk.utils.o.a(jSONObject, "activePhoneCount", fVar.f31949b);
+        com.kwad.sdk.utils.o.a(jSONObject, "phoneCount", fVar.f31877a);
+        com.kwad.sdk.utils.o.a(jSONObject, "activePhoneCount", fVar.f31878b);
         return jSONObject;
     }
 }

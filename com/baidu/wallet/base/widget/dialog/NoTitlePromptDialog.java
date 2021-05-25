@@ -10,121 +10,121 @@ import com.baidu.wallet.base.widget.dialog.view.NoTitleContentDialogAdapter;
 public class NoTitlePromptDialog extends WalletDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    public View.OnClickListener f23693a;
+    public View.OnClickListener f23622a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final ContentDialogModel f23694b;
+    public final ContentDialogModel f23623b;
 
     public NoTitlePromptDialog(Context context) {
         this(context, ResUtils.style(context, "EbpayPromptDialog"));
     }
 
     private void a() {
-        ContentDialogModel contentDialogModel = this.f23694b;
-        contentDialogModel.defaultListener = this.f23693a;
+        ContentDialogModel contentDialogModel = this.f23623b;
+        contentDialogModel.defaultListener = this.f23622a;
         setAdapter(new NoTitleContentDialogAdapter(contentDialogModel));
     }
 
     public void hideButtons() {
-        this.f23694b.hideButtons = true;
+        this.f23623b.hideButtons = true;
     }
 
     public void hideNegativeButton() {
-        this.f23694b.hideNegativeBtn = true;
+        this.f23623b.hideNegativeBtn = true;
     }
 
     public void hidePositiveButton() {
-        this.f23694b.hidePositiveBtn = true;
+        this.f23623b.hidePositiveBtn = true;
     }
 
     public void setDialogBackgroundColor(int i2) {
-        this.f23694b.dialogBackgound = i2;
+        this.f23623b.dialogBackgound = i2;
     }
 
     public void setMessage(int i2) {
-        this.f23694b.messageId = i2;
+        this.f23623b.messageId = i2;
     }
 
     public void setMessageBackgroundColor(int i2) {
-        this.f23694b.backgroundColor = i2;
+        this.f23623b.backgroundColor = i2;
     }
 
     public void setMessageTextSize(int i2) {
-        this.f23694b.messageSize = i2;
+        this.f23623b.messageSize = i2;
     }
 
     public void setNegativeBtn(View.OnClickListener onClickListener) {
-        this.f23694b.negativeBtnClickListener = onClickListener;
+        this.f23623b.negativeBtnClickListener = onClickListener;
     }
 
     public void setNegativeBtnTextColor(int i2) {
-        this.f23694b.negativeBtnTextColor = i2;
+        this.f23623b.negativeBtnTextColor = i2;
     }
 
     public void setNegativeBtnTextSize(int i2) {
-        this.f23694b.negativeBtnTextSize = i2;
+        this.f23623b.negativeBtnTextSize = i2;
     }
 
     public void setPositiveBtn(View.OnClickListener onClickListener) {
-        this.f23694b.positiveBtnClickListener = onClickListener;
+        this.f23623b.positiveBtnClickListener = onClickListener;
     }
 
     public void setPositiveBtnTextColor(int i2) {
-        this.f23694b.positiveBtnTextColor = i2;
+        this.f23623b.positiveBtnTextColor = i2;
     }
 
     public void setPositiveBtnTextSize(int i2) {
-        this.f23694b.positiveBtnTextSize = i2;
+        this.f23623b.positiveBtnTextSize = i2;
     }
 
     public NoTitlePromptDialog(Context context, int i2) {
         super(context, i2);
-        this.f23693a = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.NoTitlePromptDialog.1
+        this.f23622a = new View.OnClickListener() { // from class: com.baidu.wallet.base.widget.dialog.NoTitlePromptDialog.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 NoTitlePromptDialog.this.dismiss();
             }
         };
-        this.f23694b = new ContentDialogModel();
+        this.f23623b = new ContentDialogModel();
         a();
     }
 
     public void setMessage(CharSequence charSequence) {
-        this.f23694b.message = charSequence;
+        this.f23623b.message = charSequence;
     }
 
     public void setNegativeBtn(int i2, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23694b;
+        ContentDialogModel contentDialogModel = this.f23623b;
         contentDialogModel.negativeBtnClickListener = onClickListener;
         contentDialogModel.negativeBtnTextId = i2;
     }
 
     public void setPositiveBtn(int i2, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23694b;
+        ContentDialogModel contentDialogModel = this.f23623b;
         contentDialogModel.positiveBtnClickListener = onClickListener;
         contentDialogModel.positiveBtnTextId = i2;
     }
 
     public void setNegativeBtn(String str, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23694b;
+        ContentDialogModel contentDialogModel = this.f23623b;
         contentDialogModel.negativeBtnClickListener = onClickListener;
         contentDialogModel.negativeBtnText = str;
     }
 
     public void setPositiveBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23694b;
+        ContentDialogModel contentDialogModel = this.f23623b;
         contentDialogModel.positiveBtnClickListener = onClickListener;
         contentDialogModel.positiveBtnText = spannableString;
     }
 
     public void setNegativeBtn(SpannableString spannableString, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23694b;
+        ContentDialogModel contentDialogModel = this.f23623b;
         contentDialogModel.negativeBtnClickListener = onClickListener;
         contentDialogModel.negativeBtnText = spannableString;
     }
 
     public void setPositiveBtn(String str, View.OnClickListener onClickListener) {
-        ContentDialogModel contentDialogModel = this.f23694b;
+        ContentDialogModel contentDialogModel = this.f23623b;
         contentDialogModel.positiveBtnText = str;
         contentDialogModel.positiveBtnClickListener = onClickListener;
     }

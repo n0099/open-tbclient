@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import d.a.r.a;
+import d.a.s.a;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -179,7 +179,7 @@ public class BindStateManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                 try {
-                    a.e(context).d(context, creatMethodIntent);
+                    a.g(context).f(context, creatMethodIntent);
                 } catch (Exception e2) {
                     ListenerManager.getInstance().removeListener(addListener);
                     onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -296,7 +296,7 @@ public class BindStateManager {
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                 creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                 try {
-                    a.e(context).d(context, creatMethodIntent);
+                    a.g(context).f(context, creatMethodIntent);
                     return;
                 } catch (Exception e2) {
                     LogUtils.e(TAG, "Exception ", e2);

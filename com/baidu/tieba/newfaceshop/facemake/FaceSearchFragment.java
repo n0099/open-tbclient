@@ -27,8 +27,8 @@ import com.baidu.tieba.newfaceshop.facemake.FaceImageLayout;
 import com.baidu.tieba.newfaceshop.facemake.GetHotWordsModel;
 import d.a.c.e.p.j;
 import d.a.c.e.p.l;
-import d.a.k0.y1.g.f;
-import d.a.k0.y1.g.h;
+import d.a.n0.z1.g.f;
+import d.a.n0.z1.g.h;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -38,19 +38,19 @@ import java.util.List;
 public class FaceSearchFragment extends BaseFragment implements SearchEditView.d {
 
     /* renamed from: e  reason: collision with root package name */
-    public SearchEditView f18661e;
+    public SearchEditView f18575e;
 
     /* renamed from: f  reason: collision with root package name */
-    public TextView f18662f;
+    public TextView f18576f;
 
     /* renamed from: g  reason: collision with root package name */
-    public LinearLayout f18663g;
+    public LinearLayout f18577g;
 
     /* renamed from: h  reason: collision with root package name */
-    public FaceImageLayout f18664h;
+    public FaceImageLayout f18578h;
 
     /* renamed from: i  reason: collision with root package name */
-    public NoDataView f18665i;
+    public NoDataView f18579i;
     public View j;
     public AutoLineWrapLayout k;
     public BdListView l;
@@ -74,7 +74,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
 
         @Override // com.baidu.tieba.newfaceshop.facemake.FaceImageLayout.a
         public void a() {
-            l.x(FaceSearchFragment.this.v, FaceSearchFragment.this.f18661e);
+            l.x(FaceSearchFragment.this.v, FaceSearchFragment.this.f18575e);
         }
     }
 
@@ -94,7 +94,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
                 FaceSearchFragment.this.q.addAll(list);
                 if (FaceSearchFragment.this.q == null || FaceSearchFragment.this.q.isEmpty()) {
                     FaceSearchFragment.this.k.setVisibility(8);
-                    FaceSearchFragment.this.f18662f.setVisibility(8);
+                    FaceSearchFragment.this.f18576f.setVisibility(8);
                 }
                 FaceSearchFragment.this.T0();
             }
@@ -105,17 +105,17 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public class c implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f18668e;
+        public final /* synthetic */ String f18582e;
 
         public c(String str) {
-            this.f18668e = str;
+            this.f18582e = str;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            FaceSearchFragment.this.f18661e.setText(this.f18668e);
-            FaceSearchFragment.this.f18661e.setSelection(this.f18668e.length());
-            FaceSearchFragment.this.X0(this.f18668e);
+            FaceSearchFragment.this.f18575e.setText(this.f18582e);
+            FaceSearchFragment.this.f18575e.setSelection(this.f18582e.length());
+            FaceSearchFragment.this.X0(this.f18582e);
         }
     }
 
@@ -125,7 +125,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
-        public void a(String str, d.a.k0.k0.c.a aVar) {
+        public void a(String str, d.a.n0.l0.c.a aVar) {
             FaceSearchFragment.this.getBaseFragmentActivity().hideProgressBar();
             if (aVar == null || aVar.a() == null || aVar.a().isEmpty()) {
                 if (FaceSearchFragment.this.r == 0) {
@@ -142,7 +142,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
             FaceSearchFragment.this.n.addAll(aVar.a());
             FaceSearchFragment.this.m.notifyDataSetChanged();
             FaceSearchFragment.this.b1();
-            l.x(FaceSearchFragment.this.getActivity(), FaceSearchFragment.this.f18661e);
+            l.x(FaceSearchFragment.this.getActivity(), FaceSearchFragment.this.f18575e);
         }
 
         @Override // com.baidu.tieba.face.SearchEmotionModel.b
@@ -175,7 +175,7 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
 
     public final void T0() {
         this.k.setVisibility(0);
-        this.f18662f.setVisibility(0);
+        this.f18576f.setVisibility(0);
         int min = Math.min(this.q.size(), 10);
         for (int i2 = 0; i2 < min; i2++) {
             String str = this.q.get(i2);
@@ -198,19 +198,19 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
     public final void U0(View view) {
         Serializable serializable;
         EmotionImageData emotionImageData;
-        this.f18663g = (LinearLayout) view.findViewById(R.id.layout_root);
+        this.f18577g = (LinearLayout) view.findViewById(R.id.layout_root);
         FaceImageLayout faceImageLayout = (FaceImageLayout) view.findViewById(R.id.layout_content);
-        this.f18664h = faceImageLayout;
+        this.f18578h = faceImageLayout;
         faceImageLayout.setListener(new a());
         this.j = view.findViewById(R.id.view_line);
         SearchEditView searchEditView = (SearchEditView) view.findViewById(R.id.edit_search_view);
-        this.f18661e = searchEditView;
+        this.f18575e = searchEditView;
         searchEditView.setCallback(this);
         this.k = (AutoLineWrapLayout) view.findViewById(R.id.layout_hot_words);
-        this.f18662f = (TextView) view.findViewById(R.id.tv_tips);
-        SkinManager.setBackgroundResource(this.f18663g, R.color.CAM_X0201);
+        this.f18576f = (TextView) view.findViewById(R.id.tv_tips);
+        SkinManager.setBackgroundResource(this.f18577g, R.color.CAM_X0201);
         SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
-        SkinManager.setViewTextColor(this.f18662f, R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.f18576f, R.color.CAM_X0109);
         BdListView bdListView = (BdListView) view.findViewById(R.id.listview_emotion);
         this.l = bdListView;
         bdListView.setOnSrollToBottomListener(this.x);
@@ -274,32 +274,32 @@ public class FaceSearchFragment extends BaseFragment implements SearchEditView.d
         List<String> list = this.q;
         if (list != null && !list.isEmpty()) {
             this.k.setVisibility(0);
-            this.f18662f.setVisibility(0);
+            this.f18576f.setVisibility(0);
         }
         this.l.setVisibility(8);
-        NoDataView noDataView = this.f18665i;
+        NoDataView noDataView = this.f18579i;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }
     }
 
     public final void a1() {
-        if (this.f18665i == null) {
-            NoDataView a2 = NoDataViewFactory.a(this.v, this.f18664h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.v, R.dimen.ds320)), NoDataViewFactory.e.c(this.v.getText(R.string.face_group_no_emotion).toString()), null);
-            this.f18665i = a2;
+        if (this.f18579i == null) {
+            NoDataView a2 = NoDataViewFactory.a(this.v, this.f18578h, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, l.g(this.v, R.dimen.ds320)), NoDataViewFactory.e.c(this.v.getText(R.string.face_group_no_emotion).toString()), null);
+            this.f18579i = a2;
             a2.f(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
-        this.f18665i.setVisibility(0);
+        this.f18579i.setVisibility(0);
         this.k.setVisibility(8);
         this.l.setVisibility(8);
-        this.f18662f.setVisibility(8);
+        this.f18576f.setVisibility(8);
     }
 
     public final void b1() {
         this.l.setVisibility(0);
-        this.f18662f.setVisibility(8);
+        this.f18576f.setVisibility(8);
         this.k.setVisibility(8);
-        NoDataView noDataView = this.f18665i;
+        NoDataView noDataView = this.f18579i;
         if (noDataView != null) {
             noDataView.setVisibility(8);
         }

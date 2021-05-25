@@ -5,14 +5,14 @@ import java.security.SecureRandom;
 public class c {
 
     /* renamed from: b  reason: collision with root package name */
-    public static final SecureRandom f48498b = new SecureRandom();
+    public static final SecureRandom f40162b = new SecureRandom();
 
     /* renamed from: a  reason: collision with root package name */
-    public e f48499a;
+    public e f40163a;
 
     public c() {
-        this.f48499a = null;
-        this.f48499a = new e(new b(), 16);
+        this.f40163a = null;
+        this.f40163a = new e(new b(), 16);
     }
 
     public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) {
@@ -28,12 +28,12 @@ public class c {
     }
 
     public void a(int i2, byte[] bArr, byte[] bArr2) {
-        this.f48499a.c(i2, bArr, bArr2, f48498b);
+        this.f40163a.c(i2, bArr, bArr2, f40162b);
     }
 
     public final byte[] b(byte[] bArr) {
         if (bArr != null) {
-            return this.f48499a.e(bArr, 0, bArr.length);
+            return this.f40163a.e(bArr, 0, bArr.length);
         }
         throw new IllegalArgumentException("Null input buffer");
     }

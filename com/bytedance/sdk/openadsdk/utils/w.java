@@ -21,23 +21,23 @@ import java.util.regex.Pattern;
 public class w {
 
     /* renamed from: c  reason: collision with root package name */
-    public static volatile w f30304c;
+    public static volatile w f30233c;
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, String> f30305a;
+    public Map<String, String> f30234a;
 
     /* renamed from: b  reason: collision with root package name */
-    public volatile boolean f30306b = false;
+    public volatile boolean f30235b = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public Context f30307d;
+    public Context f30236d;
 
     public w(Context context) {
-        if (context != null && this.f30307d == null) {
-            this.f30307d = context.getApplicationContext();
+        if (context != null && this.f30236d == null) {
+            this.f30236d = context.getApplicationContext();
             a();
         }
-        this.f30307d = context;
+        this.f30236d = context;
     }
 
     public static String b(String str) {
@@ -88,12 +88,12 @@ public class w {
             return null;
         }
         a();
-        Map<String, String> map = this.f30305a;
+        Map<String, String> map = this.f30234a;
         if (map == null || map.isEmpty()) {
             return null;
         }
         do {
-            str2 = this.f30305a.get(e2);
+            str2 = this.f30234a.get(e2);
             if (str2 == null) {
                 e2 = e(e2);
             }
@@ -162,14 +162,14 @@ public class w {
     }
 
     public static w a(Context context) {
-        if (f30304c == null) {
+        if (f30233c == null) {
             synchronized (w.class) {
-                if (f30304c == null) {
-                    f30304c = new w(context);
+                if (f30233c == null) {
+                    f30233c = new w(context);
                 }
             }
         }
-        return f30304c;
+        return f30233c;
     }
 
     public final String a(String str) {
@@ -188,11 +188,11 @@ public class w {
     }
 
     private void a() {
-        if (this.f30307d == null || this.f30306b) {
+        if (this.f30236d == null || this.f30235b) {
             return;
         }
         synchronized (this) {
-            if (!this.f30306b) {
+            if (!this.f30235b) {
                 List list = (List) AccessController.doPrivileged(new PrivilegedAction<List<String>>() { // from class: com.bytedance.sdk.openadsdk.utils.w.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // java.security.PrivilegedAction
@@ -202,7 +202,7 @@ public class w {
                         InputStream inputStream = null;
                         try {
                             ArrayList arrayList = new ArrayList();
-                            InputStream open = w.this.f30307d.getAssets().open("tt_mime_type.pro");
+                            InputStream open = w.this.f30236d.getAssets().open("tt_mime_type.pro");
                             try {
                                 bufferedReader = new BufferedReader(new InputStreamReader(open));
                                 while (true) {
@@ -259,7 +259,7 @@ public class w {
                         }
                     }
                 });
-                this.f30305a = new HashMap(list.size());
+                this.f30234a = new HashMap(list.size());
                 String str = "";
                 Iterator it = list.iterator();
                 while (it.hasNext()) {
@@ -274,15 +274,15 @@ public class w {
                 if (!str.isEmpty()) {
                     f(str);
                 }
-                this.f30306b = true;
+                this.f30235b = true;
             }
         }
     }
 
     private void a(String str, String str2) {
-        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f30305a.containsKey(str)) {
+        if (str == null || str.isEmpty() || str2 == null || str2.isEmpty() || this.f30234a.containsKey(str)) {
             return;
         }
-        this.f30305a.put(str, str2);
+        this.f30234a.put(str, str2);
     }
 }

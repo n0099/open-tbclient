@@ -24,7 +24,7 @@ public final class IMPushPb {
     public static final class Ack extends GeneratedMessageLite implements AckOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 5;
         public static final int EXT_FIELD_NUMBER = 4;
-        public static final Parser<Ack> PARSER = new AbstractParser<Ack>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ack.1
+        public static Parser<Ack> PARSER = new AbstractParser<Ack>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ack.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Ack parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -36,23 +36,23 @@ public final class IMPushPb {
         public static final int VALUE_FIELD_NUMBER = 2;
         public static final Ack defaultInstance;
         public static final long serialVersionUID = 0;
-        public long aliasId;
-        public int bitField0;
-        public Object ext;
+        public long aliasId_;
+        public int bitField0_;
+        public Object ext_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public long timestamp;
-        public Object type;
-        public Object value;
+        public long timestamp_;
+        public Object type_;
+        public Object value_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ack, Builder> implements AckOrBuilder {
-            public long aliasId;
-            public int bitField0;
-            public long timestamp;
-            public Object type = "";
-            public Object value = "";
-            public Object ext = "";
+            public long aliasId_;
+            public int bitField0_;
+            public long timestamp_;
+            public Object type_ = "";
+            public Object value_ = "";
+            public Object ext_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -66,46 +66,46 @@ public final class IMPushPb {
             }
 
             public Builder clearAliasId() {
-                this.bitField0 &= -17;
-                this.aliasId = 0L;
+                this.bitField0_ &= -17;
+                this.aliasId_ = 0L;
                 return this;
             }
 
             public Builder clearExt() {
-                this.bitField0 &= -9;
-                this.ext = Ack.getDefaultInstance().getExt();
+                this.bitField0_ &= -9;
+                this.ext_ = Ack.getDefaultInstance().getExt();
                 return this;
             }
 
             public Builder clearTimestamp() {
-                this.bitField0 &= -5;
-                this.timestamp = 0L;
+                this.bitField0_ &= -5;
+                this.timestamp_ = 0L;
                 return this;
             }
 
             public Builder clearType() {
-                this.bitField0 &= -2;
-                this.type = Ack.getDefaultInstance().getType();
+                this.bitField0_ &= -2;
+                this.type_ = Ack.getDefaultInstance().getType();
                 return this;
             }
 
             public Builder clearValue() {
-                this.bitField0 &= -3;
-                this.value = Ack.getDefaultInstance().getValue();
+                this.bitField0_ &= -3;
+                this.value_ = Ack.getDefaultInstance().getValue();
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public long getAliasId() {
-                return this.aliasId;
+                return this.aliasId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public String getExt() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.ext = stringUtf8;
+                    this.ext_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -113,10 +113,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public ByteString getExtBytes() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.ext = copyFromUtf8;
+                    this.ext_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -124,15 +124,15 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public long getTimestamp() {
-                return this.timestamp;
+                return this.timestamp_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public String getType() {
-                Object obj = this.type;
+                Object obj = this.type_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.type = stringUtf8;
+                    this.type_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -140,10 +140,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public ByteString getTypeBytes() {
-                Object obj = this.type;
+                Object obj = this.type_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.type = copyFromUtf8;
+                    this.type_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -151,10 +151,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public String getValue() {
-                Object obj = this.value;
+                Object obj = this.value_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.value = stringUtf8;
+                    this.value_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -162,10 +162,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public ByteString getValueBytes() {
-                Object obj = this.value;
+                Object obj = this.value_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.value = copyFromUtf8;
+                    this.value_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -173,27 +173,27 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasAliasId() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasExt() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasTimestamp() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasType() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
             public boolean hasValue() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -202,15 +202,15 @@ public final class IMPushPb {
             }
 
             public Builder setAliasId(long j) {
-                this.bitField0 |= 16;
-                this.aliasId = j;
+                this.bitField0_ |= 16;
+                this.aliasId_ = j;
                 return this;
             }
 
             public Builder setExt(String str) {
                 if (str != null) {
-                    this.bitField0 |= 8;
-                    this.ext = str;
+                    this.bitField0_ |= 8;
+                    this.ext_ = str;
                     return this;
                 }
                 throw null;
@@ -218,23 +218,23 @@ public final class IMPushPb {
 
             public Builder setExtBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 8;
-                    this.ext = byteString;
+                    this.bitField0_ |= 8;
+                    this.ext_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setTimestamp(long j) {
-                this.bitField0 |= 4;
-                this.timestamp = j;
+                this.bitField0_ |= 4;
+                this.timestamp_ = j;
                 return this;
             }
 
             public Builder setType(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.type = str;
+                    this.bitField0_ |= 1;
+                    this.type_ = str;
                     return this;
                 }
                 throw null;
@@ -242,8 +242,8 @@ public final class IMPushPb {
 
             public Builder setTypeBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.type = byteString;
+                    this.bitField0_ |= 1;
+                    this.type_ = byteString;
                     return this;
                 }
                 throw null;
@@ -251,8 +251,8 @@ public final class IMPushPb {
 
             public Builder setValue(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.value = str;
+                    this.bitField0_ |= 2;
+                    this.value_ = str;
                     return this;
                 }
                 throw null;
@@ -260,8 +260,8 @@ public final class IMPushPb {
 
             public Builder setValueBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.value = byteString;
+                    this.bitField0_ |= 2;
+                    this.value_ = byteString;
                     return this;
                 }
                 throw null;
@@ -281,26 +281,26 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Ack buildPartial() {
                 Ack ack = new Ack(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                ack.type = this.type;
+                ack.type_ = this.type_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                ack.value = this.value;
+                ack.value_ = this.value_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                ack.timestamp = this.timestamp;
+                ack.timestamp_ = this.timestamp_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                ack.ext = this.ext;
+                ack.ext_ = this.ext_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                ack.aliasId = this.aliasId;
-                ack.bitField0 = i3;
+                ack.aliasId_ = this.aliasId_;
+                ack.bitField0_ = i3;
                 return ack;
             }
 
@@ -308,20 +308,20 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.type = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.value = "";
+                this.type_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.value_ = "";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.timestamp = 0L;
+                this.bitField0_ = i3;
+                this.timestamp_ = 0L;
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.ext = "";
+                this.bitField0_ = i4;
+                this.ext_ = "";
                 int i5 = i4 & (-9);
-                this.bitField0 = i5;
-                this.aliasId = 0L;
-                this.bitField0 = i5 & (-17);
+                this.bitField0_ = i5;
+                this.aliasId_ = 0L;
+                this.bitField0_ = i5 & (-17);
                 return this;
             }
 
@@ -338,19 +338,19 @@ public final class IMPushPb {
                     return this;
                 }
                 if (ack.hasType()) {
-                    this.bitField0 |= 1;
-                    this.type = ack.type;
+                    this.bitField0_ |= 1;
+                    this.type_ = ack.type_;
                 }
                 if (ack.hasValue()) {
-                    this.bitField0 |= 2;
-                    this.value = ack.value;
+                    this.bitField0_ |= 2;
+                    this.value_ = ack.value_;
                 }
                 if (ack.hasTimestamp()) {
                     setTimestamp(ack.getTimestamp());
                 }
                 if (ack.hasExt()) {
-                    this.bitField0 |= 8;
-                    this.ext = ack.ext;
+                    this.bitField0_ |= 8;
+                    this.ext_ = ack.ext_;
                 }
                 if (ack.hasAliasId()) {
                     setAliasId(ack.getAliasId());
@@ -412,11 +412,11 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.type = "";
-            this.value = "";
-            this.timestamp = 0L;
-            this.ext = "";
-            this.aliasId = 0L;
+            this.type_ = "";
+            this.value_ = "";
+            this.timestamp_ = 0L;
+            this.ext_ = "";
+            this.aliasId_ = 0L;
         }
 
         public static Builder newBuilder() {
@@ -433,29 +433,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public long getAliasId() {
-            return this.aliasId;
+            return this.aliasId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public String getExt() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.ext = stringUtf8;
+                this.ext_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public ByteString getExtBytes() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.ext = copyFromUtf8;
+                this.ext_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -472,18 +472,18 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTypeBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTypeBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(2, getValueBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(3, this.timestamp);
+            if ((this.bitField0_ & 4) == 4) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(3, this.timestamp_);
             }
-            if ((this.bitField0 & 8) == 8) {
+            if ((this.bitField0_ & 8) == 8) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(4, getExtBytes());
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.aliasId);
+            if ((this.bitField0_ & 16) == 16) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.aliasId_);
             }
             this.memoizedSerializedSize = computeBytesSize;
             return computeBytesSize;
@@ -491,29 +491,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public long getTimestamp() {
-            return this.timestamp;
+            return this.timestamp_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public String getType() {
-            Object obj = this.type;
+            Object obj = this.type_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.type = stringUtf8;
+                this.type_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public ByteString getTypeBytes() {
-            Object obj = this.type;
+            Object obj = this.type_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.type = copyFromUtf8;
+                this.type_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -521,24 +521,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public String getValue() {
-            Object obj = this.value;
+            Object obj = this.value_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.value = stringUtf8;
+                this.value_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public ByteString getValueBytes() {
-            Object obj = this.value;
+            Object obj = this.value_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.value = copyFromUtf8;
+                this.value_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -546,27 +546,27 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasAliasId() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasExt() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasTimestamp() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasType() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AckOrBuilder
         public boolean hasValue() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -587,20 +587,20 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getTypeBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getValueBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                codedOutputStream.writeInt64(3, this.timestamp);
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeInt64(3, this.timestamp_);
             }
-            if ((this.bitField0 & 8) == 8) {
+            if ((this.bitField0_ & 8) == 8) {
                 codedOutputStream.writeBytes(4, getExtBytes());
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeInt64(5, this.aliasId);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt64(5, this.aliasId_);
             }
         }
 
@@ -681,23 +681,23 @@ public final class IMPushPb {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 10) {
-                                    this.bitField0 |= 1;
-                                    this.type = codedInputStream.readBytes();
+                                    this.bitField0_ |= 1;
+                                    this.type_ = codedInputStream.readBytes();
                                 } else if (readTag == 18) {
-                                    this.bitField0 |= 2;
-                                    this.value = codedInputStream.readBytes();
+                                    this.bitField0_ |= 2;
+                                    this.value_ = codedInputStream.readBytes();
                                 } else if (readTag == 24) {
-                                    this.bitField0 |= 4;
-                                    this.timestamp = codedInputStream.readInt64();
+                                    this.bitField0_ |= 4;
+                                    this.timestamp_ = codedInputStream.readInt64();
                                 } else if (readTag == 34) {
-                                    this.bitField0 |= 8;
-                                    this.ext = codedInputStream.readBytes();
+                                    this.bitField0_ |= 8;
+                                    this.ext_ = codedInputStream.readBytes();
                                 } else if (readTag != 40) {
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 } else {
-                                    this.bitField0 |= 16;
-                                    this.aliasId = codedInputStream.readInt64();
+                                    this.bitField0_ |= 16;
+                                    this.aliasId_ = codedInputStream.readInt64();
                                 }
                             }
                             z = true;
@@ -751,7 +751,8 @@ public final class IMPushPb {
         public static final int CRASH_FIELD_NUMBER = 3;
         public static final int DB_FIELD_NUMBER = 4;
         public static final int MSG_FIELD_NUMBER = 8;
-        public static final Parser<Action> PARSER = new AbstractParser<Action>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Action.1
+        public static final int NEW_CONNECTION_FIELD_NUMBER = 9;
+        public static Parser<Action> PARSER = new AbstractParser<Action>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Action.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Action parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -762,29 +763,31 @@ public final class IMPushPb {
         public static final int UI_FIELD_NUMBER = 2;
         public static final Action defaultInstance;
         public static final long serialVersionUID = 0;
-        public Ack ack;
-        public ActionType actionType;
-        public int bitField0;
-        public Connection connection;
-        public Crash crash;
-        public Db db;
+        public Ack ack_;
+        public ActionType actionType_;
+        public int bitField0_;
+        public Connection connection_;
+        public Crash crash_;
+        public Db db_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Msg msg;
-        public Request request;
-        public Ui ui;
+        public Msg msg_;
+        public NewConnection newConnection_;
+        public Request request_;
+        public Ui ui_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Action, Builder> implements ActionOrBuilder {
-            public int bitField0;
-            public ActionType actionType = ActionType.UI;
-            public Ui ui = Ui.getDefaultInstance();
-            public Crash crash = Crash.getDefaultInstance();
-            public Db db = Db.getDefaultInstance();
-            public Connection connection = Connection.getDefaultInstance();
-            public Request request = Request.getDefaultInstance();
-            public Ack ack = Ack.getDefaultInstance();
-            public Msg msg = Msg.getDefaultInstance();
+            public int bitField0_;
+            public ActionType actionType_ = ActionType.UI;
+            public Ui ui_ = Ui.getDefaultInstance();
+            public Crash crash_ = Crash.getDefaultInstance();
+            public Db db_ = Db.getDefaultInstance();
+            public Connection connection_ = Connection.getDefaultInstance();
+            public Request request_ = Request.getDefaultInstance();
+            public Ack ack_ = Ack.getDefaultInstance();
+            public Msg msg_ = Msg.getDefaultInstance();
+            public NewConnection newConnection_ = NewConnection.getDefaultInstance();
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -798,131 +801,147 @@ public final class IMPushPb {
             }
 
             public Builder clearAck() {
-                this.ack = Ack.getDefaultInstance();
-                this.bitField0 &= -65;
+                this.ack_ = Ack.getDefaultInstance();
+                this.bitField0_ &= -65;
                 return this;
             }
 
             public Builder clearActionType() {
-                this.bitField0 &= -2;
-                this.actionType = ActionType.UI;
+                this.bitField0_ &= -2;
+                this.actionType_ = ActionType.UI;
                 return this;
             }
 
             public Builder clearConnection() {
-                this.connection = Connection.getDefaultInstance();
-                this.bitField0 &= -17;
+                this.connection_ = Connection.getDefaultInstance();
+                this.bitField0_ &= -17;
                 return this;
             }
 
             public Builder clearCrash() {
-                this.crash = Crash.getDefaultInstance();
-                this.bitField0 &= -5;
+                this.crash_ = Crash.getDefaultInstance();
+                this.bitField0_ &= -5;
                 return this;
             }
 
             public Builder clearDb() {
-                this.db = Db.getDefaultInstance();
-                this.bitField0 &= -9;
+                this.db_ = Db.getDefaultInstance();
+                this.bitField0_ &= -9;
                 return this;
             }
 
             public Builder clearMsg() {
-                this.msg = Msg.getDefaultInstance();
-                this.bitField0 &= -129;
+                this.msg_ = Msg.getDefaultInstance();
+                this.bitField0_ &= -129;
+                return this;
+            }
+
+            public Builder clearNewConnection() {
+                this.newConnection_ = NewConnection.getDefaultInstance();
+                this.bitField0_ &= -257;
                 return this;
             }
 
             public Builder clearRequest() {
-                this.request = Request.getDefaultInstance();
-                this.bitField0 &= -33;
+                this.request_ = Request.getDefaultInstance();
+                this.bitField0_ &= -33;
                 return this;
             }
 
             public Builder clearUi() {
-                this.ui = Ui.getDefaultInstance();
-                this.bitField0 &= -3;
+                this.ui_ = Ui.getDefaultInstance();
+                this.bitField0_ &= -3;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Ack getAck() {
-                return this.ack;
+                return this.ack_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public ActionType getActionType() {
-                return this.actionType;
+                return this.actionType_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Connection getConnection() {
-                return this.connection;
+                return this.connection_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Crash getCrash() {
-                return this.crash;
+                return this.crash_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Db getDb() {
-                return this.db;
+                return this.db_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Msg getMsg() {
-                return this.msg;
+                return this.msg_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+            public NewConnection getNewConnection() {
+                return this.newConnection_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Request getRequest() {
-                return this.request;
+                return this.request_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public Ui getUi() {
-                return this.ui;
+                return this.ui_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasAck() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasActionType() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasConnection() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasCrash() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasDb() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasMsg() {
-                return (this.bitField0 & 128) == 128;
+                return (this.bitField0_ & 128) == 128;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+            public boolean hasNewConnection() {
+                return (this.bitField0_ & 256) == 256;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasRequest() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
             public boolean hasUi() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -931,79 +950,89 @@ public final class IMPushPb {
             }
 
             public Builder mergeAck(Ack ack) {
-                if ((this.bitField0 & 64) == 64 && this.ack != Ack.getDefaultInstance()) {
-                    this.ack = Ack.newBuilder(this.ack).mergeFrom(ack).buildPartial();
+                if ((this.bitField0_ & 64) == 64 && this.ack_ != Ack.getDefaultInstance()) {
+                    this.ack_ = Ack.newBuilder(this.ack_).mergeFrom(ack).buildPartial();
                 } else {
-                    this.ack = ack;
+                    this.ack_ = ack;
                 }
-                this.bitField0 |= 64;
+                this.bitField0_ |= 64;
                 return this;
             }
 
             public Builder mergeConnection(Connection connection) {
-                if ((this.bitField0 & 16) == 16 && this.connection != Connection.getDefaultInstance()) {
-                    this.connection = Connection.newBuilder(this.connection).mergeFrom(connection).buildPartial();
+                if ((this.bitField0_ & 16) == 16 && this.connection_ != Connection.getDefaultInstance()) {
+                    this.connection_ = Connection.newBuilder(this.connection_).mergeFrom(connection).buildPartial();
                 } else {
-                    this.connection = connection;
+                    this.connection_ = connection;
                 }
-                this.bitField0 |= 16;
+                this.bitField0_ |= 16;
                 return this;
             }
 
             public Builder mergeCrash(Crash crash) {
-                if ((this.bitField0 & 4) == 4 && this.crash != Crash.getDefaultInstance()) {
-                    this.crash = Crash.newBuilder(this.crash).mergeFrom(crash).buildPartial();
+                if ((this.bitField0_ & 4) == 4 && this.crash_ != Crash.getDefaultInstance()) {
+                    this.crash_ = Crash.newBuilder(this.crash_).mergeFrom(crash).buildPartial();
                 } else {
-                    this.crash = crash;
+                    this.crash_ = crash;
                 }
-                this.bitField0 |= 4;
+                this.bitField0_ |= 4;
                 return this;
             }
 
             public Builder mergeDb(Db db) {
-                if ((this.bitField0 & 8) == 8 && this.db != Db.getDefaultInstance()) {
-                    this.db = Db.newBuilder(this.db).mergeFrom(db).buildPartial();
+                if ((this.bitField0_ & 8) == 8 && this.db_ != Db.getDefaultInstance()) {
+                    this.db_ = Db.newBuilder(this.db_).mergeFrom(db).buildPartial();
                 } else {
-                    this.db = db;
+                    this.db_ = db;
                 }
-                this.bitField0 |= 8;
+                this.bitField0_ |= 8;
                 return this;
             }
 
             public Builder mergeMsg(Msg msg) {
-                if ((this.bitField0 & 128) == 128 && this.msg != Msg.getDefaultInstance()) {
-                    this.msg = Msg.newBuilder(this.msg).mergeFrom(msg).buildPartial();
+                if ((this.bitField0_ & 128) == 128 && this.msg_ != Msg.getDefaultInstance()) {
+                    this.msg_ = Msg.newBuilder(this.msg_).mergeFrom(msg).buildPartial();
                 } else {
-                    this.msg = msg;
+                    this.msg_ = msg;
                 }
-                this.bitField0 |= 128;
+                this.bitField0_ |= 128;
+                return this;
+            }
+
+            public Builder mergeNewConnection(NewConnection newConnection) {
+                if ((this.bitField0_ & 256) == 256 && this.newConnection_ != NewConnection.getDefaultInstance()) {
+                    this.newConnection_ = NewConnection.newBuilder(this.newConnection_).mergeFrom(newConnection).buildPartial();
+                } else {
+                    this.newConnection_ = newConnection;
+                }
+                this.bitField0_ |= 256;
                 return this;
             }
 
             public Builder mergeRequest(Request request) {
-                if ((this.bitField0 & 32) == 32 && this.request != Request.getDefaultInstance()) {
-                    this.request = Request.newBuilder(this.request).mergeFrom(request).buildPartial();
+                if ((this.bitField0_ & 32) == 32 && this.request_ != Request.getDefaultInstance()) {
+                    this.request_ = Request.newBuilder(this.request_).mergeFrom(request).buildPartial();
                 } else {
-                    this.request = request;
+                    this.request_ = request;
                 }
-                this.bitField0 |= 32;
+                this.bitField0_ |= 32;
                 return this;
             }
 
             public Builder mergeUi(Ui ui) {
-                if ((this.bitField0 & 2) == 2 && this.ui != Ui.getDefaultInstance()) {
-                    this.ui = Ui.newBuilder(this.ui).mergeFrom(ui).buildPartial();
+                if ((this.bitField0_ & 2) == 2 && this.ui_ != Ui.getDefaultInstance()) {
+                    this.ui_ = Ui.newBuilder(this.ui_).mergeFrom(ui).buildPartial();
                 } else {
-                    this.ui = ui;
+                    this.ui_ = ui;
                 }
-                this.bitField0 |= 2;
+                this.bitField0_ |= 2;
                 return this;
             }
 
             public Builder setAck(Ack ack) {
                 if (ack != null) {
-                    this.ack = ack;
-                    this.bitField0 |= 64;
+                    this.ack_ = ack;
+                    this.bitField0_ |= 64;
                     return this;
                 }
                 throw null;
@@ -1011,8 +1040,8 @@ public final class IMPushPb {
 
             public Builder setActionType(ActionType actionType) {
                 if (actionType != null) {
-                    this.bitField0 |= 1;
-                    this.actionType = actionType;
+                    this.bitField0_ |= 1;
+                    this.actionType_ = actionType;
                     return this;
                 }
                 throw null;
@@ -1020,8 +1049,8 @@ public final class IMPushPb {
 
             public Builder setConnection(Connection connection) {
                 if (connection != null) {
-                    this.connection = connection;
-                    this.bitField0 |= 16;
+                    this.connection_ = connection;
+                    this.bitField0_ |= 16;
                     return this;
                 }
                 throw null;
@@ -1029,8 +1058,8 @@ public final class IMPushPb {
 
             public Builder setCrash(Crash crash) {
                 if (crash != null) {
-                    this.crash = crash;
-                    this.bitField0 |= 4;
+                    this.crash_ = crash;
+                    this.bitField0_ |= 4;
                     return this;
                 }
                 throw null;
@@ -1038,8 +1067,8 @@ public final class IMPushPb {
 
             public Builder setDb(Db db) {
                 if (db != null) {
-                    this.db = db;
-                    this.bitField0 |= 8;
+                    this.db_ = db;
+                    this.bitField0_ |= 8;
                     return this;
                 }
                 throw null;
@@ -1047,8 +1076,17 @@ public final class IMPushPb {
 
             public Builder setMsg(Msg msg) {
                 if (msg != null) {
-                    this.msg = msg;
-                    this.bitField0 |= 128;
+                    this.msg_ = msg;
+                    this.bitField0_ |= 128;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setNewConnection(NewConnection newConnection) {
+                if (newConnection != null) {
+                    this.newConnection_ = newConnection;
+                    this.bitField0_ |= 256;
                     return this;
                 }
                 throw null;
@@ -1056,8 +1094,8 @@ public final class IMPushPb {
 
             public Builder setRequest(Request request) {
                 if (request != null) {
-                    this.request = request;
-                    this.bitField0 |= 32;
+                    this.request_ = request;
+                    this.bitField0_ |= 32;
                     return this;
                 }
                 throw null;
@@ -1065,8 +1103,8 @@ public final class IMPushPb {
 
             public Builder setUi(Ui ui) {
                 if (ui != null) {
-                    this.ui = ui;
-                    this.bitField0 |= 2;
+                    this.ui_ = ui;
+                    this.bitField0_ |= 2;
                     return this;
                 }
                 throw null;
@@ -1086,38 +1124,42 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Action buildPartial() {
                 Action action = new Action(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                action.actionType = this.actionType;
+                action.actionType_ = this.actionType_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                action.ui = this.ui;
+                action.ui_ = this.ui_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                action.crash = this.crash;
+                action.crash_ = this.crash_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                action.db = this.db;
+                action.db_ = this.db_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                action.connection = this.connection;
+                action.connection_ = this.connection_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                action.request = this.request;
+                action.request_ = this.request_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                action.ack = this.ack;
+                action.ack_ = this.ack_;
                 if ((i2 & 128) == 128) {
                     i3 |= 128;
                 }
-                action.msg = this.msg;
-                action.bitField0 = i3;
+                action.msg_ = this.msg_;
+                if ((i2 & 256) == 256) {
+                    i3 |= 256;
+                }
+                action.newConnection_ = this.newConnection_;
+                action.bitField0_ = i3;
                 return action;
             }
 
@@ -1125,22 +1167,24 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.actionType = ActionType.UI;
-                this.bitField0 &= -2;
-                this.ui = Ui.getDefaultInstance();
-                this.bitField0 &= -3;
-                this.crash = Crash.getDefaultInstance();
-                this.bitField0 &= -5;
-                this.db = Db.getDefaultInstance();
-                this.bitField0 &= -9;
-                this.connection = Connection.getDefaultInstance();
-                this.bitField0 &= -17;
-                this.request = Request.getDefaultInstance();
-                this.bitField0 &= -33;
-                this.ack = Ack.getDefaultInstance();
-                this.bitField0 &= -65;
-                this.msg = Msg.getDefaultInstance();
-                this.bitField0 &= -129;
+                this.actionType_ = ActionType.UI;
+                this.bitField0_ &= -2;
+                this.ui_ = Ui.getDefaultInstance();
+                this.bitField0_ &= -3;
+                this.crash_ = Crash.getDefaultInstance();
+                this.bitField0_ &= -5;
+                this.db_ = Db.getDefaultInstance();
+                this.bitField0_ &= -9;
+                this.connection_ = Connection.getDefaultInstance();
+                this.bitField0_ &= -17;
+                this.request_ = Request.getDefaultInstance();
+                this.bitField0_ &= -33;
+                this.ack_ = Ack.getDefaultInstance();
+                this.bitField0_ &= -65;
+                this.msg_ = Msg.getDefaultInstance();
+                this.bitField0_ &= -129;
+                this.newConnection_ = NewConnection.getDefaultInstance();
+                this.bitField0_ &= -257;
                 return this;
             }
 
@@ -1180,48 +1224,57 @@ public final class IMPushPb {
                 if (action.hasMsg()) {
                     mergeMsg(action.getMsg());
                 }
+                if (action.hasNewConnection()) {
+                    mergeNewConnection(action.getNewConnection());
+                }
                 return this;
             }
 
             public Builder setAck(Ack.Builder builder) {
-                this.ack = builder.build();
-                this.bitField0 |= 64;
+                this.ack_ = builder.build();
+                this.bitField0_ |= 64;
                 return this;
             }
 
             public Builder setConnection(Connection.Builder builder) {
-                this.connection = builder.build();
-                this.bitField0 |= 16;
+                this.connection_ = builder.build();
+                this.bitField0_ |= 16;
                 return this;
             }
 
             public Builder setCrash(Crash.Builder builder) {
-                this.crash = builder.build();
-                this.bitField0 |= 4;
+                this.crash_ = builder.build();
+                this.bitField0_ |= 4;
                 return this;
             }
 
             public Builder setDb(Db.Builder builder) {
-                this.db = builder.build();
-                this.bitField0 |= 8;
+                this.db_ = builder.build();
+                this.bitField0_ |= 8;
                 return this;
             }
 
             public Builder setMsg(Msg.Builder builder) {
-                this.msg = builder.build();
-                this.bitField0 |= 128;
+                this.msg_ = builder.build();
+                this.bitField0_ |= 128;
+                return this;
+            }
+
+            public Builder setNewConnection(NewConnection.Builder builder) {
+                this.newConnection_ = builder.build();
+                this.bitField0_ |= 256;
                 return this;
             }
 
             public Builder setRequest(Request.Builder builder) {
-                this.request = builder.build();
-                this.bitField0 |= 32;
+                this.request_ = builder.build();
+                this.bitField0_ |= 32;
                 return this;
             }
 
             public Builder setUi(Ui.Builder builder) {
-                this.ui = builder.build();
-                this.bitField0 |= 2;
+                this.ui_ = builder.build();
+                this.bitField0_ |= 2;
                 return this;
             }
 
@@ -1279,14 +1332,15 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.actionType = ActionType.UI;
-            this.ui = Ui.getDefaultInstance();
-            this.crash = Crash.getDefaultInstance();
-            this.db = Db.getDefaultInstance();
-            this.connection = Connection.getDefaultInstance();
-            this.request = Request.getDefaultInstance();
-            this.ack = Ack.getDefaultInstance();
-            this.msg = Msg.getDefaultInstance();
+            this.actionType_ = ActionType.UI;
+            this.ui_ = Ui.getDefaultInstance();
+            this.crash_ = Crash.getDefaultInstance();
+            this.db_ = Db.getDefaultInstance();
+            this.connection_ = Connection.getDefaultInstance();
+            this.request_ = Request.getDefaultInstance();
+            this.ack_ = Ack.getDefaultInstance();
+            this.msg_ = Msg.getDefaultInstance();
+            this.newConnection_ = NewConnection.getDefaultInstance();
         }
 
         public static Builder newBuilder() {
@@ -1303,32 +1357,37 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Ack getAck() {
-            return this.ack;
+            return this.ack_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public ActionType getActionType() {
-            return this.actionType;
+            return this.actionType_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Connection getConnection() {
-            return this.connection;
+            return this.connection_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Crash getCrash() {
-            return this.crash;
+            return this.crash_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Db getDb() {
-            return this.db;
+            return this.db_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Msg getMsg() {
-            return this.msg;
+            return this.msg_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+        public NewConnection getNewConnection() {
+            return this.newConnection_;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -1338,7 +1397,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Request getRequest() {
-            return this.request;
+            return this.request_;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -1347,27 +1406,30 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeEnumSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.actionType.getNumber()) : 0;
-            if ((this.bitField0 & 2) == 2) {
-                computeEnumSize += CodedOutputStream.computeMessageSize(2, this.ui);
+            int computeEnumSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.actionType_.getNumber()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(2, this.ui_);
             }
-            if ((this.bitField0 & 4) == 4) {
-                computeEnumSize += CodedOutputStream.computeMessageSize(3, this.crash);
+            if ((this.bitField0_ & 4) == 4) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(3, this.crash_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeEnumSize += CodedOutputStream.computeMessageSize(4, this.db);
+            if ((this.bitField0_ & 8) == 8) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(4, this.db_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeEnumSize += CodedOutputStream.computeMessageSize(5, this.connection);
+            if ((this.bitField0_ & 16) == 16) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(5, this.connection_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                computeEnumSize += CodedOutputStream.computeMessageSize(6, this.request);
+            if ((this.bitField0_ & 32) == 32) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(6, this.request_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeEnumSize += CodedOutputStream.computeMessageSize(7, this.ack);
+            if ((this.bitField0_ & 64) == 64) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(7, this.ack_);
             }
-            if ((this.bitField0 & 128) == 128) {
-                computeEnumSize += CodedOutputStream.computeMessageSize(8, this.msg);
+            if ((this.bitField0_ & 128) == 128) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(8, this.msg_);
+            }
+            if ((this.bitField0_ & 256) == 256) {
+                computeEnumSize += CodedOutputStream.computeMessageSize(9, this.newConnection_);
             }
             this.memoizedSerializedSize = computeEnumSize;
             return computeEnumSize;
@@ -1375,47 +1437,52 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public Ui getUi() {
-            return this.ui;
+            return this.ui_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasAck() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasActionType() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasConnection() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasCrash() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasDb() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasMsg() {
-            return (this.bitField0 & 128) == 128;
+            return (this.bitField0_ & 128) == 128;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
+        public boolean hasNewConnection() {
+            return (this.bitField0_ & 256) == 256;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasRequest() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionOrBuilder
         public boolean hasUi() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -1436,29 +1503,32 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
-                codedOutputStream.writeEnum(1, this.actionType.getNumber());
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeEnum(1, this.actionType_.getNumber());
             }
-            if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(2, this.ui);
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeMessage(2, this.ui_);
             }
-            if ((this.bitField0 & 4) == 4) {
-                codedOutputStream.writeMessage(3, this.crash);
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeMessage(3, this.crash_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeMessage(4, this.db);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeMessage(4, this.db_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeMessage(5, this.connection);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeMessage(5, this.connection_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                codedOutputStream.writeMessage(6, this.request);
+            if ((this.bitField0_ & 32) == 32) {
+                codedOutputStream.writeMessage(6, this.request_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeMessage(7, this.ack);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeMessage(7, this.ack_);
             }
-            if ((this.bitField0 & 128) == 128) {
-                codedOutputStream.writeMessage(8, this.msg);
+            if ((this.bitField0_ & 128) == 128) {
+                codedOutputStream.writeMessage(8, this.msg_);
+            }
+            if ((this.bitField0_ & 256) == 256) {
+                codedOutputStream.writeMessage(9, this.newConnection_);
             }
         }
 
@@ -1536,89 +1606,100 @@ public final class IMPushPb {
             while (!z) {
                 try {
                     try {
-                        int readTag = codedInputStream.readTag();
-                        if (readTag != 0) {
-                            if (readTag != 8) {
-                                if (readTag == 18) {
-                                    builder = (this.bitField0 & 2) == 2 ? this.ui.toBuilder() : null;
-                                    Ui ui = (Ui) codedInputStream.readMessage(Ui.PARSER, extensionRegistryLite);
-                                    this.ui = ui;
-                                    if (builder != null) {
-                                        builder.mergeFrom(ui);
-                                        this.ui = builder.buildPartial();
-                                    }
-                                    this.bitField0 |= 2;
-                                } else if (readTag == 26) {
-                                    builder = (this.bitField0 & 4) == 4 ? this.crash.toBuilder() : null;
-                                    Crash crash = (Crash) codedInputStream.readMessage(Crash.PARSER, extensionRegistryLite);
-                                    this.crash = crash;
-                                    if (builder != null) {
-                                        builder.mergeFrom(crash);
-                                        this.crash = builder.buildPartial();
-                                    }
-                                    this.bitField0 |= 4;
-                                } else if (readTag == 34) {
-                                    builder = (this.bitField0 & 8) == 8 ? this.db.toBuilder() : null;
-                                    Db db = (Db) codedInputStream.readMessage(Db.PARSER, extensionRegistryLite);
-                                    this.db = db;
-                                    if (builder != null) {
-                                        builder.mergeFrom(db);
-                                        this.db = builder.buildPartial();
-                                    }
-                                    this.bitField0 |= 8;
-                                } else if (readTag == 42) {
-                                    builder = (this.bitField0 & 16) == 16 ? this.connection.toBuilder() : null;
-                                    Connection connection = (Connection) codedInputStream.readMessage(Connection.PARSER, extensionRegistryLite);
-                                    this.connection = connection;
-                                    if (builder != null) {
-                                        builder.mergeFrom(connection);
-                                        this.connection = builder.buildPartial();
-                                    }
-                                    this.bitField0 |= 16;
-                                } else if (readTag == 50) {
-                                    builder = (this.bitField0 & 32) == 32 ? this.request.toBuilder() : null;
-                                    Request request = (Request) codedInputStream.readMessage(Request.PARSER, extensionRegistryLite);
-                                    this.request = request;
-                                    if (builder != null) {
-                                        builder.mergeFrom(request);
-                                        this.request = builder.buildPartial();
-                                    }
-                                    this.bitField0 |= 32;
-                                } else if (readTag == 58) {
-                                    builder = (this.bitField0 & 64) == 64 ? this.ack.toBuilder() : null;
-                                    Ack ack = (Ack) codedInputStream.readMessage(Ack.PARSER, extensionRegistryLite);
-                                    this.ack = ack;
-                                    if (builder != null) {
-                                        builder.mergeFrom(ack);
-                                        this.ack = builder.buildPartial();
-                                    }
-                                    this.bitField0 |= 64;
-                                } else if (readTag != 66) {
-                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            if (readTag != 0) {
+                                if (readTag != 8) {
+                                    if (readTag == 18) {
+                                        builder = (this.bitField0_ & 2) == 2 ? this.ui_.toBuilder() : null;
+                                        Ui ui = (Ui) codedInputStream.readMessage(Ui.PARSER, extensionRegistryLite);
+                                        this.ui_ = ui;
+                                        if (builder != null) {
+                                            builder.mergeFrom(ui);
+                                            this.ui_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 2;
+                                    } else if (readTag == 26) {
+                                        builder = (this.bitField0_ & 4) == 4 ? this.crash_.toBuilder() : null;
+                                        Crash crash = (Crash) codedInputStream.readMessage(Crash.PARSER, extensionRegistryLite);
+                                        this.crash_ = crash;
+                                        if (builder != null) {
+                                            builder.mergeFrom(crash);
+                                            this.crash_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 4;
+                                    } else if (readTag == 34) {
+                                        builder = (this.bitField0_ & 8) == 8 ? this.db_.toBuilder() : null;
+                                        Db db = (Db) codedInputStream.readMessage(Db.PARSER, extensionRegistryLite);
+                                        this.db_ = db;
+                                        if (builder != null) {
+                                            builder.mergeFrom(db);
+                                            this.db_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 8;
+                                    } else if (readTag == 42) {
+                                        builder = (this.bitField0_ & 16) == 16 ? this.connection_.toBuilder() : null;
+                                        Connection connection = (Connection) codedInputStream.readMessage(Connection.PARSER, extensionRegistryLite);
+                                        this.connection_ = connection;
+                                        if (builder != null) {
+                                            builder.mergeFrom(connection);
+                                            this.connection_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 16;
+                                    } else if (readTag == 50) {
+                                        builder = (this.bitField0_ & 32) == 32 ? this.request_.toBuilder() : null;
+                                        Request request = (Request) codedInputStream.readMessage(Request.PARSER, extensionRegistryLite);
+                                        this.request_ = request;
+                                        if (builder != null) {
+                                            builder.mergeFrom(request);
+                                            this.request_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 32;
+                                    } else if (readTag == 58) {
+                                        builder = (this.bitField0_ & 64) == 64 ? this.ack_.toBuilder() : null;
+                                        Ack ack = (Ack) codedInputStream.readMessage(Ack.PARSER, extensionRegistryLite);
+                                        this.ack_ = ack;
+                                        if (builder != null) {
+                                            builder.mergeFrom(ack);
+                                            this.ack_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 64;
+                                    } else if (readTag == 66) {
+                                        builder = (this.bitField0_ & 128) == 128 ? this.msg_.toBuilder() : null;
+                                        Msg msg = (Msg) codedInputStream.readMessage(Msg.PARSER, extensionRegistryLite);
+                                        this.msg_ = msg;
+                                        if (builder != null) {
+                                            builder.mergeFrom(msg);
+                                            this.msg_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 128;
+                                    } else if (readTag != 74) {
+                                        if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                        }
+                                    } else {
+                                        builder = (this.bitField0_ & 256) == 256 ? this.newConnection_.toBuilder() : null;
+                                        NewConnection newConnection = (NewConnection) codedInputStream.readMessage(NewConnection.PARSER, extensionRegistryLite);
+                                        this.newConnection_ = newConnection;
+                                        if (builder != null) {
+                                            builder.mergeFrom(newConnection);
+                                            this.newConnection_ = builder.buildPartial();
+                                        }
+                                        this.bitField0_ |= 256;
                                     }
                                 } else {
-                                    builder = (this.bitField0 & 128) == 128 ? this.msg.toBuilder() : null;
-                                    Msg msg = (Msg) codedInputStream.readMessage(Msg.PARSER, extensionRegistryLite);
-                                    this.msg = msg;
-                                    if (builder != null) {
-                                        builder.mergeFrom(msg);
-                                        this.msg = builder.buildPartial();
+                                    ActionType valueOf = ActionType.valueOf(codedInputStream.readEnum());
+                                    if (valueOf != null) {
+                                        this.bitField0_ = 1 | this.bitField0_;
+                                        this.actionType_ = valueOf;
                                     }
-                                    this.bitField0 |= 128;
-                                }
-                            } else {
-                                ActionType valueOf = ActionType.valueOf(codedInputStream.readEnum());
-                                if (valueOf != null) {
-                                    this.bitField0 = 1 | this.bitField0;
-                                    this.actionType = valueOf;
                                 }
                             }
+                            z = true;
+                        } catch (IOException e2) {
+                            throw new InvalidProtocolBufferException(e2.getMessage()).setUnfinishedMessage(this);
                         }
-                        z = true;
-                    } catch (InvalidProtocolBufferException e2) {
-                        throw e2.setUnfinishedMessage(this);
-                    } catch (IOException e3) {
-                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    } catch (InvalidProtocolBufferException e3) {
+                        throw e3.setUnfinishedMessage(this);
                     }
                 } finally {
                     makeExtensionsImmutable();
@@ -1641,6 +1722,8 @@ public final class IMPushPb {
 
         Msg getMsg();
 
+        NewConnection getNewConnection();
+
         Request getRequest();
 
         Ui getUi();
@@ -1657,6 +1740,8 @@ public final class IMPushPb {
 
         boolean hasMsg();
 
+        boolean hasNewConnection();
+
         boolean hasRequest();
 
         boolean hasUi();
@@ -1670,13 +1755,15 @@ public final class IMPushPb {
         CONNECTION(3, 401),
         REQUEST(4, 501),
         ACK(5, 601),
-        MSG(6, 701);
+        MSG(6, 701),
+        NEWCONNECTION(7, 801);
         
         public static final int ACK_VALUE = 601;
         public static final int CONNECTION_VALUE = 401;
         public static final int CRASH_VALUE = 201;
         public static final int DB_VALUE = 301;
         public static final int MSG_VALUE = 701;
+        public static final int NEWCONNECTION_VALUE = 801;
         public static final int REQUEST_VALUE = 501;
         public static final int UI_VALUE = 101;
         public static Internal.EnumLiteMap<ActionType> internalValueMap = new Internal.EnumLiteMap<ActionType>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.ActionType.1
@@ -1710,7 +1797,10 @@ public final class IMPushPb {
                             if (i2 != 501) {
                                 if (i2 != 601) {
                                     if (i2 != 701) {
-                                        return null;
+                                        if (i2 != 801) {
+                                            return null;
+                                        }
+                                        return NEWCONNECTION;
                                     }
                                     return MSG;
                                 }
@@ -1733,7 +1823,7 @@ public final class IMPushPb {
         public static final int APP_CHANNEL_FIELD_NUMBER = 3;
         public static final int APP_NAME_FIELD_NUMBER = 1;
         public static final int APP_VERSION_FIELD_NUMBER = 2;
-        public static final Parser<AppInfo> PARSER = new AbstractParser<AppInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfo.1
+        public static Parser<AppInfo> PARSER = new AbstractParser<AppInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public AppInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -1742,19 +1832,19 @@ public final class IMPushPb {
         };
         public static final AppInfo defaultInstance;
         public static final long serialVersionUID = 0;
-        public Object appChannel;
-        public Object appName;
-        public Object appVersion;
-        public int bitField0;
+        public Object appChannel_;
+        public Object appName_;
+        public Object appVersion_;
+        public int bitField0_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<AppInfo, Builder> implements AppInfoOrBuilder {
-            public int bitField0;
-            public Object appName = "";
-            public Object appVersion = "";
-            public Object appChannel = "";
+            public int bitField0_;
+            public Object appName_ = "";
+            public Object appVersion_ = "";
+            public Object appChannel_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -1768,29 +1858,29 @@ public final class IMPushPb {
             }
 
             public Builder clearAppChannel() {
-                this.bitField0 &= -5;
-                this.appChannel = AppInfo.getDefaultInstance().getAppChannel();
+                this.bitField0_ &= -5;
+                this.appChannel_ = AppInfo.getDefaultInstance().getAppChannel();
                 return this;
             }
 
             public Builder clearAppName() {
-                this.bitField0 &= -2;
-                this.appName = AppInfo.getDefaultInstance().getAppName();
+                this.bitField0_ &= -2;
+                this.appName_ = AppInfo.getDefaultInstance().getAppName();
                 return this;
             }
 
             public Builder clearAppVersion() {
-                this.bitField0 &= -3;
-                this.appVersion = AppInfo.getDefaultInstance().getAppVersion();
+                this.bitField0_ &= -3;
+                this.appVersion_ = AppInfo.getDefaultInstance().getAppVersion();
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public String getAppChannel() {
-                Object obj = this.appChannel;
+                Object obj = this.appChannel_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.appChannel = stringUtf8;
+                    this.appChannel_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -1798,10 +1888,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public ByteString getAppChannelBytes() {
-                Object obj = this.appChannel;
+                Object obj = this.appChannel_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.appChannel = copyFromUtf8;
+                    this.appChannel_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -1809,10 +1899,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public String getAppName() {
-                Object obj = this.appName;
+                Object obj = this.appName_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.appName = stringUtf8;
+                    this.appName_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -1820,10 +1910,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public ByteString getAppNameBytes() {
-                Object obj = this.appName;
+                Object obj = this.appName_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.appName = copyFromUtf8;
+                    this.appName_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -1831,10 +1921,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public String getAppVersion() {
-                Object obj = this.appVersion;
+                Object obj = this.appVersion_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.appVersion = stringUtf8;
+                    this.appVersion_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -1842,10 +1932,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public ByteString getAppVersionBytes() {
-                Object obj = this.appVersion;
+                Object obj = this.appVersion_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.appVersion = copyFromUtf8;
+                    this.appVersion_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -1853,17 +1943,17 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public boolean hasAppChannel() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public boolean hasAppName() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
             public boolean hasAppVersion() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -1873,8 +1963,8 @@ public final class IMPushPb {
 
             public Builder setAppChannel(String str) {
                 if (str != null) {
-                    this.bitField0 |= 4;
-                    this.appChannel = str;
+                    this.bitField0_ |= 4;
+                    this.appChannel_ = str;
                     return this;
                 }
                 throw null;
@@ -1882,8 +1972,8 @@ public final class IMPushPb {
 
             public Builder setAppChannelBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 4;
-                    this.appChannel = byteString;
+                    this.bitField0_ |= 4;
+                    this.appChannel_ = byteString;
                     return this;
                 }
                 throw null;
@@ -1891,8 +1981,8 @@ public final class IMPushPb {
 
             public Builder setAppName(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.appName = str;
+                    this.bitField0_ |= 1;
+                    this.appName_ = str;
                     return this;
                 }
                 throw null;
@@ -1900,8 +1990,8 @@ public final class IMPushPb {
 
             public Builder setAppNameBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.appName = byteString;
+                    this.bitField0_ |= 1;
+                    this.appName_ = byteString;
                     return this;
                 }
                 throw null;
@@ -1909,8 +1999,8 @@ public final class IMPushPb {
 
             public Builder setAppVersion(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.appVersion = str;
+                    this.bitField0_ |= 2;
+                    this.appVersion_ = str;
                     return this;
                 }
                 throw null;
@@ -1918,8 +2008,8 @@ public final class IMPushPb {
 
             public Builder setAppVersionBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.appVersion = byteString;
+                    this.bitField0_ |= 2;
+                    this.appVersion_ = byteString;
                     return this;
                 }
                 throw null;
@@ -1939,18 +2029,18 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public AppInfo buildPartial() {
                 AppInfo appInfo = new AppInfo(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                appInfo.appName = this.appName;
+                appInfo.appName_ = this.appName_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                appInfo.appVersion = this.appVersion;
+                appInfo.appVersion_ = this.appVersion_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                appInfo.appChannel = this.appChannel;
-                appInfo.bitField0 = i3;
+                appInfo.appChannel_ = this.appChannel_;
+                appInfo.bitField0_ = i3;
                 return appInfo;
             }
 
@@ -1958,14 +2048,14 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.appName = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.appVersion = "";
+                this.appName_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.appVersion_ = "";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.appChannel = "";
-                this.bitField0 = i3 & (-5);
+                this.bitField0_ = i3;
+                this.appChannel_ = "";
+                this.bitField0_ = i3 & (-5);
                 return this;
             }
 
@@ -1982,16 +2072,16 @@ public final class IMPushPb {
                     return this;
                 }
                 if (appInfo.hasAppName()) {
-                    this.bitField0 |= 1;
-                    this.appName = appInfo.appName;
+                    this.bitField0_ |= 1;
+                    this.appName_ = appInfo.appName_;
                 }
                 if (appInfo.hasAppVersion()) {
-                    this.bitField0 |= 2;
-                    this.appVersion = appInfo.appVersion;
+                    this.bitField0_ |= 2;
+                    this.appVersion_ = appInfo.appVersion_;
                 }
                 if (appInfo.hasAppChannel()) {
-                    this.bitField0 |= 4;
-                    this.appChannel = appInfo.appChannel;
+                    this.bitField0_ |= 4;
+                    this.appChannel_ = appInfo.appChannel_;
                 }
                 return this;
             }
@@ -2050,9 +2140,9 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.appName = "";
-            this.appVersion = "";
-            this.appChannel = "";
+            this.appName_ = "";
+            this.appVersion_ = "";
+            this.appChannel_ = "";
         }
 
         public static Builder newBuilder() {
@@ -2069,24 +2159,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public String getAppChannel() {
-            Object obj = this.appChannel;
+            Object obj = this.appChannel_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.appChannel = stringUtf8;
+                this.appChannel_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public ByteString getAppChannelBytes() {
-            Object obj = this.appChannel;
+            Object obj = this.appChannel_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.appChannel = copyFromUtf8;
+                this.appChannel_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -2094,24 +2184,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public String getAppName() {
-            Object obj = this.appName;
+            Object obj = this.appName_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.appName = stringUtf8;
+                this.appName_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public ByteString getAppNameBytes() {
-            Object obj = this.appName;
+            Object obj = this.appName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.appName = copyFromUtf8;
+                this.appName_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -2119,24 +2209,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public String getAppVersion() {
-            Object obj = this.appVersion;
+            Object obj = this.appVersion_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.appVersion = stringUtf8;
+                this.appVersion_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public ByteString getAppVersionBytes() {
-            Object obj = this.appVersion;
+            Object obj = this.appVersion_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.appVersion = copyFromUtf8;
+                this.appVersion_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -2153,11 +2243,11 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getAppNameBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getAppNameBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(2, getAppVersionBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(3, getAppChannelBytes());
             }
             this.memoizedSerializedSize = computeBytesSize;
@@ -2166,17 +2256,17 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public boolean hasAppChannel() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public boolean hasAppName() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.AppInfoOrBuilder
         public boolean hasAppVersion() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -2197,13 +2287,13 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getAppNameBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getAppVersionBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeBytes(3, getAppChannelBytes());
             }
         }
@@ -2285,17 +2375,17 @@ public final class IMPushPb {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 10) {
-                                    this.bitField0 |= 1;
-                                    this.appName = codedInputStream.readBytes();
+                                    this.bitField0_ |= 1;
+                                    this.appName_ = codedInputStream.readBytes();
                                 } else if (readTag == 18) {
-                                    this.bitField0 |= 2;
-                                    this.appVersion = codedInputStream.readBytes();
+                                    this.bitField0_ |= 2;
+                                    this.appVersion_ = codedInputStream.readBytes();
                                 } else if (readTag != 26) {
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 } else {
-                                    this.bitField0 |= 4;
-                                    this.appChannel = codedInputStream.readBytes();
+                                    this.bitField0_ |= 4;
+                                    this.appChannel_ = codedInputStream.readBytes();
                                 }
                             }
                             z = true;
@@ -2339,7 +2429,7 @@ public final class IMPushPb {
         public static final int DEVICE_ID_FIELD_NUMBER = 7;
         public static final int MODULE_NAME_FIELD_NUMBER = 2;
         public static final int NET_INFO_FIELD_NUMBER = 22;
-        public static final Parser<Common> PARSER = new AbstractParser<Common>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Common.1
+        public static Parser<Common> PARSER = new AbstractParser<Common>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Common.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Common parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -2352,29 +2442,29 @@ public final class IMPushPb {
         public static final int USER_TIMESTAMP_FIELD_NUMBER = 12;
         public static final Common defaultInstance;
         public static final long serialVersionUID = 0;
-        public AppInfo appInfo;
-        public int bitField0;
-        public DeviceID deviceId;
+        public AppInfo appInfo_;
+        public int bitField0_;
+        public DeviceID deviceId_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Object moduleName;
-        public NetInfo netInfo;
-        public Object productName;
-        public TerminalInfo terminalInfo;
-        public long timestamp;
-        public long userTimestamp;
+        public Object moduleName_;
+        public NetInfo netInfo_;
+        public Object productName_;
+        public TerminalInfo terminalInfo_;
+        public long timestamp_;
+        public long userTimestamp_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Common, Builder> implements CommonOrBuilder {
-            public int bitField0;
-            public long timestamp;
-            public long userTimestamp;
-            public Object productName = "";
-            public Object moduleName = "";
-            public DeviceID deviceId = DeviceID.getDefaultInstance();
-            public TerminalInfo terminalInfo = TerminalInfo.getDefaultInstance();
-            public AppInfo appInfo = AppInfo.getDefaultInstance();
-            public NetInfo netInfo = NetInfo.getDefaultInstance();
+            public int bitField0_;
+            public long timestamp_;
+            public long userTimestamp_;
+            public Object productName_ = "";
+            public Object moduleName_ = "";
+            public DeviceID deviceId_ = DeviceID.getDefaultInstance();
+            public TerminalInfo terminalInfo_ = TerminalInfo.getDefaultInstance();
+            public AppInfo appInfo_ = AppInfo.getDefaultInstance();
+            public NetInfo netInfo_ = NetInfo.getDefaultInstance();
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -2388,69 +2478,69 @@ public final class IMPushPb {
             }
 
             public Builder clearAppInfo() {
-                this.appInfo = AppInfo.getDefaultInstance();
-                this.bitField0 &= -65;
+                this.appInfo_ = AppInfo.getDefaultInstance();
+                this.bitField0_ &= -65;
                 return this;
             }
 
             public Builder clearDeviceId() {
-                this.deviceId = DeviceID.getDefaultInstance();
-                this.bitField0 &= -5;
+                this.deviceId_ = DeviceID.getDefaultInstance();
+                this.bitField0_ &= -5;
                 return this;
             }
 
             public Builder clearModuleName() {
-                this.bitField0 &= -3;
-                this.moduleName = Common.getDefaultInstance().getModuleName();
+                this.bitField0_ &= -3;
+                this.moduleName_ = Common.getDefaultInstance().getModuleName();
                 return this;
             }
 
             public Builder clearNetInfo() {
-                this.netInfo = NetInfo.getDefaultInstance();
-                this.bitField0 &= -129;
+                this.netInfo_ = NetInfo.getDefaultInstance();
+                this.bitField0_ &= -129;
                 return this;
             }
 
             public Builder clearProductName() {
-                this.bitField0 &= -2;
-                this.productName = Common.getDefaultInstance().getProductName();
+                this.bitField0_ &= -2;
+                this.productName_ = Common.getDefaultInstance().getProductName();
                 return this;
             }
 
             public Builder clearTerminalInfo() {
-                this.terminalInfo = TerminalInfo.getDefaultInstance();
-                this.bitField0 &= -33;
+                this.terminalInfo_ = TerminalInfo.getDefaultInstance();
+                this.bitField0_ &= -33;
                 return this;
             }
 
             public Builder clearTimestamp() {
-                this.bitField0 &= -9;
-                this.timestamp = 0L;
+                this.bitField0_ &= -9;
+                this.timestamp_ = 0L;
                 return this;
             }
 
             public Builder clearUserTimestamp() {
-                this.bitField0 &= -17;
-                this.userTimestamp = 0L;
+                this.bitField0_ &= -17;
+                this.userTimestamp_ = 0L;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public AppInfo getAppInfo() {
-                return this.appInfo;
+                return this.appInfo_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public DeviceID getDeviceId() {
-                return this.deviceId;
+                return this.deviceId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public String getModuleName() {
-                Object obj = this.moduleName;
+                Object obj = this.moduleName_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.moduleName = stringUtf8;
+                    this.moduleName_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -2458,10 +2548,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public ByteString getModuleNameBytes() {
-                Object obj = this.moduleName;
+                Object obj = this.moduleName_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.moduleName = copyFromUtf8;
+                    this.moduleName_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -2469,15 +2559,15 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public NetInfo getNetInfo() {
-                return this.netInfo;
+                return this.netInfo_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public String getProductName() {
-                Object obj = this.productName;
+                Object obj = this.productName_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.productName = stringUtf8;
+                    this.productName_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -2485,10 +2575,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public ByteString getProductNameBytes() {
-                Object obj = this.productName;
+                Object obj = this.productName_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.productName = copyFromUtf8;
+                    this.productName_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -2496,57 +2586,57 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public TerminalInfo getTerminalInfo() {
-                return this.terminalInfo;
+                return this.terminalInfo_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public long getTimestamp() {
-                return this.timestamp;
+                return this.timestamp_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public long getUserTimestamp() {
-                return this.userTimestamp;
+                return this.userTimestamp_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasAppInfo() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasDeviceId() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasModuleName() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasNetInfo() {
-                return (this.bitField0 & 128) == 128;
+                return (this.bitField0_ & 128) == 128;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasProductName() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasTerminalInfo() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasTimestamp() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
             public boolean hasUserTimestamp() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -2558,49 +2648,49 @@ public final class IMPushPb {
             }
 
             public Builder mergeAppInfo(AppInfo appInfo) {
-                if ((this.bitField0 & 64) == 64 && this.appInfo != AppInfo.getDefaultInstance()) {
-                    this.appInfo = AppInfo.newBuilder(this.appInfo).mergeFrom(appInfo).buildPartial();
+                if ((this.bitField0_ & 64) == 64 && this.appInfo_ != AppInfo.getDefaultInstance()) {
+                    this.appInfo_ = AppInfo.newBuilder(this.appInfo_).mergeFrom(appInfo).buildPartial();
                 } else {
-                    this.appInfo = appInfo;
+                    this.appInfo_ = appInfo;
                 }
-                this.bitField0 |= 64;
+                this.bitField0_ |= 64;
                 return this;
             }
 
             public Builder mergeDeviceId(DeviceID deviceID) {
-                if ((this.bitField0 & 4) == 4 && this.deviceId != DeviceID.getDefaultInstance()) {
-                    this.deviceId = DeviceID.newBuilder(this.deviceId).mergeFrom(deviceID).buildPartial();
+                if ((this.bitField0_ & 4) == 4 && this.deviceId_ != DeviceID.getDefaultInstance()) {
+                    this.deviceId_ = DeviceID.newBuilder(this.deviceId_).mergeFrom(deviceID).buildPartial();
                 } else {
-                    this.deviceId = deviceID;
+                    this.deviceId_ = deviceID;
                 }
-                this.bitField0 |= 4;
+                this.bitField0_ |= 4;
                 return this;
             }
 
             public Builder mergeNetInfo(NetInfo netInfo) {
-                if ((this.bitField0 & 128) == 128 && this.netInfo != NetInfo.getDefaultInstance()) {
-                    this.netInfo = NetInfo.newBuilder(this.netInfo).mergeFrom(netInfo).buildPartial();
+                if ((this.bitField0_ & 128) == 128 && this.netInfo_ != NetInfo.getDefaultInstance()) {
+                    this.netInfo_ = NetInfo.newBuilder(this.netInfo_).mergeFrom(netInfo).buildPartial();
                 } else {
-                    this.netInfo = netInfo;
+                    this.netInfo_ = netInfo;
                 }
-                this.bitField0 |= 128;
+                this.bitField0_ |= 128;
                 return this;
             }
 
             public Builder mergeTerminalInfo(TerminalInfo terminalInfo) {
-                if ((this.bitField0 & 32) == 32 && this.terminalInfo != TerminalInfo.getDefaultInstance()) {
-                    this.terminalInfo = TerminalInfo.newBuilder(this.terminalInfo).mergeFrom(terminalInfo).buildPartial();
+                if ((this.bitField0_ & 32) == 32 && this.terminalInfo_ != TerminalInfo.getDefaultInstance()) {
+                    this.terminalInfo_ = TerminalInfo.newBuilder(this.terminalInfo_).mergeFrom(terminalInfo).buildPartial();
                 } else {
-                    this.terminalInfo = terminalInfo;
+                    this.terminalInfo_ = terminalInfo;
                 }
-                this.bitField0 |= 32;
+                this.bitField0_ |= 32;
                 return this;
             }
 
             public Builder setAppInfo(AppInfo appInfo) {
                 if (appInfo != null) {
-                    this.appInfo = appInfo;
-                    this.bitField0 |= 64;
+                    this.appInfo_ = appInfo;
+                    this.bitField0_ |= 64;
                     return this;
                 }
                 throw null;
@@ -2608,8 +2698,8 @@ public final class IMPushPb {
 
             public Builder setDeviceId(DeviceID deviceID) {
                 if (deviceID != null) {
-                    this.deviceId = deviceID;
-                    this.bitField0 |= 4;
+                    this.deviceId_ = deviceID;
+                    this.bitField0_ |= 4;
                     return this;
                 }
                 throw null;
@@ -2617,8 +2707,8 @@ public final class IMPushPb {
 
             public Builder setModuleName(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.moduleName = str;
+                    this.bitField0_ |= 2;
+                    this.moduleName_ = str;
                     return this;
                 }
                 throw null;
@@ -2626,8 +2716,8 @@ public final class IMPushPb {
 
             public Builder setModuleNameBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.moduleName = byteString;
+                    this.bitField0_ |= 2;
+                    this.moduleName_ = byteString;
                     return this;
                 }
                 throw null;
@@ -2635,8 +2725,8 @@ public final class IMPushPb {
 
             public Builder setNetInfo(NetInfo netInfo) {
                 if (netInfo != null) {
-                    this.netInfo = netInfo;
-                    this.bitField0 |= 128;
+                    this.netInfo_ = netInfo;
+                    this.bitField0_ |= 128;
                     return this;
                 }
                 throw null;
@@ -2644,8 +2734,8 @@ public final class IMPushPb {
 
             public Builder setProductName(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.productName = str;
+                    this.bitField0_ |= 1;
+                    this.productName_ = str;
                     return this;
                 }
                 throw null;
@@ -2653,8 +2743,8 @@ public final class IMPushPb {
 
             public Builder setProductNameBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.productName = byteString;
+                    this.bitField0_ |= 1;
+                    this.productName_ = byteString;
                     return this;
                 }
                 throw null;
@@ -2662,22 +2752,22 @@ public final class IMPushPb {
 
             public Builder setTerminalInfo(TerminalInfo terminalInfo) {
                 if (terminalInfo != null) {
-                    this.terminalInfo = terminalInfo;
-                    this.bitField0 |= 32;
+                    this.terminalInfo_ = terminalInfo;
+                    this.bitField0_ |= 32;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setTimestamp(long j) {
-                this.bitField0 |= 8;
-                this.timestamp = j;
+                this.bitField0_ |= 8;
+                this.timestamp_ = j;
                 return this;
             }
 
             public Builder setUserTimestamp(long j) {
-                this.bitField0 |= 16;
-                this.userTimestamp = j;
+                this.bitField0_ |= 16;
+                this.userTimestamp_ = j;
                 return this;
             }
 
@@ -2695,38 +2785,38 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Common buildPartial() {
                 Common common2 = new Common(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                common2.productName = this.productName;
+                common2.productName_ = this.productName_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                common2.moduleName = this.moduleName;
+                common2.moduleName_ = this.moduleName_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                common2.deviceId = this.deviceId;
+                common2.deviceId_ = this.deviceId_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                common2.timestamp = this.timestamp;
+                common2.timestamp_ = this.timestamp_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                common2.userTimestamp = this.userTimestamp;
+                common2.userTimestamp_ = this.userTimestamp_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                common2.terminalInfo = this.terminalInfo;
+                common2.terminalInfo_ = this.terminalInfo_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                common2.appInfo = this.appInfo;
+                common2.appInfo_ = this.appInfo_;
                 if ((i2 & 128) == 128) {
                     i3 |= 128;
                 }
-                common2.netInfo = this.netInfo;
-                common2.bitField0 = i3;
+                common2.netInfo_ = this.netInfo_;
+                common2.bitField0_ = i3;
                 return common2;
             }
 
@@ -2734,25 +2824,25 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.productName = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.moduleName = "";
-                this.bitField0 = i2 & (-3);
-                this.deviceId = DeviceID.getDefaultInstance();
-                int i3 = this.bitField0 & (-5);
-                this.bitField0 = i3;
-                this.timestamp = 0L;
+                this.productName_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.moduleName_ = "";
+                this.bitField0_ = i2 & (-3);
+                this.deviceId_ = DeviceID.getDefaultInstance();
+                int i3 = this.bitField0_ & (-5);
+                this.bitField0_ = i3;
+                this.timestamp_ = 0L;
                 int i4 = i3 & (-9);
-                this.bitField0 = i4;
-                this.userTimestamp = 0L;
-                this.bitField0 = i4 & (-17);
-                this.terminalInfo = TerminalInfo.getDefaultInstance();
-                this.bitField0 &= -33;
-                this.appInfo = AppInfo.getDefaultInstance();
-                this.bitField0 &= -65;
-                this.netInfo = NetInfo.getDefaultInstance();
-                this.bitField0 &= -129;
+                this.bitField0_ = i4;
+                this.userTimestamp_ = 0L;
+                this.bitField0_ = i4 & (-17);
+                this.terminalInfo_ = TerminalInfo.getDefaultInstance();
+                this.bitField0_ &= -33;
+                this.appInfo_ = AppInfo.getDefaultInstance();
+                this.bitField0_ &= -65;
+                this.netInfo_ = NetInfo.getDefaultInstance();
+                this.bitField0_ &= -129;
                 return this;
             }
 
@@ -2769,12 +2859,12 @@ public final class IMPushPb {
                     return this;
                 }
                 if (common2.hasProductName()) {
-                    this.bitField0 |= 1;
-                    this.productName = common2.productName;
+                    this.bitField0_ |= 1;
+                    this.productName_ = common2.productName_;
                 }
                 if (common2.hasModuleName()) {
-                    this.bitField0 |= 2;
-                    this.moduleName = common2.moduleName;
+                    this.bitField0_ |= 2;
+                    this.moduleName_ = common2.moduleName_;
                 }
                 if (common2.hasDeviceId()) {
                     mergeDeviceId(common2.getDeviceId());
@@ -2798,26 +2888,26 @@ public final class IMPushPb {
             }
 
             public Builder setAppInfo(AppInfo.Builder builder) {
-                this.appInfo = builder.build();
-                this.bitField0 |= 64;
+                this.appInfo_ = builder.build();
+                this.bitField0_ |= 64;
                 return this;
             }
 
             public Builder setDeviceId(DeviceID.Builder builder) {
-                this.deviceId = builder.build();
-                this.bitField0 |= 4;
+                this.deviceId_ = builder.build();
+                this.bitField0_ |= 4;
                 return this;
             }
 
             public Builder setNetInfo(NetInfo.Builder builder) {
-                this.netInfo = builder.build();
-                this.bitField0 |= 128;
+                this.netInfo_ = builder.build();
+                this.bitField0_ |= 128;
                 return this;
             }
 
             public Builder setTerminalInfo(TerminalInfo.Builder builder) {
-                this.terminalInfo = builder.build();
-                this.bitField0 |= 32;
+                this.terminalInfo_ = builder.build();
+                this.bitField0_ |= 32;
                 return this;
             }
 
@@ -2875,14 +2965,14 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.productName = "";
-            this.moduleName = "";
-            this.deviceId = DeviceID.getDefaultInstance();
-            this.timestamp = 0L;
-            this.userTimestamp = 0L;
-            this.terminalInfo = TerminalInfo.getDefaultInstance();
-            this.appInfo = AppInfo.getDefaultInstance();
-            this.netInfo = NetInfo.getDefaultInstance();
+            this.productName_ = "";
+            this.moduleName_ = "";
+            this.deviceId_ = DeviceID.getDefaultInstance();
+            this.timestamp_ = 0L;
+            this.userTimestamp_ = 0L;
+            this.terminalInfo_ = TerminalInfo.getDefaultInstance();
+            this.appInfo_ = AppInfo.getDefaultInstance();
+            this.netInfo_ = NetInfo.getDefaultInstance();
         }
 
         public static Builder newBuilder() {
@@ -2899,34 +2989,34 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public AppInfo getAppInfo() {
-            return this.appInfo;
+            return this.appInfo_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public DeviceID getDeviceId() {
-            return this.deviceId;
+            return this.deviceId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public String getModuleName() {
-            Object obj = this.moduleName;
+            Object obj = this.moduleName_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.moduleName = stringUtf8;
+                this.moduleName_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public ByteString getModuleNameBytes() {
-            Object obj = this.moduleName;
+            Object obj = this.moduleName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.moduleName = copyFromUtf8;
+                this.moduleName_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -2934,7 +3024,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public NetInfo getNetInfo() {
-            return this.netInfo;
+            return this.netInfo_;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -2944,24 +3034,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public String getProductName() {
-            Object obj = this.productName;
+            Object obj = this.productName_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.productName = stringUtf8;
+                this.productName_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public ByteString getProductNameBytes() {
-            Object obj = this.productName;
+            Object obj = this.productName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.productName = copyFromUtf8;
+                this.productName_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -2973,27 +3063,27 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getProductNameBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getProductNameBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(2, getModuleNameBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                computeBytesSize += CodedOutputStream.computeMessageSize(7, this.deviceId);
+            if ((this.bitField0_ & 4) == 4) {
+                computeBytesSize += CodedOutputStream.computeMessageSize(7, this.deviceId_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(10, this.timestamp);
+            if ((this.bitField0_ & 8) == 8) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(10, this.timestamp_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(12, this.userTimestamp);
+            if ((this.bitField0_ & 16) == 16) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(12, this.userTimestamp_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                computeBytesSize += CodedOutputStream.computeMessageSize(20, this.terminalInfo);
+            if ((this.bitField0_ & 32) == 32) {
+                computeBytesSize += CodedOutputStream.computeMessageSize(20, this.terminalInfo_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeBytesSize += CodedOutputStream.computeMessageSize(21, this.appInfo);
+            if ((this.bitField0_ & 64) == 64) {
+                computeBytesSize += CodedOutputStream.computeMessageSize(21, this.appInfo_);
             }
-            if ((this.bitField0 & 128) == 128) {
-                computeBytesSize += CodedOutputStream.computeMessageSize(22, this.netInfo);
+            if ((this.bitField0_ & 128) == 128) {
+                computeBytesSize += CodedOutputStream.computeMessageSize(22, this.netInfo_);
             }
             this.memoizedSerializedSize = computeBytesSize;
             return computeBytesSize;
@@ -3001,57 +3091,57 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public TerminalInfo getTerminalInfo() {
-            return this.terminalInfo;
+            return this.terminalInfo_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public long getTimestamp() {
-            return this.timestamp;
+            return this.timestamp_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public long getUserTimestamp() {
-            return this.userTimestamp;
+            return this.userTimestamp_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasAppInfo() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasDeviceId() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasModuleName() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasNetInfo() {
-            return (this.bitField0 & 128) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasProductName() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasTerminalInfo() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasTimestamp() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CommonOrBuilder
         public boolean hasUserTimestamp() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -3079,29 +3169,29 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getProductNameBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getModuleNameBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                codedOutputStream.writeMessage(7, this.deviceId);
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeMessage(7, this.deviceId_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(10, this.timestamp);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt64(10, this.timestamp_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeInt64(12, this.userTimestamp);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt64(12, this.userTimestamp_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                codedOutputStream.writeMessage(20, this.terminalInfo);
+            if ((this.bitField0_ & 32) == 32) {
+                codedOutputStream.writeMessage(20, this.terminalInfo_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeMessage(21, this.appInfo);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeMessage(21, this.appInfo_);
             }
-            if ((this.bitField0 & 128) == 128) {
-                codedOutputStream.writeMessage(22, this.netInfo);
+            if ((this.bitField0_ & 128) == 128) {
+                codedOutputStream.writeMessage(22, this.netInfo_);
             }
         }
 
@@ -3183,58 +3273,58 @@ public final class IMPushPb {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 10) {
-                                    this.bitField0 |= 1;
-                                    this.productName = codedInputStream.readBytes();
+                                    this.bitField0_ |= 1;
+                                    this.productName_ = codedInputStream.readBytes();
                                 } else if (readTag != 18) {
                                     if (readTag == 58) {
-                                        builder = (this.bitField0 & 4) == 4 ? this.deviceId.toBuilder() : null;
+                                        builder = (this.bitField0_ & 4) == 4 ? this.deviceId_.toBuilder() : null;
                                         DeviceID deviceID = (DeviceID) codedInputStream.readMessage(DeviceID.PARSER, extensionRegistryLite);
-                                        this.deviceId = deviceID;
+                                        this.deviceId_ = deviceID;
                                         if (builder != null) {
                                             builder.mergeFrom(deviceID);
-                                            this.deviceId = builder.buildPartial();
+                                            this.deviceId_ = builder.buildPartial();
                                         }
-                                        this.bitField0 |= 4;
+                                        this.bitField0_ |= 4;
                                     } else if (readTag == 80) {
-                                        this.bitField0 |= 8;
-                                        this.timestamp = codedInputStream.readInt64();
+                                        this.bitField0_ |= 8;
+                                        this.timestamp_ = codedInputStream.readInt64();
                                     } else if (readTag == 96) {
-                                        this.bitField0 |= 16;
-                                        this.userTimestamp = codedInputStream.readInt64();
+                                        this.bitField0_ |= 16;
+                                        this.userTimestamp_ = codedInputStream.readInt64();
                                     } else if (readTag == 162) {
-                                        builder = (this.bitField0 & 32) == 32 ? this.terminalInfo.toBuilder() : null;
+                                        builder = (this.bitField0_ & 32) == 32 ? this.terminalInfo_.toBuilder() : null;
                                         TerminalInfo terminalInfo = (TerminalInfo) codedInputStream.readMessage(TerminalInfo.PARSER, extensionRegistryLite);
-                                        this.terminalInfo = terminalInfo;
+                                        this.terminalInfo_ = terminalInfo;
                                         if (builder != null) {
                                             builder.mergeFrom(terminalInfo);
-                                            this.terminalInfo = builder.buildPartial();
+                                            this.terminalInfo_ = builder.buildPartial();
                                         }
-                                        this.bitField0 |= 32;
+                                        this.bitField0_ |= 32;
                                     } else if (readTag == 170) {
-                                        builder = (this.bitField0 & 64) == 64 ? this.appInfo.toBuilder() : null;
+                                        builder = (this.bitField0_ & 64) == 64 ? this.appInfo_.toBuilder() : null;
                                         AppInfo appInfo = (AppInfo) codedInputStream.readMessage(AppInfo.PARSER, extensionRegistryLite);
-                                        this.appInfo = appInfo;
+                                        this.appInfo_ = appInfo;
                                         if (builder != null) {
                                             builder.mergeFrom(appInfo);
-                                            this.appInfo = builder.buildPartial();
+                                            this.appInfo_ = builder.buildPartial();
                                         }
-                                        this.bitField0 |= 64;
+                                        this.bitField0_ |= 64;
                                     } else if (readTag != 178) {
                                         if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                         }
                                     } else {
-                                        builder = (this.bitField0 & 128) == 128 ? this.netInfo.toBuilder() : null;
+                                        builder = (this.bitField0_ & 128) == 128 ? this.netInfo_.toBuilder() : null;
                                         NetInfo netInfo = (NetInfo) codedInputStream.readMessage(NetInfo.PARSER, extensionRegistryLite);
-                                        this.netInfo = netInfo;
+                                        this.netInfo_ = netInfo;
                                         if (builder != null) {
                                             builder.mergeFrom(netInfo);
-                                            this.netInfo = builder.buildPartial();
+                                            this.netInfo_ = builder.buildPartial();
                                         }
-                                        this.bitField0 |= 128;
+                                        this.bitField0_ |= 128;
                                     }
                                 } else {
-                                    this.bitField0 |= 2;
-                                    this.moduleName = codedInputStream.readBytes();
+                                    this.bitField0_ |= 2;
+                                    this.moduleName_ = codedInputStream.readBytes();
                                 }
                             }
                             z = true;
@@ -3294,7 +3384,7 @@ public final class IMPushPb {
     public static final class Connection extends GeneratedMessageLite implements ConnectionOrBuilder {
         public static final int ALIAS_ID_FIELD_NUMBER = 7;
         public static final int EXT_FIELD_NUMBER = 6;
-        public static final Parser<Connection> PARSER = new AbstractParser<Connection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Connection.1
+        public static Parser<Connection> PARSER = new AbstractParser<Connection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Connection.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Connection parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -3308,27 +3398,27 @@ public final class IMPushPb {
         public static final int STOP_TIME_FIELD_NUMBER = 2;
         public static final Connection defaultInstance;
         public static final long serialVersionUID = 0;
-        public long aliasId;
-        public int bitField0;
-        public Object ext;
+        public long aliasId_;
+        public int bitField0_;
+        public Object ext_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Object reason;
-        public long retryCount;
-        public long retryTime;
-        public long startTime;
-        public long stopTime;
+        public Object reason_;
+        public long retryCount_;
+        public long retryTime_;
+        public long startTime_;
+        public long stopTime_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Connection, Builder> implements ConnectionOrBuilder {
-            public long aliasId;
-            public int bitField0;
-            public long retryCount;
-            public long retryTime;
-            public long startTime;
-            public long stopTime;
-            public Object reason = "";
-            public Object ext = "";
+            public long aliasId_;
+            public int bitField0_;
+            public long retryCount_;
+            public long retryTime_;
+            public long startTime_;
+            public long stopTime_;
+            public Object reason_ = "";
+            public Object ext_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -3342,58 +3432,58 @@ public final class IMPushPb {
             }
 
             public Builder clearAliasId() {
-                this.bitField0 &= -65;
-                this.aliasId = 0L;
+                this.bitField0_ &= -65;
+                this.aliasId_ = 0L;
                 return this;
             }
 
             public Builder clearExt() {
-                this.bitField0 &= -33;
-                this.ext = Connection.getDefaultInstance().getExt();
+                this.bitField0_ &= -33;
+                this.ext_ = Connection.getDefaultInstance().getExt();
                 return this;
             }
 
             public Builder clearReason() {
-                this.bitField0 &= -5;
-                this.reason = Connection.getDefaultInstance().getReason();
+                this.bitField0_ &= -5;
+                this.reason_ = Connection.getDefaultInstance().getReason();
                 return this;
             }
 
             public Builder clearRetryCount() {
-                this.bitField0 &= -17;
-                this.retryCount = 0L;
+                this.bitField0_ &= -17;
+                this.retryCount_ = 0L;
                 return this;
             }
 
             public Builder clearRetryTime() {
-                this.bitField0 &= -9;
-                this.retryTime = 0L;
+                this.bitField0_ &= -9;
+                this.retryTime_ = 0L;
                 return this;
             }
 
             public Builder clearStartTime() {
-                this.bitField0 &= -2;
-                this.startTime = 0L;
+                this.bitField0_ &= -2;
+                this.startTime_ = 0L;
                 return this;
             }
 
             public Builder clearStopTime() {
-                this.bitField0 &= -3;
-                this.stopTime = 0L;
+                this.bitField0_ &= -3;
+                this.stopTime_ = 0L;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getAliasId() {
-                return this.aliasId;
+                return this.aliasId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public String getExt() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.ext = stringUtf8;
+                    this.ext_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -3401,10 +3491,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public ByteString getExtBytes() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.ext = copyFromUtf8;
+                    this.ext_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -3412,10 +3502,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public String getReason() {
-                Object obj = this.reason;
+                Object obj = this.reason_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.reason = stringUtf8;
+                    this.reason_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -3423,10 +3513,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public ByteString getReasonBytes() {
-                Object obj = this.reason;
+                Object obj = this.reason_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.reason = copyFromUtf8;
+                    this.reason_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -3434,57 +3524,57 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getRetryCount() {
-                return this.retryCount;
+                return this.retryCount_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getRetryTime() {
-                return this.retryTime;
+                return this.retryTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getStartTime() {
-                return this.startTime;
+                return this.startTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public long getStopTime() {
-                return this.stopTime;
+                return this.stopTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasAliasId() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasExt() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasReason() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasRetryCount() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasRetryTime() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasStartTime() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
             public boolean hasStopTime() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -3493,15 +3583,15 @@ public final class IMPushPb {
             }
 
             public Builder setAliasId(long j) {
-                this.bitField0 |= 64;
-                this.aliasId = j;
+                this.bitField0_ |= 64;
+                this.aliasId_ = j;
                 return this;
             }
 
             public Builder setExt(String str) {
                 if (str != null) {
-                    this.bitField0 |= 32;
-                    this.ext = str;
+                    this.bitField0_ |= 32;
+                    this.ext_ = str;
                     return this;
                 }
                 throw null;
@@ -3509,8 +3599,8 @@ public final class IMPushPb {
 
             public Builder setExtBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 32;
-                    this.ext = byteString;
+                    this.bitField0_ |= 32;
+                    this.ext_ = byteString;
                     return this;
                 }
                 throw null;
@@ -3518,8 +3608,8 @@ public final class IMPushPb {
 
             public Builder setReason(String str) {
                 if (str != null) {
-                    this.bitField0 |= 4;
-                    this.reason = str;
+                    this.bitField0_ |= 4;
+                    this.reason_ = str;
                     return this;
                 }
                 throw null;
@@ -3527,34 +3617,34 @@ public final class IMPushPb {
 
             public Builder setReasonBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 4;
-                    this.reason = byteString;
+                    this.bitField0_ |= 4;
+                    this.reason_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setRetryCount(long j) {
-                this.bitField0 |= 16;
-                this.retryCount = j;
+                this.bitField0_ |= 16;
+                this.retryCount_ = j;
                 return this;
             }
 
             public Builder setRetryTime(long j) {
-                this.bitField0 |= 8;
-                this.retryTime = j;
+                this.bitField0_ |= 8;
+                this.retryTime_ = j;
                 return this;
             }
 
             public Builder setStartTime(long j) {
-                this.bitField0 |= 1;
-                this.startTime = j;
+                this.bitField0_ |= 1;
+                this.startTime_ = j;
                 return this;
             }
 
             public Builder setStopTime(long j) {
-                this.bitField0 |= 2;
-                this.stopTime = j;
+                this.bitField0_ |= 2;
+                this.stopTime_ = j;
                 return this;
             }
 
@@ -3572,34 +3662,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Connection buildPartial() {
                 Connection connection = new Connection(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                connection.startTime = this.startTime;
+                connection.startTime_ = this.startTime_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                connection.stopTime = this.stopTime;
+                connection.stopTime_ = this.stopTime_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                connection.reason = this.reason;
+                connection.reason_ = this.reason_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                connection.retryTime = this.retryTime;
+                connection.retryTime_ = this.retryTime_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                connection.retryCount = this.retryCount;
+                connection.retryCount_ = this.retryCount_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                connection.ext = this.ext;
+                connection.ext_ = this.ext_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                connection.aliasId = this.aliasId;
-                connection.bitField0 = i3;
+                connection.aliasId_ = this.aliasId_;
+                connection.bitField0_ = i3;
                 return connection;
             }
 
@@ -3607,26 +3697,26 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.startTime = 0L;
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.stopTime = 0L;
+                this.startTime_ = 0L;
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.stopTime_ = 0L;
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.reason = "";
+                this.bitField0_ = i3;
+                this.reason_ = "";
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.retryTime = 0L;
+                this.bitField0_ = i4;
+                this.retryTime_ = 0L;
                 int i5 = i4 & (-9);
-                this.bitField0 = i5;
-                this.retryCount = 0L;
+                this.bitField0_ = i5;
+                this.retryCount_ = 0L;
                 int i6 = i5 & (-17);
-                this.bitField0 = i6;
-                this.ext = "";
+                this.bitField0_ = i6;
+                this.ext_ = "";
                 int i7 = i6 & (-33);
-                this.bitField0 = i7;
-                this.aliasId = 0L;
-                this.bitField0 = i7 & (-65);
+                this.bitField0_ = i7;
+                this.aliasId_ = 0L;
+                this.bitField0_ = i7 & (-65);
                 return this;
             }
 
@@ -3649,8 +3739,8 @@ public final class IMPushPb {
                     setStopTime(connection.getStopTime());
                 }
                 if (connection.hasReason()) {
-                    this.bitField0 |= 4;
-                    this.reason = connection.reason;
+                    this.bitField0_ |= 4;
+                    this.reason_ = connection.reason_;
                 }
                 if (connection.hasRetryTime()) {
                     setRetryTime(connection.getRetryTime());
@@ -3659,8 +3749,8 @@ public final class IMPushPb {
                     setRetryCount(connection.getRetryCount());
                 }
                 if (connection.hasExt()) {
-                    this.bitField0 |= 32;
-                    this.ext = connection.ext;
+                    this.bitField0_ |= 32;
+                    this.ext_ = connection.ext_;
                 }
                 if (connection.hasAliasId()) {
                     setAliasId(connection.getAliasId());
@@ -3722,13 +3812,13 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.startTime = 0L;
-            this.stopTime = 0L;
-            this.reason = "";
-            this.retryTime = 0L;
-            this.retryCount = 0L;
-            this.ext = "";
-            this.aliasId = 0L;
+            this.startTime_ = 0L;
+            this.stopTime_ = 0L;
+            this.reason_ = "";
+            this.retryTime_ = 0L;
+            this.retryCount_ = 0L;
+            this.ext_ = "";
+            this.aliasId_ = 0L;
         }
 
         public static Builder newBuilder() {
@@ -3745,29 +3835,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getAliasId() {
-            return this.aliasId;
+            return this.aliasId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public String getExt() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.ext = stringUtf8;
+                this.ext_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public ByteString getExtBytes() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.ext = copyFromUtf8;
+                this.ext_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -3780,24 +3870,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public String getReason() {
-            Object obj = this.reason;
+            Object obj = this.reason_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.reason = stringUtf8;
+                this.reason_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public ByteString getReasonBytes() {
-            Object obj = this.reason;
+            Object obj = this.reason_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.reason = copyFromUtf8;
+                this.reason_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -3805,12 +3895,12 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getRetryCount() {
-            return this.retryCount;
+            return this.retryCount_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getRetryTime() {
-            return this.retryTime;
+            return this.retryTime_;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -3819,24 +3909,24 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.startTime) : 0;
-            if ((this.bitField0 & 2) == 2) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(2, this.stopTime);
+            int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.startTime_) : 0;
+            if ((this.bitField0_ & 2) == 2) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(2, this.stopTime_);
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 computeInt64Size += CodedOutputStream.computeBytesSize(3, getReasonBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(4, this.retryTime);
+            if ((this.bitField0_ & 8) == 8) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(4, this.retryTime_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(5, this.retryCount);
+            if ((this.bitField0_ & 16) == 16) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(5, this.retryCount_);
             }
-            if ((this.bitField0 & 32) == 32) {
+            if ((this.bitField0_ & 32) == 32) {
                 computeInt64Size += CodedOutputStream.computeBytesSize(6, getExtBytes());
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(7, this.aliasId);
+            if ((this.bitField0_ & 64) == 64) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(7, this.aliasId_);
             }
             this.memoizedSerializedSize = computeInt64Size;
             return computeInt64Size;
@@ -3844,47 +3934,47 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getStartTime() {
-            return this.startTime;
+            return this.startTime_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public long getStopTime() {
-            return this.stopTime;
+            return this.stopTime_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasAliasId() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasExt() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasReason() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasRetryCount() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasRetryTime() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasStartTime() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.ConnectionOrBuilder
         public boolean hasStopTime() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -3905,26 +3995,26 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
-                codedOutputStream.writeInt64(1, this.startTime);
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeInt64(1, this.startTime_);
             }
-            if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeInt64(2, this.stopTime);
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeInt64(2, this.stopTime_);
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeBytes(3, getReasonBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(4, this.retryTime);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt64(4, this.retryTime_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeInt64(5, this.retryCount);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt64(5, this.retryCount_);
             }
-            if ((this.bitField0 & 32) == 32) {
+            if ((this.bitField0_ & 32) == 32) {
                 codedOutputStream.writeBytes(6, getExtBytes());
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeInt64(7, this.aliasId);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt64(7, this.aliasId_);
             }
         }
 
@@ -4005,29 +4095,29 @@ public final class IMPushPb {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 8) {
-                                    this.bitField0 |= 1;
-                                    this.startTime = codedInputStream.readInt64();
+                                    this.bitField0_ |= 1;
+                                    this.startTime_ = codedInputStream.readInt64();
                                 } else if (readTag == 16) {
-                                    this.bitField0 |= 2;
-                                    this.stopTime = codedInputStream.readInt64();
+                                    this.bitField0_ |= 2;
+                                    this.stopTime_ = codedInputStream.readInt64();
                                 } else if (readTag == 26) {
-                                    this.bitField0 |= 4;
-                                    this.reason = codedInputStream.readBytes();
+                                    this.bitField0_ |= 4;
+                                    this.reason_ = codedInputStream.readBytes();
                                 } else if (readTag == 32) {
-                                    this.bitField0 |= 8;
-                                    this.retryTime = codedInputStream.readInt64();
+                                    this.bitField0_ |= 8;
+                                    this.retryTime_ = codedInputStream.readInt64();
                                 } else if (readTag == 40) {
-                                    this.bitField0 |= 16;
-                                    this.retryCount = codedInputStream.readInt64();
+                                    this.bitField0_ |= 16;
+                                    this.retryCount_ = codedInputStream.readInt64();
                                 } else if (readTag == 50) {
-                                    this.bitField0 |= 32;
-                                    this.ext = codedInputStream.readBytes();
+                                    this.bitField0_ |= 32;
+                                    this.ext_ = codedInputStream.readBytes();
                                 } else if (readTag != 56) {
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 } else {
-                                    this.bitField0 |= 64;
-                                    this.aliasId = codedInputStream.readInt64();
+                                    this.bitField0_ |= 64;
+                                    this.aliasId_ = codedInputStream.readInt64();
                                 }
                             }
                             z = true;
@@ -4084,7 +4174,7 @@ public final class IMPushPb {
         public static final int ALIAS_ID_FIELD_NUMBER = 4;
         public static final int EXCEPTION_FIELD_NUMBER = 1;
         public static final int EXT_FIELD_NUMBER = 3;
-        public static final Parser<Crash> PARSER = new AbstractParser<Crash>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Crash.1
+        public static Parser<Crash> PARSER = new AbstractParser<Crash>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Crash.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Crash parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -4094,21 +4184,21 @@ public final class IMPushPb {
         public static final int TIMESTAMP_FIELD_NUMBER = 2;
         public static final Crash defaultInstance;
         public static final long serialVersionUID = 0;
-        public long aliasId;
-        public int bitField0;
-        public Object exception;
-        public Object ext;
+        public long aliasId_;
+        public int bitField0_;
+        public Object exception_;
+        public Object ext_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public long timestamp;
+        public long timestamp_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Crash, Builder> implements CrashOrBuilder {
-            public long aliasId;
-            public int bitField0;
-            public Object exception = "";
-            public Object ext = "";
-            public long timestamp;
+            public long aliasId_;
+            public int bitField0_;
+            public Object exception_ = "";
+            public Object ext_ = "";
+            public long timestamp_;
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -4122,40 +4212,40 @@ public final class IMPushPb {
             }
 
             public Builder clearAliasId() {
-                this.bitField0 &= -9;
-                this.aliasId = 0L;
+                this.bitField0_ &= -9;
+                this.aliasId_ = 0L;
                 return this;
             }
 
             public Builder clearException() {
-                this.bitField0 &= -2;
-                this.exception = Crash.getDefaultInstance().getException();
+                this.bitField0_ &= -2;
+                this.exception_ = Crash.getDefaultInstance().getException();
                 return this;
             }
 
             public Builder clearExt() {
-                this.bitField0 &= -5;
-                this.ext = Crash.getDefaultInstance().getExt();
+                this.bitField0_ &= -5;
+                this.ext_ = Crash.getDefaultInstance().getExt();
                 return this;
             }
 
             public Builder clearTimestamp() {
-                this.bitField0 &= -3;
-                this.timestamp = 0L;
+                this.bitField0_ &= -3;
+                this.timestamp_ = 0L;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public long getAliasId() {
-                return this.aliasId;
+                return this.aliasId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public String getException() {
-                Object obj = this.exception;
+                Object obj = this.exception_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.exception = stringUtf8;
+                    this.exception_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -4163,10 +4253,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public ByteString getExceptionBytes() {
-                Object obj = this.exception;
+                Object obj = this.exception_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.exception = copyFromUtf8;
+                    this.exception_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -4174,10 +4264,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public String getExt() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.ext = stringUtf8;
+                    this.ext_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -4185,10 +4275,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public ByteString getExtBytes() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.ext = copyFromUtf8;
+                    this.ext_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -4196,27 +4286,27 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public long getTimestamp() {
-                return this.timestamp;
+                return this.timestamp_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasAliasId() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasException() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasExt() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
             public boolean hasTimestamp() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -4225,15 +4315,15 @@ public final class IMPushPb {
             }
 
             public Builder setAliasId(long j) {
-                this.bitField0 |= 8;
-                this.aliasId = j;
+                this.bitField0_ |= 8;
+                this.aliasId_ = j;
                 return this;
             }
 
             public Builder setException(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.exception = str;
+                    this.bitField0_ |= 1;
+                    this.exception_ = str;
                     return this;
                 }
                 throw null;
@@ -4241,8 +4331,8 @@ public final class IMPushPb {
 
             public Builder setExceptionBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.exception = byteString;
+                    this.bitField0_ |= 1;
+                    this.exception_ = byteString;
                     return this;
                 }
                 throw null;
@@ -4250,8 +4340,8 @@ public final class IMPushPb {
 
             public Builder setExt(String str) {
                 if (str != null) {
-                    this.bitField0 |= 4;
-                    this.ext = str;
+                    this.bitField0_ |= 4;
+                    this.ext_ = str;
                     return this;
                 }
                 throw null;
@@ -4259,16 +4349,16 @@ public final class IMPushPb {
 
             public Builder setExtBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 4;
-                    this.ext = byteString;
+                    this.bitField0_ |= 4;
+                    this.ext_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setTimestamp(long j) {
-                this.bitField0 |= 2;
-                this.timestamp = j;
+                this.bitField0_ |= 2;
+                this.timestamp_ = j;
                 return this;
             }
 
@@ -4286,22 +4376,22 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Crash buildPartial() {
                 Crash crash = new Crash(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                crash.exception = this.exception;
+                crash.exception_ = this.exception_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                crash.timestamp = this.timestamp;
+                crash.timestamp_ = this.timestamp_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                crash.ext = this.ext;
+                crash.ext_ = this.ext_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                crash.aliasId = this.aliasId;
-                crash.bitField0 = i3;
+                crash.aliasId_ = this.aliasId_;
+                crash.bitField0_ = i3;
                 return crash;
             }
 
@@ -4309,17 +4399,17 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.exception = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.timestamp = 0L;
+                this.exception_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.timestamp_ = 0L;
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.ext = "";
+                this.bitField0_ = i3;
+                this.ext_ = "";
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.aliasId = 0L;
-                this.bitField0 = i4 & (-9);
+                this.bitField0_ = i4;
+                this.aliasId_ = 0L;
+                this.bitField0_ = i4 & (-9);
                 return this;
             }
 
@@ -4336,15 +4426,15 @@ public final class IMPushPb {
                     return this;
                 }
                 if (crash.hasException()) {
-                    this.bitField0 |= 1;
-                    this.exception = crash.exception;
+                    this.bitField0_ |= 1;
+                    this.exception_ = crash.exception_;
                 }
                 if (crash.hasTimestamp()) {
                     setTimestamp(crash.getTimestamp());
                 }
                 if (crash.hasExt()) {
-                    this.bitField0 |= 4;
-                    this.ext = crash.ext;
+                    this.bitField0_ |= 4;
+                    this.ext_ = crash.ext_;
                 }
                 if (crash.hasAliasId()) {
                     setAliasId(crash.getAliasId());
@@ -4406,10 +4496,10 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.exception = "";
-            this.timestamp = 0L;
-            this.ext = "";
-            this.aliasId = 0L;
+            this.exception_ = "";
+            this.timestamp_ = 0L;
+            this.ext_ = "";
+            this.aliasId_ = 0L;
         }
 
         public static Builder newBuilder() {
@@ -4426,29 +4516,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public long getAliasId() {
-            return this.aliasId;
+            return this.aliasId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public String getException() {
-            Object obj = this.exception;
+            Object obj = this.exception_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.exception = stringUtf8;
+                this.exception_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public ByteString getExceptionBytes() {
-            Object obj = this.exception;
+            Object obj = this.exception_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.exception = copyFromUtf8;
+                this.exception_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -4456,24 +4546,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public String getExt() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.ext = stringUtf8;
+                this.ext_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public ByteString getExtBytes() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.ext = copyFromUtf8;
+                this.ext_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -4490,15 +4580,15 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getExceptionBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(2, this.timestamp);
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getExceptionBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(2, this.timestamp_);
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(3, getExtBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(4, this.aliasId);
+            if ((this.bitField0_ & 8) == 8) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(4, this.aliasId_);
             }
             this.memoizedSerializedSize = computeBytesSize;
             return computeBytesSize;
@@ -4506,27 +4596,27 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public long getTimestamp() {
-            return this.timestamp;
+            return this.timestamp_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasAliasId() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasException() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasExt() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.CrashOrBuilder
         public boolean hasTimestamp() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -4547,17 +4637,17 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getExceptionBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeInt64(2, this.timestamp);
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeInt64(2, this.timestamp_);
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeBytes(3, getExtBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(4, this.aliasId);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt64(4, this.aliasId_);
             }
         }
 
@@ -4638,20 +4728,20 @@ public final class IMPushPb {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 10) {
-                                    this.bitField0 |= 1;
-                                    this.exception = codedInputStream.readBytes();
+                                    this.bitField0_ |= 1;
+                                    this.exception_ = codedInputStream.readBytes();
                                 } else if (readTag == 16) {
-                                    this.bitField0 |= 2;
-                                    this.timestamp = codedInputStream.readInt64();
+                                    this.bitField0_ |= 2;
+                                    this.timestamp_ = codedInputStream.readInt64();
                                 } else if (readTag == 26) {
-                                    this.bitField0 |= 4;
-                                    this.ext = codedInputStream.readBytes();
+                                    this.bitField0_ |= 4;
+                                    this.ext_ = codedInputStream.readBytes();
                                 } else if (readTag != 32) {
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 } else {
-                                    this.bitField0 |= 8;
-                                    this.aliasId = codedInputStream.readInt64();
+                                    this.bitField0_ |= 8;
+                                    this.aliasId_ = codedInputStream.readInt64();
                                 }
                             }
                             z = true;
@@ -4700,7 +4790,7 @@ public final class IMPushPb {
         public static final int END_TIME_FIELD_NUMBER = 6;
         public static final int EXT_FIELD_NUMBER = 8;
         public static final int METHOD_FIELD_NUMBER = 3;
-        public static final Parser<Db> PARSER = new AbstractParser<Db>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Db.1
+        public static Parser<Db> PARSER = new AbstractParser<Db>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Db.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Db parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -4711,31 +4801,31 @@ public final class IMPushPb {
         public static final int TABLE_FIELD_NUMBER = 1;
         public static final Db defaultInstance;
         public static final long serialVersionUID = 0;
-        public Object action;
-        public long aliasId;
-        public int bitField0;
-        public Object className;
-        public long duration;
-        public long endTime;
-        public Object ext;
+        public Object action_;
+        public long aliasId_;
+        public int bitField0_;
+        public Object className_;
+        public long duration_;
+        public long endTime_;
+        public Object ext_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Object method;
-        public long startTime;
-        public Object table;
+        public Object method_;
+        public long startTime_;
+        public Object table_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Db, Builder> implements DbOrBuilder {
-            public long aliasId;
-            public int bitField0;
-            public long duration;
-            public long endTime;
-            public long startTime;
-            public Object table = "";
-            public Object className = "";
-            public Object method = "";
-            public Object action = "";
-            public Object ext = "";
+            public long aliasId_;
+            public int bitField0_;
+            public long duration_;
+            public long endTime_;
+            public long startTime_;
+            public Object table_ = "";
+            public Object className_ = "";
+            public Object method_ = "";
+            public Object action_ = "";
+            public Object ext_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -4749,65 +4839,65 @@ public final class IMPushPb {
             }
 
             public Builder clearAction() {
-                this.bitField0 &= -9;
-                this.action = Db.getDefaultInstance().getAction();
+                this.bitField0_ &= -9;
+                this.action_ = Db.getDefaultInstance().getAction();
                 return this;
             }
 
             public Builder clearAliasId() {
-                this.bitField0 &= -257;
-                this.aliasId = 0L;
+                this.bitField0_ &= -257;
+                this.aliasId_ = 0L;
                 return this;
             }
 
             public Builder clearClassName() {
-                this.bitField0 &= -3;
-                this.className = Db.getDefaultInstance().getClassName();
+                this.bitField0_ &= -3;
+                this.className_ = Db.getDefaultInstance().getClassName();
                 return this;
             }
 
             public Builder clearDuration() {
-                this.bitField0 &= -65;
-                this.duration = 0L;
+                this.bitField0_ &= -65;
+                this.duration_ = 0L;
                 return this;
             }
 
             public Builder clearEndTime() {
-                this.bitField0 &= -33;
-                this.endTime = 0L;
+                this.bitField0_ &= -33;
+                this.endTime_ = 0L;
                 return this;
             }
 
             public Builder clearExt() {
-                this.bitField0 &= -129;
-                this.ext = Db.getDefaultInstance().getExt();
+                this.bitField0_ &= -129;
+                this.ext_ = Db.getDefaultInstance().getExt();
                 return this;
             }
 
             public Builder clearMethod() {
-                this.bitField0 &= -5;
-                this.method = Db.getDefaultInstance().getMethod();
+                this.bitField0_ &= -5;
+                this.method_ = Db.getDefaultInstance().getMethod();
                 return this;
             }
 
             public Builder clearStartTime() {
-                this.bitField0 &= -17;
-                this.startTime = 0L;
+                this.bitField0_ &= -17;
+                this.startTime_ = 0L;
                 return this;
             }
 
             public Builder clearTable() {
-                this.bitField0 &= -2;
-                this.table = Db.getDefaultInstance().getTable();
+                this.bitField0_ &= -2;
+                this.table_ = Db.getDefaultInstance().getTable();
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getAction() {
-                Object obj = this.action;
+                Object obj = this.action_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.action = stringUtf8;
+                    this.action_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -4815,10 +4905,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getActionBytes() {
-                Object obj = this.action;
+                Object obj = this.action_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.action = copyFromUtf8;
+                    this.action_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -4826,15 +4916,15 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getAliasId() {
-                return this.aliasId;
+                return this.aliasId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getClassName() {
-                Object obj = this.className;
+                Object obj = this.className_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.className = stringUtf8;
+                    this.className_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -4842,10 +4932,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getClassNameBytes() {
-                Object obj = this.className;
+                Object obj = this.className_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.className = copyFromUtf8;
+                    this.className_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -4853,20 +4943,20 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getDuration() {
-                return this.duration;
+                return this.duration_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getEndTime() {
-                return this.endTime;
+                return this.endTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getExt() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.ext = stringUtf8;
+                    this.ext_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -4874,10 +4964,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getExtBytes() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.ext = copyFromUtf8;
+                    this.ext_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -4885,10 +4975,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getMethod() {
-                Object obj = this.method;
+                Object obj = this.method_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.method = stringUtf8;
+                    this.method_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -4896,10 +4986,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getMethodBytes() {
-                Object obj = this.method;
+                Object obj = this.method_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.method = copyFromUtf8;
+                    this.method_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -4907,15 +4997,15 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public long getStartTime() {
-                return this.startTime;
+                return this.startTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public String getTable() {
-                Object obj = this.table;
+                Object obj = this.table_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.table = stringUtf8;
+                    this.table_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -4923,10 +5013,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public ByteString getTableBytes() {
-                Object obj = this.table;
+                Object obj = this.table_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.table = copyFromUtf8;
+                    this.table_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -4934,47 +5024,47 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasAction() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasAliasId() {
-                return (this.bitField0 & 256) == 256;
+                return (this.bitField0_ & 256) == 256;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasClassName() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasDuration() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasEndTime() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasExt() {
-                return (this.bitField0 & 128) == 128;
+                return (this.bitField0_ & 128) == 128;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasMethod() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasStartTime() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
             public boolean hasTable() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -4984,8 +5074,8 @@ public final class IMPushPb {
 
             public Builder setAction(String str) {
                 if (str != null) {
-                    this.bitField0 |= 8;
-                    this.action = str;
+                    this.bitField0_ |= 8;
+                    this.action_ = str;
                     return this;
                 }
                 throw null;
@@ -4993,23 +5083,23 @@ public final class IMPushPb {
 
             public Builder setActionBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 8;
-                    this.action = byteString;
+                    this.bitField0_ |= 8;
+                    this.action_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setAliasId(long j) {
-                this.bitField0 |= 256;
-                this.aliasId = j;
+                this.bitField0_ |= 256;
+                this.aliasId_ = j;
                 return this;
             }
 
             public Builder setClassName(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.className = str;
+                    this.bitField0_ |= 2;
+                    this.className_ = str;
                     return this;
                 }
                 throw null;
@@ -5017,29 +5107,29 @@ public final class IMPushPb {
 
             public Builder setClassNameBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.className = byteString;
+                    this.bitField0_ |= 2;
+                    this.className_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setDuration(long j) {
-                this.bitField0 |= 64;
-                this.duration = j;
+                this.bitField0_ |= 64;
+                this.duration_ = j;
                 return this;
             }
 
             public Builder setEndTime(long j) {
-                this.bitField0 |= 32;
-                this.endTime = j;
+                this.bitField0_ |= 32;
+                this.endTime_ = j;
                 return this;
             }
 
             public Builder setExt(String str) {
                 if (str != null) {
-                    this.bitField0 |= 128;
-                    this.ext = str;
+                    this.bitField0_ |= 128;
+                    this.ext_ = str;
                     return this;
                 }
                 throw null;
@@ -5047,8 +5137,8 @@ public final class IMPushPb {
 
             public Builder setExtBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 128;
-                    this.ext = byteString;
+                    this.bitField0_ |= 128;
+                    this.ext_ = byteString;
                     return this;
                 }
                 throw null;
@@ -5056,8 +5146,8 @@ public final class IMPushPb {
 
             public Builder setMethod(String str) {
                 if (str != null) {
-                    this.bitField0 |= 4;
-                    this.method = str;
+                    this.bitField0_ |= 4;
+                    this.method_ = str;
                     return this;
                 }
                 throw null;
@@ -5065,23 +5155,23 @@ public final class IMPushPb {
 
             public Builder setMethodBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 4;
-                    this.method = byteString;
+                    this.bitField0_ |= 4;
+                    this.method_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setStartTime(long j) {
-                this.bitField0 |= 16;
-                this.startTime = j;
+                this.bitField0_ |= 16;
+                this.startTime_ = j;
                 return this;
             }
 
             public Builder setTable(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.table = str;
+                    this.bitField0_ |= 1;
+                    this.table_ = str;
                     return this;
                 }
                 throw null;
@@ -5089,8 +5179,8 @@ public final class IMPushPb {
 
             public Builder setTableBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.table = byteString;
+                    this.bitField0_ |= 1;
+                    this.table_ = byteString;
                     return this;
                 }
                 throw null;
@@ -5110,42 +5200,42 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Db buildPartial() {
                 Db db = new Db(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                db.table = this.table;
+                db.table_ = this.table_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                db.className = this.className;
+                db.className_ = this.className_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                db.method = this.method;
+                db.method_ = this.method_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                db.action = this.action;
+                db.action_ = this.action_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                db.startTime = this.startTime;
+                db.startTime_ = this.startTime_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                db.endTime = this.endTime;
+                db.endTime_ = this.endTime_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                db.duration = this.duration;
+                db.duration_ = this.duration_;
                 if ((i2 & 128) == 128) {
                     i3 |= 128;
                 }
-                db.ext = this.ext;
+                db.ext_ = this.ext_;
                 if ((i2 & 256) == 256) {
                     i3 |= 256;
                 }
-                db.aliasId = this.aliasId;
-                db.bitField0 = i3;
+                db.aliasId_ = this.aliasId_;
+                db.bitField0_ = i3;
                 return db;
             }
 
@@ -5153,32 +5243,32 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.table = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.className = "";
+                this.table_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.className_ = "";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.method = "";
+                this.bitField0_ = i3;
+                this.method_ = "";
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.action = "";
+                this.bitField0_ = i4;
+                this.action_ = "";
                 int i5 = i4 & (-9);
-                this.bitField0 = i5;
-                this.startTime = 0L;
+                this.bitField0_ = i5;
+                this.startTime_ = 0L;
                 int i6 = i5 & (-17);
-                this.bitField0 = i6;
-                this.endTime = 0L;
+                this.bitField0_ = i6;
+                this.endTime_ = 0L;
                 int i7 = i6 & (-33);
-                this.bitField0 = i7;
-                this.duration = 0L;
+                this.bitField0_ = i7;
+                this.duration_ = 0L;
                 int i8 = i7 & (-65);
-                this.bitField0 = i8;
-                this.ext = "";
+                this.bitField0_ = i8;
+                this.ext_ = "";
                 int i9 = i8 & (-129);
-                this.bitField0 = i9;
-                this.aliasId = 0L;
-                this.bitField0 = i9 & (-257);
+                this.bitField0_ = i9;
+                this.aliasId_ = 0L;
+                this.bitField0_ = i9 & (-257);
                 return this;
             }
 
@@ -5195,20 +5285,20 @@ public final class IMPushPb {
                     return this;
                 }
                 if (db.hasTable()) {
-                    this.bitField0 |= 1;
-                    this.table = db.table;
+                    this.bitField0_ |= 1;
+                    this.table_ = db.table_;
                 }
                 if (db.hasClassName()) {
-                    this.bitField0 |= 2;
-                    this.className = db.className;
+                    this.bitField0_ |= 2;
+                    this.className_ = db.className_;
                 }
                 if (db.hasMethod()) {
-                    this.bitField0 |= 4;
-                    this.method = db.method;
+                    this.bitField0_ |= 4;
+                    this.method_ = db.method_;
                 }
                 if (db.hasAction()) {
-                    this.bitField0 |= 8;
-                    this.action = db.action;
+                    this.bitField0_ |= 8;
+                    this.action_ = db.action_;
                 }
                 if (db.hasStartTime()) {
                     setStartTime(db.getStartTime());
@@ -5220,8 +5310,8 @@ public final class IMPushPb {
                     setDuration(db.getDuration());
                 }
                 if (db.hasExt()) {
-                    this.bitField0 |= 128;
-                    this.ext = db.ext;
+                    this.bitField0_ |= 128;
+                    this.ext_ = db.ext_;
                 }
                 if (db.hasAliasId()) {
                     setAliasId(db.getAliasId());
@@ -5283,15 +5373,15 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.table = "";
-            this.className = "";
-            this.method = "";
-            this.action = "";
-            this.startTime = 0L;
-            this.endTime = 0L;
-            this.duration = 0L;
-            this.ext = "";
-            this.aliasId = 0L;
+            this.table_ = "";
+            this.className_ = "";
+            this.method_ = "";
+            this.action_ = "";
+            this.startTime_ = 0L;
+            this.endTime_ = 0L;
+            this.duration_ = 0L;
+            this.ext_ = "";
+            this.aliasId_ = 0L;
         }
 
         public static Builder newBuilder() {
@@ -5308,24 +5398,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getAction() {
-            Object obj = this.action;
+            Object obj = this.action_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.action = stringUtf8;
+                this.action_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getActionBytes() {
-            Object obj = this.action;
+            Object obj = this.action_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.action = copyFromUtf8;
+                this.action_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -5333,29 +5423,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getAliasId() {
-            return this.aliasId;
+            return this.aliasId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getClassName() {
-            Object obj = this.className;
+            Object obj = this.className_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.className = stringUtf8;
+                this.className_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getClassNameBytes() {
-            Object obj = this.className;
+            Object obj = this.className_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.className = copyFromUtf8;
+                this.className_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -5363,34 +5453,34 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getDuration() {
-            return this.duration;
+            return this.duration_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getEndTime() {
-            return this.endTime;
+            return this.endTime_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getExt() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.ext = stringUtf8;
+                this.ext_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getExtBytes() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.ext = copyFromUtf8;
+                this.ext_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -5398,24 +5488,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getMethod() {
-            Object obj = this.method;
+            Object obj = this.method_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.method = stringUtf8;
+                this.method_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getMethodBytes() {
-            Object obj = this.method;
+            Object obj = this.method_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.method = copyFromUtf8;
+                this.method_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -5432,30 +5522,30 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTableBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getTableBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(2, getClassNameBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(3, getMethodBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
+            if ((this.bitField0_ & 8) == 8) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(4, getActionBytes());
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.startTime);
+            if ((this.bitField0_ & 16) == 16) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.startTime_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(6, this.endTime);
+            if ((this.bitField0_ & 32) == 32) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(6, this.endTime_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(7, this.duration);
+            if ((this.bitField0_ & 64) == 64) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(7, this.duration_);
             }
-            if ((this.bitField0 & 128) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(8, getExtBytes());
             }
-            if ((this.bitField0 & 256) == 256) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(9, this.aliasId);
+            if ((this.bitField0_ & 256) == 256) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(9, this.aliasId_);
             }
             this.memoizedSerializedSize = computeBytesSize;
             return computeBytesSize;
@@ -5463,29 +5553,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public long getStartTime() {
-            return this.startTime;
+            return this.startTime_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public String getTable() {
-            Object obj = this.table;
+            Object obj = this.table_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.table = stringUtf8;
+                this.table_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public ByteString getTableBytes() {
-            Object obj = this.table;
+            Object obj = this.table_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.table = copyFromUtf8;
+                this.table_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -5493,47 +5583,47 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasAction() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasAliasId() {
-            return (this.bitField0 & 256) == 256;
+            return (this.bitField0_ & 256) == 256;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasClassName() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasDuration() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasEndTime() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasExt() {
-            return (this.bitField0 & 128) == 128;
+            return (this.bitField0_ & 128) == 128;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasMethod() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasStartTime() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DbOrBuilder
         public boolean hasTable() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -5554,32 +5644,32 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getTableBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getClassNameBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeBytes(3, getMethodBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
+            if ((this.bitField0_ & 8) == 8) {
                 codedOutputStream.writeBytes(4, getActionBytes());
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeInt64(5, this.startTime);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt64(5, this.startTime_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                codedOutputStream.writeInt64(6, this.endTime);
+            if ((this.bitField0_ & 32) == 32) {
+                codedOutputStream.writeInt64(6, this.endTime_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeInt64(7, this.duration);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt64(7, this.duration_);
             }
-            if ((this.bitField0 & 128) == 128) {
+            if ((this.bitField0_ & 128) == 128) {
                 codedOutputStream.writeBytes(8, getExtBytes());
             }
-            if ((this.bitField0 & 256) == 256) {
-                codedOutputStream.writeInt64(9, this.aliasId);
+            if ((this.bitField0_ & 256) == 256) {
+                codedOutputStream.writeInt64(9, this.aliasId_);
             }
         }
 
@@ -5659,35 +5749,35 @@ public final class IMPushPb {
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 10) {
-                                this.bitField0 |= 1;
-                                this.table = codedInputStream.readBytes();
+                                this.bitField0_ |= 1;
+                                this.table_ = codedInputStream.readBytes();
                             } else if (readTag == 18) {
-                                this.bitField0 |= 2;
-                                this.className = codedInputStream.readBytes();
+                                this.bitField0_ |= 2;
+                                this.className_ = codedInputStream.readBytes();
                             } else if (readTag == 26) {
-                                this.bitField0 |= 4;
-                                this.method = codedInputStream.readBytes();
+                                this.bitField0_ |= 4;
+                                this.method_ = codedInputStream.readBytes();
                             } else if (readTag == 34) {
-                                this.bitField0 |= 8;
-                                this.action = codedInputStream.readBytes();
+                                this.bitField0_ |= 8;
+                                this.action_ = codedInputStream.readBytes();
                             } else if (readTag == 40) {
-                                this.bitField0 |= 16;
-                                this.startTime = codedInputStream.readInt64();
+                                this.bitField0_ |= 16;
+                                this.startTime_ = codedInputStream.readInt64();
                             } else if (readTag == 48) {
-                                this.bitField0 |= 32;
-                                this.endTime = codedInputStream.readInt64();
+                                this.bitField0_ |= 32;
+                                this.endTime_ = codedInputStream.readInt64();
                             } else if (readTag == 56) {
-                                this.bitField0 |= 64;
-                                this.duration = codedInputStream.readInt64();
+                                this.bitField0_ |= 64;
+                                this.duration_ = codedInputStream.readInt64();
                             } else if (readTag == 66) {
-                                this.bitField0 |= 128;
-                                this.ext = codedInputStream.readBytes();
+                                this.bitField0_ |= 128;
+                                this.ext_ = codedInputStream.readBytes();
                             } else if (readTag != 72) {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 256;
-                                this.aliasId = codedInputStream.readInt64();
+                                this.bitField0_ |= 256;
+                                this.aliasId_ = codedInputStream.readInt64();
                             }
                         }
                         z = true;
@@ -5755,7 +5845,7 @@ public final class IMPushPb {
     /* loaded from: classes.dex */
     public static final class DeviceID extends GeneratedMessageLite implements DeviceIDOrBuilder {
         public static final int CUID_FIELD_NUMBER = 4;
-        public static final Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
+        public static Parser<DeviceID> PARSER = new AbstractParser<DeviceID>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceID.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public DeviceID parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -5764,15 +5854,15 @@ public final class IMPushPb {
         };
         public static final DeviceID defaultInstance;
         public static final long serialVersionUID = 0;
-        public int bitField0;
-        public Object cuid;
+        public int bitField0_;
+        public Object cuid_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<DeviceID, Builder> implements DeviceIDOrBuilder {
-            public int bitField0;
-            public Object cuid = "";
+            public int bitField0_;
+            public Object cuid_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -5786,17 +5876,17 @@ public final class IMPushPb {
             }
 
             public Builder clearCuid() {
-                this.bitField0 &= -2;
-                this.cuid = DeviceID.getDefaultInstance().getCuid();
+                this.bitField0_ &= -2;
+                this.cuid_ = DeviceID.getDefaultInstance().getCuid();
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
             public String getCuid() {
-                Object obj = this.cuid;
+                Object obj = this.cuid_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.cuid = stringUtf8;
+                    this.cuid_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -5804,10 +5894,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
             public ByteString getCuidBytes() {
-                Object obj = this.cuid;
+                Object obj = this.cuid_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.cuid = copyFromUtf8;
+                    this.cuid_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -5815,7 +5905,7 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
             public boolean hasCuid() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -5825,8 +5915,8 @@ public final class IMPushPb {
 
             public Builder setCuid(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.cuid = str;
+                    this.bitField0_ |= 1;
+                    this.cuid_ = str;
                     return this;
                 }
                 throw null;
@@ -5834,8 +5924,8 @@ public final class IMPushPb {
 
             public Builder setCuidBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.cuid = byteString;
+                    this.bitField0_ |= 1;
+                    this.cuid_ = byteString;
                     return this;
                 }
                 throw null;
@@ -5855,9 +5945,9 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public DeviceID buildPartial() {
                 DeviceID deviceID = new DeviceID(this);
-                int i2 = (this.bitField0 & 1) != 1 ? 0 : 1;
-                deviceID.cuid = this.cuid;
-                deviceID.bitField0 = i2;
+                int i2 = (this.bitField0_ & 1) != 1 ? 0 : 1;
+                deviceID.cuid_ = this.cuid_;
+                deviceID.bitField0_ = i2;
                 return deviceID;
             }
 
@@ -5865,8 +5955,8 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.cuid = "";
-                this.bitField0 &= -2;
+                this.cuid_ = "";
+                this.bitField0_ &= -2;
                 return this;
             }
 
@@ -5880,8 +5970,8 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder
             public Builder mergeFrom(DeviceID deviceID) {
                 if (deviceID != DeviceID.getDefaultInstance() && deviceID.hasCuid()) {
-                    this.bitField0 |= 1;
-                    this.cuid = deviceID.cuid;
+                    this.bitField0_ |= 1;
+                    this.cuid_ = deviceID.cuid_;
                 }
                 return this;
             }
@@ -5940,7 +6030,7 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.cuid = "";
+            this.cuid_ = "";
         }
 
         public static Builder newBuilder() {
@@ -5957,24 +6047,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
         public String getCuid() {
-            Object obj = this.cuid;
+            Object obj = this.cuid_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.cuid = stringUtf8;
+                this.cuid_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
         public ByteString getCuidBytes() {
-            Object obj = this.cuid;
+            Object obj = this.cuid_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.cuid = copyFromUtf8;
+                this.cuid_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -5991,14 +6081,14 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(4, getCuidBytes()) : 0;
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(4, getCuidBytes()) : 0;
             this.memoizedSerializedSize = computeBytesSize;
             return computeBytesSize;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.DeviceIDOrBuilder
         public boolean hasCuid() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -6023,7 +6113,7 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(4, getCuidBytes());
             }
         }
@@ -6107,8 +6197,8 @@ public final class IMPushPb {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 1;
-                                this.cuid = codedInputStream.readBytes();
+                                this.bitField0_ |= 1;
+                                this.cuid_ = codedInputStream.readBytes();
                             }
                         }
                         z = true;
@@ -6134,10 +6224,726 @@ public final class IMPushPb {
     }
 
     /* loaded from: classes.dex */
+    public static final class LcpNetInfo extends GeneratedMessageLite implements LcpNetInfoOrBuilder {
+        public static final int DOMAIN_FIELD_NUMBER = 4;
+        public static final int IP_FIELD_NUMBER = 3;
+        public static Parser<LcpNetInfo> PARSER = new AbstractParser<LcpNetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfo.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public LcpNetInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new LcpNetInfo(codedInputStream, extensionRegistryLite);
+            }
+        };
+        public static final int PORT_FIELD_NUMBER = 2;
+        public static final int PROTOCOL_FIELD_NUMBER = 1;
+        public static final LcpNetInfo defaultInstance;
+        public static final long serialVersionUID = 0;
+        public int bitField0_;
+        public Object domain_;
+        public Object ip_;
+        public byte memoizedIsInitialized;
+        public int memoizedSerializedSize;
+        public Object port_;
+        public Object protocol_;
+
+        /* loaded from: classes.dex */
+        public static final class Builder extends GeneratedMessageLite.Builder<LcpNetInfo, Builder> implements LcpNetInfoOrBuilder {
+            public int bitField0_;
+            public Object protocol_ = "";
+            public Object port_ = "";
+            public Object ip_ = "";
+            public Object domain_ = "";
+
+            public Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            public static Builder create() {
+                return new Builder();
+            }
+
+            private void maybeForceBuilderInitialization() {
+            }
+
+            public Builder clearDomain() {
+                this.bitField0_ &= -9;
+                this.domain_ = LcpNetInfo.getDefaultInstance().getDomain();
+                return this;
+            }
+
+            public Builder clearIp() {
+                this.bitField0_ &= -5;
+                this.ip_ = LcpNetInfo.getDefaultInstance().getIp();
+                return this;
+            }
+
+            public Builder clearPort() {
+                this.bitField0_ &= -3;
+                this.port_ = LcpNetInfo.getDefaultInstance().getPort();
+                return this;
+            }
+
+            public Builder clearProtocol() {
+                this.bitField0_ &= -2;
+                this.protocol_ = LcpNetInfo.getDefaultInstance().getProtocol();
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public String getDomain() {
+                Object obj = this.domain_;
+                if (!(obj instanceof String)) {
+                    String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                    this.domain_ = stringUtf8;
+                    return stringUtf8;
+                }
+                return (String) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public ByteString getDomainBytes() {
+                Object obj = this.domain_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.domain_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public String getIp() {
+                Object obj = this.ip_;
+                if (!(obj instanceof String)) {
+                    String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                    this.ip_ = stringUtf8;
+                    return stringUtf8;
+                }
+                return (String) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public ByteString getIpBytes() {
+                Object obj = this.ip_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.ip_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public String getPort() {
+                Object obj = this.port_;
+                if (!(obj instanceof String)) {
+                    String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                    this.port_ = stringUtf8;
+                    return stringUtf8;
+                }
+                return (String) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public ByteString getPortBytes() {
+                Object obj = this.port_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.port_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public String getProtocol() {
+                Object obj = this.protocol_;
+                if (!(obj instanceof String)) {
+                    String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                    this.protocol_ = stringUtf8;
+                    return stringUtf8;
+                }
+                return (String) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public ByteString getProtocolBytes() {
+                Object obj = this.protocol_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.protocol_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public boolean hasDomain() {
+                return (this.bitField0_ & 8) == 8;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public boolean hasIp() {
+                return (this.bitField0_ & 4) == 4;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public boolean hasPort() {
+                return (this.bitField0_ & 2) == 2;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+            public boolean hasProtocol() {
+                return (this.bitField0_ & 1) == 1;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder setDomain(String str) {
+                if (str != null) {
+                    this.bitField0_ |= 8;
+                    this.domain_ = str;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setDomainBytes(ByteString byteString) {
+                if (byteString != null) {
+                    this.bitField0_ |= 8;
+                    this.domain_ = byteString;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setIp(String str) {
+                if (str != null) {
+                    this.bitField0_ |= 4;
+                    this.ip_ = str;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setIpBytes(ByteString byteString) {
+                if (byteString != null) {
+                    this.bitField0_ |= 4;
+                    this.ip_ = byteString;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setPort(String str) {
+                if (str != null) {
+                    this.bitField0_ |= 2;
+                    this.port_ = str;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setPortBytes(ByteString byteString) {
+                if (byteString != null) {
+                    this.bitField0_ |= 2;
+                    this.port_ = byteString;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setProtocol(String str) {
+                if (str != null) {
+                    this.bitField0_ |= 1;
+                    this.protocol_ = str;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setProtocolBytes(ByteString byteString) {
+                if (byteString != null) {
+                    this.bitField0_ |= 1;
+                    this.protocol_ = byteString;
+                    return this;
+                }
+                throw null;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.MessageLite.Builder
+            public LcpNetInfo build() {
+                LcpNetInfo buildPartial = buildPartial();
+                if (buildPartial.isInitialized()) {
+                    return buildPartial;
+                }
+                throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.MessageLite.Builder
+            public LcpNetInfo buildPartial() {
+                LcpNetInfo lcpNetInfo = new LcpNetInfo(this);
+                int i2 = this.bitField0_;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
+                lcpNetInfo.protocol_ = this.protocol_;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
+                }
+                lcpNetInfo.port_ = this.port_;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
+                }
+                lcpNetInfo.ip_ = this.ip_;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
+                }
+                lcpNetInfo.domain_ = this.domain_;
+                lcpNetInfo.bitField0_ = i3;
+                return lcpNetInfo;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            public Builder clear() {
+                super.clear();
+                this.protocol_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.port_ = "";
+                int i3 = i2 & (-3);
+                this.bitField0_ = i3;
+                this.ip_ = "";
+                int i4 = i3 & (-5);
+                this.bitField0_ = i4;
+                this.domain_ = "";
+                this.bitField0_ = i4 & (-9);
+                return this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+            public LcpNetInfo getDefaultInstanceForType() {
+                return LcpNetInfo.getDefaultInstance();
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder
+            public Builder mergeFrom(LcpNetInfo lcpNetInfo) {
+                if (lcpNetInfo == LcpNetInfo.getDefaultInstance()) {
+                    return this;
+                }
+                if (lcpNetInfo.hasProtocol()) {
+                    this.bitField0_ |= 1;
+                    this.protocol_ = lcpNetInfo.protocol_;
+                }
+                if (lcpNetInfo.hasPort()) {
+                    this.bitField0_ |= 2;
+                    this.port_ = lcpNetInfo.port_;
+                }
+                if (lcpNetInfo.hasIp()) {
+                    this.bitField0_ |= 4;
+                    this.ip_ = lcpNetInfo.ip_;
+                }
+                if (lcpNetInfo.hasDomain()) {
+                    this.bitField0_ |= 8;
+                    this.domain_ = lcpNetInfo.domain_;
+                }
+                return this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            public Builder clone() {
+                return create().mergeFrom(buildPartial());
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Removed duplicated region for block: B:15:0x001d  */
+            @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
+            public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+                LcpNetInfo lcpNetInfo = null;
+                try {
+                    try {
+                        LcpNetInfo parsePartialFrom = LcpNetInfo.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (parsePartialFrom != null) {
+                            mergeFrom(parsePartialFrom);
+                        }
+                        return this;
+                    } catch (InvalidProtocolBufferException e2) {
+                        LcpNetInfo lcpNetInfo2 = (LcpNetInfo) e2.getUnfinishedMessage();
+                        try {
+                            throw e2;
+                        } catch (Throwable th) {
+                            th = th;
+                            lcpNetInfo = lcpNetInfo2;
+                            if (lcpNetInfo != null) {
+                                mergeFrom(lcpNetInfo);
+                            }
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (lcpNetInfo != null) {
+                    }
+                    throw th;
+                }
+            }
+        }
+
+        static {
+            LcpNetInfo lcpNetInfo = new LcpNetInfo(true);
+            defaultInstance = lcpNetInfo;
+            lcpNetInfo.initFields();
+        }
+
+        public static LcpNetInfo getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        private void initFields() {
+            this.protocol_ = "";
+            this.port_ = "";
+            this.ip_ = "";
+            this.domain_ = "";
+        }
+
+        public static Builder newBuilder() {
+            return Builder.create();
+        }
+
+        public static LcpNetInfo parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static LcpNetInfo parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public String getDomain() {
+            Object obj = this.domain_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.domain_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public ByteString getDomainBytes() {
+            Object obj = this.domain_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.domain_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public String getIp() {
+            Object obj = this.ip_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.ip_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public ByteString getIpBytes() {
+            Object obj = this.ip_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.ip_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
+        public Parser<LcpNetInfo> getParserForType() {
+            return PARSER;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public String getPort() {
+            Object obj = this.port_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.port_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public ByteString getPortBytes() {
+            Object obj = this.port_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.port_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public String getProtocol() {
+            Object obj = this.protocol_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.protocol_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public ByteString getProtocolBytes() {
+            Object obj = this.protocol_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.protocol_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public int getSerializedSize() {
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
+            }
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getProtocolBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
+                computeBytesSize += CodedOutputStream.computeBytesSize(2, getPortBytes());
+            }
+            if ((this.bitField0_ & 4) == 4) {
+                computeBytesSize += CodedOutputStream.computeBytesSize(3, getIpBytes());
+            }
+            if ((this.bitField0_ & 8) == 8) {
+                computeBytesSize += CodedOutputStream.computeBytesSize(4, getDomainBytes());
+            }
+            this.memoizedSerializedSize = computeBytesSize;
+            return computeBytesSize;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public boolean hasDomain() {
+            return (this.bitField0_ & 8) == 8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public boolean hasIp() {
+            return (this.bitField0_ & 4) == 4;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public boolean hasPort() {
+            return (this.bitField0_ & 2) == 2;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.LcpNetInfoOrBuilder
+        public boolean hasProtocol() {
+            return (this.bitField0_ & 1) == 1;
+        }
+
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public final boolean isInitialized() {
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
+            }
+            this.memoizedIsInitialized = (byte) 1;
+            return true;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public Object writeReplace() throws ObjectStreamException {
+            return super.writeReplace();
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
+            getSerializedSize();
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeBytes(1, getProtocolBytes());
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeBytes(2, getPortBytes());
+            }
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeBytes(3, getIpBytes());
+            }
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeBytes(4, getDomainBytes());
+            }
+        }
+
+        public static Builder newBuilder(LcpNetInfo lcpNetInfo) {
+            return newBuilder().mergeFrom(lcpNetInfo);
+        }
+
+        public static LcpNetInfo parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static LcpNetInfo parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public LcpNetInfo getDefaultInstanceForType() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder toBuilder() {
+            return newBuilder(this);
+        }
+
+        public LcpNetInfo(GeneratedMessageLite.Builder builder) {
+            super(builder);
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static LcpNetInfo parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static LcpNetInfo parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static LcpNetInfo parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public LcpNetInfo(boolean z) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static LcpNetInfo parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static LcpNetInfo parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static LcpNetInfo parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+
+        public LcpNetInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+            initFields();
+            boolean z = false;
+            while (!z) {
+                try {
+                    try {
+                        try {
+                            int readTag = codedInputStream.readTag();
+                            if (readTag != 0) {
+                                if (readTag == 10) {
+                                    this.bitField0_ |= 1;
+                                    this.protocol_ = codedInputStream.readBytes();
+                                } else if (readTag == 18) {
+                                    this.bitField0_ |= 2;
+                                    this.port_ = codedInputStream.readBytes();
+                                } else if (readTag == 26) {
+                                    this.bitField0_ |= 4;
+                                    this.ip_ = codedInputStream.readBytes();
+                                } else if (readTag != 34) {
+                                    if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                    }
+                                } else {
+                                    this.bitField0_ |= 8;
+                                    this.domain_ = codedInputStream.readBytes();
+                                }
+                            }
+                            z = true;
+                        } catch (InvalidProtocolBufferException e2) {
+                            throw e2.setUnfinishedMessage(this);
+                        }
+                    } catch (IOException e3) {
+                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    }
+                } finally {
+                    makeExtensionsImmutable();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public interface LcpNetInfoOrBuilder extends MessageLiteOrBuilder {
+        String getDomain();
+
+        ByteString getDomainBytes();
+
+        String getIp();
+
+        ByteString getIpBytes();
+
+        String getPort();
+
+        ByteString getPortBytes();
+
+        String getProtocol();
+
+        ByteString getProtocolBytes();
+
+        boolean hasDomain();
+
+        boolean hasIp();
+
+        boolean hasPort();
+
+        boolean hasProtocol();
+    }
+
+    /* loaded from: classes.dex */
     public static final class MetaData extends GeneratedMessageLite implements MetaDataOrBuilder {
         public static final int LOG_MODULE_ID_FIELD_NUMBER = 1;
         public static final int LOG_NAME_FIELD_NUMBER = 2;
-        public static final Parser<MetaData> PARSER = new AbstractParser<MetaData>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaData.1
+        public static Parser<MetaData> PARSER = new AbstractParser<MetaData>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaData.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public MetaData parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -6147,19 +6953,19 @@ public final class IMPushPb {
         public static final int PRODUCT_NAME_FIELD_NUMBER = 3;
         public static final MetaData defaultInstance;
         public static final long serialVersionUID = 0;
-        public int bitField0;
-        public int logModuleId;
-        public Object logName;
+        public int bitField0_;
+        public int logModuleId_;
+        public Object logName_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Object productName;
+        public Object productName_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<MetaData, Builder> implements MetaDataOrBuilder {
-            public int bitField0;
-            public int logModuleId = 7399;
-            public Object logName = "push_im_client";
-            public Object productName = "phonebaidu";
+            public int bitField0_;
+            public int logModuleId_ = 7399;
+            public Object logName_ = "push_im_client";
+            public Object productName_ = "phonebaidu";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -6173,34 +6979,34 @@ public final class IMPushPb {
             }
 
             public Builder clearLogModuleId() {
-                this.bitField0 &= -2;
-                this.logModuleId = 7399;
+                this.bitField0_ &= -2;
+                this.logModuleId_ = 7399;
                 return this;
             }
 
             public Builder clearLogName() {
-                this.bitField0 &= -3;
-                this.logName = MetaData.getDefaultInstance().getLogName();
+                this.bitField0_ &= -3;
+                this.logName_ = MetaData.getDefaultInstance().getLogName();
                 return this;
             }
 
             public Builder clearProductName() {
-                this.bitField0 &= -5;
-                this.productName = MetaData.getDefaultInstance().getProductName();
+                this.bitField0_ &= -5;
+                this.productName_ = MetaData.getDefaultInstance().getProductName();
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public int getLogModuleId() {
-                return this.logModuleId;
+                return this.logModuleId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public String getLogName() {
-                Object obj = this.logName;
+                Object obj = this.logName_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.logName = stringUtf8;
+                    this.logName_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -6208,10 +7014,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public ByteString getLogNameBytes() {
-                Object obj = this.logName;
+                Object obj = this.logName_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.logName = copyFromUtf8;
+                    this.logName_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -6219,10 +7025,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public String getProductName() {
-                Object obj = this.productName;
+                Object obj = this.productName_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.productName = stringUtf8;
+                    this.productName_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -6230,10 +7036,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public ByteString getProductNameBytes() {
-                Object obj = this.productName;
+                Object obj = this.productName_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.productName = copyFromUtf8;
+                    this.productName_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -6241,17 +7047,17 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public boolean hasLogModuleId() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public boolean hasLogName() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
             public boolean hasProductName() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -6260,15 +7066,15 @@ public final class IMPushPb {
             }
 
             public Builder setLogModuleId(int i2) {
-                this.bitField0 |= 1;
-                this.logModuleId = i2;
+                this.bitField0_ |= 1;
+                this.logModuleId_ = i2;
                 return this;
             }
 
             public Builder setLogName(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.logName = str;
+                    this.bitField0_ |= 2;
+                    this.logName_ = str;
                     return this;
                 }
                 throw null;
@@ -6276,8 +7082,8 @@ public final class IMPushPb {
 
             public Builder setLogNameBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.logName = byteString;
+                    this.bitField0_ |= 2;
+                    this.logName_ = byteString;
                     return this;
                 }
                 throw null;
@@ -6285,8 +7091,8 @@ public final class IMPushPb {
 
             public Builder setProductName(String str) {
                 if (str != null) {
-                    this.bitField0 |= 4;
-                    this.productName = str;
+                    this.bitField0_ |= 4;
+                    this.productName_ = str;
                     return this;
                 }
                 throw null;
@@ -6294,8 +7100,8 @@ public final class IMPushPb {
 
             public Builder setProductNameBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 4;
-                    this.productName = byteString;
+                    this.bitField0_ |= 4;
+                    this.productName_ = byteString;
                     return this;
                 }
                 throw null;
@@ -6315,18 +7121,18 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public MetaData buildPartial() {
                 MetaData metaData = new MetaData(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                metaData.logModuleId = this.logModuleId;
+                metaData.logModuleId_ = this.logModuleId_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                metaData.logName = this.logName;
+                metaData.logName_ = this.logName_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                metaData.productName = this.productName;
-                metaData.bitField0 = i3;
+                metaData.productName_ = this.productName_;
+                metaData.bitField0_ = i3;
                 return metaData;
             }
 
@@ -6334,14 +7140,14 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.logModuleId = 7399;
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.logName = "push_im_client";
+                this.logModuleId_ = 7399;
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.logName_ = "push_im_client";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.productName = "phonebaidu";
-                this.bitField0 = i3 & (-5);
+                this.bitField0_ = i3;
+                this.productName_ = "phonebaidu";
+                this.bitField0_ = i3 & (-5);
                 return this;
             }
 
@@ -6361,12 +7167,12 @@ public final class IMPushPb {
                     setLogModuleId(metaData.getLogModuleId());
                 }
                 if (metaData.hasLogName()) {
-                    this.bitField0 |= 2;
-                    this.logName = metaData.logName;
+                    this.bitField0_ |= 2;
+                    this.logName_ = metaData.logName_;
                 }
                 if (metaData.hasProductName()) {
-                    this.bitField0 |= 4;
-                    this.productName = metaData.productName;
+                    this.bitField0_ |= 4;
+                    this.productName_ = metaData.productName_;
                 }
                 return this;
             }
@@ -6425,9 +7231,9 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.logModuleId = 7399;
-            this.logName = "push_im_client";
-            this.productName = "phonebaidu";
+            this.logModuleId_ = 7399;
+            this.logName_ = "push_im_client";
+            this.productName_ = "phonebaidu";
         }
 
         public static Builder newBuilder() {
@@ -6444,29 +7250,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public int getLogModuleId() {
-            return this.logModuleId;
+            return this.logModuleId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public String getLogName() {
-            Object obj = this.logName;
+            Object obj = this.logName_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.logName = stringUtf8;
+                this.logName_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public ByteString getLogNameBytes() {
-            Object obj = this.logName;
+            Object obj = this.logName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.logName = copyFromUtf8;
+                this.logName_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -6479,24 +7285,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public String getProductName() {
-            Object obj = this.productName;
+            Object obj = this.productName_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.productName = stringUtf8;
+                this.productName_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public ByteString getProductNameBytes() {
-            Object obj = this.productName;
+            Object obj = this.productName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.productName = copyFromUtf8;
+                this.productName_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -6508,11 +7314,11 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeInt32Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.logModuleId) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeInt32Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt32Size(1, this.logModuleId_) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeInt32Size += CodedOutputStream.computeBytesSize(2, getLogNameBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 computeInt32Size += CodedOutputStream.computeBytesSize(3, getProductNameBytes());
             }
             this.memoizedSerializedSize = computeInt32Size;
@@ -6521,17 +7327,17 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public boolean hasLogModuleId() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public boolean hasLogName() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MetaDataOrBuilder
         public boolean hasProductName() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -6552,13 +7358,13 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
-                codedOutputStream.writeInt32(1, this.logModuleId);
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeInt32(1, this.logModuleId_);
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getLogNameBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeBytes(3, getProductNameBytes());
             }
         }
@@ -6640,17 +7446,17 @@ public final class IMPushPb {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 8) {
-                                    this.bitField0 |= 1;
-                                    this.logModuleId = codedInputStream.readInt32();
+                                    this.bitField0_ |= 1;
+                                    this.logModuleId_ = codedInputStream.readInt32();
                                 } else if (readTag == 18) {
-                                    this.bitField0 |= 2;
-                                    this.logName = codedInputStream.readBytes();
+                                    this.bitField0_ |= 2;
+                                    this.logName_ = codedInputStream.readBytes();
                                 } else if (readTag != 26) {
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 } else {
-                                    this.bitField0 |= 4;
-                                    this.productName = codedInputStream.readBytes();
+                                    this.bitField0_ |= 4;
+                                    this.productName_ = codedInputStream.readBytes();
                                 }
                             }
                             z = true;
@@ -6693,7 +7499,7 @@ public final class IMPushPb {
         public static final int END_MSGID_FIELD_NUMBER = 4;
         public static final int EXT_FIELD_NUMBER = 5;
         public static final int MSG_COUNT_FIELD_NUMBER = 1;
-        public static final Parser<Msg> PARSER = new AbstractParser<Msg>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Msg.1
+        public static Parser<Msg> PARSER = new AbstractParser<Msg>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Msg.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Msg parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -6704,27 +7510,27 @@ public final class IMPushPb {
         public static final int START_MSGID_FIELD_NUMBER = 7;
         public static final Msg defaultInstance;
         public static final long serialVersionUID = 0;
-        public long aliasId;
-        public int bitField0;
-        public long duration;
-        public long endMsgid;
-        public Object ext;
+        public long aliasId_;
+        public int bitField0_;
+        public long duration_;
+        public long endMsgid_;
+        public Object ext_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public long msgCount;
-        public Object roomId;
-        public long startMsgid;
+        public long msgCount_;
+        public Object roomId_;
+        public long startMsgid_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Msg, Builder> implements MsgOrBuilder {
-            public long aliasId;
-            public int bitField0;
-            public long duration;
-            public long endMsgid;
-            public long msgCount;
-            public long startMsgid;
-            public Object roomId = "";
-            public Object ext = "";
+            public long aliasId_;
+            public int bitField0_;
+            public long duration_;
+            public long endMsgid_;
+            public long msgCount_;
+            public long startMsgid_;
+            public Object roomId_ = "";
+            public Object ext_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -6738,68 +7544,68 @@ public final class IMPushPb {
             }
 
             public Builder clearAliasId() {
-                this.bitField0 &= -33;
-                this.aliasId = 0L;
+                this.bitField0_ &= -33;
+                this.aliasId_ = 0L;
                 return this;
             }
 
             public Builder clearDuration() {
-                this.bitField0 &= -5;
-                this.duration = 0L;
+                this.bitField0_ &= -5;
+                this.duration_ = 0L;
                 return this;
             }
 
             public Builder clearEndMsgid() {
-                this.bitField0 &= -9;
-                this.endMsgid = 0L;
+                this.bitField0_ &= -9;
+                this.endMsgid_ = 0L;
                 return this;
             }
 
             public Builder clearExt() {
-                this.bitField0 &= -17;
-                this.ext = Msg.getDefaultInstance().getExt();
+                this.bitField0_ &= -17;
+                this.ext_ = Msg.getDefaultInstance().getExt();
                 return this;
             }
 
             public Builder clearMsgCount() {
-                this.bitField0 &= -2;
-                this.msgCount = 0L;
+                this.bitField0_ &= -2;
+                this.msgCount_ = 0L;
                 return this;
             }
 
             public Builder clearRoomId() {
-                this.bitField0 &= -3;
-                this.roomId = Msg.getDefaultInstance().getRoomId();
+                this.bitField0_ &= -3;
+                this.roomId_ = Msg.getDefaultInstance().getRoomId();
                 return this;
             }
 
             public Builder clearStartMsgid() {
-                this.bitField0 &= -65;
-                this.startMsgid = 0L;
+                this.bitField0_ &= -65;
+                this.startMsgid_ = 0L;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getAliasId() {
-                return this.aliasId;
+                return this.aliasId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getDuration() {
-                return this.duration;
+                return this.duration_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getEndMsgid() {
-                return this.endMsgid;
+                return this.endMsgid_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public String getExt() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.ext = stringUtf8;
+                    this.ext_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -6807,10 +7613,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public ByteString getExtBytes() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.ext = copyFromUtf8;
+                    this.ext_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -6818,15 +7624,15 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getMsgCount() {
-                return this.msgCount;
+                return this.msgCount_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public String getRoomId() {
-                Object obj = this.roomId;
+                Object obj = this.roomId_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.roomId = stringUtf8;
+                    this.roomId_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -6834,10 +7640,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public ByteString getRoomIdBytes() {
-                Object obj = this.roomId;
+                Object obj = this.roomId_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.roomId = copyFromUtf8;
+                    this.roomId_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -6845,42 +7651,42 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public long getStartMsgid() {
-                return this.startMsgid;
+                return this.startMsgid_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasAliasId() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasDuration() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasEndMsgid() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasExt() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasMsgCount() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasRoomId() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
             public boolean hasStartMsgid() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -6889,27 +7695,27 @@ public final class IMPushPb {
             }
 
             public Builder setAliasId(long j) {
-                this.bitField0 |= 32;
-                this.aliasId = j;
+                this.bitField0_ |= 32;
+                this.aliasId_ = j;
                 return this;
             }
 
             public Builder setDuration(long j) {
-                this.bitField0 |= 4;
-                this.duration = j;
+                this.bitField0_ |= 4;
+                this.duration_ = j;
                 return this;
             }
 
             public Builder setEndMsgid(long j) {
-                this.bitField0 |= 8;
-                this.endMsgid = j;
+                this.bitField0_ |= 8;
+                this.endMsgid_ = j;
                 return this;
             }
 
             public Builder setExt(String str) {
                 if (str != null) {
-                    this.bitField0 |= 16;
-                    this.ext = str;
+                    this.bitField0_ |= 16;
+                    this.ext_ = str;
                     return this;
                 }
                 throw null;
@@ -6917,23 +7723,23 @@ public final class IMPushPb {
 
             public Builder setExtBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 16;
-                    this.ext = byteString;
+                    this.bitField0_ |= 16;
+                    this.ext_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setMsgCount(long j) {
-                this.bitField0 |= 1;
-                this.msgCount = j;
+                this.bitField0_ |= 1;
+                this.msgCount_ = j;
                 return this;
             }
 
             public Builder setRoomId(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.roomId = str;
+                    this.bitField0_ |= 2;
+                    this.roomId_ = str;
                     return this;
                 }
                 throw null;
@@ -6941,16 +7747,16 @@ public final class IMPushPb {
 
             public Builder setRoomIdBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.roomId = byteString;
+                    this.bitField0_ |= 2;
+                    this.roomId_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setStartMsgid(long j) {
-                this.bitField0 |= 64;
-                this.startMsgid = j;
+                this.bitField0_ |= 64;
+                this.startMsgid_ = j;
                 return this;
             }
 
@@ -6968,34 +7774,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Msg buildPartial() {
                 Msg msg = new Msg(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                msg.msgCount = this.msgCount;
+                msg.msgCount_ = this.msgCount_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                msg.roomId = this.roomId;
+                msg.roomId_ = this.roomId_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                msg.duration = this.duration;
+                msg.duration_ = this.duration_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                msg.endMsgid = this.endMsgid;
+                msg.endMsgid_ = this.endMsgid_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                msg.ext = this.ext;
+                msg.ext_ = this.ext_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                msg.aliasId = this.aliasId;
+                msg.aliasId_ = this.aliasId_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                msg.startMsgid = this.startMsgid;
-                msg.bitField0 = i3;
+                msg.startMsgid_ = this.startMsgid_;
+                msg.bitField0_ = i3;
                 return msg;
             }
 
@@ -7003,26 +7809,26 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.msgCount = 0L;
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.roomId = "";
+                this.msgCount_ = 0L;
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.roomId_ = "";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.duration = 0L;
+                this.bitField0_ = i3;
+                this.duration_ = 0L;
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.endMsgid = 0L;
+                this.bitField0_ = i4;
+                this.endMsgid_ = 0L;
                 int i5 = i4 & (-9);
-                this.bitField0 = i5;
-                this.ext = "";
+                this.bitField0_ = i5;
+                this.ext_ = "";
                 int i6 = i5 & (-17);
-                this.bitField0 = i6;
-                this.aliasId = 0L;
+                this.bitField0_ = i6;
+                this.aliasId_ = 0L;
                 int i7 = i6 & (-33);
-                this.bitField0 = i7;
-                this.startMsgid = 0L;
-                this.bitField0 = i7 & (-65);
+                this.bitField0_ = i7;
+                this.startMsgid_ = 0L;
+                this.bitField0_ = i7 & (-65);
                 return this;
             }
 
@@ -7042,8 +7848,8 @@ public final class IMPushPb {
                     setMsgCount(msg.getMsgCount());
                 }
                 if (msg.hasRoomId()) {
-                    this.bitField0 |= 2;
-                    this.roomId = msg.roomId;
+                    this.bitField0_ |= 2;
+                    this.roomId_ = msg.roomId_;
                 }
                 if (msg.hasDuration()) {
                     setDuration(msg.getDuration());
@@ -7052,8 +7858,8 @@ public final class IMPushPb {
                     setEndMsgid(msg.getEndMsgid());
                 }
                 if (msg.hasExt()) {
-                    this.bitField0 |= 16;
-                    this.ext = msg.ext;
+                    this.bitField0_ |= 16;
+                    this.ext_ = msg.ext_;
                 }
                 if (msg.hasAliasId()) {
                     setAliasId(msg.getAliasId());
@@ -7118,13 +7924,13 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.msgCount = 0L;
-            this.roomId = "";
-            this.duration = 0L;
-            this.endMsgid = 0L;
-            this.ext = "";
-            this.aliasId = 0L;
-            this.startMsgid = 0L;
+            this.msgCount_ = 0L;
+            this.roomId_ = "";
+            this.duration_ = 0L;
+            this.endMsgid_ = 0L;
+            this.ext_ = "";
+            this.aliasId_ = 0L;
+            this.startMsgid_ = 0L;
         }
 
         public static Builder newBuilder() {
@@ -7141,39 +7947,39 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getAliasId() {
-            return this.aliasId;
+            return this.aliasId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getDuration() {
-            return this.duration;
+            return this.duration_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getEndMsgid() {
-            return this.endMsgid;
+            return this.endMsgid_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public String getExt() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.ext = stringUtf8;
+                this.ext_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public ByteString getExtBytes() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.ext = copyFromUtf8;
+                this.ext_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -7181,7 +7987,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getMsgCount() {
-            return this.msgCount;
+            return this.msgCount_;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -7191,24 +7997,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public String getRoomId() {
-            Object obj = this.roomId;
+            Object obj = this.roomId_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.roomId = stringUtf8;
+                this.roomId_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public ByteString getRoomIdBytes() {
-            Object obj = this.roomId;
+            Object obj = this.roomId_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.roomId = copyFromUtf8;
+                this.roomId_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -7220,24 +8026,24 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeInt64Size = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.msgCount) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.msgCount_) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeInt64Size += CodedOutputStream.computeBytesSize(2, getRoomIdBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(3, this.duration);
+            if ((this.bitField0_ & 4) == 4) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(3, this.duration_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(4, this.endMsgid);
+            if ((this.bitField0_ & 8) == 8) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(4, this.endMsgid_);
             }
-            if ((this.bitField0 & 16) == 16) {
+            if ((this.bitField0_ & 16) == 16) {
                 computeInt64Size += CodedOutputStream.computeBytesSize(5, getExtBytes());
             }
-            if ((this.bitField0 & 32) == 32) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(6, this.aliasId);
+            if ((this.bitField0_ & 32) == 32) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(6, this.aliasId_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeInt64Size += CodedOutputStream.computeInt64Size(7, this.startMsgid);
+            if ((this.bitField0_ & 64) == 64) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(7, this.startMsgid_);
             }
             this.memoizedSerializedSize = computeInt64Size;
             return computeInt64Size;
@@ -7245,42 +8051,42 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public long getStartMsgid() {
-            return this.startMsgid;
+            return this.startMsgid_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasAliasId() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasDuration() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasEndMsgid() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasExt() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasMsgCount() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasRoomId() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.MsgOrBuilder
         public boolean hasStartMsgid() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -7301,26 +8107,26 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
-                codedOutputStream.writeInt64(1, this.msgCount);
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeInt64(1, this.msgCount_);
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getRoomIdBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                codedOutputStream.writeInt64(3, this.duration);
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeInt64(3, this.duration_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(4, this.endMsgid);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt64(4, this.endMsgid_);
             }
-            if ((this.bitField0 & 16) == 16) {
+            if ((this.bitField0_ & 16) == 16) {
                 codedOutputStream.writeBytes(5, getExtBytes());
             }
-            if ((this.bitField0 & 32) == 32) {
-                codedOutputStream.writeInt64(6, this.aliasId);
+            if ((this.bitField0_ & 32) == 32) {
+                codedOutputStream.writeInt64(6, this.aliasId_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeInt64(7, this.startMsgid);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt64(7, this.startMsgid_);
             }
         }
 
@@ -7400,29 +8206,29 @@ public final class IMPushPb {
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 8) {
-                                this.bitField0 |= 1;
-                                this.msgCount = codedInputStream.readInt64();
+                                this.bitField0_ |= 1;
+                                this.msgCount_ = codedInputStream.readInt64();
                             } else if (readTag == 18) {
-                                this.bitField0 |= 2;
-                                this.roomId = codedInputStream.readBytes();
+                                this.bitField0_ |= 2;
+                                this.roomId_ = codedInputStream.readBytes();
                             } else if (readTag == 24) {
-                                this.bitField0 |= 4;
-                                this.duration = codedInputStream.readInt64();
+                                this.bitField0_ |= 4;
+                                this.duration_ = codedInputStream.readInt64();
                             } else if (readTag == 32) {
-                                this.bitField0 |= 8;
-                                this.endMsgid = codedInputStream.readInt64();
+                                this.bitField0_ |= 8;
+                                this.endMsgid_ = codedInputStream.readInt64();
                             } else if (readTag == 42) {
-                                this.bitField0 |= 16;
-                                this.ext = codedInputStream.readBytes();
+                                this.bitField0_ |= 16;
+                                this.ext_ = codedInputStream.readBytes();
                             } else if (readTag == 48) {
-                                this.bitField0 |= 32;
-                                this.aliasId = codedInputStream.readInt64();
+                                this.bitField0_ |= 32;
+                                this.aliasId_ = codedInputStream.readInt64();
                             } else if (readTag != 56) {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 64;
-                                this.startMsgid = codedInputStream.readInt64();
+                                this.bitField0_ |= 64;
+                                this.startMsgid_ = codedInputStream.readInt64();
                             }
                         }
                         z = true;
@@ -7477,7 +8283,7 @@ public final class IMPushPb {
     public static final class NetInfo extends GeneratedMessageLite implements NetInfoOrBuilder {
         public static final int NET_APN_FIELD_NUMBER = 2;
         public static final int NET_TYPE_FIELD_NUMBER = 1;
-        public static final Parser<NetInfo> PARSER = new AbstractParser<NetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfo.1
+        public static Parser<NetInfo> PARSER = new AbstractParser<NetInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public NetInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -7486,17 +8292,17 @@ public final class IMPushPb {
         };
         public static final NetInfo defaultInstance;
         public static final long serialVersionUID = 0;
-        public int bitField0;
+        public int bitField0_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Object netApn;
-        public Object netType;
+        public Object netApn_;
+        public Object netType_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<NetInfo, Builder> implements NetInfoOrBuilder {
-            public int bitField0;
-            public Object netType = "";
-            public Object netApn = "";
+            public int bitField0_;
+            public Object netType_ = "";
+            public Object netApn_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -7510,23 +8316,23 @@ public final class IMPushPb {
             }
 
             public Builder clearNetApn() {
-                this.bitField0 &= -3;
-                this.netApn = NetInfo.getDefaultInstance().getNetApn();
+                this.bitField0_ &= -3;
+                this.netApn_ = NetInfo.getDefaultInstance().getNetApn();
                 return this;
             }
 
             public Builder clearNetType() {
-                this.bitField0 &= -2;
-                this.netType = NetInfo.getDefaultInstance().getNetType();
+                this.bitField0_ &= -2;
+                this.netType_ = NetInfo.getDefaultInstance().getNetType();
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public String getNetApn() {
-                Object obj = this.netApn;
+                Object obj = this.netApn_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.netApn = stringUtf8;
+                    this.netApn_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -7534,10 +8340,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public ByteString getNetApnBytes() {
-                Object obj = this.netApn;
+                Object obj = this.netApn_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.netApn = copyFromUtf8;
+                    this.netApn_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -7545,10 +8351,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public String getNetType() {
-                Object obj = this.netType;
+                Object obj = this.netType_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.netType = stringUtf8;
+                    this.netType_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -7556,10 +8362,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public ByteString getNetTypeBytes() {
-                Object obj = this.netType;
+                Object obj = this.netType_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.netType = copyFromUtf8;
+                    this.netType_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -7567,12 +8373,12 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public boolean hasNetApn() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
             public boolean hasNetType() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -7582,8 +8388,8 @@ public final class IMPushPb {
 
             public Builder setNetApn(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.netApn = str;
+                    this.bitField0_ |= 2;
+                    this.netApn_ = str;
                     return this;
                 }
                 throw null;
@@ -7591,8 +8397,8 @@ public final class IMPushPb {
 
             public Builder setNetApnBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.netApn = byteString;
+                    this.bitField0_ |= 2;
+                    this.netApn_ = byteString;
                     return this;
                 }
                 throw null;
@@ -7600,8 +8406,8 @@ public final class IMPushPb {
 
             public Builder setNetType(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.netType = str;
+                    this.bitField0_ |= 1;
+                    this.netType_ = str;
                     return this;
                 }
                 throw null;
@@ -7609,8 +8415,8 @@ public final class IMPushPb {
 
             public Builder setNetTypeBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.netType = byteString;
+                    this.bitField0_ |= 1;
+                    this.netType_ = byteString;
                     return this;
                 }
                 throw null;
@@ -7630,14 +8436,14 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public NetInfo buildPartial() {
                 NetInfo netInfo = new NetInfo(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                netInfo.netType = this.netType;
+                netInfo.netType_ = this.netType_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                netInfo.netApn = this.netApn;
-                netInfo.bitField0 = i3;
+                netInfo.netApn_ = this.netApn_;
+                netInfo.bitField0_ = i3;
                 return netInfo;
             }
 
@@ -7645,11 +8451,11 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.netType = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.netApn = "";
-                this.bitField0 = i2 & (-3);
+                this.netType_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.netApn_ = "";
+                this.bitField0_ = i2 & (-3);
                 return this;
             }
 
@@ -7666,12 +8472,12 @@ public final class IMPushPb {
                     return this;
                 }
                 if (netInfo.hasNetType()) {
-                    this.bitField0 |= 1;
-                    this.netType = netInfo.netType;
+                    this.bitField0_ |= 1;
+                    this.netType_ = netInfo.netType_;
                 }
                 if (netInfo.hasNetApn()) {
-                    this.bitField0 |= 2;
-                    this.netApn = netInfo.netApn;
+                    this.bitField0_ |= 2;
+                    this.netApn_ = netInfo.netApn_;
                 }
                 return this;
             }
@@ -7730,8 +8536,8 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.netType = "";
-            this.netApn = "";
+            this.netType_ = "";
+            this.netApn_ = "";
         }
 
         public static Builder newBuilder() {
@@ -7748,24 +8554,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public String getNetApn() {
-            Object obj = this.netApn;
+            Object obj = this.netApn_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.netApn = stringUtf8;
+                this.netApn_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public ByteString getNetApnBytes() {
-            Object obj = this.netApn;
+            Object obj = this.netApn_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.netApn = copyFromUtf8;
+                this.netApn_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -7773,24 +8579,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public String getNetType() {
-            Object obj = this.netType;
+            Object obj = this.netType_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.netType = stringUtf8;
+                this.netType_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public ByteString getNetTypeBytes() {
-            Object obj = this.netType;
+            Object obj = this.netType_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.netType = copyFromUtf8;
+                this.netType_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -7807,8 +8613,8 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getNetTypeBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getNetTypeBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(2, getNetApnBytes());
             }
             this.memoizedSerializedSize = computeBytesSize;
@@ -7817,12 +8623,12 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public boolean hasNetApn() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NetInfoOrBuilder
         public boolean hasNetType() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -7843,10 +8649,10 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getNetTypeBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getNetApnBytes());
             }
         }
@@ -7927,14 +8733,14 @@ public final class IMPushPb {
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 10) {
-                                this.bitField0 |= 1;
-                                this.netType = codedInputStream.readBytes();
+                                this.bitField0_ |= 1;
+                                this.netType_ = codedInputStream.readBytes();
                             } else if (readTag != 18) {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 2;
-                                this.netApn = codedInputStream.readBytes();
+                                this.bitField0_ |= 2;
+                                this.netApn_ = codedInputStream.readBytes();
                             }
                         }
                         z = true;
@@ -7963,6 +8769,1480 @@ public final class IMPushPb {
         boolean hasNetApn();
 
         boolean hasNetType();
+    }
+
+    /* loaded from: classes.dex */
+    public static final class NewConnection extends GeneratedMessageLite implements NewConnectionOrBuilder {
+        public static final int ALIAS_ID_FIELD_NUMBER = 16;
+        public static final int CONNECT_ERROR_CODE_FIELD_NUMBER = 4;
+        public static final int CONNECT_SOURCE_FIELD_NUMBER = 13;
+        public static final int CONNECT_STATE_FIELD_NUMBER = 3;
+        public static final int DNS_BEGIN_FIELD_NUMBER = 7;
+        public static final int DNS_END_FIELD_NUMBER = 8;
+        public static final int END_TIME_FIELD_NUMBER = 2;
+        public static final int EXT_FIELD_NUMBER = 14;
+        public static final int LCP_LOGIN_BEGIN_FIELD_NUMBER = 11;
+        public static final int LCP_LOGIN_END_FIELD_NUMBER = 12;
+        public static final int NET_INFO_FIELD_NUMBER = 15;
+        public static Parser<NewConnection> PARSER = new AbstractParser<NewConnection>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnection.1
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.Parser
+            public NewConnection parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+                return new NewConnection(codedInputStream, extensionRegistryLite);
+            }
+        };
+        public static final int RETRY_FIELD_NUMBER = 17;
+        public static final int SOCKET_BEGIN_FIELD_NUMBER = 9;
+        public static final int SOCKET_END_FIELD_NUMBER = 10;
+        public static final int START_TIME_FIELD_NUMBER = 1;
+        public static final int TOKEN_BEGIN_FIELD_NUMBER = 5;
+        public static final int TOKEN_END_FIELD_NUMBER = 6;
+        public static final NewConnection defaultInstance;
+        public static final long serialVersionUID = 0;
+        public long aliasId_;
+        public int bitField0_;
+        public Object connectErrorCode_;
+        public Object connectSource_;
+        public long connectState_;
+        public long dnsBegin_;
+        public long dnsEnd_;
+        public long endTime_;
+        public Object ext_;
+        public long lcpLoginBegin_;
+        public long lcpLoginEnd_;
+        public byte memoizedIsInitialized;
+        public int memoizedSerializedSize;
+        public LcpNetInfo netInfo_;
+        public long retry_;
+        public long socketBegin_;
+        public long socketEnd_;
+        public long startTime_;
+        public long tokenBegin_;
+        public long tokenEnd_;
+
+        /* loaded from: classes.dex */
+        public static final class Builder extends GeneratedMessageLite.Builder<NewConnection, Builder> implements NewConnectionOrBuilder {
+            public long aliasId_;
+            public int bitField0_;
+            public long connectState_;
+            public long dnsBegin_;
+            public long dnsEnd_;
+            public long endTime_;
+            public long lcpLoginBegin_;
+            public long lcpLoginEnd_;
+            public long retry_;
+            public long socketBegin_;
+            public long socketEnd_;
+            public long startTime_;
+            public long tokenBegin_;
+            public long tokenEnd_;
+            public Object connectErrorCode_ = "";
+            public Object connectSource_ = "";
+            public Object ext_ = "";
+            public LcpNetInfo netInfo_ = LcpNetInfo.getDefaultInstance();
+
+            public Builder() {
+                maybeForceBuilderInitialization();
+            }
+
+            public static Builder create() {
+                return new Builder();
+            }
+
+            private void maybeForceBuilderInitialization() {
+            }
+
+            public Builder clearAliasId() {
+                this.bitField0_ &= -32769;
+                this.aliasId_ = 0L;
+                return this;
+            }
+
+            public Builder clearConnectErrorCode() {
+                this.bitField0_ &= -9;
+                this.connectErrorCode_ = NewConnection.getDefaultInstance().getConnectErrorCode();
+                return this;
+            }
+
+            public Builder clearConnectSource() {
+                this.bitField0_ &= -4097;
+                this.connectSource_ = NewConnection.getDefaultInstance().getConnectSource();
+                return this;
+            }
+
+            public Builder clearConnectState() {
+                this.bitField0_ &= -5;
+                this.connectState_ = 0L;
+                return this;
+            }
+
+            public Builder clearDnsBegin() {
+                this.bitField0_ &= -65;
+                this.dnsBegin_ = 0L;
+                return this;
+            }
+
+            public Builder clearDnsEnd() {
+                this.bitField0_ &= -129;
+                this.dnsEnd_ = 0L;
+                return this;
+            }
+
+            public Builder clearEndTime() {
+                this.bitField0_ &= -3;
+                this.endTime_ = 0L;
+                return this;
+            }
+
+            public Builder clearExt() {
+                this.bitField0_ &= -8193;
+                this.ext_ = NewConnection.getDefaultInstance().getExt();
+                return this;
+            }
+
+            public Builder clearLcpLoginBegin() {
+                this.bitField0_ &= -1025;
+                this.lcpLoginBegin_ = 0L;
+                return this;
+            }
+
+            public Builder clearLcpLoginEnd() {
+                this.bitField0_ &= -2049;
+                this.lcpLoginEnd_ = 0L;
+                return this;
+            }
+
+            public Builder clearNetInfo() {
+                this.netInfo_ = LcpNetInfo.getDefaultInstance();
+                this.bitField0_ &= -16385;
+                return this;
+            }
+
+            public Builder clearRetry() {
+                this.bitField0_ &= -65537;
+                this.retry_ = 0L;
+                return this;
+            }
+
+            public Builder clearSocketBegin() {
+                this.bitField0_ &= -257;
+                this.socketBegin_ = 0L;
+                return this;
+            }
+
+            public Builder clearSocketEnd() {
+                this.bitField0_ &= -513;
+                this.socketEnd_ = 0L;
+                return this;
+            }
+
+            public Builder clearStartTime() {
+                this.bitField0_ &= -2;
+                this.startTime_ = 0L;
+                return this;
+            }
+
+            public Builder clearTokenBegin() {
+                this.bitField0_ &= -17;
+                this.tokenBegin_ = 0L;
+                return this;
+            }
+
+            public Builder clearTokenEnd() {
+                this.bitField0_ &= -33;
+                this.tokenEnd_ = 0L;
+                return this;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getAliasId() {
+                return this.aliasId_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public String getConnectErrorCode() {
+                Object obj = this.connectErrorCode_;
+                if (!(obj instanceof String)) {
+                    String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                    this.connectErrorCode_ = stringUtf8;
+                    return stringUtf8;
+                }
+                return (String) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public ByteString getConnectErrorCodeBytes() {
+                Object obj = this.connectErrorCode_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.connectErrorCode_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public String getConnectSource() {
+                Object obj = this.connectSource_;
+                if (!(obj instanceof String)) {
+                    String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                    this.connectSource_ = stringUtf8;
+                    return stringUtf8;
+                }
+                return (String) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public ByteString getConnectSourceBytes() {
+                Object obj = this.connectSource_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.connectSource_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getConnectState() {
+                return this.connectState_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getDnsBegin() {
+                return this.dnsBegin_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getDnsEnd() {
+                return this.dnsEnd_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getEndTime() {
+                return this.endTime_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public String getExt() {
+                Object obj = this.ext_;
+                if (!(obj instanceof String)) {
+                    String stringUtf8 = ((ByteString) obj).toStringUtf8();
+                    this.ext_ = stringUtf8;
+                    return stringUtf8;
+                }
+                return (String) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public ByteString getExtBytes() {
+                Object obj = this.ext_;
+                if (obj instanceof String) {
+                    ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                    this.ext_ = copyFromUtf8;
+                    return copyFromUtf8;
+                }
+                return (ByteString) obj;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getLcpLoginBegin() {
+                return this.lcpLoginBegin_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getLcpLoginEnd() {
+                return this.lcpLoginEnd_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public LcpNetInfo getNetInfo() {
+                return this.netInfo_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getRetry() {
+                return this.retry_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getSocketBegin() {
+                return this.socketBegin_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getSocketEnd() {
+                return this.socketEnd_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getStartTime() {
+                return this.startTime_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getTokenBegin() {
+                return this.tokenBegin_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public long getTokenEnd() {
+                return this.tokenEnd_;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasAliasId() {
+                return (this.bitField0_ & 32768) == 32768;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasConnectErrorCode() {
+                return (this.bitField0_ & 8) == 8;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasConnectSource() {
+                return (this.bitField0_ & 4096) == 4096;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasConnectState() {
+                return (this.bitField0_ & 4) == 4;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasDnsBegin() {
+                return (this.bitField0_ & 64) == 64;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasDnsEnd() {
+                return (this.bitField0_ & 128) == 128;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasEndTime() {
+                return (this.bitField0_ & 2) == 2;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasExt() {
+                return (this.bitField0_ & 8192) == 8192;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasLcpLoginBegin() {
+                return (this.bitField0_ & 1024) == 1024;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasLcpLoginEnd() {
+                return (this.bitField0_ & 2048) == 2048;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasNetInfo() {
+                return (this.bitField0_ & 16384) == 16384;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasRetry() {
+                return (this.bitField0_ & 65536) == 65536;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasSocketBegin() {
+                return (this.bitField0_ & 256) == 256;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasSocketEnd() {
+                return (this.bitField0_ & 512) == 512;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasStartTime() {
+                return (this.bitField0_ & 1) == 1;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasTokenBegin() {
+                return (this.bitField0_ & 16) == 16;
+            }
+
+            @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+            public boolean hasTokenEnd() {
+                return (this.bitField0_ & 32) == 32;
+            }
+
+            @Override // com.google.protobuf.MessageLiteOrBuilder
+            public final boolean isInitialized() {
+                return true;
+            }
+
+            public Builder mergeNetInfo(LcpNetInfo lcpNetInfo) {
+                if ((this.bitField0_ & 16384) == 16384 && this.netInfo_ != LcpNetInfo.getDefaultInstance()) {
+                    this.netInfo_ = LcpNetInfo.newBuilder(this.netInfo_).mergeFrom(lcpNetInfo).buildPartial();
+                } else {
+                    this.netInfo_ = lcpNetInfo;
+                }
+                this.bitField0_ |= 16384;
+                return this;
+            }
+
+            public Builder setAliasId(long j) {
+                this.bitField0_ |= 32768;
+                this.aliasId_ = j;
+                return this;
+            }
+
+            public Builder setConnectErrorCode(String str) {
+                if (str != null) {
+                    this.bitField0_ |= 8;
+                    this.connectErrorCode_ = str;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setConnectErrorCodeBytes(ByteString byteString) {
+                if (byteString != null) {
+                    this.bitField0_ |= 8;
+                    this.connectErrorCode_ = byteString;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setConnectSource(String str) {
+                if (str != null) {
+                    this.bitField0_ |= 4096;
+                    this.connectSource_ = str;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setConnectSourceBytes(ByteString byteString) {
+                if (byteString != null) {
+                    this.bitField0_ |= 4096;
+                    this.connectSource_ = byteString;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setConnectState(long j) {
+                this.bitField0_ |= 4;
+                this.connectState_ = j;
+                return this;
+            }
+
+            public Builder setDnsBegin(long j) {
+                this.bitField0_ |= 64;
+                this.dnsBegin_ = j;
+                return this;
+            }
+
+            public Builder setDnsEnd(long j) {
+                this.bitField0_ |= 128;
+                this.dnsEnd_ = j;
+                return this;
+            }
+
+            public Builder setEndTime(long j) {
+                this.bitField0_ |= 2;
+                this.endTime_ = j;
+                return this;
+            }
+
+            public Builder setExt(String str) {
+                if (str != null) {
+                    this.bitField0_ |= 8192;
+                    this.ext_ = str;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setExtBytes(ByteString byteString) {
+                if (byteString != null) {
+                    this.bitField0_ |= 8192;
+                    this.ext_ = byteString;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setLcpLoginBegin(long j) {
+                this.bitField0_ |= 1024;
+                this.lcpLoginBegin_ = j;
+                return this;
+            }
+
+            public Builder setLcpLoginEnd(long j) {
+                this.bitField0_ |= 2048;
+                this.lcpLoginEnd_ = j;
+                return this;
+            }
+
+            public Builder setNetInfo(LcpNetInfo lcpNetInfo) {
+                if (lcpNetInfo != null) {
+                    this.netInfo_ = lcpNetInfo;
+                    this.bitField0_ |= 16384;
+                    return this;
+                }
+                throw null;
+            }
+
+            public Builder setRetry(long j) {
+                this.bitField0_ |= 65536;
+                this.retry_ = j;
+                return this;
+            }
+
+            public Builder setSocketBegin(long j) {
+                this.bitField0_ |= 256;
+                this.socketBegin_ = j;
+                return this;
+            }
+
+            public Builder setSocketEnd(long j) {
+                this.bitField0_ |= 512;
+                this.socketEnd_ = j;
+                return this;
+            }
+
+            public Builder setStartTime(long j) {
+                this.bitField0_ |= 1;
+                this.startTime_ = j;
+                return this;
+            }
+
+            public Builder setTokenBegin(long j) {
+                this.bitField0_ |= 16;
+                this.tokenBegin_ = j;
+                return this;
+            }
+
+            public Builder setTokenEnd(long j) {
+                this.bitField0_ |= 32;
+                this.tokenEnd_ = j;
+                return this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.MessageLite.Builder
+            public NewConnection build() {
+                NewConnection buildPartial = buildPartial();
+                if (buildPartial.isInitialized()) {
+                    return buildPartial;
+                }
+                throw AbstractMessageLite.Builder.newUninitializedMessageException(buildPartial);
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.MessageLite.Builder
+            public NewConnection buildPartial() {
+                NewConnection newConnection = new NewConnection(this);
+                int i2 = this.bitField0_;
+                int i3 = (i2 & 1) != 1 ? 0 : 1;
+                newConnection.startTime_ = this.startTime_;
+                if ((i2 & 2) == 2) {
+                    i3 |= 2;
+                }
+                newConnection.endTime_ = this.endTime_;
+                if ((i2 & 4) == 4) {
+                    i3 |= 4;
+                }
+                newConnection.connectState_ = this.connectState_;
+                if ((i2 & 8) == 8) {
+                    i3 |= 8;
+                }
+                newConnection.connectErrorCode_ = this.connectErrorCode_;
+                if ((i2 & 16) == 16) {
+                    i3 |= 16;
+                }
+                newConnection.tokenBegin_ = this.tokenBegin_;
+                if ((i2 & 32) == 32) {
+                    i3 |= 32;
+                }
+                newConnection.tokenEnd_ = this.tokenEnd_;
+                if ((i2 & 64) == 64) {
+                    i3 |= 64;
+                }
+                newConnection.dnsBegin_ = this.dnsBegin_;
+                if ((i2 & 128) == 128) {
+                    i3 |= 128;
+                }
+                newConnection.dnsEnd_ = this.dnsEnd_;
+                if ((i2 & 256) == 256) {
+                    i3 |= 256;
+                }
+                newConnection.socketBegin_ = this.socketBegin_;
+                if ((i2 & 512) == 512) {
+                    i3 |= 512;
+                }
+                newConnection.socketEnd_ = this.socketEnd_;
+                if ((i2 & 1024) == 1024) {
+                    i3 |= 1024;
+                }
+                newConnection.lcpLoginBegin_ = this.lcpLoginBegin_;
+                if ((i2 & 2048) == 2048) {
+                    i3 |= 2048;
+                }
+                newConnection.lcpLoginEnd_ = this.lcpLoginEnd_;
+                if ((i2 & 4096) == 4096) {
+                    i3 |= 4096;
+                }
+                newConnection.connectSource_ = this.connectSource_;
+                if ((i2 & 8192) == 8192) {
+                    i3 |= 8192;
+                }
+                newConnection.ext_ = this.ext_;
+                if ((i2 & 16384) == 16384) {
+                    i3 |= 16384;
+                }
+                newConnection.netInfo_ = this.netInfo_;
+                if ((i2 & 32768) == 32768) {
+                    i3 |= 32768;
+                }
+                newConnection.aliasId_ = this.aliasId_;
+                if ((i2 & 65536) == 65536) {
+                    i3 |= 65536;
+                }
+                newConnection.retry_ = this.retry_;
+                newConnection.bitField0_ = i3;
+                return newConnection;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            public Builder clear() {
+                super.clear();
+                this.startTime_ = 0L;
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.endTime_ = 0L;
+                int i3 = i2 & (-3);
+                this.bitField0_ = i3;
+                this.connectState_ = 0L;
+                int i4 = i3 & (-5);
+                this.bitField0_ = i4;
+                this.connectErrorCode_ = "";
+                int i5 = i4 & (-9);
+                this.bitField0_ = i5;
+                this.tokenBegin_ = 0L;
+                int i6 = i5 & (-17);
+                this.bitField0_ = i6;
+                this.tokenEnd_ = 0L;
+                int i7 = i6 & (-33);
+                this.bitField0_ = i7;
+                this.dnsBegin_ = 0L;
+                int i8 = i7 & (-65);
+                this.bitField0_ = i8;
+                this.dnsEnd_ = 0L;
+                int i9 = i8 & (-129);
+                this.bitField0_ = i9;
+                this.socketBegin_ = 0L;
+                int i10 = i9 & (-257);
+                this.bitField0_ = i10;
+                this.socketEnd_ = 0L;
+                int i11 = i10 & (-513);
+                this.bitField0_ = i11;
+                this.lcpLoginBegin_ = 0L;
+                int i12 = i11 & (-1025);
+                this.bitField0_ = i12;
+                this.lcpLoginEnd_ = 0L;
+                int i13 = i12 & (-2049);
+                this.bitField0_ = i13;
+                this.connectSource_ = "";
+                int i14 = i13 & (-4097);
+                this.bitField0_ = i14;
+                this.ext_ = "";
+                this.bitField0_ = i14 & (-8193);
+                this.netInfo_ = LcpNetInfo.getDefaultInstance();
+                int i15 = this.bitField0_ & (-16385);
+                this.bitField0_ = i15;
+                this.aliasId_ = 0L;
+                int i16 = i15 & (-32769);
+                this.bitField0_ = i16;
+                this.retry_ = 0L;
+                this.bitField0_ = (-65537) & i16;
+                return this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLiteOrBuilder
+            public NewConnection getDefaultInstanceForType() {
+                return NewConnection.getDefaultInstance();
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder
+            public Builder mergeFrom(NewConnection newConnection) {
+                if (newConnection == NewConnection.getDefaultInstance()) {
+                    return this;
+                }
+                if (newConnection.hasStartTime()) {
+                    setStartTime(newConnection.getStartTime());
+                }
+                if (newConnection.hasEndTime()) {
+                    setEndTime(newConnection.getEndTime());
+                }
+                if (newConnection.hasConnectState()) {
+                    setConnectState(newConnection.getConnectState());
+                }
+                if (newConnection.hasConnectErrorCode()) {
+                    this.bitField0_ |= 8;
+                    this.connectErrorCode_ = newConnection.connectErrorCode_;
+                }
+                if (newConnection.hasTokenBegin()) {
+                    setTokenBegin(newConnection.getTokenBegin());
+                }
+                if (newConnection.hasTokenEnd()) {
+                    setTokenEnd(newConnection.getTokenEnd());
+                }
+                if (newConnection.hasDnsBegin()) {
+                    setDnsBegin(newConnection.getDnsBegin());
+                }
+                if (newConnection.hasDnsEnd()) {
+                    setDnsEnd(newConnection.getDnsEnd());
+                }
+                if (newConnection.hasSocketBegin()) {
+                    setSocketBegin(newConnection.getSocketBegin());
+                }
+                if (newConnection.hasSocketEnd()) {
+                    setSocketEnd(newConnection.getSocketEnd());
+                }
+                if (newConnection.hasLcpLoginBegin()) {
+                    setLcpLoginBegin(newConnection.getLcpLoginBegin());
+                }
+                if (newConnection.hasLcpLoginEnd()) {
+                    setLcpLoginEnd(newConnection.getLcpLoginEnd());
+                }
+                if (newConnection.hasConnectSource()) {
+                    this.bitField0_ |= 4096;
+                    this.connectSource_ = newConnection.connectSource_;
+                }
+                if (newConnection.hasExt()) {
+                    this.bitField0_ |= 8192;
+                    this.ext_ = newConnection.ext_;
+                }
+                if (newConnection.hasNetInfo()) {
+                    mergeNetInfo(newConnection.getNetInfo());
+                }
+                if (newConnection.hasAliasId()) {
+                    setAliasId(newConnection.getAliasId());
+                }
+                if (newConnection.hasRetry()) {
+                    setRetry(newConnection.getRetry());
+                }
+                return this;
+            }
+
+            public Builder setNetInfo(LcpNetInfo.Builder builder) {
+                this.netInfo_ = builder.build();
+                this.bitField0_ |= 16384;
+                return this;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            public Builder clone() {
+                return create().mergeFrom(buildPartial());
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            /* JADX WARN: Removed duplicated region for block: B:15:0x001d  */
+            @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
+            /*
+                Code decompiled incorrectly, please refer to instructions dump.
+            */
+            public Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+                NewConnection newConnection = null;
+                try {
+                    try {
+                        NewConnection parsePartialFrom = NewConnection.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
+                        if (parsePartialFrom != null) {
+                            mergeFrom(parsePartialFrom);
+                        }
+                        return this;
+                    } catch (InvalidProtocolBufferException e2) {
+                        NewConnection newConnection2 = (NewConnection) e2.getUnfinishedMessage();
+                        try {
+                            throw e2;
+                        } catch (Throwable th) {
+                            th = th;
+                            newConnection = newConnection2;
+                            if (newConnection != null) {
+                                mergeFrom(newConnection);
+                            }
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (newConnection != null) {
+                    }
+                    throw th;
+                }
+            }
+        }
+
+        static {
+            NewConnection newConnection = new NewConnection(true);
+            defaultInstance = newConnection;
+            newConnection.initFields();
+        }
+
+        public static NewConnection getDefaultInstance() {
+            return defaultInstance;
+        }
+
+        private void initFields() {
+            this.startTime_ = 0L;
+            this.endTime_ = 0L;
+            this.connectState_ = 0L;
+            this.connectErrorCode_ = "";
+            this.tokenBegin_ = 0L;
+            this.tokenEnd_ = 0L;
+            this.dnsBegin_ = 0L;
+            this.dnsEnd_ = 0L;
+            this.socketBegin_ = 0L;
+            this.socketEnd_ = 0L;
+            this.lcpLoginBegin_ = 0L;
+            this.lcpLoginEnd_ = 0L;
+            this.connectSource_ = "";
+            this.ext_ = "";
+            this.netInfo_ = LcpNetInfo.getDefaultInstance();
+            this.aliasId_ = 0L;
+            this.retry_ = 0L;
+        }
+
+        public static Builder newBuilder() {
+            return Builder.create();
+        }
+
+        public static NewConnection parseDelimitedFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream);
+        }
+
+        public static NewConnection parseFrom(ByteString byteString) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString);
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getAliasId() {
+            return this.aliasId_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public String getConnectErrorCode() {
+            Object obj = this.connectErrorCode_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.connectErrorCode_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public ByteString getConnectErrorCodeBytes() {
+            Object obj = this.connectErrorCode_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.connectErrorCode_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public String getConnectSource() {
+            Object obj = this.connectSource_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.connectSource_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public ByteString getConnectSourceBytes() {
+            Object obj = this.connectSource_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.connectSource_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getConnectState() {
+            return this.connectState_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getDnsBegin() {
+            return this.dnsBegin_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getDnsEnd() {
+            return this.dnsEnd_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getEndTime() {
+            return this.endTime_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public String getExt() {
+            Object obj = this.ext_;
+            if (obj instanceof String) {
+                return (String) obj;
+            }
+            ByteString byteString = (ByteString) obj;
+            String stringUtf8 = byteString.toStringUtf8();
+            if (byteString.isValidUtf8()) {
+                this.ext_ = stringUtf8;
+            }
+            return stringUtf8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public ByteString getExtBytes() {
+            Object obj = this.ext_;
+            if (obj instanceof String) {
+                ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
+                this.ext_ = copyFromUtf8;
+                return copyFromUtf8;
+            }
+            return (ByteString) obj;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getLcpLoginBegin() {
+            return this.lcpLoginBegin_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getLcpLoginEnd() {
+            return this.lcpLoginEnd_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public LcpNetInfo getNetInfo() {
+            return this.netInfo_;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
+        public Parser<NewConnection> getParserForType() {
+            return PARSER;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getRetry() {
+            return this.retry_;
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public int getSerializedSize() {
+            int i2 = this.memoizedSerializedSize;
+            if (i2 != -1) {
+                return i2;
+            }
+            int computeInt64Size = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeInt64Size(1, this.startTime_) : 0;
+            if ((this.bitField0_ & 2) == 2) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(2, this.endTime_);
+            }
+            if ((this.bitField0_ & 4) == 4) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(3, this.connectState_);
+            }
+            if ((this.bitField0_ & 8) == 8) {
+                computeInt64Size += CodedOutputStream.computeBytesSize(4, getConnectErrorCodeBytes());
+            }
+            if ((this.bitField0_ & 16) == 16) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(5, this.tokenBegin_);
+            }
+            if ((this.bitField0_ & 32) == 32) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(6, this.tokenEnd_);
+            }
+            if ((this.bitField0_ & 64) == 64) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(7, this.dnsBegin_);
+            }
+            if ((this.bitField0_ & 128) == 128) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(8, this.dnsEnd_);
+            }
+            if ((this.bitField0_ & 256) == 256) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(9, this.socketBegin_);
+            }
+            if ((this.bitField0_ & 512) == 512) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(10, this.socketEnd_);
+            }
+            if ((this.bitField0_ & 1024) == 1024) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(11, this.lcpLoginBegin_);
+            }
+            if ((this.bitField0_ & 2048) == 2048) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(12, this.lcpLoginEnd_);
+            }
+            if ((this.bitField0_ & 4096) == 4096) {
+                computeInt64Size += CodedOutputStream.computeBytesSize(13, getConnectSourceBytes());
+            }
+            if ((this.bitField0_ & 8192) == 8192) {
+                computeInt64Size += CodedOutputStream.computeBytesSize(14, getExtBytes());
+            }
+            if ((this.bitField0_ & 16384) == 16384) {
+                computeInt64Size += CodedOutputStream.computeMessageSize(15, this.netInfo_);
+            }
+            if ((this.bitField0_ & 32768) == 32768) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(16, this.aliasId_);
+            }
+            if ((this.bitField0_ & 65536) == 65536) {
+                computeInt64Size += CodedOutputStream.computeInt64Size(17, this.retry_);
+            }
+            this.memoizedSerializedSize = computeInt64Size;
+            return computeInt64Size;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getSocketBegin() {
+            return this.socketBegin_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getSocketEnd() {
+            return this.socketEnd_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getStartTime() {
+            return this.startTime_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getTokenBegin() {
+            return this.tokenBegin_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public long getTokenEnd() {
+            return this.tokenEnd_;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasAliasId() {
+            return (this.bitField0_ & 32768) == 32768;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasConnectErrorCode() {
+            return (this.bitField0_ & 8) == 8;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasConnectSource() {
+            return (this.bitField0_ & 4096) == 4096;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasConnectState() {
+            return (this.bitField0_ & 4) == 4;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasDnsBegin() {
+            return (this.bitField0_ & 64) == 64;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasDnsEnd() {
+            return (this.bitField0_ & 128) == 128;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasEndTime() {
+            return (this.bitField0_ & 2) == 2;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasExt() {
+            return (this.bitField0_ & 8192) == 8192;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasLcpLoginBegin() {
+            return (this.bitField0_ & 1024) == 1024;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasLcpLoginEnd() {
+            return (this.bitField0_ & 2048) == 2048;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasNetInfo() {
+            return (this.bitField0_ & 16384) == 16384;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasRetry() {
+            return (this.bitField0_ & 65536) == 65536;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasSocketBegin() {
+            return (this.bitField0_ & 256) == 256;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasSocketEnd() {
+            return (this.bitField0_ & 512) == 512;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasStartTime() {
+            return (this.bitField0_ & 1) == 1;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasTokenBegin() {
+            return (this.bitField0_ & 16) == 16;
+        }
+
+        @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.NewConnectionOrBuilder
+        public boolean hasTokenEnd() {
+            return (this.bitField0_ & 32) == 32;
+        }
+
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public final boolean isInitialized() {
+            byte b2 = this.memoizedIsInitialized;
+            if (b2 != -1) {
+                return b2 == 1;
+            }
+            this.memoizedIsInitialized = (byte) 1;
+            return true;
+        }
+
+        @Override // com.google.protobuf.GeneratedMessageLite
+        public Object writeReplace() throws ObjectStreamException {
+            return super.writeReplace();
+        }
+
+        @Override // com.google.protobuf.MessageLite
+        public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
+            getSerializedSize();
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeInt64(1, this.startTime_);
+            }
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeInt64(2, this.endTime_);
+            }
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeInt64(3, this.connectState_);
+            }
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeBytes(4, getConnectErrorCodeBytes());
+            }
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt64(5, this.tokenBegin_);
+            }
+            if ((this.bitField0_ & 32) == 32) {
+                codedOutputStream.writeInt64(6, this.tokenEnd_);
+            }
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt64(7, this.dnsBegin_);
+            }
+            if ((this.bitField0_ & 128) == 128) {
+                codedOutputStream.writeInt64(8, this.dnsEnd_);
+            }
+            if ((this.bitField0_ & 256) == 256) {
+                codedOutputStream.writeInt64(9, this.socketBegin_);
+            }
+            if ((this.bitField0_ & 512) == 512) {
+                codedOutputStream.writeInt64(10, this.socketEnd_);
+            }
+            if ((this.bitField0_ & 1024) == 1024) {
+                codedOutputStream.writeInt64(11, this.lcpLoginBegin_);
+            }
+            if ((this.bitField0_ & 2048) == 2048) {
+                codedOutputStream.writeInt64(12, this.lcpLoginEnd_);
+            }
+            if ((this.bitField0_ & 4096) == 4096) {
+                codedOutputStream.writeBytes(13, getConnectSourceBytes());
+            }
+            if ((this.bitField0_ & 8192) == 8192) {
+                codedOutputStream.writeBytes(14, getExtBytes());
+            }
+            if ((this.bitField0_ & 16384) == 16384) {
+                codedOutputStream.writeMessage(15, this.netInfo_);
+            }
+            if ((this.bitField0_ & 32768) == 32768) {
+                codedOutputStream.writeInt64(16, this.aliasId_);
+            }
+            if ((this.bitField0_ & 65536) == 65536) {
+                codedOutputStream.writeInt64(17, this.retry_);
+            }
+        }
+
+        public static Builder newBuilder(NewConnection newConnection) {
+            return newBuilder().mergeFrom(newConnection);
+        }
+
+        public static NewConnection parseDelimitedFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseDelimitedFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static NewConnection parseFrom(ByteString byteString, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(byteString, extensionRegistryLite);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLiteOrBuilder
+        public NewConnection getDefaultInstanceForType() {
+            return defaultInstance;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder newBuilderForType() {
+            return newBuilder();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.google.protobuf.MessageLite
+        public Builder toBuilder() {
+            return newBuilder(this);
+        }
+
+        public NewConnection(GeneratedMessageLite.Builder builder) {
+            super(builder);
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static NewConnection parseFrom(byte[] bArr) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr);
+        }
+
+        public static NewConnection parseFrom(byte[] bArr, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            return PARSER.parseFrom(bArr, extensionRegistryLite);
+        }
+
+        public static NewConnection parseFrom(InputStream inputStream) throws IOException {
+            return PARSER.parseFrom(inputStream);
+        }
+
+        public NewConnection(boolean z) {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+        }
+
+        public static NewConnection parseFrom(InputStream inputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(inputStream, extensionRegistryLite);
+        }
+
+        public static NewConnection parseFrom(CodedInputStream codedInputStream) throws IOException {
+            return PARSER.parseFrom(codedInputStream);
+        }
+
+        public static NewConnection parseFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+            return PARSER.parseFrom(codedInputStream, extensionRegistryLite);
+        }
+
+        public NewConnection(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
+            this.memoizedIsInitialized = (byte) -1;
+            this.memoizedSerializedSize = -1;
+            initFields();
+            boolean z = false;
+            while (!z) {
+                try {
+                    try {
+                        int readTag = codedInputStream.readTag();
+                        switch (readTag) {
+                            case 0:
+                                break;
+                            case 8:
+                                this.bitField0_ |= 1;
+                                this.startTime_ = codedInputStream.readInt64();
+                                continue;
+                            case 16:
+                                this.bitField0_ |= 2;
+                                this.endTime_ = codedInputStream.readInt64();
+                                continue;
+                            case 24:
+                                this.bitField0_ |= 4;
+                                this.connectState_ = codedInputStream.readInt64();
+                                continue;
+                            case 34:
+                                this.bitField0_ |= 8;
+                                this.connectErrorCode_ = codedInputStream.readBytes();
+                                continue;
+                            case 40:
+                                this.bitField0_ |= 16;
+                                this.tokenBegin_ = codedInputStream.readInt64();
+                                continue;
+                            case 48:
+                                this.bitField0_ |= 32;
+                                this.tokenEnd_ = codedInputStream.readInt64();
+                                continue;
+                            case 56:
+                                this.bitField0_ |= 64;
+                                this.dnsBegin_ = codedInputStream.readInt64();
+                                continue;
+                            case 64:
+                                this.bitField0_ |= 128;
+                                this.dnsEnd_ = codedInputStream.readInt64();
+                                continue;
+                            case 72:
+                                this.bitField0_ |= 256;
+                                this.socketBegin_ = codedInputStream.readInt64();
+                                continue;
+                            case 80:
+                                this.bitField0_ |= 512;
+                                this.socketEnd_ = codedInputStream.readInt64();
+                                continue;
+                            case 88:
+                                this.bitField0_ |= 1024;
+                                this.lcpLoginBegin_ = codedInputStream.readInt64();
+                                continue;
+                            case 96:
+                                this.bitField0_ |= 2048;
+                                this.lcpLoginEnd_ = codedInputStream.readInt64();
+                                continue;
+                            case 106:
+                                this.bitField0_ |= 4096;
+                                this.connectSource_ = codedInputStream.readBytes();
+                                continue;
+                            case 114:
+                                this.bitField0_ |= 8192;
+                                this.ext_ = codedInputStream.readBytes();
+                                continue;
+                            case 122:
+                                LcpNetInfo.Builder builder = (this.bitField0_ & 16384) == 16384 ? this.netInfo_.toBuilder() : null;
+                                LcpNetInfo lcpNetInfo = (LcpNetInfo) codedInputStream.readMessage(LcpNetInfo.PARSER, extensionRegistryLite);
+                                this.netInfo_ = lcpNetInfo;
+                                if (builder != null) {
+                                    builder.mergeFrom(lcpNetInfo);
+                                    this.netInfo_ = builder.buildPartial();
+                                }
+                                this.bitField0_ |= 16384;
+                                continue;
+                            case 128:
+                                this.bitField0_ |= 32768;
+                                this.aliasId_ = codedInputStream.readInt64();
+                                continue;
+                            case 136:
+                                this.bitField0_ |= 65536;
+                                this.retry_ = codedInputStream.readInt64();
+                                continue;
+                            default:
+                                if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
+                                    break;
+                                } else {
+                                    continue;
+                                }
+                        }
+                        z = true;
+                    } catch (InvalidProtocolBufferException e2) {
+                        throw e2.setUnfinishedMessage(this);
+                    } catch (IOException e3) {
+                        throw new InvalidProtocolBufferException(e3.getMessage()).setUnfinishedMessage(this);
+                    }
+                } finally {
+                    makeExtensionsImmutable();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes.dex */
+    public interface NewConnectionOrBuilder extends MessageLiteOrBuilder {
+        long getAliasId();
+
+        String getConnectErrorCode();
+
+        ByteString getConnectErrorCodeBytes();
+
+        String getConnectSource();
+
+        ByteString getConnectSourceBytes();
+
+        long getConnectState();
+
+        long getDnsBegin();
+
+        long getDnsEnd();
+
+        long getEndTime();
+
+        String getExt();
+
+        ByteString getExtBytes();
+
+        long getLcpLoginBegin();
+
+        long getLcpLoginEnd();
+
+        LcpNetInfo getNetInfo();
+
+        long getRetry();
+
+        long getSocketBegin();
+
+        long getSocketEnd();
+
+        long getStartTime();
+
+        long getTokenBegin();
+
+        long getTokenEnd();
+
+        boolean hasAliasId();
+
+        boolean hasConnectErrorCode();
+
+        boolean hasConnectSource();
+
+        boolean hasConnectState();
+
+        boolean hasDnsBegin();
+
+        boolean hasDnsEnd();
+
+        boolean hasEndTime();
+
+        boolean hasExt();
+
+        boolean hasLcpLoginBegin();
+
+        boolean hasLcpLoginEnd();
+
+        boolean hasNetInfo();
+
+        boolean hasRetry();
+
+        boolean hasSocketBegin();
+
+        boolean hasSocketEnd();
+
+        boolean hasStartTime();
+
+        boolean hasTokenBegin();
+
+        boolean hasTokenEnd();
     }
 
     /* loaded from: classes.dex */
@@ -8021,7 +10301,7 @@ public final class IMPushPb {
         public static final int ACTIONS_FIELD_NUMBER = 132;
         public static final int COMMON_FIELD_NUMBER = 41;
         public static final int METADATA_FIELD_NUMBER = 25;
-        public static final Parser<PushImClient> PARSER = new AbstractParser<PushImClient>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClient.1
+        public static Parser<PushImClient> PARSER = new AbstractParser<PushImClient>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClient.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public PushImClient parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -8032,27 +10312,23 @@ public final class IMPushPb {
         public static final int SDK_VERSION_FIELD_NUMBER = 131;
         public static final PushImClient defaultInstance;
         public static final long serialVersionUID = 0;
-        public List<Action> actions;
-        public int bitField0;
-
-        /* renamed from: common  reason: collision with root package name */
-        public Common f2561common;
+        public List<Action> actions_;
+        public int bitField0_;
+        public Common common_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public MetaData metadata;
-        public Object sdkName;
-        public long sdkVersion;
+        public MetaData metadata_;
+        public Object sdkName_;
+        public long sdkVersion_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<PushImClient, Builder> implements PushImClientOrBuilder {
-            public int bitField0;
-            public long sdkVersion;
-            public MetaData metadata = MetaData.getDefaultInstance();
-
-            /* renamed from: common  reason: collision with root package name */
-            public Common f2562common = Common.getDefaultInstance();
-            public Object sdkName = "";
-            public List<Action> actions = Collections.emptyList();
+            public int bitField0_;
+            public long sdkVersion_;
+            public MetaData metadata_ = MetaData.getDefaultInstance();
+            public Common common_ = Common.getDefaultInstance();
+            public Object sdkName_ = "";
+            public List<Action> actions_ = Collections.emptyList();
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -8063,9 +10339,9 @@ public final class IMPushPb {
             }
 
             private void ensureActionsIsMutable() {
-                if ((this.bitField0 & 16) != 16) {
-                    this.actions = new ArrayList(this.actions);
-                    this.bitField0 |= 16;
+                if ((this.bitField0_ & 16) != 16) {
+                    this.actions_ = new ArrayList(this.actions_);
+                    this.bitField0_ |= 16;
                 }
             }
 
@@ -8075,7 +10351,7 @@ public final class IMPushPb {
             public Builder addActions(Action action) {
                 if (action != null) {
                     ensureActionsIsMutable();
-                    this.actions.add(action);
+                    this.actions_.add(action);
                     return this;
                 }
                 throw null;
@@ -8083,71 +10359,71 @@ public final class IMPushPb {
 
             public Builder addAllActions(Iterable<? extends Action> iterable) {
                 ensureActionsIsMutable();
-                AbstractMessageLite.Builder.addAll(iterable, this.actions);
+                AbstractMessageLite.Builder.addAll(iterable, this.actions_);
                 return this;
             }
 
             public Builder clearActions() {
-                this.actions = Collections.emptyList();
-                this.bitField0 &= -17;
+                this.actions_ = Collections.emptyList();
+                this.bitField0_ &= -17;
                 return this;
             }
 
             public Builder clearCommon() {
-                this.f2562common = Common.getDefaultInstance();
-                this.bitField0 &= -3;
+                this.common_ = Common.getDefaultInstance();
+                this.bitField0_ &= -3;
                 return this;
             }
 
             public Builder clearMetadata() {
-                this.metadata = MetaData.getDefaultInstance();
-                this.bitField0 &= -2;
+                this.metadata_ = MetaData.getDefaultInstance();
+                this.bitField0_ &= -2;
                 return this;
             }
 
             public Builder clearSdkName() {
-                this.bitField0 &= -5;
-                this.sdkName = PushImClient.getDefaultInstance().getSdkName();
+                this.bitField0_ &= -5;
+                this.sdkName_ = PushImClient.getDefaultInstance().getSdkName();
                 return this;
             }
 
             public Builder clearSdkVersion() {
-                this.bitField0 &= -9;
-                this.sdkVersion = 0L;
+                this.bitField0_ &= -9;
+                this.sdkVersion_ = 0L;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Action getActions(int i2) {
-                return this.actions.get(i2);
+                return this.actions_.get(i2);
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public int getActionsCount() {
-                return this.actions.size();
+                return this.actions_.size();
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public List<Action> getActionsList() {
-                return Collections.unmodifiableList(this.actions);
+                return Collections.unmodifiableList(this.actions_);
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public Common getCommon() {
-                return this.f2562common;
+                return this.common_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public MetaData getMetadata() {
-                return this.metadata;
+                return this.metadata_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public String getSdkName() {
-                Object obj = this.sdkName;
+                Object obj = this.sdkName_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.sdkName = stringUtf8;
+                    this.sdkName_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -8155,10 +10431,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public ByteString getSdkNameBytes() {
-                Object obj = this.sdkName;
+                Object obj = this.sdkName_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.sdkName = copyFromUtf8;
+                    this.sdkName_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -8166,27 +10442,27 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public long getSdkVersion() {
-                return this.sdkVersion;
+                return this.sdkVersion_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasCommon() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasMetadata() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasSdkName() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
             public boolean hasSdkVersion() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -8195,35 +10471,35 @@ public final class IMPushPb {
             }
 
             public Builder mergeCommon(Common common2) {
-                if ((this.bitField0 & 2) == 2 && this.f2562common != Common.getDefaultInstance()) {
-                    this.f2562common = Common.newBuilder(this.f2562common).mergeFrom(common2).buildPartial();
+                if ((this.bitField0_ & 2) == 2 && this.common_ != Common.getDefaultInstance()) {
+                    this.common_ = Common.newBuilder(this.common_).mergeFrom(common2).buildPartial();
                 } else {
-                    this.f2562common = common2;
+                    this.common_ = common2;
                 }
-                this.bitField0 |= 2;
+                this.bitField0_ |= 2;
                 return this;
             }
 
             public Builder mergeMetadata(MetaData metaData) {
-                if ((this.bitField0 & 1) == 1 && this.metadata != MetaData.getDefaultInstance()) {
-                    this.metadata = MetaData.newBuilder(this.metadata).mergeFrom(metaData).buildPartial();
+                if ((this.bitField0_ & 1) == 1 && this.metadata_ != MetaData.getDefaultInstance()) {
+                    this.metadata_ = MetaData.newBuilder(this.metadata_).mergeFrom(metaData).buildPartial();
                 } else {
-                    this.metadata = metaData;
+                    this.metadata_ = metaData;
                 }
-                this.bitField0 |= 1;
+                this.bitField0_ |= 1;
                 return this;
             }
 
             public Builder removeActions(int i2) {
                 ensureActionsIsMutable();
-                this.actions.remove(i2);
+                this.actions_.remove(i2);
                 return this;
             }
 
             public Builder setActions(int i2, Action action) {
                 if (action != null) {
                     ensureActionsIsMutable();
-                    this.actions.set(i2, action);
+                    this.actions_.set(i2, action);
                     return this;
                 }
                 throw null;
@@ -8231,8 +10507,8 @@ public final class IMPushPb {
 
             public Builder setCommon(Common common2) {
                 if (common2 != null) {
-                    this.f2562common = common2;
-                    this.bitField0 |= 2;
+                    this.common_ = common2;
+                    this.bitField0_ |= 2;
                     return this;
                 }
                 throw null;
@@ -8240,8 +10516,8 @@ public final class IMPushPb {
 
             public Builder setMetadata(MetaData metaData) {
                 if (metaData != null) {
-                    this.metadata = metaData;
-                    this.bitField0 |= 1;
+                    this.metadata_ = metaData;
+                    this.bitField0_ |= 1;
                     return this;
                 }
                 throw null;
@@ -8249,8 +10525,8 @@ public final class IMPushPb {
 
             public Builder setSdkName(String str) {
                 if (str != null) {
-                    this.bitField0 |= 4;
-                    this.sdkName = str;
+                    this.bitField0_ |= 4;
+                    this.sdkName_ = str;
                     return this;
                 }
                 throw null;
@@ -8258,16 +10534,16 @@ public final class IMPushPb {
 
             public Builder setSdkNameBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 4;
-                    this.sdkName = byteString;
+                    this.bitField0_ |= 4;
+                    this.sdkName_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setSdkVersion(long j) {
-                this.bitField0 |= 8;
-                this.sdkVersion = j;
+                this.bitField0_ |= 8;
+                this.sdkVersion_ = j;
                 return this;
             }
 
@@ -8285,27 +10561,27 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public PushImClient buildPartial() {
                 PushImClient pushImClient = new PushImClient(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                pushImClient.metadata = this.metadata;
+                pushImClient.metadata_ = this.metadata_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                pushImClient.f2561common = this.f2562common;
+                pushImClient.common_ = this.common_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                pushImClient.sdkName = this.sdkName;
+                pushImClient.sdkName_ = this.sdkName_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                pushImClient.sdkVersion = this.sdkVersion;
-                if ((this.bitField0 & 16) == 16) {
-                    this.actions = Collections.unmodifiableList(this.actions);
-                    this.bitField0 &= -17;
+                pushImClient.sdkVersion_ = this.sdkVersion_;
+                if ((this.bitField0_ & 16) == 16) {
+                    this.actions_ = Collections.unmodifiableList(this.actions_);
+                    this.bitField0_ &= -17;
                 }
-                pushImClient.actions = this.actions;
-                pushImClient.bitField0 = i3;
+                pushImClient.actions_ = this.actions_;
+                pushImClient.bitField0_ = i3;
                 return pushImClient;
             }
 
@@ -8313,18 +10589,18 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.metadata = MetaData.getDefaultInstance();
-                this.bitField0 &= -2;
-                this.f2562common = Common.getDefaultInstance();
-                int i2 = this.bitField0 & (-3);
-                this.bitField0 = i2;
-                this.sdkName = "";
+                this.metadata_ = MetaData.getDefaultInstance();
+                this.bitField0_ &= -2;
+                this.common_ = Common.getDefaultInstance();
+                int i2 = this.bitField0_ & (-3);
+                this.bitField0_ = i2;
+                this.sdkName_ = "";
                 int i3 = i2 & (-5);
-                this.bitField0 = i3;
-                this.sdkVersion = 0L;
-                this.bitField0 = i3 & (-9);
-                this.actions = Collections.emptyList();
-                this.bitField0 &= -17;
+                this.bitField0_ = i3;
+                this.sdkVersion_ = 0L;
+                this.bitField0_ = i3 & (-9);
+                this.actions_ = Collections.emptyList();
+                this.bitField0_ &= -17;
                 return this;
             }
 
@@ -8337,7 +10613,7 @@ public final class IMPushPb {
             public Builder addActions(int i2, Action action) {
                 if (action != null) {
                     ensureActionsIsMutable();
-                    this.actions.add(i2, action);
+                    this.actions_.add(i2, action);
                     return this;
                 }
                 throw null;
@@ -8356,19 +10632,19 @@ public final class IMPushPb {
                     mergeCommon(pushImClient.getCommon());
                 }
                 if (pushImClient.hasSdkName()) {
-                    this.bitField0 |= 4;
-                    this.sdkName = pushImClient.sdkName;
+                    this.bitField0_ |= 4;
+                    this.sdkName_ = pushImClient.sdkName_;
                 }
                 if (pushImClient.hasSdkVersion()) {
                     setSdkVersion(pushImClient.getSdkVersion());
                 }
-                if (!pushImClient.actions.isEmpty()) {
-                    if (this.actions.isEmpty()) {
-                        this.actions = pushImClient.actions;
-                        this.bitField0 &= -17;
+                if (!pushImClient.actions_.isEmpty()) {
+                    if (this.actions_.isEmpty()) {
+                        this.actions_ = pushImClient.actions_;
+                        this.bitField0_ &= -17;
                     } else {
                         ensureActionsIsMutable();
-                        this.actions.addAll(pushImClient.actions);
+                        this.actions_.addAll(pushImClient.actions_);
                     }
                 }
                 return this;
@@ -8376,19 +10652,19 @@ public final class IMPushPb {
 
             public Builder setActions(int i2, Action.Builder builder) {
                 ensureActionsIsMutable();
-                this.actions.set(i2, builder.build());
+                this.actions_.set(i2, builder.build());
                 return this;
             }
 
             public Builder setCommon(Common.Builder builder) {
-                this.f2562common = builder.build();
-                this.bitField0 |= 2;
+                this.common_ = builder.build();
+                this.bitField0_ |= 2;
                 return this;
             }
 
             public Builder setMetadata(MetaData.Builder builder) {
-                this.metadata = builder.build();
-                this.bitField0 |= 1;
+                this.metadata_ = builder.build();
+                this.bitField0_ |= 1;
                 return this;
             }
 
@@ -8400,13 +10676,13 @@ public final class IMPushPb {
 
             public Builder addActions(Action.Builder builder) {
                 ensureActionsIsMutable();
-                this.actions.add(builder.build());
+                this.actions_.add(builder.build());
                 return this;
             }
 
             public Builder addActions(int i2, Action.Builder builder) {
                 ensureActionsIsMutable();
-                this.actions.add(i2, builder.build());
+                this.actions_.add(i2, builder.build());
                 return this;
             }
 
@@ -8458,11 +10734,11 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.metadata = MetaData.getDefaultInstance();
-            this.f2561common = Common.getDefaultInstance();
-            this.sdkName = "";
-            this.sdkVersion = 0L;
-            this.actions = Collections.emptyList();
+            this.metadata_ = MetaData.getDefaultInstance();
+            this.common_ = Common.getDefaultInstance();
+            this.sdkName_ = "";
+            this.sdkVersion_ = 0L;
+            this.actions_ = Collections.emptyList();
         }
 
         public static Builder newBuilder() {
@@ -8479,35 +10755,35 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Action getActions(int i2) {
-            return this.actions.get(i2);
+            return this.actions_.get(i2);
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public int getActionsCount() {
-            return this.actions.size();
+            return this.actions_.size();
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public List<Action> getActionsList() {
-            return this.actions;
+            return this.actions_;
         }
 
         public ActionOrBuilder getActionsOrBuilder(int i2) {
-            return this.actions.get(i2);
+            return this.actions_.get(i2);
         }
 
         public List<? extends ActionOrBuilder> getActionsOrBuilderList() {
-            return this.actions;
+            return this.actions_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public Common getCommon() {
-            return this.f2561common;
+            return this.common_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public MetaData getMetadata() {
-            return this.metadata;
+            return this.metadata_;
         }
 
         @Override // com.google.protobuf.GeneratedMessageLite, com.google.protobuf.MessageLite
@@ -8517,24 +10793,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public String getSdkName() {
-            Object obj = this.sdkName;
+            Object obj = this.sdkName_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.sdkName = stringUtf8;
+                this.sdkName_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public ByteString getSdkNameBytes() {
-            Object obj = this.sdkName;
+            Object obj = this.sdkName_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.sdkName = copyFromUtf8;
+                this.sdkName_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -8542,7 +10818,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public long getSdkVersion() {
-            return this.sdkVersion;
+            return this.sdkVersion_;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -8551,18 +10827,18 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeMessageSize = (this.bitField0 & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata) + 0 : 0;
-            if ((this.bitField0 & 2) == 2) {
-                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.f2561common);
+            int computeMessageSize = (this.bitField0_ & 1) == 1 ? CodedOutputStream.computeMessageSize(25, this.metadata_) + 0 : 0;
+            if ((this.bitField0_ & 2) == 2) {
+                computeMessageSize += CodedOutputStream.computeMessageSize(41, this.common_);
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 computeMessageSize += CodedOutputStream.computeBytesSize(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeMessageSize += CodedOutputStream.computeInt64Size(SDK_VERSION_FIELD_NUMBER, this.sdkVersion);
+            if ((this.bitField0_ & 8) == 8) {
+                computeMessageSize += CodedOutputStream.computeInt64Size(SDK_VERSION_FIELD_NUMBER, this.sdkVersion_);
             }
-            for (int i3 = 0; i3 < this.actions.size(); i3++) {
-                computeMessageSize += CodedOutputStream.computeMessageSize(132, this.actions.get(i3));
+            for (int i3 = 0; i3 < this.actions_.size(); i3++) {
+                computeMessageSize += CodedOutputStream.computeMessageSize(132, this.actions_.get(i3));
             }
             this.memoizedSerializedSize = computeMessageSize;
             return computeMessageSize;
@@ -8570,22 +10846,22 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasCommon() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasMetadata() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasSdkName() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.PushImClientOrBuilder
         public boolean hasSdkVersion() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -8613,20 +10889,20 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
-                codedOutputStream.writeMessage(25, this.metadata);
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeMessage(25, this.metadata_);
             }
-            if ((this.bitField0 & 2) == 2) {
-                codedOutputStream.writeMessage(41, this.f2561common);
+            if ((this.bitField0_ & 2) == 2) {
+                codedOutputStream.writeMessage(41, this.common_);
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeBytes(SDK_NAME_FIELD_NUMBER, getSdkNameBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(SDK_VERSION_FIELD_NUMBER, this.sdkVersion);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt64(SDK_VERSION_FIELD_NUMBER, this.sdkVersion_);
             }
-            for (int i2 = 0; i2 < this.actions.size(); i2++) {
-                codedOutputStream.writeMessage(132, this.actions.get(i2));
+            for (int i2 = 0; i2 < this.actions_.size(); i2++) {
+                codedOutputStream.writeMessage(132, this.actions_.get(i2));
             }
         }
 
@@ -8714,38 +10990,38 @@ public final class IMPushPb {
                             int readTag = codedInputStream.readTag();
                             if (readTag != 0) {
                                 if (readTag == 202) {
-                                    builder = (this.bitField0 & 1) == 1 ? this.metadata.toBuilder() : null;
+                                    builder = (this.bitField0_ & 1) == 1 ? this.metadata_.toBuilder() : null;
                                     MetaData metaData = (MetaData) codedInputStream.readMessage(MetaData.PARSER, extensionRegistryLite);
-                                    this.metadata = metaData;
+                                    this.metadata_ = metaData;
                                     if (builder != null) {
                                         builder.mergeFrom(metaData);
-                                        this.metadata = builder.buildPartial();
+                                        this.metadata_ = builder.buildPartial();
                                     }
-                                    this.bitField0 |= 1;
+                                    this.bitField0_ |= 1;
                                 } else if (readTag == 330) {
-                                    builder = (this.bitField0 & 2) == 2 ? this.f2561common.toBuilder() : null;
+                                    builder = (this.bitField0_ & 2) == 2 ? this.common_.toBuilder() : null;
                                     Common common2 = (Common) codedInputStream.readMessage(Common.PARSER, extensionRegistryLite);
-                                    this.f2561common = common2;
+                                    this.common_ = common2;
                                     if (builder != null) {
                                         builder.mergeFrom(common2);
-                                        this.f2561common = builder.buildPartial();
+                                        this.common_ = builder.buildPartial();
                                     }
-                                    this.bitField0 |= 2;
+                                    this.bitField0_ |= 2;
                                 } else if (readTag == 1042) {
-                                    this.bitField0 |= 4;
-                                    this.sdkName = codedInputStream.readBytes();
+                                    this.bitField0_ |= 4;
+                                    this.sdkName_ = codedInputStream.readBytes();
                                 } else if (readTag == 1048) {
-                                    this.bitField0 |= 8;
-                                    this.sdkVersion = codedInputStream.readInt64();
+                                    this.bitField0_ |= 8;
+                                    this.sdkVersion_ = codedInputStream.readInt64();
                                 } else if (readTag != 1058) {
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 } else {
                                     if (!(z2 & true)) {
-                                        this.actions = new ArrayList();
+                                        this.actions_ = new ArrayList();
                                         z2 |= true;
                                     }
-                                    this.actions.add(codedInputStream.readMessage(Action.PARSER, extensionRegistryLite));
+                                    this.actions_.add(codedInputStream.readMessage(Action.PARSER, extensionRegistryLite));
                                 }
                             }
                             z = true;
@@ -8757,7 +11033,7 @@ public final class IMPushPb {
                     }
                 } finally {
                     if (z2 & true) {
-                        this.actions = Collections.unmodifiableList(this.actions);
+                        this.actions_ = Collections.unmodifiableList(this.actions_);
                     }
                     makeExtensionsImmutable();
                 }
@@ -8798,7 +11074,7 @@ public final class IMPushPb {
         public static final int ERROR_CODE_FIELD_NUMBER = 5;
         public static final int EXT_FIELD_NUMBER = 6;
         public static final int METHOD_FIELD_NUMBER = 1;
-        public static final Parser<Request> PARSER = new AbstractParser<Request>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Request.1
+        public static Parser<Request> PARSER = new AbstractParser<Request>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Request.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Request parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -8810,27 +11086,27 @@ public final class IMPushPb {
         public static final int TIMESTAMP_FIELD_NUMBER = 3;
         public static final Request defaultInstance;
         public static final long serialVersionUID = 0;
-        public long aliasId;
-        public int bitField0;
-        public long errorCode;
-        public Object ext;
+        public long aliasId_;
+        public int bitField0_;
+        public long errorCode_;
+        public Object ext_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Object method;
-        public Object requestId;
-        public long responseTime;
-        public long timestamp;
+        public Object method_;
+        public Object requestId_;
+        public long responseTime_;
+        public long timestamp_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Request, Builder> implements RequestOrBuilder {
-            public long aliasId;
-            public int bitField0;
-            public long errorCode;
-            public long responseTime;
-            public long timestamp;
-            public Object method = "";
-            public Object requestId = "";
-            public Object ext = "";
+            public long aliasId_;
+            public int bitField0_;
+            public long errorCode_;
+            public long responseTime_;
+            public long timestamp_;
+            public Object method_ = "";
+            public Object requestId_ = "";
+            public Object ext_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -8844,63 +11120,63 @@ public final class IMPushPb {
             }
 
             public Builder clearAliasId() {
-                this.bitField0 &= -65;
-                this.aliasId = 0L;
+                this.bitField0_ &= -65;
+                this.aliasId_ = 0L;
                 return this;
             }
 
             public Builder clearErrorCode() {
-                this.bitField0 &= -17;
-                this.errorCode = 0L;
+                this.bitField0_ &= -17;
+                this.errorCode_ = 0L;
                 return this;
             }
 
             public Builder clearExt() {
-                this.bitField0 &= -33;
-                this.ext = Request.getDefaultInstance().getExt();
+                this.bitField0_ &= -33;
+                this.ext_ = Request.getDefaultInstance().getExt();
                 return this;
             }
 
             public Builder clearMethod() {
-                this.bitField0 &= -2;
-                this.method = Request.getDefaultInstance().getMethod();
+                this.bitField0_ &= -2;
+                this.method_ = Request.getDefaultInstance().getMethod();
                 return this;
             }
 
             public Builder clearRequestId() {
-                this.bitField0 &= -3;
-                this.requestId = Request.getDefaultInstance().getRequestId();
+                this.bitField0_ &= -3;
+                this.requestId_ = Request.getDefaultInstance().getRequestId();
                 return this;
             }
 
             public Builder clearResponseTime() {
-                this.bitField0 &= -9;
-                this.responseTime = 0L;
+                this.bitField0_ &= -9;
+                this.responseTime_ = 0L;
                 return this;
             }
 
             public Builder clearTimestamp() {
-                this.bitField0 &= -5;
-                this.timestamp = 0L;
+                this.bitField0_ &= -5;
+                this.timestamp_ = 0L;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getAliasId() {
-                return this.aliasId;
+                return this.aliasId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getErrorCode() {
-                return this.errorCode;
+                return this.errorCode_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public String getExt() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.ext = stringUtf8;
+                    this.ext_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -8908,10 +11184,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public ByteString getExtBytes() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.ext = copyFromUtf8;
+                    this.ext_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -8919,10 +11195,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public String getMethod() {
-                Object obj = this.method;
+                Object obj = this.method_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.method = stringUtf8;
+                    this.method_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -8930,10 +11206,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public ByteString getMethodBytes() {
-                Object obj = this.method;
+                Object obj = this.method_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.method = copyFromUtf8;
+                    this.method_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -8941,10 +11217,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public String getRequestId() {
-                Object obj = this.requestId;
+                Object obj = this.requestId_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.requestId = stringUtf8;
+                    this.requestId_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -8952,10 +11228,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public ByteString getRequestIdBytes() {
-                Object obj = this.requestId;
+                Object obj = this.requestId_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.requestId = copyFromUtf8;
+                    this.requestId_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -8963,47 +11239,47 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getResponseTime() {
-                return this.responseTime;
+                return this.responseTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public long getTimestamp() {
-                return this.timestamp;
+                return this.timestamp_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasAliasId() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasErrorCode() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasExt() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasMethod() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasRequestId() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasResponseTime() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
             public boolean hasTimestamp() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -9012,21 +11288,21 @@ public final class IMPushPb {
             }
 
             public Builder setAliasId(long j) {
-                this.bitField0 |= 64;
-                this.aliasId = j;
+                this.bitField0_ |= 64;
+                this.aliasId_ = j;
                 return this;
             }
 
             public Builder setErrorCode(long j) {
-                this.bitField0 |= 16;
-                this.errorCode = j;
+                this.bitField0_ |= 16;
+                this.errorCode_ = j;
                 return this;
             }
 
             public Builder setExt(String str) {
                 if (str != null) {
-                    this.bitField0 |= 32;
-                    this.ext = str;
+                    this.bitField0_ |= 32;
+                    this.ext_ = str;
                     return this;
                 }
                 throw null;
@@ -9034,8 +11310,8 @@ public final class IMPushPb {
 
             public Builder setExtBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 32;
-                    this.ext = byteString;
+                    this.bitField0_ |= 32;
+                    this.ext_ = byteString;
                     return this;
                 }
                 throw null;
@@ -9043,8 +11319,8 @@ public final class IMPushPb {
 
             public Builder setMethod(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.method = str;
+                    this.bitField0_ |= 1;
+                    this.method_ = str;
                     return this;
                 }
                 throw null;
@@ -9052,8 +11328,8 @@ public final class IMPushPb {
 
             public Builder setMethodBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.method = byteString;
+                    this.bitField0_ |= 1;
+                    this.method_ = byteString;
                     return this;
                 }
                 throw null;
@@ -9061,8 +11337,8 @@ public final class IMPushPb {
 
             public Builder setRequestId(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.requestId = str;
+                    this.bitField0_ |= 2;
+                    this.requestId_ = str;
                     return this;
                 }
                 throw null;
@@ -9070,22 +11346,22 @@ public final class IMPushPb {
 
             public Builder setRequestIdBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.requestId = byteString;
+                    this.bitField0_ |= 2;
+                    this.requestId_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setResponseTime(long j) {
-                this.bitField0 |= 8;
-                this.responseTime = j;
+                this.bitField0_ |= 8;
+                this.responseTime_ = j;
                 return this;
             }
 
             public Builder setTimestamp(long j) {
-                this.bitField0 |= 4;
-                this.timestamp = j;
+                this.bitField0_ |= 4;
+                this.timestamp_ = j;
                 return this;
             }
 
@@ -9103,34 +11379,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Request buildPartial() {
                 Request request = new Request(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                request.method = this.method;
+                request.method_ = this.method_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                request.requestId = this.requestId;
+                request.requestId_ = this.requestId_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                request.timestamp = this.timestamp;
+                request.timestamp_ = this.timestamp_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                request.responseTime = this.responseTime;
+                request.responseTime_ = this.responseTime_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                request.errorCode = this.errorCode;
+                request.errorCode_ = this.errorCode_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                request.ext = this.ext;
+                request.ext_ = this.ext_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                request.aliasId = this.aliasId;
-                request.bitField0 = i3;
+                request.aliasId_ = this.aliasId_;
+                request.bitField0_ = i3;
                 return request;
             }
 
@@ -9138,26 +11414,26 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.method = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.requestId = "";
+                this.method_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.requestId_ = "";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.timestamp = 0L;
+                this.bitField0_ = i3;
+                this.timestamp_ = 0L;
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.responseTime = 0L;
+                this.bitField0_ = i4;
+                this.responseTime_ = 0L;
                 int i5 = i4 & (-9);
-                this.bitField0 = i5;
-                this.errorCode = 0L;
+                this.bitField0_ = i5;
+                this.errorCode_ = 0L;
                 int i6 = i5 & (-17);
-                this.bitField0 = i6;
-                this.ext = "";
+                this.bitField0_ = i6;
+                this.ext_ = "";
                 int i7 = i6 & (-33);
-                this.bitField0 = i7;
-                this.aliasId = 0L;
-                this.bitField0 = i7 & (-65);
+                this.bitField0_ = i7;
+                this.aliasId_ = 0L;
+                this.bitField0_ = i7 & (-65);
                 return this;
             }
 
@@ -9174,12 +11450,12 @@ public final class IMPushPb {
                     return this;
                 }
                 if (request.hasMethod()) {
-                    this.bitField0 |= 1;
-                    this.method = request.method;
+                    this.bitField0_ |= 1;
+                    this.method_ = request.method_;
                 }
                 if (request.hasRequestId()) {
-                    this.bitField0 |= 2;
-                    this.requestId = request.requestId;
+                    this.bitField0_ |= 2;
+                    this.requestId_ = request.requestId_;
                 }
                 if (request.hasTimestamp()) {
                     setTimestamp(request.getTimestamp());
@@ -9191,8 +11467,8 @@ public final class IMPushPb {
                     setErrorCode(request.getErrorCode());
                 }
                 if (request.hasExt()) {
-                    this.bitField0 |= 32;
-                    this.ext = request.ext;
+                    this.bitField0_ |= 32;
+                    this.ext_ = request.ext_;
                 }
                 if (request.hasAliasId()) {
                     setAliasId(request.getAliasId());
@@ -9254,13 +11530,13 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.method = "";
-            this.requestId = "";
-            this.timestamp = 0L;
-            this.responseTime = 0L;
-            this.errorCode = 0L;
-            this.ext = "";
-            this.aliasId = 0L;
+            this.method_ = "";
+            this.requestId_ = "";
+            this.timestamp_ = 0L;
+            this.responseTime_ = 0L;
+            this.errorCode_ = 0L;
+            this.ext_ = "";
+            this.aliasId_ = 0L;
         }
 
         public static Builder newBuilder() {
@@ -9277,34 +11553,34 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getAliasId() {
-            return this.aliasId;
+            return this.aliasId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getErrorCode() {
-            return this.errorCode;
+            return this.errorCode_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public String getExt() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.ext = stringUtf8;
+                this.ext_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public ByteString getExtBytes() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.ext = copyFromUtf8;
+                this.ext_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -9312,24 +11588,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public String getMethod() {
-            Object obj = this.method;
+            Object obj = this.method_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.method = stringUtf8;
+                this.method_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public ByteString getMethodBytes() {
-            Object obj = this.method;
+            Object obj = this.method_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.method = copyFromUtf8;
+                this.method_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -9342,24 +11618,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public String getRequestId() {
-            Object obj = this.requestId;
+            Object obj = this.requestId_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.requestId = stringUtf8;
+                this.requestId_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public ByteString getRequestIdBytes() {
-            Object obj = this.requestId;
+            Object obj = this.requestId_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.requestId = copyFromUtf8;
+                this.requestId_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -9367,7 +11643,7 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getResponseTime() {
-            return this.responseTime;
+            return this.responseTime_;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -9376,24 +11652,24 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getMethodBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getMethodBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(2, getRequestIdBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(3, this.timestamp);
+            if ((this.bitField0_ & 4) == 4) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(3, this.timestamp_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(4, this.responseTime);
+            if ((this.bitField0_ & 8) == 8) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(4, this.responseTime_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.errorCode);
+            if ((this.bitField0_ & 16) == 16) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.errorCode_);
             }
-            if ((this.bitField0 & 32) == 32) {
+            if ((this.bitField0_ & 32) == 32) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(6, getExtBytes());
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(7, this.aliasId);
+            if ((this.bitField0_ & 64) == 64) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(7, this.aliasId_);
             }
             this.memoizedSerializedSize = computeBytesSize;
             return computeBytesSize;
@@ -9401,42 +11677,42 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public long getTimestamp() {
-            return this.timestamp;
+            return this.timestamp_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasAliasId() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasErrorCode() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasExt() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasMethod() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasRequestId() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasResponseTime() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.RequestOrBuilder
         public boolean hasTimestamp() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -9457,26 +11733,26 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getMethodBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getRequestIdBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                codedOutputStream.writeInt64(3, this.timestamp);
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeInt64(3, this.timestamp_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(4, this.responseTime);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt64(4, this.responseTime_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeInt64(5, this.errorCode);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt64(5, this.errorCode_);
             }
-            if ((this.bitField0 & 32) == 32) {
+            if ((this.bitField0_ & 32) == 32) {
                 codedOutputStream.writeBytes(6, getExtBytes());
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeInt64(7, this.aliasId);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt64(7, this.aliasId_);
             }
         }
 
@@ -9556,29 +11832,29 @@ public final class IMPushPb {
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 10) {
-                                this.bitField0 |= 1;
-                                this.method = codedInputStream.readBytes();
+                                this.bitField0_ |= 1;
+                                this.method_ = codedInputStream.readBytes();
                             } else if (readTag == 18) {
-                                this.bitField0 |= 2;
-                                this.requestId = codedInputStream.readBytes();
+                                this.bitField0_ |= 2;
+                                this.requestId_ = codedInputStream.readBytes();
                             } else if (readTag == 24) {
-                                this.bitField0 |= 4;
-                                this.timestamp = codedInputStream.readInt64();
+                                this.bitField0_ |= 4;
+                                this.timestamp_ = codedInputStream.readInt64();
                             } else if (readTag == 32) {
-                                this.bitField0 |= 8;
-                                this.responseTime = codedInputStream.readInt64();
+                                this.bitField0_ |= 8;
+                                this.responseTime_ = codedInputStream.readInt64();
                             } else if (readTag == 40) {
-                                this.bitField0 |= 16;
-                                this.errorCode = codedInputStream.readInt64();
+                                this.bitField0_ |= 16;
+                                this.errorCode_ = codedInputStream.readInt64();
                             } else if (readTag == 50) {
-                                this.bitField0 |= 32;
-                                this.ext = codedInputStream.readBytes();
+                                this.bitField0_ |= 32;
+                                this.ext_ = codedInputStream.readBytes();
                             } else if (readTag != 56) {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 64;
-                                this.aliasId = codedInputStream.readInt64();
+                                this.bitField0_ |= 64;
+                                this.aliasId_ = codedInputStream.readInt64();
                             }
                         }
                         z = true;
@@ -9636,7 +11912,7 @@ public final class IMPushPb {
         public static final int MANUFACTURER_FIELD_NUMBER = 3;
         public static final int OS_FIELD_NUMBER = 1;
         public static final int OS_VERSION_FIELD_NUMBER = 2;
-        public static final Parser<TerminalInfo> PARSER = new AbstractParser<TerminalInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfo.1
+        public static Parser<TerminalInfo> PARSER = new AbstractParser<TerminalInfo>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfo.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public TerminalInfo parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -9649,27 +11925,27 @@ public final class IMPushPb {
         public static final int TERMINAL_TYPE_FIELD_NUMBER = 4;
         public static final TerminalInfo defaultInstance;
         public static final long serialVersionUID = 0;
-        public int bitField0;
-        public Object manufacturer;
+        public int bitField0_;
+        public Object manufacturer_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public OSType os;
-        public Object osVersion;
-        public int ppi;
-        public int resolutionH;
-        public int resolutionV;
-        public Object terminalType;
+        public Object osVersion_;
+        public OSType os_;
+        public int ppi_;
+        public int resolutionH_;
+        public int resolutionV_;
+        public Object terminalType_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<TerminalInfo, Builder> implements TerminalInfoOrBuilder {
-            public int bitField0;
-            public int ppi;
-            public int resolutionH;
-            public int resolutionV;
-            public OSType os = OSType.OS_TYPE_UNKNWON;
-            public Object osVersion = "";
-            public Object manufacturer = "";
-            public Object terminalType = "";
+            public int bitField0_;
+            public int ppi_;
+            public int resolutionH_;
+            public int resolutionV_;
+            public OSType os_ = OSType.OS_TYPE_UNKNWON;
+            public Object osVersion_ = "";
+            public Object manufacturer_ = "";
+            public Object terminalType_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -9683,53 +11959,53 @@ public final class IMPushPb {
             }
 
             public Builder clearManufacturer() {
-                this.bitField0 &= -5;
-                this.manufacturer = TerminalInfo.getDefaultInstance().getManufacturer();
+                this.bitField0_ &= -5;
+                this.manufacturer_ = TerminalInfo.getDefaultInstance().getManufacturer();
                 return this;
             }
 
             public Builder clearOs() {
-                this.bitField0 &= -2;
-                this.os = OSType.OS_TYPE_UNKNWON;
+                this.bitField0_ &= -2;
+                this.os_ = OSType.OS_TYPE_UNKNWON;
                 return this;
             }
 
             public Builder clearOsVersion() {
-                this.bitField0 &= -3;
-                this.osVersion = TerminalInfo.getDefaultInstance().getOsVersion();
+                this.bitField0_ &= -3;
+                this.osVersion_ = TerminalInfo.getDefaultInstance().getOsVersion();
                 return this;
             }
 
             public Builder clearPpi() {
-                this.bitField0 &= -65;
-                this.ppi = 0;
+                this.bitField0_ &= -65;
+                this.ppi_ = 0;
                 return this;
             }
 
             public Builder clearResolutionH() {
-                this.bitField0 &= -17;
-                this.resolutionH = 0;
+                this.bitField0_ &= -17;
+                this.resolutionH_ = 0;
                 return this;
             }
 
             public Builder clearResolutionV() {
-                this.bitField0 &= -33;
-                this.resolutionV = 0;
+                this.bitField0_ &= -33;
+                this.resolutionV_ = 0;
                 return this;
             }
 
             public Builder clearTerminalType() {
-                this.bitField0 &= -9;
-                this.terminalType = TerminalInfo.getDefaultInstance().getTerminalType();
+                this.bitField0_ &= -9;
+                this.terminalType_ = TerminalInfo.getDefaultInstance().getTerminalType();
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public String getManufacturer() {
-                Object obj = this.manufacturer;
+                Object obj = this.manufacturer_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.manufacturer = stringUtf8;
+                    this.manufacturer_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -9737,10 +12013,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public ByteString getManufacturerBytes() {
-                Object obj = this.manufacturer;
+                Object obj = this.manufacturer_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.manufacturer = copyFromUtf8;
+                    this.manufacturer_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -9748,15 +12024,15 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public OSType getOs() {
-                return this.os;
+                return this.os_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public String getOsVersion() {
-                Object obj = this.osVersion;
+                Object obj = this.osVersion_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.osVersion = stringUtf8;
+                    this.osVersion_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -9764,10 +12040,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public ByteString getOsVersionBytes() {
-                Object obj = this.osVersion;
+                Object obj = this.osVersion_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.osVersion = copyFromUtf8;
+                    this.osVersion_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -9775,25 +12051,25 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public int getPpi() {
-                return this.ppi;
+                return this.ppi_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public int getResolutionH() {
-                return this.resolutionH;
+                return this.resolutionH_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public int getResolutionV() {
-                return this.resolutionV;
+                return this.resolutionV_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public String getTerminalType() {
-                Object obj = this.terminalType;
+                Object obj = this.terminalType_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.terminalType = stringUtf8;
+                    this.terminalType_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -9801,10 +12077,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public ByteString getTerminalTypeBytes() {
-                Object obj = this.terminalType;
+                Object obj = this.terminalType_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.terminalType = copyFromUtf8;
+                    this.terminalType_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -9812,37 +12088,37 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasManufacturer() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasOs() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasOsVersion() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasPpi() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasResolutionH() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasResolutionV() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
             public boolean hasTerminalType() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -9852,8 +12128,8 @@ public final class IMPushPb {
 
             public Builder setManufacturer(String str) {
                 if (str != null) {
-                    this.bitField0 |= 4;
-                    this.manufacturer = str;
+                    this.bitField0_ |= 4;
+                    this.manufacturer_ = str;
                     return this;
                 }
                 throw null;
@@ -9861,8 +12137,8 @@ public final class IMPushPb {
 
             public Builder setManufacturerBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 4;
-                    this.manufacturer = byteString;
+                    this.bitField0_ |= 4;
+                    this.manufacturer_ = byteString;
                     return this;
                 }
                 throw null;
@@ -9870,8 +12146,8 @@ public final class IMPushPb {
 
             public Builder setOs(OSType oSType) {
                 if (oSType != null) {
-                    this.bitField0 |= 1;
-                    this.os = oSType;
+                    this.bitField0_ |= 1;
+                    this.os_ = oSType;
                     return this;
                 }
                 throw null;
@@ -9879,8 +12155,8 @@ public final class IMPushPb {
 
             public Builder setOsVersion(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.osVersion = str;
+                    this.bitField0_ |= 2;
+                    this.osVersion_ = str;
                     return this;
                 }
                 throw null;
@@ -9888,35 +12164,35 @@ public final class IMPushPb {
 
             public Builder setOsVersionBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.osVersion = byteString;
+                    this.bitField0_ |= 2;
+                    this.osVersion_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setPpi(int i2) {
-                this.bitField0 |= 64;
-                this.ppi = i2;
+                this.bitField0_ |= 64;
+                this.ppi_ = i2;
                 return this;
             }
 
             public Builder setResolutionH(int i2) {
-                this.bitField0 |= 16;
-                this.resolutionH = i2;
+                this.bitField0_ |= 16;
+                this.resolutionH_ = i2;
                 return this;
             }
 
             public Builder setResolutionV(int i2) {
-                this.bitField0 |= 32;
-                this.resolutionV = i2;
+                this.bitField0_ |= 32;
+                this.resolutionV_ = i2;
                 return this;
             }
 
             public Builder setTerminalType(String str) {
                 if (str != null) {
-                    this.bitField0 |= 8;
-                    this.terminalType = str;
+                    this.bitField0_ |= 8;
+                    this.terminalType_ = str;
                     return this;
                 }
                 throw null;
@@ -9924,8 +12200,8 @@ public final class IMPushPb {
 
             public Builder setTerminalTypeBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 8;
-                    this.terminalType = byteString;
+                    this.bitField0_ |= 8;
+                    this.terminalType_ = byteString;
                     return this;
                 }
                 throw null;
@@ -9945,34 +12221,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public TerminalInfo buildPartial() {
                 TerminalInfo terminalInfo = new TerminalInfo(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                terminalInfo.os = this.os;
+                terminalInfo.os_ = this.os_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                terminalInfo.osVersion = this.osVersion;
+                terminalInfo.osVersion_ = this.osVersion_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                terminalInfo.manufacturer = this.manufacturer;
+                terminalInfo.manufacturer_ = this.manufacturer_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                terminalInfo.terminalType = this.terminalType;
+                terminalInfo.terminalType_ = this.terminalType_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                terminalInfo.resolutionH = this.resolutionH;
+                terminalInfo.resolutionH_ = this.resolutionH_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                terminalInfo.resolutionV = this.resolutionV;
+                terminalInfo.resolutionV_ = this.resolutionV_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                terminalInfo.ppi = this.ppi;
-                terminalInfo.bitField0 = i3;
+                terminalInfo.ppi_ = this.ppi_;
+                terminalInfo.bitField0_ = i3;
                 return terminalInfo;
             }
 
@@ -9980,26 +12256,26 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.os = OSType.OS_TYPE_UNKNWON;
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.osVersion = "";
+                this.os_ = OSType.OS_TYPE_UNKNWON;
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.osVersion_ = "";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.manufacturer = "";
+                this.bitField0_ = i3;
+                this.manufacturer_ = "";
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.terminalType = "";
+                this.bitField0_ = i4;
+                this.terminalType_ = "";
                 int i5 = i4 & (-9);
-                this.bitField0 = i5;
-                this.resolutionH = 0;
+                this.bitField0_ = i5;
+                this.resolutionH_ = 0;
                 int i6 = i5 & (-17);
-                this.bitField0 = i6;
-                this.resolutionV = 0;
+                this.bitField0_ = i6;
+                this.resolutionV_ = 0;
                 int i7 = i6 & (-33);
-                this.bitField0 = i7;
-                this.ppi = 0;
-                this.bitField0 = i7 & (-65);
+                this.bitField0_ = i7;
+                this.ppi_ = 0;
+                this.bitField0_ = i7 & (-65);
                 return this;
             }
 
@@ -10019,16 +12295,16 @@ public final class IMPushPb {
                     setOs(terminalInfo.getOs());
                 }
                 if (terminalInfo.hasOsVersion()) {
-                    this.bitField0 |= 2;
-                    this.osVersion = terminalInfo.osVersion;
+                    this.bitField0_ |= 2;
+                    this.osVersion_ = terminalInfo.osVersion_;
                 }
                 if (terminalInfo.hasManufacturer()) {
-                    this.bitField0 |= 4;
-                    this.manufacturer = terminalInfo.manufacturer;
+                    this.bitField0_ |= 4;
+                    this.manufacturer_ = terminalInfo.manufacturer_;
                 }
                 if (terminalInfo.hasTerminalType()) {
-                    this.bitField0 |= 8;
-                    this.terminalType = terminalInfo.terminalType;
+                    this.bitField0_ |= 8;
+                    this.terminalType_ = terminalInfo.terminalType_;
                 }
                 if (terminalInfo.hasResolutionH()) {
                     setResolutionH(terminalInfo.getResolutionH());
@@ -10096,13 +12372,13 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.os = OSType.OS_TYPE_UNKNWON;
-            this.osVersion = "";
-            this.manufacturer = "";
-            this.terminalType = "";
-            this.resolutionH = 0;
-            this.resolutionV = 0;
-            this.ppi = 0;
+            this.os_ = OSType.OS_TYPE_UNKNWON;
+            this.osVersion_ = "";
+            this.manufacturer_ = "";
+            this.terminalType_ = "";
+            this.resolutionH_ = 0;
+            this.resolutionV_ = 0;
+            this.ppi_ = 0;
         }
 
         public static Builder newBuilder() {
@@ -10119,24 +12395,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public String getManufacturer() {
-            Object obj = this.manufacturer;
+            Object obj = this.manufacturer_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.manufacturer = stringUtf8;
+                this.manufacturer_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public ByteString getManufacturerBytes() {
-            Object obj = this.manufacturer;
+            Object obj = this.manufacturer_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.manufacturer = copyFromUtf8;
+                this.manufacturer_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -10144,29 +12420,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public OSType getOs() {
-            return this.os;
+            return this.os_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public String getOsVersion() {
-            Object obj = this.osVersion;
+            Object obj = this.osVersion_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.osVersion = stringUtf8;
+                this.osVersion_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public ByteString getOsVersionBytes() {
-            Object obj = this.osVersion;
+            Object obj = this.osVersion_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.osVersion = copyFromUtf8;
+                this.osVersion_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -10179,17 +12455,17 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public int getPpi() {
-            return this.ppi;
+            return this.ppi_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public int getResolutionH() {
-            return this.resolutionH;
+            return this.resolutionH_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public int getResolutionV() {
-            return this.resolutionV;
+            return this.resolutionV_;
         }
 
         @Override // com.google.protobuf.MessageLite
@@ -10198,24 +12474,24 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeEnumSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.os.getNumber()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeEnumSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeEnumSize(1, this.os_.getNumber()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeEnumSize += CodedOutputStream.computeBytesSize(2, getOsVersionBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 computeEnumSize += CodedOutputStream.computeBytesSize(3, getManufacturerBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
+            if ((this.bitField0_ & 8) == 8) {
                 computeEnumSize += CodedOutputStream.computeBytesSize(4, getTerminalTypeBytes());
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeEnumSize += CodedOutputStream.computeInt32Size(5, this.resolutionH);
+            if ((this.bitField0_ & 16) == 16) {
+                computeEnumSize += CodedOutputStream.computeInt32Size(5, this.resolutionH_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                computeEnumSize += CodedOutputStream.computeInt32Size(6, this.resolutionV);
+            if ((this.bitField0_ & 32) == 32) {
+                computeEnumSize += CodedOutputStream.computeInt32Size(6, this.resolutionV_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeEnumSize += CodedOutputStream.computeInt32Size(7, this.ppi);
+            if ((this.bitField0_ & 64) == 64) {
+                computeEnumSize += CodedOutputStream.computeInt32Size(7, this.ppi_);
             }
             this.memoizedSerializedSize = computeEnumSize;
             return computeEnumSize;
@@ -10223,24 +12499,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public String getTerminalType() {
-            Object obj = this.terminalType;
+            Object obj = this.terminalType_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.terminalType = stringUtf8;
+                this.terminalType_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public ByteString getTerminalTypeBytes() {
-            Object obj = this.terminalType;
+            Object obj = this.terminalType_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.terminalType = copyFromUtf8;
+                this.terminalType_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -10248,37 +12524,37 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasManufacturer() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasOs() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasOsVersion() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasPpi() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasResolutionH() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasResolutionV() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.TerminalInfoOrBuilder
         public boolean hasTerminalType() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -10299,26 +12575,26 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
-                codedOutputStream.writeEnum(1, this.os.getNumber());
+            if ((this.bitField0_ & 1) == 1) {
+                codedOutputStream.writeEnum(1, this.os_.getNumber());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getOsVersionBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
+            if ((this.bitField0_ & 4) == 4) {
                 codedOutputStream.writeBytes(3, getManufacturerBytes());
             }
-            if ((this.bitField0 & 8) == 8) {
+            if ((this.bitField0_ & 8) == 8) {
                 codedOutputStream.writeBytes(4, getTerminalTypeBytes());
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeInt32(5, this.resolutionH);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt32(5, this.resolutionH_);
             }
-            if ((this.bitField0 & 32) == 32) {
-                codedOutputStream.writeInt32(6, this.resolutionV);
+            if ((this.bitField0_ & 32) == 32) {
+                codedOutputStream.writeInt32(6, this.resolutionV_);
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeInt32(7, this.ppi);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt32(7, this.ppi_);
             }
         }
 
@@ -10401,30 +12677,30 @@ public final class IMPushPb {
                                 if (readTag == 8) {
                                     OSType valueOf = OSType.valueOf(codedInputStream.readEnum());
                                     if (valueOf != null) {
-                                        this.bitField0 = 1 | this.bitField0;
-                                        this.os = valueOf;
+                                        this.bitField0_ = 1 | this.bitField0_;
+                                        this.os_ = valueOf;
                                     }
                                 } else if (readTag == 18) {
-                                    this.bitField0 |= 2;
-                                    this.osVersion = codedInputStream.readBytes();
+                                    this.bitField0_ |= 2;
+                                    this.osVersion_ = codedInputStream.readBytes();
                                 } else if (readTag == 26) {
-                                    this.bitField0 |= 4;
-                                    this.manufacturer = codedInputStream.readBytes();
+                                    this.bitField0_ |= 4;
+                                    this.manufacturer_ = codedInputStream.readBytes();
                                 } else if (readTag == 34) {
-                                    this.bitField0 |= 8;
-                                    this.terminalType = codedInputStream.readBytes();
+                                    this.bitField0_ |= 8;
+                                    this.terminalType_ = codedInputStream.readBytes();
                                 } else if (readTag == 40) {
-                                    this.bitField0 |= 16;
-                                    this.resolutionH = codedInputStream.readInt32();
+                                    this.bitField0_ |= 16;
+                                    this.resolutionH_ = codedInputStream.readInt32();
                                 } else if (readTag == 48) {
-                                    this.bitField0 |= 32;
-                                    this.resolutionV = codedInputStream.readInt32();
+                                    this.bitField0_ |= 32;
+                                    this.resolutionV_ = codedInputStream.readInt32();
                                 } else if (readTag != 56) {
                                     if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                     }
                                 } else {
-                                    this.bitField0 |= 64;
-                                    this.ppi = codedInputStream.readInt32();
+                                    this.bitField0_ |= 64;
+                                    this.ppi_ = codedInputStream.readInt32();
                                 }
                             }
                             z = true;
@@ -10486,7 +12762,7 @@ public final class IMPushPb {
         public static final int END_TIME_FIELD_NUMBER = 4;
         public static final int EXT_FIELD_NUMBER = 6;
         public static final int PAGE_FIELD_NUMBER = 2;
-        public static final Parser<Ui> PARSER = new AbstractParser<Ui>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ui.1
+        public static Parser<Ui> PARSER = new AbstractParser<Ui>() { // from class: com.baidu.android.imsdk.upload.action.pb.IMPushPb.Ui.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.google.protobuf.Parser
             public Ui parsePartialFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws InvalidProtocolBufferException {
@@ -10496,27 +12772,27 @@ public final class IMPushPb {
         public static final int START_TIME_FIELD_NUMBER = 3;
         public static final Ui defaultInstance;
         public static final long serialVersionUID = 0;
-        public long aliasId;
-        public int bitField0;
-        public Object category;
-        public long duration;
-        public long endTime;
-        public Object ext;
+        public long aliasId_;
+        public int bitField0_;
+        public Object category_;
+        public long duration_;
+        public long endTime_;
+        public Object ext_;
         public byte memoizedIsInitialized;
         public int memoizedSerializedSize;
-        public Object page;
-        public long startTime;
+        public Object page_;
+        public long startTime_;
 
         /* loaded from: classes.dex */
         public static final class Builder extends GeneratedMessageLite.Builder<Ui, Builder> implements UiOrBuilder {
-            public long aliasId;
-            public int bitField0;
-            public long duration;
-            public long endTime;
-            public long startTime;
-            public Object category = "";
-            public Object page = "";
-            public Object ext = "";
+            public long aliasId_;
+            public int bitField0_;
+            public long duration_;
+            public long endTime_;
+            public long startTime_;
+            public Object category_ = "";
+            public Object page_ = "";
+            public Object ext_ = "";
 
             public Builder() {
                 maybeForceBuilderInitialization();
@@ -10530,58 +12806,58 @@ public final class IMPushPb {
             }
 
             public Builder clearAliasId() {
-                this.bitField0 &= -65;
-                this.aliasId = 0L;
+                this.bitField0_ &= -65;
+                this.aliasId_ = 0L;
                 return this;
             }
 
             public Builder clearCategory() {
-                this.bitField0 &= -2;
-                this.category = Ui.getDefaultInstance().getCategory();
+                this.bitField0_ &= -2;
+                this.category_ = Ui.getDefaultInstance().getCategory();
                 return this;
             }
 
             public Builder clearDuration() {
-                this.bitField0 &= -17;
-                this.duration = 0L;
+                this.bitField0_ &= -17;
+                this.duration_ = 0L;
                 return this;
             }
 
             public Builder clearEndTime() {
-                this.bitField0 &= -9;
-                this.endTime = 0L;
+                this.bitField0_ &= -9;
+                this.endTime_ = 0L;
                 return this;
             }
 
             public Builder clearExt() {
-                this.bitField0 &= -33;
-                this.ext = Ui.getDefaultInstance().getExt();
+                this.bitField0_ &= -33;
+                this.ext_ = Ui.getDefaultInstance().getExt();
                 return this;
             }
 
             public Builder clearPage() {
-                this.bitField0 &= -3;
-                this.page = Ui.getDefaultInstance().getPage();
+                this.bitField0_ &= -3;
+                this.page_ = Ui.getDefaultInstance().getPage();
                 return this;
             }
 
             public Builder clearStartTime() {
-                this.bitField0 &= -5;
-                this.startTime = 0L;
+                this.bitField0_ &= -5;
+                this.startTime_ = 0L;
                 return this;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getAliasId() {
-                return this.aliasId;
+                return this.aliasId_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public String getCategory() {
-                Object obj = this.category;
+                Object obj = this.category_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.category = stringUtf8;
+                    this.category_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -10589,10 +12865,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public ByteString getCategoryBytes() {
-                Object obj = this.category;
+                Object obj = this.category_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.category = copyFromUtf8;
+                    this.category_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -10600,20 +12876,20 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getDuration() {
-                return this.duration;
+                return this.duration_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getEndTime() {
-                return this.endTime;
+                return this.endTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public String getExt() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.ext = stringUtf8;
+                    this.ext_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -10621,10 +12897,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public ByteString getExtBytes() {
-                Object obj = this.ext;
+                Object obj = this.ext_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.ext = copyFromUtf8;
+                    this.ext_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -10632,10 +12908,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public String getPage() {
-                Object obj = this.page;
+                Object obj = this.page_;
                 if (!(obj instanceof String)) {
                     String stringUtf8 = ((ByteString) obj).toStringUtf8();
-                    this.page = stringUtf8;
+                    this.page_ = stringUtf8;
                     return stringUtf8;
                 }
                 return (String) obj;
@@ -10643,10 +12919,10 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public ByteString getPageBytes() {
-                Object obj = this.page;
+                Object obj = this.page_;
                 if (obj instanceof String) {
                     ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                    this.page = copyFromUtf8;
+                    this.page_ = copyFromUtf8;
                     return copyFromUtf8;
                 }
                 return (ByteString) obj;
@@ -10654,42 +12930,42 @@ public final class IMPushPb {
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public long getStartTime() {
-                return this.startTime;
+                return this.startTime_;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasAliasId() {
-                return (this.bitField0 & 64) == 64;
+                return (this.bitField0_ & 64) == 64;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasCategory() {
-                return (this.bitField0 & 1) == 1;
+                return (this.bitField0_ & 1) == 1;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasDuration() {
-                return (this.bitField0 & 16) == 16;
+                return (this.bitField0_ & 16) == 16;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasEndTime() {
-                return (this.bitField0 & 8) == 8;
+                return (this.bitField0_ & 8) == 8;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasExt() {
-                return (this.bitField0 & 32) == 32;
+                return (this.bitField0_ & 32) == 32;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasPage() {
-                return (this.bitField0 & 2) == 2;
+                return (this.bitField0_ & 2) == 2;
             }
 
             @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
             public boolean hasStartTime() {
-                return (this.bitField0 & 4) == 4;
+                return (this.bitField0_ & 4) == 4;
             }
 
             @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -10698,15 +12974,15 @@ public final class IMPushPb {
             }
 
             public Builder setAliasId(long j) {
-                this.bitField0 |= 64;
-                this.aliasId = j;
+                this.bitField0_ |= 64;
+                this.aliasId_ = j;
                 return this;
             }
 
             public Builder setCategory(String str) {
                 if (str != null) {
-                    this.bitField0 |= 1;
-                    this.category = str;
+                    this.bitField0_ |= 1;
+                    this.category_ = str;
                     return this;
                 }
                 throw null;
@@ -10714,29 +12990,29 @@ public final class IMPushPb {
 
             public Builder setCategoryBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 1;
-                    this.category = byteString;
+                    this.bitField0_ |= 1;
+                    this.category_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setDuration(long j) {
-                this.bitField0 |= 16;
-                this.duration = j;
+                this.bitField0_ |= 16;
+                this.duration_ = j;
                 return this;
             }
 
             public Builder setEndTime(long j) {
-                this.bitField0 |= 8;
-                this.endTime = j;
+                this.bitField0_ |= 8;
+                this.endTime_ = j;
                 return this;
             }
 
             public Builder setExt(String str) {
                 if (str != null) {
-                    this.bitField0 |= 32;
-                    this.ext = str;
+                    this.bitField0_ |= 32;
+                    this.ext_ = str;
                     return this;
                 }
                 throw null;
@@ -10744,8 +13020,8 @@ public final class IMPushPb {
 
             public Builder setExtBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 32;
-                    this.ext = byteString;
+                    this.bitField0_ |= 32;
+                    this.ext_ = byteString;
                     return this;
                 }
                 throw null;
@@ -10753,8 +13029,8 @@ public final class IMPushPb {
 
             public Builder setPage(String str) {
                 if (str != null) {
-                    this.bitField0 |= 2;
-                    this.page = str;
+                    this.bitField0_ |= 2;
+                    this.page_ = str;
                     return this;
                 }
                 throw null;
@@ -10762,16 +13038,16 @@ public final class IMPushPb {
 
             public Builder setPageBytes(ByteString byteString) {
                 if (byteString != null) {
-                    this.bitField0 |= 2;
-                    this.page = byteString;
+                    this.bitField0_ |= 2;
+                    this.page_ = byteString;
                     return this;
                 }
                 throw null;
             }
 
             public Builder setStartTime(long j) {
-                this.bitField0 |= 4;
-                this.startTime = j;
+                this.bitField0_ |= 4;
+                this.startTime_ = j;
                 return this;
             }
 
@@ -10789,34 +13065,34 @@ public final class IMPushPb {
             @Override // com.google.protobuf.MessageLite.Builder
             public Ui buildPartial() {
                 Ui ui = new Ui(this);
-                int i2 = this.bitField0;
+                int i2 = this.bitField0_;
                 int i3 = (i2 & 1) != 1 ? 0 : 1;
-                ui.category = this.category;
+                ui.category_ = this.category_;
                 if ((i2 & 2) == 2) {
                     i3 |= 2;
                 }
-                ui.page = this.page;
+                ui.page_ = this.page_;
                 if ((i2 & 4) == 4) {
                     i3 |= 4;
                 }
-                ui.startTime = this.startTime;
+                ui.startTime_ = this.startTime_;
                 if ((i2 & 8) == 8) {
                     i3 |= 8;
                 }
-                ui.endTime = this.endTime;
+                ui.endTime_ = this.endTime_;
                 if ((i2 & 16) == 16) {
                     i3 |= 16;
                 }
-                ui.duration = this.duration;
+                ui.duration_ = this.duration_;
                 if ((i2 & 32) == 32) {
                     i3 |= 32;
                 }
-                ui.ext = this.ext;
+                ui.ext_ = this.ext_;
                 if ((i2 & 64) == 64) {
                     i3 |= 64;
                 }
-                ui.aliasId = this.aliasId;
-                ui.bitField0 = i3;
+                ui.aliasId_ = this.aliasId_;
+                ui.bitField0_ = i3;
                 return ui;
             }
 
@@ -10824,26 +13100,26 @@ public final class IMPushPb {
             @Override // com.google.protobuf.GeneratedMessageLite.Builder, com.google.protobuf.MessageLite.Builder
             public Builder clear() {
                 super.clear();
-                this.category = "";
-                int i2 = this.bitField0 & (-2);
-                this.bitField0 = i2;
-                this.page = "";
+                this.category_ = "";
+                int i2 = this.bitField0_ & (-2);
+                this.bitField0_ = i2;
+                this.page_ = "";
                 int i3 = i2 & (-3);
-                this.bitField0 = i3;
-                this.startTime = 0L;
+                this.bitField0_ = i3;
+                this.startTime_ = 0L;
                 int i4 = i3 & (-5);
-                this.bitField0 = i4;
-                this.endTime = 0L;
+                this.bitField0_ = i4;
+                this.endTime_ = 0L;
                 int i5 = i4 & (-9);
-                this.bitField0 = i5;
-                this.duration = 0L;
+                this.bitField0_ = i5;
+                this.duration_ = 0L;
                 int i6 = i5 & (-17);
-                this.bitField0 = i6;
-                this.ext = "";
+                this.bitField0_ = i6;
+                this.ext_ = "";
                 int i7 = i6 & (-33);
-                this.bitField0 = i7;
-                this.aliasId = 0L;
-                this.bitField0 = i7 & (-65);
+                this.bitField0_ = i7;
+                this.aliasId_ = 0L;
+                this.bitField0_ = i7 & (-65);
                 return this;
             }
 
@@ -10860,12 +13136,12 @@ public final class IMPushPb {
                     return this;
                 }
                 if (ui.hasCategory()) {
-                    this.bitField0 |= 1;
-                    this.category = ui.category;
+                    this.bitField0_ |= 1;
+                    this.category_ = ui.category_;
                 }
                 if (ui.hasPage()) {
-                    this.bitField0 |= 2;
-                    this.page = ui.page;
+                    this.bitField0_ |= 2;
+                    this.page_ = ui.page_;
                 }
                 if (ui.hasStartTime()) {
                     setStartTime(ui.getStartTime());
@@ -10877,8 +13153,8 @@ public final class IMPushPb {
                     setDuration(ui.getDuration());
                 }
                 if (ui.hasExt()) {
-                    this.bitField0 |= 32;
-                    this.ext = ui.ext;
+                    this.bitField0_ |= 32;
+                    this.ext_ = ui.ext_;
                 }
                 if (ui.hasAliasId()) {
                     setAliasId(ui.getAliasId());
@@ -10940,13 +13216,13 @@ public final class IMPushPb {
         }
 
         private void initFields() {
-            this.category = "";
-            this.page = "";
-            this.startTime = 0L;
-            this.endTime = 0L;
-            this.duration = 0L;
-            this.ext = "";
-            this.aliasId = 0L;
+            this.category_ = "";
+            this.page_ = "";
+            this.startTime_ = 0L;
+            this.endTime_ = 0L;
+            this.duration_ = 0L;
+            this.ext_ = "";
+            this.aliasId_ = 0L;
         }
 
         public static Builder newBuilder() {
@@ -10963,29 +13239,29 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getAliasId() {
-            return this.aliasId;
+            return this.aliasId_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public String getCategory() {
-            Object obj = this.category;
+            Object obj = this.category_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.category = stringUtf8;
+                this.category_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public ByteString getCategoryBytes() {
-            Object obj = this.category;
+            Object obj = this.category_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.category = copyFromUtf8;
+                this.category_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -10993,34 +13269,34 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getDuration() {
-            return this.duration;
+            return this.duration_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getEndTime() {
-            return this.endTime;
+            return this.endTime_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public String getExt() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.ext = stringUtf8;
+                this.ext_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public ByteString getExtBytes() {
-            Object obj = this.ext;
+            Object obj = this.ext_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.ext = copyFromUtf8;
+                this.ext_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -11028,24 +13304,24 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public String getPage() {
-            Object obj = this.page;
+            Object obj = this.page_;
             if (obj instanceof String) {
                 return (String) obj;
             }
             ByteString byteString = (ByteString) obj;
             String stringUtf8 = byteString.toStringUtf8();
             if (byteString.isValidUtf8()) {
-                this.page = stringUtf8;
+                this.page_ = stringUtf8;
             }
             return stringUtf8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public ByteString getPageBytes() {
-            Object obj = this.page;
+            Object obj = this.page_;
             if (obj instanceof String) {
                 ByteString copyFromUtf8 = ByteString.copyFromUtf8((String) obj);
-                this.page = copyFromUtf8;
+                this.page_ = copyFromUtf8;
                 return copyFromUtf8;
             }
             return (ByteString) obj;
@@ -11062,24 +13338,24 @@ public final class IMPushPb {
             if (i2 != -1) {
                 return i2;
             }
-            int computeBytesSize = (this.bitField0 & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getCategoryBytes()) : 0;
-            if ((this.bitField0 & 2) == 2) {
+            int computeBytesSize = (this.bitField0_ & 1) == 1 ? 0 + CodedOutputStream.computeBytesSize(1, getCategoryBytes()) : 0;
+            if ((this.bitField0_ & 2) == 2) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(2, getPageBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(3, this.startTime);
+            if ((this.bitField0_ & 4) == 4) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(3, this.startTime_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(4, this.endTime);
+            if ((this.bitField0_ & 8) == 8) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(4, this.endTime_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.duration);
+            if ((this.bitField0_ & 16) == 16) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(5, this.duration_);
             }
-            if ((this.bitField0 & 32) == 32) {
+            if ((this.bitField0_ & 32) == 32) {
                 computeBytesSize += CodedOutputStream.computeBytesSize(6, getExtBytes());
             }
-            if ((this.bitField0 & 64) == 64) {
-                computeBytesSize += CodedOutputStream.computeInt64Size(7, this.aliasId);
+            if ((this.bitField0_ & 64) == 64) {
+                computeBytesSize += CodedOutputStream.computeInt64Size(7, this.aliasId_);
             }
             this.memoizedSerializedSize = computeBytesSize;
             return computeBytesSize;
@@ -11087,42 +13363,42 @@ public final class IMPushPb {
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public long getStartTime() {
-            return this.startTime;
+            return this.startTime_;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasAliasId() {
-            return (this.bitField0 & 64) == 64;
+            return (this.bitField0_ & 64) == 64;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasCategory() {
-            return (this.bitField0 & 1) == 1;
+            return (this.bitField0_ & 1) == 1;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasDuration() {
-            return (this.bitField0 & 16) == 16;
+            return (this.bitField0_ & 16) == 16;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasEndTime() {
-            return (this.bitField0 & 8) == 8;
+            return (this.bitField0_ & 8) == 8;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasExt() {
-            return (this.bitField0 & 32) == 32;
+            return (this.bitField0_ & 32) == 32;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasPage() {
-            return (this.bitField0 & 2) == 2;
+            return (this.bitField0_ & 2) == 2;
         }
 
         @Override // com.baidu.android.imsdk.upload.action.pb.IMPushPb.UiOrBuilder
         public boolean hasStartTime() {
-            return (this.bitField0 & 4) == 4;
+            return (this.bitField0_ & 4) == 4;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
@@ -11143,26 +13419,26 @@ public final class IMPushPb {
         @Override // com.google.protobuf.MessageLite
         public void writeTo(CodedOutputStream codedOutputStream) throws IOException {
             getSerializedSize();
-            if ((this.bitField0 & 1) == 1) {
+            if ((this.bitField0_ & 1) == 1) {
                 codedOutputStream.writeBytes(1, getCategoryBytes());
             }
-            if ((this.bitField0 & 2) == 2) {
+            if ((this.bitField0_ & 2) == 2) {
                 codedOutputStream.writeBytes(2, getPageBytes());
             }
-            if ((this.bitField0 & 4) == 4) {
-                codedOutputStream.writeInt64(3, this.startTime);
+            if ((this.bitField0_ & 4) == 4) {
+                codedOutputStream.writeInt64(3, this.startTime_);
             }
-            if ((this.bitField0 & 8) == 8) {
-                codedOutputStream.writeInt64(4, this.endTime);
+            if ((this.bitField0_ & 8) == 8) {
+                codedOutputStream.writeInt64(4, this.endTime_);
             }
-            if ((this.bitField0 & 16) == 16) {
-                codedOutputStream.writeInt64(5, this.duration);
+            if ((this.bitField0_ & 16) == 16) {
+                codedOutputStream.writeInt64(5, this.duration_);
             }
-            if ((this.bitField0 & 32) == 32) {
+            if ((this.bitField0_ & 32) == 32) {
                 codedOutputStream.writeBytes(6, getExtBytes());
             }
-            if ((this.bitField0 & 64) == 64) {
-                codedOutputStream.writeInt64(7, this.aliasId);
+            if ((this.bitField0_ & 64) == 64) {
+                codedOutputStream.writeInt64(7, this.aliasId_);
             }
         }
 
@@ -11242,29 +13518,29 @@ public final class IMPushPb {
                         int readTag = codedInputStream.readTag();
                         if (readTag != 0) {
                             if (readTag == 10) {
-                                this.bitField0 |= 1;
-                                this.category = codedInputStream.readBytes();
+                                this.bitField0_ |= 1;
+                                this.category_ = codedInputStream.readBytes();
                             } else if (readTag == 18) {
-                                this.bitField0 |= 2;
-                                this.page = codedInputStream.readBytes();
+                                this.bitField0_ |= 2;
+                                this.page_ = codedInputStream.readBytes();
                             } else if (readTag == 24) {
-                                this.bitField0 |= 4;
-                                this.startTime = codedInputStream.readInt64();
+                                this.bitField0_ |= 4;
+                                this.startTime_ = codedInputStream.readInt64();
                             } else if (readTag == 32) {
-                                this.bitField0 |= 8;
-                                this.endTime = codedInputStream.readInt64();
+                                this.bitField0_ |= 8;
+                                this.endTime_ = codedInputStream.readInt64();
                             } else if (readTag == 40) {
-                                this.bitField0 |= 16;
-                                this.duration = codedInputStream.readInt64();
+                                this.bitField0_ |= 16;
+                                this.duration_ = codedInputStream.readInt64();
                             } else if (readTag == 50) {
-                                this.bitField0 |= 32;
-                                this.ext = codedInputStream.readBytes();
+                                this.bitField0_ |= 32;
+                                this.ext_ = codedInputStream.readBytes();
                             } else if (readTag != 56) {
                                 if (!parseUnknownField(codedInputStream, extensionRegistryLite, readTag)) {
                                 }
                             } else {
-                                this.bitField0 |= 64;
-                                this.aliasId = codedInputStream.readInt64();
+                                this.bitField0_ |= 64;
+                                this.aliasId_ = codedInputStream.readInt64();
                             }
                         }
                         z = true;

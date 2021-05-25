@@ -9,16 +9,16 @@ import android.widget.VideoView;
 public class ScaleVideoView extends VideoView {
 
     /* renamed from: e  reason: collision with root package name */
-    public MediaPlayer f13110e;
+    public MediaPlayer f13018e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f13111f;
+    public int f13019f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f13112g;
+    public int f13020g;
 
     /* renamed from: h  reason: collision with root package name */
-    public MediaPlayer.OnVideoSizeChangedListener f13113h;
+    public MediaPlayer.OnVideoSizeChangedListener f13021h;
 
     /* loaded from: classes3.dex */
     public class a implements MediaPlayer.OnVideoSizeChangedListener {
@@ -27,40 +27,40 @@ public class ScaleVideoView extends VideoView {
 
         @Override // android.media.MediaPlayer.OnVideoSizeChangedListener
         public void onVideoSizeChanged(MediaPlayer mediaPlayer, int i2, int i3) {
-            ScaleVideoView.this.f13111f = mediaPlayer.getVideoWidth();
-            ScaleVideoView.this.f13112g = mediaPlayer.getVideoHeight();
-            if (ScaleVideoView.this.f13111f == 0 || ScaleVideoView.this.f13112g == 0) {
+            ScaleVideoView.this.f13019f = mediaPlayer.getVideoWidth();
+            ScaleVideoView.this.f13020g = mediaPlayer.getVideoHeight();
+            if (ScaleVideoView.this.f13019f == 0 || ScaleVideoView.this.f13020g == 0) {
                 return;
             }
-            ScaleVideoView.this.getHolder().setFixedSize(ScaleVideoView.this.f13111f, ScaleVideoView.this.f13112g);
+            ScaleVideoView.this.getHolder().setFixedSize(ScaleVideoView.this.f13019f, ScaleVideoView.this.f13020g);
             ScaleVideoView.this.requestLayout();
         }
     }
 
     public ScaleVideoView(Context context) {
         super(context);
-        this.f13113h = new a();
+        this.f13021h = new a();
         e();
     }
 
     public final void e() {
-        this.f13111f = 0;
-        this.f13112g = 0;
+        this.f13019f = 0;
+        this.f13020g = 0;
     }
 
     @Override // android.widget.VideoView, android.view.SurfaceView, android.view.View
     public void onMeasure(int i2, int i3) {
-        int defaultSize = VideoView.getDefaultSize(this.f13111f, i2);
-        int defaultSize2 = VideoView.getDefaultSize(this.f13112g, i3);
-        if (this.f13111f > 0 && this.f13112g > 0) {
+        int defaultSize = VideoView.getDefaultSize(this.f13019f, i2);
+        int defaultSize2 = VideoView.getDefaultSize(this.f13020g, i3);
+        if (this.f13019f > 0 && this.f13020g > 0) {
             int mode = View.MeasureSpec.getMode(i2);
             int size = View.MeasureSpec.getSize(i2);
             int mode2 = View.MeasureSpec.getMode(i3);
             int size2 = View.MeasureSpec.getSize(i3);
             if (mode == 1073741824 && mode2 == 1073741824) {
-                int i4 = this.f13111f;
+                int i4 = this.f13019f;
                 int i5 = i4 * size2;
-                int i6 = this.f13112g;
+                int i6 = this.f13020g;
                 if (i5 < size * i6) {
                     defaultSize2 = (i6 * size) / i4;
                     defaultSize = size;
@@ -70,13 +70,13 @@ public class ScaleVideoView extends VideoView {
                 }
             } else {
                 if (mode == 1073741824) {
-                    defaultSize2 = (this.f13112g * size) / this.f13111f;
+                    defaultSize2 = (this.f13020g * size) / this.f13019f;
                 } else if (mode2 == 1073741824) {
-                    defaultSize = (this.f13111f * size2) / this.f13112g;
+                    defaultSize = (this.f13019f * size2) / this.f13020g;
                     defaultSize2 = size2;
                 } else {
-                    int i7 = this.f13111f;
-                    int i8 = this.f13112g;
+                    int i7 = this.f13019f;
+                    int i8 = this.f13020g;
                     if (mode2 != Integer.MIN_VALUE || i8 <= size2) {
                         defaultSize2 = i8;
                     } else {
@@ -86,7 +86,7 @@ public class ScaleVideoView extends VideoView {
                     if (mode != Integer.MIN_VALUE || i7 <= size) {
                         defaultSize = i7;
                     } else {
-                        defaultSize2 = (this.f13112g * size) / this.f13111f;
+                        defaultSize2 = (this.f13020g * size) / this.f13019f;
                     }
                 }
                 defaultSize = size;
@@ -97,22 +97,22 @@ public class ScaleVideoView extends VideoView {
 
     public void setMediaPlayer(MediaPlayer mediaPlayer) {
         if (mediaPlayer != null) {
-            this.f13110e = mediaPlayer;
-            this.f13111f = mediaPlayer.getVideoWidth();
-            this.f13112g = mediaPlayer.getVideoHeight();
-            this.f13110e.setOnVideoSizeChangedListener(this.f13113h);
+            this.f13018e = mediaPlayer;
+            this.f13019f = mediaPlayer.getVideoWidth();
+            this.f13020g = mediaPlayer.getVideoHeight();
+            this.f13018e.setOnVideoSizeChangedListener(this.f13021h);
         }
     }
 
     public ScaleVideoView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f13113h = new a();
+        this.f13021h = new a();
         e();
     }
 
     public ScaleVideoView(Context context, AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f13113h = new a();
+        this.f13021h = new a();
         e();
     }
 }

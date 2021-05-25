@@ -10,7 +10,7 @@ import d.n.a.h.a;
 import java.io.IOException;
 import java.util.List;
 import okio.ByteString;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class FrameEntity extends Message<FrameEntity, Builder> {
     public static final ProtoAdapter<FrameEntity> ADAPTER = new ProtoAdapter_FrameEntity();
     public static final Float DEFAULT_ALPHA = Float.valueOf(0.0f);
@@ -27,7 +27,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
     @WireField(adapter = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 3)
     public final Transform transform;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class Builder extends Message.a<FrameEntity, Builder> {
         public Float alpha;
         public String clipPath;
@@ -69,7 +69,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static final class ProtoAdapter_FrameEntity extends ProtoAdapter<FrameEntity> {
         public ProtoAdapter_FrameEntity() {
             super(FieldEncoding.LENGTH_DELIMITED, FrameEntity.class);

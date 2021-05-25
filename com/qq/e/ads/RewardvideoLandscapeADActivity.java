@@ -1,7 +1,7 @@
 package com.qq.e.ads;
 
 import android.os.Bundle;
-/* loaded from: classes4.dex */
+/* loaded from: classes7.dex */
 public class RewardvideoLandscapeADActivity extends ADActivity {
     @Override // com.qq.e.ads.ADActivity, android.app.Activity
     public void onCreate(Bundle bundle) {

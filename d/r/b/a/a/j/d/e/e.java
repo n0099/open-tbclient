@@ -8,67 +8,67 @@ import org.json.JSONObject;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f67927a = "";
+    public String f67970a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f67928b = -1;
+    public int f67971b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67929c = "";
+    public String f67972c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67930d;
+    public int f67973d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f67931e;
+    public long f67974e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67932f;
+    public int f67975f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f67933g;
+    public long f67976g;
 
     /* renamed from: h  reason: collision with root package name */
-    public long f67934h;
+    public long f67977h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f67935i;
+    public int f67978i;
 
     public e(String str) {
         e(str);
     }
 
     public final String a() {
-        return this.f67929c;
+        return this.f67972c;
     }
 
     public final ExchangeResult b() {
-        return new ExchangeResult(this.f67930d, this.f67931e, this.f67932f, this.f67933g, this.f67934h, this.f67935i);
+        return new ExchangeResult(this.f67973d, this.f67974e, this.f67975f, this.f67976g, this.f67977h, this.f67978i);
     }
 
     public final int c() {
-        return this.f67928b;
+        return this.f67971b;
     }
 
     public final String d() {
-        return this.f67927a;
+        return this.f67970a;
     }
 
     public void e(String str) {
         JSONObject jSONObject = new JSONObject(str);
         String optString = jSONObject.optString(IAdRequestParam.SEQ, "");
         Intrinsics.checkExpressionValueIsNotNull(optString, "jObject.optString(\"seq\", \"\")");
-        this.f67927a = optString;
+        this.f67970a = optString;
         jSONObject.optLong("uid", 0L);
-        this.f67928b = jSONObject.optInt("result", 0);
+        this.f67971b = jSONObject.optInt("result", 0);
         String optString2 = jSONObject.optString("message", "");
         Intrinsics.checkExpressionValueIsNotNull(optString2, "jObject.optString(\"message\", \"\")");
-        this.f67929c = optString2;
-        this.f67930d = jSONObject.optInt("srcCurrencyType", 0);
-        this.f67931e = jSONObject.optLong("srcRemainAmount", 0L);
-        this.f67932f = jSONObject.optInt("destCurrencyType", 0);
-        this.f67933g = jSONObject.optLong("descRemainAmount", 0L);
-        this.f67934h = jSONObject.optLong("exchangeDestAmount", 0L);
-        this.f67935i = jSONObject.optInt("exchangeAmount", 0);
+        this.f67972c = optString2;
+        this.f67973d = jSONObject.optInt("srcCurrencyType", 0);
+        this.f67974e = jSONObject.optLong("srcRemainAmount", 0L);
+        this.f67975f = jSONObject.optInt("destCurrencyType", 0);
+        this.f67976g = jSONObject.optLong("descRemainAmount", 0L);
+        this.f67977h = jSONObject.optLong("exchangeDestAmount", 0L);
+        this.f67978i = jSONObject.optInt("exchangeAmount", 0);
     }
 }

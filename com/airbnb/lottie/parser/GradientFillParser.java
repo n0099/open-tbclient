@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.Collections;
 /* loaded from: classes.dex */
 public class GradientFillParser {
-    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", r.f7772a, "hd");
+    public static final JsonReader.Options NAMES = JsonReader.Options.of(SearchView.IME_OPTION_NO_MICROPHONE, "g", Config.OS, "t", "s", "e", r.f7672a, "hd");
     public static final JsonReader.Options GRADIENT_NAMES = JsonReader.Options.of("p", Config.APP_KEY);
 
     public static GradientFill parse(JsonReader jsonReader, LottieComposition lottieComposition) throws IOException {

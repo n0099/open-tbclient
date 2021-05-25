@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34087a = "";
+    public static String f34016a = "";
 
     public static long a(Context context, String str) {
         return context.getSharedPreferences("ksadsdk_pref", 0).getLong(str, 0L);
@@ -38,7 +38,7 @@ public class af {
     }
 
     public static String c(Context context) {
-        return !TextUtils.isEmpty(f34087a) ? f34087a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "");
+        return !TextUtils.isEmpty(f34016a) ? f34016a : context == null ? "" : context.getSharedPreferences("ksadsdk_pref", 0).getString("appTag", "");
     }
 
     public static String c(Context context, String str) {
@@ -58,7 +58,7 @@ public class af {
     }
 
     public static void f(Context context, String str) {
-        f34087a = str;
+        f34016a = str;
         if (context == null) {
             return;
         }

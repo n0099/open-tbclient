@@ -24,22 +24,22 @@ import com.baidu.tieba.tblauncherInterestGuide.view.RightSlideViewPager;
 public class NewUserGuideIntroduceFragment extends BaseFragment {
 
     /* renamed from: f  reason: collision with root package name */
-    public ViewGroup f21078f;
+    public ViewGroup f21006f;
 
     /* renamed from: h  reason: collision with root package name */
-    public NewUserGuideActivity f21080h;
+    public NewUserGuideActivity f21008h;
 
     /* renamed from: i  reason: collision with root package name */
-    public ImageView f21081i;
+    public ImageView f21009i;
     public ImageView j;
     public ImageView k;
     public GoOnAnimView l;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f21077e = false;
+    public boolean f21005e = false;
 
     /* renamed from: g  reason: collision with root package name */
-    public Bitmap f21079g = null;
+    public Bitmap f21007g = null;
     public Handler m = new a();
 
     /* loaded from: classes5.dex */
@@ -66,12 +66,12 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (NewUserGuideIntroduceFragment.this.f21080h != null) {
-                if (NewUserGuideIntroduceFragment.this.f21080h.getNewUserGuideModel().v()) {
-                    NewUserGuideIntroduceFragment.this.f21080h.startMainTabEnterFourm();
+            if (NewUserGuideIntroduceFragment.this.f21008h != null) {
+                if (NewUserGuideIntroduceFragment.this.f21008h.getNewUserGuideModel().v()) {
+                    NewUserGuideIntroduceFragment.this.f21008h.startMainTabEnterFourm();
                     return;
                 }
-                RightSlideViewPager viewPager = NewUserGuideIntroduceFragment.this.f21080h.getViewPager();
+                RightSlideViewPager viewPager = NewUserGuideIntroduceFragment.this.f21008h.getViewPager();
                 if (viewPager != null) {
                     viewPager.setCurrentItem(1, true);
                 }
@@ -89,10 +89,10 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
     }
 
     public final void G0() {
-        this.f21081i.setImageResource(R.drawable.pic_startpage1_one);
+        this.f21009i.setImageResource(R.drawable.pic_startpage1_one);
         this.j.setImageResource(R.drawable.pic_startpage1_two);
         this.k.setImageResource(R.drawable.pic_startpage1_three);
-        F0(this.f21081i, true, 0L);
+        F0(this.f21009i, true, 0L);
         F0(this.j, false, 100L);
         F0(this.k, true, 250L);
     }
@@ -105,17 +105,17 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
     }
 
     public final void I0() {
-        if (this.f21077e) {
-            this.f21078f.setBackgroundDrawable(null);
-            Bitmap bitmap = this.f21079g;
+        if (this.f21005e) {
+            this.f21006f.setBackgroundDrawable(null);
+            Bitmap bitmap = this.f21007g;
             if (bitmap != null) {
                 if (!bitmap.isRecycled()) {
-                    this.f21079g.recycle();
+                    this.f21007g.recycle();
                 }
-                this.f21079g = null;
+                this.f21007g = null;
             }
-            this.f21081i.clearAnimation();
-            this.f21081i.setImageDrawable(null);
+            this.f21009i.clearAnimation();
+            this.f21009i.setImageDrawable(null);
             this.j.clearAnimation();
             this.j.setImageDrawable(null);
             this.k.clearAnimation();
@@ -139,22 +139,22 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.f21080h = (NewUserGuideActivity) getBaseFragmentActivity();
+        this.f21008h = (NewUserGuideActivity) getBaseFragmentActivity();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         try {
             ViewGroup viewGroup2 = (ViewGroup) layoutInflater.inflate(R.layout.guide_introduce, (ViewGroup) null);
-            this.f21077e = true;
-            this.f21078f = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
-            this.f21081i = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
+            this.f21005e = true;
+            this.f21006f = (ViewGroup) viewGroup2.findViewById(R.id.root_view);
+            this.f21009i = (ImageView) viewGroup2.findViewById(R.id.image_tip_1);
             this.j = (ImageView) viewGroup2.findViewById(R.id.image_tip_2);
             this.k = (ImageView) viewGroup2.findViewById(R.id.image_tip_3);
-            Bitmap resBitmap = BitmapHelper.getResBitmap(this.f21080h.getPageContext().getPageActivity(), R.drawable.pic_bg_startpage);
-            this.f21079g = resBitmap;
+            Bitmap resBitmap = BitmapHelper.getResBitmap(this.f21008h.getPageContext().getPageActivity(), R.drawable.pic_bg_startpage);
+            this.f21007g = resBitmap;
             if (resBitmap != null) {
-                this.f21078f.setBackgroundDrawable(new BitmapDrawable(this.f21080h.getResources(), this.f21079g));
+                this.f21006f.setBackgroundDrawable(new BitmapDrawable(this.f21008h.getResources(), this.f21007g));
             }
             this.l = (GoOnAnimView) viewGroup2.findViewById(R.id.tip_go_on);
             this.m.removeMessages(0);
@@ -164,10 +164,10 @@ public class NewUserGuideIntroduceFragment extends BaseFragment {
             this.l.setOnClickListener(new b());
             return viewGroup2;
         } catch (InflateException e2) {
-            this.f21077e = false;
+            this.f21005e = false;
             if (!TbadkApplication.getInst().isDebugMode()) {
                 BdLog.e(e2);
-                this.f21080h.startMainTabEnterFourm();
+                this.f21008h.startMainTabEnterFourm();
                 TbadkApplication.getInst().onAppMemoryLow();
                 return new FrameLayout(layoutInflater.getContext());
             }

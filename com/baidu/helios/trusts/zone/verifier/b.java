@@ -42,28 +42,28 @@ public class b {
 
     /* renamed from: com.baidu.helios.trusts.zone.verifier.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class C0087b implements c {
+    public static final class C0088b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f6372a;
+        public final ByteBuffer f6272a;
 
-        public C0087b(ByteBuffer byteBuffer) {
-            this.f6372a = byteBuffer.slice();
+        public C0088b(ByteBuffer byteBuffer) {
+            this.f6272a = byteBuffer.slice();
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public long a() {
-            return this.f6372a.capacity();
+            return this.f6272a.capacity();
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public void a(MessageDigest[] messageDigestArr, long j, int i2) {
             ByteBuffer slice;
-            synchronized (this.f6372a) {
+            synchronized (this.f6272a) {
                 int i3 = (int) j;
-                this.f6372a.position(i3);
-                this.f6372a.limit(i3 + i2);
-                slice = this.f6372a.slice();
+                this.f6272a.position(i3);
+                this.f6272a.limit(i3 + i2);
+                slice = this.f6272a.slice();
             }
             for (MessageDigest messageDigest : messageDigestArr) {
                 slice.position(0);
@@ -83,28 +83,28 @@ public class b {
     public static final class d implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        public final FileChannel f6373a;
+        public final FileChannel f6273a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f6374b;
+        public final long f6274b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f6375c;
+        public final long f6275c;
 
         public d(FileChannel fileChannel, long j, long j2) {
-            this.f6373a = fileChannel;
-            this.f6374b = j;
-            this.f6375c = j2;
+            this.f6273a = fileChannel;
+            this.f6274b = j;
+            this.f6275c = j2;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public long a() {
-            return this.f6375c;
+            return this.f6275c;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.c
         public void a(MessageDigest[] messageDigestArr, long j, int i2) {
-            MappedByteBuffer map = this.f6373a.map(FileChannel.MapMode.READ_ONLY, this.f6374b + j, i2);
+            MappedByteBuffer map = this.f6273a.map(FileChannel.MapMode.READ_ONLY, this.f6274b + j, i2);
             for (MessageDigest messageDigest : messageDigestArr) {
                 map.position(0);
                 messageDigest.update(map);
@@ -116,7 +116,7 @@ public class b {
     public static class e extends Exception {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final long f6376a = 1;
+        public static final long f6276a = 1;
 
         public e(String str) {
             super(str);
@@ -131,16 +131,16 @@ public class b {
     public static class f extends g {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f6377a;
+        public byte[] f6277a;
 
         public f(X509Certificate x509Certificate, byte[] bArr) {
             super(x509Certificate);
-            this.f6377a = bArr;
+            this.f6277a = bArr;
         }
 
         @Override // com.baidu.helios.trusts.zone.verifier.b.g, java.security.cert.Certificate
         public byte[] getEncoded() {
-            return this.f6377a;
+            return this.f6277a;
         }
     }
 
@@ -148,140 +148,140 @@ public class b {
     public static class g extends X509Certificate {
 
         /* renamed from: a  reason: collision with root package name */
-        public final X509Certificate f6378a;
+        public final X509Certificate f6278a;
 
         public g(X509Certificate x509Certificate) {
-            this.f6378a = x509Certificate;
+            this.f6278a = x509Certificate;
         }
 
         @Override // java.security.cert.X509Certificate
         public void checkValidity() {
-            this.f6378a.checkValidity();
+            this.f6278a.checkValidity();
         }
 
         @Override // java.security.cert.X509Certificate
         public void checkValidity(Date date) {
-            this.f6378a.checkValidity(date);
+            this.f6278a.checkValidity(date);
         }
 
         @Override // java.security.cert.X509Certificate
         public int getBasicConstraints() {
-            return this.f6378a.getBasicConstraints();
+            return this.f6278a.getBasicConstraints();
         }
 
         @Override // java.security.cert.X509Extension
         public Set<String> getCriticalExtensionOIDs() {
-            return this.f6378a.getCriticalExtensionOIDs();
+            return this.f6278a.getCriticalExtensionOIDs();
         }
 
         @Override // java.security.cert.Certificate
         public byte[] getEncoded() {
-            return this.f6378a.getEncoded();
+            return this.f6278a.getEncoded();
         }
 
         @Override // java.security.cert.X509Extension
         public byte[] getExtensionValue(String str) {
-            return this.f6378a.getExtensionValue(str);
+            return this.f6278a.getExtensionValue(str);
         }
 
         @Override // java.security.cert.X509Certificate
         public Principal getIssuerDN() {
-            return this.f6378a.getIssuerDN();
+            return this.f6278a.getIssuerDN();
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getIssuerUniqueID() {
-            return this.f6378a.getIssuerUniqueID();
+            return this.f6278a.getIssuerUniqueID();
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getKeyUsage() {
-            return this.f6378a.getKeyUsage();
+            return this.f6278a.getKeyUsage();
         }
 
         @Override // java.security.cert.X509Extension
         public Set<String> getNonCriticalExtensionOIDs() {
-            return this.f6378a.getNonCriticalExtensionOIDs();
+            return this.f6278a.getNonCriticalExtensionOIDs();
         }
 
         @Override // java.security.cert.X509Certificate
         public Date getNotAfter() {
-            return this.f6378a.getNotAfter();
+            return this.f6278a.getNotAfter();
         }
 
         @Override // java.security.cert.X509Certificate
         public Date getNotBefore() {
-            return this.f6378a.getNotBefore();
+            return this.f6278a.getNotBefore();
         }
 
         @Override // java.security.cert.Certificate
         public PublicKey getPublicKey() {
-            return this.f6378a.getPublicKey();
+            return this.f6278a.getPublicKey();
         }
 
         @Override // java.security.cert.X509Certificate
         public BigInteger getSerialNumber() {
-            return this.f6378a.getSerialNumber();
+            return this.f6278a.getSerialNumber();
         }
 
         @Override // java.security.cert.X509Certificate
         public String getSigAlgName() {
-            return this.f6378a.getSigAlgName();
+            return this.f6278a.getSigAlgName();
         }
 
         @Override // java.security.cert.X509Certificate
         public String getSigAlgOID() {
-            return this.f6378a.getSigAlgOID();
+            return this.f6278a.getSigAlgOID();
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getSigAlgParams() {
-            return this.f6378a.getSigAlgParams();
+            return this.f6278a.getSigAlgParams();
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getSignature() {
-            return this.f6378a.getSignature();
+            return this.f6278a.getSignature();
         }
 
         @Override // java.security.cert.X509Certificate
         public Principal getSubjectDN() {
-            return this.f6378a.getSubjectDN();
+            return this.f6278a.getSubjectDN();
         }
 
         @Override // java.security.cert.X509Certificate
         public boolean[] getSubjectUniqueID() {
-            return this.f6378a.getSubjectUniqueID();
+            return this.f6278a.getSubjectUniqueID();
         }
 
         @Override // java.security.cert.X509Certificate
         public byte[] getTBSCertificate() {
-            return this.f6378a.getTBSCertificate();
+            return this.f6278a.getTBSCertificate();
         }
 
         @Override // java.security.cert.X509Certificate
         public int getVersion() {
-            return this.f6378a.getVersion();
+            return this.f6278a.getVersion();
         }
 
         @Override // java.security.cert.X509Extension
         public boolean hasUnsupportedCriticalExtension() {
-            return this.f6378a.hasUnsupportedCriticalExtension();
+            return this.f6278a.hasUnsupportedCriticalExtension();
         }
 
         @Override // java.security.cert.Certificate
         public String toString() {
-            return this.f6378a.toString();
+            return this.f6278a.toString();
         }
 
         @Override // java.security.cert.Certificate
         public void verify(PublicKey publicKey) {
-            this.f6378a.verify(publicKey);
+            this.f6278a.verify(publicKey);
         }
 
         @Override // java.security.cert.Certificate
         public void verify(PublicKey publicKey, String str) {
-            this.f6378a.verify(publicKey, str);
+            this.f6278a.verify(publicKey, str);
         }
     }
 
@@ -289,26 +289,26 @@ public class b {
     public static class h {
 
         /* renamed from: a  reason: collision with root package name */
-        public final ByteBuffer f6379a;
+        public final ByteBuffer f6279a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final long f6380b;
+        public final long f6280b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final long f6381c;
+        public final long f6281c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final long f6382d;
+        public final long f6282d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final ByteBuffer f6383e;
+        public final ByteBuffer f6283e;
 
         public h(ByteBuffer byteBuffer, long j, long j2, long j3, ByteBuffer byteBuffer2) {
-            this.f6379a = byteBuffer;
-            this.f6380b = j;
-            this.f6381c = j2;
-            this.f6382d = j3;
-            this.f6383e = byteBuffer2;
+            this.f6279a = byteBuffer;
+            this.f6280b = j;
+            this.f6281c = j2;
+            this.f6282d = j3;
+            this.f6283e = byteBuffer2;
         }
     }
 
@@ -432,27 +432,27 @@ public class b {
     }
 
     public static void i(Map<Integer, byte[]> map, RandomAccessFile randomAccessFile, FileDescriptor fileDescriptor, long j, long j2, long j3, ByteBuffer byteBuffer) {
-        c c0087b;
-        c c0087b2;
+        c c0088b;
+        c c0088b2;
         if (map.isEmpty()) {
             throw new SecurityException("No digests provided");
         }
         if (j > 1048576) {
-            c0087b = new d(randomAccessFile.getChannel(), 0L, j);
-            c0087b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
+            c0088b = new d(randomAccessFile.getChannel(), 0L, j);
+            c0088b2 = new d(randomAccessFile.getChannel(), j2, j3 - j2);
         } else {
             ByteBuffer allocate = ByteBuffer.allocate((int) j);
             allocate.order(ByteOrder.LITTLE_ENDIAN);
             try {
                 randomAccessFile.seek(0L);
                 randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-                c0087b = new C0087b(allocate);
+                c0088b = new C0088b(allocate);
                 ByteBuffer allocate2 = ByteBuffer.allocate((int) (j3 - j2));
                 allocate2.order(ByteOrder.LITTLE_ENDIAN);
                 try {
                     randomAccessFile.seek(j2);
                     randomAccessFile.readFully(allocate2.array(), allocate2.arrayOffset(), allocate2.capacity());
-                    c0087b2 = new C0087b(allocate2);
+                    c0088b2 = new C0088b(allocate2);
                 } catch (IOException e2) {
                     throw new SecurityException("Failed to get apk contents", e2);
                 }
@@ -463,7 +463,7 @@ public class b {
         ByteBuffer duplicate = byteBuffer.duplicate();
         duplicate.order(ByteOrder.LITTLE_ENDIAN);
         d.a.q.j.a.d.a.f(duplicate, j);
-        C0087b c0087b3 = new C0087b(duplicate);
+        C0088b c0088b3 = new C0088b(duplicate);
         int size = map.size();
         int[] iArr = new int[size];
         int i2 = 0;
@@ -472,7 +472,7 @@ public class b {
             i2++;
         }
         try {
-            byte[][] l = l(iArr, new c[]{c0087b, c0087b2, c0087b3});
+            byte[][] l = l(iArr, new c[]{c0088b, c0088b2, c0088b3});
             for (int i3 = 0; i3 < size; i3++) {
                 int i4 = iArr[i3];
                 if (!MessageDigest.isEqual(map.get(Integer.valueOf(i4)), l[i3])) {
@@ -704,7 +704,7 @@ public class b {
         try {
             CertificateFactory certificateFactory = CertificateFactory.getInstance("X.509");
             try {
-                ByteBuffer e2 = e(hVar.f6379a);
+                ByteBuffer e2 = e(hVar.f6279a);
                 int i2 = 0;
                 while (e2.hasRemaining()) {
                     i2++;
@@ -718,7 +718,7 @@ public class b {
                     if (hashMap.isEmpty()) {
                         throw new SecurityException("No content digests found");
                     }
-                    i(hashMap, randomAccessFile, fileDescriptor, hVar.f6380b, hVar.f6381c, hVar.f6382d, hVar.f6383e);
+                    i(hashMap, randomAccessFile, fileDescriptor, hVar.f6280b, hVar.f6281c, hVar.f6282d, hVar.f6283e);
                     return (X509Certificate[][]) arrayList.toArray(new X509Certificate[arrayList.size()]);
                 }
                 throw new SecurityException("No signers found");
@@ -799,7 +799,7 @@ public class b {
     }
 
     public static X509Certificate[][] s(File file) {
-        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7772a);
+        RandomAccessFile randomAccessFile = new RandomAccessFile(file, r.f7672a);
         try {
             return m(randomAccessFile);
         } finally {

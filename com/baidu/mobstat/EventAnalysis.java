@@ -14,19 +14,19 @@ import org.json.JSONObject;
 public class EventAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, a> f8469a = new HashMap();
+    public Map<String, a> f8369a = new HashMap();
 
     /* loaded from: classes2.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f8470a;
+        public String f8370a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f8471b;
+        public String f8371b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f8472c;
+        public long f8372c;
 
         public a() {
         }
@@ -116,33 +116,33 @@ public class EventAnalysis {
 
     public void onEventEnd(Context context, long j, String str, String str2, long j2, ExtraInfo extraInfo, Map<String, String> map, boolean z) {
         String a2 = a(str, str2);
-        a aVar = this.f8469a.get(a2);
+        a aVar = this.f8369a.get(a2);
         if (aVar == null) {
             bc c2 = bc.c();
             c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is not started or alread ended");
-        } else if ((str != null && !str.equals(aVar.f8470a)) || (str2 != null && !str2.equals(aVar.f8471b))) {
+        } else if ((str != null && !str.equals(aVar.f8370a)) || (str2 != null && !str2.equals(aVar.f8371b))) {
             bc.c().b("[WARNING] eventId/label pair not match");
         } else {
-            this.f8469a.remove(a2);
-            long j3 = j2 - aVar.f8472c;
+            this.f8369a.remove(a2);
+            long j3 = j2 - aVar.f8372c;
             if (j3 < 0) {
                 bc.c().b("[WARNING] onEventEnd must be invoked after onEventStart");
             }
-            onEventDuration(context, j, str, str2, aVar.f8472c, j3, extraInfo, map, z);
+            onEventDuration(context, j, str, str2, aVar.f8372c, j3, extraInfo, map, z);
         }
     }
 
     public void onEventStart(Context context, String str, String str2, long j) {
         a aVar = new a();
-        aVar.f8472c = j;
-        aVar.f8470a = str;
-        aVar.f8471b = str2;
+        aVar.f8372c = j;
+        aVar.f8370a = str;
+        aVar.f8371b = str2;
         String a2 = a(str, str2);
-        if (this.f8469a.containsKey(a2)) {
+        if (this.f8369a.containsKey(a2)) {
             bc c2 = bc.c();
             c2.b("[WARNING] eventId: " + str + ", with label: " + str2 + " is duplicated, older is removed");
         }
-        this.f8469a.put(a2, aVar);
+        this.f8369a.put(a2, aVar);
     }
 
     public static JSONObject getEvent(Context context, long j, String str, String str2, int i2, long j2, long j3, String str3, JSONArray jSONArray, JSONArray jSONArray2, String str4, String str5, String str6, int i3, int i4, ExtraInfo extraInfo, Map<String, String> map, String str7, String str8, boolean z) {

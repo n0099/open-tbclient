@@ -5,18 +5,18 @@ import android.content.Context;
 public class a implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ Context f38237a;
+    public final /* synthetic */ Context f38166a;
 
     /* renamed from: a  reason: collision with other field name */
     public final /* synthetic */ NetworkStatusReceiver f971a;
 
     public a(NetworkStatusReceiver networkStatusReceiver, Context context) {
         this.f971a = networkStatusReceiver;
-        this.f38237a = context;
+        this.f38166a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f971a.a(this.f38237a);
+        this.f971a.a(this.f38166a);
     }
 }

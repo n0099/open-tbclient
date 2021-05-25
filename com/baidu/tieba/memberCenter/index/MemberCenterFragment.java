@@ -29,19 +29,19 @@ import d.a.c.e.p.j;
 public class MemberCenterFragment extends BaseFragment {
 
     /* renamed from: e  reason: collision with root package name */
-    public NoNetworkView f18320e;
+    public NoNetworkView f18230e;
 
     /* renamed from: f  reason: collision with root package name */
-    public NavigationBar f18321f;
+    public NavigationBar f18231f;
 
     /* renamed from: g  reason: collision with root package name */
-    public View f18322g;
+    public View f18232g;
 
     /* renamed from: h  reason: collision with root package name */
-    public View f18323h;
+    public View f18233h;
 
     /* renamed from: i  reason: collision with root package name */
-    public QuickWebView f18324i;
+    public QuickWebView f18234i;
     public String j;
     public boolean k = false;
 
@@ -58,7 +58,7 @@ public class MemberCenterFragment extends BaseFragment {
                 }
                 if (StringUtils.isNull(str) || !str.contains(UrlSchemaHelper.JUMP_TO_THIS_PAGE)) {
                     if (!StringUtils.isNull(str) && str.contains(UrlSchemaHelper.JUMP_TO_NEW_PAGE)) {
-                        d.a.j0.l.a.p(MemberCenterFragment.this.getPageContext().getContext(), null, str, false, true, false, false, false);
+                        d.a.m0.l.a.p(MemberCenterFragment.this.getPageContext().getContext(), null, str, false, true, false, false, false);
                         return true;
                     }
                     UrlManager.getInstance().dealOneLink((TbPageContext<?>) MemberCenterFragment.this.getPageContext(), new String[]{str}, true);
@@ -119,37 +119,37 @@ public class MemberCenterFragment extends BaseFragment {
     }
 
     public final void F0(String str) {
-        if (this.f18324i == null) {
+        if (this.f18234i == null) {
             return;
         }
         if (j.A()) {
             K0();
-            this.f18324i.loadUrl(str);
+            this.f18234i.loadUrl(str);
             return;
         }
         J0();
     }
 
     public void G0() {
-        NavigationBar navigationBar = (NavigationBar) this.f18322g.findViewById(R.id.view_navigation_bar);
-        this.f18321f = navigationBar;
+        NavigationBar navigationBar = (NavigationBar) this.f18232g.findViewById(R.id.view_navigation_bar);
+        this.f18231f = navigationBar;
         navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.f18321f.setTitleText(R.string.member_center);
-        SkinManager.setNavbarTitleColor(this.f18321f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        if (this.f18321f.getBackImageView() != null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18321f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.f18231f.setTitleText(R.string.member_center);
+        SkinManager.setNavbarTitleColor(this.f18231f.mTextTitle, R.color.CAM_X0105, R.color.s_navbar_title_color);
+        if (this.f18231f.getBackImageView() != null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f18231f.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
-        this.f18321f.showBottomLine(false);
+        this.f18231f.showBottomLine(false);
     }
 
     public final void H0() {
-        this.f18324i.setHorizontalScrollBarEnabled(false);
-        this.f18324i.requestDisallowInterceptTouchEvent(true);
-        this.f18324i.setOnLoadUrlListener(new a());
-        this.f18324i.setOnPageStartedListener(new b());
-        this.f18324i.setOnPageFinishedListener(new c());
-        this.f18324i.setOnReceivedErrorListener(new d());
-        this.f18324i.setOnReceivedSslErrorListener(new e());
+        this.f18234i.setHorizontalScrollBarEnabled(false);
+        this.f18234i.requestDisallowInterceptTouchEvent(true);
+        this.f18234i.setOnLoadUrlListener(new a());
+        this.f18234i.setOnPageStartedListener(new b());
+        this.f18234i.setOnPageFinishedListener(new c());
+        this.f18234i.setOnReceivedErrorListener(new d());
+        this.f18234i.setOnReceivedSslErrorListener(new e());
     }
 
     public void I0(String str) {
@@ -157,26 +157,26 @@ public class MemberCenterFragment extends BaseFragment {
     }
 
     public final void J0() {
-        QuickWebView quickWebView = this.f18324i;
-        if (quickWebView == null || this.f18321f == null) {
+        QuickWebView quickWebView = this.f18234i;
+        if (quickWebView == null || this.f18231f == null) {
             return;
         }
         quickWebView.setVisibility(8);
-        this.f18321f.setVisibility(0);
-        showNetRefreshView(this.f18323h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
+        this.f18231f.setVisibility(0);
+        showNetRefreshView(this.f18233h, TbadkCoreApplication.getInst().getString(R.string.neterror), true);
     }
 
     public final void K0() {
-        if (this.f18324i == null || this.f18321f == null) {
+        if (this.f18234i == null || this.f18231f == null) {
             return;
         }
-        hideNetRefreshView(this.f18323h);
-        this.f18324i.setVisibility(0);
-        this.f18321f.setVisibility(8);
+        hideNetRefreshView(this.f18233h);
+        this.f18234i.setVisibility(0);
+        this.f18231f.setVisibility(8);
     }
 
     public void loadData() {
-        if (this.f18324i == null || this.k) {
+        if (this.f18234i == null || this.k) {
             return;
         }
         refresh();
@@ -189,15 +189,15 @@ public class MemberCenterFragment extends BaseFragment {
             return;
         }
         this.mSkinType = i2;
-        if (this.f18324i != null) {
+        if (this.f18234i != null) {
             if (StringUtils.isNull(this.j)) {
                 F0(TbConfig.HTTPS_QUICK_WEBVIEW_PREFIX + UrlSchemaHelper.MEMBER_CENTER_URL);
             } else {
                 F0(this.j);
             }
         }
-        this.f18321f.onChangeSkinType(getPageContext(), i2);
-        this.f18320e.c(getPageContext(), i2);
+        this.f18231f.onChangeSkinType(getPageContext(), i2);
+        this.f18230e.c(getPageContext(), i2);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -208,21 +208,21 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.index, (ViewGroup) null);
-        this.f18322g = inflate;
-        this.f18320e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
-        this.f18321f = (NavigationBar) this.f18322g.findViewById(R.id.view_navigation_bar);
+        this.f18232g = inflate;
+        this.f18230e = (NoNetworkView) inflate.findViewById(R.id.view_no_network);
+        this.f18231f = (NavigationBar) this.f18232g.findViewById(R.id.view_navigation_bar);
         G0();
-        this.f18323h = this.f18322g.findViewById(R.id.member_content_layout);
-        this.f18324i = (QuickWebView) this.f18322g.findViewById(R.id.webview);
+        this.f18233h = this.f18232g.findViewById(R.id.member_content_layout);
+        this.f18234i = (QuickWebView) this.f18232g.findViewById(R.id.webview);
         H0();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         TiebaStatic.log("c10387");
-        return this.f18322g;
+        return this.f18232g;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
-        QuickWebView quickWebView = this.f18324i;
+        QuickWebView quickWebView = this.f18234i;
         if (quickWebView != null) {
             quickWebView.destroy();
         }
@@ -237,7 +237,7 @@ public class MemberCenterFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        if (this.f18324i == null || this.k) {
+        if (this.f18234i == null || this.k) {
             return;
         }
         refresh();

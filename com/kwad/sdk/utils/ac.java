@@ -11,10 +11,10 @@ import java.lang.reflect.InvocationTargetException;
 public class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34082a;
+    public static String f34011a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f34083b;
+    public static String f34012b;
 
     public static boolean a() {
         return a("MIUI");
@@ -22,40 +22,40 @@ public class ac {
 
     public static boolean a(String str) {
         String upperCase;
-        String str2 = f34082a;
+        String str2 = f34011a;
         if (str2 != null) {
             return str2.contains(str);
         }
         String b2 = b("ro.build.version.opporom");
-        f34083b = b2;
+        f34012b = b2;
         if (TextUtils.isEmpty(b2)) {
             String b3 = b("ro.vivo.os.version");
-            f34083b = b3;
+            f34012b = b3;
             if (TextUtils.isEmpty(b3)) {
                 String b4 = b("ro.build.version.emui");
-                f34083b = b4;
+                f34012b = b4;
                 if (TextUtils.isEmpty(b4)) {
                     String b5 = b("ro.miui.ui.version.name");
-                    f34083b = b5;
+                    f34012b = b5;
                     if (TextUtils.isEmpty(b5)) {
                         String b6 = b("ro.product.system.manufacturer");
-                        f34083b = b6;
+                        f34012b = b6;
                         if (TextUtils.isEmpty(b6)) {
                             String b7 = b("ro.smartisan.version");
-                            f34083b = b7;
+                            f34012b = b7;
                             if (TextUtils.isEmpty(b7)) {
                                 String str3 = "SAMSUNG";
                                 if (!b("ro.product.manufacturer").toUpperCase().contains("SAMSUNG")) {
                                     String str4 = Build.DISPLAY;
-                                    f34083b = str4;
+                                    f34012b = str4;
                                     str3 = "FLYME";
                                     if (!str4.toUpperCase().contains("FLYME")) {
-                                        f34083b = "unknown";
+                                        f34012b = "unknown";
                                         upperCase = Build.MANUFACTURER.toUpperCase();
                                     }
                                 }
-                                f34082a = str3;
-                                return f34082a.contains(str);
+                                f34011a = str3;
+                                return f34011a.contains(str);
                             }
                             upperCase = "SMARTISAN";
                         } else {
@@ -73,8 +73,8 @@ public class ac {
         } else {
             upperCase = "OPPO";
         }
-        f34082a = upperCase;
-        return f34082a.contains(str);
+        f34011a = upperCase;
+        return f34011a.contains(str);
     }
 
     /* JADX WARN: Can't wrap try/catch for region: R(7:1|(2:2|3)|4|5|(7:9|10|12|13|14|15|17)|7|(1:(0))) */
@@ -156,16 +156,16 @@ public class ac {
     }
 
     public static String c() {
-        if (f34082a == null) {
+        if (f34011a == null) {
             a("");
         }
-        return f34082a;
+        return f34011a;
     }
 
     public static String d() {
-        if (f34083b == null) {
+        if (f34012b == null) {
             a("");
         }
-        return f34083b;
+        return f34012b;
     }
 }

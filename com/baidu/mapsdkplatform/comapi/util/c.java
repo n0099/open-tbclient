@@ -6,20 +6,20 @@ import com.baidu.mapapi.http.HttpClient;
 public class c extends HttpClient.ProtoResultCallback {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ CustomMapStyleLoader f8003a;
+    public final /* synthetic */ CustomMapStyleLoader f7903a;
 
     public c(CustomMapStyleLoader customMapStyleLoader) {
-        this.f8003a = customMapStyleLoader;
+        this.f7903a = customMapStyleLoader;
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onFailed(HttpClient.HttpStateError httpStateError) {
-        String str = CustomMapStyleLoader.f7971a;
+        String str = CustomMapStyleLoader.f7871a;
         Log.e(str, "sendRequest onFailed error = " + httpStateError);
     }
 
     @Override // com.baidu.mapapi.http.HttpClient.ProtoResultCallback
     public void onSuccess(String str) {
-        this.f8003a.b(str);
+        this.f7903a.b(str);
     }
 }

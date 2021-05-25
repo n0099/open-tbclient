@@ -7,10 +7,10 @@ import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 public final class e implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    public IBinder f38267a;
+    public IBinder f38196a;
 
     public e(IBinder iBinder) {
-        this.f38267a = iBinder;
+        this.f38196a = iBinder;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b.d
@@ -20,7 +20,7 @@ public final class e implements d {
         Parcel obtain2 = Parcel.obtain();
         try {
             obtain.writeInterfaceToken(OpenDeviceIdentifierService.Stub.DESCRIPTOR);
-            this.f38267a.transact(1, obtain, obtain2, 0);
+            this.f38196a.transact(1, obtain, obtain2, 0);
             obtain2.readException();
             str = obtain2.readString();
         } finally {
@@ -34,6 +34,6 @@ public final class e implements d {
 
     @Override // android.os.IInterface
     public final IBinder asBinder() {
-        return this.f38267a;
+        return this.f38196a;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public final class DisplayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f7455a = "DisplayOptions";
+    public static final String f7355a = "DisplayOptions";
     public View A;
     public View B;
     public View C;
@@ -18,10 +18,10 @@ public final class DisplayOptions {
     public boolean l;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f7459e = 6;
+    public int f7359e = 6;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f7463i = 7;
+    public int f7363i = 7;
     public int m = 8;
     public int q = 10;
     public int t = 5;
@@ -41,22 +41,22 @@ public final class DisplayOptions {
     public List<BitmapDescriptor> R = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    public BitmapDescriptor f7456b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
+    public BitmapDescriptor f7356b = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Start.png");
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f7457c = true;
+    public boolean f7357c = true;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f7458d = true;
+    public boolean f7358d = true;
 
     /* renamed from: f  reason: collision with root package name */
-    public BitmapDescriptor f7460f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
+    public BitmapDescriptor f7360f = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_End.png");
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f7461g = true;
+    public boolean f7361g = true;
 
     /* renamed from: h  reason: collision with root package name */
-    public boolean f7462h = true;
+    public boolean f7362h = true;
     public BitmapDescriptor j = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Car.png");
     public BitmapDescriptor n = BitmapDescriptorFactory.fromAssetWithDpi("SDK_Default_Icon_Passenger.png");
     public boolean o = true;
@@ -102,7 +102,7 @@ public final class DisplayOptions {
     }
 
     public BitmapDescriptor getEndPositionIcon() {
-        return this.f7460f;
+        return this.f7360f;
     }
 
     public View getEndPositionInfoWindowView() {
@@ -114,7 +114,7 @@ public final class DisplayOptions {
     }
 
     public int getEndPositionMarkerZIndex() {
-        return this.f7463i;
+        return this.f7363i;
     }
 
     public int getPaddingBottom() {
@@ -150,7 +150,7 @@ public final class DisplayOptions {
     }
 
     public BitmapDescriptor getStartPositionIcon() {
-        return this.f7456b;
+        return this.f7356b;
     }
 
     public View getStartPositionInfoWindowView() {
@@ -162,7 +162,7 @@ public final class DisplayOptions {
     }
 
     public int getStartPositionMarkerZIndex() {
-        return this.f7459e;
+        return this.f7359e;
     }
 
     public List<BitmapDescriptor> getTrafficTextureList() {
@@ -192,11 +192,11 @@ public final class DisplayOptions {
     }
 
     public boolean isShowEndPositionMarker() {
-        return this.f7461g;
+        return this.f7361g;
     }
 
     public boolean isShowEndPositionMarkerInSpan() {
-        return this.f7462h;
+        return this.f7362h;
     }
 
     public boolean isShowPassengerIcon() {
@@ -220,11 +220,11 @@ public final class DisplayOptions {
     }
 
     public boolean isShowStartPositionMarker() {
-        return this.f7457c;
+        return this.f7357c;
     }
 
     public boolean isShowStartPositionMarkerInSpan() {
-        return this.f7458d;
+        return this.f7358d;
     }
 
     public DisplayOptions set3DCarMarkerEnable(boolean z) {
@@ -280,7 +280,7 @@ public final class DisplayOptions {
 
     public DisplayOptions setEndPositionIcon(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor != null) {
-            this.f7460f = bitmapDescriptor;
+            this.f7360f = bitmapDescriptor;
             return this;
         }
         throw new IllegalArgumentException("BDMapSDKException: EndPositionIcon descriptor is null");
@@ -303,13 +303,13 @@ public final class DisplayOptions {
         if (i2 <= 1) {
             i2 = 2;
         }
-        this.f7463i = i2;
+        this.f7363i = i2;
         return this;
     }
 
     public DisplayOptions setMapViewPadding(int i2, int i3, int i4, int i5) {
         if (i2 < 0 || i4 < 0 || i3 < 0 || i5 < 0) {
-            String str = f7455a;
+            String str = f7355a;
             com.baidu.mapsdkplatform.comapi.synchronization.d.a.b(str, "Padding param is invalid. paddingLeft = " + i2 + "; paddingRight = " + i4 + "; paddingTop = " + i3 + "; paddingBottom = " + i5);
         }
         if (i2 < 0) {
@@ -394,7 +394,7 @@ public final class DisplayOptions {
 
     public DisplayOptions setStartPositionIcon(BitmapDescriptor bitmapDescriptor) {
         if (bitmapDescriptor != null) {
-            this.f7456b = bitmapDescriptor;
+            this.f7356b = bitmapDescriptor;
             return this;
         }
         throw new IllegalArgumentException("BDMapSDKException: StartPositionIcon descriptor is null");
@@ -417,7 +417,7 @@ public final class DisplayOptions {
         if (i2 <= 1) {
             i2 = 2;
         }
-        this.f7459e = i2;
+        this.f7359e = i2;
         return this;
     }
 
@@ -450,12 +450,12 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions showEndPositionIcon(boolean z) {
-        this.f7461g = z;
+        this.f7361g = z;
         return this;
     }
 
     public DisplayOptions showEndPositionIconInSpan(boolean z) {
-        this.f7462h = z;
+        this.f7362h = z;
         return this;
     }
 
@@ -490,12 +490,12 @@ public final class DisplayOptions {
     }
 
     public DisplayOptions showStartPositionIcon(boolean z) {
-        this.f7457c = z;
+        this.f7357c = z;
         return this;
     }
 
     public DisplayOptions showStartPositionIconInSpan(boolean z) {
-        this.f7458d = z;
+        this.f7358d = z;
         return this;
     }
 

@@ -18,7 +18,7 @@ import com.baidu.sapi2.result.ExtendSysWebViewMethodResult;
 import com.baidu.sapi2.result.OneKeyLoginResult;
 import com.baidu.sapi2.shell.listener.AuthorizationListener;
 import com.baidu.sapi2.utils.enums.AccountType;
-import d.a.y.a.f;
+import d.a.a0.a.f;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class LoadExternalWebViewActivity extends BaseActivity {

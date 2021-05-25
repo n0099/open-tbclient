@@ -5,20 +5,20 @@ import java.util.Calendar;
 import java.util.Locale;
 import java.util.TimeZone;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f65022e;
+    public final Context f65065e;
 
     public m(Context context) {
         super(true, true);
-        this.f65022e = context;
+        this.f65065e = context;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        j.f(jSONObject, "language", this.f65022e.getResources().getConfiguration().locale.getLanguage());
+        j.f(jSONObject, "language", this.f65065e.getResources().getConfiguration().locale.getLanguage());
         int rawOffset = TimeZone.getDefault().getRawOffset() / 3600000;
         if (rawOffset < -12) {
             rawOffset = -12;

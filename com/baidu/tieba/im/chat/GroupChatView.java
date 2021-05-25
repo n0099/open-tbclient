@@ -10,25 +10,25 @@ import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import d.a.j0.r.d0.b;
+import d.a.m0.r.d0.b;
 /* loaded from: classes4.dex */
 public class GroupChatView extends CommonGroupMsglistView {
 
     /* renamed from: e  reason: collision with root package name */
-    public TextView f17063e;
+    public TextView f16973e;
 
     /* renamed from: f  reason: collision with root package name */
-    public ImageView f17064f;
+    public ImageView f16974f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GroupChatActivity f17065g;
+    public GroupChatActivity f16975g;
 
     public GroupChatView(MsglistActivity msglistActivity, boolean z) {
         super(msglistActivity, z);
     }
 
     public void d() {
-        this.f17064f.setVisibility(8);
+        this.f16974f.setVisibility(8);
         b.j().t("has_shown_group_btn_dot", true);
     }
 
@@ -36,23 +36,23 @@ public class GroupChatView extends CommonGroupMsglistView {
         if (b.j().g("has_shown_group_btn_dot", false)) {
             return;
         }
-        this.f17064f.setVisibility(0);
+        this.f16974f.setVisibility(0);
     }
 
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void initHeader(TalkableActivity talkableActivity, boolean z) {
         super.initHeader(talkableActivity, z);
-        this.f17065g = (GroupChatActivity) talkableActivity;
+        this.f16975g = (GroupChatActivity) talkableActivity;
         String string = talkableActivity.getPageContext().getString(R.string.msglist_groupinfo);
         if (string != null) {
             String stringExtra = talkableActivity.getIntent().getStringExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID);
             View addCustomView = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.group_info_btn, talkableActivity);
             this.mBtnGroupInfo = addCustomView;
             TextView textView = (TextView) addCustomView.findViewById(R.id.group_info_btn_txt);
-            this.f17063e = textView;
+            this.f16973e = textView;
             textView.setText(string);
             ImageView imageView = (ImageView) this.mBtnGroupInfo.findViewById(R.id.red_dot);
-            this.f17064f = imageView;
+            this.f16974f = imageView;
             imageView.setVisibility(8);
             if (!StringUtils.isNull(stringExtra) && stringExtra.equals(TbadkCoreApplication.getCurrentAccount())) {
                 e();
@@ -68,7 +68,7 @@ public class GroupChatView extends CommonGroupMsglistView {
     @Override // com.baidu.tieba.im.chat.AbsMsglistView
     public void onChangeSkinType(int i2) {
         super.onChangeSkinType(i2);
-        TextView textView = this.f17063e;
+        TextView textView = this.f16973e;
         if (textView != null) {
             SkinManager.setViewTextColor(textView, R.color.CAM_X0105, 1);
         }

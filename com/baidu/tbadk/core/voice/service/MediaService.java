@@ -10,8 +10,8 @@ import android.os.IBinder;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import d.a.j0.r.g0.c.d;
-import d.a.j0.r.g0.c.e;
+import d.a.m0.r.g0.c.d;
+import d.a.m0.r.g0.c.e;
 import java.io.File;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -25,7 +25,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     public Runnable mPlayTimeThread = new a();
     public Runnable mRecordTimeThread = new b();
     public d mRecorder = null;
-    public d.a.j0.r.g0.c.c mPlayer = e.i();
+    public d.a.m0.r.g0.c.c mPlayer = e.i();
     public long mSeekTime = 0;
 
     /* loaded from: classes3.dex */
@@ -89,7 +89,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         }
         long a2 = voice.a();
         if (a2 == 0) {
-            d.a.j0.r.g0.c.c cVar = this.mPlayer;
+            d.a.m0.r.g0.c.c cVar = this.mPlayer;
             if (cVar instanceof e) {
                 a2 = ((e) cVar).getDuration() / 1000;
             }
@@ -98,7 +98,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private long getVoiceTotalTimeByMediaPlayer() {
-        d.a.j0.r.g0.c.c cVar = this.mPlayer;
+        d.a.m0.r.g0.c.c cVar = this.mPlayer;
         if (cVar instanceof e) {
             return ((e) cVar).getDuration();
         }
@@ -152,7 +152,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void playVoice(Intent intent) {
-        d.a.j0.r.g0.c.c cVar = this.mPlayer;
+        d.a.m0.r.g0.c.c cVar = this.mPlayer;
         if (cVar != null && cVar.d()) {
             this.mPlayer.h();
             this.mHandler.post(this.mPlayTimeThread);
@@ -186,7 +186,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             if (stringExtra2.endsWith(".amr")) {
                 this.mRecorder = MyAudioRecorder.f(Boolean.TRUE);
             } else {
-                this.mRecorder = new d.a.j0.r.g0.c.a();
+                this.mRecorder = new d.a.m0.r.g0.c.a();
             }
             boolean z = false;
             File file = new File(stringExtra);
@@ -219,7 +219,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void setPlayerCompleteListener() {
-        d.a.j0.r.g0.c.c cVar = this.mPlayer;
+        d.a.m0.r.g0.c.c cVar = this.mPlayer;
         if (cVar != null && (cVar instanceof e)) {
             ((e) cVar).setOnErrorListener(this);
             ((e) this.mPlayer).setOnPreparedListener(this);
@@ -261,7 +261,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void stopAndReplay(Intent intent) {
-        d.a.j0.r.g0.c.c cVar;
+        d.a.m0.r.g0.c.c cVar;
         if (this.mVoice == null || (cVar = this.mPlayer) == null) {
             return;
         }
@@ -275,7 +275,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         if (a2 <= 0 || g2 > a2) {
             return;
         }
-        d.a.j0.r.g0.c.c cVar2 = this.mPlayer;
+        d.a.m0.r.g0.c.c cVar2 = this.mPlayer;
         if (cVar2 instanceof e) {
             ((e) cVar2).setOnPreparedListener(null);
         }
@@ -332,7 +332,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         this.mHandler.removeCallbacks(this.mPlayTimeThread);
         this.mElapsedTime = 0;
         this.mCurBeginSecond = 0;
-        d.a.j0.r.g0.c.c cVar = this.mPlayer;
+        d.a.m0.r.g0.c.c cVar = this.mPlayer;
         if (cVar instanceof e) {
             ((e) cVar).setOnCompletionListener(null);
         }
@@ -471,7 +471,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         if (a2 <= 0 || longExtra > a2) {
             return;
         }
-        d.a.j0.r.g0.c.c cVar = this.mPlayer;
+        d.a.m0.r.g0.c.c cVar = this.mPlayer;
         if (cVar instanceof e) {
             ((e) cVar).setOnPreparedListener(null);
         }

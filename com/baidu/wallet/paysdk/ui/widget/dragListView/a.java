@@ -9,31 +9,31 @@ import android.view.ViewConfiguration;
 public class a extends b implements GestureDetector.OnGestureListener, View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f26263a;
+    public int f26192a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f26264b;
+    public boolean f26193b;
 
     /* renamed from: c  reason: collision with root package name */
-    public int f26265c;
+    public int f26194c;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f26266d;
+    public boolean f26195d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f26267e;
+    public boolean f26196e;
 
     /* renamed from: f  reason: collision with root package name */
-    public GestureDetector f26268f;
+    public GestureDetector f26197f;
 
     /* renamed from: g  reason: collision with root package name */
-    public GestureDetector f26269g;
+    public GestureDetector f26198g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f26270h;
+    public int f26199h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f26271i;
+    public int f26200i;
     public int j;
     public int k;
     public int[] l;
@@ -57,15 +57,15 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
 
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onDown(MotionEvent motionEvent) {
-        if (this.f26266d && this.f26265c == 0) {
+        if (this.f26195d && this.f26194c == 0) {
             this.k = a(motionEvent, this.t);
         }
         int a2 = a(motionEvent);
-        this.f26271i = a2;
-        if (a2 != -1 && this.f26263a == 0) {
+        this.f26200i = a2;
+        if (a2 != -1 && this.f26192a == 0) {
             a(a2, ((int) motionEvent.getX()) - this.m, ((int) motionEvent.getY()) - this.n);
         }
-        this.f26267e = false;
+        this.f26196e = false;
         this.v = true;
         this.x = 0;
         this.j = b(motionEvent);
@@ -79,9 +79,9 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
 
     @Override // android.view.GestureDetector.OnGestureListener
     public void onLongPress(MotionEvent motionEvent) {
-        if (this.f26271i != -1) {
+        if (this.f26200i != -1) {
             this.w.performHapticFeedback(0);
-            a(this.f26271i, this.o - this.m, this.p - this.n);
+            a(this.f26200i, this.o - this.m, this.p - this.n);
         }
     }
 
@@ -93,19 +93,19 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
         int y2 = (int) motionEvent2.getY();
         int i2 = x2 - this.m;
         int i3 = y2 - this.n;
-        if (this.v && !this.q && (this.f26271i != -1 || this.j != -1)) {
-            if (this.f26271i != -1) {
-                if (this.f26263a == 1 && Math.abs(y2 - y) > this.f26270h && this.f26264b) {
-                    a(this.f26271i, i2, i3);
-                } else if (this.f26263a != 0 && Math.abs(x2 - x) > this.f26270h && this.f26266d) {
-                    this.f26267e = true;
+        if (this.v && !this.q && (this.f26200i != -1 || this.j != -1)) {
+            if (this.f26200i != -1) {
+                if (this.f26192a == 1 && Math.abs(y2 - y) > this.f26199h && this.f26193b) {
+                    a(this.f26200i, i2, i3);
+                } else if (this.f26192a != 0 && Math.abs(x2 - x) > this.f26199h && this.f26195d) {
+                    this.f26196e = true;
                     a(this.j, i2, i3);
                 }
             } else if (this.j != -1) {
-                if (Math.abs(x2 - x) > this.f26270h && this.f26266d) {
-                    this.f26267e = true;
+                if (Math.abs(x2 - x) > this.f26199h && this.f26195d) {
+                    this.f26196e = true;
                     a(this.j, i2, i3);
-                } else if (Math.abs(y2 - y) > this.f26270h) {
+                } else if (Math.abs(y2 - y) > this.f26199h) {
                     this.v = false;
                 }
             }
@@ -120,7 +120,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     @Override // android.view.GestureDetector.OnGestureListener
     public boolean onSingleTapUp(MotionEvent motionEvent) {
         int i2;
-        if (this.f26266d && this.f26265c == 0 && (i2 = this.k) != -1) {
+        if (this.f26195d && this.f26194c == 0 && (i2 = this.k) != -1) {
             DragSortListView dragSortListView = this.w;
             dragSortListView.removeItem(i2 - dragSortListView.getHeaderViewsCount());
             return true;
@@ -137,14 +137,14 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     */
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (this.w.isDragEnabled() && !this.w.listViewIntercepted()) {
-            this.f26268f.onTouchEvent(motionEvent);
-            if (this.f26266d && this.q && this.f26265c == 1) {
-                this.f26269g.onTouchEvent(motionEvent);
+            this.f26197f.onTouchEvent(motionEvent);
+            if (this.f26195d && this.q && this.f26194c == 1) {
+                this.f26198g.onTouchEvent(motionEvent);
             }
             int action = motionEvent.getAction() & 255;
             if (action != 0) {
                 if (action == 1) {
-                    if (this.f26266d && this.f26267e) {
+                    if (this.f26195d && this.f26196e) {
                         int i2 = this.x;
                         if (i2 < 0) {
                             i2 = -i2;
@@ -154,7 +154,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
                         }
                     }
                 }
-                this.f26267e = false;
+                this.f26196e = false;
                 this.q = false;
             } else {
                 this.o = (int) motionEvent.getX();
@@ -169,7 +169,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     }
 
     public void b(int i2) {
-        this.f26265c = i2;
+        this.f26194c = i2;
     }
 
     public void c(int i2) {
@@ -185,11 +185,11 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     }
 
     public void a(int i2) {
-        this.f26263a = i2;
+        this.f26192a = i2;
     }
 
     public void b(boolean z) {
-        this.f26266d = z;
+        this.f26195d = z;
     }
 
     public int c(MotionEvent motionEvent) {
@@ -198,11 +198,11 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
 
     public a(DragSortListView dragSortListView, int i2, int i3, int i4, int i5, int i6) {
         super(dragSortListView);
-        this.f26263a = 0;
-        this.f26264b = true;
-        this.f26266d = false;
-        this.f26267e = false;
-        this.f26271i = -1;
+        this.f26192a = 0;
+        this.f26193b = true;
+        this.f26195d = false;
+        this.f26196e = false;
+        this.f26200i = -1;
         this.j = -1;
         this.k = -1;
         this.l = new int[2];
@@ -211,7 +211,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
         this.y = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.wallet.paysdk.ui.widget.dragListView.a.1
             @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
             public final boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f2, float f3) {
-                if (a.this.f26266d && a.this.f26267e) {
+                if (a.this.f26195d && a.this.f26196e) {
                     int width = a.this.w.getWidth() / 5;
                     if (f2 > a.this.r) {
                         if (a.this.x > (-width)) {
@@ -220,17 +220,17 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
                     } else if (f2 < (-a.this.r) && a.this.x < width) {
                         a.this.w.stopDragWithVelocity(true, f2);
                     }
-                    a.this.f26267e = false;
+                    a.this.f26196e = false;
                 }
                 return false;
             }
         };
         this.w = dragSortListView;
-        this.f26268f = new GestureDetector(dragSortListView.getContext(), this);
+        this.f26197f = new GestureDetector(dragSortListView.getContext(), this);
         GestureDetector gestureDetector = new GestureDetector(dragSortListView.getContext(), this.y);
-        this.f26269g = gestureDetector;
+        this.f26198g = gestureDetector;
         gestureDetector.setIsLongpressEnabled(false);
-        this.f26270h = ViewConfiguration.get(dragSortListView.getContext()).getScaledTouchSlop();
+        this.f26199h = ViewConfiguration.get(dragSortListView.getContext()).getScaledTouchSlop();
         this.s = i2;
         this.t = i5;
         this.u = i6;
@@ -239,19 +239,19 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
     }
 
     public void a(boolean z) {
-        this.f26264b = z;
+        this.f26193b = z;
     }
 
     public int b(MotionEvent motionEvent) {
-        if (this.f26265c == 1) {
+        if (this.f26194c == 1) {
             return d(motionEvent);
         }
         return -1;
     }
 
     public boolean a(int i2, int i3, int i4) {
-        int i5 = (!this.f26264b || this.f26267e) ? 0 : 12;
-        if (this.f26266d && this.f26267e) {
+        int i5 = (!this.f26193b || this.f26196e) ? 0 : 12;
+        if (this.f26195d && this.f26196e) {
             i5 = i5 | 1 | 2;
         }
         DragSortListView dragSortListView = this.w;
@@ -262,7 +262,7 @@ public class a extends b implements GestureDetector.OnGestureListener, View.OnTo
 
     @Override // com.baidu.wallet.paysdk.ui.widget.dragListView.b, com.baidu.wallet.paysdk.ui.widget.dragListView.DragSortListView.i
     public void a(View view, Point point, Point point2) {
-        if (this.f26266d && this.f26267e) {
+        if (this.f26195d && this.f26196e) {
             this.x = point.x;
         }
     }

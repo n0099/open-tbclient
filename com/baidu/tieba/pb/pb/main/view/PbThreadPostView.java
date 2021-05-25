@@ -10,37 +10,37 @@ import android.widget.TextView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import d.a.k0.d2.h.e;
+import d.a.n0.e2.h.e;
 /* loaded from: classes5.dex */
 public class PbThreadPostView extends LinearLayout {
 
     /* renamed from: e  reason: collision with root package name */
-    public Context f19298e;
+    public Context f19218e;
 
     /* renamed from: f  reason: collision with root package name */
-    public View f19299f;
+    public View f19219f;
 
     /* renamed from: g  reason: collision with root package name */
-    public TextView f19300g;
+    public TextView f19220g;
 
     /* renamed from: h  reason: collision with root package name */
-    public TextView f19301h;
+    public TextView f19221h;
 
     /* renamed from: i  reason: collision with root package name */
-    public View.OnClickListener f19302i;
+    public View.OnClickListener f19222i;
 
     public PbThreadPostView(Context context) {
         this(context, null);
     }
 
     public final void a() {
-        this.f19299f = findViewById(R.id.pb_thread_post_container);
-        this.f19300g = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.f19301h = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.f19219f = findViewById(R.id.pb_thread_post_container);
+        this.f19220g = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.f19221h = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public final void b() {
-        this.f19298e = getContext();
+        this.f19218e = getContext();
         setClipChildren(false);
         setClipToPadding(false);
         setOrientation(1);
@@ -50,15 +50,15 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     public void c(int i2) {
-        SkinManager.setBackgroundColor(this.f19299f, R.color.CAM_X0205, i2);
-        SkinManager.setViewTextColor(this.f19300g, R.color.CAM_X0107);
-        SkinManager.setViewTextColor(this.f19301h, R.color.CAM_X0302);
+        SkinManager.setBackgroundColor(this.f19219f, R.color.CAM_X0205, i2);
+        SkinManager.setViewTextColor(this.f19220g, R.color.CAM_X0107);
+        SkinManager.setViewTextColor(this.f19221h, R.color.CAM_X0302);
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
-        if (this.f19302i == null) {
-            this.f19302i = onClickListener;
-            this.f19301h.setOnClickListener(onClickListener);
+        if (this.f19222i == null) {
+            this.f19222i = onClickListener;
+            this.f19221h.setOnClickListener(onClickListener);
         }
     }
 

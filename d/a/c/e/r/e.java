@@ -12,7 +12,7 @@ import java.nio.channels.SocketChannel;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static d.a.c.e.r.b f39266a;
+    public static d.a.c.e.r.b f38930a;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -39,38 +39,38 @@ public class e {
     public static class b implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        public SocketChannel f39267a;
+        public SocketChannel f38931a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f39268b;
+        public long f38932b;
 
         /* renamed from: c  reason: collision with root package name */
-        public String f39269c;
+        public String f38933c;
 
         /* renamed from: d  reason: collision with root package name */
-        public String f39270d;
+        public String f38934d;
 
         /* renamed from: e  reason: collision with root package name */
-        public String f39271e;
+        public String f38935e;
 
         public b(String str, int i2, d0 d0Var) throws Exception {
-            this.f39267a = null;
-            this.f39268b = 0L;
-            this.f39269c = null;
-            this.f39270d = null;
-            this.f39271e = null;
-            this.f39267a = SocketChannel.open();
+            this.f38931a = null;
+            this.f38932b = 0L;
+            this.f38933c = null;
+            this.f38934d = null;
+            this.f38935e = null;
+            this.f38931a = SocketChannel.open();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i2);
             if (inetSocketAddress.getAddress() != null) {
-                this.f39269c = inetSocketAddress.getAddress().getHostAddress();
-                this.f39268b = System.currentTimeMillis() - currentTimeMillis;
+                this.f38933c = inetSocketAddress.getAddress().getHostAddress();
+                this.f38932b = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.f39267a.socket().connect(inetSocketAddress, d0Var.e());
-            this.f39267a.socket().setSoTimeout(d0Var.f());
-            this.f39267a.socket().setTcpNoDelay(d0Var.g());
-            this.f39270d = d.a.c.e.p.l.m();
-            this.f39271e = d.a.c.e.p.l.n();
+            this.f38931a.socket().connect(inetSocketAddress, d0Var.e());
+            this.f38931a.socket().setSoTimeout(d0Var.f());
+            this.f38931a.socket().setTcpNoDelay(d0Var.g());
+            this.f38934d = d.a.c.e.p.l.m();
+            this.f38935e = d.a.c.e.p.l.n();
         }
 
         @Override // d.a.c.e.r.e.a
@@ -80,17 +80,17 @@ public class e {
 
         @Override // d.a.c.e.r.e.a
         public String b() {
-            return this.f39271e;
+            return this.f38935e;
         }
 
         @Override // d.a.c.e.r.e.a
         public long c() {
-            return this.f39268b;
+            return this.f38932b;
         }
 
         @Override // d.a.c.e.r.e.a
         public void close() throws IOException {
-            SocketChannel socketChannel = this.f39267a;
+            SocketChannel socketChannel = this.f38931a;
             if (socketChannel != null) {
                 socketChannel.close();
             }
@@ -98,17 +98,17 @@ public class e {
 
         @Override // d.a.c.e.r.e.a
         public String d() {
-            return this.f39269c;
+            return this.f38933c;
         }
 
         @Override // d.a.c.e.r.e.a
         public String getLocalDns() {
-            return this.f39270d;
+            return this.f38934d;
         }
 
         @Override // d.a.c.e.r.e.a
         public boolean isConnected() {
-            SocketChannel socketChannel = this.f39267a;
+            SocketChannel socketChannel = this.f38931a;
             if (socketChannel != null) {
                 return socketChannel.isConnected();
             }
@@ -117,12 +117,12 @@ public class e {
 
         @Override // d.a.c.e.r.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            return this.f39267a.read(byteBuffer);
+            return this.f38931a.read(byteBuffer);
         }
 
         @Override // d.a.c.e.r.e.a
         public int write(ByteBuffer byteBuffer) throws Exception {
-            return this.f39267a.write(byteBuffer);
+            return this.f38931a.write(byteBuffer);
         }
     }
 
@@ -130,53 +130,53 @@ public class e {
     public static class c implements a {
 
         /* renamed from: a  reason: collision with root package name */
-        public Socket f39272a;
+        public Socket f38936a;
 
         /* renamed from: b  reason: collision with root package name */
-        public InputStream f39273b;
+        public InputStream f38937b;
 
         /* renamed from: c  reason: collision with root package name */
-        public OutputStream f39274c;
+        public OutputStream f38938c;
 
         /* renamed from: d  reason: collision with root package name */
-        public byte[] f39275d;
+        public byte[] f38939d;
 
         /* renamed from: e  reason: collision with root package name */
-        public long f39276e;
+        public long f38940e;
 
         /* renamed from: f  reason: collision with root package name */
-        public String f39277f;
+        public String f38941f;
 
         /* renamed from: g  reason: collision with root package name */
-        public String f39278g;
+        public String f38942g;
 
         /* renamed from: h  reason: collision with root package name */
-        public String f39279h;
+        public String f38943h;
 
         public c(String str, int i2, d0 d0Var) throws Exception {
-            this.f39272a = null;
-            this.f39273b = null;
-            this.f39274c = null;
-            this.f39275d = null;
-            this.f39276e = 0L;
-            this.f39277f = null;
-            this.f39278g = null;
-            this.f39279h = null;
-            this.f39272a = new Socket();
+            this.f38936a = null;
+            this.f38937b = null;
+            this.f38938c = null;
+            this.f38939d = null;
+            this.f38940e = 0L;
+            this.f38941f = null;
+            this.f38942g = null;
+            this.f38943h = null;
+            this.f38936a = new Socket();
             long currentTimeMillis = System.currentTimeMillis();
             InetSocketAddress inetSocketAddress = new InetSocketAddress(str, i2);
             if (inetSocketAddress.getAddress() != null) {
-                this.f39277f = inetSocketAddress.getAddress().getHostAddress();
-                this.f39276e = System.currentTimeMillis() - currentTimeMillis;
+                this.f38941f = inetSocketAddress.getAddress().getHostAddress();
+                this.f38940e = System.currentTimeMillis() - currentTimeMillis;
             }
-            this.f39272a.connect(inetSocketAddress, d0Var.e());
-            this.f39272a.setSoTimeout(d0Var.f());
-            this.f39272a.setTcpNoDelay(d0Var.g());
-            this.f39273b = this.f39272a.getInputStream();
-            this.f39274c = this.f39272a.getOutputStream();
-            this.f39275d = new byte[1024];
-            this.f39278g = d.a.c.e.p.l.m();
-            this.f39279h = d.a.c.e.p.l.n();
+            this.f38936a.connect(inetSocketAddress, d0Var.e());
+            this.f38936a.setSoTimeout(d0Var.f());
+            this.f38936a.setTcpNoDelay(d0Var.g());
+            this.f38937b = this.f38936a.getInputStream();
+            this.f38938c = this.f38936a.getOutputStream();
+            this.f38939d = new byte[1024];
+            this.f38942g = d.a.c.e.p.l.m();
+            this.f38943h = d.a.c.e.p.l.n();
         }
 
         @Override // d.a.c.e.r.e.a
@@ -186,27 +186,27 @@ public class e {
 
         @Override // d.a.c.e.r.e.a
         public String b() {
-            return this.f39279h;
+            return this.f38943h;
         }
 
         @Override // d.a.c.e.r.e.a
         public long c() {
-            return this.f39276e;
+            return this.f38940e;
         }
 
         @Override // d.a.c.e.r.e.a
         public void close() throws IOException {
             try {
-                this.f39273b.close();
+                this.f38937b.close();
             } catch (Exception e2) {
                 BdLog.e(e2.getMessage());
             }
             try {
-                this.f39274c.close();
+                this.f38938c.close();
             } catch (Exception e3) {
                 BdLog.e(e3.getMessage());
             }
-            Socket socket = this.f39272a;
+            Socket socket = this.f38936a;
             if (socket != null) {
                 try {
                     socket.close();
@@ -219,17 +219,17 @@ public class e {
 
         @Override // d.a.c.e.r.e.a
         public String d() {
-            return this.f39277f;
+            return this.f38941f;
         }
 
         @Override // d.a.c.e.r.e.a
         public String getLocalDns() {
-            return this.f39278g;
+            return this.f38942g;
         }
 
         @Override // d.a.c.e.r.e.a
         public boolean isConnected() {
-            Socket socket = this.f39272a;
+            Socket socket = this.f38936a;
             if (socket != null) {
                 return socket.isConnected();
             }
@@ -238,9 +238,9 @@ public class e {
 
         @Override // d.a.c.e.r.e.a
         public int read(ByteBuffer byteBuffer) throws Exception {
-            int read = this.f39273b.read(this.f39275d);
+            int read = this.f38937b.read(this.f38939d);
             if (read > 0) {
-                byteBuffer.put(this.f39275d, 0, read);
+                byteBuffer.put(this.f38939d, 0, read);
             }
             return read;
         }
@@ -251,14 +251,14 @@ public class e {
             if (remaining > 0) {
                 byte[] bArr = new byte[remaining];
                 byteBuffer.get(bArr);
-                this.f39274c.write(bArr);
+                this.f38938c.write(bArr);
             }
             return remaining;
         }
     }
 
     public a a(String str, int i2, d0 d0Var, boolean z) throws Exception {
-        d.a.c.e.r.b bVar = f39266a;
+        d.a.c.e.r.b bVar = f38930a;
         if (bVar != null) {
             return bVar.a(str, i2, d0Var);
         }

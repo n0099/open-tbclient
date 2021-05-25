@@ -70,7 +70,7 @@ public final class SapiContext implements NoProguard {
 
     public SapiContext(Context context) {
         this.context = context;
-        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f9258c, 0);
+        this.storage = context.getSharedPreferences(SharedPreferencesUtil.f9158c, 0);
     }
 
     private String getCancelNuomiAddrCountKey() {

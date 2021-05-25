@@ -13,7 +13,7 @@ import java.util.List;
 public class z extends PayBaseBean<QueryPayResponse> {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<RestNameValuePair> f25255a;
+    public List<RestNameValuePair> f25184a;
 
     public <T> z(Context context) {
         super(context);
@@ -26,7 +26,7 @@ public class z extends PayBaseBean<QueryPayResponse> {
 
     @Override // com.baidu.wallet.core.beans.NetworkBean
     public List<RestNameValuePair> generateRequestParam() {
-        List<RestNameValuePair> list = this.f25255a;
+        List<RestNameValuePair> list = this.f25184a;
         if (list != null) {
             return list;
         }
@@ -41,7 +41,7 @@ public class z extends PayBaseBean<QueryPayResponse> {
             arrayList.add(new RestNameValuePair("bank_no", payQueryRequest.mBankNo));
         }
         arrayList.add(new RestNameValuePair("sign", payQueryRequest.getMd5Sign()));
-        this.f25255a = arrayList;
+        this.f25184a = arrayList;
         return arrayList;
     }
 

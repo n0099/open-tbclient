@@ -49,18 +49,20 @@ public class IMMediaFetchMsgHttpRequest extends IMMediaBaseHttpRequest {
             String transBDUK2 = Utility.transBDUK(jSONObject.optString("to_pass_uk", ""));
             Type type = new Type();
             type.t = 0L;
-            ChatMsg parserMessage = MessageParser.parserMessage(this.mContext, jSONObject, type, false);
-            parserMessage.setMsgId(((Long) type.t).longValue());
-            parserMessage.setFromUser(optLong2);
-            parserMessage.setContacter(optLong);
-            parserMessage.setContacterBduid(transBDUK2);
-            parserMessage.setSenderUid(transBDUK);
-            parserMessage.setIsClicked(true);
-            parserMessage.setMsgReaded(1);
-            LogUtils.d(TAG, "BC> msg=" + parserMessage.toString());
-            parserMessage.setMediaRoleMsg(true);
-            parserMessage.setStatus(0);
-            list.add(parserMessage);
+            ChatMsg parserMessage = MessageParser.parserMessage(this.mContext, jSONObject, type, true);
+            if (parserMessage != null) {
+                parserMessage.setMsgId(((Long) type.t).longValue());
+                parserMessage.setFromUser(optLong2);
+                parserMessage.setContacter(optLong);
+                parserMessage.setContacterBduid(transBDUK2);
+                parserMessage.setSenderUid(transBDUK);
+                parserMessage.setIsClicked(true);
+                parserMessage.setMsgReaded(1);
+                LogUtils.d(TAG, "BC> msg=" + parserMessage.toString());
+                parserMessage.setMediaRoleMsg(true);
+                parserMessage.setStatus(0);
+                list.add(parserMessage);
+            }
         } catch (Exception e2) {
             e2.printStackTrace();
         }

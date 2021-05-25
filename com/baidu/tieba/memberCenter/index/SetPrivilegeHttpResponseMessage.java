@@ -13,10 +13,10 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f18336a;
+        public int f18246a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f18337b = null;
+        public String f18247b = null;
 
         public a(SetPrivilegeHttpResponseMessage setPrivilegeHttpResponseMessage) {
         }
@@ -25,13 +25,13 @@ public class SetPrivilegeHttpResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.f18336a = jSONObject.optInt("error_code");
+            this.f18246a = jSONObject.optInt("error_code");
             jSONObject.optString("error_msg");
-            this.f18337b = jSONObject.optString("field_text");
+            this.f18247b = jSONObject.optString("field_text");
             jSONObject.optString("left_button");
             jSONObject.optString("right_button");
-            if (this.f18336a == 0) {
-                StringUtils.isNull(this.f18337b);
+            if (this.f18246a == 0) {
+                StringUtils.isNull(this.f18247b);
             }
         }
     }

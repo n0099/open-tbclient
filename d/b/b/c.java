@@ -3,18 +3,18 @@ package d.b.b;
 import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface c {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         @Nullable
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f64941a;
+        public final String f64984a;
 
         public a(@Nullable String str) {
-            this.f64941a = str;
+            this.f64984a = str;
         }
     }
 

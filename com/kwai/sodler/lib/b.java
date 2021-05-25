@@ -5,17 +5,17 @@ import com.kwai.sodler.lib.a.b;
 public class b implements com.kwai.sodler.lib.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    public b.a f34493a;
+    public b.a f34422a;
 
     @Override // com.kwai.sodler.lib.a.b
     public com.kwai.sodler.lib.a.b a(b.a aVar) {
-        this.f34493a = aVar;
+        this.f34422a = aVar;
         return this;
     }
 
     @Override // com.kwai.sodler.lib.a.b
     public void a(com.kwai.sodler.lib.a.f fVar) {
-        b.a aVar = this.f34493a;
+        b.a aVar = this.f34422a;
         if (aVar != null) {
             fVar.a(aVar.a(fVar.i()));
         } else {

@@ -8,33 +8,33 @@ import d.a.c.e.d.l;
 public class m<T> implements l.c<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f38880a = false;
+    public boolean f38544a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public final k<T> f38881b;
+    public final k<T> f38545b;
 
     /* renamed from: c  reason: collision with root package name */
-    public final String f38882c;
+    public final String f38546c;
 
     /* loaded from: classes.dex */
     public class a implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f38883e;
+        public final /* synthetic */ String f38547e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ l.a f38884f;
+        public final /* synthetic */ l.a f38548f;
 
         public a(String str, l.a aVar) {
-            this.f38883e = str;
-            this.f38884f = aVar;
+            this.f38547e = str;
+            this.f38548f = aVar;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: d.a.c.e.d.l$a */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
-            this.f38884f.a(this.f38883e, m.this.get(this.f38883e));
+            this.f38548f.a(this.f38547e, m.this.get(this.f38547e));
         }
     }
 
@@ -42,25 +42,25 @@ public class m<T> implements l.c<T> {
     public class b implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f38886e;
+        public final /* synthetic */ String f38550e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Object f38887f;
+        public final /* synthetic */ Object f38551f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ long f38888g;
+        public final /* synthetic */ long f38552g;
 
         public b(String str, Object obj, long j) {
-            this.f38886e = str;
-            this.f38887f = obj;
-            this.f38888g = j;
+            this.f38550e = str;
+            this.f38551f = obj;
+            this.f38552g = j;
         }
 
         /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: d.a.c.e.d.m */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // java.lang.Runnable
         public void run() {
-            m.this.e(this.f38886e, this.f38887f, this.f38888g);
+            m.this.e(this.f38550e, this.f38551f, this.f38552g);
         }
     }
 
@@ -68,21 +68,21 @@ public class m<T> implements l.c<T> {
     public class c implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ String f38890e;
+        public final /* synthetic */ String f38554e;
 
         public c(String str) {
-            this.f38890e = str;
+            this.f38554e = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            m.this.remove(this.f38890e);
+            m.this.remove(this.f38554e);
         }
     }
 
     public m(String str, k<T> kVar) {
-        this.f38882c = str;
-        this.f38881b = kVar;
+        this.f38546c = str;
+        this.f38545b = kVar;
     }
 
     @Override // d.a.c.e.d.l
@@ -92,13 +92,13 @@ public class m<T> implements l.c<T> {
 
     @Override // d.a.c.e.d.l.c
     public void b() {
-        this.f38881b.g(this.f38882c);
+        this.f38545b.g(this.f38546c);
         l();
     }
 
     @Override // d.a.c.e.d.l.c
     public k<T> c() {
-        return this.f38881b;
+        return this.f38545b;
     }
 
     @Override // d.a.c.e.d.l
@@ -114,7 +114,7 @@ public class m<T> implements l.c<T> {
             }
             long j2 = j;
             if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-                if (!this.f38880a) {
+                if (!this.f38544a) {
                     BdLog.detailException("access db in main thread!", new Exception());
                 } else {
                     throw new RuntimeException("access db in main thread!");
@@ -124,7 +124,7 @@ public class m<T> implements l.c<T> {
                 remove(str);
                 return;
             } else {
-                this.f38881b.f(this.f38882c, str, t, j2);
+                this.f38545b.f(this.f38546c, str, t, j2);
                 return;
             }
         }
@@ -144,25 +144,25 @@ public class m<T> implements l.c<T> {
     @Override // d.a.c.e.d.l
     public T get(String str) {
         if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-            if (!this.f38880a) {
+            if (!this.f38544a) {
                 BdLog.detailException("access db in main thread!", new Exception());
             } else {
                 throw new RuntimeException("access db in main thread!");
             }
         }
-        return this.f38881b.e(this.f38882c, str);
+        return this.f38545b.e(this.f38546c, str);
     }
 
     @Override // d.a.c.e.d.l
     public l.b<T> h(String str) {
         if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-            if (!this.f38880a) {
+            if (!this.f38544a) {
                 BdLog.detailException("access db in main thread!", new Exception());
             } else {
                 throw new RuntimeException("access db in main thread!");
             }
         }
-        return this.f38881b.d(this.f38882c, str);
+        return this.f38545b.d(this.f38546c, str);
     }
 
     @Override // d.a.c.e.d.l
@@ -172,11 +172,11 @@ public class m<T> implements l.c<T> {
 
     @Override // d.a.c.e.d.l.c
     public String j() {
-        return this.f38882c;
+        return this.f38546c;
     }
 
     public void k() {
-        this.f38881b.a(this.f38882c);
+        this.f38545b.a(this.f38546c);
     }
 
     public void l() {
@@ -189,12 +189,12 @@ public class m<T> implements l.c<T> {
     @Override // d.a.c.e.d.l
     public void remove(String str) {
         if (BdBaseApplication.getInst().isDebugMode() && d.a.c.e.p.l.C()) {
-            if (!this.f38880a) {
+            if (!this.f38544a) {
                 BdLog.detailException("access db in main thread!", new Exception());
             } else {
                 throw new RuntimeException("access db in main thread!");
             }
         }
-        this.f38881b.c(this.f38882c, str);
+        this.f38545b.c(this.f38546c, str);
     }
 }

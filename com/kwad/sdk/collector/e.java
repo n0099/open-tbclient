@@ -25,7 +25,7 @@ public class e {
             if (strArr != null) {
                 for (String str : strArr) {
                     int a2 = x.a(context, str);
-                    arrayList.add(new f(str, a2 == 0 ? f.f31964b : a2 == -1 ? f.f31965c : f.f31963a));
+                    arrayList.add(new f(str, a2 == 0 ? f.f31893b : a2 == -1 ? f.f31894c : f.f31892a));
                 }
             }
             return arrayList;

@@ -23,6 +23,8 @@ public class TiebaUtilityOpenPageAuto {
 
         void goToSignIn(SignInParam signInParam);
 
+        void goToTeenagerMode();
+
         void openAppStore(PageStringValue pageStringValue, Result<OpenPageBoolResult> result);
 
         void openBBASMAppForItem(SMAppMapParam sMAppMapParam);

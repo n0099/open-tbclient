@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import d.a.k0.j1.o.k.a;
-import d.a.k0.s2.f0.b.c;
+import d.a.n0.k1.o.k.a;
+import d.a.n0.t2.f0.b.c;
 import java.util.List;
 /* loaded from: classes5.dex */
 public class AdCardMultiPicView extends AdCardBaseView {
@@ -57,12 +57,12 @@ public class AdCardMultiPicView extends AdCardBaseView {
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public void e0(AdCard adCard) {
         c cVar = adCard.picInfo;
-        List<String> list = cVar == null ? null : cVar.f60965c;
+        List<String> list = cVar == null ? null : cVar.f61067c;
         if (!a.e(list) && cVar != null) {
-            int k = a.k(cVar.f60965c);
+            int k = a.k(cVar.f61067c);
             int dimensionPixelSize = (int) ((this.G - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X002) * 2)) / 3.0f);
-            int i2 = cVar.f60967e;
-            int i3 = cVar.f60966d;
+            int i2 = cVar.f61069e;
+            int i3 = cVar.f61068d;
             int max = (int) (dimensionPixelSize * Math.max(Math.min((i2 == 0 || i3 == 0) ? 1.0f : i2 / i3, 1.0f), 0.0f));
             this.j0.setVisibility(4);
             this.l0.setVisibility(4);

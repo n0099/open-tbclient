@@ -13,13 +13,13 @@ import com.baidu.tieba.R;
 public class NavigationBarShadowView extends View {
 
     /* renamed from: e  reason: collision with root package name */
-    public int f12338e;
+    public int f12246e;
 
     /* renamed from: f  reason: collision with root package name */
-    public AlphaAnimation f12339f;
+    public AlphaAnimation f12247f;
 
     /* renamed from: g  reason: collision with root package name */
-    public AlphaAnimation f12340g;
+    public AlphaAnimation f12248g;
 
     /* loaded from: classes3.dex */
     public class a implements Animation.AnimationListener {
@@ -48,20 +48,20 @@ public class NavigationBarShadowView extends View {
         if (getVisibility() != 0) {
             return;
         }
-        if (this.f12340g == null) {
+        if (this.f12248g == null) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
-            this.f12340g = alphaAnimation;
+            this.f12248g = alphaAnimation;
             alphaAnimation.setFillAfter(true);
-            this.f12340g.setDuration(300L);
-            this.f12340g.setAnimationListener(new a());
+            this.f12248g.setDuration(300L);
+            this.f12248g.setAnimationListener(new a());
         }
-        startAnimation(this.f12340g);
+        startAnimation(this.f12248g);
     }
 
     public void b(int i2) {
-        if (this.f12338e != i2) {
+        if (this.f12246e != i2) {
             SkinManager.setBackgroundResource(this, R.drawable.personalize_tab_shadow);
-            this.f12338e = i2;
+            this.f12246e = i2;
         }
     }
 
@@ -71,13 +71,13 @@ public class NavigationBarShadowView extends View {
             return;
         }
         setVisibility(0);
-        if (this.f12339f == null) {
+        if (this.f12247f == null) {
             AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
-            this.f12339f = alphaAnimation;
+            this.f12247f = alphaAnimation;
             alphaAnimation.setFillAfter(true);
-            this.f12339f.setDuration(300L);
+            this.f12247f.setDuration(300L);
         }
-        startAnimation(this.f12339f);
+        startAnimation(this.f12247f);
     }
 
     public NavigationBarShadowView(Context context, @Nullable AttributeSet attributeSet) {
@@ -86,7 +86,7 @@ public class NavigationBarShadowView extends View {
 
     public NavigationBarShadowView(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f12338e = 3;
+        this.f12246e = 3;
         setVisibility(8);
         b(TbadkCoreApplication.getInst().getSkinType());
     }

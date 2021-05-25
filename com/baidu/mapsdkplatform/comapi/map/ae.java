@@ -2,8 +2,8 @@ package com.baidu.mapsdkplatform.comapi.map;
 /* loaded from: classes2.dex */
 public class ae extends d {
     public ae() {
-        this.f7715c = 4;
-        this.f7714b = "mappoi";
-        this.f7716d = 50;
+        this.f7615c = 4;
+        this.f7614b = "mappoi";
+        this.f7616d = 50;
     }
 }

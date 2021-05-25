@@ -13,29 +13,29 @@ import java.util.List;
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f34081a = "";
+    public static String f34010a = "";
 
     public static String a() {
         return Build.VERSION.SDK_INT >= 28 ? Application.getProcessName() : "";
     }
 
     public static String a(@NonNull Context context) {
-        if (TextUtils.isEmpty(f34081a)) {
+        if (TextUtils.isEmpty(f34010a)) {
             String a2 = a();
-            f34081a = a2;
+            f34010a = a2;
             if (TextUtils.isEmpty(a2)) {
                 String b2 = b();
-                f34081a = b2;
+                f34010a = b2;
                 if (TextUtils.isEmpty(b2)) {
                     String b3 = b(context);
-                    f34081a = b3;
+                    f34010a = b3;
                     return b3;
                 }
-                return f34081a;
+                return f34010a;
             }
-            return f34081a;
+            return f34010a;
         }
-        return f34081a;
+        return f34010a;
     }
 
     public static String b() {

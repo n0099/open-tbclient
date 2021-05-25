@@ -38,7 +38,7 @@ public class a extends d.o.a.e.b.p.a {
         }
         try {
             Notification w = w(baseException, z);
-            this.f67475i = w;
+            this.f67518i = w;
             f(w);
         } catch (Exception e2) {
             e2.printStackTrace();

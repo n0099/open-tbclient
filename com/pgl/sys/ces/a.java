@@ -1,7 +1,7 @@
 package com.pgl.sys.ces;
 
 import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class a {
     static {
         try {

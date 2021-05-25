@@ -7,13 +7,13 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.R;
-import d.a.j0.r.q.v0;
+import d.a.m0.r.q.v0;
 /* loaded from: classes.dex */
 public class b0 extends c implements p<v0>, q {
     public static final int l = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds124);
 
     /* renamed from: i  reason: collision with root package name */
-    public NEGFeedBackView f40322i;
+    public NEGFeedBackView f40014i;
     public Align j;
     public boolean k;
 
@@ -31,9 +31,9 @@ public class b0 extends c implements p<v0>, q {
         layoutParams.rightMargin = g3;
         layoutParams.topMargin = g4;
         i(layoutParams);
-        this.f40322i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-        this.f40322i.setPadding(0, 0, 0, 0);
-        this.f40322i.setLayoutParams(layoutParams);
+        this.f40014i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+        this.f40014i.setPadding(0, 0, 0, 0);
+        this.f40014i.setLayoutParams(layoutParams);
     }
 
     public void l(Align align) {
@@ -49,9 +49,9 @@ public class b0 extends c implements p<v0>, q {
             layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams.topMargin = dimenPixelSize2;
             i(layoutParams);
-            this.f40322i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f40322i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f40322i.setLayoutParams(layoutParams);
+            this.f40014i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40014i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40014i.setLayoutParams(layoutParams);
         } else if (align == Align.ALIGN_RIGHT_CENTER) {
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
             layoutParams2.addRule(11);
@@ -59,9 +59,9 @@ public class b0 extends c implements p<v0>, q {
             layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams2.bottomMargin = 0;
             i(layoutParams2);
-            this.f40322i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f40322i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f40322i.setLayoutParams(layoutParams2);
+            this.f40014i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40014i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40014i.setLayoutParams(layoutParams2);
         } else if (align == Align.ALIGN_RIGHT_BOTTOM) {
             int i2 = l;
             int g2 = d.a.c.e.p.l.g(TbadkCoreApplication.getInst(), R.dimen.tbds30);
@@ -73,14 +73,14 @@ public class b0 extends c implements p<v0>, q {
             layoutParams3.rightMargin = g3;
             layoutParams3.bottomMargin = g4;
             i(layoutParams3);
-            this.f40322i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-            this.f40322i.setPadding(g2, g2, g2, g2);
-            this.f40322i.setLayoutParams(layoutParams3);
+            this.f40014i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+            this.f40014i.setPadding(g2, g2, g2, g2);
+            this.f40014i.setLayoutParams(layoutParams3);
         }
         this.j = align;
     }
 
-    public void m(d.a.j0.r.q.a aVar) {
+    public void m(d.a.m0.r.q.a aVar) {
         if (aVar == null || aVar.h() == null) {
             return;
         }
@@ -88,9 +88,9 @@ public class b0 extends c implements p<v0>, q {
             if (!aVar.t() && !aVar.p()) {
                 l(Align.ALIGN_RIGHT_BOTTOM);
             } else if (aVar.isSupportTop()) {
-                v((!p(aVar) || d.a.j0.b.d.U()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : o(R.dimen.tbds64));
+                v((!p(aVar) || d.a.m0.b.d.V()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds60) : o(R.dimen.tbds64));
             } else if (aVar.isSupportBottom()) {
-                l0 l0Var = this.f40326h;
+                l0 l0Var = this.f40018h;
                 if (l0Var != null) {
                     l0Var.n(this);
                 }
@@ -108,7 +108,7 @@ public class b0 extends c implements p<v0>, q {
     @Override // d.a.i.c
     /* renamed from: n */
     public NEGFeedBackView b() {
-        return this.f40322i;
+        return this.f40014i;
     }
 
     public final int o(int i2) {
@@ -117,11 +117,11 @@ public class b0 extends c implements p<v0>, q {
 
     @Override // d.a.i.q
     public void onChangeSkinType(TbPageContext tbPageContext, int i2) {
-        this.f40322i.q();
+        this.f40014i.q();
     }
 
-    public final boolean p(d.a.j0.r.q.a aVar) {
-        return (aVar instanceof d.a.k0.x.e0.k) && ((d.a.k0.x.e0.k) aVar).s;
+    public final boolean p(d.a.m0.r.q.a aVar) {
+        return (aVar instanceof d.a.n0.z.e0.k) && ((d.a.n0.z.e0.k) aVar).s;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -129,15 +129,15 @@ public class b0 extends c implements p<v0>, q {
     /* renamed from: q */
     public void a(v0 v0Var) {
         if (v0Var == null) {
-            this.f40322i.setVisibility(8);
+            this.f40014i.setVisibility(8);
             return;
         }
-        this.f40322i.setData(v0Var);
-        this.f40322i.setFirstRowSingleColumn(true);
-        this.f40322i.setVisibility(0);
+        this.f40014i.setData(v0Var);
+        this.f40014i.setFirstRowSingleColumn(true);
+        this.f40014i.setVisibility(0);
     }
 
-    public final void r(d.a.j0.r.q.a aVar) {
+    public final void r(d.a.m0.r.q.a aVar) {
         if (aVar.t()) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
             int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds60);
@@ -147,9 +147,9 @@ public class b0 extends c implements p<v0>, q {
             layoutParams.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams.topMargin = dimenPixelSize2;
             i(layoutParams);
-            this.f40322i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f40322i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f40322i.setLayoutParams(layoutParams);
+            this.f40014i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40014i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40014i.setLayoutParams(layoutParams);
             return;
         }
         int i2 = l;
@@ -162,26 +162,26 @@ public class b0 extends c implements p<v0>, q {
         layoutParams2.rightMargin = g3;
         layoutParams2.topMargin = g4;
         i(layoutParams2);
-        this.f40322i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
-        this.f40322i.setPadding(g2, g2, g2, g2);
-        this.f40322i.setLayoutParams(layoutParams2);
+        this.f40014i.setWebPResId(R.drawable.icon_pure_card_more22, R.color.CAM_X0111);
+        this.f40014i.setPadding(g2, g2, g2, g2);
+        this.f40014i.setLayoutParams(layoutParams2);
     }
 
     public void s(boolean z) {
-        this.f40322i.setAutoProcess(z);
+        this.f40014i.setAutoProcess(z);
     }
 
     public void t(String str) {
-        this.f40322i.setHeadText(str);
+        this.f40014i.setHeadText(str);
     }
 
     public void u(NEGFeedBackView.b bVar) {
-        this.f40322i.setEventCallback(bVar);
+        this.f40014i.setEventCallback(bVar);
     }
 
     public final void v(int i2) {
-        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f40322i.getLayoutParams();
-        if (this.f40322i.getParent() == null || layoutParams == null || layoutParams.topMargin != i2) {
+        RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.f40014i.getLayoutParams();
+        if (this.f40014i.getParent() == null || layoutParams == null || layoutParams.topMargin != i2) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds57);
             RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(dimenPixelSize, dimenPixelSize);
             layoutParams2.addRule(11);
@@ -189,22 +189,22 @@ public class b0 extends c implements p<v0>, q {
             layoutParams2.rightMargin = dimenPixelSize - UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
             layoutParams2.topMargin = i2;
             i(layoutParams2);
-            this.f40322i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
-            this.f40322i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
-            this.f40322i.setLayoutParams(layoutParams2);
+            this.f40014i.setWebPResId(R.drawable.icon_pure_card_close22, R.color.CAM_X0111);
+            this.f40014i.setPadding(dimenPixelSize, dimenPixelSize, dimenPixelSize, dimenPixelSize);
+            this.f40014i.setLayoutParams(layoutParams2);
         }
     }
 
     public void w(boolean z) {
-        this.f40322i.s(z);
+        this.f40014i.s(z);
     }
 
     public b0(TbPageContext tbPageContext, Align align) {
         h(-1);
         NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(tbPageContext);
-        this.f40322i = nEGFeedBackView;
+        this.f40014i = nEGFeedBackView;
         nEGFeedBackView.setId(R.id.decor_item_right_id);
-        g(this.f40322i);
+        g(this.f40014i);
         l(align);
     }
 }

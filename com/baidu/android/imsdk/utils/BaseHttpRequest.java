@@ -24,7 +24,7 @@ public abstract class BaseHttpRequest implements HttpHelper.Request, HttpHelper.
 
     public static String getHostUrl(Context context) {
         int readIntData = Utility.readIntData(context, Constants.KEY_ENV, 0);
-        return (readIntData == 1 || readIntData == 2) ? "http://rd-im-server.bcc-szth.baidu.com:8080/" : readIntData != 3 ? "https://pim.baidu.com/" : Constants.URL_HTTP_BOX;
+        return readIntData != 1 ? readIntData != 2 ? readIntData != 3 ? "https://pim.baidu.com/" : Constants.URL_HTTP_BOX : Constants.URL_HTTP_QA : "http://rd-im-server.bcc-szth.baidu.com:8080/";
     }
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request

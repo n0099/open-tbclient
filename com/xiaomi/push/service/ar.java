@@ -12,7 +12,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class ar {
     public static int a(aq aqVar, hl hlVar) {
-        return aqVar.f895a.getInt(a(hlVar), as.f38129a[hlVar.ordinal()] != 1 ? 0 : 1);
+        return aqVar.f895a.getInt(a(hlVar), as.f38058a[hlVar.ordinal()] != 1 ? 0 : 1);
     }
 
     public static String a(hl hlVar) {
@@ -31,7 +31,7 @@ public class ar {
                 if (z && hqVar.f512a) {
                     arrayList.add(new Pair(Integer.valueOf(a2), null));
                 } else {
-                    int i2 = as.f38130b[a3.ordinal()];
+                    int i2 = as.f38059b[a3.ordinal()];
                     arrayList.add(i2 != 1 ? i2 != 2 ? i2 != 3 ? i2 != 4 ? null : new Pair(Integer.valueOf(a2), Boolean.valueOf(hqVar.g())) : new Pair(Integer.valueOf(a2), hqVar.m380a()) : new Pair(Integer.valueOf(a2), Long.valueOf(hqVar.m379a())) : new Pair(Integer.valueOf(a2), Integer.valueOf(hqVar.c())));
                 }
             }

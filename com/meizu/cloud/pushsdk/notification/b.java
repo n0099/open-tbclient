@@ -20,20 +20,20 @@ public class b extends com.meizu.cloud.pushsdk.notification.b.c {
             if (a() || a2 == null) {
                 return;
             }
-            RemoteViews remoteViews = new RemoteViews(this.f35028a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.c(this.f35028a));
-            remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.i(this.f35028a), a2);
-            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.j(this.f35028a), 8);
-            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.i(this.f35028a), 0);
+            RemoteViews remoteViews = new RemoteViews(this.f34957a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.c(this.f34957a));
+            remoteViews.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.i(this.f34957a), a2);
+            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.j(this.f34957a), 8);
+            remoteViews.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.i(this.f34957a), 0);
             notification.contentView = remoteViews;
             if (messageV3.getmNotificationStyle().getInnerStyle() == InnerStyleLayout.EXPANDABLE_PIC.getCode()) {
                 Bitmap a3 = a(messageV3.getmNotificationStyle().getExpandableImageUrl());
                 if (a() || a3 == null) {
                     return;
                 }
-                RemoteViews remoteViews2 = new RemoteViews(this.f35028a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.c(this.f35028a));
-                remoteViews2.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.j(this.f35028a), a3);
-                remoteViews2.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.j(this.f35028a), 0);
-                remoteViews2.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.i(this.f35028a), 8);
+                RemoteViews remoteViews2 = new RemoteViews(this.f34957a.getPackageName(), com.meizu.cloud.pushsdk.notification.c.c.c(this.f34957a));
+                remoteViews2.setImageViewBitmap(com.meizu.cloud.pushsdk.notification.c.c.j(this.f34957a), a3);
+                remoteViews2.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.j(this.f34957a), 0);
+                remoteViews2.setViewVisibility(com.meizu.cloud.pushsdk.notification.c.c.i(this.f34957a), 8);
                 notification.bigContentView = remoteViews2;
             }
         }

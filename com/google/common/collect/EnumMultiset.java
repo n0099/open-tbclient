@@ -47,22 +47,22 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         public class a extends Multisets.b<E> {
 
             /* renamed from: e  reason: collision with root package name */
-            public final /* synthetic */ int f31060e;
+            public final /* synthetic */ int f30989e;
 
             public a(int i2) {
-                this.f31060e = i2;
+                this.f30989e = i2;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // d.g.c.c.i0.a
             /* renamed from: a */
             public E getElement() {
-                return (E) EnumMultiset.this.enumConstants[this.f31060e];
+                return (E) EnumMultiset.this.enumConstants[this.f30989e];
             }
 
             @Override // d.g.c.c.i0.a
             public int getCount() {
-                return EnumMultiset.this.counts[this.f31060e];
+                return EnumMultiset.this.counts[this.f30989e];
             }
         }
 
@@ -82,10 +82,10 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
     public abstract class c<T> implements Iterator<T> {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f31062e = 0;
+        public int f30991e = 0;
 
         /* renamed from: f  reason: collision with root package name */
-        public int f31063f = -1;
+        public int f30992f = -1;
 
         public c() {
         }
@@ -94,13 +94,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
 
         @Override // java.util.Iterator
         public boolean hasNext() {
-            while (this.f31062e < EnumMultiset.this.enumConstants.length) {
+            while (this.f30991e < EnumMultiset.this.enumConstants.length) {
                 int[] iArr = EnumMultiset.this.counts;
-                int i2 = this.f31062e;
+                int i2 = this.f30991e;
                 if (iArr[i2] > 0) {
                     return true;
                 }
-                this.f31062e = i2 + 1;
+                this.f30991e = i2 + 1;
             }
             return false;
         }
@@ -108,10 +108,10 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
         @Override // java.util.Iterator
         public T next() {
             if (hasNext()) {
-                T a2 = a(this.f31062e);
-                int i2 = this.f31062e;
-                this.f31063f = i2;
-                this.f31062e = i2 + 1;
+                T a2 = a(this.f30991e);
+                int i2 = this.f30991e;
+                this.f30992f = i2;
+                this.f30991e = i2 + 1;
                 return a2;
             }
             throw new NoSuchElementException();
@@ -119,13 +119,13 @@ public final class EnumMultiset<E extends Enum<E>> extends d<E> implements Seria
 
         @Override // java.util.Iterator
         public void remove() {
-            m.e(this.f31063f >= 0);
-            if (EnumMultiset.this.counts[this.f31063f] > 0) {
+            m.e(this.f30992f >= 0);
+            if (EnumMultiset.this.counts[this.f30992f] > 0) {
                 EnumMultiset.access$210(EnumMultiset.this);
-                EnumMultiset.this.size -= EnumMultiset.this.counts[this.f31063f];
-                EnumMultiset.this.counts[this.f31063f] = 0;
+                EnumMultiset.this.size -= EnumMultiset.this.counts[this.f30992f];
+                EnumMultiset.this.counts[this.f30992f] = 0;
             }
-            this.f31063f = -1;
+            this.f30992f = -1;
         }
     }
 

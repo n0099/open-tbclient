@@ -45,19 +45,19 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
     public static final class b extends GeneratedMessageLite.Builder<LcmPb$LcmResponse, b> implements Object {
 
         /* renamed from: e  reason: collision with root package name */
-        public int f6440e;
+        public int f6340e;
 
         /* renamed from: f  reason: collision with root package name */
-        public long f6441f;
+        public long f6341f;
 
         /* renamed from: g  reason: collision with root package name */
-        public int f6442g;
+        public int f6342g;
 
         /* renamed from: h  reason: collision with root package name */
-        public Object f6443h = "";
+        public Object f6343h = "";
 
         /* renamed from: i  reason: collision with root package name */
-        public long f6444i;
+        public long f6344i;
 
         public b() {
             maybeForceBuilderInitialization();
@@ -74,12 +74,16 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public boolean hasErrorCode() {
-            return (this.f6440e & 2) == 2;
+            return (this.f6340e & 2) == 2;
+        }
+
+        public boolean hasErrorMsg() {
+            return (this.f6340e & 4) == 4;
         }
 
         @Override // com.google.protobuf.MessageLiteOrBuilder
         public final boolean isInitialized() {
-            return t() && hasErrorCode() && s();
+            return s() && hasErrorCode() && hasErrorMsg();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -98,7 +102,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
         @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ AbstractMessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            v(codedInputStream, extensionRegistryLite);
+            u(codedInputStream, extensionRegistryLite);
             return this;
         }
 
@@ -107,38 +111,38 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         /* renamed from: n */
         public LcmPb$LcmResponse buildPartial() {
             LcmPb$LcmResponse lcmPb$LcmResponse = new LcmPb$LcmResponse(this);
-            int i2 = this.f6440e;
+            int i2 = this.f6340e;
             int i3 = (i2 & 1) != 1 ? 0 : 1;
-            lcmPb$LcmResponse.logId_ = this.f6441f;
+            lcmPb$LcmResponse.logId_ = this.f6341f;
             if ((i2 & 2) == 2) {
                 i3 |= 2;
             }
-            lcmPb$LcmResponse.errorCode_ = this.f6442g;
+            lcmPb$LcmResponse.errorCode_ = this.f6342g;
             if ((i2 & 4) == 4) {
                 i3 |= 4;
             }
-            lcmPb$LcmResponse.errorMsg_ = this.f6443h;
+            lcmPb$LcmResponse.errorMsg_ = this.f6343h;
             if ((i2 & 8) == 8) {
                 i3 |= 8;
             }
-            lcmPb$LcmResponse.nextIntervalMs_ = this.f6444i;
+            lcmPb$LcmResponse.nextIntervalMs_ = this.f6344i;
             lcmPb$LcmResponse.bitField0_ = i3;
             return lcmPb$LcmResponse;
         }
 
         public b o() {
             super.clear();
-            this.f6441f = 0L;
-            int i2 = this.f6440e & (-2);
-            this.f6440e = i2;
-            this.f6442g = 0;
+            this.f6341f = 0L;
+            int i2 = this.f6340e & (-2);
+            this.f6340e = i2;
+            this.f6342g = 0;
             int i3 = i2 & (-3);
-            this.f6440e = i3;
-            this.f6443h = "";
+            this.f6340e = i3;
+            this.f6343h = "";
             int i4 = i3 & (-5);
-            this.f6440e = i4;
-            this.f6444i = 0L;
-            this.f6440e = i4 & (-9);
+            this.f6340e = i4;
+            this.f6344i = 0L;
+            this.f6340e = i4 & (-9);
             return this;
         }
 
@@ -147,7 +151,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         /* renamed from: p */
         public b clone() {
             b q = q();
-            q.u(buildPartial());
+            q.t(buildPartial());
             return q;
         }
 
@@ -159,29 +163,25 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         }
 
         public boolean s() {
-            return (this.f6440e & 4) == 4;
+            return (this.f6340e & 1) == 1;
         }
 
-        public boolean t() {
-            return (this.f6440e & 1) == 1;
-        }
-
-        public b u(LcmPb$LcmResponse lcmPb$LcmResponse) {
+        public b t(LcmPb$LcmResponse lcmPb$LcmResponse) {
             if (lcmPb$LcmResponse == LcmPb$LcmResponse.getDefaultInstance()) {
                 return this;
             }
             if (lcmPb$LcmResponse.hasLogId()) {
-                x(lcmPb$LcmResponse.getLogId());
+                w(lcmPb$LcmResponse.getLogId());
             }
             if (lcmPb$LcmResponse.hasErrorCode()) {
-                w(lcmPb$LcmResponse.getErrorCode());
+                v(lcmPb$LcmResponse.getErrorCode());
             }
             if (lcmPb$LcmResponse.hasErrorMsg()) {
-                this.f6440e |= 4;
-                this.f6443h = lcmPb$LcmResponse.errorMsg_;
+                this.f6340e |= 4;
+                this.f6343h = lcmPb$LcmResponse.errorMsg_;
             }
             if (lcmPb$LcmResponse.hasNextIntervalMs()) {
-                y(lcmPb$LcmResponse.getNextIntervalMs());
+                x(lcmPb$LcmResponse.getNextIntervalMs());
             }
             return this;
         }
@@ -190,13 +190,13 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public b v(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
+        public b u(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
             LcmPb$LcmResponse lcmPb$LcmResponse = null;
             try {
                 try {
                     LcmPb$LcmResponse parsePartialFrom = LcmPb$LcmResponse.PARSER.parsePartialFrom(codedInputStream, extensionRegistryLite);
                     if (parsePartialFrom != null) {
-                        u(parsePartialFrom);
+                        t(parsePartialFrom);
                     }
                     return this;
                 } catch (InvalidProtocolBufferException e2) {
@@ -207,7 +207,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
                         th = th;
                         lcmPb$LcmResponse = lcmPb$LcmResponse2;
                         if (lcmPb$LcmResponse != null) {
-                            u(lcmPb$LcmResponse);
+                            t(lcmPb$LcmResponse);
                         }
                         throw th;
                     }
@@ -220,21 +220,21 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
             }
         }
 
-        public b w(int i2) {
-            this.f6440e |= 2;
-            this.f6442g = i2;
+        public b v(int i2) {
+            this.f6340e |= 2;
+            this.f6342g = i2;
+            return this;
+        }
+
+        public b w(long j) {
+            this.f6340e |= 1;
+            this.f6341f = j;
             return this;
         }
 
         public b x(long j) {
-            this.f6440e |= 1;
-            this.f6441f = j;
-            return this;
-        }
-
-        public b y(long j) {
-            this.f6440e |= 8;
-            this.f6444i = j;
+            this.f6340e |= 8;
+            this.f6344i = j;
             return this;
         }
 
@@ -248,13 +248,13 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
         /* JADX DEBUG: Return type fixed from 'com.google.protobuf.GeneratedMessageLite$Builder' to match base method */
         @Override // com.google.protobuf.GeneratedMessageLite.Builder
         public /* bridge */ /* synthetic */ b mergeFrom(LcmPb$LcmResponse lcmPb$LcmResponse) {
-            u(lcmPb$LcmResponse);
+            t(lcmPb$LcmResponse);
             return this;
         }
 
         @Override // com.google.protobuf.AbstractMessageLite.Builder, com.google.protobuf.MessageLite.Builder
         public /* bridge */ /* synthetic */ MessageLite.Builder mergeFrom(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite) throws IOException {
-            v(codedInputStream, extensionRegistryLite);
+            u(codedInputStream, extensionRegistryLite);
             return this;
         }
     }
@@ -408,7 +408,7 @@ public final class LcmPb$LcmResponse extends GeneratedMessageLite implements Mes
 
     public static b newBuilder(LcmPb$LcmResponse lcmPb$LcmResponse) {
         b newBuilder = newBuilder();
-        newBuilder.u(lcmPb$LcmResponse);
+        newBuilder.t(lcmPb$LcmResponse);
         return newBuilder;
     }
 

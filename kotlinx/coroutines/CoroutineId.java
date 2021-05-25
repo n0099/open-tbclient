@@ -1,6 +1,5 @@
 package kotlinx.coroutines;
 
-import com.baidu.swan.apps.model.SwanTaskDeadEvent;
 import kotlin.Metadata;
 import kotlin.TypeCastException;
 import kotlin.coroutines.AbstractCoroutineContextElement;
@@ -111,7 +110,7 @@ public final class CoroutineId extends AbstractCoroutineContextElement implement
             sb.append(substring);
             sb.append(CoroutineContextKt.DEBUG_THREAD_NAME_SEPARATOR);
             sb.append(str);
-            sb.append(SwanTaskDeadEvent.SEPARATOR);
+            sb.append('#');
             sb.append(this.id);
             String sb2 = sb.toString();
             Intrinsics.checkExpressionValueIsNotNull(sb2, "StringBuilder(capacity).…builderAction).toString()");

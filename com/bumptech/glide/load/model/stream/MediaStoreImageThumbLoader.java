@@ -11,11 +11,11 @@ import com.bumptech.glide.load.model.ModelLoaderFactory;
 import com.bumptech.glide.load.model.MultiModelLoaderFactory;
 import com.bumptech.glide.signature.ObjectKey;
 import java.io.InputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class MediaStoreImageThumbLoader implements ModelLoader<Uri, InputStream> {
     public final Context context;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Factory implements ModelLoaderFactory<Uri, InputStream> {
         public final Context context;
 

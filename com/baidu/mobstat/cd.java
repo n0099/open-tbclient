@@ -11,19 +11,19 @@ import java.util.List;
 public abstract class cd {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f8857a = 1000;
+    public static int f8757a = 1000;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f8858b = 64;
+    public static int f8758b = 64;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final byte[] f8859c = dc.a("<policy-file-request/>\u0000");
+    public static final byte[] f8759c = dc.a("<policy-file-request/>\u0000");
 
     /* renamed from: d  reason: collision with root package name */
-    public by.b f8860d = null;
+    public by.b f8760d = null;
 
     /* renamed from: e  reason: collision with root package name */
-    public cq.a f8861e = null;
+    public cq.a f8761e = null;
 
     /* loaded from: classes2.dex */
     public enum a {
@@ -80,7 +80,7 @@ public abstract class cd {
     public abstract List<cq> c(ByteBuffer byteBuffer) throws ch;
 
     public cx d(ByteBuffer byteBuffer) throws cj {
-        return a(byteBuffer, this.f8860d);
+        return a(byteBuffer, this.f8760d);
     }
 
     /* JADX WARN: Multi-variable type inference failed */
@@ -167,6 +167,6 @@ public abstract class cd {
     }
 
     public void a(by.b bVar) {
-        this.f8860d = bVar;
+        this.f8760d = bVar;
     }
 }

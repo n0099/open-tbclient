@@ -5,19 +5,19 @@ import com.baidu.mapapi.map.InfoWindow;
 public class b implements InfoWindow.a {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ BaiduMap f7172a;
+    public final /* synthetic */ BaiduMap f7072a;
 
     public b(BaiduMap baiduMap) {
-        this.f7172a = baiduMap;
+        this.f7072a = baiduMap;
     }
 
     @Override // com.baidu.mapapi.map.InfoWindow.a
     public void a(InfoWindow infoWindow) {
-        this.f7172a.hideInfoWindow(infoWindow);
+        this.f7072a.hideInfoWindow(infoWindow);
     }
 
     @Override // com.baidu.mapapi.map.InfoWindow.a
     public void b(InfoWindow infoWindow) {
-        this.f7172a.a(infoWindow);
+        this.f7072a.a(infoWindow);
     }
 }

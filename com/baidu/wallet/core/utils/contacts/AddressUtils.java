@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class AddressUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f24001a = "AddressUtils";
+    public static final String f23930a = "AddressUtils";
 
     public static List<ContractInfo> getAllPhone(Context context) {
         return ContactManager.getIContactsImpl().loadAllPhone(context);

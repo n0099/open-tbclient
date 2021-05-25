@@ -24,10 +24,10 @@ public class fa {
     public byte[] f361b;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f37643b = gn.a(5) + "-";
+    public static String f37572b = gn.a(5) + "-";
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f37642a = 0;
+    public static long f37571a = 0;
 
     /* renamed from: a  reason: collision with other field name */
     public static final byte[] f356a = new byte[0];
@@ -101,9 +101,9 @@ public class fa {
         String sb;
         synchronized (fa.class) {
             StringBuilder sb2 = new StringBuilder();
-            sb2.append(f37643b);
-            long j = f37642a;
-            f37642a = 1 + j;
+            sb2.append(f37572b);
+            long j = f37571a;
+            f37571a = 1 + j;
             sb2.append(Long.toString(j));
             sb = sb2.toString();
         }

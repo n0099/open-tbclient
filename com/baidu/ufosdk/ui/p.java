@@ -7,10 +7,10 @@ import java.util.List;
 public final class p implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public final /* synthetic */ FeedbackEditActivity f22943a;
+    public final /* synthetic */ FeedbackEditActivity f22872a;
 
     public p(FeedbackEditActivity feedbackEditActivity) {
-        this.f22943a = feedbackEditActivity;
+        this.f22872a = feedbackEditActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -20,26 +20,26 @@ public final class p implements View.OnClickListener {
         List list2;
         HashMap hashMap;
         List list3;
-        z = this.f22943a.v;
+        z = this.f22872a.v;
         if (z) {
             return;
         }
-        list = this.f22943a.q;
+        list = this.f22872a.q;
         if (list.size() < 2) {
-            FeedbackEditActivity feedbackEditActivity = this.f22943a;
+            FeedbackEditActivity feedbackEditActivity = this.f22872a;
             list2 = feedbackEditActivity.q;
             list2.size();
             FeedbackEditActivity.s(feedbackEditActivity);
             return;
         }
         com.baidu.ufosdk.f.c.a("picShotLayout2 --> to browse picture!");
-        hashMap = this.f22943a.r;
+        hashMap = this.f22872a.r;
         String str = (String) hashMap.get("1");
         if (str != null && str.length() != 0) {
-            FeedbackEditActivity.a(this.f22943a, str, 1);
+            FeedbackEditActivity.a(this.f22872a, str, 1);
             return;
         }
-        FeedbackEditActivity feedbackEditActivity2 = this.f22943a;
+        FeedbackEditActivity feedbackEditActivity2 = this.f22872a;
         list3 = feedbackEditActivity2.q;
         feedbackEditActivity2.a((byte[]) list3.get(1), false, 1);
     }

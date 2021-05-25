@@ -5,26 +5,26 @@ import android.media.AudioRecord;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public byte[] f51023a;
+    public byte[] f40515a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AudioRecord f51024b;
+    public AudioRecord f40516b;
 
     /* renamed from: c  reason: collision with root package name */
-    public volatile boolean f51025c;
+    public volatile boolean f40517c;
 
     /* renamed from: d  reason: collision with root package name */
-    public volatile boolean f51026d;
+    public volatile boolean f40518d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f51027e;
+    public long f40519e;
 
     /* renamed from: f  reason: collision with root package name */
-    public volatile boolean f51028f;
+    public volatile boolean f40520f;
 
     /* renamed from: g  reason: collision with root package name */
-    public volatile boolean f51029g;
+    public volatile boolean f40521g;
 
     /* renamed from: h  reason: collision with root package name */
-    public d.a.k.c.a f51030h;
+    public d.a.k.c.a f40522h;
 }

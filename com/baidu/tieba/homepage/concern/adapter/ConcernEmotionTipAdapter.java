@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import d.a.c.j.e.a;
-import d.a.k0.a1.b.f.b;
+import d.a.n0.b1.b.f.b;
 /* loaded from: classes4.dex */
 public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> {
 
@@ -20,31 +20,31 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
     public static class ConcernEmotionTipViewHolder extends TypeAdapter.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public ViewGroup f16249a;
+        public ViewGroup f16152a;
 
         /* renamed from: b  reason: collision with root package name */
-        public ImageView f16250b;
+        public ImageView f16153b;
 
         /* renamed from: c  reason: collision with root package name */
-        public TextView f16251c;
+        public TextView f16154c;
 
         /* renamed from: d  reason: collision with root package name */
-        public int f16252d;
+        public int f16155d;
 
         public ConcernEmotionTipViewHolder(View view) {
             super(view);
-            this.f16252d = 3;
-            this.f16249a = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
-            this.f16250b = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
-            this.f16251c = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
+            this.f16155d = 3;
+            this.f16152a = (ViewGroup) view.findViewById(R.id.ll_concern_emotion_tip);
+            this.f16153b = (ImageView) view.findViewById(R.id.iv_concern_emotion_tip_pic);
+            this.f16154c = (TextView) view.findViewById(R.id.tv_concern_emotion_tip);
         }
 
         public void b(int i2, int i3) {
-            if (this.f16252d != i2) {
-                SkinManager.setViewTextColor(this.f16251c, R.color.CAM_X0107);
+            if (this.f16155d != i2) {
+                SkinManager.setViewTextColor(this.f16154c, R.color.CAM_X0107);
             }
-            SkinManager.setImageResource(this.f16250b, i3);
-            this.f16252d = i2;
+            SkinManager.setImageResource(this.f16153b, i3);
+            this.f16155d = i2;
         }
     }
 
@@ -63,18 +63,18 @@ public class ConcernEmotionTipAdapter extends a<b, ConcernEmotionTipViewHolder> 
     @Override // d.a.c.j.e.a
     /* renamed from: f0 */
     public View W(int i2, View view, ViewGroup viewGroup, b bVar, ConcernEmotionTipViewHolder concernEmotionTipViewHolder) {
-        String str = bVar.f51222f;
+        String str = bVar.f51387f;
         if (str != null) {
-            concernEmotionTipViewHolder.f16251c.setText(str);
+            concernEmotionTipViewHolder.f16154c.setText(str);
         }
         if (bVar.getType() == b.j) {
-            if (bVar.f51221e == 2) {
-                concernEmotionTipViewHolder.f16251c.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
+            if (bVar.f51386e == 2) {
+                concernEmotionTipViewHolder.f16154c.setText(TbadkCoreApplication.getInst().getString(R.string.concern_person_no_data_title));
             } else {
-                concernEmotionTipViewHolder.f16251c.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
+                concernEmotionTipViewHolder.f16154c.setText(TbadkCoreApplication.getInst().getString(R.string.concern_no_data_title));
             }
         }
-        int i3 = bVar.f51221e;
+        int i3 = bVar.f51386e;
         if (i3 == 2) {
             concernEmotionTipViewHolder.b(TbadkCoreApplication.getInst().getSkinType(), R.drawable.new_pic_emotion_07);
         } else if (i3 == 3) {

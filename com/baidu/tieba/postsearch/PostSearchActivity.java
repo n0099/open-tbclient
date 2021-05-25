@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import d.a.k0.n2.b;
-import d.a.k0.n2.d;
-import d.a.k0.n2.g;
+import d.a.n0.o2.b;
+import d.a.n0.o2.d;
+import d.a.n0.o2.g;
 /* loaded from: classes5.dex */
 public class PostSearchActivity extends BaseFragmentActivity {
     public static final String FORUM_SEARCH_CLICK = "c12842";

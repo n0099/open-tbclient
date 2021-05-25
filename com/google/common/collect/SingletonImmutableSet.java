@@ -6,7 +6,7 @@ import d.g.c.c.c1;
 public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     /* renamed from: e  reason: collision with root package name */
-    public transient int f31318e;
+    public transient int f31247e;
     public final transient E element;
 
     public SingletonImmutableSet(E e2) {
@@ -32,10 +32,10 @@ public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     @Override // com.google.common.collect.ImmutableSet, java.util.Collection, java.util.Set
     public final int hashCode() {
-        int i2 = this.f31318e;
+        int i2 = this.f31247e;
         if (i2 == 0) {
             int hashCode = this.element.hashCode();
-            this.f31318e = hashCode;
+            this.f31247e = hashCode;
             return hashCode;
         }
         return i2;
@@ -43,7 +43,7 @@ public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     @Override // com.google.common.collect.ImmutableSet
     public boolean isHashCodeFast() {
-        return this.f31318e != 0;
+        return this.f31247e != 0;
     }
 
     @Override // com.google.common.collect.ImmutableCollection
@@ -69,6 +69,6 @@ public final class SingletonImmutableSet<E> extends ImmutableSet<E> {
 
     public SingletonImmutableSet(E e2, int i2) {
         this.element = e2;
-        this.f31318e = i2;
+        this.f31247e = i2;
     }
 }

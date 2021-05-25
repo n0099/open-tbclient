@@ -26,9 +26,10 @@ import com.baidu.android.imsdk.utils.MsgUtility;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.sapi2.activity.LoadExternalWebViewActivity;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import d.a.r.a;
-import d.a.s.a.b.d.b;
+import d.a.s.a;
+import d.a.t.a.b.d.b;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -537,25 +538,30 @@ public class MessageParser {
             for (List<NewAckMessage.Tripule> list2 : splitList) {
                 final NewAckMessage newAckMessage = new NewAckMessage(context, IMSDK.getInstance(context).getUk(), j, z);
                 newAckMessage.addTriples(list2);
-                if (a.f64518e) {
+                if (a.f64463e) {
                     BLCPRequest bLCPRequest = new BLCPRequest();
-                    bLCPRequest.f6422a = 2L;
-                    bLCPRequest.f6423b = 95L;
-                    bLCPRequest.f6424c = newAckMessage.getBody().getBytes();
-                    bLCPRequest.f6425d = System.nanoTime();
-                    d.a.s.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
-                        @Override // d.a.s.a.b.d.b
+                    bLCPRequest.f6322a = 2L;
+                    bLCPRequest.f6323b = 95L;
+                    bLCPRequest.f6324c = newAckMessage.getBody().getBytes();
+                    bLCPRequest.f6325d = System.nanoTime();
+                    d.a.t.a.b.a.c(bLCPRequest, new b() { // from class: com.baidu.android.imsdk.internal.MessageParser.3
+                        @Override // d.a.t.a.b.d.b
                         public void onResponse(int i2, String str, long j2, long j3, long j4, byte[] bArr) {
                             LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i2 + ", methodId :" + j3 + ", data :" + bArr.length);
-                            if (j3 == 95) {
+                            if (i2 == 0) {
                                 try {
-                                    NewAckMessage.this.handleMessageResult(context, new JSONObject(new String(bArr)), i2, str);
-                                    if (i2 != 0) {
-                                        LogUtils.d(MessageParser.TAG, "ack failed，retry~~");
-                                        AckHandlerThread.getInstance(context).getAckHandler().sendMessageDelayed(AckMessage.getSendMessage(1, NewAckMessage.this), 1000L);
+                                    JSONObject jSONObject = new JSONObject(new String(bArr));
+                                    int optInt = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE, -1);
+                                    String optString = jSONObject.optString("msg", "");
+                                    if (j3 == 95) {
+                                        NewAckMessage.this.handleMessageResult(context, new JSONObject(new String(bArr)), optInt, optString);
+                                        if (optInt != 0) {
+                                            LogUtils.d(MessageParser.TAG, "ack failed，retry~~");
+                                            AckHandlerThread.getInstance(context).getAckHandler().sendMessageDelayed(AckMessage.getSendMessage(1, NewAckMessage.this), 1000L);
+                                        }
                                     }
                                 } catch (JSONException e2) {
-                                    LogUtils.e(MessageParser.TAG, "handle sendNewAckToServer response, e :", e2);
+                                    LogUtils.d(MessageParser.TAG, "handle sendNewAckToServer response：" + e2);
                                 }
                             }
                         }

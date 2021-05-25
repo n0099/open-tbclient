@@ -94,7 +94,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Glide implements ComponentCallbacks2 {
     public static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
     public static final String TAG = "Glide";

@@ -19,6 +19,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.alibaba.fastjson.asm.Label;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.mobads.container.adrequest.IAdRequestParam;
 import com.tencent.connect.common.Constants;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -37,43 +38,43 @@ import org.json.JSONObject;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f36559a = "";
+    public static String f36488a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f36560b = "";
+    public static String f36489b = "";
 
     /* renamed from: c  reason: collision with root package name */
-    public static String f36561c = "";
+    public static String f36490c = "";
 
     /* renamed from: d  reason: collision with root package name */
-    public static String f36562d = "";
+    public static String f36491d = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public static int f36563e = -1;
+    public static int f36492e = -1;
 
     /* renamed from: f  reason: collision with root package name */
-    public static String f36564f = null;
+    public static String f36493f = null;
 
     /* renamed from: g  reason: collision with root package name */
-    public static String f36565g = "0123456789ABCDEF";
+    public static String f36494g = "0123456789ABCDEF";
 
     /* loaded from: classes7.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f36566a;
+        public String f36495a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f36567b;
+        public long f36496b;
 
         /* renamed from: c  reason: collision with root package name */
-        public long f36568c;
+        public long f36497c;
 
         public a(String str, int i2) {
-            this.f36566a = str;
-            this.f36567b = i2;
+            this.f36495a = str;
+            this.f36496b = i2;
             if (str != null) {
-                this.f36568c = str.length();
+                this.f36497c = str.length();
             }
         }
     }
@@ -190,7 +191,7 @@ public class j {
             return "";
         }
         String d2 = d(context, str);
-        f36561c = d2;
+        f36490c = d2;
         return d2;
     }
 
@@ -228,7 +229,7 @@ public class j {
                 return "";
             }
             String str = lastKnownLocation.getLatitude() + "*" + lastKnownLocation.getLongitude();
-            f36564f = str;
+            f36493f = str;
             return str;
         } catch (Exception e2) {
             com.tencent.open.a.f.b("openSDK_LOG.Util", "getLocation>>>", e2);
@@ -281,7 +282,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f36559a;
+        return f36488a;
     }
 
     public static boolean d(Context context) {
@@ -322,10 +323,10 @@ public class j {
         try {
             PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
             String str2 = packageInfo.versionName;
-            f36560b = str2;
-            f36559a = str2.substring(0, str2.lastIndexOf(46));
-            f36562d = f36560b.substring(f36560b.lastIndexOf(46) + 1, f36560b.length());
-            f36563e = packageInfo.versionCode;
+            f36489b = str2;
+            f36488a = str2.substring(0, str2.lastIndexOf(46));
+            f36491d = f36489b.substring(f36489b.lastIndexOf(46) + 1, f36489b.length());
+            f36492e = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e2) {
             com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
         } catch (Exception e3) {
@@ -357,7 +358,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f36560b;
+        return f36489b;
     }
 
     public static boolean f(Context context, String str) {
@@ -522,7 +523,7 @@ public class j {
         bundle.putString("model_name", Build.MODEL);
         bundle.putString("sdk_ver", Constants.SDK_VERSION);
         bundle.putString("packagename", e.b());
-        bundle.putString("app_ver", d(e.a(), e.b()));
+        bundle.putString(IAdRequestParam.APV, d(e.a(), e.b()));
         return bundle;
     }
 

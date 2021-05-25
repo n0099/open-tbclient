@@ -9,24 +9,24 @@ import java.lang.ref.WeakReference;
 public class a extends com.bytedance.sdk.openadsdk.core.a.c {
 
     /* renamed from: a  reason: collision with root package name */
-    public WeakReference<View> f28090a;
+    public WeakReference<View> f28019a;
 
     /* renamed from: b  reason: collision with root package name */
-    public WeakReference<View> f28091b;
+    public WeakReference<View> f28020b;
 
     /* renamed from: c  reason: collision with root package name */
-    public j f28092c;
+    public j f28021c;
 
     public void a(j jVar) {
-        this.f28092c = jVar;
+        this.f28021c = jVar;
     }
 
     public void b(View view) {
-        this.f28091b = new WeakReference<>(view);
+        this.f28020b = new WeakReference<>(view);
     }
 
     public void a(View view) {
-        this.f28090a = new WeakReference<>(view);
+        this.f28019a = new WeakReference<>(view);
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.a.c
@@ -35,15 +35,15 @@ public class a extends com.bytedance.sdk.openadsdk.core.a.c {
     }
 
     private void a(int i2) {
-        if (this.f28092c != null) {
+        if (this.f28021c != null) {
             int[] iArr = new int[2];
             int[] iArr2 = new int[2];
-            WeakReference<View> weakReference = this.f28091b;
+            WeakReference<View> weakReference = this.f28020b;
             if (weakReference != null) {
                 iArr = al.a(weakReference.get());
-                iArr2 = al.c(this.f28091b.get());
+                iArr2 = al.c(this.f28020b.get());
             }
-            this.f28092c.a(i2, new j.a().d(this.s).c(this.t).b(this.u).a(this.v).b(this.w).a(this.x).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
+            this.f28021c.a(i2, new j.a().d(this.s).c(this.t).b(this.u).a(this.v).b(this.w).a(this.x).e(iArr[0]).f(iArr[1]).g(iArr2[0]).h(iArr2[1]).a());
         }
     }
 }

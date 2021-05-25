@@ -14,63 +14,63 @@ import java.util.Observer;
 public class a implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    public AudioRecorder f23178a;
+    public AudioRecorder f23107a;
 
     /* renamed from: b  reason: collision with root package name */
-    public FileOutputStream f23179b;
+    public FileOutputStream f23108b;
 
     /* renamed from: c  reason: collision with root package name */
-    public File f23180c = new File("/sdcard/cu.wav");
+    public File f23109c = new File("/sdcard/cu.wav");
 
     /* renamed from: d  reason: collision with root package name */
-    public b f23181d;
+    public b f23110d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f23182e;
+    public int f23111e;
 
     public a(AudioRecorder audioRecorder) {
-        this.f23178a = audioRecorder;
+        this.f23107a = audioRecorder;
     }
 
     @Override // java.util.Observer
     public void update(Observable observable, Object obj) {
-        if (observable != this.f23178a) {
+        if (observable != this.f23107a) {
             return;
         }
         if (obj instanceof AudioRecorder.State) {
             AudioRecorder.State state = (AudioRecorder.State) obj;
             if (AudioRecorder.State.OPEN == state) {
-                this.f23182e = 0;
+                this.f23111e = 0;
                 try {
-                    this.f23179b = new FileOutputStream(this.f23180c);
-                    FileInputStream fileInputStream = new FileInputStream(this.f23180c);
+                    this.f23108b = new FileOutputStream(this.f23109c);
+                    FileInputStream fileInputStream = new FileInputStream(this.f23109c);
                     b.a(fileInputStream).a();
                     fileInputStream.close();
                     b a2 = b.a(1, 16, 8000, 0);
-                    this.f23181d = a2;
-                    a2.a(this.f23179b);
+                    this.f23110d = a2;
+                    a2.a(this.f23108b);
                 } catch (Exception e2) {
                     e2.printStackTrace();
                 }
             } else if (AudioRecorder.State.STOP == state) {
                 try {
-                    this.f23179b.close();
-                    this.f23181d = b.a(1, 16, 8000, this.f23182e);
-                    RandomAccessFile randomAccessFile = new RandomAccessFile(this.f23180c, "rw");
-                    this.f23181d.a(randomAccessFile);
-                    this.f23181d.a();
+                    this.f23108b.close();
+                    this.f23110d = b.a(1, 16, 8000, this.f23111e);
+                    RandomAccessFile randomAccessFile = new RandomAccessFile(this.f23109c, "rw");
+                    this.f23110d.a(randomAccessFile);
+                    this.f23110d.a();
                     randomAccessFile.close();
                 } catch (IOException e3) {
                     e3.printStackTrace();
                 }
-                this.f23179b = null;
+                this.f23108b = null;
             }
-        } else if (!(obj instanceof Buffer) || this.f23179b == null) {
+        } else if (!(obj instanceof Buffer) || this.f23108b == null) {
         } else {
             ByteBuffer byteBuffer = (ByteBuffer) obj;
             try {
-                this.f23182e += byteBuffer.remaining();
-                this.f23179b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+                this.f23111e += byteBuffer.remaining();
+                this.f23108b.write(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
             } catch (IOException e4) {
                 e4.printStackTrace();
             }

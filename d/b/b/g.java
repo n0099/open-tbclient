@@ -4,20 +4,20 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import java.util.UUID;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g extends h2 {
 
     /* renamed from: e  reason: collision with root package name */
-    public final Context f64979e;
+    public final Context f65022e;
 
     public g(Context context) {
         super(false, false);
-        this.f64979e = context;
+        this.f65022e = context;
     }
 
     @Override // d.b.b.h2
     public boolean b(JSONObject jSONObject) {
-        SharedPreferences sharedPreferences = this.f64979e.getSharedPreferences("snssdk_openudid", 0);
+        SharedPreferences sharedPreferences = this.f65022e.getSharedPreferences("snssdk_openudid", 0);
         String string = sharedPreferences.getString("clientudid", null);
         if (!j.n(string)) {
             try {

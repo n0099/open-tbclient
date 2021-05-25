@@ -105,5 +105,8 @@ public class SyncSwitch {
         SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
         SwitchManager.getInstance().registerSwitch(WorkIntroSwitch.class);
         SwitchManager.getInstance().registerSwitch(CreateCenterTipSwitch.class);
+        SwitchManager.getInstance().registerSwitch(FollowListSwitch.class);
+        SwitchManager.getInstance().registerSwitch(SplashDealyTimeoutSwitch.class);
+        SwitchManager.getInstance().registerSwitch(IColorSDKSwitch.class);
     }
 }

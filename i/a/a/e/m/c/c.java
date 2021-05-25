@@ -23,16 +23,16 @@ import kotlin.text.StringsKt__StringsKt;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final c f68858a = new c();
+    public static final c f68901a = new c();
 
     /* loaded from: classes8.dex */
     public static final class a implements InputFilter {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ int f68859e;
+        public final /* synthetic */ int f68902e;
 
         public a(int i2) {
-            this.f68859e = i2;
+            this.f68902e = i2;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -50,7 +50,7 @@ public final class c {
                 if (obj != null) {
                     String substring = obj.substring(indexOf$default);
                     Intrinsics.checkExpressionValueIsNotNull(substring, "(this as java.lang.String).substring(startIndex)");
-                    if (substring.length() == this.f68859e + 1) {
+                    if (substring.length() == this.f68902e + 1) {
                         return "";
                     }
                 } else {
@@ -65,45 +65,45 @@ public final class c {
     public static final class b implements DialogInterface.OnDismissListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.b f68860e;
+        public final /* synthetic */ i.a.a.e.m.c.b f68903e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.a f68861f;
+        public final /* synthetic */ i.a.a.e.m.c.a f68904f;
 
         public b(i.a.a.e.m.c.b bVar, i.a.a.e.m.c.a aVar) {
-            this.f68860e = bVar;
-            this.f68861f = aVar;
+            this.f68903e = bVar;
+            this.f68904f = aVar;
         }
 
         @Override // android.content.DialogInterface.OnDismissListener
         public final void onDismiss(DialogInterface dialogInterface) {
-            i.a.a.e.m.c.b bVar = this.f68860e;
+            i.a.a.e.m.c.b bVar = this.f68903e;
             if (bVar != null) {
                 bVar.cancel();
             }
-            this.f68861f.dismiss();
+            this.f68904f.dismiss();
         }
     }
 
     /* renamed from: i.a.a.e.m.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class DialogInterface$OnCancelListenerC1941c implements DialogInterface.OnCancelListener {
+    public static final class DialogInterface$OnCancelListenerC1945c implements DialogInterface.OnCancelListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.a f68862e;
+        public final /* synthetic */ i.a.a.e.m.c.a f68905e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.b f68863f;
+        public final /* synthetic */ i.a.a.e.m.c.b f68906f;
 
-        public DialogInterface$OnCancelListenerC1941c(i.a.a.e.m.c.a aVar, i.a.a.e.m.c.b bVar) {
-            this.f68862e = aVar;
-            this.f68863f = bVar;
+        public DialogInterface$OnCancelListenerC1945c(i.a.a.e.m.c.a aVar, i.a.a.e.m.c.b bVar) {
+            this.f68905e = aVar;
+            this.f68906f = bVar;
         }
 
         @Override // android.content.DialogInterface.OnCancelListener
         public final void onCancel(DialogInterface dialogInterface) {
-            this.f68862e.dismiss();
-            i.a.a.e.m.c.b bVar = this.f68863f;
+            this.f68905e.dismiss();
+            i.a.a.e.m.c.b bVar = this.f68906f;
             if (bVar != null) {
                 bVar.cancel();
             }
@@ -114,15 +114,15 @@ public final class c {
     public static final class d implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.a f68864e;
+        public final /* synthetic */ i.a.a.e.m.c.a f68907e;
 
         public d(i.a.a.e.m.c.a aVar) {
-            this.f68864e = aVar;
+            this.f68907e = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            this.f68864e.dismiss();
+            this.f68907e.dismiss();
         }
     }
 
@@ -130,50 +130,50 @@ public final class c {
     public static final class e implements TextView.OnEditorActionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ EditText f68865a;
+        public final /* synthetic */ EditText f68908a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.b f68866b;
+        public final /* synthetic */ i.a.a.e.m.c.b f68909b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final /* synthetic */ Activity f68867c;
+        public final /* synthetic */ Activity f68910c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.a f68868d;
+        public final /* synthetic */ i.a.a.e.m.c.a f68911d;
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f68869e;
+        public final /* synthetic */ TextView f68912e;
 
         public e(EditText editText, i.a.a.e.m.c.b bVar, Activity activity, i.a.a.e.m.c.a aVar, TextView textView) {
-            this.f68865a = editText;
-            this.f68866b = bVar;
-            this.f68867c = activity;
-            this.f68868d = aVar;
-            this.f68869e = textView;
+            this.f68908a = editText;
+            this.f68909b = bVar;
+            this.f68910c = activity;
+            this.f68911d = aVar;
+            this.f68912e = textView;
         }
 
         @Override // android.widget.TextView.OnEditorActionListener
         public final boolean onEditorAction(TextView textView, int i2, KeyEvent keyEvent) {
             if (i2 == 6) {
-                c cVar = c.f68858a;
-                EditText etInput = this.f68865a;
+                c cVar = c.f68901a;
+                EditText etInput = this.f68908a;
                 Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
                 boolean e2 = cVar.e(etInput.getText().toString());
                 if (e2) {
-                    if (this.f68866b != null) {
-                        EditText etInput2 = this.f68865a;
+                    if (this.f68909b != null) {
+                        EditText etInput2 = this.f68908a;
                         Intrinsics.checkExpressionValueIsNotNull(etInput2, "etInput");
-                        int c2 = c.f68858a.c(this.f68867c, etInput2.getText().toString());
+                        int c2 = c.f68901a.c(this.f68910c, etInput2.getText().toString());
                         if (c2 > 0) {
-                            this.f68866b.a(c2);
-                            i.a.a.e.l.c.a(this.f68867c, this.f68865a);
+                            this.f68909b.a(c2);
+                            i.a.a.e.l.c.a(this.f68910c, this.f68908a);
                         } else {
                             d.r.b.a.a.f.d.d.e("DialogUtils", "tOnEditorAction amount <= 0", new Object[0]);
                         }
                     }
-                    this.f68868d.dismiss();
+                    this.f68911d.dismiss();
                 }
-                this.f68869e.setTextColor(this.f68867c.getResources().getColor(e2 ? i.a.a.e.a.color_858585 : i.a.a.e.a.color_FF3355));
+                this.f68912e.setTextColor(this.f68910c.getResources().getColor(e2 ? i.a.a.e.a.color_858585 : i.a.a.e.a.color_FF3355));
             }
             return false;
         }
@@ -183,26 +183,26 @@ public final class c {
     public static final class f implements TextWatcher {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ TextView f68870e;
+        public final /* synthetic */ TextView f68913e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ TextView f68871f;
+        public final /* synthetic */ TextView f68914f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ EditText f68872g;
+        public final /* synthetic */ EditText f68915g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ TextView f68873h;
+        public final /* synthetic */ TextView f68916h;
 
         /* renamed from: i  reason: collision with root package name */
-        public final /* synthetic */ Activity f68874i;
+        public final /* synthetic */ Activity f68917i;
 
         public f(TextView textView, TextView textView2, EditText editText, TextView textView3, Activity activity) {
-            this.f68870e = textView;
-            this.f68871f = textView2;
-            this.f68872g = editText;
-            this.f68873h = textView3;
-            this.f68874i = activity;
+            this.f68913e = textView;
+            this.f68914f = textView2;
+            this.f68915g = editText;
+            this.f68916h = textView3;
+            this.f68917i = activity;
         }
 
         @Override // android.text.TextWatcher
@@ -210,33 +210,33 @@ public final class c {
             double b2;
             if (editable != null && !Intrinsics.areEqual(editable.toString(), "")) {
                 if (!Intrinsics.areEqual(editable.toString(), "0")) {
-                    boolean e2 = c.f68858a.e(editable.toString());
-                    TextView btnOk = this.f68871f;
+                    boolean e2 = c.f68901a.e(editable.toString());
+                    TextView btnOk = this.f68914f;
                     Intrinsics.checkExpressionValueIsNotNull(btnOk, "btnOk");
                     btnOk.setEnabled(e2);
                     if (i.a.a.e.l.d.b(editable.toString()) >= 10000) {
                         String str = i.a.a.e.l.d.a(b2 / 10000.0f) + (char) 19975;
-                        TextView tvInputAmount = this.f68870e;
+                        TextView tvInputAmount = this.f68913e;
                         Intrinsics.checkExpressionValueIsNotNull(tvInputAmount, "tvInputAmount");
                         tvInputAmount.setText(str);
                     } else {
-                        TextView tvInputAmount2 = this.f68870e;
+                        TextView tvInputAmount2 = this.f68913e;
                         Intrinsics.checkExpressionValueIsNotNull(tvInputAmount2, "tvInputAmount");
                         tvInputAmount2.setText(editable);
                     }
-                    this.f68873h.setTextColor(this.f68874i.getResources().getColor(e2 ? i.a.a.e.a.color_858585 : i.a.a.e.a.color_FF3355));
+                    this.f68916h.setTextColor(this.f68917i.getResources().getColor(e2 ? i.a.a.e.a.color_858585 : i.a.a.e.a.color_FF3355));
                     return;
                 }
-                this.f68872g.setText("");
-                TextView btnOk2 = this.f68871f;
+                this.f68915g.setText("");
+                TextView btnOk2 = this.f68914f;
                 Intrinsics.checkExpressionValueIsNotNull(btnOk2, "btnOk");
                 btnOk2.setEnabled(false);
                 return;
             }
-            TextView tvInputAmount3 = this.f68870e;
+            TextView tvInputAmount3 = this.f68913e;
             Intrinsics.checkExpressionValueIsNotNull(tvInputAmount3, "tvInputAmount");
             tvInputAmount3.setText("");
-            TextView btnOk3 = this.f68871f;
+            TextView btnOk3 = this.f68914f;
             Intrinsics.checkExpressionValueIsNotNull(btnOk3, "btnOk");
             btnOk3.setEnabled(false);
         }
@@ -254,24 +254,24 @@ public final class c {
     public static final class g implements Runnable {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ EditText f68875e;
+        public final /* synthetic */ EditText f68918e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ Activity f68876f;
+        public final /* synthetic */ Activity f68919f;
 
         public g(EditText editText, Activity activity) {
-            this.f68875e = editText;
-            this.f68876f = activity;
+            this.f68918e = editText;
+            this.f68919f = activity;
         }
 
         @Override // java.lang.Runnable
         public final void run() {
-            this.f68875e.requestFocus();
-            Activity activity = this.f68876f;
+            this.f68918e.requestFocus();
+            Activity activity = this.f68919f;
             if (activity == null) {
                 throw new TypeCastException("null cannot be cast to non-null type android.app.Activity");
             }
-            i.a.a.e.l.c.b(activity, this.f68875e);
+            i.a.a.e.l.c.b(activity, this.f68918e);
         }
     }
 
@@ -279,23 +279,23 @@ public final class c {
     public static final class h implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.b f68877e;
+        public final /* synthetic */ i.a.a.e.m.c.b f68920e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.a f68878f;
+        public final /* synthetic */ i.a.a.e.m.c.a f68921f;
 
         public h(i.a.a.e.m.c.b bVar, i.a.a.e.m.c.a aVar) {
-            this.f68877e = bVar;
-            this.f68878f = aVar;
+            this.f68920e = bVar;
+            this.f68921f = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            i.a.a.e.m.c.b bVar = this.f68877e;
+            i.a.a.e.m.c.b bVar = this.f68920e;
             if (bVar != null) {
                 bVar.cancel();
             }
-            this.f68878f.dismiss();
+            this.f68921f.dismiss();
         }
     }
 
@@ -303,38 +303,38 @@ public final class c {
     public static final class i implements View.OnClickListener {
 
         /* renamed from: e  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.b f68879e;
+        public final /* synthetic */ i.a.a.e.m.c.b f68922e;
 
         /* renamed from: f  reason: collision with root package name */
-        public final /* synthetic */ EditText f68880f;
+        public final /* synthetic */ EditText f68923f;
 
         /* renamed from: g  reason: collision with root package name */
-        public final /* synthetic */ Activity f68881g;
+        public final /* synthetic */ Activity f68924g;
 
         /* renamed from: h  reason: collision with root package name */
-        public final /* synthetic */ i.a.a.e.m.c.a f68882h;
+        public final /* synthetic */ i.a.a.e.m.c.a f68925h;
 
         public i(i.a.a.e.m.c.b bVar, EditText editText, Activity activity, i.a.a.e.m.c.a aVar) {
-            this.f68879e = bVar;
-            this.f68880f = editText;
-            this.f68881g = activity;
-            this.f68882h = aVar;
+            this.f68922e = bVar;
+            this.f68923f = editText;
+            this.f68924g = activity;
+            this.f68925h = aVar;
         }
 
         @Override // android.view.View.OnClickListener
         public final void onClick(View view) {
-            if (this.f68879e != null) {
-                EditText etInput = this.f68880f;
+            if (this.f68922e != null) {
+                EditText etInput = this.f68923f;
                 Intrinsics.checkExpressionValueIsNotNull(etInput, "etInput");
-                int c2 = c.f68858a.c(this.f68881g, etInput.getText().toString());
+                int c2 = c.f68901a.c(this.f68924g, etInput.getText().toString());
                 if (c2 > 0) {
-                    this.f68879e.a(c2);
-                    i.a.a.e.l.c.a(this.f68881g, this.f68880f);
+                    this.f68922e.a(c2);
+                    i.a.a.e.l.c.a(this.f68924g, this.f68923f);
                 } else {
                     d.r.b.a.a.f.d.d.e("DialogUtils", "btnOk amount <= 0", new Object[0]);
                 }
             }
-            this.f68882h.dismiss();
+            this.f68925h.dismiss();
         }
     }
 
@@ -386,7 +386,7 @@ public final class c {
     }
 
     public final Dialog f(Activity activity, i.a.a.e.m.c.b bVar) {
-        if (!i.a.a.e.l.e.f68842a.a(activity)) {
+        if (!i.a.a.e.l.e.f68885a.a(activity)) {
             d.r.b.a.a.f.d.d.e("DialogUtils", "showSimpleNumberInputDialog ActivityInvalid....", new Object[0]);
             return null;
         }
@@ -395,7 +395,7 @@ public final class c {
         aVar.setCanceledOnTouchOutside(true);
         aVar.show();
         aVar.setOnDismissListener(new b(bVar, aVar));
-        aVar.setOnCancelListener(new DialogInterface$OnCancelListenerC1941c(aVar, bVar));
+        aVar.setOnCancelListener(new DialogInterface$OnCancelListenerC1945c(aVar, bVar));
         Window window = aVar.getWindow();
         if (window == null) {
             Intrinsics.throwNpe();

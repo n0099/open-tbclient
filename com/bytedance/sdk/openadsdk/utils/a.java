@@ -11,20 +11,20 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    public volatile InterfaceC0320a f30209a;
+    public volatile InterfaceC0321a f30138a;
 
     /* renamed from: b  reason: collision with root package name */
-    public AtomicInteger f30210b = new AtomicInteger(0);
+    public AtomicInteger f30139b = new AtomicInteger(0);
 
     /* renamed from: c  reason: collision with root package name */
-    public AtomicBoolean f30211c = new AtomicBoolean(false);
+    public AtomicBoolean f30140c = new AtomicBoolean(false);
 
     /* renamed from: d  reason: collision with root package name */
-    public HashSet<Integer> f30212d = new HashSet<>();
+    public HashSet<Integer> f30141d = new HashSet<>();
 
     /* renamed from: com.bytedance.sdk.openadsdk.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0320a {
+    public interface InterfaceC0321a {
         void a();
 
         void b();
@@ -56,46 +56,46 @@ public class a implements Application.ActivityLifecycleCallbacks {
     }
 
     public boolean a() {
-        return this.f30211c.get();
+        return this.f30140c.get();
     }
 
     public void b() {
-        if (this.f30209a != null) {
-            this.f30209a = null;
+        if (this.f30138a != null) {
+            this.f30138a = null;
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(Activity activity, Bundle bundle) {
-        if (this.f30209a != null) {
-            this.f30209a.d();
+        if (this.f30138a != null) {
+            this.f30138a.d();
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityDestroyed(Activity activity) {
         if (activity != null) {
-            this.f30212d.remove(Integer.valueOf(activity.hashCode()));
+            this.f30141d.remove(Integer.valueOf(activity.hashCode()));
         }
-        if (this.f30209a != null) {
-            this.f30209a.f();
+        if (this.f30138a != null) {
+            this.f30138a.f();
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
-        if (this.f30209a != null) {
-            this.f30209a.c();
+        if (this.f30138a != null) {
+            this.f30138a.c();
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityResumed(Activity activity) {
         if (activity != null) {
-            this.f30212d.add(Integer.valueOf(activity.hashCode()));
+            this.f30141d.add(Integer.valueOf(activity.hashCode()));
         }
-        if (this.f30209a != null) {
-            this.f30209a.a();
+        if (this.f30138a != null) {
+            this.f30138a.a();
         }
         d.b.c.b.a.c(activity);
     }
@@ -106,30 +106,30 @@ public class a implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        if (this.f30210b.incrementAndGet() > 0) {
-            this.f30211c.set(false);
+        if (this.f30139b.incrementAndGet() > 0) {
+            this.f30140c.set(false);
         }
         c();
-        if (this.f30209a != null) {
-            this.f30209a.b();
+        if (this.f30138a != null) {
+            this.f30138a.b();
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        if (this.f30210b.decrementAndGet() == 0) {
-            this.f30211c.set(true);
+        if (this.f30139b.decrementAndGet() == 0) {
+            this.f30140c.set(true);
         }
-        if (this.f30209a != null) {
-            this.f30209a.e();
+        if (this.f30138a != null) {
+            this.f30138a.e();
         }
     }
 
     public boolean a(Activity activity) {
-        return activity != null && this.f30212d.contains(Integer.valueOf(activity.hashCode()));
+        return activity != null && this.f30141d.contains(Integer.valueOf(activity.hashCode()));
     }
 
-    public void a(InterfaceC0320a interfaceC0320a) {
-        this.f30209a = interfaceC0320a;
+    public void a(InterfaceC0321a interfaceC0321a) {
+        this.f30138a = interfaceC0321a;
     }
 }

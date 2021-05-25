@@ -8,44 +8,44 @@ import java.util.Collection;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int f3944a = 10001;
+    public static final int f3947a = 10001;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3945b = 10002;
+    public static final int f3948b = 10002;
 
     /* renamed from: c  reason: collision with root package name */
-    public static final int f3946c = 10003;
+    public static final int f3949c = 10003;
 
     /* renamed from: e  reason: collision with root package name */
-    public static Handler f3947e;
+    public static Handler f3950e;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f3948d;
+    public boolean f3951d;
 
     /* loaded from: classes.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static d f3950a = new d();
+        public static d f3953a = new d();
     }
 
     public static d a() {
-        return a.f3950a;
+        return a.f3953a;
     }
 
     public boolean b() {
-        if (this.f3948d) {
+        if (this.f3951d) {
             return false;
         }
-        this.f3948d = true;
-        f3947e.sendEmptyMessage(10003);
+        this.f3951d = true;
+        f3950e.sendEmptyMessage(10003);
         LogSender.getInstance().a();
         return true;
     }
 
     public d() {
-        this.f3948d = false;
-        f3947e = new Handler(b.a().b().getLooper()) { // from class: com.baidu.apollon.statistics.d.1
+        this.f3951d = false;
+        f3950e = new Handler(b.a().b().getLooper()) { // from class: com.baidu.apollon.statistics.d.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
                 int i2 = message.what;
@@ -84,10 +84,10 @@ public class d {
         if (!b() && g.a().b()) {
             LogSender.getInstance().a();
         }
-        f3947e.obtainMessage(10001, e.a(str, j, str2, f.a(), com.baidu.apollon.statistics.a.a(), collection, str3)).sendToTarget();
+        f3950e.obtainMessage(10001, e.a(str, j, str2, f.a(), com.baidu.apollon.statistics.a.a(), collection, str3)).sendToTarget();
     }
 
     public void a(String str, int i2) {
-        f3947e.obtainMessage(10002, i2, -1, str).sendToTarget();
+        f3950e.obtainMessage(10002, i2, -1, str).sendToTarget();
     }
 }

@@ -7,54 +7,54 @@ import com.baidu.ufosdk.f.c;
 public final class b extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f22536a;
+    public Context f22465a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f22537b = false;
+    public boolean f22466b = false;
 
     /* renamed from: c  reason: collision with root package name */
-    public boolean f22538c = false;
+    public boolean f22467c = false;
 
     /* renamed from: d  reason: collision with root package name */
-    public boolean f22539d = false;
+    public boolean f22468d = false;
 
     /* renamed from: e  reason: collision with root package name */
-    public final long f22540e = 300;
+    public final long f22469e = 300;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f22541f = "";
+    public String f22470f = "";
 
     public b(Context context) {
-        this.f22536a = context;
+        this.f22465a = context;
     }
 
     public final void a() {
-        this.f22537b = true;
+        this.f22466b = true;
     }
 
     public final void b() {
-        this.f22537b = false;
+        this.f22466b = false;
     }
 
     @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         String str = UfoSDK.clientid;
-        this.f22541f = str;
+        this.f22470f = str;
         if (str.length() == 0) {
             return;
         }
-        while (!this.f22537b) {
+        while (!this.f22466b) {
             c.b("@@@@@@@@@@@@@@@@@@@@@");
             try {
                 Thread.sleep(300L);
             } catch (InterruptedException e2) {
                 c.a("Interrupted!", e2);
             }
-            if (!this.f22538c) {
-                com.baidu.ufosdk.e.a.c(this.f22536a);
+            if (!this.f22467c) {
+                com.baidu.ufosdk.e.a.c(this.f22465a);
             }
             try {
-                if (!this.f22539d) {
+                if (!this.f22468d) {
                     Thread.sleep(com.baidu.ufosdk.b.ai * 1000);
                 }
             } catch (InterruptedException unused) {

@@ -21,10 +21,10 @@ public interface IYYPayWayView extends i.a.a.e.m.a {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public List<g> f69563a;
+        public List<g> f69606a;
 
         /* renamed from: b  reason: collision with root package name */
-        public i.a.a.e.j.b f69564b;
+        public i.a.a.e.j.b f69607b;
     }
 
     void setCallback(a aVar);

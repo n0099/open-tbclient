@@ -13,27 +13,27 @@ import java.util.Map;
 public final class g implements w {
 
     /* renamed from: a  reason: collision with root package name */
-    public final boolean f29768a;
+    public final boolean f29697a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final com.bytedance.sdk.openadsdk.preload.a.b.c f29769b;
+    public final com.bytedance.sdk.openadsdk.preload.a.b.c f29698b;
 
     /* loaded from: classes6.dex */
     public final class a<K, V> extends v<Map<K, V>> {
 
         /* renamed from: b  reason: collision with root package name */
-        public final v<K> f29771b;
+        public final v<K> f29700b;
 
         /* renamed from: c  reason: collision with root package name */
-        public final v<V> f29772c;
+        public final v<V> f29701c;
 
         /* renamed from: d  reason: collision with root package name */
-        public final com.bytedance.sdk.openadsdk.preload.a.b.i<? extends Map<K, V>> f29773d;
+        public final com.bytedance.sdk.openadsdk.preload.a.b.i<? extends Map<K, V>> f29702d;
 
         public a(com.bytedance.sdk.openadsdk.preload.a.f fVar, Type type, v<K> vVar, Type type2, v<V> vVar2, com.bytedance.sdk.openadsdk.preload.a.b.i<? extends Map<K, V>> iVar) {
-            this.f29771b = new m(fVar, vVar, type);
-            this.f29772c = new m(fVar, vVar2, type2);
-            this.f29773d = iVar;
+            this.f29700b = new m(fVar, vVar, type);
+            this.f29701c = new m(fVar, vVar2, type2);
+            this.f29702d = iVar;
         }
 
         @Override // com.bytedance.sdk.openadsdk.preload.a.v
@@ -50,13 +50,13 @@ public final class g implements w {
                 aVar.j();
                 return null;
             }
-            Map<K, V> a2 = this.f29773d.a();
+            Map<K, V> a2 = this.f29702d.a();
             if (f2 == com.bytedance.sdk.openadsdk.preload.a.d.b.BEGIN_ARRAY) {
                 aVar.a();
                 while (aVar.e()) {
                     aVar.a();
-                    K b2 = this.f29771b.b(aVar);
-                    if (a2.put(b2, this.f29772c.b(aVar)) == null) {
+                    K b2 = this.f29700b.b(aVar);
+                    if (a2.put(b2, this.f29701c.b(aVar)) == null) {
                         aVar.b();
                     } else {
                         throw new t("duplicate key: " + b2);
@@ -66,9 +66,9 @@ public final class g implements w {
             } else {
                 aVar.c();
                 while (aVar.e()) {
-                    com.bytedance.sdk.openadsdk.preload.a.b.f.f29891a.a(aVar);
-                    K b3 = this.f29771b.b(aVar);
-                    if (a2.put(b3, this.f29772c.b(aVar)) != null) {
+                    com.bytedance.sdk.openadsdk.preload.a.b.f.f29820a.a(aVar);
+                    K b3 = this.f29700b.b(aVar);
+                    if (a2.put(b3, this.f29701c.b(aVar)) != null) {
                         throw new t("duplicate key: " + b3);
                     }
                 }
@@ -83,11 +83,11 @@ public final class g implements w {
         public void a(com.bytedance.sdk.openadsdk.preload.a.d.c cVar, Map<K, V> map) throws IOException {
             if (map == null) {
                 cVar.f();
-            } else if (!g.this.f29768a) {
+            } else if (!g.this.f29697a) {
                 cVar.d();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
                     cVar.a(String.valueOf(entry.getKey()));
-                    this.f29772c.a(cVar, entry.getValue());
+                    this.f29701c.a(cVar, entry.getValue());
                 }
                 cVar.e();
             } else {
@@ -96,7 +96,7 @@ public final class g implements w {
                 int i2 = 0;
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    com.bytedance.sdk.openadsdk.preload.a.l a2 = this.f29771b.a(entry2.getKey());
+                    com.bytedance.sdk.openadsdk.preload.a.l a2 = this.f29700b.a(entry2.getKey());
                     arrayList.add(a2);
                     arrayList2.add(entry2.getValue());
                     z |= a2.g() || a2.h();
@@ -107,7 +107,7 @@ public final class g implements w {
                     while (i2 < size) {
                         cVar.b();
                         com.bytedance.sdk.openadsdk.preload.a.b.l.a((com.bytedance.sdk.openadsdk.preload.a.l) arrayList.get(i2), cVar);
-                        this.f29772c.a(cVar, arrayList2.get(i2));
+                        this.f29701c.a(cVar, arrayList2.get(i2));
                         cVar.c();
                         i2++;
                     }
@@ -118,7 +118,7 @@ public final class g implements w {
                 int size2 = arrayList.size();
                 while (i2 < size2) {
                     cVar.a(a((com.bytedance.sdk.openadsdk.preload.a.l) arrayList.get(i2)));
-                    this.f29772c.a(cVar, arrayList2.get(i2));
+                    this.f29701c.a(cVar, arrayList2.get(i2));
                     i2++;
                 }
                 cVar.e();
@@ -147,8 +147,8 @@ public final class g implements w {
     }
 
     public g(com.bytedance.sdk.openadsdk.preload.a.b.c cVar, boolean z) {
-        this.f29769b = cVar;
-        this.f29768a = z;
+        this.f29698b = cVar;
+        this.f29697a = z;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.w
@@ -156,7 +156,7 @@ public final class g implements w {
         Type b2 = aVar.b();
         if (Map.class.isAssignableFrom(aVar.a())) {
             Type[] b3 = com.bytedance.sdk.openadsdk.preload.a.b.b.b(b2, com.bytedance.sdk.openadsdk.preload.a.b.b.e(b2));
-            return new a(fVar, b3[0], a(fVar, b3[0]), b3[1], fVar.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(b3[1])), this.f29769b.a(aVar));
+            return new a(fVar, b3[0], a(fVar, b3[0]), b3[1], fVar.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(b3[1])), this.f29698b.a(aVar));
         }
         return null;
     }
@@ -165,6 +165,6 @@ public final class g implements w {
         if (type != Boolean.TYPE && type != Boolean.class) {
             return fVar.a((com.bytedance.sdk.openadsdk.preload.a.c.a) com.bytedance.sdk.openadsdk.preload.a.c.a.a(type));
         }
-        return n.f29818f;
+        return n.f29747f;
     }
 }

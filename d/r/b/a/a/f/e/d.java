@@ -8,25 +8,25 @@ import org.json.JSONObject;
 public class d extends h {
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67691b;
+    public String f67734b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67692c;
+    public String f67735c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67693d;
+    public int f67736d;
 
     /* renamed from: e  reason: collision with root package name */
-    public int f67694e;
+    public int f67737e;
 
     /* renamed from: f  reason: collision with root package name */
-    public int f67695f;
+    public int f67738f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f67696g;
+    public int f67739g;
 
     /* renamed from: h  reason: collision with root package name */
-    public String f67697h;
+    public String f67740h;
 
     public d(byte[] bArr) {
         super(bArr);
@@ -35,14 +35,14 @@ public class d extends h {
     @Override // d.r.b.a.a.f.e.h
     public void k() {
         try {
-            this.f67691b = g();
-            JSONObject jSONObject = new JSONObject(this.f67691b);
-            this.f67692c = jSONObject.optString(IAdRequestParam.SEQ);
-            this.f67693d = jSONObject.optInt("result");
-            this.f67694e = jSONObject.optInt("cmd");
-            this.f67695f = jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-            this.f67696g = jSONObject.optInt("version");
-            this.f67697h = jSONObject.optString("jsonMsg");
+            this.f67734b = g();
+            JSONObject jSONObject = new JSONObject(this.f67734b);
+            this.f67735c = jSONObject.optString(IAdRequestParam.SEQ);
+            this.f67736d = jSONObject.optInt("result");
+            this.f67737e = jSONObject.optInt("cmd");
+            this.f67738f = jSONObject.optInt(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            this.f67739g = jSONObject.optInt("version");
+            this.f67740h = jSONObject.optString("jsonMsg");
         } catch (Exception e2) {
             d.r.b.a.a.f.d.d.d("PSCIMessageResponse", "popPacketData error", e2);
         }
@@ -50,12 +50,12 @@ public class d extends h {
 
     public String l() {
         if (d.r.b.a.a.f.a.c().a() == ProtocolType.HTTP) {
-            return this.f67697h;
+            return this.f67740h;
         }
-        return d.r.b.a.a.f.a.c().a() == ProtocolType.SERVICE ? this.f67691b : "";
+        return d.r.b.a.a.f.a.c().a() == ProtocolType.SERVICE ? this.f67734b : "";
     }
 
     public String toString() {
-        return "PSCIMessageResponse{result=" + this.f67693d + ", cmd=" + this.f67694e + ", appId=" + this.f67695f + ", version=" + this.f67696g + ", seq=" + this.f67692c + ",responseJson=" + this.f67691b + '}';
+        return "PSCIMessageResponse{result=" + this.f67736d + ", cmd=" + this.f67737e + ", appId=" + this.f67738f + ", version=" + this.f67739g + ", seq=" + this.f67735c + ",responseJson=" + this.f67734b + '}';
     }
 }

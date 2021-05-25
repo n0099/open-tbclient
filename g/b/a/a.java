@@ -7,36 +7,36 @@ import org.brotli.dec.BrotliRuntimeException;
 public final class a {
 
     /* renamed from: d  reason: collision with root package name */
-    public InputStream f68272d;
+    public InputStream f68315d;
 
     /* renamed from: e  reason: collision with root package name */
-    public boolean f68273e;
+    public boolean f68316e;
 
     /* renamed from: f  reason: collision with root package name */
-    public long f68274f;
+    public long f68317f;
 
     /* renamed from: g  reason: collision with root package name */
-    public int f68275g;
+    public int f68318g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f68276h;
+    public int f68319h;
 
     /* renamed from: a  reason: collision with root package name */
-    public final byte[] f68269a = new byte[4160];
+    public final byte[] f68312a = new byte[4160];
 
     /* renamed from: b  reason: collision with root package name */
-    public final int[] f68270b = new int[1040];
+    public final int[] f68313b = new int[1040];
 
     /* renamed from: c  reason: collision with root package name */
-    public final h f68271c = new h();
+    public final h f68314c = new h();
 
     /* renamed from: i  reason: collision with root package name */
-    public int f68277i = 0;
+    public int f68320i = 0;
 
     public static void a(a aVar, boolean z) {
-        if (aVar.f68273e) {
-            int i2 = ((aVar.f68276h << 2) + ((aVar.f68275g + 7) >> 3)) - 8;
-            int i3 = aVar.f68277i;
+        if (aVar.f68316e) {
+            int i2 = ((aVar.f68319h << 2) + ((aVar.f68318g + 7) >> 3)) - 8;
+            int i3 = aVar.f68320i;
             if (i2 > i3) {
                 throw new BrotliRuntimeException("Read after end");
             }
@@ -47,24 +47,24 @@ public final class a {
     }
 
     public static void b(a aVar) throws IOException {
-        InputStream inputStream = aVar.f68272d;
-        aVar.f68272d = null;
+        InputStream inputStream = aVar.f68315d;
+        aVar.f68315d = null;
         if (inputStream != null) {
             inputStream.close();
         }
     }
 
     public static void c(a aVar, byte[] bArr, int i2, int i3) {
-        if ((aVar.f68275g & 7) != 0) {
+        if ((aVar.f68318g & 7) != 0) {
             throw new BrotliRuntimeException("Unaligned copyBytes");
         }
         while (true) {
-            int i4 = aVar.f68275g;
+            int i4 = aVar.f68318g;
             if (i4 == 64 || i3 == 0) {
                 break;
             }
-            bArr[i2] = (byte) (aVar.f68274f >>> i4);
-            aVar.f68275g = i4 + 8;
+            bArr[i2] = (byte) (aVar.f68317f >>> i4);
+            aVar.f68318g = i4 + 8;
             i3--;
             i2++;
         }
@@ -74,10 +74,10 @@ public final class a {
         int min = Math.min(f(aVar), i3 >> 2);
         if (min > 0) {
             int i5 = min << 2;
-            System.arraycopy(aVar.f68269a, aVar.f68276h << 2, bArr, i2, i5);
+            System.arraycopy(aVar.f68312a, aVar.f68319h << 2, bArr, i2, i5);
             i2 += i5;
             i3 -= i5;
-            aVar.f68276h += min;
+            aVar.f68319h += min;
         }
         if (i3 == 0) {
             return;
@@ -85,7 +85,7 @@ public final class a {
         if (f(aVar) <= 0) {
             while (i3 > 0) {
                 try {
-                    int read = aVar.f68272d.read(bArr, i2, i3);
+                    int read = aVar.f68315d.read(bArr, i2, i3);
                     if (read == -1) {
                         throw new BrotliRuntimeException("Unexpected end of input");
                     }
@@ -99,10 +99,10 @@ public final class a {
         }
         d(aVar);
         while (i3 != 0) {
-            long j = aVar.f68274f;
-            int i6 = aVar.f68275g;
+            long j = aVar.f68317f;
+            int i6 = aVar.f68318g;
             bArr[i2] = (byte) (j >>> i6);
-            aVar.f68275g = i6 + 8;
+            aVar.f68318g = i6 + 8;
             i3--;
             i2++;
         }
@@ -110,24 +110,24 @@ public final class a {
     }
 
     public static void d(a aVar) {
-        int i2 = aVar.f68275g;
+        int i2 = aVar.f68318g;
         if (i2 >= 32) {
-            int[] iArr = aVar.f68270b;
-            int i3 = aVar.f68276h;
-            aVar.f68276h = i3 + 1;
-            aVar.f68274f = (iArr[i3] << 32) | (aVar.f68274f >>> 32);
-            aVar.f68275g = i2 - 32;
+            int[] iArr = aVar.f68313b;
+            int i3 = aVar.f68319h;
+            aVar.f68319h = i3 + 1;
+            aVar.f68317f = (iArr[i3] << 32) | (aVar.f68317f >>> 32);
+            aVar.f68318g = i2 - 32;
         }
     }
 
     public static void e(a aVar, InputStream inputStream) {
-        if (aVar.f68272d == null) {
-            h.b(aVar.f68271c, aVar.f68269a, aVar.f68270b);
-            aVar.f68272d = inputStream;
-            aVar.f68274f = 0L;
-            aVar.f68275g = 64;
-            aVar.f68276h = 1024;
-            aVar.f68273e = false;
+        if (aVar.f68315d == null) {
+            h.b(aVar.f68314c, aVar.f68312a, aVar.f68313b);
+            aVar.f68315d = inputStream;
+            aVar.f68317f = 0L;
+            aVar.f68318g = 64;
+            aVar.f68319h = 1024;
+            aVar.f68316e = false;
             h(aVar);
             return;
         }
@@ -135,11 +135,11 @@ public final class a {
     }
 
     public static int f(a aVar) {
-        return (aVar.f68273e ? (aVar.f68277i + 3) >> 2 : 1024) - aVar.f68276h;
+        return (aVar.f68316e ? (aVar.f68320i + 3) >> 2 : 1024) - aVar.f68319h;
     }
 
     public static void g(a aVar) {
-        int i2 = (64 - aVar.f68275g) & 7;
+        int i2 = (64 - aVar.f68318g) & 7;
         if (i2 != 0 && i(aVar, i2) != 0) {
             throw new BrotliRuntimeException("Corrupted padding bits");
         }
@@ -154,16 +154,16 @@ public final class a {
 
     public static int i(a aVar, int i2) {
         d(aVar);
-        long j = aVar.f68274f;
-        int i3 = aVar.f68275g;
+        long j = aVar.f68317f;
+        int i3 = aVar.f68318g;
         int i4 = ((int) (j >>> i3)) & ((1 << i2) - 1);
-        aVar.f68275g = i3 + i2;
+        aVar.f68318g = i3 + i2;
         return i4;
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0037, code lost:
-        r4.f68273e = true;
-        r4.f68277i = r1;
+        r4.f68316e = true;
+        r4.f68320i = r1;
      */
     /* JADX WARN: Code restructure failed: missing block: B:18:0x003c, code lost:
         r1 = r1 + 3;
@@ -172,11 +172,11 @@ public final class a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public static void j(a aVar) {
-        int i2 = aVar.f68276h;
+        int i2 = aVar.f68319h;
         if (i2 <= 1015) {
             return;
         }
-        if (aVar.f68273e) {
+        if (aVar.f68316e) {
             if (f(aVar) < -2) {
                 throw new BrotliRuntimeException("No more input");
             }
@@ -184,15 +184,15 @@ public final class a {
         }
         int i3 = i2 << 2;
         int i4 = 4096 - i3;
-        byte[] bArr = aVar.f68269a;
+        byte[] bArr = aVar.f68312a;
         System.arraycopy(bArr, i3, bArr, 0, i4);
-        aVar.f68276h = 0;
+        aVar.f68319h = 0;
         while (true) {
             if (i4 >= 4096) {
                 break;
             }
             try {
-                int read = aVar.f68272d.read(aVar.f68269a, i4, 4096 - i4);
+                int read = aVar.f68315d.read(aVar.f68312a, i4, 4096 - i4);
                 if (read <= 0) {
                     break;
                 }
@@ -201,11 +201,11 @@ public final class a {
                 throw new BrotliRuntimeException("Failed to read input", e2);
             }
         }
-        h.a(aVar.f68271c, i4 >> 2);
+        h.a(aVar.f68314c, i4 >> 2);
     }
 
     public static void k(a aVar) {
-        if (aVar.f68275g == 64) {
+        if (aVar.f68318g == 64) {
             h(aVar);
         }
     }

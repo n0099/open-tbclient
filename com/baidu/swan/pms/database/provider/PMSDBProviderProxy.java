@@ -10,8 +10,8 @@ import android.net.Uri;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import d.a.i0.n.c;
-import d.a.i0.n.g.e.b;
+import d.a.l0.n.c;
+import d.a.l0.n.g.e.b;
 import java.util.ArrayList;
 /* loaded from: classes3.dex */
 public class PMSDBProviderProxy extends ContentProvider {
@@ -25,7 +25,7 @@ public class PMSDBProviderProxy extends ContentProvider {
         SQLiteDatabase writableDatabase = getProvider().b().getWritableDatabase();
         try {
             try {
-                if (c.f47808a) {
+                if (c.f47984a) {
                     Log.e(TAG, "applyBatch beginTransaction");
                 }
                 writableDatabase.beginTransaction();
@@ -33,7 +33,7 @@ public class PMSDBProviderProxy extends ContentProvider {
                 for (ContentProviderResult contentProviderResult : applyBatch) {
                     if (contentProviderResult == null || (contentProviderResult.uri == null && contentProviderResult.count == null)) {
                         writableDatabase.endTransaction();
-                        if (c.f47808a) {
+                        if (c.f47984a) {
                             Log.e(TAG, "applyBatch endTransaction");
                         }
                         return applyBatch;
@@ -41,23 +41,23 @@ public class PMSDBProviderProxy extends ContentProvider {
                 }
                 writableDatabase.setTransactionSuccessful();
                 writableDatabase.endTransaction();
-                if (c.f47808a) {
+                if (c.f47984a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
                 return applyBatch;
             } catch (Exception e2) {
-                if (c.f47808a) {
+                if (c.f47984a) {
                     Log.e(TAG, "applyBatch Exception:" + e2.getMessage());
                 }
                 writableDatabase.endTransaction();
-                if (c.f47808a) {
+                if (c.f47984a) {
                     Log.e(TAG, "applyBatch endTransaction");
                 }
                 return new ContentProviderResult[0];
             }
         } catch (Throwable th) {
             writableDatabase.endTransaction();
-            if (c.f47808a) {
+            if (c.f47984a) {
                 Log.e(TAG, "applyBatch endTransaction");
             }
             throw th;

@@ -7,17 +7,17 @@ import java.util.List;
 public final class c implements Runnable {
 
     /* renamed from: g  reason: collision with root package name */
-    public final /* synthetic */ b f36370g;
+    public final /* synthetic */ b f36299g;
 
     public c(b bVar) {
-        this.f36370g = bVar;
+        this.f36299g = bVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
         List list;
         ArrayList<OAuthListener> arrayList = new ArrayList();
-        list = this.f36370g.f36369f.f36366c;
+        list = this.f36299g.f36298f.f36295c;
         arrayList.addAll(list);
         for (OAuthListener oAuthListener : arrayList) {
             oAuthListener.onQrcodeScanned();

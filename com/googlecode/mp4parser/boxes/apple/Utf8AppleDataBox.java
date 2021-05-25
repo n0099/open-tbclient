@@ -10,8 +10,8 @@ import java.nio.ByteBuffer;
 import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
 public abstract class Utf8AppleDataBox extends AppleDataBox {
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_0 = null;
-    public static final /* synthetic */ a.InterfaceC1909a ajc$tjp_1 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_0 = null;
+    public static final /* synthetic */ a.InterfaceC1913a ajc$tjp_1 = null;
     public String value;
 
     static {

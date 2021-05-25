@@ -2,7 +2,7 @@ package com.baidu.tieba.mainentrance.searchSuggestList;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import d.a.j0.z0.w;
+import d.a.m0.z0.w;
 import tbclient.SearchSug.DataReq;
 import tbclient.SearchSug.SearchSugReqIdl;
 /* loaded from: classes3.dex */

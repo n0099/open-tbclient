@@ -30,33 +30,33 @@ import org.json.JSONObject;
 public class b implements com.kwad.sdk.core.download.d {
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f32225a;
+    public Handler f32154a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdTemplate f32226b;
+    public AdTemplate f32155b;
     @NonNull
 
     /* renamed from: c  reason: collision with root package name */
-    public AdInfo f32227c;
+    public AdInfo f32156c;
 
     /* renamed from: d  reason: collision with root package name */
-    public JSONObject f32228d;
+    public JSONObject f32157d;
 
     /* renamed from: e  reason: collision with root package name */
-    public long f32229e;
+    public long f32158e;
 
     /* renamed from: f  reason: collision with root package name */
-    public boolean f32230f;
+    public boolean f32159f;
 
     /* renamed from: g  reason: collision with root package name */
-    public boolean f32231g;
+    public boolean f32160g;
 
     /* renamed from: h  reason: collision with root package name */
-    public a f32232h;
+    public a f32161h;
 
     /* renamed from: i  reason: collision with root package name */
-    public List<KsAppDownloadListener> f32233i;
+    public List<KsAppDownloadListener> f32162i;
 
     /* loaded from: classes6.dex */
     public interface a {
@@ -76,23 +76,23 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     public b(@NonNull AdTemplate adTemplate, JSONObject jSONObject, KsAppDownloadListener ksAppDownloadListener) {
-        this.f32225a = new Handler(Looper.getMainLooper());
-        this.f32233i = new ArrayList();
-        this.f32226b = adTemplate;
-        this.f32227c = com.kwad.sdk.core.response.b.c.g(adTemplate);
-        this.f32228d = jSONObject;
+        this.f32154a = new Handler(Looper.getMainLooper());
+        this.f32162i = new ArrayList();
+        this.f32155b = adTemplate;
+        this.f32156c = com.kwad.sdk.core.response.b.c.g(adTemplate);
+        this.f32157d = jSONObject;
         if (ksAppDownloadListener != null) {
             a(ksAppDownloadListener);
         }
-        DownloadStatusManager.a().a(this, this.f32226b);
-        DownloadStatusManager.a().a(this.f32226b);
-        this.f32231g = com.kwad.sdk.core.response.b.c.g(this.f32226b).downloadSafeInfo.downloadPauseEnable;
+        DownloadStatusManager.a().a(this, this.f32155b);
+        DownloadStatusManager.a().a(this.f32155b);
+        this.f32160g = com.kwad.sdk.core.response.b.c.g(this.f32155b).downloadSafeInfo.downloadPauseEnable;
     }
 
     private int a(Context context) {
-        String str = this.f32227c.adConversionInfo.marketUrl;
-        if (!TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f32227c.adBaseInfo.appPackageName) : false) {
-            com.kwad.sdk.core.report.b.j(this.f32226b);
+        String str = this.f32156c.adConversionInfo.marketUrl;
+        if (!TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f32156c.adBaseInfo.appPackageName) : false) {
+            com.kwad.sdk.core.report.b.j(this.f32155b);
             return 0;
         } else if (b(context)) {
             return 0;
@@ -109,22 +109,22 @@ public class b implements com.kwad.sdk.core.download.d {
         if (k()) {
             return true;
         }
-        if (!com.kwad.sdk.core.config.c.Q() || ag.a(this.f32227c.downloadSafeInfo.autoDownloadUrl)) {
-            if (com.kwad.sdk.core.download.a.b.a() || this.f32227c.status == 4 || !com.kwad.sdk.core.download.a.b.b(context, this.f32226b)) {
+        if (!com.kwad.sdk.core.config.c.Q() || ag.a(this.f32156c.downloadSafeInfo.autoDownloadUrl)) {
+            if (com.kwad.sdk.core.download.a.b.a() || this.f32156c.status == 4 || !com.kwad.sdk.core.download.a.b.b(context, this.f32155b)) {
                 return false;
             }
-            return com.kwad.sdk.core.download.a.b.a(context, this.f32226b);
-        } else if (this.f32227c.status == 4 || !com.kwad.sdk.core.response.b.c.a(this.f32226b) || AdLandPageActivityProxy.isDownloadDialogShowing()) {
+            return com.kwad.sdk.core.download.a.b.a(context, this.f32155b);
+        } else if (this.f32156c.status == 4 || !com.kwad.sdk.core.response.b.c.a(this.f32155b) || AdLandPageActivityProxy.isDownloadDialogShowing()) {
             return false;
         } else {
-            AdLandPageActivityProxy.launch(context, this.f32226b, this.f32227c.downloadSafeInfo.autoDownloadUrl);
+            AdLandPageActivityProxy.launch(context, this.f32155b, this.f32156c.downloadSafeInfo.autoDownloadUrl);
             return true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(@NonNull KsAppDownloadListener ksAppDownloadListener) {
-        AdInfo adInfo = this.f32227c;
+        AdInfo adInfo = this.f32156c;
         int i2 = adInfo.progress;
         int i3 = adInfo.status;
         if (i3 == 0) {
@@ -157,11 +157,11 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     private void h() {
-        this.f32225a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.3
+        this.f32154a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.3
             @Override // java.lang.Runnable
             public void run() {
-                ArrayList<KsAppDownloadListener> arrayList = new ArrayList(b.this.f32233i.size());
-                arrayList.addAll(b.this.f32233i);
+                ArrayList<KsAppDownloadListener> arrayList = new ArrayList(b.this.f32162i.size());
+                arrayList.addAll(b.this.f32162i);
                 for (KsAppDownloadListener ksAppDownloadListener : arrayList) {
                     if (ksAppDownloadListener != null) {
                         b.this.d(ksAppDownloadListener);
@@ -173,59 +173,59 @@ public class b implements com.kwad.sdk.core.download.d {
 
     private void i() {
         AdDownloadProxy proxyForDownload;
-        String str = this.f32227c.adBaseInfo.appPackageName;
+        String str = this.f32156c.adBaseInfo.appPackageName;
         Context context = KsAdSDKImpl.get().getContext();
         if (context == null) {
             return;
         }
         if (w.a(context, str)) {
-            this.f32227c.status = 12;
+            this.f32156c.status = 12;
             return;
         }
-        AdInfo adInfo = this.f32227c;
+        AdInfo adInfo = this.f32156c;
         if (adInfo.status == 12) {
             adInfo.status = 0;
             adInfo.progress = 0;
         }
-        AdInfo adInfo2 = this.f32227c;
+        AdInfo adInfo2 = this.f32156c;
         if (adInfo2.status == 8) {
             String str2 = adInfo2.downloadFilePath;
             if (TextUtils.isEmpty(str2) || !new File(str2).exists()) {
-                AdInfo adInfo3 = this.f32227c;
+                AdInfo adInfo3 = this.f32156c;
                 adInfo3.status = 0;
                 adInfo3.progress = 0;
             }
         }
-        if (this.f32227c.status != 0 || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
+        if (this.f32156c.status != 0 || (proxyForDownload = KsAdSDKImpl.get().getProxyForDownload()) == null) {
             return;
         }
-        String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transfrom(this.f32227c));
+        String downloadFilePath = proxyForDownload.getDownloadFilePath(DownloadParams.transfrom(this.f32156c));
         if (TextUtils.isEmpty(downloadFilePath) || !new File(downloadFilePath).exists()) {
             return;
         }
-        AdInfo adInfo4 = this.f32227c;
+        AdInfo adInfo4 = this.f32156c;
         adInfo4.downloadFilePath = downloadFilePath;
         adInfo4.status = 8;
     }
 
     private boolean j() {
-        String str = this.f32227c.adConversionInfo.marketUrl;
+        String str = this.f32156c.adConversionInfo.marketUrl;
         com.kwad.sdk.core.d.a.c("ApkDownloadHelper", "isMarKet URL Schema=" + str);
-        boolean a2 = !TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f32227c.adBaseInfo.appPackageName) : false;
+        boolean a2 = !TextUtils.isEmpty(str) ? com.kwad.sdk.utils.e.a(KsAdSDKImpl.get().getContext(), str, this.f32156c.adBaseInfo.appPackageName) : false;
         if (a2) {
-            com.kwad.sdk.core.report.b.j(this.f32226b);
+            com.kwad.sdk.core.report.b.j(this.f32155b);
         }
         return a2;
     }
 
     private boolean k() {
-        a aVar = this.f32232h;
+        a aVar = this.f32161h;
         if (aVar != null) {
             return aVar.a(new DialogInterface.OnClickListener() { // from class: com.kwad.sdk.core.download.b.b.4
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i2) {
                     if (i2 == -1) {
-                        switch (b.this.f32227c.status) {
+                        switch (b.this.f32156c.status) {
                             case 0:
                             case 1:
                             case 4:
@@ -262,7 +262,7 @@ public class b implements com.kwad.sdk.core.download.d {
             return;
         }
         if (com.ksad.download.d.b.a(context)) {
-            com.kwad.sdk.core.download.e.a(context, this.f32227c);
+            com.kwad.sdk.core.download.e.a(context, this.f32156c);
         } else {
             com.kwad.sdk.core.d.a.e("ApkDownloadHelper", "no network while download app");
         }
@@ -273,13 +273,13 @@ public class b implements com.kwad.sdk.core.download.d {
         if (context == null) {
             return;
         }
-        com.kwad.sdk.core.download.e.a(context, this.f32227c.downloadId);
+        com.kwad.sdk.core.download.e.a(context, this.f32156c.downloadId);
     }
 
     public int a(Context context, boolean z) {
-        this.f32230f = false;
+        this.f32159f = false;
         i();
-        switch (this.f32227c.status) {
+        switch (this.f32156c.status) {
             case 0:
             case 1:
             case 4:
@@ -289,7 +289,7 @@ public class b implements com.kwad.sdk.core.download.d {
                 return a(context);
             case 2:
             case 3:
-                if (z && this.f32231g) {
+                if (z && this.f32160g) {
                     m();
                     return 0;
                 }
@@ -310,11 +310,11 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public String a() {
-        return this.f32227c.downloadId;
+        return this.f32156c.downloadId;
     }
 
     public void a(int i2) {
-        this.f32226b.downloadSource = i2;
+        this.f32155b.downloadSource = i2;
     }
 
     @UiThread
@@ -323,36 +323,36 @@ public class b implements com.kwad.sdk.core.download.d {
             return;
         }
         if (Looper.myLooper() != Looper.getMainLooper()) {
-            this.f32225a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.6
+            this.f32154a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.6
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (b.this.f32233i.contains(ksAppDownloadListener)) {
+                    if (b.this.f32162i.contains(ksAppDownloadListener)) {
                         return;
                     }
-                    b.this.f32233i.add(0, ksAppDownloadListener);
+                    b.this.f32162i.add(0, ksAppDownloadListener);
                 }
             });
-        } else if (!this.f32233i.contains(ksAppDownloadListener)) {
-            this.f32233i.add(0, ksAppDownloadListener);
+        } else if (!this.f32162i.contains(ksAppDownloadListener)) {
+            this.f32162i.add(0, ksAppDownloadListener);
         }
         i();
         d(ksAppDownloadListener);
     }
 
     public void a(a aVar) {
-        this.f32232h = aVar;
+        this.f32161h = aVar;
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str) {
-        this.f32227c.status = 10;
+        this.f32156c.status = 10;
         h();
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, int i2, int i3, int i4) {
-        if (this.f32227c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f32227c;
+        if (this.f32156c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f32156c;
             adInfo.status = 3;
             adInfo.progress = i2;
             adInfo.soFarBytes = i3;
@@ -365,86 +365,86 @@ public class b implements com.kwad.sdk.core.download.d {
     public void a(String str, int i2, f fVar) {
         final boolean z = false;
         if (fVar.b()) {
-            com.kwad.sdk.core.report.b.c(this.f32226b);
+            com.kwad.sdk.core.report.b.c(this.f32155b);
             fVar.a();
-            if (Build.VERSION.SDK_INT < 29 && com.kwad.sdk.core.config.c.D() && this.f32226b.mIsFromContent) {
+            if (Build.VERSION.SDK_INT < 29 && com.kwad.sdk.core.config.c.D() && this.f32155b.mIsFromContent) {
                 z = e();
             }
         }
         com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.2
             @Override // java.lang.Runnable
             public void run() {
-                com.kwad.sdk.home.download.a.a().b(b.this.f32226b);
+                com.kwad.sdk.home.download.a.a().b(b.this.f32155b);
                 if (z) {
                     return;
                 }
-                com.kwad.sdk.home.download.a.a().c(b.this.f32226b);
+                com.kwad.sdk.home.download.a.a().c(b.this.f32155b);
             }
         });
-        com.kwad.sdk.core.a.a().d(com.kwad.sdk.core.response.b.c.g(this.f32226b).downloadId);
-        this.f32227c.status = 12;
+        com.kwad.sdk.core.a.a().d(com.kwad.sdk.core.response.b.c.g(this.f32155b).downloadId);
+        this.f32156c.status = 12;
         h();
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, int i2, String str2, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
-            this.f32227c.status = 7;
+        if (this.f32156c.downloadId.equals(str)) {
+            this.f32156c.status = 7;
             h();
             if (fVar.b()) {
                 b.a aVar = new b.a(i2, str2);
-                com.kwad.sdk.core.report.b.a(this.f32226b, aVar);
-                com.kwad.sdk.core.report.e.b(this.f32226b, this.f32227c.adConversionInfo.appDownloadUrl, aVar.toJson().toString());
+                com.kwad.sdk.core.report.b.a(this.f32155b, aVar);
+                com.kwad.sdk.core.report.e.b(this.f32155b, this.f32156c.adConversionInfo.appDownloadUrl, aVar.toJson().toString());
                 fVar.a();
             }
-            if (this.f32227c.adConversionInfo.retryH5TimeStep <= 0 || this.f32230f) {
+            if (this.f32156c.adConversionInfo.retryH5TimeStep <= 0 || this.f32159f) {
                 return;
             }
-            long currentTimeMillis = System.currentTimeMillis() - this.f32229e;
-            AdInfo adInfo = this.f32227c;
+            long currentTimeMillis = System.currentTimeMillis() - this.f32158e;
+            AdInfo adInfo = this.f32156c;
             if (currentTimeMillis >= adInfo.adConversionInfo.retryH5TimeStep || TextUtils.isEmpty(com.kwad.sdk.core.response.b.a.y(adInfo))) {
                 return;
             }
-            AdWebViewActivityProxy.launch(KsAdSDKImpl.get().getContext(), this.f32226b);
-            this.f32230f = true;
+            AdWebViewActivityProxy.launch(KsAdSDKImpl.get().getContext(), this.f32155b);
+            this.f32159f = true;
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
-            if (this.f32227c.status != 1) {
+        if (this.f32156c.downloadId.equals(str)) {
+            if (this.f32156c.status != 1) {
                 if (fVar.b()) {
-                    com.kwad.sdk.core.report.b.b(this.f32226b);
+                    com.kwad.sdk.core.report.b.b(this.f32155b);
                     fVar.a();
                 }
-                this.f32229e = System.currentTimeMillis();
+                this.f32158e = System.currentTimeMillis();
             }
-            this.f32227c.status = 1;
+            this.f32156c.status = 1;
             h();
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void a(String str, String str2, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
-            AdInfo adInfo = this.f32227c;
+        if (this.f32156c.downloadId.equals(str)) {
+            AdInfo adInfo = this.f32156c;
             adInfo.downloadFilePath = str2;
             adInfo.progress = 100;
-            if (adInfo.status != 8 && !this.f32226b.mDownloadFinishReported) {
+            if (adInfo.status != 8 && !this.f32155b.mDownloadFinishReported) {
                 com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        com.kwad.sdk.home.download.a.a().a(b.this.f32226b);
+                        com.kwad.sdk.home.download.a.a().a(b.this.f32155b);
                     }
                 });
                 if (fVar.b()) {
-                    com.kwad.sdk.core.report.b.e(this.f32226b, this.f32228d);
+                    com.kwad.sdk.core.report.b.e(this.f32155b, this.f32157d);
                     fVar.a();
                 }
-                this.f32226b.mDownloadFinishReported = true;
+                this.f32155b.mDownloadFinishReported = true;
             }
-            this.f32227c.status = 8;
+            this.f32156c.status = 8;
             h();
             ApkCacheManager.a().b();
         }
@@ -452,7 +452,7 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public String b() {
-        return this.f32227c.adBaseInfo.appPackageName;
+        return this.f32156c.adBaseInfo.appPackageName;
     }
 
     public void b(final KsAppDownloadListener ksAppDownloadListener) {
@@ -460,12 +460,12 @@ public class b implements com.kwad.sdk.core.download.d {
             return;
         }
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            this.f32233i.remove(ksAppDownloadListener);
+            this.f32162i.remove(ksAppDownloadListener);
         } else {
-            this.f32225a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.7
+            this.f32154a.post(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    b.this.f32233i.remove(ksAppDownloadListener);
+                    b.this.f32162i.remove(ksAppDownloadListener);
                 }
             });
         }
@@ -473,20 +473,20 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void b(String str) {
-        if (this.f32227c.downloadId.equals(str)) {
-            this.f32227c.status = 11;
+        if (this.f32156c.downloadId.equals(str)) {
+            this.f32156c.status = 11;
             h();
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void b(String str, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
-            if (this.f32227c.status != 4 && fVar.b()) {
-                com.kwad.sdk.core.report.b.c(this.f32226b, this.f32228d);
+        if (this.f32156c.downloadId.equals(str)) {
+            if (this.f32156c.status != 4 && fVar.b()) {
+                com.kwad.sdk.core.report.b.c(this.f32155b, this.f32157d);
                 fVar.a();
             }
-            this.f32227c.status = 4;
+            this.f32156c.status = 4;
             h();
         }
     }
@@ -501,18 +501,18 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void c(String str, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
-            if (this.f32227c.status != 2 && fVar.b()) {
-                com.kwad.sdk.core.report.b.d(this.f32226b, this.f32228d);
+        if (this.f32156c.downloadId.equals(str)) {
+            if (this.f32156c.status != 2 && fVar.b()) {
+                com.kwad.sdk.core.report.b.d(this.f32155b, this.f32157d);
                 fVar.a();
             }
-            this.f32227c.status = 2;
+            this.f32156c.status = 2;
             h();
         }
     }
 
     public boolean c() {
-        switch (this.f32227c.status) {
+        switch (this.f32156c.status) {
             case 0:
             case 1:
             case 4:
@@ -537,16 +537,16 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     public void d() {
-        String str = this.f32227c.adBaseInfo.appPackageName;
+        String str = this.f32156c.adBaseInfo.appPackageName;
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null && !TextUtils.isEmpty(str)) {
             com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.core.download.b.b.5
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.kwad.sdk.home.download.a.a().d(b.this.f32226b);
+                    com.kwad.sdk.home.download.a.a().d(b.this.f32155b);
                 }
             });
-            com.kwad.sdk.core.report.b.e(this.f32226b);
+            com.kwad.sdk.core.report.b.e(this.f32155b);
             w.b(context, str);
             return;
         }
@@ -555,35 +555,35 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void d(String str, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
-            if (this.f32227c.status != 5 && fVar.b()) {
-                com.kwad.sdk.core.report.b.f(this.f32226b, this.f32228d);
+        if (this.f32156c.downloadId.equals(str)) {
+            if (this.f32156c.status != 5 && fVar.b()) {
+                com.kwad.sdk.core.report.b.f(this.f32155b, this.f32157d);
                 fVar.a();
             }
-            this.f32227c.status = 5;
+            this.f32156c.status = 5;
             h();
         }
     }
 
     @Override // com.kwad.sdk.core.download.d
     public void e(String str, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
+        if (this.f32156c.downloadId.equals(str)) {
             if (fVar.b()) {
-                com.kwad.sdk.core.report.b.g(this.f32226b);
+                com.kwad.sdk.core.report.b.g(this.f32155b);
                 fVar.a();
             }
-            this.f32227c.status = 9;
+            this.f32156c.status = 9;
             h();
         }
     }
 
     public boolean e() {
-        String str = this.f32227c.adBaseInfo.appPackageName;
+        String str = this.f32156c.adBaseInfo.appPackageName;
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null && !TextUtils.isEmpty(str)) {
             boolean b2 = w.b(context, str);
             if (b2) {
-                com.kwad.sdk.core.report.b.f(this.f32226b);
+                com.kwad.sdk.core.report.b.f(this.f32155b);
             }
             return b2;
         }
@@ -592,10 +592,10 @@ public class b implements com.kwad.sdk.core.download.d {
     }
 
     public void f() {
-        String str = this.f32227c.downloadFilePath;
+        String str = this.f32156c.downloadFilePath;
         Context context = KsAdSDKImpl.get().getContext();
         if (context != null && !TextUtils.isEmpty(str)) {
-            com.kwad.sdk.core.report.b.g(this.f32226b);
+            com.kwad.sdk.core.report.b.g(this.f32155b);
             KsAdSDKImpl.get().getProxyForAdInstall().installApp(context, str);
             return;
         }
@@ -604,13 +604,13 @@ public class b implements com.kwad.sdk.core.download.d {
 
     @Override // com.kwad.sdk.core.download.d
     public void f(String str, f fVar) {
-        if (this.f32227c.downloadId.equals(str)) {
-            com.kwad.sdk.core.report.b.d(this.f32226b);
+        if (this.f32156c.downloadId.equals(str)) {
+            com.kwad.sdk.core.report.b.d(this.f32155b);
         }
     }
 
     public void g() {
-        List<KsAppDownloadListener> list = this.f32233i;
+        List<KsAppDownloadListener> list = this.f32162i;
         if (list != null) {
             list.clear();
         }

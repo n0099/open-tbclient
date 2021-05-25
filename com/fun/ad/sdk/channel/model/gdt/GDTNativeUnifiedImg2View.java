@@ -19,13 +19,13 @@ import java.util.List;
 public class GDTNativeUnifiedImg2View extends b {
 
     /* renamed from: d  reason: collision with root package name */
-    public ImageView f30714d;
+    public ImageView f30643d;
 
     /* renamed from: e  reason: collision with root package name */
-    public ImageView f30715e;
+    public ImageView f30644e;
 
     /* renamed from: f  reason: collision with root package name */
-    public float f30716f;
+    public float f30645f;
 
     public GDTNativeUnifiedImg2View(Context context) {
         this(context, null);
@@ -37,7 +37,7 @@ public class GDTNativeUnifiedImg2View extends b {
 
     public GDTNativeUnifiedImg2View(Context context, @Nullable AttributeSet attributeSet, int i2) {
         super(context, attributeSet, i2);
-        this.f30716f = 1.78f;
+        this.f30645f = 1.78f;
     }
 
     @Override // a.a.a.a.t.b.b.b
@@ -46,8 +46,8 @@ public class GDTNativeUnifiedImg2View extends b {
         arrayList.add(this.f1296c);
         arrayList.add(((b) this).f1295b);
         arrayList.add(((b) this).f1294a);
-        arrayList.add(this.f30715e);
-        arrayList.add(this.f30714d);
+        arrayList.add(this.f30644e);
+        arrayList.add(this.f30643d);
         return arrayList;
     }
 
@@ -56,7 +56,7 @@ public class GDTNativeUnifiedImg2View extends b {
         super.a(activity, nativeUnifiedADData);
         Context context = getContext();
         String iconUrl = nativeUnifiedADData.getIconUrl();
-        ImageView imageView = this.f30714d;
+        ImageView imageView = this.f30643d;
         if (context == null) {
             d.b("GlideHelper: context is null when load: " + iconUrl, new Object[0]);
         } else if (context instanceof Activity) {
@@ -70,10 +70,10 @@ public class GDTNativeUnifiedImg2View extends b {
             Glide.with(context).load(iconUrl).into(imageView);
         }
         d.b("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight(), new Object[0]);
-        this.f30716f = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
+        this.f30645f = (((float) nativeUnifiedADData.getPictureWidth()) * 1.0f) / (((float) nativeUnifiedADData.getPictureHeight()) * 1.0f);
         Context context2 = getContext();
         String imgUrl = nativeUnifiedADData.getImgUrl();
-        ImageView imageView2 = this.f30715e;
+        ImageView imageView2 = this.f30644e;
         if (context2 == null) {
             d.b("GlideHelper: context is null when load: " + imgUrl, new Object[0]);
         } else if (context2 instanceof Activity) {
@@ -91,17 +91,17 @@ public class GDTNativeUnifiedImg2View extends b {
     @Override // a.a.a.a.t.b.b.b, android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.f30714d = (ImageView) findViewById(R.id.ad_icon);
-        this.f30715e = (ImageView) findViewById(R.id.ad_img);
+        this.f30643d = (ImageView) findViewById(R.id.ad_icon);
+        this.f30644e = (ImageView) findViewById(R.id.ad_img);
     }
 
     @Override // android.view.View
     public void onSizeChanged(int i2, int i3, int i4, int i5) {
         super.onSizeChanged(i2, i3, i4, i5);
-        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30715e.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.f30644e.getLayoutParams();
         int i6 = (i2 - layoutParams.leftMargin) - layoutParams.rightMargin;
         layoutParams.width = i6;
-        layoutParams.height = (int) (i6 / this.f30716f);
-        this.f30715e.setLayoutParams(layoutParams);
+        layoutParams.height = (int) (i6 / this.f30645f);
+        this.f30644e.setLayoutParams(layoutParams);
     }
 }

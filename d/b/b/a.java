@@ -16,31 +16,31 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile i f64918a = null;
+    public static volatile i f64961a = null;
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: b  reason: collision with root package name */
-    public static j f64919b = null;
+    public static j f64962b = null;
 
     /* renamed from: c  reason: collision with root package name */
-    public static boolean f64920c = true;
+    public static boolean f64963c = true;
 
     /* renamed from: e  reason: collision with root package name */
-    public static volatile e0 f64922e;
+    public static volatile e0 f64965e;
 
     /* renamed from: g  reason: collision with root package name */
-    public static d f64924g;
+    public static d f64967g;
 
     /* renamed from: d  reason: collision with root package name */
-    public static l0 f64921d = new l0();
+    public static l0 f64964d = new l0();
 
     /* renamed from: f  reason: collision with root package name */
-    public static ConcurrentHashMap<String, String> f64923f = new ConcurrentHashMap<>(4);
+    public static ConcurrentHashMap<String, String> f64966f = new ConcurrentHashMap<>(4);
 
     public static void a() {
         x1.b();
@@ -48,22 +48,22 @@ public final class a {
 
     @Nullable
     public static JSONObject b() {
-        if (f64918a != null) {
-            return f64918a.Q();
+        if (f64961a != null) {
+            return f64961a.Q();
         }
         return null;
     }
 
     @Nullable
     public static String c() {
-        if (f64918a != null) {
-            return f64918a.P();
+        if (f64961a != null) {
+            return f64961a.P();
         }
         return null;
     }
 
     public static String d() {
-        j jVar = f64919b;
+        j jVar = f64962b;
         if (jVar != null) {
             return jVar.x();
         }
@@ -71,16 +71,16 @@ public final class a {
     }
 
     public static boolean e() {
-        return f64920c;
+        return f64963c;
     }
 
     @NonNull
     public static b f() {
-        return f64921d;
+        return f64964d;
     }
 
     public static String g() {
-        j jVar = f64919b;
+        j jVar = f64962b;
         return jVar != null ? jVar.r() : "";
     }
 
@@ -89,11 +89,11 @@ public final class a {
     }
 
     public static e0 i() {
-        return f64922e;
+        return f64965e;
     }
 
     public static <T> T j(String str, T t) {
-        j jVar = f64919b;
+        j jVar = f64962b;
         if (jVar != null) {
             return (T) jVar.a(str, t);
         }
@@ -101,32 +101,32 @@ public final class a {
     }
 
     public static d k() {
-        return f64924g;
+        return f64967g;
     }
 
     public static q1 l() {
-        if (f64918a != null) {
-            return f64918a.o();
+        if (f64961a != null) {
+            return f64961a.o();
         }
         return null;
     }
 
     public static int m() {
-        if (f64918a != null) {
-            return f64918a.E();
+        if (f64961a != null) {
+            return f64961a.E();
         }
         return 0;
     }
 
     public static String n() {
-        j jVar = f64919b;
+        j jVar = f64962b;
         return jVar != null ? jVar.u() : "";
     }
 
     public static void o(@NonNull Context context, @NonNull q1 q1Var) {
-        if (!r0.f65049b && Looper.myLooper() != Looper.getMainLooper()) {
+        if (!r0.f65092b && Looper.myLooper() != Looper.getMainLooper()) {
             r0.b(new RuntimeException("Wrong thread!"));
-        } else if (f64918a != null) {
+        } else if (f64961a != null) {
             r0.b(new RuntimeException("Init Twice!"));
             return;
         } else if (q1Var.E() == null) {
@@ -138,8 +138,8 @@ public final class a {
         i iVar = new i(application, q1Var);
         j jVar = new j(application, iVar);
         f2.c(application, iVar, jVar, new s1(q1Var.p()));
-        f64918a = iVar;
-        f64919b = jVar;
+        f64961a = iVar;
+        f64962b = jVar;
         r0.e("Inited", null);
     }
 
@@ -152,7 +152,7 @@ public final class a {
             x1.d(new b0(str, str2, str3, j, j2, jSONObject != null ? jSONObject.toString() : null));
             return;
         }
-        if (r0.f65049b) {
+        if (r0.f65092b) {
             r0.a("category or label is empty", null);
         }
         x1.d(new i0("" + str2 + str3, "2", 1));
@@ -192,7 +192,7 @@ public final class a {
     }
 
     public static void s(HashMap<String, Object> hashMap) {
-        j jVar = f64919b;
+        j jVar = f64962b;
         if (jVar != null) {
             jVar.d(hashMap);
         }

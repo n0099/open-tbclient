@@ -15,31 +15,31 @@ public class j {
     public int I;
 
     /* renamed from: a  reason: collision with root package name */
-    public int f67789a;
+    public int f67832a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f67790b;
+    public String f67833b;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f67791c;
+    public String f67834c;
 
     /* renamed from: d  reason: collision with root package name */
-    public int f67792d;
+    public int f67835d;
 
     /* renamed from: e  reason: collision with root package name */
-    public Double f67793e;
+    public Double f67836e;
 
     /* renamed from: f  reason: collision with root package name */
-    public String f67794f;
+    public String f67837f;
 
     /* renamed from: g  reason: collision with root package name */
-    public long f67795g;
+    public long f67838g;
 
     /* renamed from: h  reason: collision with root package name */
-    public int f67796h;
+    public int f67839h;
 
     /* renamed from: i  reason: collision with root package name */
-    public int f67797i;
+    public int f67840i;
     public boolean j;
     public int k;
     public String l;
@@ -59,6 +59,6 @@ public class j {
     public List<k> y = new ArrayList();
 
     public String toString() {
-        return "ProductInfo{cid=" + this.f67789a + ", offersTips='" + this.f67790b + "', name='" + this.f67791c + "', level=" + this.f67792d + ", srcAmount=" + this.f67793e + ", srcCurrencySymbol=" + this.f67794f + ", destAmount=" + this.f67795g + ", offersType=" + this.f67796h + ", offersRate=" + this.f67797i + ", offers_currency_same=" + this.j + ", offers_currency_type=" + this.k + ", offers_currency_name='" + this.l + "', hasAct=" + this.m + ", hasCurrencyAct=" + this.n + ", hasDestCurrencyAct=" + this.o + ", spAmount=" + this.p + ", spSumAmount=" + this.q + ", hasOtherCurrencyAct=" + this.r + ", otherCurrenciesSum=" + this.s + ", otherCurrencies=" + this.t + ", hasFirstRush=" + this.u + ", firstRushAmount=" + this.v + ", hasPropsAct=" + this.w + ", propsSum=" + this.x + ", props=" + this.y + ", chargeRate=" + this.z + ", productId='" + this.A + "', expand=" + this.B + ", currencyCode=" + this.C + ", otherPrice=" + this.D + ", payChannel=" + this.E + ", payMethod=" + this.F + ", subChannel=" + this.G + ", payType=" + this.H + ", usedChannelType=" + this.I + '}';
+        return "ProductInfo{cid=" + this.f67832a + ", offersTips='" + this.f67833b + "', name='" + this.f67834c + "', level=" + this.f67835d + ", srcAmount=" + this.f67836e + ", srcCurrencySymbol=" + this.f67837f + ", destAmount=" + this.f67838g + ", offersType=" + this.f67839h + ", offersRate=" + this.f67840i + ", offers_currency_same=" + this.j + ", offers_currency_type=" + this.k + ", offers_currency_name='" + this.l + "', hasAct=" + this.m + ", hasCurrencyAct=" + this.n + ", hasDestCurrencyAct=" + this.o + ", spAmount=" + this.p + ", spSumAmount=" + this.q + ", hasOtherCurrencyAct=" + this.r + ", otherCurrenciesSum=" + this.s + ", otherCurrencies=" + this.t + ", hasFirstRush=" + this.u + ", firstRushAmount=" + this.v + ", hasPropsAct=" + this.w + ", propsSum=" + this.x + ", props=" + this.y + ", chargeRate=" + this.z + ", productId='" + this.A + "', expand=" + this.B + ", currencyCode=" + this.C + ", otherPrice=" + this.D + ", payChannel=" + this.E + ", payMethod=" + this.F + ", subChannel=" + this.G + ", payType=" + this.H + ", usedChannelType=" + this.I + '}';
     }
 }

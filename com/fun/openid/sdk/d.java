@@ -18,23 +18,23 @@ public class d implements f {
     public static final class a implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f30786a = false;
+        public boolean f30715a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        public final LinkedBlockingQueue<IBinder> f30787b = new LinkedBlockingQueue<>();
+        public final LinkedBlockingQueue<IBinder> f30716b = new LinkedBlockingQueue<>();
 
         public IBinder a() {
-            if (this.f30786a) {
+            if (this.f30715a) {
                 throw new IllegalStateException();
             }
-            this.f30786a = true;
-            return this.f30787b.poll(5L, TimeUnit.SECONDS);
+            this.f30715a = true;
+            return this.f30716b.poll(5L, TimeUnit.SECONDS);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.f30787b.put(iBinder);
+                this.f30716b.put(iBinder);
             } catch (InterruptedException e2) {
                 e2.printStackTrace();
             }

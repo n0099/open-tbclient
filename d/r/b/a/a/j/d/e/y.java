@@ -11,52 +11,52 @@ import org.json.JSONObject;
 public final class y {
 
     /* renamed from: d  reason: collision with root package name */
-    public int f68062d;
+    public int f68105d;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f68059a = "";
+    public String f68102a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public int f68060b = -1;
+    public int f68103b = -1;
 
     /* renamed from: c  reason: collision with root package name */
-    public String f68061c = "";
+    public String f68104c = "";
 
     /* renamed from: e  reason: collision with root package name */
-    public List<d.r.b.a.a.i.c.b> f68063e = new ArrayList();
+    public List<d.r.b.a.a.i.c.b> f68106e = new ArrayList();
 
     public y(String str) {
         e(str);
     }
 
     public final String a() {
-        return this.f68061c;
+        return this.f68104c;
     }
 
     public final RechargeHistoryResult b() {
-        return new RechargeHistoryResult(this.f68063e, this.f68062d);
+        return new RechargeHistoryResult(this.f68106e, this.f68105d);
     }
 
     public final int c() {
-        return this.f68060b;
+        return this.f68103b;
     }
 
     public final String d() {
-        return this.f68059a;
+        return this.f68102a;
     }
 
     public void e(String str) {
         JSONObject jSONObject = new JSONObject(str);
         String optString = jSONObject.optString(IAdRequestParam.SEQ, "");
         Intrinsics.checkExpressionValueIsNotNull(optString, "jObject.optString(\"seq\", \"\")");
-        this.f68059a = optString;
+        this.f68102a = optString;
         jSONObject.optLong("uid", 0L);
         int i2 = 0;
-        this.f68060b = jSONObject.optInt("result", 0);
+        this.f68103b = jSONObject.optInt("result", 0);
         String optString2 = jSONObject.optString("message", "");
         Intrinsics.checkExpressionValueIsNotNull(optString2, "jObject.optString(\"message\", \"\")");
-        this.f68061c = optString2;
-        this.f68062d = jSONObject.optInt("total", 0);
+        this.f68104c = optString2;
+        this.f68105d = jSONObject.optInt("total", 0);
         Intrinsics.checkExpressionValueIsNotNull(jSONObject.optString("countryCode", ""), "jObject.optString(\"countryCode\", \"\")");
         Intrinsics.checkExpressionValueIsNotNull(jSONObject.optString("language", ""), "jObject.optString(\"language\", \"\")");
         Intrinsics.checkExpressionValueIsNotNull(jSONObject.optString("liveCategoryId", ""), "jObject.optString(\"liveCategoryId\", \"\")");
@@ -88,7 +88,7 @@ public final class y {
                     int optInt8 = optJSONObject.optInt("payAmount");
                     String optString6 = optJSONObject.optString("otherChargeOrderId");
                     Intrinsics.checkExpressionValueIsNotNull(optString6, "jsonOrder.optString(\"otherChargeOrderId\")");
-                    this.f68063e.add(new d.r.b.a.a.i.c.b(optString3, optLong, optInt, optString4, optString5, optLong2, optInt2, optInt3, optInt4, optInt5, optInt6, optInt7, optInt8, optString6, optJSONObject.optInt("chargeConfigType")));
+                    this.f68106e.add(new d.r.b.a.a.i.c.b(optString3, optLong, optInt, optString4, optString5, optLong2, optInt2, optInt3, optInt4, optInt5, optInt6, optInt7, optInt8, optString6, optJSONObject.optInt("chargeConfigType")));
                     i2++;
                     optJSONArray = jSONArray;
                 }

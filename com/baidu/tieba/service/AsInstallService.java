@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import d.a.k0.l;
+import d.a.n0.n;
 /* loaded from: classes5.dex */
 public class AsInstallService extends BdBaseService {
     public static final int AS_INSTALL_RECEIVING_DURATION_MILLS = 120000;
@@ -48,7 +48,7 @@ public class AsInstallService extends BdBaseService {
                 if (TextUtils.isEmpty(schemeSpecificPart) || !"com.baidu.appsearch".equals(schemeSpecificPart) || AsInstallService.this.mVersionData == null) {
                     return;
                 }
-                l.b(context, AsInstallService.this.mVersionData);
+                n.b(context, AsInstallService.this.mVersionData);
                 TiebaStatic.log(TbadkCoreStatisticKey.INVOKE_AS);
             }
         }
